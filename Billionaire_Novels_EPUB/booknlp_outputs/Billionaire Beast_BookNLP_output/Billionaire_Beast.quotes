@@ -1,0 +1,1388 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+129	131	128	132	Richard “ Beast ” Bruce	9	“ Beast ”
+570	575	576	576	Richard	9	“ What is it ? ”
+579	590	591	591	Temperance	11	“ Sir , I ’ve got your mail for you , ”
+722	734	716	717	someone else	83	“ I ’ll come out and get it in a minute . ”
+882	887	888	888	he	9	“ Time to leave , ”
+891	910	911	911	Tina	10	“ What ? You do n’t want me to stay so I can give you a main course ? ”
+936	940	925	925	he	9	“ Get out . ”
+941	951	952	952	Tina	10	“ You do n’t have to be so rude . ”
+1007	1044	994	994	he	9	“ You ’re a woman of our club . We pay your way , and in return , we own you , Tina . Do n’t for a second think you can get away with shit . ”
+1062	1069	1070	1070	she	10	“ I ’ll see you tonight ? ”
+1085	1088	1080	1080	Richard	9	“ No . ”
+1142	1150	1130	1130	Tina	10	“ Have a good day , handsome . ”
+1222	1229	1230	1230	he	9	“ You had mail for me , ”
+1245	1254	1255	1255	She	90	“ Ah , yes , here you go . ”
+1276	1288	1255	1255	She	90	“ I ’ll be working late tonight on the O’Brian account . ”
+1289	1296	1297	1297	Temperance	11	“ The guy who designs makeup ? ”
+1339	1351	1352	1352	he	9	“ One and the same . I ’ll need you tonight , ”
+1355	1362	1352	1352	he	9	“ Not a lot of notice . ”
+1363	1372	1373	1373	he	9	“ Do you need a lot of notice ? ”
+1379	1396	1376	1376	Temperance	11	“ I need some . I could have a hot date , or be doing something . ”
+1451	1460	1461	1461	he	9	“ Will you be able to make it ? ”
+1464	1474	1461	1461	he	9	“ Or do I need to employ someone else ? ”
+1475	1483	1440	1440	her	11	“ No , I can make it . ”
+1484	1496	1497	1497	Richard	9	“ Then what was with all that other sh — nonsense ? ”
+1542	1558	1559	1559	She	11	“ Nothing , it would have been nice to have some notice , is all . ”
+1917	1923	1924	1924	Temperance	11	“ Here is your coffee , ”
+2001	2007	2008	2008	he	9	“ Do you like O’Brian ? ”
+2011	2017	2008	2008	he	9	“ How do you mean ? ”
+2018	2054	2055	2055	Richard	9	“ We ’ve been trying to get his account for the past six months , and he ’s been pretty adamant about going over his contract . I just wondered what you thought of him ? ”
+2104	2120	2095	2095	he	9	“ Look , my feelings do n’t matter , so do n’t worry about it . ”
+2121	2133	2143	2143	he	9	“ I just want to get another perspective on the guy . ”
+2332	2340	2341	2341	she	11	“ What are your thoughts on him ? ”
+2470	2486	2460	2460	she	11	“ He ’s a classic asshole . Money has made him believe he ’s untouchable . ”
+2517	2520	2513	2513	she	11	“ Untouchable ? ”
+2521	2528	2572	2572	Temperance	11	“ I do n’t like him . ”
+2529	2539	2572	2572	Temperance	11	“ Yet you ’re going to do a deal . ”
+2540	2558	2513	2513	she	11	“ I do a lot of deals with men I do n’t like . Women as well . ”
+2559	2571	2572	2572	Temperance	11	“ Was that a deal you were doing with that woman ? ”
+2598	2604	2605	2605	He	9	“ Tina is not business . ”
+2693	2713	2688	2688	him	9	“ She ’s been coming to the office a lot . Sorry , it ’s none of my business . ”
+2736	2741	2724	2724	she	11	“ It ’s okay . ”
+2784	2795	2778	2778	she	11	“ You still have n’t answered my question about O’Brian . ”
+2796	2813	2814	2814	She	11	“ You ’re not a fool , Mr. Bruce . You know my thoughts on O’Brian . ”
+3025	3031	3032	3032	Richard	9	“ What are you doing ? ”
+3067	3101	3051	3051	his	9	“ You do n’t think all your offices are pristine , do you ? I ’m just getting it ready for your first meeting of the day . Would you rather I stop ? ”
+3102	3112	3043	3043	him	9	“ Do n’t we have cleaners for that job ? ”
+3113	3129	3043	3043	him	9	“ I can run a cloth along a surface . It ’s no big deal . ”
+3130	3139	3051	3051	his	9	“ I pay you to work for me . ”
+3140	3144	3145	3145	He	9	“ I am . ”
+3150	3164	3147	3147	his	9	“ No , this is not working for me . This is cleaning . ”
+3168	3187	3165	3165	Temperance	11	“ Let me put it another way , do I need to hire a cleaner during the day ? ”
+3206	3222	3200	3200	She	11	“ I really do n’t understand where you ’re going with this line of questioning . ”
+3259	3296	3239	3239	his	9	“ The question I ’m asking , Temperance Harris , is do I need to hire a cleaner seeing as you were not at your desk ? I had to answer the phone in your absence . ”
+3328	3333	3315	3315	Richard	9	“ A new cleaner ? ”
+3334	3362	3364	3364	he	9	“ It would mean you ’d remain at your desk . I always wondered why you ’d disappear an hour before a meeting . Now I know . ”
+3425	3434	3409	3409	He	9	“ You want me back at my desk ? ”
+3435	3446	3463	3463	Richard	9	“ Yes , I want you back at your desk . ”
+3447	3451	3452	3452	She	11	“ All right . ”
+3467	3476	3463	3463	Richard	9	“ Is there anything I can get you ? ”
+3497	3503	3490	3490	He	9	“ Yeah , there is . ”
+3504	3510	3463	3463	Richard	9	“ What would you like ? ”
+3511	3520	3463	3463	Richard	9	“ I want to know who Bryan is . ”
+3521	3529	3490	3490	He	9	“ Bryan ? I do n’t understand . ”
+3530	3558	3463	3463	Richard	9	“ The person who called your desk . His name is Bryan , and he wanted you to call right away . He said it was urgent . ”
+3559	3573	3463	3463	Richard	9	“ Oh , Bryan . Right , yes , he ’s my brother . ”
+3574	3580	3581	3581	he	9	“ You have a brother ? ”
+3584	3614	3581	3581	he	9	“ Yes , I have a brother . I also have a little sister , too . She ’s in college right now , studying for an art major . ”
+3615	3624	3463	3463	Richard	9	“ I never knew you had a brother . ”
+3625	3651	3652	3652	Richard	9	“ He ’s one of my contacts for emergencies . If you ca n’t get my parents , he ’s the next one in line . ”
+3663	3672	3654	3654	his	9	“ I never knew you had a family . ”
+3676	3682	3683	3683	He	9	“ Everyone has a family . ”
+3688	3692	3683	3683	He	9	“ Not me . ”
+3693	3702	3654	3654	his	9	“ Surely you must have had some family . ”
+3703	3717	3654	3654	his	9	“ None . I was passed through foster homes . Never did stick . ”
+3718	3726	3683	3683	He	9	“ Oh , I ’m so sorry . ”
+3727	3732	3733	3733	he	9	“ Are you married ? ”
+3736	3746	3733	3733	he	9	“ What ? No . I ’m not married . ”
+3747	3754	3683	3683	He	9	“ Do you have a partner ? ”
+3755	3764	3683	3683	He	9	“ No , I ’m single , why ? ”
+3765	3784	3683	3683	He	9	“ I ’m just curious to know . I do n’t seem to know a lot about you . ”
+3785	3821	3683	3683	He	9	“ Mr. Bruce , all of these questions can be answered on my employment form . You have them on all your employees , and you would n’t let me work for you without it . ”
+3822	3827	3828	3828	Temperance	11	“ Lifestyle choices change . ”
+3833	3838	3828	3828	Temperance	11	“ Are you married ? ”
+3839	3842	3683	3683	He	9	“ No . ”
+3843	3846	3683	3683	He	9	“ Single ? ”
+3847	3850	3828	3828	Temperance	11	“ Yes . ”
+3851	3870	3683	3683	He	9	“ What about that woman ? She does n’t strike me as a sister or a work colleague . ”
+3871	3880	3683	3683	He	9	“ Miss Harris , what are you doing ? ”
+3881	3932	3828	3828	Temperance	11	“ I ’m asking reasonable questions . The way I see it , if you can ask them personally of me , then I can do the same of you . You once said you believed in equality , providing your employees knew that the final decision was your own . ”
+3933	3938	3939	3939	His	166	“ You remembered that . ”
+3952	3971	3946	3946	he	166	“ I ’m sorry that my brother called the office . I wo n’t let it happen again . ”
+3990	4003	3985	3985	his	166	“ She ’s a woman I fuck when the mood strikes me . ”
+4611	4617	4618	4618	O’Brian	18	“ What do you think ? ”
+4621	4632	4633	4633	Richard	9	“ It sounds like a lot of work for makeup , ”
+4636	4663	4633	4633	Richard	9	“ Please , this is my product . I ’m telling you , it ’ll reach far and wide . Miss Harris , what about you ? ”
+4675	4680	4666	4666	his	18	“ I ’m sorry ? ”
+4691	4699	4681	4681	Temperance	11	“ I ’m not sure I follow . ”
+4700	4712	4713	4713	Temperance	11	“ Is that an O’Brian I detect on your beautiful face ? ”
+4718	4721	4722	4722	She	11	“ No . ”
+4744	4748	4737	4737	Richard	9	“ Excuse me ? ”
+4749	4757	4758	4758	Richard	9	“ I do n’t wear O’Brian products . ”
+4767	4771	4758	4758	Richard	9	“ Why not ? ”
+4796	4804	4783	4783	He	9	“ Erm , they ’re too expensive . ”
+4805	4814	4815	4815	Richard	9	“ So you do n’t get paid enough ? ”
+4818	4854	4815	4815	Richard	9	“ Actually , I get paid a great deal for the job I do . What I do n’t like is wasting the money on a bunch of foundation when it ’s all the same . ”
+4880	4920	4921	4921	Richard	9	“ What my very efficient PA is trying to say is that you ’re currently a limited market . The wealthy are more than happy to buy expensive products whereas women on a smaller income could n’t afford it . ”
+4999	5003	5004	5004	Temperance	11	“ Well done , ”
+5032	5042	5004	5004	Temperance	11	“ I could n’t have done it without you . ”
+5043	5064	5065	5065	She	11	“ Yeah , right . You ’re an expert in getting what you want . You had that completely covered . ”
+5128	5142	5143	5143	he	9	“ It took you commenting about your foundation to finally draw him in , ”
+5155	5176	5143	5143	he	9	“ But I did n’t lie to you about that or about anything . I do n’t wear O’Brian products . ”
+5177	5185	5186	5186	She	11	“ Is it because they ’re overpriced ? ”
+5191	5245	5186	5186	She	11	“ Mostly . In the beginning it was because they were too expensive . All foundation works . Then I met the guy behind the makeup , and I did n’t like him , so I wo n’t buy any of his stuff . He ’s already got enough ego as it is . ”
+5246	5259	5188	5188	her	11	“ I do n’t have to market him , just his product . ”
+5260	5299	5188	5188	her	11	“ I could n’t believe how he wanted to market it with porn stars , and regular people . Seriously , I feel like I was dealing with an amateur . There are ways to handle different products . ”
+5300	5306	5307	5307	he	211	“ Are you a prude ? ”
+5334	5341	5318	5318	Temperance	11	“ I ’m not a prude . ”
+5342	5351	5188	5188	her	11	“ The porn stars did n’t bother you ? ”
+5352	5430	5318	5318	Temperance	11	“ Not at all . We ’ve all got to earn a living , and we all have ways of earning it . What I do n’t agree with is putting everything in one big box , and calling it neatly wrapped . I was thinking for the sultry line get adult entertainers to work with it . As you go down his different lines , you ’ll see what appeals to some , and not others . ”
+5431	5435	5436	5436	he	211	“ No prude ? ”
+5447	5454	5436	5436	he	211	“ I ’m not a prude . ”
+5464	5495	5455	5455	Richard	9	“ If we had a client who happened to be a porn star , and she wanted our help to expand her production career , it would n’t bother you ? ”
+5496	5501	5458	5458	her	11	“ Not at all . ”
+5502	5508	5509	5509	Temperance	11	“ Watching sex all day ? ”
+5512	5520	5509	5509	Temperance	11	“ Would it bother you , boss ? ”
+5521	5524	5458	5458	her	11	“ No . ”
+5525	5541	5458	5458	her	11	“ Are you sure ? You seem to be hung up on me liking it . ”
+5542	5551	5552	5552	She	11	“ I just want to know your limits . ”
+5566	5574	5560	5560	her	11	“ I do n’t have any limits . ”
+5599	5603	5583	5583	She	11	“ No limits ? ”
+5604	5611	5612	5612	Richard	9	“ No . What about you ? ”
+5632	5640	5646	5646	he	9	“ I ’m a man without limits . ”
+5662	5665	5646	5646	he	9	“ Richard ? ”
+5676	5679	5666	5666	His	9	“ What ? ”
+5680	5687	5688	5688	He	9	“ We ’re crossing that line . ”
+5691	5699	5688	5688	He	9	“ We crossed that line earlier today . ”
+5937	5946	5947	5947	Temperance	11	“ No , we ca n’t do this , ”
+5963	5966	5955	5955	Her	11	“ Why ? ”
+5967	5982	5987	5987	he	9	“ You ’re my boss . I do n’t want this to get weird . ”
+5994	6008	5987	5987	he	9	“ This is already more than I can bear to take right now . ”
+6443	6454	6408	6408	He	9	“ Oh God , Richard , what are you doing ? ”
+6455	6483	6484	6484	He	9	“ I ’m going to taste this pretty pussy . You ’re already wet for me , baby . You want my tongue on this pretty clit ? ”
+6554	6569	6570	6570	she	223	“ Yes , yes , yes , just like that . Oh , wow , ”
+6792	6800	6801	6801	he	9	“ Do you like that , Temperance ? ”
+6804	6819	6820	6820	She	11	“ You like being spread over my desk , giving me what I want ? ”
+6944	6951	6952	6952	she	11	“ I ’m going to come , ”
+7131	7138	7139	7139	she	223	“ Fuck , you ’re big , ”
+7142	7154	7139	7139	she	223	“ That ’s it , baby , talk dirty to me . ”
+7179	7185	7172	7172	her	223	“ Fuck me , Richard . ”
+7186	7190	7212	7212	He	9	“ I am . ”
+7191	7197	7198	7198	She	223	“ No , fuck me . ”
+7228	7235	7212	7212	He	9	“ Shit , stop , Tempe . ”
+7236	7263	7212	7212	He	9	“ No , you ’re being gentle . Do n’t be gentle with me . We ’ve crossed that line now , Richard , fuck me . ”
+7340	7352	7321	7321	her	11	“ You ’ve been under my fucking nose all this time . ”
+7383	7386	7387	7387	she	11	“ What ? ”
+7392	7395	7387	7387	she	11	“ Nothing . ”
+7428	7443	7444	7444	He	9	“ Come on , Tempe , ride my dick . Take what you want . ”
+7601	7607	7594	7594	He	9	“ Fuck me , Tempe . ”
+7608	7617	7618	7618	she	11	“ This is so far across the line , ”
+7623	7636	7618	7618	she	11	“ Over the line . We ’re fucking miles across over it . ”
+7877	7892	7893	7893	Friday	23	“ Come on , Jay , you ’ve been blowing me off for weeks , ”
+7980	7988	7963	7963	her	233	“ I ’m not in the mood . ”
+7989	8016	8021	8021	he	7	“ You ’re never in the mood . Have you found someone else , or do you have some hard - on for your fat roommate ? ”
+8098	8115	8116	8116	he	7	“ I ’m not going to do this with you . I want you to leave , ”
+8155	8163	8142	8142	Temperance	11	“ What the hell have I done ? ”
+8164	8171	8172	8172	She	11	“ Tempe , is that you ? ”
+8219	8225	8226	8226	She	11	“ Yes , it ’s — ”
+8257	8262	8241	8243	The other woman	90	“ Erm , okay . ”
+8263	8276	8277	8277	Jay	7	“ Tempe , this is Red . Red , this is Tempe , ”
+8280	8329	8277	8277	Jay	7	“ I have a real name . Emma is my real name , and I ’m leaving . I ca n’t believe you would pick her over me . You ’re an asshole , Jay , and you can find someone else to fuck and be your girlfriend . ”
+8330	8355	8241	8243	The other woman	90	“ What ? No , no , no , I ’m not his girlfriend . I ’m just his friend . We room together . ”
+8356	8359	8360	8360	Red	24	“ Weird , ”
+8366	8383	8384	8384	Temperance	11	“ Weird ? How are we weird ? It ’s normal what we do , right ? ”
+8387	8406	8384	8384	Temperance	11	“ I do n’t know . I guess it ’s pretty weird . We ’re not young anymore . ”
+8407	8437	8241	8243	The other woman	90	“ So ? How does it have to be weird ? I ’m twenty - nine years old , and so are you . We ’re both not attached . ”
+8438	8453	8384	8384	Temperance	11	“ Yeah , I do n’t really care what my Friday night is thinking . ”
+8454	8458	8384	8384	Temperance	11	“ Friday night ? ”
+8459	8477	8478	8478	Temperance	11	“ Yeah , you ’re usually over at your parents ’ house , on a Friday night . ”
+8483	8509	8478	8478	Temperance	11	“ Please tell me you ’re not one of those guys who label their women based on the day of the week you screw them ? ”
+8541	8567	8568	8568	Jay	7	“ Does it matter ? She thought I was being insulting only calling her Red , when I have her in my phone as Friday . ”
+8590	8602	8568	8568	Jay	7	“ You ’re a pig , right ? You get that . ”
+8603	8628	8629	8629	She	11	“ Does your boss let you get away with that mouth , or has he discovered you ’ve got a hot , sexy side ? ”
+8643	8655	8629	8629	She	11	“ That ’s not exactly the answer I was going for . ”
+8656	8663	8568	8568	Jay	7	“ It ’s complicated , Jay . ”
+8664	8678	8717	8717	he	255	“ Is that why you slammed the door to get into the apartment ? ”
+8679	8686	8568	8568	Jay	7	“ I did n’t slam anything . ”
+8687	8708	8717	8717	he	255	“ Er , you did , and you were n’t quiet about it either . It was an almighty slam . ”
+8734	8741	8725	8725	he	255	“ It was n’t like that . ”
+8742	8773	8717	8717	he	255	“ It was . I ’d just been about to give Friday the update that she was boring me , and you interrupted me . Completely messed with my muse . ”
+8774	8783	8725	8725	he	255	“ How am I even friends with you ? ”
+8784	8798	8725	8725	he	255	“ I ’m adorable , and I ’ve never been mean to you . ”
+8992	8998	8986	8986	She	11	“ I did something stupid . ”
+8999	9010	8986	8986	She	11	“ How ? You ’ve been at work all day . ”
+9011	9065	8986	8986	She	11	“ That was the problem . My boss , Richard , he wanted me to stay behind . He has this new account , and I ca n’t tell you about it , so do n’t ask . Anyway , something has been a little different today , and we crossed a line . ”
+9066	9075	8986	8986	She	11	“ You crossed a line ? Sounds exciting . ”
+9076	9091	9125	9125	he	7	“ Be serious for a second , Jay . Honestly , it ’s scary . ”
+9092	9095	8986	8986	She	11	“ Why ? ”
+9096	9103	8986	8986	She	11	“ I slept with my boss . ”
+9135	9146	9132	9132	she	11	“ You think badly of me , do n’t you ? ”
+9147	9152	9153	9153	He	7	“ What ? No ? ”
+9158	9163	9155	9155	his	7	“ Of course not . ”
+9164	9181	9132	9132	she	11	“ You ’re being weird with me , Jay . Please give it to me straight . ”
+9182	9189	9132	9132	she	11	“ You slept with your boss ? ”
+9190	9206	9207	9207	She	11	“ There was n’t any sleeping taking place . We had sex . Hot sex . ”
+9210	9216	9207	9207	She	11	“ Mind - blowing sex . ”
+9228	9246	9224	9224	he	7	“ This is the boss you ’ve been talking about a lot , right ? Richard Bruce ? ”
+9284	9292	9272	9272	He	7	“ He ’s my boss , Jay . ”
+9293	9312	9317	9317	Temperance	11	“ It ’s not like that . You ’ve been attracted to him long before now , right ? ”
+9328	9334	9335	9335	Jay	7	“ I guess , yeah . ”
+9338	9343	9344	9344	Temperance	11	“ Is something wrong ? ”
+9347	9354	9344	9344	Temperance	11	“ No . It ’s not . ”
+9355	9374	9394	9394	Jay	7	“ I made a huge mistake . I ’m going to have to give in my resignation letter . ”
+9375	9380	9394	9394	Jay	7	“ How was it ? ”
+9381	9384	9344	9344	Temperance	11	“ What ? ”
+9385	9393	9394	9394	Jay	7	“ The sex . How was it ? ”
+9431	9466	9473	9473	he	7	“ It was … amazing . I mean , it was only in the office but he knows what to do with his hands , and mouth , and it has been so long . ”
+9485	9500	9473	9473	he	7	“ I ’m happy for you . What are you going to do now ? ”
+9501	9509	9510	9510	She	11	“ I do n’t have a clue . ”
+9521	9530	9510	9510	She	11	“ I ’m going to have to quit . ”
+9531	9543	9473	9473	he	7	“ Well if you do , you know I ’m here . ”
+9544	9561	9473	9473	he	7	“ You ’re supposed to be supportive , and tell me not to worry about it . ”
+9562	9575	9576	9576	he	7	“ I ’ve never visited you at your office , have I ? ”
+9579	9589	9576	9576	he	7	“ I do n’t know who this Richard is ? ”
+9590	9612	9473	9473	he	7	“ Huh ? No , I do n’t think you have . You ’re always dealing with numbers , and clients . ”
+9613	9634	9473	9473	he	7	“ Yeah , it shocks the fuck out of women when they find out an accountant has blown their mind . ”
+9635	9652	9473	9473	he	7	“ It makes a change for me to be the crazy one , and not you . ”
+9653	9667	9473	9473	he	7	“ This guy must mean something to you to go that next step . ”
+9668	9701	9702	9702	She	267	“ I really do n’t know . I like him . He ’s … different . Yeah , he ’s different , and when he looks at me , he sees me . ”
+9717	9736	9707	9707	Richard	9	“ You ’re a sexy woman , Tempe , and he does n’t even know the real you . ”
+9737	9745	9746	9746	she	267	“ What ’s that supposed to mean ? ”
+9751	9782	9746	9746	she	267	“ I know how much you like to have fun , and experiment , and I ’ve also seen you in action . Do n’t forget I had you first . ”
+9794	9804	9789	9789	she	267	“ Very true . You were my first corruption . ”
+9813	9844	9805	9805	He	7	“ If this guy has any sense , but I do n’t think he does as they ’re all the same . Rich , wealthy , with very little dick . ”
+9850	9869	9805	9805	He	7	“ He ’s rich , wealthy , smart , and he ’s very well endowed in that department . ”
+9870	9873	9805	9805	He	7	“ Okay . ”
+9882	9887	9874	9874	Jay	7	“ What ’s wrong ? ”
+9888	9891	9805	9805	He	7	“ Nothing . ”
+9892	9903	9904	9904	Temperance	11	“ So , do you have someone to replace Friday ? ”
+9907	9937	9904	9904	Temperance	11	“ What about Monday and Wednesday ? I know you had a big argument with them a couple of weeks ago . Are you letting them go as well ? ”
+9938	9954	9904	9904	Temperance	11	“ Yeah , I guess I ’ve been a bit lax in my judgment lately . ”
+9955	9969	9970	9970	She	267	“ What ’s going on ? What have you done with my friend ? ”
+9981	9986	9977	9977	she	267	“ I ’m fine . ”
+10082	10099	10078	10078	she	267	“ I ’m going to head to bed . I ’ve still got to work tomorrow . ”
+10100	10108	10109	10109	Jay	7	“ Did n’t he drop you off ? ”
+10119	10147	10112	10112	She	267	“ Not really . Afterward , he went into the bathroom , and I did the whole disappearing act . I did n’t really think it through . ”
+10148	10157	10173	10173	someone	222	“ Do you think he could come here ? ”
+10158	10163	10112	10112	She	267	“ I hope not . ”
+10267	10276	10277	10277	Jay	7	“ Do you want him to come here ? ”
+10280	10296	10277	10277	Jay	7	“ I ’m not sure . How about you ? How has your night been ? ”
+10297	10300	10301	10301	He	7	“ Okay . ”
+10336	10342	10374	10374	his	9	“ I watched some television . ”
+10353	10368	10369	10369	Richard	9	“ What do you do when the woman you fucked runs out on you ? ”
+10389	10396	10397	10397	Lewis	13	“ Why are you asking me ? ”
+10400	10410	10397	10397	Lewis	13	“ I called Russ , and he ’s busy . ”
+10411	10423	10377	10377	He	9	“ So ? I ’ve got business to take care of . ”
+10424	10444	10377	10377	He	9	“ Everyone knows you ’ve been dealing with Mandy . Give a guy a break and help me out . ”
+10445	10460	10397	10397	Lewis	13	“ There ’re seven other men you can call who ’ll help you out . ”
+10461	10478	10377	10377	He	9	“ I ’m not looking for just any opinion . I want yours or Russ ’s . ”
+10479	10482	10377	10377	He	9	“ Why ? ”
+10516	10529	10496	10496	He	277	“ You know what it ’s like to connect to another woman . ”
+10530	10543	10377	10377	He	9	“ I do n’t have a clue what you ’re talking about . ”
+10544	10587	10496	10496	He	277	“ For fuck ’s sake , Lewis . You ’ve just spent every moment of your adult life hunting for a woman who went missing years ago . Mandy is not just some kind of pussy to you . She means something . ”
+10588	10597	10496	10496	He	277	“ What are you trying to get at ? ”
+10598	10625	10377	10377	He	9	“ Are you being obtuse on purpose ? I ’ve just had sex with a woman , and she ’s more than just some random pussy . ”
+10626	10642	10496	10496	He	277	“ Oh , okay , now that makes sense . She ran out on you ? ”
+10656	10665	10496	10496	He	277	“ Yeah , she ran out on me . ”
+10666	10671	10377	10377	He	9	“ Who is she ? ”
+10672	10678	10377	10377	He	9	“ She works for me . ”
+10679	10690	10496	10496	He	277	“ Wow , you ’re breaking your own code there . ”
+10691	10714	10377	10377	He	9	“ Yeah , I do n’t need you to spell it out for me . I know I broke my own code . ”
+10715	10728	10377	10377	He	9	“ Wait , are we talking about Temperance ? You screwed Temperance ? ”
+10729	10743	10744	10744	He	279	“ Yes , I screwed her , and she ran out on me . ”
+10781	10789	10774	10774	he	9	“ What do you want to do ? ”
+10790	10795	10377	10377	He	9	“ Go after her . ”
+10796	10803	10774	10774	he	9	“ Then why do n’t you ? ”
+10804	10807	10774	10774	he	9	“ What ? ”
+10808	10839	10377	10377	He	9	“ Go after her ? You know her address . You ’ve just been screwing her . Go after her , and do whatever the hell you want to do . ”
+10840	10843	10844	10844	Richard	9	“ Bye , ”
+11193	11198	11199	11200	a guy	1056	“ What the hell ? ”
+11228	11236	11237	11237	he	9	“ I ’m looking for Temperance Harris , ”
+11240	11245	11237	11237	he	9	“ Who are you ? ”
+11246	11251	11296	11296	he	9	“ Who are you ? ”
+11252	11260	11296	11296	he	9	“ You ’re knocking on my door . ”
+11261	11277	11296	11296	he	9	“ I ’m here to see Temperance . I was n’t aware she had visitors . ”
+11278	11284	11285	11286	the man	121	“ This is my apartment , ”
+11308	11316	11317	11317	Temperance	11	“ Jay , what is going on ? ”
+11326	11329	11323	11323	she	11	“ Richard ? ”
+11330	11337	11296	11296	he	9	“ Yeah , you remember me . ”
+11338	11345	11296	11296	he	9	“ What are you doing here ? ”
+11346	11353	11323	11323	she	11	“ You ran out on me . ”
+11354	11369	11370	11370	Jay	7	“ It ’s not cool to come and stalk her . Kind of creepy , ”
+11373	11379	11380	11380	Temperance	11	“ Jay , do n’t , ”
+11383	11393	11380	11380	Temperance	11	“ Why do n’t you mind your own business ? ”
+11394	11404	11405	11405	Jay	7	“ Do you think I ’m scared of you ? ”
+11411	11416	11417	11417	Richard	9	“ Big old businessman . ”
+11433	11452	11453	11453	Temperance	11	“ Do n’t , Jay , he ’s a biker , too . Do n’t mess with him , ”
+11456	11459	11460	11460	Jay	7	“ What ? ”
+11475	11481	11471	11471	she	11	“ We need to talk . ”
+11509	11532	11502	11502	he	9	“ I ’m not leaving you alone with him . The rich think they can get away with all kinds of crap . ”
+11533	11539	11592	11592	Jay	7	“ He ’s my boss . ”
+11540	11549	11507	11507	Jay	7	“ The boss you just had sex with ! ”
+11550	11555	11556	11556	She	11	“ Jay . Please . ”
+11566	11581	11556	11556	She	11	“ Fine . Fine . If you know what the hell you ’re doing . ”
+11582	11586	11587	11587	He	9	“ I do . ”
+11661	11671	11647	11647	he	9	“ What are you doing here , Mr. Bruce ? ”
+11672	11693	11647	11647	he	9	“ Mr. Bruce ? We ’re back to that ? Seriously , after I was just balls deep inside you . ”
+11694	11704	11647	11647	he	9	“ God , you ’re going to be vulgar . ”
+11705	11709	11710	11710	he	9	“ Do n’t , ”
+11713	11726	11710	11710	he	9	“ Do n’t pretend you were n’t with me the whole way . ”
+11727	11732	11647	11647	he	9	“ I ’m not . ”
+11733	11758	11647	11647	he	9	“ Then do n’t pretend you were n’t someone different . I heard you , Tempe , and you came apart in my arms . ”
+11759	11767	11768	11768	she	11	“ What are you trying to say ? ”
+11771	11785	11768	11768	she	11	“ Do n’t be my employee . Be the woman you were tonight . ”
+11786	11807	11808	11808	Richard	9	“ That ’s not going to work . We crossed the line , and now we have to uncross it . ”
+11813	11823	11810	11810	his	9	“ There are some things you can not uncross . ”
+11824	11831	11808	11808	Richard	9	“ This has to be uncrossed . ”
+11832	11845	11846	11846	He	9	“ We fucked , and I ’m not going to forget it . ”
+11866	11873	11853	11853	he	9	“ Do n’t push me out . ”
+11874	11911	11853	11853	he	9	“ You had a woman come to the office today , and she was n’t a client . I ’m not stupid , Richard . I know she was there for you . To service you . ”
+11912	11926	11853	11853	he	9	“ I ca n’t deny that Tina was n’t there for that reason . ”
+11927	11936	11853	11853	he	9	“ And now you ’re following me home . ”
+11937	11946	11853	11853	he	9	“ How do you know about the club ? ”
+11947	11951	11853	11853	he	9	“ The club ? ”
+11952	11960	11853	11853	he	9	“ The fact I ’m a biker . ”
+12016	12067	12005	12005	she	298	“ You left your leather jacket in your office . I saw it , and I did a little research . There ’s an old picture of you in a newspaper clipping some years ago . Your club made headline news . Was that woman today part of your club ? ”
+12068	12071	12096	12096	He	9	“ Yes . ”
+12072	12085	12096	12096	He	9	“ You ’re not denying it then . You ’re a biker ? ”
+12086	12089	12005	12005	she	298	“ Yes . ”
+12090	12095	12096	12096	He	9	“ A billionaire biker . ”
+12106	12109	12096	12096	He	9	“ Yes . ”
+12110	12134	12005	12005	she	298	“ You do know that sounds crazy , right ? A billionaire who spends his free time being part of a biker club . ”
+12135	12150	12005	12005	she	298	“ It ’s an MC , and I do n’t advertise what I do . ”
+12151	12163	12096	12096	He	9	“ You ’re surrounded by rumors though , all the time . ”
+12164	12168	12169	12169	He	9	“ I know . ”
+12172	12182	12169	12169	He	9	“ It gives me an edge in the boardroom . ”
+12183	12189	12096	12096	He	9	“ If you think so . ”
+12190	12195	12196	12196	She	298	“ I know so . ”
+12272	12306	12254	12254	She	298	“ Jay is my best friend . I ’ve known him since I was a kid , and he ’s an accountant . We share an apartment , and it works for us . ”
+12349	12356	12357	12357	Richard	9	“ I should apologize to him ? ”
+12360	12374	12357	12357	Richard	9	“ Nah , it ’s Jay . He ’s very protective of me . ”
+12375	12381	12382	12382	Jay	7	“ Are you two done ? ”
+12403	12444	12391	12391	He	7	“ It ’s your apartment as well . Anyway , you wanted to meet my boss , here is your chance . Jay , please meet Richard , my boss . Richard , this is my best friend , Jay . ”
+12445	12458	12459	12459	Jay	7	“ I ’d say it ’s a pleasure but it ’s not , ”
+12471	12484	12459	12459	Jay	7	“ Do you think it ’s right to fuck your female employees ? ”
+12485	12488	12489	12489	Richard	9	“ Jay ? ”
+12495	12517	12489	12489	Richard	9	“ I ’ve not been with anyone else , and what I had with Tempe tonight has been building for awhile . ”
+12518	12528	12459	12459	Jay	7	“ Tempe ? That ’s what you call her . ”
+12529	12534	12535	12535	Temperance	11	“ This is ridiculous , ”
+12538	12546	12535	12535	Temperance	11	“ You got a problem with that ? ”
+12547	12559	12459	12459	Jay	7	“ She ’s my friend . Only I call her that . ”
+12560	12570	12571	12571	Richard	9	“ Jay , you ’re sounding like a child . ”
+12619	12657	12658	12658	Temperance	11	“ Do n’t worry about it , Tempe . I ’m sure I ’d be pissed , and rather territorial if the girl I ’d been in love with for some time , suddenly showed interest elsewhere . ”
+12663	12676	12658	12658	Temperance	11	“ You do n’t have a clue what you ’re talking about . ”
+12677	12682	12732	12732	he	9	“ I do n’t ? ”
+12683	12701	12702	12702	Richard	9	“ You control the boardrooms , but you do n’t know everything . Tell him , Jay . ”
+12715	12724	12709	12709	he	9	“ Go ahead , tell her , Jay . ”
+12798	12803	12804	12804	Jay	7	“ I ca n’t , ”
+12807	12850	12804	12804	Jay	7	“ What ? Sure you can . You ’ve been sleeping with women all this time . You ’re not in love with me . We ’re best friends . We did that , and you said it made everything too awkward . ”
+12896	12911	12883	12883	She	11	“ I know what I ’ve done , and I know what I feel . ”
+12912	12921	12922	12922	She	11	“ No , this ca n’t be happening . ”
+12940	12951	12922	12922	She	11	“ This night is just getting crazier by the second . ”
+12952	12959	12960	12960	Jay	7	“ I love you , Tempe , ”
+12968	12995	12963	12963	She	11	“ I ’ve just seen a woman leave . A woman you call your Friday , or Red , because you ca n’t remember her name . ”
+12996	13004	12922	12922	She	11	“ I did n’t sleep with her . ”
+13005	13026	12922	12922	She	11	“ Do n’t try to pretend you ’ve not had sex with every single woman that you ’ve been with . ”
+13027	13079	12963	12963	She	11	“ No , I have slept with her , but I ’ve not slept with each woman in a long time . It has been a few months . I ’ve been cutting things off with them . You would n’t have noticed as you ’ve been working all the time . ”
+13080	13101	12922	12922	She	11	“ I ca n’t believe this right now . You ’re telling me that you ’re in love with me ? ”
+13116	13119	13106	13106	Richard	9	“ Yes . ”
+13120	13134	13135	13135	She	311	“ No . I ca n’t do this now . Not with everything . ”
+13148	13165	13166	13166	She	311	“ I ’ll see you tomorrow . I just — I’ve got to go to bed . ”
+13271	13280	13281	13281	Jay	7	“ Why did you have to do that ? ”
+13284	13295	13281	13281	Jay	7	“ Why did you have to keep it a secret ? ”
+13377	13386	13387	13387	Jay	7	“ You do n’t just advertise that shit . ”
+13394	13403	13387	13387	Jay	7	“ You ’re supposed to be best friends . ”
+13404	13410	13387	13387	Jay	7	“ We are best friends . ”
+13411	13424	13425	13425	Richard	9	“ And yet you ca n’t even tell her how you feel . ”
+13441	13448	13425	13425	Richard	9	“ You know what , leave . ”
+13449	13452	13387	13387	Jay	7	“ Why ? ”
+13453	13477	13478	13478	Jay	7	“ This is my apartment , and if you do n’t leave , I ’m going to beat the shit out of you . ”
+13487	13502	13478	13478	Jay	7	“ I do n’t give a shit if you ’re some kind of biker . ”
+13534	13551	13527	13527	Richard	9	“ Just so you know , I wo n’t be backing down . Tempe is mine . ”
+13552	13568	13527	13527	Richard	9	“ Do you really think she ’s going to go for a guy like you ? ”
+13569	13595	13596	13596	Richard	9	“ I had her on my desk this very evening . I ’ve got a better shot than you . I ’ll see her soon . ”
+13609	13632	13607	13607	Jay	7	“ It was nice to meet you , and I have a feeling this is n’t going to be the last time . ”
+13979	13984	13985	13985	Russ	14	“ Hey , Richard , ”
+14054	14061	14033	14033	Anna	15	“ What can I get you ? ”
+14062	14071	14072	14072	Richard	9	“ You ’re a barmaid now as well ? ”
+14075	14095	14033	14033	Anna	15	“ Just for tonight . Sean , Jamie , and Malcolm are keeping the rest of the women busy . ”
+14096	14104	14105	14105	She	15	“ Russ is not keeping you busy ? ”
+14108	14115	14105	14105	She	15	“ Not this week , no . ”
+14116	14120	14033	14033	Anna	15	“ How come ? ”
+14130	14135	14136	14136	Russ	14	“ Enough , Richard , ”
+14139	14159	14136	14136	Russ	14	“ What ? It ’s a perfect reasonable question . Why do you have to bite my head off ? ”
+14160	14169	14033	14033	Anna	15	“ It ’s personal . Leave it alone . ”
+14170	14177	14178	14178	Anna	15	“ What can I get you ? ”
+14181	14188	14178	14178	Anna	15	“ An explanation would be good . ”
+14194	14202	14189	14189	Richard	9	“ Why are you being a dick ? ”
+14213	14223	14203	14203	Russ	14	“ I thought we shared this kind of information . ”
+14224	14242	14243	14243	Lewis	13	“ Ignore Richard . He ’s got his own issues . He fucked his PA this evening , ”
+14265	14274	14252	14252	Richard	9	“ Does Mandy know who you are yet ? ”
+14275	14283	14284	14284	Lewis	13	“ You hit below the fucking belt , ”
+14305	14313	14300	14300	Richard	9	“ What the fuck is your problem ? ”
+14314	14346	14252	14252	Richard	9	“ My problem ? I ask a reasonable question , and that fucker is going on the defense . I remember a time when we could ask this kind of shit — ”
+14347	14350	14351	14351	Anna	15	“ Stop ! ”
+14359	14412	14351	14351	Anna	15	“ We ’ve had a little complication , and the doctor has advised that I take it easy . I ’m not to strain myself or have sex . That ’s all I ’m going to tell you . Please , do n’t irritate Russ anymore . It has been … tough . ”
+14436	14444	14431	14431	he	9	“ Shit . I ’m so sorry . ”
+14452	14461	14462	14462	She	15	“ I ’m going to go lie down . ”
+14482	14496	14500	14500	his	9	“ Fuck ! You just could n’t let it go , could you ? ”
+14509	14521	14500	14500	his	9	“ I ’m sorry , man . What is going on ? ”
+14522	14549	14503	14503	he	9	“ She ’s having problems , and I brought her here to relax , and because we had a club meeting tonight , which you missed . ”
+14550	14564	14611	14611	he	359	“ A club meeting ? I did n’t know we had a meeting . ”
+14565	14584	14611	14611	he	359	“ I could n’t get through to your cell , and I told Tina to let you know . ”
+14585	14604	14611	14611	he	359	“ Shit . I left my cell at home . Tina did n’t give me any fucking message . ”
+14635	14642	14643	14643	he	359	“ Can I go and apologize ? ”
+14646	14656	14643	14643	he	359	“ Yeah , but do n’t upset her anymore . ”
+14670	14691	14665	14665	he	9	“ I ’m sorry , man . I should n’t have said what I did . I ’m an asshole . ”
+14692	14714	14665	14665	he	9	“ That you are , and I appreciate the fact you know the truth , and that you are an asshole . ”
+14715	14720	14665	14665	he	9	“ How is Mandy ? ”
+14721	14759	14665	14665	he	9	“ Confused , scared , terrified , and she wakes up at night , screaming , not knowing what the hell is going on . Whatever those fuckers did to her , I hope she never remembers . ”
+14760	14768	14769	14769	Lewis	13	“ Has she seen her family yet ? ”
+14774	14850	14771	14771	his	13	“ No . She does n’t want to see them . I try . At the moment I ’ve been able to get her in a room with a two way mirror , where she does n’t see them , but they can see her . Not to talk to her , just to know that she ’s alive , and she ’s doing okay . They ’re trusting me to take care of her . ”
+14854	14873	14851	14851	Lewis	13	“ I ca n’t take care of her . I could n’t even stop her from being taken . ”
+14874	14889	14771	14771	his	13	“ You ca n’t blame yourself for that shit . It was years ago . ”
+14890	14902	14903	14903	Lewis	13	“ It does n’t change the fact she was still taken . ”
+14911	14917	14918	14918	Richard	9	“ Where is she now ? ”
+14921	14929	14918	14918	Richard	9	“ Therapy , just talking with someone . ”
+14930	14937	14938	14938	Blake	28	“ She does n’t remember anything , ”
+14941	14966	14938	14938	Blake	28	“ Does n’t matter . She still has feelings , and nightmares . We ’re not allowed to rush her to remember what happened . ”
+14974	14983	14967	14967	Lewis	13	“ I better go and pick her up . ”
+14996	15011	15012	15012	Jackson	29	“ He ’s found her , and it has n’t done him any good , ”
+15015	15028	15029	15029	Richard	9	“ No . She ’s a shell of the woman he knew . ”
+15034	15044	15029	15029	Richard	9	“ I ’m going to go and see Anna . ”
+15045	15048	15049	15049	Richard	9	“ Sure . ”
+15093	15099	15100	15100	he	9	“ I ’m so sorry , ”
+15123	15139	15140	15140	She	15	“ You do n’t need to say sorry . You ’re always glib like that . ”
+15150	15156	15140	15140	She	15	“ I ’m being stupid . ”
+15157	15165	15166	15166	He	9	“ You ’re not stupid at all . ”
+15176	15182	15166	15166	He	9	“ I was being insensitive . ”
+15183	15200	15140	15140	She	15	“ Lewis said you were being a pussy tonight . What did he mean by that ? ”
+15201	15209	15140	15140	She	15	“ Fucker should n’t have said anything . ”
+15213	15231	15210	15210	Anna	15	“ It ’s not very nice , is it , when people start to invade your privacy ? ”
+15232	15237	15238	15238	Richard	9	“ Is this payback ? ”
+15241	15270	15271	15271	Richard	9	“ No . I was just wondering what made you say the stuff that you ’ve actually said . You ’re glib , but you ’re not cruel . ”
+15274	15282	15271	15271	Richard	9	“ I had sex with my PA . ”
+15283	15286	15210	15210	Anna	15	“ Temperance ? ”
+15287	15297	15210	15210	Anna	15	“ Yeah , how do you know her name ? ”
+15298	15315	15210	15210	Anna	15	“ I called a few times to leave messages for you . Russ asked me to . ”
+15316	15322	15210	15210	Anna	15	“ I had no idea . ”
+15333	15361	15328	15328	Russ	14	“ I ’m always helping out where I can . I do n’t like to feel like a waste of space . I have to do something . ”
+15362	15370	15210	15210	Anna	15	“ You ’ve got to rest now . ”
+15371	15410	15210	15210	Anna	15	“ Yeah , Russ , he ’s been freaking out a little . I had a little bleeding , and the doctor recommended that I rest and abstain from having sex . Russ has n’t touched me since . ”
+15411	15419	15210	15210	Anna	15	“ Everything is okay though , right ? ”
+15420	15439	15210	15210	Anna	15	“ Yeah , everything is okay . How are you dealing with crossing that line with your PA ? ”
+15440	15454	15210	15210	Anna	15	“ I ’m handling it okay . I ’m more worried about her . ”
+15455	15461	15210	15210	Anna	15	“ I do n’t understand . ”
+15476	15483	15462	15462	Richard	9	“ You ’re not jealous though ? ”
+15484	15496	15210	15210	Anna	15	“ No . I ’m not jealous . I ’m intrigued . ”
+15497	15501	15210	15210	Anna	15	“ Intrigued how ? ”
+15502	15529	15462	15462	Richard	9	“ Let ’s just say there is something I ’ve wanted , and with Temperance and Jay , there ’s a possibility I could have it . ”
+15530	15537	15210	15210	Anna	15	“ And Temperance just walked away ? ”
+15538	15564	15210	15210	Anna	15	“ Pretty much . She does n’t know how I ’m feeling about this though . Jay can help me to have what I want . ”
+15565	15574	15575	15575	Richard	9	“ She may not have feelings for him . ”
+15578	15584	15575	15575	Richard	9	“ They ’re best friends . ”
+15585	15588	15210	15210	Anna	15	“ So ? ”
+15589	15595	15210	15210	Anna	15	“ He was her first . ”
+15596	15599	15210	15210	Anna	15	“ So ? ”
+15600	15609	15610	15610	She	368	“ You ’re not helping me , Anna . ”
+15613	15673	15610	15610	She	368	“ What I ’m trying to say is besides the obvious , that women are complicated , and not all of us stay hung up on those facts . We can have friends that are men without having any sexual desire for them . I consider you a friend , and I do n’t want to sleep with you . ”
+15674	15677	15706	15706	He	369	“ Charming . ”
+15678	15691	15706	15706	He	369	“ Come on , you do n’t want to sleep with me . ”
+15692	15705	15706	15706	He	369	“ Very true . You ’re tainted by your love of Russ . ”
+15833	15842	15847	15847	he	369	“ You could share her , you know ? ”
+15843	15846	15847	15847	he	369	“ What ? ”
+15877	15884	15885	15885	Richard	9	“ Share her . Share Temperance . ”
+15888	15908	15885	15885	Richard	9	“ You ’re really going to offer me advice on sharing . I bet you could n’t share Russ . ”
+15909	15975	15885	15885	Richard	9	“ First , I ’m not an idiot . I know you like to share your women , Richard . Secondly , this is not about me and Russ . We ’re not into that . You are . Thirdly , you were n’t jealous of Tempe ’s friend , and we both know what you meant about there being a new possibility with him . ”
+15976	15984	15985	15985	He	373	“ Everything is fucked up right now . ”
+15996	16007	15985	15985	He	373	“ I always love it when a businessman talks dirty . ”
+16008	16019	16020	16020	Russ	14	“ Hey , that ’s me you like talking dirty , ”
+16023	16031	16020	16020	Russ	14	“ I ’ll leave you two alone . ”
+16043	16048	16049	16049	Anna	15	“ Talk to her , ”
+16052	16087	16049	16049	Anna	15	“ Talk to Temperance before you start assuming what she wants , and try to make sure she ’s part of the decision . You billionaires are a little self - centered at times . ”
+16091	16097	16088	16088	Richard	9	“ Take care of yourself . ”
+16098	16102	16049	16049	Anna	15	“ I will . ”
+16107	16115	16088	16088	Richard	9	“ Tempe , can I come in ? ”
+16231	16237	16238	16238	she	11	“ Come in , Jay , ”
+16252	16257	16243	16243	he	7	“ Hey , bumpkins . ”
+16258	16278	16279	16279	He	7	“ Do n’t . Do n’t use childhood sweet names right now . I ’m not in the mood . ”
+16282	16290	16279	16279	He	7	“ I ’d have told you sooner . ”
+16291	16297	16243	16243	he	7	“ How long , Jay ? ”
+16298	16301	16279	16279	He	7	“ Forever . ”
+16320	16354	16310	16310	he	7	“ That makes no sense . You ’ve been screwing your way through every single woman that comes your way . You ’re telling me that you ’ve loved me all that time ? ”
+16366	16399	16355	16355	She	11	“ Yeah , I ’ve loved you since the beginning . The night I took your virginity , in my head , that was it . You finally understood what I felt . ”
+16428	16435	16412	16412	She	11	“ You could have said something . ”
+16436	16468	16310	16310	he	7	“ How ? You could n’t even look into my eyes as you spoke . I did n’t want to lose my friend , and you ’ll always be my friend . ”
+16469	16477	16412	16412	She	11	“ This is going to be hard . ”
+16478	16486	16412	16412	She	11	“ Give me a chance , Tempe . ”
+16487	16491	16310	16310	he	7	“ Do n’t . ”
+16492	16501	16502	16502	Jay	7	“ I ’m not going to go anywhere , ”
+16505	16521	16502	16502	Jay	7	“ Richard , do you really think he ’s the sticking around kind of guy ? ”
+16522	16548	16310	16310	he	7	“ I do n’t know what kind of guy he is . I know bits about him , but , do n’t do anything stupid . ”
+16549	16554	16555	16555	he	7	“ Tell me something , ”
+16558	16561	16555	16555	he	7	“ What ? ”
+16562	16568	16310	16310	he	7	“ Do you like him ? ”
+16569	16575	16310	16310	he	7	“ Yes , I do . ”
+16576	16585	16586	16586	Jay	7	“ Do you think you could love him ? ”
+16589	16595	16586	16586	Jay	7	“ I do n’t know . ”
+16596	16605	16310	16310	he	7	“ Do you think you could love me ? ”
+16606	16614	16310	16310	he	7	“ I do love you , Jay . ”
+16615	16625	16586	16586	Jay	7	“ Not as a friend , as a lover ? ”
+16631	16640	16626	16626	Temperance	11	“ I ca n’t answer that right now . ”
+16641	16651	16310	16310	he	7	“ Okay , we ’ll just go to sleep . ”
+16982	16989	16990	16990	She	11	“ I love you , Temperance . ”
+17000	17009	16990	16990	She	11	“ I love you , too , Jay . ”
+17362	17378	17349	17349	He	9	“ Well , I have to say , I ’m shocked to see you there . ”
+17379	17394	17413	17413	Richard	9	“ Yeah , I get it , you did n’t want to see me . ”
+17395	17412	17413	17413	Richard	9	“ I ’d rather see Temperance . I take it she is coming in to work . ”
+17456	17473	17474	17474	Richard	9	“ She is . I left early . She does n’t know that I ’m here . ”
+17485	17491	17474	17474	Richard	9	“ Why are you here ? ”
+17492	17508	17474	17474	Richard	9	“ I ’m in love with her , Richard . She ’s my entire life . ”
+17509	17518	17474	17474	Richard	9	“ You ’ve done nothing about these feelings . ”
+17519	17546	17474	17474	Richard	9	“ She ’s never showed an interest in anyone else , and I figured in time she ’d come to see that we were good together . ”
+17547	17556	17474	17474	Richard	9	“ Yet you continued to screw other women . ”
+17557	17632	17633	17633	Richard	9	“ Fuck ! Look , I did what I thought was right . Tempe , she ’s not like other women . She does n’t complicate shit , and she ’s fun . Other women , they ’re just , they ’re not her . She did n’t want me , and she made it clear that she was seeing other guys . I tried to move on . I ca n’t do it . ”
+17642	17654	17655	17655	Jay	7	“ You ’ve been breaking it off with these other women ? ”
+17658	17663	17655	17655	Jay	7	“ I want her . ”
+17664	17672	17673	17673	Jay	7	“ Why are you coming to me ? ”
+17681	17760	17673	17673	Jay	7	“ You ’re different from the other men she ’s been with . Tempe … you have to know her to see something that sparks inside her . Ever since she has been working for you , you ’ve struck this kind of chord inside her , and she has n’t been able to switch it off . It ’s been about you , Richard , Mr. Bruce , the beast , that ’s what they call you . ”
+17761	17767	17673	17673	Jay	7	“ It ’s a nickname . ”
+17768	17786	17673	17673	Jay	7	“ And now you ’re part of a biker club , and that ’s her ultimate fantasy . ”
+17787	17791	17792	17792	Richard	9	“ Is it ? ”
+17810	17823	17792	17792	Richard	9	“ Obviously not billionaire bikers , but the rough , rugged type . ”
+17824	17839	17840	17840	Richard	9	“ The ones that break the law . Do n’t fucking stereotype that shit , ”
+17846	17855	17843	17843	Jay	7	“ Do you get off on confusing people ? ”
+17856	17865	17866	17866	He	9	“ Pretty much . Why are you here ? ”
+17961	17971	17972	17972	Richard	9	“ I want you to back off from her . ”
+17975	18003	17972	17972	Richard	9	“ You ’ve got no chance . You ’ve got more chance of me sharing her with you than you actually have of me leaving her alone . ”
+18120	18127	18105	18105	Richard	9	“ You ’d consider sharing her ? ”
+18128	18160	18161	18161	he	9	“ I ’m a greedy man , but I ’m not going to fight her best friend . You ’re already ahead of me . Is it something you ’d consider ? ”
+18217	18236	18211	18211	Jay	7	“ I ’d share her . I wo n’t fuck you or anything , but I want her . ”
+18237	18244	18245	18245	Richard	9	“ I want Thursday to Sunday , ”
+18248	18263	18264	18264	He	9	“ You can not call , or try to interrupt my time with her . ”
+18273	18319	18320	18320	Richard	9	“ Man , I may be an accountant but I ’m not a fucking pushover . No , you ’re not having four days with her while I get three , and I bet you drop her off on Monday , at your own convenience . ”
+18344	18388	18338	18338	He	9	“ I have her Monday and Tuesday . Wednesday we both have her , then you have her Thursday and Friday . The weekend we both share her again . She ’s also working for you , so keep your hands to yourself . ”
+18497	18502	18491	18491	Richard	9	“ Today is Saturday . ”
+18503	18535	18536	18536	Richard	9	“ Yes . She works until two , and I expect to meet you for lunch , and to also join you at the end of your work to be together . ”
+18539	18546	18536	18536	Richard	9	“ You wo n’t back down . ”
+18547	18550	18491	18491	Richard	9	“ No . ”
+18551	18565	18491	18491	Richard	9	“ Is there anything I can give you to make you back down ? ”
+18566	18570	18536	18536	Richard	9	“ Like money ? ”
+18571	18583	18584	18584	Richard	9	“ Yeah , what do you want , consider it yours , ”
+18614	18619	18610	18612	someone with values	419	“ I want Tempe . ”
+18620	18630	18536	18536	Richard	9	“ I ’m not going to give her up . ”
+18641	18658	18536	18536	Richard	9	“ You ’ve already had your shot with her , why do n’t you back off ? ”
+18659	18669	18670	18670	Jay	7	“ Because I ’ve got another chance with her , ”
+18673	18688	18670	18670	Jay	7	“ Fine , I ’ll agree to your deal . What are your terms ? ”
+18689	18716	18536	18536	Richard	9	“ Do n’t go splashing your money around on expensive gifts . If we do this , then you ’ve got to keep the luxury down . ”
+18717	18741	18536	18536	Richard	9	“ I ’ll buy her whatever the fuck I want . I ’ve worked damned hard to be where I am right now . ”
+18742	18776	18670	18670	Jay	7	“ Yeah , right , I bet you were born with a silver spoon in your mouth , and you did n’t have to work your way to being leader of the company . ”
+18777	18835	18536	18536	Richard	9	“ You could n’t be more wrong . I was in foster care . I did n’t have the luxury of having a family . This is what I earned with my bare two hands , and I can tell you , I love every fucking second of it . Do n’t even think to insult me . ”
+18836	18845	18846	18846	Temperance	11	“ And yet you both can insult me , ”
+18870	18873	18874	18874	Jay	7	“ Tempe , ”
+18877	18897	18874	18874	Jay	7	“ So that ’s why you were gone when I woke up . You did n’t even wake me . ”
+18898	18915	18933	18933	Temperance	11	“ Did you spend the night in her bed ? That shit will stop as well . ”
+18916	18922	18874	18874	Jay	7	“ Not on my day . ”
+18923	18932	18933	18933	Temperance	11	“ Are you two even listening to yourselves ? ”
+18956	18964	18965	18965	Jay	7	“ We ’re coming to an agreement , ”
+18968	18987	18965	18965	Jay	7	“ Without me ? Have you ever thought that I do n’t want to share either of you ? ”
+18993	19007	18988	18988	She	11	“ Last night was a mistake . We should n’t have slept together . ”
+19008	19022	19024	19024	Richard	9	“ There was n’t a lot of sleeping involved . We had sex . ”
+19046	19062	19037	19037	Jay	7	“ I do n’t care . We had sex , and that crossed a line . ”
+19075	19082	19065	19065	her	11	“ Please consider this my resignation . ”
+19126	19131	19132	19132	she	11	“ What the hell ? ”
+19135	19148	19132	19132	she	11	“ I have the right to accept or decline . I decline . ”
+19149	19156	19169	19169	Richard	9	“ You ca n’t do that . ”
+19157	19168	19169	19169	Richard	9	“ I believe I can , and I just did . ”
+19190	19203	19182	19183	His cleaner	424	“ Ugh , why are you doing this ? We messed up . ”
+19204	19212	19213	19213	Richard	9	“ We ’re willing to share you , ”
+19216	19225	19213	19213	Richard	9	“ That is messed up , and no . ”
+19268	19283	19259	19259	she	11	“ You do n’t want it ? Two men , totally devoted to you . ”
+19327	19348	19318	19325	the woman that was beneath him last night	425	“ Please , this is a competition between the two of you , and has nothing to do with me . ”
+19349	19355	19356	19356	Jay	7	“ I beg to differ , ”
+19359	19380	19356	19356	Jay	7	“ I think we ’ve come to a pretty good understanding . It ’s something you might want to consider . ”
+19434	19452	19421	19421	he	9	“ Tell me your pussy is n’t wet right now at the thought of being between us . ”
+19453	19458	19467	19467	Richard	9	“ This is wrong . ”
+19459	19463	19464	19464	Jay	7	“ Says who ? ”
+19570	19580	19581	19581	she	11	“ No , we should n’t be doing this , ”
+19610	19618	19619	19619	he	9	“ You ’re so beautiful , Tempe , ”
+19626	19632	19619	19619	he	9	“ This is completely crazy . ”
+19682	19687	19688	19688	she	11	“ Oh , God , ”
+19704	19711	19712	19712	Jay	7	“ Do n’t make a sound , ”
+19715	19726	19712	19712	Jay	7	“ We do n’t know how soundproof this room is . ”
+19750	19759	19760	19760	Jay	7	“ Shit , Tempe , are you okay ? ”
+19763	19775	19776	19776	She	11	“ This is not happening . I ca n’t do this . ”
+19791	19794	19776	19776	She	11	“ Fuck ! ”
+20086	20096	20077	20077	He	7	“ I ’ve got to catch a break sometime . ”
+20208	20216	20217	20217	Richard	9	“ Baby , what ’s the problem ? ”
+20239	20252	20230	20230	him	9	“ Shit , you do n’t have to be afraid of me . ”
+20253	20261	20262	20262	She	11	“ I ’m not afraid of you . ”
+20303	20314	20315	20315	she	11	“ Which one of you came up with the idea ? ”
+20318	20321	20315	20315	she	11	“ Tempe ? ”
+20322	20341	20342	20342	She	11	“ No . I wanted to be alone , and you ’ve forced your way into this elevator . ”
+20347	20353	20342	20342	She	11	“ Well , tell me . ”
+20354	20359	20315	20315	she	11	“ I ’m sorry . ”
+20360	20380	20381	20381	She	11	“ I do n’t want your apologies . I want to know what the hell you were both doing ? ”
+20387	20418	20381	20381	She	11	“ I heard everything . You were arranging my time . What I was going to being doing , and neither of you even gave a thought to ask me . ”
+20419	20425	20454	20454	He	7	“ Do you want Jay ? ”
+20426	20429	20430	20430	she	11	“ No , ”
+20433	20438	20430	20430	she	11	“ Are you sure ? ”
+20478	20484	20485	20485	she	11	“ What are you doing ? ”
+20488	20521	20485	20485	she	11	“ I want you , Temperance . This thing between us , it has been building for some time . I also believe that you ’ve got feelings for your best friend . ”
+20522	20532	20533	20533	She	11	“ What does this have to do with anything ? ”
+20588	20598	20585	20585	Richard	9	“ I care about Jay . I always have . ”
+20599	20607	20608	20608	She	11	“ Are you in love with him ? ”
+20616	20622	20623	20623	He	7	“ I do n’t know . ”
+20628	20642	20623	20623	He	7	“ You ’ve been in my life for a long time , Tempe . ”
+20643	20649	20608	20608	She	11	“ You ’re my boss . ”
+20663	20670	20650	20650	She	11	“ I want to be more . ”
+20671	20678	20623	20623	He	7	“ You ’re breaking your rules . ”
+20679	20698	20699	20699	Temperance	11	“ That I am . What I do n’t want is for you to doubt what you want . ”
+20733	20759	20725	20725	Jay	7	“ Fuck me , I ’m an accountant , I sit on my ass all day . I should n’t be forced to do this . ”
+20781	20793	20773	20773	Richard	9	“ How about we go to breakfast and talk about this ? ”
+20794	20803	20804	20804	Jay	7	“ We could go back to our place , ”
+20807	20810	20811	20811	she	11	“ No , ”
+20855	20868	20845	20845	she	11	“ I ’ll take breakfast . I ’ve not eaten this morning . ”
+20894	20910	20911	20911	He	9	“ I want where we go to be safe where no one will be watching . ”
+20918	20936	20911	20911	He	9	“ I ’ve got the place , but I ’m making sure I can take you two . ”
+20940	20994	20937	20937	Temperance	11	“ Hey , Russ , how is Anna ? Good , good . I ’ve got to conduct a personal meeting in private , and I do n’t want to risk the press catching sight of us . I wanted to make sure we did n’t have any security issues , or threats . ”
+21009	21034	21005	21005	he	9	“ We ’re going to the club house . We can talk without the risk of being interrupted , and it offers us privacy . ”
+21035	21042	21005	21005	he	9	“ A diner can do that . ”
+21043	21064	21065	21065	She	11	“ Tempe , I ’m a billionaire businessman surrounded by a lot of rumors . I ’m not left alone . ”
+21120	21127	21128	21128	Jay	7	“ Are you okay , Tempe ? ”
+21131	21150	21128	21128	Jay	7	“ Am I okay ? Tell me , Jay , what do I have to be okay about ? ”
+21158	21192	21151	21151	She	11	“ I heard you negotiated your terms of fucking use of me . How do you think I ’m feeling ? I ’ll give you a clue . It ’s far from okay . ”
+21193	21198	21199	21199	Jay	7	“ I ’m sorry , ”
+21202	21208	21209	21209	Richard	9	“ You ’re feisty today , ”
+21212	21227	21209	21209	Richard	9	“ Do n’t even start . I do n’t want to talk to you . ”
+21241	21257	21258	21258	Temperance	11	“ You know most women are really happy to have two men chasing after them ? ”
+21261	21310	21258	21258	Temperance	11	“ You ’re not chasing after me though . You ’re organizing when I ’m allowed to spend time with you . You ’re talking about sharing me , and even sharing me with both of you in the room . Do you know how absurd it sounds ? ”
+21311	21324	21325	21325	Richard	9	“ It does n’t sound it to me , to be honest , ”
+21328	21341	21325	21325	Richard	9	“ It ’s quite common for two men to share a woman . ”
+21342	21347	21348	21348	Richard	9	“ Maybe in porn — ”
+21353	21381	21350	21350	his	9	“ It ’s not just in porn . Jay wants you . I want you , and we both came up with an agreement to suit us . ”
+21382	21398	21325	21325	Richard	9	“ So romantic . Get the girl by pushing her into a tight little schedule . ”
+21411	21418	21406	21406	she	458	“ It ’s not like that . ”
+21419	21447	21350	21350	his	9	“ I ’m sorry , but I just do n’t see the romance of two guys setting out their week to have a woman in their life . ”
+21448	21467	21468	21468	Richard	9	“ In our bed . We ’re going to want alone time as much as time with you . ”
+21499	21506	21487	21487	he	9	“ Have you shared many women ? ”
+21507	21538	21546	21546	She	458	“ I ’ve shared some , never on a permanent basis . You ’re also going to meet Anna . She told me you both spoke on the phone before . ”
+21539	21545	21546	21546	She	458	“ Yes , we have . ”
+21561	21594	21557	21557	she	15	“ You ’ll like Anna . She ’s a strong woman , and she ’s pregnant right now . There ’s a few complications , so do n’t try to upset her . ”
+21595	21606	21607	21607	Temperance	11	“ I would n’t dream of trying to upset her . ”
+21817	21820	21821	21821	Jay	7	“ Tempe , ”
+21831	21840	21824	21824	She	11	“ Do you have any feelings for me ? ”
+21841	21849	21850	21850	Richard	9	“ You know I do , Jay . ”
+21950	21960	21961	21961	Jay	7	“ This is not what I imagined at all , ”
+21978	21986	21972	21972	Jay	7	“ Damn , are these all classics ? ”
+21987	21990	21991	21991	Richard	9	“ Yep , ”
+21994	22013	21991	21991	Richard	9	“ This is what we love to spend our money on . That and other things of course . ”
+22029	22040	22023	22023	he	9	“ This is much better than the movies or television . ”
+22041	22049	22050	22050	she	11	“ You ca n’t compare the two , ”
+22053	22084	22050	22050	she	11	“ Richard is a billionaire , so everything has to be luxury , while the ones on television break the law . It ’s small time stuff , or whatever . ”
+22085	22109	22023	22023	he	9	“ I tell you , we can compete against some of the MCs out there . We just do everything a bit differently . ”
+22110	22117	22118	22118	Jay	7	“ Do you break the law ? ”
+22121	22124	22118	22118	Jay	7	“ No . ”
+22125	22130	22023	22023	he	9	“ Can I join ? ”
+22131	22145	22146	22146	Richard	9	“ Do you have a billion dollar company I do n’t know about ? ”
+22149	22152	22146	22146	Richard	9	“ Nope . ”
+22153	22157	22023	22023	he	9	“ Then no . ”
+22158	22166	22167	22167	Jay	7	“ Wait , that you know about ? ”
+22170	22182	22183	22183	she	475	“ You ran a check on him , did n’t you ? ”
+22186	22197	22183	22183	she	475	“ I run checks on everyone . You know that . ”
+22323	22334	22313	22313	she	11	“ Leave her alone , move out of the way . ”
+22335	22338	22339	22339	Richard	9	“ Temperance ? ”
+22347	22364	22339	22339	Richard	9	“ No , Richard , let her do this . She knows what she is doing . ”
+22406	22412	22413	22413	she	11	“ What is her name ? ”
+22416	22419	22413	22413	she	11	“ Mandy . ”
+22454	22481	22482	22482	She	11	“ It ’s okay , Mandy . You ’re in your safe place right now . Look , no one will cross this line right here . ”
+22495	22521	22522	22522	She	11	“ This is your space . No one will come near you . Mandy , it ’s okay . Mandy , you ’re safe now . ”
+22594	22604	22581	22582	The woman	152	“ Hello , Mandy , you ’re safe here . ”
+22605	22611	22581	22582	The woman	152	“ I ’m safe here ? ”
+22612	22620	22581	22582	The woman	152	“ Yes , you ’re safe here . ”
+22621	22629	22581	22582	The woman	152	“ I do n’t like being scared . ”
+22630	22634	22581	22582	The woman	152	“ Me neither . ”
+22635	22642	22643	22643	Temperance	11	“ I do n’t know you . ”
+22646	22658	22659	22659	She	11	“ We do n’t know each other . I ’m Temperance . ”
+22688	22697	22676	22676	Mandy	26	“ You made a mess of the carpet . ”
+22698	22714	22715	22715	She	11	“ You needed your own space , and ta - da , I did it . ”
+22723	22735	22736	22736	Temperance	11	“ When you ’re ready to come out , you can . ”
+22755	22765	22748	22748	Mandy	26	“ I did it again , did n’t I ? ”
+22766	22771	22777	22777	he	492	“ It ’s okay . ”
+22786	22806	22777	22777	he	492	“ You have nothing to be afraid of , Mandy . The guys here , they all protect you . ”
+22807	22817	22818	22818	Mandy	26	“ I know . You helped get me out . ”
+22832	22843	22829	22829	Temperance	11	“ It ’s a pleasure to meet you , Temperance . ”
+22855	22863	22844	22844	Mandy	26	“ I ’m not usually so crazy . ”
+22864	22878	22879	22881	The young woman	493	“ No worries . I ’m not usually so efficient with my ideas . ”
+22949	22955	22956	22956	Temperance	11	“ Will Mandy be okay ? ”
+22959	22964	22956	22956	Temperance	11	“ She will be . ”
+22965	22972	22973	22973	Jay	7	“ What ’s wrong with her ? ”
+22976	22999	22973	22973	Jay	7	“ I ca n’t say . It ’s for security reasons , and Mandy needs to be protected now more than ever . ”
+23000	23009	23010	23010	He	7	“ She looks like she ’s seen death . ”
+23027	23035	23015	23015	She	11	“ She has n’t had it easy . ”
+23036	23040	23041	23041	Temperance	11	“ No shit , ”
+23044	23054	23055	23055	She	11	“ How did you know to do that circle ? ”
+23124	23241	23120	23120	Mandy	26	“ When I was younger , I used to suffer with severe panic attacks . I was bullied throughout school , and my parents did n’t know how to stop it . Nothing helped , facing the bullies , or even having my brother or Jay fight people at school . So Bryan , my brother , he created the ring of protection . I do n’t know if it ’s a medical thing or not . I just know it always worked . Every time I was in that ring , nothing could harm me . Once I got older , the ring was imaginary , and I ’ve not had many panic attacks since . ”
+23242	23248	23324	23324	Luna	16	“ I never knew that . ”
+23249	23259	23324	23324	Luna	16	“ It was n’t something you needed to know . ”
+23260	23268	23120	23120	Mandy	26	“ You ’ve shared it with Jay . ”
+23269	23293	23294	23294	She	503	“ He was there with me . I ’ve not shared it with Jay . He was there , so it ’s different . ”
+23336	23359	23324	23324	Luna	16	“ Please let me know if you want anything else . I ca n’t do much , but I do pancakes well . ”
+23365	23368	23360	23360	Richard	9	“ Thanks . ”
+23369	23376	23377	23377	They	505	“ You ’re welcome . Enjoy . ”
+23390	23397	23398	23398	Jay	7	“ This is a nice place , ”
+23413	23421	23422	23422	Richard	9	“ Let ’s get down to business , ”
+23436	23461	23425	23425	He	9	“ I want you , Temperance , and the way you lit up in my arms , you want me as well . Listen . ”
+23478	23496	23468	23468	he	9	“ I want you , and so does Jay . You ’re not sure what you want . ”
+23497	23505	23506	23506	Jay	7	“ Do you want me , Tempe ? ”
+23512	23538	23509	23509	She	503	“ I do n’t know . This is hard for me , okay ? I ’ve never considered something like this , not at all . ”
+23539	23545	23546	23546	Jay	7	“ I can appreciate that . ”
+23551	23561	23546	23546	Jay	7	“ You ’re both wanting a relationship with me ? ”
+23570	23578	23579	23579	Richard	9	“ That is the catch , yes , ”
+23582	23595	23579	23579	Richard	9	“ We want time of our own , and also sharing time . ”
+23596	23602	23619	23619	Richard	9	“ This is sharing time ? ”
+23603	23611	23612	23612	She	503	“ Saturday and Sunday , and Wednesday . ”
+23627	23636	23619	23619	Richard	9	“ It does n’t have to be complicated . ”
+23637	23644	23619	23619	Richard	9	“ This is not the norm . ”
+23645	23654	23655	23655	Jay	7	“ Who gives a shit about the norm ? ”
+23658	23728	23655	23655	Jay	7	“ I do n’t care what others think . I ’ve been using a multiple of women to try and get over you , Tempe . It ’s not working . You ’re the woman I want , the woman I love . He ’s not on the same page as me yet , but he will be . You ’re too good of a woman not to love . ”
+23729	23744	23786	23786	Temperance	11	“ You ’re going to make this harder for me , are n’t you ? ”
+23745	23780	23781	23781	Jay	7	“ Yep . I ’m not going to make it easy . I know what I want , and you know what you want , and we both want you . You want us , ”
+23828	23858	23809	23809	She	11	“ I ca n’t deny that I do want both of you . Everything is happening so fast . Do you think we could slow it down a little ? ”
+23859	23862	23818	23818	he	9	“ How ? ”
+23863	23909	23818	23818	he	9	“ Maybe we could date , and not expect anything . Take a break on the sex , and just , I do n’t know , see if this can work . I do n’t want to start something that is not right for us . ”
+23910	23913	23914	23914	Jay	7	“ Sure , ”
+23921	23925	23917	23917	Richard	9	“ No sex ? ”
+23926	23945	23946	23946	She	11	“ I ’m not comfortable having sex with either of you , and then with both of you . ”
+23952	23965	23966	23966	Richard	9	“ It makes you horny though , thinking about us all together , ”
+23969	23999	23966	23966	Richard	9	“ What woman would n’t ? You ’re both sexy men . I just , I ca n’t commit to something like that . I need a little time . ”
+24000	24007	24008	24008	Jay	7	“ We can give you time , ”
+24011	24034	24008	24008	Jay	7	“ How about tonight ? We can all go out on a date . What about going to a couple of clubs ? ”
+24040	24075	24035	24035	Richard	9	“ Blake , one of the brothers , he owns some nightclubs , and has a section for special VIPs . I can get us in , and we wo n’t be disturbed either . ”
+24081	24114	24115	24115	Jay	7	“ Think about it , Tempe , we can have some fun . We ’re not going to rush into anything . We can take our time getting to know each other , ”
+24177	24185	24162	24162	she	11	“ Okay . I ’d like that . ”
+24293	24309	24283	24283	he	121	“ If you touch her while I ’m not there , I will kill you . ”
+24310	24319	24320	24320	Jay	7	“ I thought you were a legal biker ? ”
+24334	24376	24377	24377	Jay	7	“ I am . I would n’t be killing you for the club . I ’d be killing you for my own pleasure , and I do know how to dispose of a body . It would be so easy today . ”
+24394	24401	24377	24377	Jay	7	“ I do n’t do men . ”
+24402	24451	24452	24452	He	7	“ Me neither . Do n’t flatter yourself , Jay . I have no interest in getting acquainted with you . My interest is in Temperance . I ’m not going to lie . I like the thought of watching her come apart in another man ’s arms . ”
+24911	24922	24905	24905	she	11	“ This is the best it ’s going to get . ”
+24923	24934	24935	24935	Jay	7	“ Tempe , Richard ’s here . Are you ready ? ”
+24943	24950	24935	24935	Jay	7	“ I ’ll be right out . ”
+25034	25040	25041	25041	He	9	“ You ’re fucking beautiful . ”
+25195	25201	25187	25187	Richard	9	“ I love the dress . ”
+25202	25206	25224	25224	his	7	“ Thank you . ”
+25207	25221	25222	25222	Jay	7	“ I want to stay in , and remove it from your body . ”
+25245	25259	25240	25240	she	11	“ Not going to happen . We ’re supposed to be going dancing . ”
+25260	25276	25277	25277	Jay	7	“ Tonight is going to be torture , and you ’re doing it on purpose . ”
+25290	25299	25300	25300	She	11	“ Everything is staying in our pants tonight . ”
+25308	25313	25314	25314	she	11	“ Who is driving ? ”
+25317	25321	25322	25322	Richard	9	“ I am , ”
+25325	25338	25322	25322	Richard	9	“ I may as well . I know where we ’re going . ”
+25366	25376	25358	25358	his	9	“ Your eyes give away your thoughts , baby . ”
+25456	25461	25462	25462	she	11	“ How ’s Mandy ? ”
+25472	25487	25462	25462	she	11	“ She ’s in therapy . She needs to be in a white room . ”
+25488	25499	25530	25530	She	11	“ You ca n’t tell us what happened to her ? ”
+25500	25513	25530	25530	She	11	“ No . I really ca n’t . It was fucked up . ”
+25514	25526	25527	25527	she	11	“ Is this about that your club does , the BBMC ? ”
+25570	25579	25580	25580	Jay	7	“ BBMC ? What does that stand for ? ”
+25583	25591	25580	25580	Jay	7	“ Billionaire Bikers motorcycle club , right ? ”
+25592	25595	25596	25596	Richard	9	“ Correct , ”
+25599	25605	25596	25596	Richard	9	“ You did your research . ”
+25616	25639	25606	25606	He	9	“ You left your jacket , and I was curious . I ’ve got a curious mind . It ’s a flaw . ”
+25640	25654	25655	25655	Richard	9	“ We help people , women that have been taken against their will , ”
+25658	25685	25655	25655	Richard	9	“ That is all I ’m going to tell you , and if you repeat a word , your lives will be turned into living hell . ”
+25686	25693	25694	25694	Jay	7	“ Fuck , a bit overkill , ”
+25697	25704	25694	25694	Jay	7	“ I would n’t say anything . ”
+25705	25712	25713	25713	Richard	9	“ I know you would n’t , ”
+25716	25726	25713	25713	Richard	9	“ I ca n’t guarantee him in the back . ”
+25727	25756	25694	25694	Jay	7	“ Hey , I wo n’t say anything either . If we ’re going to do this together , you need to learn to have a little faith . ”
+25757	25777	25713	25713	Richard	9	“ Fine , then it ’s something that can be earned along with everything else that we ’re doing . ”
+25789	25800	25782	25782	Temperance	11	“ Did you take the contracts for the O’Brian account ? ”
+25801	25804	25805	25805	She	11	“ Yep . ”
+25808	25816	25805	25805	She	11	“ I just wanted to make sure . ”
+25817	25833	25782	25782	Temperance	11	“ I ’ve already handled business . We ’ve got a long day on Monday . ”
+25834	25840	25841	25841	Jay	7	“ That ’s my day , ”
+25847	25853	25844	25844	Richard	9	“ We ’re talking work . ”
+25854	25867	25868	25868	he	9	“ We ’re on a date , and you ’re talking work ? ”
+25904	25914	25887	25887	he	9	“ Do n’t let her fool you , Richard . ”
+25915	25945	25946	25946	Temperance	11	“ I ’m not . I ’m just letting her play all of her cards . I may not have known her since preschool , but I know her . ”
+26051	26059	26060	26060	Jay	7	“ Now , this is the life , ”
+26114	26170	26107	26107	he	9	“ Blake likes to give his clients whatever they want . The VIP section allows celebrities the privacy to party , but to also get their faces recognized . They can party without being bombarded . People can come , party , and see celebrities if they want . It ’s a win - win . ”
+26171	26175	26176	26176	Jay	7	“ Sounds good , ”
+26179	26187	26188	26188	Temperance	11	“ I want to go and dance , ”
+26211	26218	26219	26219	She	11	“ Jay , dance with me . ”
+26443	26446	26447	26447	he	7	“ Bruce , ”
+26450	26477	26478	26478	Russ	14	“ I ’ve just got a call from our informant within the police service . More women have gone missing , and are turning up dead , ”
+26481	26488	26478	26478	Russ	14	“ Shit , Lewis missed this ? ”
+26489	26527	26528	26528	Russ	14	“ Lewis has n’t been keeping an eye on shit since he found Mandy . Tonight , I ’m declaring a church meeting , only we ’re all going to his house . You ’ll be there ? ”
+26539	26553	26536	26536	Richard	9	“ Give me a couple of hours , and I ’ll be there . ”
+26554	26565	26528	26528	Russ	14	“ We need to keep our eye on the ball . ”
+26566	26569	26570	26570	He	9	“ Agreed . ”
+26626	26630	26614	26614	he	9	“ Important call ? ”
+26631	26646	26614	26614	he	9	“ I can deal with it soon . Now , I want to dance . ”
+26784	26802	26803	26803	Lewis	13	“ What the fuck is this ? All of you turn up at my house , uninvited ? ”
+26806	26816	26803	26803	Lewis	13	“ Uninvited ? What ’s going on , Lewis ? ”
+26850	26882	26883	26883	Russ	14	“ Nothing is going on . You ’re the one that is in my place , and after Mandy ’s attack , I do n’t think you should be coming around . ”
+26893	26913	26883	26883	Russ	14	“ So , you got what you wanted , and that ’s it ? The club ceases to exist ? ”
+26947	26952	26930	26930	Richard	9	“ What the fuck ? ”
+26953	26990	27000	27000	Lewis	13	“ We created this club for a place for us as businessmen , but we found a cause . We were helping people , Lewis . You were the one that took us down that path . ”
+26991	26999	27000	27000	Lewis	13	“ I ’ve been distracted of late , ”
+27015	27029	27003	27003	Richard	9	“ This has n’t been about the women all along , has it ? ”
+27030	27038	27000	27000	Lewis	13	“ What ? Of course it has . ”
+27039	27050	27051	27051	Blake	28	“ Then why the fuck were n’t you over this ? ”
+27054	27117	27051	27051	Blake	28	“ Look , I love the club , and the women , and the fun , and just being something fucking different . But we were meant to mean something . We ’ve got money , all of us have . We ’ve come from nothing , are nothing , but what set us apart from other wealthy businessmen , is this . ”
+27118	27128	27129	27129	Jamie	31	“ Was it just about you getting back Mandy ? ”
+27241	27258	27236	27236	Lewis	13	“ I ’ve not used you . I ’ve not turned my back on the club . ”
+27259	27269	27294	27309	the woman who did n’t look strong enough to be in a room full of men	592	“ Then what the fuck have you been doing ? ”
+27270	27281	27282	27282	Mandy	26	“ He ’s been trying to help me , remember ? ”
+27326	27329	27320	27320	they	595	“ Mandy ? ”
+27330	27341	27342	27342	Mandy	26	“ I ca n’t let you tear apart your club . ”
+27348	27385	27342	27342	Mandy	26	“ Lewis told me what you did , and how you saved me . He ’s also , against doctors ’ orders , showed me what I was doing . How I was helping these women . ”
+27426	27442	27416	27416	She	26	“ These women , they need us , and Mandy , she was helping them . ”
+27443	27513	27514	27514	she	26	“ Lewis believes that more information is locked inside my head . I ’ve got to get it open , and little points , trigger a moment , or at least a moment within a memory . It ’s what happened earlier today , only I could n’t help it . My past , it ’s filled with horror , and remembering that , it ’s going to hurt , ”
+27517	27556	27514	27514	she	26	“ It ’s one of the reasons I do n’t want to see my family . Not only do I not completely remember them , but what if by simply looking at them , it ’s a trigger ? ”
+27588	27594	27595	27595	Lewis	13	“ I want to help , ”
+27598	27648	27595	27595	Lewis	13	“ My mission started with finding Mandy . The deeper down this path I went , I saw that it did n’t matter if I got her , I ’d still have to find some way of , I do n’t know , saving as many as we could . ”
+27668	27684	27655	27655	John	27	“ I ’m sorry I was n’t there for this . I should have been . ”
+27685	27708	27709	27709	Russ	14	“ Mandy , I appreciate what you ’re trying to do , we all do , but you ca n’t do this , ”
+27712	27727	27709	27709	Russ	14	“ You ’re going to hurt yourself , and none of us want that . ”
+27728	27756	27757	27757	Mandy	26	“ I was able to remember something today . The news that was on the television on my , erm , my blackout at the clubhouse today , ”
+27760	27782	27757	27757	Mandy	26	“ They were reporting on the stockyards , like the places where fishing boats and sea ports or whatever come in . ”
+27783	27788	27789	27789	Richard	9	“ What about it ? ”
+27792	27873	27874	27874	Mandy	26	“ The men , they use those kind of ports to transport girls . The crates are quite deep , and they can hide them behind stock . Drug them up , and some girls are out for like forty - eight hours . It ’s how they ’re doing it . It ’s not a lot , but it ’s something . If some of the girls cause trouble , they ’re killed , and another woman is ordered . ”
+27886	27897	27898	27898	Jackson	29	“ You ’ve been trying to get her to remember ? ”
+27901	27907	27898	27898	Jackson	29	“ That ’s fucking dangerous . ”
+27908	27919	27920	27920	Lewis	13	“ These women , they ’ve been discovered where exactly ? ”
+27932	27971	27972	27972	Russ	14	“ A couple have been found washed up on shores . Others have been seen floating in canals , and there was even one found down by a lake by a kid of five in a theme park , ”
+27978	28006	27975	27975	Lewis	13	“ There ’s something about this that does n’t add up . No one kills off their stock without a reason . Even women are considered stock . ”
+28082	28089	28090	28090	Lewis	13	“ They know who we are , ”
+28420	28425	28426	28426	she	11	“ Are you okay ? ”
+28433	28440	28441	28441	He	9	“ What are you doing up ? ”
+28446	28465	28441	28441	He	9	“ You ’re looking at that city as if it ’s going to bite you at any moment . ”
+28466	28471	28472	28472	She	11	“ It ’s nothing . ”
+28499	28509	28510	28510	Richard	9	“ Does this have to do with your club ? ”
+28515	28524	28525	28525	Jay	7	“ We both know you ’ve been distracted , ”
+28544	28564	28525	28525	Jay	7	“ I want you both to move in here , and I want to hire you both a bodyguard . ”
+28587	28590	28591	28591	she	11	“ What ? ”
+28604	28623	28624	28624	She	11	“ It ’s not safe out there for either of you . Please , let me do this . ”
+28629	28637	28638	28638	Jay	7	“ What the hell is going on ? ”
+28641	28684	28685	28685	He	7	“ There ’s a possible threat to the club . It ’s not something we know for certain , but it ’s enough of a problem that I want you both to have some form of protection . Please , for me . ”
+28690	28706	28685	28685	He	7	“ I do n’t want anything to happen to you , to either of you . ”
+28735	28746	28727	28727	he	7	“ You want us both to move in with you ? ”
+28747	28814	28815	28815	Richard	9	“ The space is big enough , and we all know this is going to happen . You want us both , Temperance . There ’s no need to deny it . Just let it happen . All three of us want this . I ’m not going to rush you , and I ’m happy to take our time , getting to know each other . ”
+28822	28825	28817	28817	his	9	“ Please . ”
+28838	28841	28830	28830	Richard	9	“ Yes . ”
+28842	28845	28846	28846	Jay	7	“ Yes , ”
+28933	28941	28927	28927	she	622	“ This is not to rush you . ”
+28942	28954	28901	28901	she	622	“ I ’m not feeling rushed . Do you feel rushed ? ”
+28955	28958	28974	28974	She	622	“ No . ”
+28959	28973	28974	28974	She	622	“ Then do you not want to be with me , with us ? ”
+29120	29137	29112	29112	he	9	“ Baby , I want to be with you , but only if you ’re ready . ”
+29138	29143	29144	29144	She	622	“ I ’m ready . ”
+29349	29354	29355	29355	Jay	7	“ Let it happen , ”
+29358	29364	29355	29355	Jay	7	“ Do n’t overthink it . ”
+29428	29434	29435	29435	Richard	9	“ I love your tits , ”
+29438	29445	29446	29446	He	9	“ They ’re so fucking big . ”
+29483	29496	29497	29497	Jay	7	“ Come on , it ’s time to get on the bed , ”
+29515	29525	29526	29526	He	7	“ I ’ve got room for you right here . ”
+29538	29548	29549	29549	She	622	“ This has got your name all over it . ”
+29643	29651	29652	29652	Jay	7	“ Is his face against your pussy ? ”
+29655	29658	29659	29659	Temperance	11	“ Yes . ”
+29749	29760	29761	29761	Jay	7	“ Fuck , baby . Your mouth is fucking heaven . ”
+29799	29819	29795	29795	he	7	“ Fuck , Tempe , I love you . I ’ve been dreaming of this moment for so long . ”
+29820	29829	29830	29830	Richard	9	“ Now we finally have her between us , ”
+29856	29870	29871	29871	he	9	“ You know one of us is going to be here , baby , ”
+29879	29891	29871	29871	he	9	“ Your body is just too fucking hot to deny ourselves . ”
+29904	29911	29912	29912	Jay	7	“ I want to taste her , ”
+29961	29967	29968	29968	Richard	9	“ You taste like heaven , ”
+30024	30035	30036	30036	Temperance	11	“ Yes , fuck , yes . Take my cock . ”
+30077	30087	30088	30088	he	9	“ Have you ever been fucked in the ass ? ”
+30114	30125	30126	30126	he	9	“ Are you ready to have that ass teased open ? ”
+30132	30145	30129	30129	She	11	“ Good , Jay , would you like to do the honors ? ”
+30146	30150	30190	30190	Richard	9	“ Fuck yeah . ”
+30180	30189	30190	30190	Richard	9	“ I have some lube in the closet , ”
+30252	30257	30258	30258	He	9	“ You found it ? ”
+30264	30305	30258	30258	He	9	“ Good , let ’s get her nice and prepared . I think it ’s only fair we start as we mean to go on . Do you want her ass , or would you like me to take it ? ”
+30306	30336	30337	30337	He	9	“ I ’ll take her pussy . You ’ve been inside her already , and it has been too long for me . I want to feel her again . ”
+30349	30366	30337	30337	He	9	“ Let ’s get her on her knees . I want easy access to her ass . ”
+30511	30521	30522	30522	he	9	“ I ’m just going to grab a toy , ”
+30675	30686	30687	30687	he	9	“ You ’ve got such a nice ass , baby , ”
+30780	30791	30792	30792	Jay	7	“ Holy fuck , man , what are you doing ? ”
+30909	30918	30919	30919	Richard	9	“ Do you like your ass being fucked ? ”
+30922	30925	30919	30919	Richard	9	“ Um . ”
+30989	30999	31000	31000	Jay	7	“ You ’re going to need one of them . ”
+31059	31066	31050	31050	he	9	“ Are you ready for this ? ”
+31067	31070	31071	31071	He	9	“ Yes . ”
+31083	31097	31071	31071	He	9	“ Then climb on Jay . Let him put his cock inside you . ”
+31159	31165	31166	31166	he	9	“ How does she look ? ”
+31169	31189	31190	31190	Jay	7	“ Her eyes are closed , and she ’s biting her lip . Now she ’s looking at me , ”
+31193	31209	31190	31190	Jay	7	“ That ’s right , baby , look at me with those pretty green eyes . ”
+31228	31237	31220	31220	he	9	“ Does he feel good inside your pussy ? ”
+31238	31244	31220	31220	he	9	“ Yes . So good . ”
+31245	31258	31259	31259	She	11	“ Get him inside you , and I ’ll ride your ass . ”
+31293	31301	31302	31302	Richard	9	“ Hold her ass open for me , ”
+31402	31410	31399	31399	She	11	“ Fuck ! You ’re too big . ”
+31411	31419	31420	31420	Richard	9	“ Every man wants to hear that , ”
+31423	31446	31420	31420	Richard	9	“ It ’s okay . Getting the tip in is always the hard part . Now we get to the fun part . ”
+31467	31487	31488	31488	He	7	“ Fuck , man , even I can feel you . You ’ve made her pussy so damn tight . ”
+31501	31512	31497	31497	Temperance	11	“ That ’s it . I ’m in , baby . ”
+31513	31519	31539	31539	She	11	“ It ’s too much . ”
+31520	31538	31539	31539	She	11	“ Just give it a second . If you do n’t like it , I ’ll stop . ”
+31629	31641	31642	31642	Jay	7	“ Whatever you ’re doing , do n’t stop , man , ”
+31645	31681	31642	31642	Jay	7	“ I ’m going to let her come . You ’re going to come all over his cock , and then we ’re going to ride you until we come , do you like that ? ”
+31682	31689	31642	31642	Jay	7	“ Yes , God , yes . ”
+31690	31698	31642	31642	Jay	7	“ Not God , baby . Richard . ”
+31699	31709	31642	31642	Jay	7	“ And Jay . Do n’t fucking forget me . ”
+31710	31715	31716	31716	she	11	“ I wo n’t , ”
+31784	31804	31805	31805	She	11	“ That ’s it , baby . Come for me . Let me feel how much you want it . ”
+31851	31855	31842	31842	Richard	9	“ Fuck her . ”
+32054	32066	32067	32067	Jay	7	“ You ’ve got such a tight little pussy , Tempe , ”
+32070	32080	32067	32067	Jay	7	“ Your ass is telling me what it wants . ”
+32112	32124	32125	32125	Richard	9	“ She ’s our woman , with her nice tight pussy , ”
+32128	32175	32125	32125	Richard	9	“ God , yes . I ’m not letting you go now , Tempe . You ’re mine , and come morning , I do n’t care . I ’m not going to walk away again , and I ’m not going to let you go . ”
+32292	32303	32304	32304	Jay	7	“ Yes , baby , fuck , so fucking good , ”
+32307	32320	32321	32321	Richard	9	“ I ’m not going to last . This is fucking heaven , ”
+32416	32423	32424	32424	Jay	7	“ I ’m going to come , ”
+32427	32431	32424	32424	Jay	7	“ Then come . ”
+32588	32597	32598	32598	Jay	7	“ Fuck me , we waited too long , ”
+32601	32610	32598	32598	Jay	7	“ You both curse a lot during sex . ”
+32614	32625	32611	32611	Temperance	11	“ It ’s funny . The billionaire and the accountant . ”
+32626	32636	32637	32637	Richard	9	“ Sounds like a sexy porn film to me , ”
+32644	32655	32637	32637	Richard	9	“ I need to get some mirrors for this room . ”
+32656	32659	32611	32611	Temperance	11	“ Why ? ”
+32660	32688	32611	32611	Temperance	11	“ I want to see everything . I did n’t get much chance to watch you there , Tempe , and you ’re too good to resist . ”
+32689	32714	32715	32715	Jay	7	“ I love the sounds she makes . There ’s also this look in her eye that says she ’s about to get wild , ”
+32718	32734	32735	32735	Richard	9	“ I did n’t see any of that because I do n’t have any mirrors , ”
+32741	32752	32738	32738	She	11	“ So , we ’re getting mirrors for this bedroom ? ”
+32753	32772	32735	32735	Richard	9	“ Nah , I ’m thinking all rooms . You ’ll never know when the mood will hit . ”
+32773	32777	32738	32738	She	11	“ All rooms ? ”
+32793	32806	32807	32807	Richard	9	“ There ’s no point restricting our play to just one room , ”
+32810	32818	32807	32807	Richard	9	“ A mirror in every single room . ”
+32819	32824	32738	32738	She	11	“ I like that . ”
+32825	32837	32838	32838	Temperance	11	“ You also want Jay and me to move in here ? ”
+32841	32844	32838	32838	Temperance	11	“ Yeah . ”
+32845	32858	32859	32859	Jay	7	“ This threat you ’re on about , how serious is it ? ”
+32862	32882	32859	32859	Jay	7	“ Let ’s clean up first . This is not a conversation I want to be having like this . ”
+33064	33073	33074	33074	Richard	9	“ You do not need to cover yourself , ”
+33096	33105	33106	33106	she	11	“ Okay , so what ’s going on ? ”
+33114	33148	33149	33149	Richard	9	“ What I ’m about to tell you both must n’t leave this room . The only reason I ’m saying something is I see this lasting . You both are my future . ”
+33154	33184	33149	33149	Richard	9	“ I do n’t want to fuck you , but I like you , Jay . You ’re a good man , and I do consider you a friend . ”
+33185	33188	33189	33189	He	9	“ Likewise . ”
+33194	33206	33189	33189	He	9	“ You , Temperance . What can I say about you ? ”
+33217	33285	33212	33212	Richard	9	“ You came into my office , and you caught my attention . I believed you were this prim and proper little miss who had to have everything right . Slowly , I saw you ’re anything but . There ’s a time and place for it , and you know when it is the right time . I could n’t allow anything to happen to you . ”
+33286	33308	33309	33309	She	673	“ What he ’s trying to say but making it sound way better than me , is , he loves you . ”
+33323	33327	33309	33309	She	673	“ Shut up . ”
+33328	33361	33318	33318	he	7	“ He ’s right , Tempe . I do love you . I did n’t realize it at first , but there ’s no doubt in my mind . I love you . ”
+33376	33381	33371	33371	him	7	“ You mean that ? ”
+33382	33423	33309	33309	She	673	“ Yes , I mean that , and I ’m not lying either . I love you , and it ’s why I want you both to live her , have guards , to be safe , to be protected . ”
+33424	33431	33432	33432	Jay	7	“ What exactly is going on ? ”
+33435	33471	33432	33432	Jay	7	“ When we first started the club , BBMC , we had a mission , to help others . We wanted to make something better in the world , something that only money could provide . ”
+33472	33477	33478	33478	Jay	7	“ I get that , ”
+33481	33535	33478	33478	Jay	7	“ Well , our mission soon turned to human traffickers . Lewis , he lost Mandy years ago when she was just a kid , and since then , he ’s been hunting for her . Many suspected she was dead , and others just gave up . Lewis , he never did . ”
+33552	33611	33546	33546	Mandy	26	“ After years of fighting , we discovered that our contact who was feeding us information on where the women were held , was in fact Mandy . She suffered greatly for it , and we were able to not only save her , but other women as well , and bring down several criminals exploiting the women . ”
+33612	33620	33432	33432	Jay	7	“ You did n’t catch them all ? ”
+33621	33676	33432	33432	Jay	7	“ No . Trafficking , it ’s a large scale organization that is ever expanding . The black market for sex slaves , prostitutes , and even children , is one that is sickening . I doubt that we ’ll ever be able to stop it , but we ’re not going to stop . ”
+33677	33700	33546	33546	Mandy	26	“ Fuck , man , and I just thought you were a billionaire who got his kicks playing dress up in leather . ”
+33701	33729	33432	33432	Jay	7	“ I wish it was that simple . The BBMC has started something , and we ’re not going to stop . This is what we do . ”
+33730	33745	33746	33746	she	674	“ The men that you ’re after , do they know who you are ? ”
+33749	33785	33746	33746	she	674	“ We strive for privacy . However , over time articles have appeared , and we ’ve been connected to the club and what we do . Anyway , rumors have been circling for years . ”
+33786	33792	33793	33793	she	674	“ Tell me , Richard , ”
+33796	33840	33793	33793	she	674	“ Bodies of dead women have been discovered in different areas around the city . When you get a map and pinpoint their location , you find that they are around each of the ten main headquarters of the members of the BBMC . ”
+33841	33847	33859	33859	Jay	7	“ I do n’t follow . ”
+33848	33854	33855	33855	Richard	9	“ Give me a second . ”
+33866	33871	33859	33859	Jay	7	“ Are you okay ? ”
+33872	33889	33859	33859	Jay	7	“ I ’m fine . I just want to make sense of what is going on . ”
+33890	33894	33895	33895	She	674	“ I agree . ”
+33902	33917	33895	33895	She	674	“ I love you both , Jay . I ca n’t pick just one . ”
+33918	33941	33942	33942	Temperance	11	“ It ’s good that neither of us wants you to pick . We ’re both happy being together , sharing you . ”
+33955	33963	33964	33964	Richard	9	“ Here are all of our businesses , ”
+33972	33989	33964	33964	Richard	9	“ To give you an idea , this is where all the bodies have been found . ”
+33997	34020	33992	33992	him	9	“ It could be a coincidence , but we do n’t believe in that shit . We believe in cold hard facts . ”
+34021	34029	33964	33964	Richard	9	“ Someone could be coming after you ? ”
+34030	34059	34061	34061	she	674	“ Exactly , and I do n’t want to take any chances . I ’ve only just found you . I ’m not going to lose you now . ”
+34101	34112	34113	34113	Jay	7	“ It ’s not just a coincidence , is it ? ”
+34200	34205	34206	34206	Temperance	11	“ What is it ? ”
+34209	34216	34193	34193	Richard	9	“ They have found another body . ”
+34217	34224	34193	34193	Richard	9	“ Do you need to leave ? ”
+34225	34239	34240	34240	Temperance	11	“ No , not tonight . The main investigation is taking place first . ”
+34254	34266	34240	34240	Temperance	11	“ Jay and I will do what we can to help . ”
+34267	34281	34193	34193	Richard	9	“ Yeah , we will . We ’ve got your back , man . ”
+34282	34336	34193	34193	Richard	9	“ All I want is for both of you to be careful . Do n’t linger too long in empty streets . Do n’t go to places to eat you ’ve never been before . I ’m going to assign a guard , but you ’re not going to know where he is . ”
+34337	34350	34351	34351	Jay	7	“ I ’m a guy . I do n’t need a guard , ”
+34360	34366	34367	34367	Richard	9	“ You ’re an accountant , ”
+34370	34378	34367	34367	Richard	9	“ So , we can be badass . ”
+34379	34385	34386	34386	Temperance	11	“ You scream at spiders , ”
+34389	34400	34386	34386	Temperance	11	“ You ’re not helping my case here , baby . ”
+34401	34443	34367	34367	Richard	9	“ Just take the guard , Jay . I know you ’ve got a big dick , so you do n’t have to act the man . Be the bigger man now , and see that this is upsetting to Richard . ”
+34472	34483	34484	34484	Jay	7	“ Do I get to pledge to be a member ? ”
+34487	34495	34484	34484	Jay	7	“ We ’re not some frat house . ”
+34496	34502	34503	34503	Temperance	11	“ Technically , you are . ”
+34506	34533	34503	34503	Temperance	11	“ He ’s trying to tease you . Smile , Richard , and move on , otherwise he ’ll start calling the club many other names . ”
+34892	34900	34901	34901	Jackson	29	“ Do we recognize any of them ? ”
+34904	34918	34919	34919	Lewis	13	“ Their names have all turned up in the missing person ’s database , ”
+34922	34979	34919	34919	Lewis	13	“ What I ’m not liking is each girl is part of different order lists . The order forms where men or women order the kind of girl they want . You know , blonde , brunette , fat , thin , stuff like that . Each of these girls matches a description from different lists . ”
+35014	35057	35010	35012	the dead girls	698	“ Here , blonde , roughly five foot , with no blemishes , chunky . This matches Darlene . She was reported missing by her family a week ago . Slim , brunette , no ink , this matches this woman here . ”
+35058	35064	35065	35065	Blake	28	“ What does this mean ? ”
+35068	35082	35083	35083	Lewis	13	“ One of these women was last seen in one of your nightclubs , ”
+35086	35089	35083	35083	Lewis	13	“ What ? ”
+35090	35129	35010	35012	the dead girls	698	“ Darlene was spotted on footage coming out of your nightclub . She never made it home . It gets worse . Tania , she ’s the brunette with no ink , was employed by you , Russ . ”
+35130	35133	35134	35134	Russ	14	“ What ? ”
+35137	35142	35143	35143	Lewis	13	“ And this woman . ”
+35149	35165	35143	35143	Lewis	13	“ She was the cleaner for this club . Sarah , that was her name . ”
+35166	35174	35175	35175	Jamie	31	“ You think we ’re being targeted ? ”
+35178	35214	35175	35175	Jamie	31	“ All I know is right now , the cops are looking at us a little suspiciously . These women , they ’re innocents , and they ’re being killed because of what we do . ”
+35221	35232	35215	35215	Lewis	13	“ Our lives within the club are no longer secret . ”
+35233	35241	35242	35242	Richard	9	“ What do we need to do ? ”
+35245	35265	35242	35242	Richard	9	“ I ’m not going to sit back while a bunch of innocents are being targeted because of us . ”
+35266	35293	35215	35215	Lewis	13	“ I ’ve got to use all the data I have , but I need access codes into your security . All of your security codes . ”
+35294	35299	35300	35300	Jamie	31	“ Wait ? Why ? ”
+35306	35317	35300	35300	Jamie	31	“ Do you think one of us is the snitch ? ”
+35318	35323	35324	35324	Richard	9	“ Not at all . ”
+35354	35357	35358	35358	He	9	“ Enough ! ”
+35371	35397	35398	35398	He	9	“ Do you see what is happening ? We ’re having doubts about each other , and it was us who went looking for them . ”
+35408	35454	35398	35398	He	9	“ We ’ve got each other , and right now , innocent people are dying . If you ’ve got a problem with Lewis having our access codes to help find these fuckers , then I say I ’d vote you out of the club . ”
+35466	35475	35459	35459	Richard	9	“ That ’s all you need to know . ”
+35476	35482	35398	35398	He	9	“ This is our company . ”
+35483	35507	35508	35508	Richard	9	“ We came together for trust . We each have access here , and a woman was killed because she cleaned for us . ”
+35513	35522	35510	35510	his	9	“ I ’m not taking any fucking chances . ”
+35620	35628	35629	35629	Richard	9	“ What do you have to do ? ”
+35636	35691	35629	35629	Richard	9	“ First , I access the victims ’ files , and then I cross reference them to the nights they were killed , and I can use some software that I created that allows me to extract anomalies based on these facts . It ’s the quickest route to finding out what went wrong . ”
+35692	35697	35698	35698	Richard	9	“ You do that . ”
+35729	35740	35741	35741	Blake	28	“ You ’ve put three guards on Jay and Temperance , ”
+35744	35773	35741	35741	Blake	28	“ Temperance is my woman . I ’m sharing her with Jay . You got a problem with that , we can step outside and solve that problem . ”
+35780	35795	35774	35774	Blake	28	“ A ménage relationship is n’t going to go down well in the market . ”
+35796	35819	35820	35820	He	712	“ Do I look like a give a fuck ? The press can say I ’m fucking Jay for all I care . ”
+35886	35893	35894	35894	Jamie	31	“ Wow , is it serious ? ”
+35897	35904	35905	35905	Richard	9	“ Yes , it ’s serious , ”
+35908	35913	35905	35905	Richard	9	“ I love her . ”
+35914	35924	35928	35928	Sean	30	“ Wow , the beast has fallen in love . ”
+35930	35945	35928	35928	Sean	30	“ I ’m not the beast . You know that . I know that . ”
+35946	35964	35965	35965	Jackson	29	“ Actually , you kind of are . You ’re not exactly known for your lovely manner , ”
+35968	35981	35965	35965	Jackson	29	“ Whatever . I ’m not here to babysit what people think . ”
+35989	35997	35982	35982	He	29	“ God , I need a break . ”
+36052	36057	36058	36058	he	29	“ How ’s Mandy ? ”
+36061	36088	36058	36058	he	29	“ She ’s fine . She ’s going to more therapy , and trying to access her memories . I ’ve stopped trying to pressure her . ”
+36089	36120	36121	36121	Russ	14	“ None of us want to pressure her . She ’s been through so much already . I bet none of us can really imagine what she ’s gone through , ”
+36124	36147	36121	36121	Russ	14	“ Let her have this time when she does n’t need to remember , and give her the peace she actually needs . ”
+36148	36156	36157	36157	Lewis	13	“ That ’s what I ’m doing , ”
+36160	36177	36157	36157	Lewis	13	“ I hope I can find out who these monsters are before another girl goes missing . ”
+36213	36228	36229	36229	Temperance	11	“ It ’s more of a gentlemen ’s club , do n’t you think ? ”
+36326	36336	36337	36337	Jay	7	“ Has it been a long day for you ? ”
+36340	36371	36337	36337	Jay	7	“ Yes , my feet hurt . I spent the whole day getting coffee and doughnuts . I ’m so damn tired . This account is going to kill me . ”
+36372	36377	36378	36378	Richard	9	“ The O’Brian account . ”
+36387	36432	36378	36378	Richard	9	“ Yes . He ’s such an asshole . He judges everything on beauty , and those that do n’t match up , it ’s bad news . They just get completely cut from the whole thing . It ’s sad , and horrible . ”
+36467	36473	36451	36451	He	7	“ That feels so good . ”
+36474	36494	36451	36451	He	7	“ I ’ll take care of you . O’Brian is an asshole . Richard does n’t like him either . ”
+36495	36543	36544	36544	Temperance	11	“ There ’s nothing to like . He ’s a total asshole . One girl got cut from the callbacks because she had freckles . She was a hot woman , and he wanted us to go through slides of women in the adult business as well . ”
+36595	36603	36604	36604	she	11	“ How was work for you today ? ”
+36613	36639	36604	36604	she	11	“ You do not want to know about my shit . It ’s all numbers , and shit . Very boring , you know that . ”
+36640	36654	36704	36705	the woman	152	“ You ’ve always been good with numbers . You ’re so clever . ”
+36655	36669	36704	36705	the woman	152	“ Two plus two equals … four . Did I make you hot ? ”
+36670	36673	36674	36674	She	11	“ Totally . ”
+36690	36703	36704	36705	the woman	152	“ Wow , I ’m going to need some points from you , ”
+36758	36764	36765	36765	she	11	“ Can I help you ? ”
+36768	36789	36765	36765	she	11	“ Yeah , do you have a pussy of gold ? Is that what keeps them coming back to you ? ”
+36790	36798	36799	36800	another woman	1058	“ Tina , do n’t cause trouble , ”
+36807	36832	36799	36800	another woman	1058	“ Back off , Luna . You may get off fucking these men and being nothing but a whore , but I do n’t . ”
+36833	36841	36842	36842	Luna	16	“ I ’m not a damn whore , ”
+36845	36877	36799	36800	another woman	1058	“ These men , they ’re my family , and you ’re the one making more of it . This is what we agreed to . This is all I want . ”
+36878	36888	36799	36800	another woman	1058	“ Is it being fat ? Is that it ? ”
+36889	36892	36893	36893	Jay	7	“ Hey , ”
+36896	36902	36893	36893	Jay	7	“ You better back off . ”
+36903	36950	36951	36951	Temperance	11	“ Oh , so now you have two men . Well , he ’s not a club brother , but he ’s someone that is way above your league . On the scale of one to ten , you ’re like a four , if that . ”
+36954	36964	36951	36951	Temperance	11	“ What makes you think you ’re a ten ? ”
+36965	36971	36972	36972	Luna	16	“ I ’m really sorry , ”
+37034	37039	37061	37061	Temperance	11	“ You better leave . ”
+37040	37060	37061	37061	Temperance	11	“ I ’m a ten because I ’m beautiful , hot , and I know how to suck cock . ”
+37064	37077	37061	37061	Temperance	11	“ Is that it ? Is that all you think guys want ? ”
+37078	37085	37086	37086	Jay	7	“ That ’s all they need . ”
+37089	37114	37086	37086	Jay	7	“ Wow , you ’ve totally got it wrong . We need a hell of a lot more than a good little cock sucker . ”
+37115	37126	37061	37061	Temperance	11	“ You ’re fat , and Richard should walk away . ”
+37127	37138	37139	37139	Richard	9	“ What the fuck do you think you ’re doing ? ”
+37212	37220	37221	37221	Luna	16	“ I did try to warn her , ”
+37237	37250	37227	37227	Her	16	“ I do n’t want any trouble . I love the club . ”
+37339	37347	37324	37324	She	11	“ Are you done for the night ? ”
+37348	37356	37357	37357	Richard	9	“ No , I ’m not done . ”
+37363	37377	37357	37357	Richard	9	“ Do you think you can get away with calling my woman names ? ”
+37378	37393	37394	37394	Temperance	11	“ She was all up in his space . They were pretty much fucking . ”
+37404	37425	37394	37394	Temperance	11	“ You ’re kidding right ? You ’re going to tell a bunch of lies to get what you want . ”
+37426	37434	37435	37435	Tina	10	“ Who are you going to believe ? ”
+37438	37507	37435	37435	Tina	10	“ First , I would n’t believe you even if I had seen it with my own two eyes . Second , Temperance belongs to me and Jay . If she wants to fuck him in front of the club , then she can . She ’s ours . Third , that was your final strike for me . I want you out of the club for good . ”
+37537	37551	37552	37552	Russ	14	“ I suggest you leave the club until we come to a decision , ”
+37555	37558	37552	37552	Russ	14	“ But — ”
+37559	37568	37569	37569	Jackson	29	“ No buts . Get the fuck out , ”
+37683	37694	37695	37695	Jay	7	“ What will happen to that woman at the club ? ”
+37711	37769	37705	37705	they	595	“ We ’re going to get our club lawyer to handle it . We ’ll pay her off , but she ’ll be bound by an agreement that states she is to keep the running of the club a secret . If anything gets leaked , we have the means of making sure her life is ruined . ”
+37770	37783	37699	37699	they	595	“ Wow , do n’t you think that is a bit harsh ? ”
+37784	37873	37705	37705	they	595	“ Besides the fact she called Tempe fat , there is more at stake than just some rumors . Look what is happening to innocent women . I will not allow a spiteful woman to risk others . I do n’t care about myself . She can talk about the club all day long to everyone , but we ’re not just any club . We ’ve made ourselves targets , and that is on us . I regret it , but there ’s nothing we can do . ”
+37874	37881	37882	37882	Richard	9	“ More women have been taken ? ”
+37885	37906	37882	37882	Richard	9	“ Sadly , yes . More have been taken , and we ca n’t know for certain who it is . ”
+37907	37922	37705	37705	they	595	“ No one can do a good deed anymore without it becoming an issue . ”
+37923	37930	37931	37931	Richard	9	“ You ’ve got that right . ”
+37937	37947	37931	37931	Richard	9	“ Did you always want to be a biker ? ”
+37948	37972	37705	37705	they	595	“ No . The only thing I ever wanted was to help people . That ’s it . I wanted to help people . ”
+37973	37979	37980	37980	Jay	7	“ You are helping people , ”
+37983	38000	37980	37980	Jay	7	“ Am I ? Right now it seems I ’m killing more than I ’m helping . ”
+38001	38030	37705	37705	they	595	“ You ca n’t blame yourself for what is going on . You ’re doing a good thing , and I bet you ’ve saved hundreds of women . ”
+38031	38050	38051	38051	Jay	7	“ Now women are being killed , and I ca n’t help but fear what will come next . ”
+38079	38108	38109	38109	Richard	9	“ We ’ll handle it together . We ’re a team , right ? We ’ve got each other , which at times is more than others have . ”
+38114	38121	38109	38109	Richard	9	“ I ca n’t lose her . ”
+38122	38133	38134	38134	Jay	7	“ We wo n’t . We have this , together . ”
+38137	38158	38134	38134	Jay	7	“ I had lunch today with my bodyguard . His name is Curtis , and he ’s ever so nice . ”
+38164	38172	38159	38159	Richard	9	“ You should n’t have noticed him . ”
+38173	38232	38109	38109	Richard	9	“ It was kind of hard not to . At first I thought I had an admirer , and then I saw he was packing . I went out , shook his hand , and we had lunch . He ’s a good guy . He ’s got three kids , and a wife who worries about him . ”
+38233	38246	38109	38109	Richard	9	“ Curtis is a good man . He ’ll keep you safe . ”
+38247	38259	38159	38159	Richard	9	“ I also know you ’ve got two guards on Temperance . ”
+38260	38270	38271	38271	Richard	9	“ I do n’t think she knows about them , ”
+38274	38295	38271	38271	Richard	9	“ I prefer that . I do n’t want her aware of the danger that I may have caused her . ”
+38296	38315	38316	38316	Richard	9	“ You ’re not going to lose her . She loves you too damn much to lose you . ”
+38319	38348	38316	38316	Richard	9	“ I love her with my whole heart . I never thought I ’d love a woman as much as I love her . She ’s my life . ”
+38349	38353	38271	38271	Richard	9	“ I agree . ”
+38354	38362	38363	38363	Richard	9	“ I want this to be forever , ”
+38366	38372	38363	38363	Richard	9	“ Can you handle that ? ”
+38373	38377	38271	38271	Richard	9	“ Sharing her ? ”
+38378	38381	38271	38271	Richard	9	“ Yes . ”
+38382	38416	38363	38363	Richard	9	“ I ’ve been handling it just fine . I happen to like you , Richard . No , I ’ll never want your dick , but I can see us sharing her . ”
+38417	38423	38271	38271	Richard	9	“ I ’ll marry her . ”
+38424	38434	38435	38435	Jay	7	“ You ’re the one with all the money , ”
+38438	38470	38435	38435	Jay	7	“ It ’s not about the money . I want her to be protected , and I know she ’d protect you as well if anything was to happen to me . ”
+38471	38478	38479	38479	Temperance	11	“ Are you proposing to me ? ”
+38485	38492	38479	38479	Temperance	11	“ I thought you were asleep . ”
+38493	38503	38504	38504	She	11	“ I was . I ’m not asleep anymore . ”
+38508	38513	38514	38514	Richard	9	“ Are you proposing ? ”
+38517	38524	38514	38514	Richard	9	“ Yeah , I ’m proposing . ”
+38534	38549	38528	38528	She	11	“ What do you think , Jay ? Should I make him ask again ? ”
+38550	38563	38564	38564	Temperance	11	“ I think you should put the guy out of his misery . ”
+38567	38577	38564	38564	Temperance	11	“ Yes , Richard , I ’ll marry you . ”
+38615	38642	38643	38643	Lewis	13	“ I ’m sorry it has taken me so long , but I finally found the one person that was present within a specific time frame , ”
+38646	38649	38643	38643	Lewis	13	“ What ? ”
+38653	38735	38736	38736	Lewis	13	“ Each woman was killed , and from the autopsy report , the suspect is male . The damage to the woman ’s bodies was consistent with that of a blunt force trauma , which anyone can do , but it takes strengths . These women , they were taken , tortured , and killed , dumped . Other women would not be able to work alone for this . They do n’t have the physical strength to carry this out . ”
+38742	38773	38736	38736	Lewis	13	“ There was no rape , which is why the cops are coming to us now no longer as potential suspects . It ’s something that does n’t add up . ”
+38774	38780	38781	38781	Richard	9	“ What do you mean ? ”
+38784	38851	38781	38781	Richard	9	“ Murder , there ’s a reason for it . There is a relationship between most victims and the murderer , and I ’m not talking like father - daughter relations . This can be something like each woman insulted the murderer , which is why he killed them . This does n’t add up . Each murder is completely related by one thing , us . ”
+38852	38875	38876	38876	Richard	9	“ So because it ’s not rape , they ’re saying it ’s a problem , and we ’re the only connection ? ”
+38879	38975	38976	38976	Lewis	13	“ There have to be at least two different killers out there . The women that were found before were raped , so it was done by someone else . Each serial killer , murderer , criminal , they have what is known as a calling card . These three women do not match the women that were found raped before . None of these women had anything in common , they do n’t look the same , share the same lifestyle . We are what connect them , which leads us to this man . ”
+39006	39012	39013	39013	Richard	9	“ What about this man ? ”
+39016	39078	39013	39013	Richard	9	“ This is the person that has been present near the women . It ’s not a coincidence . He was at Blake ’s club , and was seen leaving a few minutes after Darlene . They had been dancing together . He was also a visitor at your building , Russ . Tania was the one who showed him around . ”
+39111	39117	39118	39118	Richard	9	“ What ’s his name ? ”
+39121	39149	39150	39150	Lewis	13	“ For the last two , he used a different name . I do n’t know what name he was using for the first one with Darlene , ”
+39153	39162	39163	39163	Richard	9	“ He ’s part of O’Brian ’s entourage , ”
+39251	39261	39262	39262	O’Brian	18	“ Richard , what do I owe the honor ? ”
+39265	39282	39262	39262	O’Brian	18	“ The man who has been your guard , the one who stands in the back . ”
+39292	39321	39283	39283	Richard	9	“ Yes , I know who you mean . I do n’t have his details . I use a security firm who sends out different men for me . ”
+39485	39490	39481	39481	she	11	“ Wait … what ? ”
+39516	39524	39527	39527	she	11	“ Ah , she ’s waking up . ”
+39553	39558	39559	39559	She	11	“ There she is . ”
+39639	39646	39629	39629	Jay	7	“ You ’re starting to remember . ”
+39647	39653	39654	39654	she	11	“ What are you doing ? ”
+39700	39746	39747	39747	Temperance	11	“ What am I doing ? Let ’s see , I ’m trying to gain the attention of the billionaires affecting my business . Now , they make think they ’re smart , but they have n’t got anything on the corporation as a whole . ”
+39756	39778	39751	39752	the man	121	“ Do n’t you think it ’s a little lame ? A bunch of billionaires thinking they can save the world . ”
+39779	39797	39798	39799	The man	121	“ They ’re not trying to save the world . Just the women and children you hurt . ”
+39807	39834	39798	39799	The man	121	“ They do n’t need to be saved . They ’re there to be used . If I do n’t use them , someone else will . ”
+39840	39846	39798	39799	The man	121	“ You will be stopped . ”
+39847	39880	39751	39752	the man	121	“ I doubt it . Where there are women , there will be men who can order them like cattle . Sometimes , we get a picture of the woman they want . ”
+39881	39888	39889	39889	she	11	“ Why do you have me ? ”
+39892	39920	39889	39889	she	11	“ I needed to teach the little lame bikers a lesson . They seem to think they have their billions so they can do what they want . ”
+39921	39932	39751	39752	the man	121	“ You have nothing , and think the same thing . ”
+39933	39940	39751	39752	the man	121	“ I ’m providing a service . ”
+39941	39947	39889	39889	she	11	“ You ’re a monster . ”
+39948	39962	39963	39963	Temperance	11	“ That I am . I wo n’t lie about who I am . ”
+40011	40019	40020	40020	she	11	“ What are you going to do ? ”
+40023	40035	40036	40037	The man	121	“ I ’m thinking it ’s time I made a call . ”
+40136	40153	40154	40154	Richard	9	“ My friend has been shot . I need an ambulance . His pulse is faint . ”
+40197	40222	40193	40193	Jay	7	“ Fuck me , please tell me I ’m dreaming and I ’m going to wake up to Temperance about to ride my face . ”
+40223	40232	40182	40182	he	9	“ Now is not the time for jokes . ”
+40233	40245	40246	40246	Jay	7	“ I ’m not joking . Fuck me , that hurts . ”
+40258	40265	40266	40266	Lewis	13	“ Colorful language for an accountant , ”
+40269	40289	40266	40266	Lewis	13	“ I ’ve been shot , and I bet it ’s your fault . Pissed off any employees lately ? ”
+40290	40299	40182	40182	he	9	“ None , but it is our fault . ”
+40300	40305	40306	40306	Jay	7	“ Where ’s Tempe ? ”
+40309	40315	40306	40306	Jay	7	“ She ’s not here . ”
+40316	40326	40327	40327	Jay	7	“ What do you mean she ’s not here ? ”
+40334	40345	40327	40327	Jay	7	“ Fuck , I can’t — did they take her ? ”
+40346	40358	40359	40359	Richard	9	“ I do n’t know what the hell is going on , ”
+40362	40375	40376	40376	Lewis	13	“ Do you have security cameras around the whole of the building ? ”
+40379	40387	40376	40376	Lewis	13	“ Everything is controlled with computers now . ”
+40421	40426	40427	40427	Jay	7	“ I fucked up , ”
+40430	40433	40427	40427	Jay	7	“ What ? ”
+40434	40450	40408	40408	Temperance	11	“ I did n’t protect her . Someone has Tempe , and I fucked up . ”
+40451	40477	40427	40427	Jay	7	“ Shut up , Jay . We ’ll deal with this , and we ’ll find her , and we ’ll make the bastards pay . ”
+40478	40501	40427	40427	Jay	7	“ At what cost , man ? They hurt her , and we ’re not going to get the same woman back . ”
+40512	40516	40517	40517	Lewis	13	“ Got it , ”
+40520	40525	40526	40526	Jay	7	“ Help me up , ”
+40529	40535	40526	40526	Jay	7	“ You need to rest . ”
+40536	40553	40565	40565	he	9	“ I ’m not dead yet , and I have a right to see this shit . ”
+40649	40664	40640	40640	Curtis	43	“ Fuckers came in and started shooting . We did n’t have any time . ”
+40813	40819	40820	40820	Jay	7	“ What are you doing ? ”
+40823	40841	40820	40820	Jay	7	“ I ’m finding where he went . I ’ve got recognition software that I can access . ”
+40842	40850	40851	40851	Jay	7	“ I do n’t feel so good . ”
+40868	40891	40857	40857	Richard	9	“ I ’ve got you , Jay . The ambulance will be here , and we ’re all going to be okay . ”
+40892	40912	40820	40820	Jay	7	“ You ’ve got to protect her . She ’s too precious to allow anything to happen to her . ”
+40913	40930	40820	40820	Jay	7	“ Jay , shut up , and stop worrying . You ’re going to be fine . ”
+40931	40946	40947	40947	Richard	9	“ If I do n’t make it , you ’ve got to keep her . ”
+40952	40956	40947	40947	Richard	9	“ Shut up . ”
+40957	40994	40820	40820	Jay	7	“ You ’ve got to love and cherish her , and you ’ve got to go through with it . You ’ve got to marry her , otherwise I ’ll come down and haunt your ass . ”
+40995	41003	40947	40947	Richard	9	“ You ’re not going to die . ”
+41004	41010	40820	40820	Jay	7	“ I ’m so cold . ”
+41045	41053	41030	41030	He	121	“ I see you ’re still awake . ”
+41054	41061	41062	41062	she	11	“ I ’m not exactly comfortable , ”
+41111	41129	41130	41130	He	121	“ This is n’t about your comfort . Do you really think they will come for you ? ”
+41217	41238	41202	41202	she	11	“ You know , I ’ve trained a lot of girls for a lot of men to be their pets . ”
+41239	41252	41202	41202	she	11	“ Is that what you do ? Train them to be animals ? ”
+41253	41274	41202	41202	she	11	“ Hardly animals . Some girls , they fight , and it takes killing another to keep them in line . ”
+41275	41283	41202	41202	she	11	“ Why are you telling me this ? ”
+41284	41331	41202	41202	she	11	“ I ’m thinking if I kill you , it ’ll keep everyone else in line . They have Mandy , and she was great for soothing the girls . She played her part . It was just a shame she decided to turn on us . ”
+41332	41337	41202	41202	she	11	“ Mandy helped you ? ”
+41338	41417	41418	41418	Temperance	11	“ In the beginning she fought like a wild animal . My mentor , he found her the hardest to break , which was why she was given special privileges over time . Once she earned enough , he kept her on to help the other girls . He had no idea the whole time she was a traitor . The woman is an expert actress . No other woman is ever going to get that close again . ”
+41421	41432	41433	41433	He	810	“ That ’s what you get for fucking with women . ”
+41474	41502	41503	41503	She	11	“ Do you really think you ’ve got a chance of getting away ? No one knows where you are . No one knows who I am . ”
+41551	41584	41543	41543	Richard	9	“ You ’re going to be okay . You ’ve got to fucking live . I ’m not having Temperance tell me I failed if you die . Do you hear me ? ”
+41585	41597	41602	41602	Jay	7	“ Mr. Bruce , we ’ve got to take him now . ”
+41617	41638	41607	41608	the paramedics	815	“ You keep him alive . Anything happens to him , and I ’ll own your asses and your hospital . ”
+41639	41647	41648	41648	Jay	7	“ We will do everything we can . ”
+41659	41668	41648	41648	Jay	7	“ Go and get our girl . Now ! ”
+41700	41706	41683	41683	Lewis	13	“ Do you have her ? ”
+41707	41744	41745	41745	Richard	9	“ Whoever took her is not that bright . They did n’t even mask the fucking car , and he led us right to an abandoned warehouse near a port . It ’s thirty minutes out . ”
+41771	41788	41763	41763	He	9	“ Call our informant . Tell him everything , and make sure he gets there soon . ”
+41797	41833	41834	41834	Richard	9	“ It ’s already done , Richard . A group of SWAT is circling the building . It seems this man , known as ‘ the torturer ’ , was on their most wanted list . ”
+41993	42007	42008	42008	he	414	“ Well , I think you may have turned me to fat women , ”
+42068	42110	42111	42111	He	414	“ Such a beautiful body for me to play with . I always thought slender women were the best , but the curvier you are , the more rounded places to hit . You ’re a little more durable as well . ”
+42143	42162	42138	42138	he	414	“ All you ’ve got to do is be good , and you ’ll get everything you want . ”
+42290	42305	42306	42306	He	836	“ I ’m impressed . You ’re not screaming or begging me to stop . ”
+42551	42559	42560	42560	Richard	9	“ I ’ve got you , Temperance , ”
+42574	42577	42578	42578	she	11	“ Richard ? ”
+42585	42596	42578	42578	she	11	“ It ’s me , baby . I ’m here . ”
+42597	42606	42563	42563	His	9	“ You came . I knew you would . ”
+42607	42623	42563	42563	His	9	“ I ’m here now , and I ’m not going to let you go . ”
+42624	42628	42629	42629	she	11	“ I hurt , ”
+42632	42650	42629	42629	she	11	“ I know . No one is going to hurt you again . I ’ve got you . ”
+42731	42739	42740	42740	Jay	7	“ You ca n’t go any faster ? ”
+42743	42763	42740	42740	Jay	7	“ You ’ve had surgery to remove a bullet . Doctor ’s orders you ’re to take it easy . ”
+42764	42777	42778	42778	He	7	“ So ? Get me to my woman . Move , man ! ”
+42834	42842	42825	42826	the billionaires	846	“ Damn , is it that bad ? ”
+42843	42868	42869	42869	Jackson	29	“ One of our own is hurting , and we ’re here to offer him support . It ’s the way of the club . ”
+42918	42925	42926	42926	Richard	9	“ Jay ’s here , baby , ”
+42929	42932	42926	42926	Richard	9	“ Jay ? ”
+42945	42952	42933	42933	Temperance	11	“ I ’m here , baby . ”
+42984	42989	42953	42953	Jackson	29	“ You ’re safe . ”
+42990	43031	43032	43032	He	29	“ Yes , I ’m safe . Damn bullet had to be taken out , but I ’m doing good . It did n’t hit anything vital , and I ’ll be out tomorrow . You know the health service . ”
+43040	43045	43032	43032	He	29	“ Always cracking jokes . ”
+43046	43052	43053	43053	He	29	“ It ’s my method . ”
+43063	43067	43053	43053	He	29	“ Forgive me . ”
+43068	43084	43032	43032	He	29	“ There ’s nothing to forgive , Jay . Neither of us could do anything . ”
+43085	43097	43098	43098	Jay	7	“ You got to her in time before anything worse happened ? ”
+43101	43112	43113	43113	Richard	9	“ I got to her , but I do n’t — ”
+43122	43187	43188	43188	Jay	7	“ Do n’t let him blame himself . I was n’t raped , and I was n’t hurt too badly . The wounds , they will fade , and in time , I ’ll be safe and happy once again . Do n’t let him go making it about himself . He ’s a billionaire , and he has enough attention as it is . ”
+43191	43212	43188	43188	Jay	7	“ Come on , man . What happened , it was fucked up , but we ’re all here now . ”
+43236	43285	43222	43222	He	9	“ I love you , Temperance . I ca n’t live without you , and I do n’t want to . I ca n’t live without you either , Jay . I ’ll never want to fuck you , but do n’t ever fucking scare me like that . ”
+43286	43302	43222	43222	He	9	“ Wow , I feel all bro - manced up . Love you , too . ”
+43303	43323	43324	43324	Temperance	11	“ I love you both , and I do n’t want to spend another moment without either of you , ”
+43327	43334	43335	43335	Jay	7	“ This is it for me , ”
+43338	43357	43335	43335	Jay	7	“ I want you both , and I ’m happy to share my life with you , Richard . ”
+43358	43386	43387	43387	Richard	9	“ I want my kids with you , Tempe , and I do n’t care who gives them to you . We ’re both in this together . ”
+43949	43954	43955	43955	Lewis	13	“ There you are , ”
+43963	43966	43955	43955	Lewis	13	“ Hey . ”
+44013	44018	43996	43996	She	26	“ You just left . ”
+44019	44026	44027	44027	She	26	“ You needed to be alone . ”
+44035	44046	44027	44027	She	26	“ They got the torturer . He ’s in custody . ”
+44047	44055	44056	44056	Lewis	13	“ There ’s more to replace him . ”
+44059	44062	44056	44056	Lewis	13	“ What ? ”
+44063	44098	44027	44027	She	26	“ Do you remember when we were little , younger ? You used to say that nothing would ever happen to a good girl because there was no way darkness could touch someone good . ”
+44099	44102	44027	44027	She	26	“ Mandy ? ”
+44103	44109	44027	44027	She	26	“ That ’s not true . ”
+44115	44131	44027	44027	She	26	“ Darkness touches everyone , and the monsters prey on the good , the weak . ”
+44132	44136	44027	44027	She	26	“ You remember ? ”
+44137	44141	44027	44027	She	26	“ I remember . ”
+44142	44152	44027	44027	She	26	“ Shit , why did n’t you say anything ? ”
+44168	44187	44161	44166	the man who had saved her	872	“ You were never supposed to save me , Lewis . You were always supposed to help them . ”
+44188	44197	44198	44198	She	26	“ Mandy , I had to help you . ”
+44203	44228	44198	44198	She	26	“ I ’m beyond help . Those women , those innocent girls , they need your help . I ’ve got to go back . ”
+44229	44238	44161	44166	the man who had saved her	872	“ No ! You ’re not going back . ”
+44243	44256	44239	44239	Her	26	“ What use am I here ? I ca n’t even spell . ”
+44257	44270	44198	44198	She	26	“ You can use a computer , and you can help me . ”
+44271	44301	44302	44302	Lewis	13	“ I ’m dirty , Lewis . I did things that I do n’t ever want to think about or remember . I do n’t deserve to be free . ”
+44307	44368	44302	44302	Lewis	13	“ I started the club . I made sure we did these missions . I lied to them . Everything I did was in order to find you . You ’re the only one I was searching for . The only one I cared about . I thought once I had you , I ’d stop , not look back . ”
+44369	44372	44198	44198	She	26	“ Lewis ? ”
+44373	44378	44379	44379	He	873	“ Let me finish . ”
+44386	44423	44379	44379	He	873	“ I ca n’t give up . I started something in finding you , and we were lucky to find each other . I ’m not giving you up , but I will stop fucking looking . ”
+44424	44427	44198	44198	She	26	“ What ? ”
+44428	44470	44198	44198	She	26	“ If you go back and put yourself in danger again , I will stop , and I will never start again . You ’ll be on your own , and I will thwart any attempt you make to help people . ”
+44471	44476	44477	44477	Lewis	13	“ That ’s blackmail . ”
+44482	44559	44477	44477	Lewis	13	“ I lost you once . I had to live knowing that you were being hurt . Every night I lay awake hearing you scream my name , begging for me to save you . I ’ve saved you . I do n’t give a shit what you did . It ’s you , Mandy . You did it for a reason . You ’re going to be more help to me here than anywhere else . ”
+44585	44592	44593	44593	she	875	“ Where do we get started ? ”
+44596	44602	44603	44603	He	13	“ That ’s my girl . ”
+44609	44615	44603	44603	He	13	“ You ’re not dirty . ”
+44619	44636	44616	44616	Mandy	26	“ I ’ve sucked enough cock and pleasured enough men to know that I ’m dirty . ”
+44689	44725	44677	44677	She	26	“ You ’re not dirty to me . I love you , Mandy . It ’s hard for you to accept right now , but I do love you . I love you so much . ”
+44851	44861	44862	44862	Jay	7	“ I ’m not going to miss hospital food , ”
+44920	44932	44933	44933	Richard	9	“ Me neither . I look forward to something cooked properly . ”
+44953	44966	44967	44967	Jay	7	“ No one knows the real you , do they , Richard ? ”
+44970	44973	44967	44967	Jay	7	“ What ? ”
+44974	44996	44967	44967	Jay	7	“ Well , you ’re called a beast , but I have to say , you ’re like a little puppy . ”
+44997	45007	44967	44967	Jay	7	“ Jay , do n’t try to taunt him . ”
+45008	45034	45035	45035	He	7	“ You ’re a friend , Jay . Friends do n’t get to see that side of me . I reserve it for everyone else . ”
+45106	45132	45133	45133	Temperance	11	“ I ’ve seen him be a beast at work . Honestly , you do not want to get on this man ’s bad side , ”
+45217	45234	45203	45203	he	7	“ The guys are coming over later tonight . Anna ’s going to be with them . ”
+45235	45244	45245	45245	Temperance	11	“ What about Luna ? Is she coming ? ”
+45248	45276	45245	45245	Temperance	11	“ No . She has to stay home . Her kid is sick , and we ’re not going to force her to come to the club . ”
+45277	45290	45324	45324	she	11	“ Damn , remind me to order a care package or something . ”
+45373	45378	45379	45379	Jay	7	“ How about Vegas ? ”
+45382	45393	45394	45394	Temperance	11	“ I ’m not going to get married in Vegas , ”
+45397	45401	45394	45394	Temperance	11	“ Why not ? ”
+45402	45417	45394	45394	Temperance	11	“ It ’s tacky , and I do n’t want to get married there . ”
+45418	45423	45394	45394	Temperance	11	“ It ’s easy . ”
+45424	45456	45394	45394	Temperance	11	“ I do n’t care . It ’s not going to happen . I want a proper wedding . Not something that is rushed just because you think it should be . ”
+45457	45470	45471	45471	Jay	7	“ I ’m not the only one who thinks it should be , ”
+45474	45483	45471	45471	Jay	7	“ Come on , Richard , tell her . ”
+45484	45525	45394	45394	Temperance	11	“ This is something you can do all on your own . I ’ll be there at the right time to say the ‘ I dos ’ , and that is it . Tempe can have whatever wedding she wants . ”
+45526	45534	45394	45394	Temperance	11	“ You ’re just kissing her ass . ”
+45535	45558	45471	45471	Jay	7	“ At least he knows what ass to actually kiss . Whereas you , Jay , you ’re heading toward no sex . ”
+45559	45567	45394	45394	Temperance	11	“ You ’d deprive a man sex ? ”
+45568	45577	45578	45578	She	900	“ To get what I want ? Yes . ”
+45581	45594	45595	45595	She	900	“ I can do it now . I have two of you . ”
+45698	45708	45709	45709	Sean	30	“ You ’re saying it ’s multi - organized ? ”
+45712	45771	45709	45709	Sean	30	“ Yes . They ’re everywhere , and they take orders from powerful men . It ’s not just personal orders though . They , erm , they take women and kids off the street to fill a need , or a space within brothels . Only a select few girls get given to the torturer for training . ”
+45772	45775	45776	45776	Richard	9	“ Torturer ? ”
+45779	45789	45776	45776	Richard	9	“ That ’s the guy who was hurting Tempe . ”
+45790	45873	45709	45709	Sean	30	“ He wo n’t be the only one . If anything , he ’d be the one assigned to this port . They will have hundreds of them all around the world . The women that men want to have training will go to that man . After a period of between six months to a year , he will have the perfect , compliant slut , as they call it . A pet , a submissive , a toy , property . ”
+45874	45881	45882	45882	Richard	9	“ How do you know this ? ”
+45885	45902	45903	45903	Mandy	26	“ I was one of the few who was trained . The order is very specific , ”
+45906	45935	45903	45903	Mandy	26	“ It has to match what they want . Without it , there is no payment , and in this world , it ’s all about the payment . ”
+45936	45949	45950	45950	Jackson	29	“ Something like this has to have someone finding out about it , ”
+45953	45961	45950	45950	Jackson	29	“ Cops ca n’t just ignore it . ”
+45962	45990	45991	45991	Mandy	26	“ Select groups of professionals are trained to get the cops to look the other way , and create distractions that take their eye off the ball . ”
+45997	46038	45991	45991	Mandy	26	“ When I was still part of the organization , there was a big operation down on the south coast . It was an easy port to access for them , and also one of the head directors owns it . ”
+46039	46052	46053	46053	Jamie	31	“ We ’re talking about bringing down billion dollar corporations disguising traffickers ? ”
+46056	46066	46067	46067	Mandy	26	“ You ’re not going to get them all , ”
+46070	46101	46067	46067	Mandy	26	“ They ’re everywhere , and they hide really well . You can only hope to help so many . If you save one , it ’s better than none . ”
+46102	46110	46111	46111	Lewis	13	“ We started something because of me , ”
+46114	46175	46111	46111	Lewis	13	“ I was looking for Mandy , but I ca n’t turn my back on this . I ’ve got the means , I ’ve got the power , I want to make this my life ’s work . When people think about taking another woman or girl from the street , I want them to hesitate , to stop . ”
+46195	46235	46236	46236	Richard	9	“ If you do n’t wish to continue this , I understand . I ’m not going to stop . I ’m in this for the long haul , and there ’s no way I ’m letting it go . ”
+46239	46288	46236	46236	Richard	9	“ I ’m not backing down . I saw the mess , and what they have done to other women . I ’m not going to stop until I either die , or they kill me . Either way , I ’m in this . Count me in . ”
+46289	46293	46294	46294	Jackson	29	“ And me , ”
+46297	46323	46294	46294	Jackson	29	“ I want to see every single son of a bitch pay . This is not about the club anymore . This is about justice . ”
+46414	46422	46404	46404	Anna	15	“ Our baby is coming , Russ . ”
+46423	46427	46404	46404	Anna	15	“ Holy shit . ”
+46479	46485	46486	46486	Temperance	11	“ I ’ve got it , ”
+46515	46544	46545	46545	She	11	“ Okay , I can see a baby ’s head here , and I can tell you , we ’re not going to make it to the hospital . ”
+46550	46573	46545	46545	She	11	“ Make sure the paramedics are here . I do n’t know what else I can do . Russ , hold her . ”
+46701	46707	46684	46684	Jay	7	“ I delivered a baby . ”
+46708	46718	46719	46719	Richard	9	“ I thought I was going to pass out , ”
+46722	46728	46719	46719	Richard	9	“ You were very brave . ”
+46729	46732	46733	46733	she	11	“ Brave ? ”
+46736	46771	46772	46772	Jay	7	“ I thought I was going to pass out , too . I ’ve just seen a vagina do something I never wanted to see , and yeah , I do n’t wants kids . ”
+46775	46797	46772	46772	Jay	7	“ You ’ll want kids some day . It ’s you , and you ’ll make one hell of a mother . ”
+46798	46804	46805	46805	she	11	“ Do you think so ? ”
+46808	46826	46805	46805	she	11	“ I know so . I do n’t doubt it . You ’ll make an amazing mother . ”
+46832	46838	46827	46827	She	11	“ What do you think ? ”
+46839	46846	46772	46772	Jay	7	“ About you being a mother ? ”
+46850	46876	46847	46847	She	11	“ I ’ve got no doubt . You ’re an amazing person , and you ’re going to be the best mother in the world . ”
+46885	46890	46877	46877	She	11	“ I love you . ”
+46891	46898	46899	46899	He	9	“ I love you , too . ”
+46904	46912	46913	46913	she	11	“ I want to ask you something , ”
+46916	46921	46913	46913	she	11	“ What , baby ? ”
+46922	46933	46934	46934	He	9	“ Will you be helping others like Mandy and Anna ? ”
+46938	46953	46954	46954	Jay	7	“ We were talking about it with Anna while you were in a meeting , ”
+46957	46967	46954	46954	Jay	7	“ We believe it ’s something you should do . ”
+46968	46994	46995	46995	Richard	9	“ The club , we started something , and we ’re going to finish it . Or at least , we ’re going to try . ”
+47006	47017	46995	46995	Richard	9	“ Do you have a problem with me doing that ? ”
+47023	47056	46995	46995	Richard	9	“ No . I ’m proud of you . Just do n’t do anything to get yourself killed . I love you too much . I do n’t want to lose you . ”
+47057	47066	47067	47067	He	9	“ You ’re not going to lose me . ”
+47107	47110	47104	47104	Someone	222	“ The Beast ”
+47221	47235	47236	47236	she	11	“ Mysterious PA and mystery man ? Who do they think we are ? ”
+47239	47248	47249	47249	Jay	7	“ They clearly do n’t have a clue , ”
+47259	47272	47273	47273	He	7	“ I ’ve got a much better way of spending our honeymoon . ”
+47306	47315	47316	47316	Jay	7	“ It ’s time I took your ass , ”
+47405	47413	47414	47414	he	7	“ Do you want this , baby ? ”
+47429	47434	47414	47414	he	7	“ Yes , Richard . ”
+47487	47496	47497	47497	Richard	9	“ Do you like him in your ass ? ”
+47500	47503	47497	47497	Richard	9	“ Yes . ”
+47504	47516	47533	47533	his	7	“ Do you want me in your pussy ? Your husband ? ”
+47517	47527	47528	47528	He	7	“ Yes , please , Richard , fuck me . ”
+47543	47553	47554	47554	She	11	“ I want to get you pregnant , Tempe . ”
+47557	47561	47554	47554	She	11	“ Not yet . ”
+47562	47583	47584	47584	He	7	“ Yes , I want to fill you with my spunk , and see you grow big with our kid . ”
+47601	47611	47612	47612	she	11	“ We ’ve got the rest of our lives , ”
+47617	47626	47612	47612	she	11	“ Exactly , let ’s start it now . ”

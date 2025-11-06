@@ -1,0 +1,662 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+0	12	13	13	She	35	“ You need to understand this real quickly , Mr. Titan , ”
+18	27	28	28	she	35	“ I will not marry you , ever , ”
+65	83	84	84	he	36	“ You did n’t call me Mr. Titan when you were screaming out my name in passion , ”
+155	167	168	168	she	35	“ I did n’t know that was who you were there , ”
+172	188	189	189	he	36	“ You ’re seriously the most frustrating woman I ’ve ever had to deal with , ”
+195	205	206	206	she	35	“ Then stop dealing with me and go away , ”
+529	598	599	599	Derek	9	“ You do n’t know what you ’re missing out on Drew . I ’ve never been so happy in my entire life . I love you and Ryan like brothers , you know that , but there ’s something completely satisfying about having a wife and children . It fills a void you do n’t even know is there until you finally are with your true love , ”
+614	670	671	671	Drew	6	“ You know , I think Jasmine is about the most perfect person in this universe but marriage just is n’t for me . I ’m a confirmed bachelor . Why would I want to settle down with just one lady , when I can have a new one on my arm every single night ? ”
+737	771	772	772	Derek	9	“ Yeah , well you know I felt the same way until Jasmine came back into my life and now I just think of all the wasted years we could ’ve been together , ”
+811	874	875	875	he	6	“ I think I ’m so restless because I need a vacation . I ’ve been working non - stop for years now and I think I ’m going to pick one of my resorts and just go soak up some sun and lounge around . I ’m sure I can find a few pretty ladies to enjoy the time with me , ”
+959	969	970	970	Jasmine	10	“ What are you boys up to out here ? ”
+1042	1058	1059	1059	Derek	9	“ Oh , you know Drew , he ’s talking about all the pretty ladies , ”
+1135	1139	1140	1140	Jasmine	10	“ Sorry Drew , ”
+1155	1160	1161	1161	Derek	9	“ Want to babysit ? ”
+1249	1267	1268	1268	he	9	“ I know your parents are a bit nutty but you have to love them , anyway , ”
+1365	1383	1384	1384	Drew	6	“ I ’m going to take off now , since my presence here is obviously not needed , ”
+1391	1402	1403	1403	Derek	9	“ Hey , you know you ’re always wanted here , ”
+1411	1461	1462	1462	he	9	“ I know . That ’s why I keep coming back . I ’m going to take everyone ’s advice though and go on a vacation . I ’m sure once I get away for some fun , I ’ll feel much better and can get back to normal , ”
+1465	1482	1483	1483	Derek	9	“ Do n’t stay away too long , you know how quickly Britney is growing up , ”
+1494	1569	1570	1570	he	9	“ I ca n’t believe how quickly she ’s growing . I ’ll be back in a week or so . I ’m thinking it ’s time to start slowing down . I ’m realizing traveling is n’t holding the same appeal it used to and whenever I ’m away I ’m anxious to get back . I think it ’s your wife ’s cooking . I swear I ’ve put on twenty pounds , ”
+1580	1601	1602	1602	Derek	9	“ I understand . I ’m going to have to go to the tailor to let all my pants out , ”
+2955	2960	2961	2961	he	6	“ What the hell ? ”
+3454	3458	3459	3459	she	141	“ What happened ? ”
+3497	3530	3531	3531	he	6	“ I ran into you with my surfboard , I did n’t see you out there . We ’re going to the first aid station , to make sure everything is okay , ”
+3692	3699	3700	3701	the doctor	155	“ What happened , Mr. Titan ? ”
+3713	3762	3763	3763	he	155	“ I was paddling out and ran into her in the water . I hit her pretty hard in the head and had to perform CPR . There was n’t much water in her lungs , thankfully . She was only under the water for a few seconds , ”
+3778	3828	3829	3830	the doctor	155	“ She will be just fine . Her head is going to hurt pretty badly but other than that , there ’s no permanent damage . She should n’t be alone tonight though , so if no one is with her , I strongly recommend she stay here overnight , ”
+3833	3856	3857	3857	he	155	“ She also needs to rub this aloe lotion on her skin , or she ’s going to be hurting pretty badly , ”
+3907	3918	3919	3919	Drew	6	“ I ’ll make sure she ’s taken care of , ”
+3939	3946	3947	3947	Drew	6	“ What ’s your full name ? ”
+3951	3955	3956	3956	she	169	“ Trinity Mathews , ”
+3961	3967	3968	3968	she	169	“ I ’m on vacation , ”
+4004	4011	4012	4012	he	6	“ Are you here with someone ? ”
+4038	4047	4048	4048	she	169	“ No I ’m here on my own , ”
+4051	4057	4058	4058	she	169	“ My head really hurts , ”
+4066	4090	4091	4091	he	6	“ The doctor gave you a shot for that . It will work much faster than pills . It should kick in soon , ”
+4171	4182	4183	4183	he	6	“ move Ms. Mathew ’s possessions to the executive suite , ”
+4196	4210	4211	4211	Drew	6	“ Trinity , the resort is going to move you to a suite , ”
+4399	4434	4435	4435	he	184	“ Trinity , I ’m sorry to wake you but the doctor said you need to get this lotion on , or you ’ll burn badly and hate life even worse , come morning , ”
+5069	5077	5078	5078	he	198	“ How are you doing , Trinity ? ”
+5085	5099	5100	5100	she	12	“ I ’m fine . Where am I and why are you here ? ”
+5185	5199	5200	5200	she	12	“ I ’m sorry but I do n’t know when I ate last , ”
+5222	5296	5297	5297	he	201	“ It ’s fine really ; I was getting ready to wake you up when you came out . You have been asleep for fourteen hours . The doctor said he ’d given you a pretty large dose of pain killer and I was checking on you often but still , I was beginning to worry . He also did n’t want you alone , so I volunteered to take care of you , ”
+5311	5316	5317	5317	she	12	“ Where am I ? ”
+5322	5337	5338	5338	he	201	“ The hotel upgraded you , since you went through such a bad accident , ”
+5344	5365	5366	5366	she	12	“ That ’s so great . My old room was pretty spectacular but come on , look at this room , ”
+5404	5443	5444	5444	she	12	“ So what exactly happened ? I was swimming one minute , then all I know is I felt this horrible pain in my head , then blackness , till I woke up to see you above me , ”
+5453	5472	5473	5473	he	201	“ I was out surfing and did n’t see you . I ran into you with my surfboard , ”
+5512	5581	5582	5582	she	12	“ Sorry , really I am but you have to admit , it ’s pretty funny . I ’ve never had a vacation before , ever in my life . I ’m always the good girl who does everything right and always plays it safe and then on my first day of vacation I take a swim and get whacked in the head . It ’s pretty amusing , ”
+5631	5638	5639	5639	he	201	“ I really am very sorry , ”
+5644	5698	5699	5699	she	12	“ Seriously it ’s not like you went out there on purpose and thought to yourself , ‘ hmm I think I ’d like to hit someone today , ’ so do n’t worry about it . After all , I did get this amazing suite and that ’s worth a nasty headache , ”
+5704	5733	5734	5734	she	12	“ I actually feel a bit guilty about it because they could rent it to someone else . I ’ll tell them it ’s no big deal tomorrow , ”
+5744	5783	5784	5784	he	201	“ I ’m sure they are more than happy to let you stay here and recuperate fully . Why not enjoy the nice room and have a spectacular vacation . There are some amazing things to do here , ”
+5803	5834	5835	5835	she	12	“ I ’m too tired to even think about moving at the moment , so I ’ll have to think some more on it . What time is it anyway ? ”
+5837	5846	5847	5847	he	201	“ It ’s about five in the morning , ”
+5853	5867	5868	5868	he	201	“ You slept the rest of the afternoon and most of the night , ”
+5871	5897	5898	5898	she	12	“ Wow that ’s a bummer . I wasted an entire day of vacation . I ’ll just have to make up for it today , ”
+5941	5957	5958	5958	he	201	“ I ’d love to be your tour guide , if you ’d let me , ”
+5962	5970	5971	5971	she	12	“ Are you here on vacation too ? ”
+5974	5980	5981	5981	he	201	“ I am for now , ”
+6029	6044	6045	6045	she	12	“ Well in that case , I ’d love to have a tour guide , ”
+6071	6080	6081	6081	she	12	“ What do you do for a living ? ”
+6158	6165	6166	6166	he	201	“ I work for the resort , ”
+6184	6199	6200	6200	she	12	“ Oh , you work here . But you said you ’re on vacation , ”
+6222	6243	6244	6244	he	201	“ I ’m off for a few days , which is always a vacation , when you ’re in paradise , ”
+6292	6326	6327	6327	she	12	“ Well in that case , I could most definitely use a guide , especially one who knows the area but I do n’t want to take you away from your other activities , ”
+6331	6343	6344	6344	he	201	“ Spending time with a beautiful lady is never a hardship , ”
+6470	6481	6482	6482	she	12	“ I just realized I do n’t know your name , ”
+6487	6502	6503	6503	he	201	“ My name is Drew and it ’s my pleasure to officially meet you , ”
+6897	6922	6923	6923	she	12	“ I ’ll sign your papers , promising not to sue but you really do n’t need to give me all this extra stuff , ”
+6987	7041	7042	7042	Drew	6	“ Trinity these corporations make massive amounts of money and can afford it , besides its most likely coming out of the insurance anyway . Why do n’t you just take what is being offered and have an incredible vacation . Just think of all the spa services and playing you can do , ”
+7054	7060	7061	7061	she	12	“ You really think so ? ”
+7098	7129	7130	7132	the kind man	238	“ We ’re sorry your vacation has been interrupted and hope this will make up for it . Please take advantage of all our services and fully enjoy your stay , ”
+7135	7163	7164	7164	she	12	“ It really was n’t bad and you ’ve been very kind . Maybe I ’ll use the money to go to one of your other resorts , ”
+7174	7182	7183	7184	the manager	226	“ That would be excellent Ms. Mathews , ”
+7187	7217	7218	7218	he	238	“ If you decide to do that , give us a call and we ’ll make sure you get the royal service , for a fraction of the cost , ”
+7473	7484	7485	7485	he	100	“ So , what would you like to do next ? ”
+7489	7525	7526	7526	she	12	“ I told you earlier this is my first vacation , so I ’m going to leave it up to you . Whatever you think would be fun and adventurous , I want to do , ”
+7565	7580	7581	7581	he	100	“ Okay but be prepared for the consequences of leaving it all to me , ”
+7886	7893	7894	7894	she	12	“ Mmm this water is heavenly , ”
+8927	8938	8939	8939	Trinity	12	“ I do n’t know where my bathing suit is , ”
+8958	8965	8966	8966	Drew	6	“ I ’m sorry about that , ”
+9015	9023	9027	9027	someone	1599	“ Hey , who ’s in there ? ”
+9079	9089	9090	9090	he	278	“ I ’ll go find them , wait here , ”
+9176	9203	9204	9204	he	278	“ I knew the night guard out there and he ’s gone now . Let ’s sneak out of here and go back to the room , ”
+9282	9291	9292	9292	she	12	“ I ca n’t believe I did that , ”
+9348	9368	9369	9369	Drew	6	“ Believe it or not I ’ve never been so hungry for a woman that I lost my head , ”
+9413	9431	9432	9432	she	12	“ I ’m going to take a shower because I ’m freezing and ca n’t quit shaking , ”
+9441	9452	9453	9453	he	6	“ I ’ll join you , to save on water , ”
+9846	9855	9856	9856	Drew	6	“ Where do you live in the states ? ”
+9868	9885	9886	9886	she	12	“ If I tell you , then the magic of our time together starts to fade , ”
+9890	9910	9911	9911	he	6	“ I make it there sometimes and would love to come see you , if I ’m in town , ”
+9914	9944	9945	9945	she	12	“ I do n’t think it ’s a good idea . This has been unbelievable and if we try to stay in contact the real world will break in , ”
+9950	10000	10001	10001	he	6	“ You do n’t have to tell me exactly where you live , just a state and if it ’s meant to be , we ’ll run into each other at a romantic little café , on a rainy day and realize we ca n’t stand to be apart , ”
+10031	10038	10039	10039	she	12	“ I live in rainy Washington , ”
+10244	10254	10255	10255	he	6	“ I ’m in the beautiful North West often , ”
+10306	10438	10439	10439	she	319	“ I ’m going to be honest Drew , even though it ’s kind of hard for me to do so . I ’m always the pushover . My last boyfriend , who I thought I was going to eventually marry , decided to bed his secretary , which led me to this very impulsive vacation . I ’m grateful I took it and met you . I regret nothing but if I keep in contact with you when I get back to the real world , it ’ll change how I feel . I ’ll start thinking of happily ever after , instead of right now and I ’m not this girl you think I am . You wo n’t like me when I ’m back in the real world , ”
+10449	10506	10507	10507	he	320	“ I could never dislike you Trinity , no matter where we are , so here ’s what I ’ll do . Here ’s my phone number and I ’ll wait each day for the call to come in . If you ’d trust me , even a little bit , you could offer me yours , ”
+10590	10622	10623	10623	she	319	“ Okay we ’ll do it your way but believe me , I ’ll be the first to say I told you so , when you realize how boring I am , ”
+10629	10638	10639	10639	he	320	“ Let me be the judge of that , ”
+10679	10699	10700	10700	she	319	“ This has been the best vacation I ’ve ever had , even if it ’s the only one , ”
+10708	10719	10720	10720	he	320	“ How about we make it a few extra days ? ”
+10745	10754	10755	10755	she	319	“ I might be able to do that , ”
+10808	10825	10826	10826	he	320	“ Let ’s go tell the hotel you ’re keeping that room a little while longer , ”
+10833	10856	10857	10857	she	319	“ I can go back to my original room . They are n’t going to want me to stay in the suite , ”
+10866	10881	10882	10882	she	319	“ I need to make sure I can change my tickets , as well , ”
+10890	10906	10907	10907	he	320	“ Remember you ’re being impulsive , so do n’t worry about any of it , ”
+10919	10925	10928	10929	a woman	141	“ Drew is that you ? ”
+10985	10994	10995	10995	he	320	“ Hello Nancy , how are you doing ? ”
+11020	11042	11043	11043	she	326	“ I ’m just wonderful . You have a beautiful resort here and I ’m so glad we decided to stay , ”
+11052	11071	11072	11072	she	326	“ I ’ve just finished with your amazing spa and feel like I ’m floating on a cloud , ”
+11075	11100	11101	11101	he	320	“ I ’m so happy you ’re enjoying yourself . We ’re in a hurry but I ’d love to chat with you later , ”
+11208	11233	11234	11235	the woman	326	“ Drew , I ’m sorry to bug you again but my husband really wanted to meet you and talk about the golf course , ”
+11247	11268	11269	11269	she	326	“ Darling , this is Drew Titan , the owner of the resort . Drew , my husband , Dean , ”
+11431	11436	11437	11437	he	6	“ Let me explain … ”
+11442	11493	11494	11494	she	340	“ Do n’t bother , Mr. Titan . I do n’t know why you even bothered with the entire seduction scene , considering I signed those papers pretty quickly for you . Is there something else you need signed to assure your precious resort is safe from my greedy clutches ? ”
+11499	11510	11511	11511	he	6	“ I ’m not worried you ’ll sue the resort , ”
+11525	11556	11557	11557	he	6	“ I just wanted a week with a beautiful woman who did n’t know who I was . That does n’t make me the bad guy you think I am , ”
+11560	11608	11609	11609	she	341	“ Oh , I ’d never say you were a bad guy . You did everything just perfectly . You wined and dined me ; you swept me off of my feet . You were the absolute perfect host and I never want to see you again , ”
+11782	11790	11791	11791	she	12	“ Excuse me , is anyone here ? ”
+12076	12096	12097	12097	Trinity	12	“ Sorry about that , it ’s taking me a bit longer to get to my feet these days , ”
+12127	12138	12139	12140	the woman	326	“ Is this you and your husband ’s first child ? ”
+12143	12157	12158	12158	she	12	“ This is my first child . I ’m not married , though , ”
+12175	12178	12179	12180	the woman	326	“ Oh , ”
+12186	12196	12197	12197	she	12	“ I do n’t really need anything after all , ”
+12276	12280	12285	12286	Damien Whitfield	18	“ Hello beautiful , ”
+12289	12306	12307	12307	Trinity	12	“ You ’re a breath of fresh air Damien , it ’s been a rough day , ”
+12320	12332	12333	12333	he	356	“ I always like to hear that from a beautiful lady , ”
+12341	12357	12358	12358	he	356	“ I ’m taking you out for a terrific dinner and the new horror flick , ”
+12367	12372	12373	12373	she	12	“ That sounds heavenly , ”
+12453	12478	12479	12479	he	356	“ I ’ve been trying to work up the courage to speak to you about something but have n’t known how to approach it , ”
+12491	12503	12504	12504	she	12	“ You know you can talk to me about anything Damien , ”
+12512	12541	12542	12542	Damien	18	“ Okay , I ’m just going to go for it and I want you to really listen to me and seriously think about what I ’m saying , ”
+12568	12593	12594	12594	he	356	“ I think we should get married , no wait , before you start shaking your head . Remember , you promised to listen , ”
+12605	12615	12616	12616	she	12	“ Okay I ’ll listen but you ’re crazy , ”
+12621	12690	12691	12691	Damien	18	“ It ’s really not that crazy if you think about it . We ’re best friends and truly love each other . We ’ve always been there for each another , plus we never fight . Neither one of us have been able to find the right person and now you have this baby girl coming in four short months and I ’d make a terrific father , ”
+12697	12717	12718	12718	she	12	“ But Damien we have never been more than friends . There has to be more than just friendship , ”
+12754	12782	12783	12783	he	363	“ I ’m simply asking you to think about it . I can take care of you and the baby and I think we could be happy , ”
+12932	12941	12942	12942	she	12	“ Let me think about things , Damien , ”
+12945	12978	12979	12979	he	6	“ Take your time Trinity , I know it ’s a huge decision but I really do mean it . I ’ll take care of you and love every second doing it , ”
+13056	13071	13072	13072	she	370	“ What happens if you meet the one and you ’re stuck with me ? ”
+13075	13088	13089	13089	he	6	“ What if you ’re the one but we never realized it ? ”
+13326	13367	13368	13368	he	6	“ Well , I ’ll leave you for now . Let me know what you decide . Our marriage does n’t have to be about passion and unrequited love , it can be about friendship and loving your baby girl , ”
+13740	13755	13756	13756	she	12	“ I ’ll marry you , if the offer ’s still on the table , ”
+13764	13769	13770	13770	Damien	18	“ That ’s wonderful , ”
+13839	13906	13907	13907	he	384	“ I think we should do it before the baby is born . If you want a big wedding that ’s fine , it ’s all up to you . I want your wedding day to be special and you know money is n’t an issue . We ’ll have a good marriage and I do n’t want you to have regrets about the wedding itself , ”
+13911	13937	13938	13938	she	12	“ No , we can just do it at the courthouse , I do n’t have anyone I ’d invite to a real wedding anyway , ”
+14025	14043	14044	14044	he	384	“ I did n’t even think about getting you a ring . I ’ll do that tomorrow , ”
+14096	14111	14112	14112	she	12	“ I do n’t need a fancy ring Damien , just a simple band , ”
+14123	14132	14135	14135	Drew	6	“ What do you need a ring for ? ”
+14221	14228	14229	14229	she	12	“ What are you doing here ? ”
+14238	14246	14247	14247	he	384	“ I asked you a question first , ”
+14386	14416	14417	14417	she	12	“ I ’m tired Drew and do n’t want to talk right now . The shop is open tomorrow , why do n’t you come over there around noon , ”
+14456	14476	14477	14477	he	384	“ I think we ’ll talk now and I ’d still like to hear why you need a ring , ”
+14536	14542	14543	14543	Damien	18	“ We ’re getting married , ”
+14659	14685	14686	14686	Drew	6	“ I see it did n’t take you long to bounce back after our relationship , or is this the man who cheated on you ? ”
+14727	14751	14752	14752	she	12	“ None of it is any of your business Drew . You need to leave now , we have nothing to talk about , ”
+14791	14799	14800	14800	he	6	“ How far along are you Trinity ? ”
+14989	14996	14997	14997	she	12	“ I ’m five months along , ”
+15023	15030	15031	15031	he	6	“ The baby is mine then , ”
+15059	15135	15136	15136	she	415	“ It does n’t matter , Drew . We had a week together and it did n’t work out . I do n’t expect anything from you , so you ’re free to leave . I know how you like your papers signed though , so if you have your attorney fax them to my shop , I ’ll sign whatever you need to be released from responsibility and you can be on your way , ”
+15162	15195	15196	15196	Damien	18	“ Trinity you need to figure some things out , so I ’m going to leave . Call me if you need me and I ’ll be here within a few minutes , ”
+15332	15343	15344	15344	he	6	“ Were you going to tell me about the baby ? ”
+15370	15377	15378	15378	she	415	“ I would ’ve , eventually , ”
+15431	15440	15441	15441	he	6	“ Who was that guy you were with ? ”
+15502	15513	15514	15514	she	415	“ That ’s Damien , we decided to get married , ”
+15549	15558	15559	15559	Drew	6	“ How long have you been seeing him ? ”
+15599	15606	15607	15607	she	415	“ He ’s my best friend , ”
+15653	15660	15661	15661	he	6	“ Why are you marrying him ? ”
+15679	15689	15690	15690	she	415	“ He wants to help me with the baby , ”
+15715	15725	15726	15726	he	6	“ You want another man to raise my child ? ”
+15807	15835	15836	15836	she	415	“ Look , we both know the week we had was a mistake . I ’m not going to punish my child by trying to pretend otherwise , ”
+15840	15859	15860	15860	he	6	“ Tell your friend the marriage is off because the real father will be doing the right thing , ”
+15865	15873	15874	15874	she	415	“ Do n’t be ridiculous , Drew , ”
+15878	15911	15912	15912	he	6	“ I ’m the one being ridiculous ? You were trying to keep my child from me . If I had n’t shown up here , you would ’ve never told me , ”
+15916	15928	15929	15929	she	415	“ I ’m exhausted and I ’m done with this conversation , ”
+15936	15944	15945	15945	she	415	“ Please lock the door behind you , ”
+16537	16544	16545	16545	Drew	6	“ I ’ll be marrying her , ”
+16555	16561	16562	16562	Damien	18	“ I figured as much , ”
+16586	16595	16596	16596	Drew	6	“ Why are you still hanging around then ? ”
+16599	16651	16652	16653	the man	100	“ I wanted to make sure Trinity was going to be okay . She has been my best friend for a lot of years and we have always taken care of each other , which is why I offered to marry her . I do n’t want her to be alone , ”
+16657	16671	16672	16672	Drew	6	“ I can understand that . I would ’ve done the same thing , ”
+16675	16691	16692	16692	Damien	18	“ Just know if you hurt her , you ’ll have to answer to me , ”
+16722	16730	16731	16731	Drew	6	“ Let ’s go get a drink , ”
+16757	16764	16765	16765	Damien	18	“ I could use a beer , ”
+16776	16782	16783	16783	Drew	6	“ How has she been ? ”
+16795	16890	16891	16891	Damien	18	“ She ’s been sad ever since she got back from her vacation . I knew something was up but at first I just assumed she was upset over her breakup with her ex - boyfriend . Soon it was obvious there was something else going on . She did n’t tell me about the pregnancy until she could no longer hide it . She has never kept anything from me , so I was even more concerned . She would n’t talk about you . What the hell did you do to her ? ”
+16941	16951	16952	16952	Damien	18	“ You really know how to tick her off , ”
+16958	16964	16965	16965	Drew	6	“ Yeah thanks for that , ”
+16984	16993	16994	16994	Damien	18	“ Just calling it how I see it , ”
+17242	17249	17250	17250	Jacob	19	“ Uncle Drew , your back , ”
+17272	17279	17280	17280	he	19	“ How you doing , Squirt ? ”
+17285	17296	17297	17297	he	503	“ I ’m good . I was totally beating dad , ”
+17302	17310	17311	17311	Derek	9	“ Hey , I was catching up , ”
+17326	17334	17335	17335	he	9	“ You ’re back in town early , ”
+17358	17382	17383	17383	Derek	9	“ Hey Buddy , can you let your mom know Drew is here and see if she can make us something to eat ? ”
+17403	17422	17423	17423	he	19	“ What ’s going on , Drew ? You look like your world has been flipped upside down ? ”
+17426	17435	17436	17436	Drew	6	“ I ’m going to be a father , ”
+17463	17498	17499	17499	Derek	9	“ That ’s great Drew , I ’m really happy for you but why are you looking so stressed ? Being a father is about the greatest thing that ’s ever happened to me , ”
+17610	17683	17684	17684	Drew	6	“ I ’m still in shock . You remember the girl I told you about five months ago at my resort , well I decided to pay her a visit and found her extremely pregnant . She was n’t going to tell me and she was planning on getting married to her best friend . I want to strangle her about as badly as I want to pull her into my arms , ”
+17695	17699	17700	17700	Derek	9	“ I understand , ”
+17727	17779	17780	17780	Derek	9	“ Just be careful how you proceed , Cousin because you do n’t want to spook her . That ’s your baby and you ’re lucky to have found her so soon . Just think , in four months you ’ll be watching your son or daughter come into this world , ”
+17784	17796	17797	17797	Drew	6	“ It ’s a girl . I ’m having a daughter , ”
+17803	17809	17810	17810	Derek	9	“ That ’s so great , ”
+17860	17866	17867	17867	Jasmine	10	“ What ’s so great ? ”
+17895	17904	17905	17905	Drew	6	“ I ’m going to be a father , ”
+17954	17962	17963	17963	she	10	“ That ’s so great , Drew , ”
+17980	17989	17990	17990	she	10	“ Why have I not met this woman ? ”
+18016	18025	18026	18026	Jasmine	10	“ I insist on meeting her right away , ”
+18068	18082	18083	18083	Jasmine	10	“ You boys watch the kids and I ’ll make a celebratory dinner , ”
+18268	18281	18282	18282	Jasmine	10	“ Dinner will be ready in ten minutes , get cleaned up , ”
+18327	18340	18341	18341	Jasmine	10	“ Let me take her from you , so you can eat , ”
+18359	18379	18380	18380	Jasmine	10	“ You can hold her again after dinner , besides she ’s asleep and just lying there , anyway , ”
+18399	18411	18412	18412	he	6	“ I love it when she ’s asleep and all cuddly , ”
+18418	18429	18430	18430	he	6	“ Nothing like a beautiful lady lying across my chest , ”
+18688	18697	18698	18698	Derek	9	“ What are you going to do next ? ”
+18703	18731	18732	18732	Drew	6	“ I ’m going to marry her , although convincing her of that may be a bit difficult , since she will barely even talk to me , ”
+18741	18750	18751	18751	Derek	9	“ Yeah , I ’ve certainly been there , ”
+18756	18791	18792	18792	Drew	6	“ I should ’ve told her the truth of who I was from the beginning but it was nice to have a woman like me , thinking I was just an everyday resort worker , ”
+18859	18867	18868	18868	Drew	6	“ Sometimes money is a real curse , ”
+18873	18905	18868	18868	Drew	6	“ It will all work out . You guys obviously have a connection and now you have this child together . I know you ’ll be able to work things through , ”
+19277	19287	19288	19288	Drew	6	“ You know we need to have a talk , ”
+19398	19426	19427	19427	he	6	“ I ’m not going away and the longer you pretend like I ’m not here , the longer you ’re going to have me trailing you , ”
+19533	19542	19543	19543	he	6	“ I ’m trying to talk to you , ”
+19604	19684	19685	19685	she	12	“ I do n’t see what we have to talk about Drew . You were worried about your resort so you romanced me . I was feeling impulsive for the first and only time in my life and was a willing body who practically jumped into your bed . I ’m not justifying all of that because we happened to make a mistake and not use any protection . My child is n’t for sale and neither am I , ”
+19693	19719	19720	19720	he	595	“ I never once tried to buy you and if you think I ’d ever walk away from my child , you ’re sadly mistaken , ”
+19791	19803	19804	19804	she	12	“ This is my child , make no mistakes about that , ”
+19873	19879	19880	19880	he	595	“ We will get married , ”
+19957	19969	19970	19970	she	12	“ You need to understand this really quickly , Mr. Titan , ”
+19975	19984	19985	19985	she	12	“ I wo n’t marry you , ever , ”
+20022	20040	20041	20041	he	595	“ You did n’t call me Mr. Titan when you were screaming out my name in passion , ”
+20112	20123	20124	20124	she	12	“ I did n’t know that was who you were , ”
+20128	20145	20146	20146	he	595	“ You ’re seriously the most frustrating woman I ‘ ve ever had to deal with , ”
+20152	20162	20163	20163	she	12	“ Then stop dealing with me and go away , ”
+21041	21049	21050	21050	he	595	“ Did you get it all out ? ”
+21129	21140	21141	21141	she	12	“ I … I did n’t mean to do that , ”
+21158	21179	21180	21180	he	595	“ It sure as hell feels like you meant to do it and you put your full weight into it , ”
+21232	21246	21247	21247	he	595	“ I ’ll be back , this discussion is in no way over , ”
+21818	21829	21830	21830	she	12	“ Have you ever heard of giving people their space ? ”
+21860	21880	21881	21881	he	6	“ But darling we should most definitely get used to touching , as we ’re going to be married , ”
+21887	21896	21897	21897	she	12	“ I ’m not going to marry you , ”
+21909	21924	21925	21925	he	6	“ Well then the neighbors are going to talk about you being my mistress , ”
+21929	21947	21948	21948	he	6	“ Our child will be looked down upon because her mother is shacking up with her dad , ”
+22036	22054	22055	22055	she	12	“ I ’m not going to be living with you so that wo n’t be a problem , ”
+22073	22100	22101	22101	he	6	“ I ’m going to be a full time father to my child , so we ’re going to be together one way or the other , ”
+22225	22246	22247	22247	he	6	“ It was so great to meet you and I hope you have a wonderful time at your mother ’s , ”
+22278	22307	22308	22308	he	6	“ I used to work at a local hardware store when I was a teenager and luckily your register was similar so I took care of the sale , ”
+22331	22362	22363	22363	he	6	“ I was n’t sure how much you were selling the bouquet for so I took a guess from some I ’ve purchased before . I hope it was correct , ”
+22366	22385	22386	22386	she	12	“ No , you actually sold it for twice the amount I would ’ve normally sold it for , ”
+22423	22438	22439	22439	he	6	“ Seriously ? You ’re charging far too low for your arrangements , then , ”
+22443	22454	22455	22455	she	12	“ I do n’t need your business advice , Drew , ”
+22514	22538	22539	22539	he	6	“ So I hope you have come to your senses by now . I can arrange a wedding within a couple of days , ”
+22598	22690	22691	22691	she	12	“ Okay , I ’m going to tell you this for the last time and I hope you ’ll hear it this time . I ’m not going to marry you . What happened on the island was a mistake and should ’ve never taken place . I ’m not going to repeat that mistake by becoming your wife . After the baby is born , we ’ll talk about visitation but right now she ’s in my stomach so you can go ahead and leave for the next four months , ”
+22813	22827	22828	22828	he	656	“ I have some errands to run today but I ’ll be back , ”
+23521	23530	23531	23531	he	6	“ Good morning , how are you today ? ”
+23554	23561	23562	23562	she	12	“ I ’m fine and yourself ? ”
+23565	23578	23579	23579	he	6	“ I ’m wonderful . I ’m in need of several bouquets , ”
+23588	23615	23616	23616	he	6	“ My name is Andrew Titan but my friends all call me Drew . I own several resorts and am in need of a new florist , ”
+23624	23633	23634	23634	she	12	“ What are you up to , Drew ? ”
+23643	23663	23664	23664	he	6	“ I decided we need to start over from scratch , so here I am , being completely honest , ”
+23700	23720	23721	23721	she	12	“ It ’s nice to meet you , Drew . I ’d love to help you with some arrangements , ”
+23777	23784	23785	23785	he	6	“ The pleasure is all mine , ”
+23796	23805	23806	23806	she	12	“ What kind of arrangements do you need ? ”
+23830	23895	23896	23896	he	688	“ I ’ll leave that up to you . I have three orders I need sent to prospective investors and I want to send a huge one to my cousin ’s wife . She gave birth a while ago and I realized I never sent flowers . That kid is the cutest thing ever and she deserves the biggest arrangement you can possibly make , ”
+23994	24007	24008	24008	she	12	“ I ’ve been lifting these buckets just fine on my own , ”
+24020	24029	24030	24030	he	6	“ You need to take care of yourself , ”
+24059	24068	24069	24069	he	6	“ How long have you had this place ? ”
+24073	24109	24110	24110	she	12	“ I opened a couple of years ago . It was always my dream . I ’d like to expand someday and have a larger shop , with gift items and live plants as well , ”
+24114	24120	24121	24121	he	6	“ Do you do well ? ”
+24124	24160	24161	24161	she	12	“ I ’m doing a lot better than I thought I would . With the baby coming though , I ’m going to have to hire some help and that will cut into the profits , ”
+24164	24177	24178	24178	he	6	“ I know it ’s really difficult for small businesses to succeed , ”
+24181	24189	24190	24190	she	12	“ I ’m doing better than some , ”
+24210	24222	24223	24223	he	6	“ Your work is beautiful . You have a real gift , ”
+24261	24271	24272	24272	she	12	“ Thank you , I really enjoy doing it , ”
+24395	24409	24410	24410	she	12	“ I need to close down for a bit and make some deliveries , ”
+24440	24459	24460	24460	he	6	“ Why do n’t I do the deliveries for you so you can go ahead and stay open , ”
+24491	24506	24507	24507	he	6	“ I do n’t mind really , I have some stops to make anyway , ”
+24510	24518	24519	24519	she	12	“ If you really do n’t mind , ”
+24719	24742	24743	24743	she	12	“ Sorry . Sometimes I get so busy I forget to eat and when I see food I go a little crazy , ”
+24748	24757	24758	24758	he	6	“ You were like that on the island , ”
+24818	24861	24862	24862	Trinity	12	“ That was a million years ago Drew and I ’m back in the real world now and have real world responsibilities . I do appreciate your help today and the lunch but we are over and you need to accept that , ”
+24955	25016	25017	25017	he	704	“ I ’ve decided you ’ll be my wife . I ’ve never felt about a woman the way I feel about you and you ’re carrying my child . We ’ll stay together . I understand you ’re scared . I understand you ’re angry I mislead you but you ’ll learn soon you ca n’t live without me , ”
+25076	25116	25117	25117	she	705	“ Drew sometimes in life you simply have to accept when you ca n’t have your own way . I ’m not a possession you get to choose to keep or cast off . You can go away now , ”
+25139	25172	25173	25173	he	100	“ You ’re so good for me , Trinity . I need people in my life who are n’t afraid to tell me how it is but nonetheless we ’ll be together , ”
+25176	25195	25196	25196	he	100	“ I have a few errands to run this afternoon but I ’ll be back before you close , ”
+25369	25378	25379	25379	Trinity	12	“ Hello , how are you this afternoon ? ”
+25384	25393	25394	25395	the woman	326	“ I ’m great and how are you ? ”
+25398	25415	25416	25416	Trinity	12	“ I ’m glad it ’s closing time soon but other than that I ’m wonderful , ”
+25419	25431	25432	25433	the woman	326	“ My name is Jasmine and this little one is Britney , ”
+25444	25464	25465	25465	she	326	“ It ’s great to meet you Jasmine , my name is Trinity , how can I help you ? ”
+25510	25545	25546	25546	Jasmine	10	“ I wanted to meet you ; I ’m married to Derek , who is Drew ’s cousin . I call him my brother - in - law because they are more like siblings , ”
+25549	25556	25546	25546	Jasmine	10	“ Oh … well … umm … ”
+25566	25606	25607	25607	she	10	“ I know I should n’t have just barged in here on you but when Drew told us he was going to be a father , I had to meet the woman who had finally gotten ahold of him , ”
+25615	25622	25607	25607	she	10	“ We are n’t together though … ”
+25633	25704	25705	25705	Jasmine	10	“ You ’re carrying a Titan child , so you ’re pretty much together , believe me . You can try and fight it but these guys really care about family . My husband and I had a very rocky start but I love him so much and am so grateful he fought for me because now we have Britney and Jacob and I ’m disgustingly happy all the time , ”
+25756	25762	25763	25763	Trinity	12	“ She ’s so precious , ”
+25768	25777	25778	25778	Jasmine	10	“ She ’s pretty amazing and incredibly spoiled , ”
+25784	25800	25801	25801	Trinity	12	“ Why do n’t you sit down over here with me and we can chat ? ”
+25834	25858	25859	25859	Jasmine	10	“ That sounds perfect , tell me all about how you and Drew met and please do n’t leave out any juicy details , ”
+25938	25968	25969	25969	Jasmine	10	“ Seriously , I know he ’s behaved like a complete moron but he ’s a terrific guy and if you give him a chance you ’ll see that , ”
+25972	26020	25969	25969	Jasmine	10	“ I ’m sure he ’s great but I ’ve sworn off all business men . I have n’t had good experiences with them . I wo n’t try and keep the baby from him but I just ca n’t get into a relationship with the man , ”
+26029	26039	26040	26040	Jasmine	10	“ I ’m sure it will all work out , ”
+26068	26075	26076	26076	Drew	6	“ There ’s my beautiful girl , ”
+26124	26131	26132	26132	he	6	“ Uncle missed you , Precious , ”
+26199	26210	26211	26211	Jasmine	10	“ You have a lot to make up for Drew , ”
+26219	26222	26223	26223	he	6	“ What ? ”
+26260	26272	26273	26273	he	6	“ At least you do n’t look at Uncle that way , ”
+26278	26320	26321	26321	Jasmine	10	“ I ca n’t believe what a moron you were at the resort . Seriously , you bonked her in the head and then had the gall to lie to her . No wonder she ’s giving you a hard time , ”
+26324	26366	26367	26367	she	10	“ It was so great to meet you , Trinity . Please come have lunch with me on your next day off . I want to get to know you more and I really want the kids to grow up together , ”
+26370	26394	26395	26395	Trinity	12	“ I think that sounds wonderful . I ’ll be off on Sunday and Monday , if either of those work for you , ”
+26398	26427	26428	26428	she	10	“ Sunday will work perfectly . Come any time after ten , here ’s my address and my phone number . I ca n’t wait to see you , ”
+26465	26475	26454	26454	She	12	“ Can I take you to dinner , please ? ”
+26530	26535	26536	26536	she	12	“ That sounds fine , ”
+26710	26714	26715	26715	Drew	6	“ Good morning , ”
+26746	26757	26758	26758	she	12	“ I can take care of myself , you know ? ”
+26802	26849	26850	26850	he	6	“ I know you ’re more than capable of taking care of yourself but I enjoy feeding you and checking up on you . I ’ve never been a father before and I feel a need to make sure my daughter is getting all she needs , ”
+26868	26880	26881	26881	Drew	6	“ I ’m visiting Derek today so we can ride together , ”
+26961	26967	26968	26968	she	12	“ This is their house ? ”
+27018	27047	27048	27048	he	6	“ I know it ’s very large . I gave Derek a heck of a time when I first saw it but Jasmine has made it really homey , ”
+27099	27107	27108	27108	he	757	“ Uncle Drew , you ’re here , ”
+27128	27146	27147	27147	he	757	“ Hey Buddy , I think I ’m going to whoop you today in some water basketball , ”
+27156	27170	27171	27172	the boy	759	“ No way , I ’ve been practicing . You ’re going down , ”
+27188	27207	27208	27208	Drew	6	“ Jacob , this nice lady is Trinity and this young lad here is my nephew , Jacob , ”
+27212	27220	27221	27222	the boy	759	“ It ’s nice to meet you , ”
+27226	27236	27237	27237	Trinity	12	“ It ’s nice to meet you as well , ”
+27247	27265	27266	27266	Jacob	19	“ Mom is excited for you to come . Follow me , she ’s in the kitchen , ”
+27311	27322	27323	27323	Jasmine	10	“ You guys made it . I ’m so glad , ”
+27357	27371	27372	27372	she	10	“ I remember those days of my belly preceding me into a room , ”
+27388	27401	27402	27402	Trinity	12	“ I know , I think I grow a foot every night , ”
+27405	27420	27421	27421	Jasmine	10	“ You boys go play and let us diss on you for a while , ”
+27491	27513	27514	27514	Jasmine	10	“ I remember that as well . Sit down and let me give you a snack , while everything finishes up , ”
+27517	27531	27532	27532	Trinity	12	“ I can wait , I do n’t want to be a hassle , ”
+27535	27564	27565	27565	Jasmine	10	“ Oh , stop being so submissive . You have to learn to stand up for yourself , or seriously these Titan guys will walk all over you , ”
+27568	27581	27582	27582	Trinity	12	“ You ’re right , I ’d love to have a snack , ”
+27594	27606	27607	27607	Jasmine	10	“ That ’s a start , now get off those feet , ”
+27631	27640	27641	27641	Trinity	12	“ You seriously should open up a café , ”
+27645	27655	27641	27641	Trinity	12	“ Your food is too good to be wasted . ”
+27656	27704	27705	27705	Jasmine	10	“ I ’ve been told the same thing from these handsome men but I do n’t want to lose my love of cooking and if I had to do it for the long hours it takes in order to succeed , I ’d no longer enjoy it , ”
+27710	27780	27781	27781	Trinity	12	“ You know , I ’ve always wanted to open a floral and gift shop , with a little café in it . I thought it would be great to have a section of books people could buy and they could come in and eat , read and order flowers or gifts . If you do ever consider a café , then I hope you ’ll talk to me , ”
+27785	27806	27807	27807	Jasmine	10	“ Seriously that ’s something I ’d consider . Let me finish our lunch and we can do some research , ”
+27812	27820	27821	27821	Trinity	12	“ I meant in the future sometime , ”
+27831	27840	27841	27841	Jasmine	10	“ There ’s no time like the present , ”
+27906	27929	27930	27930	Jasmine	10	“ Now you boys are on clean up duty . Trinity and I are going to the library to do some research , ”
+28025	28065	28066	28066	Jasmine	10	“ It ’s pretty great , huh ? I still have a long way to go before these shelves are filled but I get a few more each week . This library is what sold me on the place , ”
+28081	28097	28098	28098	Trinity	12	“ This is amazing . I do n’t think I ’d ever leave this room , ”
+28102	28128	28133	28133	she	10	“ I feel the same way . Take your time looking around . I ’m going to jump on the computer and do some research , ”
+28178	28188	28189	28189	she	10	“ I do n’t think I can afford that , ”
+28196	28226	28227	28227	Jasmine	10	“ Let ’s not worry about the cost right now . I know how that sounds but let ’s just check it out tomorrow and see what we think , ”
+28232	28244	28245	28245	she	10	“ Okay , it does n’t hurt to at least look , ”
+28798	28808	28809	28809	Drew	6	“ Hello beautiful , how are you feeling today ? ”
+28842	28852	28853	28853	she	12	“ Do n’t you have a business to run ? ”
+28865	28882	28883	28883	he	6	“ The nice thing with being the boss is I can take off whenever I want , ”
+28931	28946	28947	28947	she	12	“ I have a doctor appointment today if you ’d like to come along ? ”
+28952	28959	28960	28960	he	6	“ I ’d love to come , ”
+28967	28990	28991	28991	she	12	“ I ’ll be closing early today so if you want to be back here around two then we can go together , ”
+28994	29012	29013	29013	he	6	“ I have nothing going on today , so I ’ll just hang out here with you , ”
+29037	29042	29043	29043	she	12	“ If you insist , ”
+29147	29153	29154	29154	she	12	“ I should be working , ”
+29167	29185	29186	29186	he	6	“ You need to take better care of yourself . It ’s obvious you ’re in pain , ”
+29266	29272	29273	29273	Trinity	12	“ Can I help you ? ”
+29277	29292	29293	29294	the girl	112	“ I just graduated floral school and would like to apply for a job , ”
+29347	29376	29377	29377	Trinity	12	“ I was planning on waiting another month before hiring but you have come in at a really good time because my back is hurting more than usual , ”
+29396	29402	29403	29403	she	12	“ Thank you so much , ”
+29412	29424	29425	29425	Drew	6	“ I ’m glad you decided to take on an employee , ”
+29516	29527	29528	29529	the doctor	155	“ I bet you ’re excited to hear the heartbeat , ”
+29534	29538	29539	29539	Drew	6	“ I am , ”
+29576	29584	29585	29585	he	6	“ Can we do that picture thing ? ”
+29590	29617	29618	29619	the doctor	155	“ She had an ultrasound a couple months ago and everything checked out . They are a pretty expensive procedure , when it ’s not needed , ”
+29622	29640	29641	29641	Drew	6	“ I do n’t care how much it costs , I really want to have it done , ”
+29653	29667	29668	29668	Trinity	12	“ Drew , I ca n’t afford to have one of those done , ”
+29675	29687	29688	29688	Drew	6	“ I ’m taking care of all the baby ’s expenses , ”
+29731	29755	29756	29756	she	12	“ You do n’t need to take care of everything but if you want another ultrasound then you can take care of that , ”
+29760	29783	29784	29784	he	6	“ I ’m in far too good of a mood to argue , so we ’ll leave that discussion for another time , ”
+29818	29830	29831	29831	she	12	“ Have you seen one of our three dimensional ultrasounds before ? ”
+29836	29846	29847	29847	Trinity	12	“ I had one done a couple months ago , ”
+29850	29865	29866	29866	Drew	6	“ I saw the picture but I was n’t here when it was done , ”
+29975	29993	29994	29995	the woman	326	“ Your daughter is healthy and active . Do you want to take home some more pictures ? ”
+29998	30002	30003	30003	Drew	6	“ Yes please , ”
+30014	30035	30036	30037	the woman	326	“ It sounds as if your husband is excited to be a father . This must be your first child , ”
+30043	30058	30059	30059	Drew	6	“ I ca n’t believe she will be here in a few short months , ”
+30128	30214	30215	30215	he	6	“ The baby is healthy and everything is right on schedule but you ’re not doing as well . Your blood pressure is too high for my liking and puts you at risk for getting toxemia . I need to put you on bed rest for at least two weeks , then we can reassess . You also need to eat more because you ’re feeding the baby well but not yourself . You ’re under what I ’d like to see your weight at , ”
+30219	30227	30215	30215	he	6	“ I ca n’t take work off , ”
+30236	30274	30275	30275	he	6	“ If you do n’t take my advice , you ’re risking yourself and your baby . You could go into early labor and the chances of survival are n’t good at this point in your pregnancy , ”
+30279	30289	30290	30290	Drew	6	“ She will go on complete bed rest doctor , ”
+30381	30398	30399	30399	he	6	“ The doctor said you needed more calories , please eat for the baby ’s sake , ”
+30423	30440	30441	30441	she	12	“ I ’m going to have to close the shop , it just stresses me out , ”
+30445	30462	30463	30463	he	6	“ Stress is n’t good for your condition . You need to let me help you , ”
+30467	30480	30481	30481	she	12	“ I know Drew , and I do n’t need your help , ”
+30484	30563	30564	30564	he	837	“ You obviously need my help . I ’ll call a temp agency and get someone in to work the shop , plus you have the new employee you just hired . I ’ll pay their wages and quit shaking your head at me . You ca n’t be stressed and worried about how to pay them . I ’m also going to stay with you for now to make sure you ’re taking better care of yourself , ”
+31196	31199	31200	31200	he	837	“ Mmm , ”
+31322	31329	31330	31330	she	12	“ We should n’t do this , ”
+31334	31348	31349	31349	he	837	“ We definitely should do this . Please Trinity , I need you , ”
+31793	31801	31802	31802	she	12	“ Please Drew , I need you , ”
+32062	32072	32073	32073	he	837	“ Now that ’s the way to wake up , ”
+32100	32108	32109	32109	she	12	“ That should n’t have happened though , ”
+32128	32149	32150	32150	he	837	“ You ’re carrying my child and we both want each other so what ’s wrong with us making love ? ”
+32154	32166	32167	32167	she	12	“ I ’m just not ready to jump right back in , ”
+32170	32178	32179	32179	he	837	“ It ’s too late for that , ”
+32398	32410	32411	32412	a man	258	“ Give me your purse and you wo n’t get hurt , ”
+32443	32448	32449	32449	he	100	“ Let go now , ”
+32507	32519	32520	32521	the man	100	“ Are you insane lady , give me the bag now , ”
+32635	32652	32655	32655	Drew	6	“ Trinity talk to me , are you okay , please be okay , wake up , ”
+32666	32695	32696	32696	he	100	“ Please baby , open your eyes . The ambulance is coming right now , please just wake up , you have to tell me where it hurts , ”
+32721	32726	32727	32727	she	12	“ I ’m tired , ”
+32791	32794	32795	32795	she	12	“ Ouch , ”
+32805	32822	32823	32823	he	100	“ They will be here in a few more seconds , do you hear the sirens ? ”
+32838	32862	32863	32863	she	12	“ He tried to take my purse . I tried to let it go but my hand would n’t listen to my brain , ”
+32870	32903	32904	32904	he	100	“ I should ’ve been with you , I ’m so sorry baby , I ’m so sorry . If anything happens to you or our daughter I ’ll never forgive myself , ”
+32914	32921	32922	32922	he	100	“ Tell me where it hurts , ”
+32925	32932	32933	32933	she	12	“ My arm and back hurt , ”
+32940	32966	32967	32967	he	100	“ I ’m so sorry baby , he cut your arm and someone said they saw him push you down . Does your stomach hurt ? ”
+32979	33003	33004	33004	she	12	“ I do n’t know Drew , my back hurts really badly , I ca n’t tell if it is my stomach too , ”
+33015	33019	33020	33020	she	12	“ My baby , ”
+33138	33183	33184	33185	the doctor	155	“ The baby does n’t seem to be in any immediate danger but your blood pressure is through the roof . You were supposed to be on bed rest , from these notes I ’m reading and had no business out on the streets , ”
+33189	33201	33202	33202	she	12	“ I ’m sorry , it was just a small walk , ”
+33226	33311	33312	33313	the doctor	155	“ We ’re going to stitch up your arm , You ’re staying overnight so we can monitor you and the child . If we can get your blood pressure down , then you can get released tomorrow but only if you ’re on strict bed rest . That is you go from your bed to a couch and back again . You ’re not to take walks , you ’re not to work , you ’re to be waited on hand and foot , ”
+33318	33322	33323	33323	she	12	“ I understand , ”
+33671	33684	33685	33685	Ryan	8	“ How the hell does something like that happen in broad daylight ? ”
+33697	33751	33752	33752	Drew	6	“ I do n’t like that neighborhood at all . It ’s the older part of town and the businesses have to have bars on the windows at night . That should be the first clue she should n’t be walking down that street alone . I want her out of there now , ”
+33756	33787	33752	33752	Drew	6	“ I agree with you Drew but be careful , she ’s stubborn and you do n’t want her to stay there just because you ’re telling her not to , ”
+33796	33831	33832	33832	Drew	6	“ She ’s on strict orders from the doctor for total bed rest , so she does n’t have a hell of a lot of choice but to listen to me for a while , ”
+33869	33880	33881	33881	Derek	9	“ Well , I have some good news for you , ”
+33884	33951	33952	33952	he	9	“ Jasmine and Trinity were talking about opening a combined business together and Jasmine found an incredible space . We purchased it yesterday . It ’s not too far from where we ’re living . It ’s in a much safer area . Jasmine was actually coming over today to tell her she ’d snatched it up before it was gone and they could move forward , ”
+33955	34005	34006	34006	Drew	6	“ That ’s great Derek , I ’ll feel so much better if she ’s not living or working down there and the women will have each other there as well . I do n’t like her working alone , I do n’t care how great the neighborhood is , ”
+34009	34063	34064	34064	Derek	9	“ I agree with you fully there . I ’m going to talk to Jasmine about having some extra help . She plans on having the baby with her and she will need more people to help her run things . Hell , money is n’t an issue anyway but their safety is , ”
+34067	34093	34094	34094	Ryan	8	“ Man am I glad I do n’t have anyone other than you guys to stress over because it does n’t sound like any fun , ”
+34107	34113	34114	34114	Derek	9	“ Your time is coming , ”
+34143	34150	34151	34151	he	8	“ Not a chance you guys , ”
+34327	34333	34334	34335	a man	258	“ Is she still sleeping ? ”
+34370	34382	34383	34383	she	10	“ She has n’t stirred , yet . I ’m Jasmine , ”
+34391	34410	34411	34411	he	100	“ I ’m Damien Whitfield , Trinity ’s best friend . Drew called and told me what happened , ”
+34496	34502	34503	34503	they	273	“ How are you doing ? ”
+34512	34519	34520	34520	she	12	“ I ’ve had better days , ”
+34547	34556	34557	34557	Jasmine	10	“ I ’m so sorry about what happened , ”
+34582	34619	34620	34620	Trinity	12	“ It was all my fault ; I should n’t have been out there in the first place . The doctor told me to stay in bed but I was determined to check on my shop , ”
+34623	34680	34681	34681	Damien	18	“ Trinity , you ’re always putting too much pressure on yourself . Do n’t start playing the blame game or you ’ll just cause more stress . I had to come and check on you but have to get back to the offices . Promise me you ’ll call as soon as you feel better , ”
+34684	34692	34693	34693	she	12	“ I promise , I love you , ”
+34743	34762	34763	34763	Jasmine	10	“ I ’m glad you brought up the shop because I have great news to share with you , ”
+34778	34848	34849	34849	Jasmine	10	“ I went and checked out that space and there was another person who ’d put in an offer . I did n’t want to lose it so Derek gave them an offer they could n’t refuse and they accepted . The shop is ours . I know I should ’ve waited for you but we would ’ve lost it and I really want to do this with you , ”
+34852	34871	34872	34872	Trinity	12	“ That ’s so great Jasmine but I have n’t figured out if I can afford it yet , ”
+34903	34943	34944	34944	Jasmine	10	“ Do n’t worry about any of that right now . We ’ll work it out . The point is we have the space and can spend the day getting it designed so Ryan can get started on remodeling , ”
+35110	35125	35126	35126	Trinity	12	“ I think we have it all figured out , what do you think ? ”
+35139	35146	35147	35147	Jasmine	10	“ I think it ’s perfect , ”
+35156	35173	35174	35174	she	10	“ Here you go Ryan , the place is all yours to make perfect for us , ”
+35177	35184	35185	35185	Ryan	8	“ That ’s a tall order , ”
+35188	35196	35197	35197	Jasmine	10	“ We have complete faith in you , ”
+35203	35211	35212	35212	Ryan	8	“ I ’ll try to earn it , ”
+35272	35282	35283	35283	Jasmine	10	“ You know you ’re the best guy ever , ”
+35293	35312	35313	35313	he	100	“ If I keep getting rewards like that one , I ’ll be at your beck and call , ”
+35353	35359	35360	35360	Drew	6	“ Okay enough of that , ”
+35370	35377	35378	35378	Ryan	8	“ Hey , I ’m irresistible , ”
+35440	35453	35454	35454	Drew	6	“ Okay everyone out now , Trinity needs to get some rest , ”
+35596	35621	35622	35623	the doctor	155	“ Okay , Ms. Mathews I ’ll release you today but only if you promise you wo n’t be alone and you stay home , ”
+35631	35635	35636	35636	she	12	“ I promise , ”
+35662	35687	35688	35688	Drew	6	“ I ’ll be with her the entire time and will make sure she does n’t do anything to harm herself or our child , ”
+35691	35705	35706	35707	the doctor	155	“ Okay then Mr. Titan , I ’m leaving her in your care , ”
+35886	35898	35899	35899	he	6	“ Sit down and I ’ll get you something to eat , ”
+35940	35948	35949	35949	she	12	“ This is good , thank you , ”
+35963	35974	35975	35975	he	6	“ I need to talk to you about some things , ”
+36008	36016	36017	36017	she	12	“ Go ahead and spit it out , ”
+36024	36040	36041	36041	he	6	“ I bought a new home . It ’s pretty close to Derek and Jasmine , ”
+36045	36074	36075	36075	she	12	“ That ’s great , you must be excited . You really do n’t have to stay here and babysit me if you want to get settled in , ”
+36079	36087	36088	36088	he	6	“ I bought the place for us , ”
+36139	36150	36151	36151	she	12	“ I … you … we are n’t a couple , ”
+36156	36247	36248	36248	he	6	“ Trinity , we are a couple . We ’re sexually compatible . We enjoy being together and to top all that off , we ’re having a child . We will get married but I ’m willing to give you more time to get used to that . But you ’re on doctor ’s orders to not be alone and for complete bed rest . This place is too small for two people to stay in comfortably so it makes sense for you to move in with me now , ”
+36252	36261	36262	36262	she	12	“ I ’m fine in my own place , ”
+36297	36341	36342	36342	he	6	“ Look , I do n’t want to be a jerk , Trinity but you ’re not safe here , which means my child is n’t safe . Are you so selfish you ’d endanger our child for the sake of your pride ? ”
+36395	36403	36404	36404	she	12	“ I love my child , Drew , ”
+36410	36454	36455	36455	he	6	“ I know you do Trinity and that was a crappy thing to say , I ’m sorry . How about a compromise ? You ’re going to be on bed rest for a while , most likely the rest of your pregnancy , ”
+36470	36520	36521	36521	he	6	“ Stay with me until after the baby is born so I can help take care of you . If we have n’t managed to work things out by then , we can reassess our situation . You know this apartment is far too small for a baby anyway , ”
+36592	36605	36606	36606	she	12	“ I do n’t think I ’m ready for this , Drew , ”
+36641	36704	36705	36705	he	6	“ I ca n’t stay in this place , it would drive me insane , so you can either move into the large house with me , where you ’ll be waited on and completely pampered , or I ’ll move in and you ’ll have to go back to the hospital because the doctor said you were n’t to be alone , ”
+36795	36819	36820	36820	she	12	“ Okay Drew , I guess I ’ll move in with you but when I ’m better we ’ll talk about this again , ”
+37036	37069	37070	37070	he	6	“ I ’m actually glad to have this to do because I ’ve got to tell you , being locked in this closet of an apartment is starting to drive me crazy , ”
+37078	37087	37088	37088	she	12	“ You can leave any time you want , ”
+37096	37111	37112	37112	he	6	“ I ’m dealing with it and it ’s only for one more day , ”
+37122	37147	37148	37148	he	6	“ I called the Salvation Army and they will be here early in the morning to pick up the furniture we are n’t keeping , ”
+37151	37171	37172	37172	she	12	“ I think it ’s perfectly fine furniture and I do n’t see why we ca n’t use it , ”
+37212	37246	37247	37247	he	6	“ I ’m not trying to put your furniture down Trinity and you know that but come on , nothing matches and a few of these pieces have duct tape holding them together , ”
+37317	37353	37354	37354	she	12	“ You know I ’m not going to be a kept woman do n’t you ? Just because we made a child together , does n’t mean you ’re going to take over my life , ”
+37423	37435	37436	37436	he	6	“ I ’d never think of you as a kept woman , ”
+37556	37569	37570	37570	he	6	“ I think it ’s time to start packing up your clothes , ”
+37595	37604	37605	37605	she	12	“ I can do that on my own , ”
+37608	37626	37627	37627	he	6	“ The doctor said complete bed rest , so you can lay in bed and direct me , ”
+37650	37667	37668	37668	she	12	“ You can help me with my closet but I ’ll take care of the dresser , ”
+38083	38088	38089	38089	she	12	“ Something smells heavenly , ”
+38116	38147	38148	38148	she	12	“ I ca n’t wait for this child to be born so I can go back to eating like a normal human being . I ’m hungry all the time , ”
+38172	38184	38185	38185	he	6	“ According to the doctor , you ’re not eating enough , ”
+39072	39113	39114	39114	he	6	“ I want to show you something and remember if you do n’t like any of it , we can return it and get what you want . But I wanted to help you since you ’re on bed rest , ”
+39186	39219	39220	39220	he	6	“ I did n’t pick out any of the bedding or anything because Jasmine said you ’d want to choose your own theme but she said you should like this cherry wood , ”
+39270	39280	39281	39281	she	12	“ Thank you Drew , it ’s all perfect , ”
+39823	39831	39832	39832	Jasmine	10	“ This place is beautiful , Trinity , ”
+39846	39860	39861	39861	she	10	“ I ’m at your beck and call to fill up that library , ”
+39864	39886	39887	39887	Trinity	12	“ It ’s pretty great but this is only temporary so I do n’t want to add too much right now , ”
+39900	39937	39938	39938	she	10	“ I ’d love to go through those catalogs with you if you need any help . We need to get you tucked up on the couch before your warden finds you ’re on your feet , ”
+39999	40039	40040	40040	Trinity	12	“ I ’d really appreciate it . It ’s all a bit overwhelming but since I ca n’t really go anywhere , or do anything physical right now , it ’s kind of nice to have something to do , ”
+40106	40119	40120	40120	Jasmine	10	“ These boys have far too much money and it needs spent , ”
+40229	40337	40338	40338	Jasmine	10	“ Ryan is halfway finished with the remodel work on our shop , so now comes the fun part . We can start ordering some supplies . I think I brought everything over you ’ll need to set up your floral department . This company will bring the coolers out and set them all up . It ’s a bigger space so you ’ll have more display area . I also found this great company for gift items . I know my portion is supposed to be the café but I ’d love to help with the gift section too . I love this type of stuff , ”
+40344	40382	40383	40383	Trinity	12	“ I ’ve always wanted to have a bigger shop but I ’m in the dark with what needs to be done , so I ’m more than happy you want to be a part of it , ”
+40808	40818	40819	40819	she	12	“ Wow , Drew this room is really spectacular , ”
+40845	40862	40863	40863	she	12	“ I do n’t think it ’s a great idea for us to share a room , ”
+40880	40934	40935	40935	he	6	“ I know things have n’t been perfect and I ’ve kind of bullied you into this situation but we ’ve been sleeping in the same bed and it ’s very nice . I wo n’t pressure you into sex before you ’re ready but I ’m not budging on the sleeping situation , ”
+41002	41026	41027	41027	he	6	“ I knew you ’d try and fight me on this , which is why there are no other beds in the house , ”
+41050	41065	41066	41066	he	6	“ Oh come on , it ’s not that bad to sleep with me , ”
+41074	41096	41097	41097	she	12	“ Fine , I ’ll sleep in here for tonight because I ’m exhausted but I ’m not snuggling with you , ”
+41210	41229	41230	41230	he	6	“ All you have to do is ask and we could both go to sleep feeling pleasured tonight , ”
+41788	41801	41802	41802	he	6	“ Tell me you want me and there wo n’t be regrets , ”
+41864	41876	41877	41877	he	6	“ Tell me you want me to touch you , Trinity , ”
+41894	41903	41904	41904	she	12	“ Please , Drew , I need you , ”
+42111	42119	42120	42120	she	12	“ Please Drew , I need you , ”
+42286	42290	42291	42291	he	6	“ No regrets , ”
+42375	42379	42380	42380	she	12	“ No regrets , ”
+42608	42632	42633	42633	he	6	“ I ’m sorry , Trinity . That was far too rough . I seem to lose all sense of control with you , ”
+42643	42648	42649	42649	he	6	“ Are you okay ? ”
+42660	42663	42649	42649	he	6	“ Mmm , ”
+42960	42965	42966	42966	he	6	“ What ’s wrong ? ”
+42982	42995	42996	42996	she	12	“ I do n’t know , I ’m sure it ’s nothing , ”
+43002	43018	43019	43019	he	6	“ It does n’t look like nothing . We ’re going to the hospital now , ”
+43169	43194	43195	43196	the doctor	155	“ You have gone into early labor but do n’t panic . You got here early enough we should be able to stop it , ”
+43259	43298	43299	43300	the doctor	155	“ This should stop the labor but if for some reason your little girl decides to make her entrance into the world early , her chances are good . She ’s a little over four pounds right now , ”
+43306	43313	43299	43300	the doctor	155	“ What did I do wrong ? ”
+43320	43345	43346	43347	the doctor	155	“ You ’ve done nothing wrong . Sometimes our bodies just do n’t realize it ’s not time for the baby to be born , ”
+43689	43741	43742	43742	he	155	“ I ’m hoping to get at least another week in , before you go into labor for good . You wo n’t reach your full term but each day we ’re able to keep the baby safe inside you is one more day she ’s getting stronger and gaining weight , ”
+43845	43863	43864	43864	Damien	18	“ So , please tell me why I ’m only seeing you at the hospital , now ? ”
+43892	43911	43912	43912	she	12	“ Oh , Damien , you ’re my hero right now if you hand over that box immediately , ”
+43938	43956	43957	43957	he	155	“ How are you feeling ? Are you going to roast our pretty girl a while longer ? ”
+43964	43977	43978	43978	Trinity	12	“ I ’m trying to keep her in as long as possible , ”
+43988	44021	44022	44022	he	155	“ I ’m sorry I have n’t made it by the new place . I had to leave the country for a while . This new business deal is kicking my butt , ”
+44026	44045	44046	44046	she	12	“ I ’ve really missed you . I have Jasmine but you ’ve been my best friend forever , ”
+44056	44085	44086	44086	he	155	“ Hey , you know I ’ll never go away . I promise when this deal is over I ’ll come over and even change a few diapers , ”
+44089	44097	44098	44098	she	12	“ I ’ll hold you to that , ”
+44119	44125	44126	44126	she	12	“ It ’s really good , ”
+44217	44241	44242	44242	he	6	“ Trinity , I know you are n’t sure about us as a couple but you know I care about you , right ? ”
+44247	44262	44242	44242	he	6	“ I think you want to care about me because you love our daughter , ”
+44268	44318	44319	44319	he	6	“ I do love our daughter , more than you could ever imagine but Trinity I care about you . When we ’re together , everything feels right . I think over time we could be really happy together , if you ’d just give it a real chance , ”
+44337	44351	44352	44352	she	12	“ You ’re a good man , Drew , I ’ll admit that , ”
+44361	44380	44381	44381	he	6	“ Will you please let me do the right thing for my daughter , before she ’s born ? ”
+44466	44548	44549	44549	he	1172	“ Please marry me so you and my daughter can have my name . Let me be your husband and her father . If you really ca n’t stand it then you can divorce me but please do n’t deliver our daughter without being my wife . I thought we were going to have more time to figure this all out but she could be born any day and I need for you to be my wife when she ’s born , ”
+44657	44663	44664	44664	he	1172	“ Thank you so much , ”
+44763	44788	44789	44789	Jasmine	10	“ We ’ll do this again the right way later but for now it ’s the best we can do on such short notice , ”
+44793	44810	44811	44811	Trinity	12	“ Thank you very much , you really did n’t have to do anything at all , ”
+44930	44993	44994	44994	Ryan	8	“ I know this is n’t a traditional wedding by any means but none of that matters . What matters is you two love each other and are going to have this beautiful baby girl soon . There will be plenty of time later to do things the right way . May you have many romantic days and far more passionate nights , ”
+45237	45274	45275	45276	the doctor	155	“ Trinity things are moving along really quickly , we need to move you to the birthing room . Your daughter is anxious to meet her parents and it ’s not going to be much longer , ”
+45332	45377	45378	45379	the doctor	155	“ Everything looks good Trinity , her heartbeat is strong and she has put on some good weight this last week and a half . I know that does n’t seem like much time but for a baby it can make all the difference , ”
+45405	45418	45419	45419	Drew	6	“ You ’ll both be okay , baby . I know it , ”
+45443	45449	45450	45450	she	12	“ It ’s too soon , ”
+45454	45477	45478	45478	he	6	“ You ’ve done everything you were supposed to do and I know she will be strong , just like her mother , ”
+45520	45546	45547	45548	the doctor	155	“ You ’re ready now , so the next time you feel a contraction , I want you to use all your strength and push , ”
+45612	45661	45662	45663	the doctor	155	“ That ’s really good Trinity , I can see her head . I think she ’s going to come out with only a few pushes . I know it ’s hard but you need to relax and push just like that when you get your next contraction , ”
+45697	45726	45727	45728	the doctor	155	“ Very good , she ’s crowing . We need to get her head out so as soon as it hits , push with all you ’ve got , ”
+46143	46172	46173	46174	the nurse	1207	“ We need to take her over here and make sure she ’s okay . We ’ll bring her back right away if all her vitals check out , ”
+46203	46218	46219	46219	Drew	6	“ She looks healthy and strong Trinity , you did a really good job , ”
+46234	46239	46240	46240	she	12	“ I hope so , ”
+46388	46456	46457	46458	the doctor	155	“ It looks like you kept her safe inside for long enough because she ’s healthy . Her lungs are fully developed and she wo n’t need oxygen . She ’s a little underweight at only four pounds eight ounces , so we ’ll want to keep her here until she ’s over five pounds but other than that you have a healthy , beautiful baby girl , ”
+46509	46516	46517	46517	Trinity	12	“ Can I hold her again ? ”
+46521	46527	46528	46529	the nurse	1207	“ Of course you can , ”
+46565	46573	46574	46574	she	1207	“ How are you doing , Princess ? ”
+46617	46626	46627	46627	she	12	“ Do you want to hold your daughter ? ”
+46633	46651	46652	46652	he	6	“ I ’m afraid I ’ll break her . I ’ve never held such a tiny baby , ”
+46662	46670	46671	46671	Trinity	12	“ You ’ll be perfect at it , ”
+46760	46776	46777	46777	Drew	6	“ She weighs nothing , it ’s like I ’m holding nothing but a blanket , ”
+46976	46989	46990	46991	the nurse	1207	“ It ’s time to move you back to your own room , ”
+47107	47125	47126	47127	the nurse	1207	“ Are you going to be nursing , or should I make up a bottle for her ? ”
+47130	47135	47136	47136	Trinity	12	“ I ’m nursing , ”
+47211	47247	47248	47249	the nurse	1207	“ After you ’re done with your meal , we should try and get her to eat . She wo n’t be very interested in it at first but she will soon gain an appetite , ”
+47253	47256	47257	47257	Trinity	12	“ Okay , ”
+47439	47453	47454	47454	Jasmine	10	“ Oh my gosh , she makes Britney seem so big , now , ”
+47466	47477	47478	47478	she	10	“ I want to have ten more of these Derek , ”
+47486	47496	47497	47497	he	1270	“ You can have as many as you want , ”
+47505	47514	47515	47515	he	1270	“ We can get started tonight in fact , ”
+47554	47561	47562	47562	he	8	“ She ’s just so tiny , ”
+47583	47592	47593	47593	he	8	“ I ’m afraid I ’ll break her , ”
+47605	47621	47622	47622	he	8	“ Do n’t look at me , I ’m afraid I ’ll break her too , ”
+47630	47648	47649	47649	Trinity	12	“ You guys would n’t do anything that would harm her , not in a million years , ”
+47685	47691	47692	47692	Derek	9	“ What ’s her name ? ”
+47742	47758	47759	47759	Drew	6	“ I have a favorite aunt named Stephanie . I ’ve always liked that name , ”
+47776	47784	47785	47785	she	12	“ Okay then her name is Stephanie , ”
+47801	47812	47813	47813	Ryan	8	“ Hello there Stephanie Titan , welcome to the family , ”
+48642	48665	48666	48666	Jasmine	10	“ I love that little dress . She looks so adorable today . I ca n’t believe how much she keeps growing , ”
+48689	48699	48700	48700	Trinity	12	“ It ’s really amazing how quickly they grow , ”
+48705	48710	48711	48711	she	12	“ Where ’s Britney ? ”
+48714	48748	48749	48749	she	12	“ I left her home with the nanny because we ’re going to be putting the final merchandise out and I thought it would be easier . She ’s walking all over now , ”
+48757	48792	48793	48793	she	12	“ I love Stephanie getting bigger but I ’m grateful she ca n’t get away right now . It would be much harder to keep an eye on her while we ’re down there , ”
+48796	48856	48857	48857	she	12	“ Ryan got the cribs and swings all set up for us . I think the girls are going to do great but our first few days are going to be hectic so I ’ll leave Britney home , although it will kill me a little bit . If she was still nursing , I could n’t do that , ”
+48860	48873	48874	48874	Trinity	12	“ Yes , nursing can definitely be a blessing and a curse , ”
+48899	48967	48968	48968	she	12	“ I ’m desperately trying to fight those baby blues right now . Britney is almost a year old already and holding Stephanie all the time is making my womb jump . Of course Derek is ready anytime I want to have another one but I want to wait at least six more months before we start trying . Of course I never get tired of practicing , ”
+49127	49135	49136	49136	Jasmine	10	“ Are you ready to head out ? ”
+49140	49175	49176	49176	she	10	“ Yes , I want to get going before I lose too much steam . I ’m afraid I ’m going to spend far too much time in that heavenly room Ryan built us , ”
+49183	49206	49176	49176	she	10	“ I was so excited to see that . He thought of everything . The man is an absolute genius at building , ”
+49291	49299	49300	49300	he	8	“ You ’re arriving a bit late , ”
+49330	49380	49381	49381	Jasmine	10	“ It ’s so hard to get out the door when you ’re dealing with babies . They need changed and fed and then when you think you ’re ready to go , they spit up all over you and them and you have to start all over again , ”
+49393	49402	49403	49403	Ryan	8	“ I would n’t know anything about that , ”
+49462	49475	49476	49476	Jasmine	10	“ Yes Ryan , you ’re a confirmed bachelor , for sure , ”
+49485	49504	49505	49505	he	8	“ Do you want me to take her out of the seat and put her in the crib ? ”
+49509	49545	49546	49546	she	12	“ No , she ’s comfortable in there . Just undo the latches and tuck her blanket around her . I just changed and fed her , so she should sleep for a couple hours , ”
+49591	49601	49602	49602	she	12	“ Do n’t you dare wake her , Ryan , ”
+49605	49610	49611	49611	he	8	“ I wo n’t , ”
+49989	49996	49997	49997	Trinity	12	“ What are you working on ? ”
+50006	50068	50069	50069	she	12	“ I ’m getting the soup of the day ready for tomorrow . This one is much better if it has a night to sit in the fridge and marinate before it ’s cooked . I ’m making a few pots because I think we ’ll be busier than normal tomorrow . It will slow down after our opening weekend though , ”
+50127	50161	50162	50162	she	12	“ I ’ve got to get out of here and set up fans to blow the smell away from me because I ’ll never lose this weight with you cooking such amazing food , ”
+50633	50678	50679	50679	Drew	6	“ You guys have done an excellent job at getting this cleared up in time . I wo n’t be available to come back over here for at least a month , so anything you need will have to go through the home office , ”
+51370	51423	51424	51424	he	6	“ I missed you and Stephanie so much these last two weeks . I finally got that employee hired so I wo n’t have to travel nearly as much and when I do , I ’m taking you both with me because I ca n’t bear to be apart for so long , ”
+51438	51444	51445	51445	she	55	“ I missed you too , ”
+51478	51491	51492	51492	he	6	“ I ’m taking you out for a special celebratory dinner tonight , ”
+51512	51517	51518	51518	she	55	“ That sounds perfect , ”
+51857	51869	51870	51870	Damien	18	“ I ’d like to order every bouquet in the shop , ”
+51885	51898	51899	51899	Trinity	12	“ You said you would n’t be able to make it today , ”
+51926	51944	51945	51945	Damien	18	“ I threw business out the window . Today is about my best friend and beautiful niece , ”
+51962	51976	51977	51977	he	100	“ Hey , I think there are holes being burned into my back , ”
+52036	52046	52047	52048	a woman	141	“ Excuse me Miss , can you help me ? ”
+52051	52066	52067	52067	she	12	“ I ’m sorry , Damien but it looks like I ’m being beckoned , ”
+52260	52294	52295	52295	he	6	“ I want to touch you . I know you are n’t ready yet for love - making but that does n’t mean I ca n’t kiss you and enjoy your beautiful curves , ”
+52303	52337	52338	52338	she	12	“ I ’m not very beautiful right now Drew , I still have this extra weight from the baby and I never get enough sleep . I know I must look a mess , ”
+52364	52416	52417	52417	he	6	“ You ’re the most stunning woman I ’ve ever seen in my life . Your body is perfect and I do n’t care how much sleep you lose , you ’re still gorgeous . Do n’t ever try to hide from me because I love every square inch of you , ”
+52440	52462	52463	52463	she	12	“ You have n’t touched me since the baby was born and I thought you were a bit repulsed by me , ”
+52466	52525	52526	52526	he	1457	“ I ’m sorry you thought that , Love . I could never be turned off by you . I was feeling so much guilt about our love - making the night before you went into the hospital . You make me go so crazy and I was so rough with you and simply did n’t trust myself , ”
+52531	52600	52601	52601	she	12	“ Drew , you ’d never hurt me . You please me in ways I never knew were possible before I met you . You have given me so much and I ca n’t imagine my life without you in it . I know I ’ve been stubborn and a bit of a pain but I really love you and want our marriage to be the real thing , ”
+52629	52707	52708	52708	he	1459	“ I ’m so happy to hear you say that . I ’ve loved you for so long . I never realized my life was empty until you were there and then gone . I missed you from the moment you left our private paradise and was overjoyed to find you pregnant with my child . I know I ’ve made a lot of mistakes but loving you has been the best thing I ’ve ever done , ”
+52828	52838	52839	52839	he	1459	“ Baby , I ca n’t take much more , ”
+52889	52898	52899	52899	he	1459	“ You do n’t have to do this , ”
+53186	53194	53195	53195	he	1459	“ I ’m not going to last , ”
+53420	53427	53428	53428	she	1460	“ I ca n’t do that , ”
+53454	53467	53468	53468	he	1459	“ I wo n’t hurt you but I need to touch you , ”
+54031	54038	54039	54039	Jasmine	10	“ Are you ready to go ? ”
+54042	54061	54062	54062	Trinity	12	“ You have to tell me what ’s going on . It ’s a best friend ’s code , ”
+54080	54132	54133	54133	Jasmine	10	“ I ’m sorry but I ca n’t give it away but let me tell you I ’m a bit jealous . You have a man who loves you very much . If I did n’t have my own amazing husband , I would n’t be nearly as happy for you , ”
+54138	54165	54166	54166	Trinity	12	“ I just want to let you know the next time you ’re going crazy with anxiety , I ’m going to sit back and smile , ”
+54272	54278	54279	54279	Trinity	12	“ What is all this ? ”
+54282	54353	54354	54354	Jasmine	10	“ Drew promised to give you a real wedding , so he planned it all out . I could n’t believe you did n’t get at all suspicious when I was questioning you so much about your perfect dress , or what kind of place you ’d like and then the fitting for the supposed ball dress , was priceless . Has anyone ever told you how gullible you are ? ”
+54360	54366	54367	54367	Trinity	12	“ I had no idea , ”
+54737	54783	54784	54784	Jasmine	10	“ I hope you do n’t mind but this is where I had my wedding . Derek had it fixed up for me and I thought you ’d love it , as well . It ’s a great place and will give you good luck , ”
+54787	54801	54802	54802	she	12	“ It ’s perfect , Jasmine and exactly what I would ’ve chosen , ”
+54928	54938	54939	54939	he	19	“ Hi , Aunt Trinity . You look pretty , ”
+54950	54968	54969	54969	he	19	“ I ’d be very proud if I can walk you down the aisle to Uncle Drew , ”
+55408	55414	55415	55415	he	6	“ You ’re so stunning , ”
+55562	55571	55572	55572	someone	1599	“ It ’s time to cut the cake , ”
+55720	55734	55735	55735	he	8	“ Not so fast there Romeo , it ’s time for your toasts , ”
+55861	55867	55868	55868	she	33	“ I ’m pregnant again , ”
+55896	55924	55925	55925	she	10	“ Oh my gosh , that ’s so great because I just found out I am too . We ’re going to do this together this time , ”
+55965	55979	55980	55980	Trinity	33	“ I have n’t told Drew yet so you ca n’t say anything , ”
+55987	56020	56021	56021	Jasmine	10	“ I have n’t told Derek yet either , so we ’d both better do it tonight because you know we are n’t going to be able to contain ourselves very long , ”
+56067	56077	56078	56078	Drew	6	“ I never thought I could be this happy , ”
+56090	56101	56102	56102	Derek	9	“ Trust me cousin , I know what you mean , ”
+56164	56173	56174	56174	Drew	6	“ I have one final surprise for you , ”
+56180	56188	56189	56189	she	33	“ I ca n’t imagine anything else , ”
+56192	56223	56224	56224	he	6	“ We ’re taking a three day honeymoon . I wanted it to be longer but I know neither of us could stand to be away from Stephanie too long , ”
+56228	56235	56236	56236	she	33	“ You know me so well , ”
+56262	56271	56272	56272	she	33	“ I hope it ’s not too far , ”
+56283	56291	56292	56292	he	6	“ You ’re killing me , woman , ”
+56359	56367	56368	56368	she	33	“ I have something to tell you , ”
+56377	56382	56383	56383	he	6	“ What is it ? ”
+56404	56413	56414	56414	she	33	“ We are going to have another baby , ”
+56427	56430	56431	56431	he	6	“ Really ? ”
+56498	56510	56511	56511	she	33	“ You need to buckle back up , we are moving , ”
+56602	56632	56633	56633	he	6	“ I ca n’t believe I ’m going to get to watch you grow from the very beginning . I hate how much I missed out on with Stephanie , ”
+56660	56667	56668	56668	she	33	“ I ’m sorry , Drew , ”
+56675	56701	56702	56702	he	6	“ You have nothing to be sorry about , I can admit I was narrow minded and you had every right to not be trustful , ”
+56706	56716	56717	56717	she	33	“ I just hate how much time we lost , ”
+56720	56741	56742	56742	he	6	“ Me too , Love . But , what matters now is we have forever , from this moment on , ”
+56847	56867	56868	56868	she	33	“ I ca n’t believe you brought us back here , you ’re such a romantic , Mr. Titan , ”
+56873	56884	56885	56885	he	6	“ I ’ll make sure we leave together this time , ”

@@ -1,0 +1,521 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+0	5	6	6	he	35	“ Take them off , ”
+14	20	37	37	He	35	“ Not on your life , ”
+323	331	332	332	she	36	“ How dare you burn my clothes , ”
+398	407	408	408	he	35	“ I do whatever I want to do , ”
+415	431	432	432	she	36	“ Well you know what ? Let ’s just add more fuel to the fire , ”
+872	879	860	860	He	7	“ Ryan , where are you ? ”
+880	885	886	886	he	7	“ I ’m coming , ”
+926	935	936	936	Jacob	10	“ This place is great , Uncle Ryan , ”
+978	983	984	984	Derek	8	“ Nice place Ryan , ”
+991	1046	1047	1047	Ryan	11	“ I ’m lucky to have found a place so close to you and Drew . I already mapped out the backyard and we can make a trail between the properties . Then the kids can ride four - wheelers back and forth . We can make a killer trail for all of us , ”
+1071	1094	1095	1095	Derek	8	“ Great thinking , cousin . You map it all out and I ’ll get the people in to forge the trail , ”
+1098	1122	1095	1095	Derek	8	“ Hey , maybe I do n’t want to tear up my yard . What if I want to keep you hooligans out , ”
+1144	1150	1151	1151	Ryan	11	“ Where are the ladies ? ”
+1165	1182	1183	1183	Derek	8	“ They ’re taking a spa day today . The young ones are at my house , ”
+1186	1202	1203	1203	Ryan	11	“ They ’re already spectacular and in no way need to go to the spa , ”
+1238	1248	1249	1249	Derek	8	“ When are you going to finally settle down ? ”
+1253	1275	1276	1276	Ryan	11	“ You know me , I do n’t want a lady coming into my life and messing with a good thing , ”
+1904	1907	1908	1908	she	12	“ Hello , ”
+1914	1922	1924	1932	the voice on the other end of the line	119	“ We ’re looking for Nicole Lander , ”
+1934	1945	1946	1946	she	12	“ This is Nicole , how can I help you ? ”
+1954	1975	1976	1977	the woman	120	“ We have prescreened you for a full - time job and think you ’d be perfect for the position , ”
+1986	1995	1996	1996	she	12	“ I ’d love to hear about it , ”
+2001	2034	1996	1996	she	12	“ The position is for a live in housecleaner . You ’d be provided room and board , plus a generous salary if you ’re interested in coming in for an interview . ”
+2035	2047	2048	2048	Nicole	12	“ I ’ll be there whenever you need me to be , ”
+2082	2089	2058	2058	She	12	“ When do you want me ? ”
+2090	2179	2207	2207	she	12	“ You need to come into the office and fill out some paperwork . Confidentiality is a must while working for this client . You ’ll have to sign papers you understand and wo n’t speak about what happens in the household . You ’ll also be required to submit to a drug test . Your background check is already complete . If you come into the office this afternoon we can interview you . I want to let you know there are a few other people interested . ”
+2180	2200	2201	2201	Nicole	12	“ I ’ll be down there in a half hour . I have no problem signing whatever you need , ”
+2214	2228	2229	2229	she	12	“ That sounds great , Nicole . I ’ll be waiting for you , ”
+2861	2866	2937	2937	his	7	“ Who is this ? ”
+2874	2881	2882	2882	she	12	“ Th … this is Nicole , ”
+2899	2903	2937	2937	his	7	“ Nicole who ? ”
+2914	2918	2919	2919	she	12	“ Nicole Lander , ”
+2927	2936	2937	2937	his	7	“ How did you get my person number ? ”
+2980	2988	2989	2989	she	12	“ I got it from your uncle , ”
+3005	3011	3012	3012	he	7	“ What do you want ? ”
+3017	3037	3038	3038	she	12	“ I um , wanted to see if I could , um , talk to you about something important , ”
+3045	3069	3070	3070	she	12	“ We used to know each other , a really long time ago , I do n’t know if you still remember me , ”
+3073	3093	3094	3094	he	7	“ I do n’t have time to beat around the bush . Spit out what it is you want , ”
+3118	3149	3150	3150	she	12	“ My little sister is in the hospital and she needs an operation and we do n’t have any other options . Your uncle said I should talk to you , ”
+3282	3291	3292	3292	he	7	“ Do you know where my office is ? ”
+3295	3302	3303	3303	she	12	“ Yes , in the city , ”
+3306	3313	3314	3314	he	7	“ Be there tomorrow at five , ”
+4413	4420	4421	4422	the man	174	“ Do you have an appointment ? ”
+4426	4437	4438	4438	she	12	“ Yes , I ’m here to see Mr. Titan , ”
+4474	4480	4481	4482	the guard	172	“ Your name , please ? ”
+4485	4489	4490	4490	she	12	“ Nicole Lander , ”
+4538	4585	4586	4587	the man	174	“ Go to the elevators and swipe this badge . Go up to the twentieth floor . When you step off the elevators go to the right and you ’ll find the reception desk . Mr. Titan is expecting you so check in with his secretary , ”
+4821	4825	4826	4827	the woman	120	“ Name please , ”
+4837	4841	4842	4842	she	12	“ Nicole Lander , ”
+4864	4892	4893	4894	the woman	120	“ Mr. Titan is currently busy . He asked me to tell you to have a seat . He ’ll call you when he ’s finished up , ”
+5034	5048	5049	5049	she	12	“ I wanted to make sure Mr. Titan knew I was still here , ”
+5112	5133	5134	5135	the woman	120	“ Mr. Titan ’s a very busy man . You ’ll have to wait for him to call you in , ”
+5564	5574	5575	5575	he	7	“ You can send Ms. Lander in , now , ”
+5592	5600	5586	5588	his efficient secretary	213	“ It looks as if she left , ”
+6124	6131	6132	6132	she	221	“ Do you want a table ? ”
+6152	6158	6159	6159	he	7	“ That would be great , ”
+6227	6235	6236	6236	she	221	“ What would you like to drink ? ”
+6242	6249	6250	6250	he	7	“ I ’ll take a coffee , ”
+6316	6331	6332	6332	she	221	“ Here ’s the menu . I ’ll be right back with your coffee , ”
+6472	6481	6482	6482	she	221	“ Are you ready to place your order ? ”
+6486	6492	6493	6493	he	7	“ What are your specials ? ”
+6513	6528	6529	6529	she	221	“ We have the chef ’s meatloaf special and we serve breakfast all day , ”
+6560	6571	6572	6573	her boss	194	“ Ms. Lander , can you please come over here ? ”
+6608	6614	6615	6615	she	221	“ Yes , Mr. Archer , ”
+6618	6652	6653	6653	he	245	“ Could you please try and act more professional . That man showed up in a jaguar and you ’re taping your toe in impatience . Do you want to keep your job ? ”
+6657	6669	6670	6670	she	221	“ Of course , sir . I ’m sorry about that , ”
+6716	6730	6731	6731	she	221	“ I ’m sorry about making you wait , have you decided yet ? ”
+6735	6749	6750	6750	he	7	“ I ’ll take a turkey sandwich and the soup of the day , ”
+6964	6970	6971	6971	he	7	“ We need to talk , ”
+6985	6997	6998	6998	she	221	“ I ca n’t talk right now , I ’m working , ”
+7005	7014	7015	7015	he	7	“ Have you had a break yet tonight ? ”
+7044	7062	7063	7063	she	221	“ I ’m the only waitress here , I do n’t have time to take a break , ”
+7097	7108	7109	7110	her boss	194	“ Ms. Lander , you have customers waiting on you , ”
+7145	7154	7155	7155	she	221	“ I ’m sorry sir , I tripped , ”
+7166	7194	7195	7195	Ryan	7	“ Ms. Lander has n’t had a break the entire time I ’ve been here and I ’d like to speak to her for a few minutes , ”
+7207	7230	7195	7195	Ryan	7	“ I do n’t appreciate you telling me how to treat my employee ’s , as it ’s none of your business , ”
+7249	7258	7259	7259	he	174	“ Get back to work , Ms. Lander , ”
+7298	7307	7308	7308	she	221	“ You ’re going to get me fired , ”
+7354	7360	7361	7361	he	7	“ We ’re leaving now , ”
+7414	7428	7429	7429	Nicole	12	“ I need to use the restroom . I ’ll be right back , ”
+7490	7524	7525	7525	Ryan	7	“ Can you please grab Nicole ’s things for me ? She ’s leaving with me now , whether she wants to or not and I think she would rather have her possessions , ”
+7536	7559	7560	7560	he	7	“ I in no way want to harm her . Our families are friends and she ’ll no longer need this job , ”
+7565	7581	7582	7583	the cook	265	“ She should ’ve left here long ago . The boss treats her like crap , ”
+7630	7639	7640	7641	the cook	265	“ Nicole , do you know this guy ? ”
+7664	7684	7685	7685	she	12	“ We grew up together . Do n’t worry , Bubba , he ’s not trying to hurt me , ”
+7730	7738	7739	7739	he	7	“ Right then , let ’s go , ”
+7745	7771	7772	7772	she	12	“ Ryan , I already told you I ’m not going anywhere with you . I do n’t get off until eight in the morning , ”
+7802	7822	7823	7823	she	12	“ If you really want to talk to me , I ’ll come to your offices in the morning , ”
+7896	7909	7910	7910	she	12	“ Ryan , I demand you put me down right this instant , ”
+7916	7934	7910	7910	she	12	“ Nicole , if you walk out that door now , you can kiss your job goodbye , ”
+8163	8172	8173	8173	she	12	“ What do you think you ’re doing ? ”
+8185	8206	8207	8207	he	7	“ You wanted to talk and then walked out . You ’re lucky I ’m giving you a second chance , ”
+8255	8271	8272	8272	she	12	“ Are you insane ? Do you know how difficult it is to find work ? ”
+8277	8294	8295	8295	he	7	“ That was a crap job and you know it . I did you a favor , ”
+8532	8541	8542	8542	she	12	“ Where are you taking me , Ryan ? ”
+8547	8560	8561	8561	he	7	“ To my house , so we can finish our chat privately , ”
+8624	8639	8640	8640	Ryan	7	“ You can get out and walk in , or I can carry you , ”
+9032	9038	9039	9039	Ryan	7	“ Are you feeling better ? ”
+9049	9064	9065	9065	she	12	“ This must be decaffeinated because I ’m having a hard time staying awake , ”
+9069	9083	9084	9084	he	7	“ It has a shot of rum in it to sooth your nerves , ”
+9120	9137	9138	9138	he	7	“ I need to make a call , so we will talk when I get back , ”
+10177	10188	10189	10189	Ryan	7	“ I did n’t think you would ever wake up , ”
+10283	10290	10291	10291	she	12	“ How did I get here ? ”
+10297	10302	10303	10303	he	7	“ I carried you , ”
+10326	10346	10347	10347	he	7	“ I ’ll give you some privacy to shower and get dressed . Meet me downstairs in the den , ”
+10586	10612	10613	10613	he	7	“ Would you please quit staring at the food as if it will disappear and get yourself a plate ? We can talk over breakfast , ”
+10639	10643	10644	10644	she	12	“ Thank you , ”
+10794	10801	10802	10802	she	12	“ I ’m not done yet , ”
+10815	10836	10837	10837	Ryan	7	“ Let Maria take the plate and if you get hungry again , then you can grab some fresh food , ”
+10867	10881	10882	10882	Ryan	7	“ Okay , I think it ’s time to have our chat now , ”
+10941	10983	10984	10984	Nicole	12	“ Patsy has a rare heart disease requiring surgery but her insurance does n’t cover it . They say it ’s an elective surgery and yet if she does n’t get it , she wo n’t survive to her seventeenth birthday , ”
+11050	11058	11059	11059	he	382	“ So you need to borrow money ? ”
+11097	11134	11135	11135	she	12	“ It ’s killing me to borrow money from you . I just need someone to pay her surgery costs . I ’ll get a new job right away and pay every dime of it back , ”
+11207	11221	11222	11222	he	382	“ What are you willing to do for me if I do this ? ”
+11227	11235	11236	11236	she	12	“ I … I do n’t understand , ”
+11239	11294	11295	11295	he	382	“ Come on Nicole , you ’re so much smarter than this , or at least you used to be . Money means nothing to me . I can pay the bill without it even placing a dent in my wallet so I do n’t need , nor want you to pay me back , ”
+11305	11311	11312	11312	she	12	“ What do you want ? ”
+11557	11624	11625	11625	he	7	“ I want you in my house , in my bed , at my beck and call . You ’ll be here for me night and day for whatever I need until I ’m bored with you . Then I ’ll set both you and Patsy up in a decent place since apparently you ’re homeless at the moment and have nowhere for her to recover , ”
+11742	11750	11751	11751	he	7	“ I require an answer , now , ”
+11768	11776	11777	11777	she	12	“ What choice are you giving me ? ”
+12019	12073	12074	12074	he	7	“ You ’ll , of course , move in immediately as you have nowhere else to go and you ’ll act as if you ’re completely over the moon for me when we ’re out in public . I think we ’ll get along fine as long as you do as I say , ”
+12155	12163	12166	12166	she	12	“ I need to see my sister , ”
+12171	12186	12187	12187	he	7	“ We can head over there now . Her surgery has already been arranged , ”
+12256	12264	12265	12265	she	12	“ You were so sure of yourself ? ”
+12279	12308	12309	12309	he	7	“ I did n’t have any doubt you ’d put your sister ahead of yourself . After all , you ’ve always been willing to self - sacrifice , ”
+12380	12393	12394	12394	he	7	“ I think the occasion needs to be sealed with a kiss , ”
+12707	12731	12732	12732	he	7	“ I think this arrangement will work out just fine , as long as you continue to be such a tempting little thing , ”
+12765	12771	12772	12772	she	12	“ You really are despicable , ”
+12819	12835	12836	12836	he	7	“ I may be despicable but you want me and this will be mutually pleasurable , ”
+12839	12849	12850	12850	she	12	“ Or , I ’m just one fine actress , ”
+13110	13119	13120	13120	Patsy	13	“ I missed you last night , Nik , ”
+13132	13156	13157	13157	Nicole	12	“ I ’m so sorry Hun , I got caught up at work but I came as early as I could this morning , ”
+13163	13171	13172	13172	she	12	“ You probably do n’t remember Ryan , ”
+13175	13182	13183	13183	Patsy	13	“ Ryan , is that you ? ”
+13249	13261	13264	13264	her	13	“ I ’m sorry you ’ve been in so much pain , ”
+13284	13289	13290	13290	she	13	“ I missed you , ”
+13297	13319	13320	13320	Ryan	7	“ I ’ve missed you too , little one , and I ’m sorry I have n’t been there for you , ”
+13324	13334	13335	13335	she	13	“ I ’m glad you ’re here , now , ”
+13344	13348	13349	13349	he	7	“ Me too , ”
+13361	13369	13370	13370	she	13	“ Are you and Nicole together again ? ”
+13374	13378	13379	13379	he	7	“ We are , ”
+13383	13395	13396	13396	she	13	“ That ’s so cool . Nicole has always loved you , ”
+13430	13441	13442	13442	Nicole	12	“ You ’re going to get your operation , baby , ”
+13453	13456	13457	13457	Patsy	13	“ Really ? ”
+13469	13472	13473	13473	Ryan	7	“ Really , ”
+13669	13687	13688	13688	he	7	“ Well now we are going to test your acting skills . Remember what you agreed to , ”
+13712	13727	13728	13728	Derek	8	“ About time you got back Ryan , did you forget about the barbeque ? ”
+13817	13836	13837	13837	Drew	9	“ Is that you , Nicole ? I have n’t seen you in forever . You look great , ”
+13883	13894	13895	13895	Trinity	21	“ Now who ’s this gorgeous woman you ’re mauling ? ”
+13900	13933	13934	13934	Drew	9	“ Trinity , this is Nicole . She and Ryan used to be all hot and heavy when we were teenagers . Nicole , this beautiful woman is my wife , Trinity , ”
+13938	13949	13950	13950	Trinity	21	“ It ’s so nice to meet you , Nicole , ”
+13965	13975	13976	13976	Nicole	12	“ It ’s nice to meet you , too , ”
+13980	13989	13990	13990	Derek	8	“ Now it ’s my turn , stranger , ”
+14005	14014	13990	13990	Derek	8	“ It ’s so great to see you . ”
+14024	14033	14034	14034	she	22	“ I have n’t seen you in forever , ”
+14056	14062	14034	14034	she	22	“ How have you been ? ”
+14063	14068	14069	14069	Nicole	12	“ I ’m great , ”
+14073	14085	14086	14086	she	12	“ I did n’t know you and Derek got back together , ”
+14117	14136	14137	14137	Jasmine	22	“ Yes and it ’s been amazing . It looks like these Titan boys are finally waking up , ”
+14152	14176	14177	14177	Ryan	7	“ Yes , Nicole and I ran into each other again and we realized we simply could n’t live one more second apart , ”
+14230	14247	14248	14248	Jasmine	22	“ Well , we have to catch up and figure out ways to torture these men , ”
+14266	14300	14301	14301	Drew	9	“ So what ’s going on with you ? I adore Nicole , you know that , but I still remember the utter devastation you felt when she walked out of your life , ”
+14339	14359	14360	14360	he	7	“ We ran into each other and realized the spark was still there , so decided to pursue it , ”
+14428	14442	14443	14443	Derek	8	“ She ’s even more gorgeous now than she was as a teenager , ”
+14453	14463	14443	14443	Derek	8	“ Back off , you ’re a married man , ”
+14519	14544	14545	14545	Jasmine	22	“ So spill Nicole , we want all the juicy details of how you two got together and what you ’ve been up to , ”
+14642	14688	14689	14689	Nicole	12	“ My sister ’s in the hospital and I did n’t have anyone to turn to or talk with so I called Ryan . He was there instantly and the minute I saw him again all those old feelings came right back to the surface , ”
+14700	14719	14720	14720	Jasmine	22	“ Your sister ’s in the hospital ? What ’s wrong with her ? How can we help ? ”
+14869	14876	14877	14877	Derek	8	“ What ’s wrong , Baby ? ”
+14882	14903	14904	14904	Jasmine	22	“ You do n’t need to worry , Derek , we ’re simply women and this is what we do , ”
+14913	14924	14925	14925	Drew	9	“ You know we have to try and fix it , ”
+14935	14954	14955	14955	Trinity	21	“ That ’s because you ’re the most honorable men we know but we really will be okay , ”
+15041	15058	15059	15059	Jasmine	22	“ Now boys , give us more time together , then we ’ll start making dinner , ”
+15124	15136	15137	15137	Trinity	21	“ I hear Joshua crying . I ’ll be right back , ”
+15151	15156	15157	15157	Nicole	12	“ He ’s beautiful , ”
+15192	15223	15224	15224	Trinity	21	“ He ’s only three months old . Jasmine and I had our youngest within a few weeks of each other and it ’s been great to share the experience , ”
+15296	15313	15314	15314	Nicole	12	“ Oh , I have n’t held such a tiny baby since Patsy was a newborn , ”
+15326	15332	15333	15333	she	12	“ He ’s so little , ”
+15339	15382	15383	15383	Jasmine	22	“ They ’re a lot of work but worth every single minute and Derek is such an attentive and amazing father . He shares the nights with me , making everything perfect . There are many people who are disgusted with us , ”
+15386	15403	15404	15404	Trinity	21	“ I do n’t know of many men who are up for the three A.M feedings , ”
+15407	15429	15404	15404	Trinity	21	“ Drew is just as amazing at helping me out . I could n’t imagine doing this all on my own . ”
+15430	15441	15442	15442	Nicole	12	“ Do you get to stay at home with them ? ”
+15445	15509	15510	15510	Trinity	21	“ We own a shop together but only spend minimal time there and the babies always come with us . Ryan built us an amazing nursery and a play structure for the older kids . We get to have a business that ’s ours . We take pride in it but still get to be the kind of mothers we want to be , ”
+15776	15784	15785	15785	Derek	8	“ Can we help you with anything ? ”
+15803	15824	15825	15825	Trinity	21	“ You can get the steak going . The rest of this food will be ready before you know it , ”
+15849	15871	15872	15872	Jasmine	22	“ I know it ’s terrible to play with them but sometimes it ’s simply way too much fun not to , ”
+15878	15881	15882	15882	Trinity	21	“ Agreed , ”
+16024	16046	16047	16047	she	12	“ I ’m really tired , so if you could tell me where I ’m sleeping I ’ll leave you alone , ”
+16052	16075	16076	16076	he	7	“ You ’ll be sleeping in my bed again but this time I wo n’t lay awake half the night in frustration , ”
+16081	16092	16093	16093	she	12	“ I ’m not sleeping in your bed , Ryan , ”
+16219	16246	16208	16208	She	12	“ Ryan you need to back off , I know we have an agreement but I ’m tired and not ready to share your bed yet , ”
+16924	16938	16939	16939	he	7	“ I ’ve wanted to do this since the first kiss we shared , ”
+17067	17070	17071	17071	she	12	“ Please , ”
+17084	17092	17093	17093	he	7	“ I ca n’t wait any longer , ”
+18203	18214	18215	18215	he	7	“ What do you think you ’re doing in here ? ”
+18231	18238	18239	18239	she	12	“ I was trying to sleep , ”
+18315	18326	18327	18327	he	7	“ You ’ll be sleeping all night in my bed , ”
+18331	18340	18341	18341	she	12	“ I ’ll sleep where I want to , ”
+18348	18398	18399	18399	he	7	“ You ’re the most insufferable woman I ’ve ever met in my life . Did you forget we have an agreement ? Did you think I ’d simply fork out a ton of my own money , set you up in my home and get nothing in return ? ”
+18415	18424	18425	18425	she	12	“ You got what you wanted last night , ”
+18459	18483	18484	18484	he	7	“ I ’ll continue to get what I want and what I want is you in my bed every night , all night , ”
+18513	18518	18519	18519	he	7	“ Do you understand ? ”
+18529	18532	18533	18533	she	12	“ Yes , ”
+18854	18873	18874	18874	Ryan	7	“ We need to get going , so we can see Patsy before she ’s taken into surgery , ”
+18889	18894	18895	18895	she	12	“ I ’m ready , ”
+19105	19139	19140	19140	Ryan	7	“ The surgery ’s going to take a couple of hours so why do n’t we go out to lunch . You need to get your mind off of what ’s going on , ”
+19150	19165	19166	19166	she	12	“ No , I need to be here in case the doctor comes out , ”
+19173	19182	19183	19183	he	7	“ We can stay , that ’s fine , ”
+19262	19269	19270	19270	she	12	“ What are you doing here ? ”
+19298	19311	19312	19312	Jasmine	22	“ We could n’t let you go through this on your own , ”
+19650	19654	19655	19656	a doctor	565	“ Ms. Lander , ”
+19694	19697	19698	19698	she	12	“ Yes ? ”
+19713	19749	19750	19750	he	1466	“ Your sister is out of surgery and it looks like everything will be fine . The next few hours are critical but it looks like your sister is going to make a full recovery , ”
+19754	19758	19759	19759	she	12	“ Thank you , ”
+20000	20078	20079	20079	Jasmine	22	“ You ’re coming out with us today . You ’ve done nothing but sit here and worry about your sister and she ’s fine . She has a million magazines , doctors and nurses at her beck and call and food being brought in . You , on the other hand , look like you have n’t eaten in a month , have dark circles under your eyes and are in desperate need of a manicure , ”
+20139	20146	20147	20147	she	12	“ I ca n’t leave her , ”
+20152	20199	20200	20200	Trinity	21	“ Nicole we simply are n’t taking no for an answer . You can either walk out of here with us , or we will get the guys to come and drag you out but you ’re going out for a day of much needed pampering , ”
+20203	20255	20256	20256	Patsy	13	“ Go with them Nicole . You have been amazing and I love you to pieces but you need to take care of yourself and not just me all the time . Now get out of here and I ’ll tell the doctors you are n’t allowed back in until tomorrow , ”
+20260	20274	20275	20275	Nicole	12	“ Patsy , you do n’t mean that , you need me here , ”
+20286	20376	20377	20377	Patsy	13	“ I do need you and I love you more than anything . I know how much you sacrifice for me and how much you have always given up for me . Get the shocked look off your face , I ’m not blind . You make sacrifices every day to take care of me and I love and appreciate you even more for that but please take care of yourself . Now get out and I mean it when I say you are n’t allowed back until tomorrow , ”
+20380	20391	20392	20392	Nicole	12	“ You ’re never a sacrifice because I love you , ”
+20396	20409	20410	20410	Jasmine	22	“ You heard your sister , let ’s get out of here , ”
+20413	20428	20429	20429	Nicole	12	“ I guess it would n’t hurt to get out for a few hours , ”
+20459	20472	20473	20473	Trinity	21	“ First thing we are doing is getting you a hot lunch , ”
+20476	20490	20491	20491	Jasmine	22	“ Then , we ’re going to the salon for manicures and pedicures , ”
+20494	20571	20572	20572	Trinity	21	“ After all that fun we ’re doing some shopping and do n’t you dare shake your head at me . It looks as if you have n’t pampered yourself in a long time . I ’ve demanded Ryan ’s credit card and your day ’s on him . Seriously , you ’ve got to quit shaking your head at me . The man is n’t going to go broke because you purchase a few outfits , ”
+20634	20672	20673	20673	Jasmine	22	“ We can argue about it more once you ’re fed and pampered , then I ’ll feel better winning because my opponent does n’t look like she ’s about to blow over in a small wind , ”
+20775	20791	20792	20792	Trinity	21	“ Okay that was a slice of heaven , now let ’s do some shopping , ”
+20802	20840	20841	20841	Nicole	12	“ Seriously , the lunch and the salon were amazing and I really am feeling much better but Ryan and I have just started seeing each other and I ’m not comfortable with him buying me clothes , ”
+20864	20879	20880	20880	Jasmine	22	“ Nicole , we can do this the easy way or the hard way , ”
+20885	20905	20880	20880	Jasmine	22	“ Why do n’t we wander around and I can be with you guys while you get new things , ”
+21039	21057	21058	21058	Jasmine	22	“ Derek and I are throwing a masquerade ball and you need a stunning gown for it , ”
+21062	21077	21078	21078	Nicole	12	“ I probably should n’t go to a party and leave Patsy , anyway , ”
+21122	21143	21144	21144	Jasmine	22	“ Patsy will be well taken care of and it would truly hurt my feelings if you did n’t come , ”
+21171	21194	21195	21195	Nicole	12	“ Okay , I guess it would n’t hurt to get one dress but seriously it does n’t have to be extravagant , ”
+21371	21399	21400	21400	Jasmine	22	“ I ’ll take your dress and accessories back to my place . I want you to come over early so we can all get ready together , ”
+21421	21427	21428	21428	Nicole	12	“ That would be nice , ”
+21557	21571	21572	21572	Patsy	13	“ I ’m fine , you can really stop fussing over me now , ”
+21583	21609	21610	21610	Nicole	12	“ I ’m simply worried about you . You did have major surgery and are finally safe and sound and out of that horrible hospital , ”
+21659	21682	21683	21683	Nicole	12	“ Remember your doctor said you ca n’t overdo it , only mild walks and no school for at least another month , ”
+21687	21699	21700	21700	Patsy	13	“ Trust me , I have you here to remind me , ”
+21728	21735	21736	21736	Nicole	12	“ I love you so much , ”
+21745	21776	21777	21777	Patsy	13	“ I love you too sis , now go relax for a while . I promise you I wo n’t melt away while I sit here and watch a movie , ”
+21781	21804	21805	21805	she	12	“ I ca n’t believe we are in this amazing house and I really hope we get to stay for a while , ”
+21886	21891	21892	21892	Ryan	7	“ What is it ? ”
+21903	21921	21922	21922	she	622	“ I ’m sorry to interrupt you Mr. Titan but you have a call on line one , ”
+22164	22167	22168	22168	he	7	“ Thanks , ”
+22353	22360	22361	22361	Derek	8	“ What ’s up your burr ? ”
+22372	22380	22381	22381	he	7	“ What do you want , Derek ? ”
+22426	22440	22441	22441	Derek	8	“ I was just coming to remind you about the party tomorrow night , ”
+22456	22478	22479	22479	Ryan	7	“ I did forget about that . I do n’t know if I can make it with Patsy just getting here , ”
+22507	22528	22529	22529	Derek	8	“ Well that ’s too bad because then you ’re going to miss out on Nicole looking hot and sexy , ”
+22551	22577	22578	22578	Ryan	7	“ I did n’t think she would be willing to part from her sister , even though I have round the clock care for her , ”
+22581	22608	22609	22609	Derek	8	“ She ’s already over at the house . Jasmine insisted she and Trinity stay the night so they could do the whole beauty thing together , ”
+22615	22645	22646	22646	Ryan	7	“ Crap , I feel out of the loop , I did n’t even know she ’d left . Her and I are going to have a serious talk , ”
+22658	22673	22674	22674	Derek	8	“ Sounds as if you ’re being knocked off your feet by a woman , ”
+22716	22746	22747	22747	Derek	8	“ Well , Drew is on his way over . We figured if the girls were kicking us out , then we would make it a guy ’s night , ”
+22751	22767	22747	22747	Derek	8	“ So put your work away and let ’s go out to the grease joint . ”
+22768	22774	22775	22775	Ryan	7	“ Sounds good to me , ”
+22832	22871	22872	22872	Jasmine	22	“ So I know it ’s completely over the top but we have a hair stylist and a make - up artist coming in tomorrow . I want to wow my husband and I have spared no expense , ”
+22938	22971	22972	22972	Trinity	21	“ I ’ve got all the beauty products we need for tonight . It ’s a good thing you sent your husband away , otherwise he ’d go screaming from the house , ”
+23035	23075	23076	23076	Jasmine	22	“ Let ’s head up to my room to apply the masks . We can do the paraffin wax on our hands and feet , next . After that we ’ll take bathes and turn our skin to silk , ”
+23314	23364	23365	23365	Trinity	21	“ You ’re the most stunning creature . When Ryan see ’s you tonight he ’s going to have a heart attack . Beyond that , every man in the room will be determined to whisk you away from him . I ca n’t wait to see his face , ”
+23600	23607	23594	23594	someone	92	“ Is that you , Nicole ? ”
+23613	23616	23617	23617	she	12	“ Yes , ”
+23654	23667	23668	23668	she	12	“ It ’s Stephanie , we went to school together , remember ? ”
+23700	23717	23718	23718	Nicole	12	“ It ’s so great to see you Stephanie , it ’s been too many years , ”
+23746	23765	23766	23766	Stephanie	26	“ Do n’t let this party intimidate you , Jasmine would never invite anyone who was too horrible , ”
+23770	23784	23785	23785	Nicole	12	“ I know but I feel too old to be at a dance , ”
+23792	23866	23867	23867	Stephanie	26	“ Seriously you need to live a little bit , once in a while is my philosophy . I remember from school you were far more likely to study than attend a dance , so let go and pretend you have no responsibilities for a night . Most people wo n’t even recognize you and you look beyond gorgeous , so stop worrying about things and allow yourself to have a great time , ”
+24006	24022	24023	24023	Stephanie	26	“ I ’m off to find some sexy man to whisk me off to paradise , ”
+24027	24043	24044	24044	she	26	“ I ’ll look for you later , it really was great to see you , ”
+24615	24628	24633	24640	the current female trying to hold his attention	708	“ Ryan , you did n’t hear a word I just said , ”
+24707	24718	24719	24719	he	7	“ I ’m sorry , my mind was on business , ”
+24751	24778	24779	24779	he	7	“ I ’m sorry to leave you ladies but I ’m going for a bite to eat , then I have business to discuss with Tom , ”
+24790	24808	24809	24810	another woman	711	“ You know how to find us when you ’re ready to play instead of talk business , ”
+25127	25134	25135	25135	he	7	“ How are you this evening ? ”
+25369	25376	25377	25377	she	12	“ I ’m wonderful and yourself ? ”
+25395	25414	25415	25415	he	7	“ I ’m much better now that I ’ve managed to find you . Have we met before ? ”
+25489	25511	25512	25512	she	12	“ I believe I ’d remember meeting you but is n’t the whole point of a masquerade to remain a mystery ? ”
+25552	25577	25578	25578	he	7	“ Ah yes , a masquerade is full of mystery but I ’m finding I really want to see what ’s behind your mask , ”
+25646	25660	25661	25661	she	12	“ Have n’t you heard you do n’t always get what you want ? ”
+25745	25761	25762	25762	he	7	“ Actually , no one has told me ‘ no ’ for about twelve years , ”
+25836	25856	25857	25857	she	12	“ Well then I think it ’s about time you were told you ca n’t have something you want , ”
+26037	26056	26057	26057	she	12	“ I do n’t recall you asking me to dance and I certainly did n’t say I would , ”
+26071	26077	26078	26078	he	267	“ I did n’t ask , ”
+26091	26124	26084	26084	he	267	“ We ’re starting to make a scene so unless you like to be the center of attention I suggest you simply go with the dance because I ’m not letting go . ”
+26352	26366	26367	26367	she	12	“ I ’m a little too warm , I need to step outside , ”
+26427	26437	26438	26438	he	7	“ I could use a cooling off , myself , ”
+26993	27005	27006	27006	she	12	“ I really need to get back and check on Patsy , ”
+27014	27028	27029	27029	he	7	“ She has round the clock care , so what ’s your hurry ? ”
+27202	27209	27210	27210	he	7	“ Tell me you want me , ”
+27293	27296	27297	27297	she	12	“ No , ”
+28206	28209	28210	28210	she	12	“ Please , ”
+29964	29971	29972	29972	he	7	“ I woke up alone again , ”
+29977	29984	29985	29985	she	12	“ And this concerns me how ? ”
+30003	30021	30022	30022	he	7	“ I told you that you wo n’t leave my bed in the middle of the night , ”
+30027	30039	30040	30040	she	12	“ And I told you I ’ll do as I please , ”
+30067	30077	30078	30078	he	7	“ Are you trying to break our agreement Nicole ? ”
+30082	30089	30090	30090	she	12	“ You do n’t own me , ”
+30093	30157	30158	30158	he	809	“ Oh but I do own you Nicole . Our agreement is I help your sister and you ’re my mistress until I see fit of disposing of you . You are n’t keeping me very happy right now so I guess I could throw you and Patsy out of here . Then she would n’t get the medical treatment she still needs , ”
+30184	30191	30192	30192	she	810	“ You would n’t do that , ”
+30200	30225	30226	30226	he	809	“ Try me . Leave my bed again before I ’m ready for you too and you ’ll see exactly what I ’ll do , ”
+30272	30277	30278	30278	she	12	“ I hate you , ”
+30325	30343	30344	30344	he	809	“ You sure have n’t acted like you hate me when you ’re moaning in my arms , ”
+30349	30364	30365	30365	she	12	“ How can you be so sure I ’m not faking the whole thing ? ”
+30482	30518	30519	30519	he	809	“ Deny it all you want but you want me just as badly as I want you . You can play the martyr but we both know sharing my bed is no hardship for you , ”
+30904	30918	30919	30919	he	7	“ Can you please get Nicole on the line and put her through ? ”
+30923	30927	30928	30928	she	104	“ Yes sir , ”
+30978	30987	30937	30937	her	104	“ She ’s on line three , sir , ”
+31010	31016	31017	31017	he	7	“ Hello , Ryan here , ”
+31026	31035	31036	31036	she	104	“ You ’re the one who called me , ”
+31050	31058	31036	31036	she	104	“ Oh yes , I almost forgot , ”
+31064	31082	31083	31083	he	7	“ I ’d like for you to come into the office today and have lunch with me , ”
+31087	31092	31093	31093	she	104	“ I ’m busy , ”
+31102	31119	31120	31120	he	7	“ Well then you ’ll undo any plans you ’ve made and be here by noon , ”
+31170	31178	31179	31179	she	104	“ Fine , I ’ll be there , ”
+31189	31198	31199	31199	he	7	“ Good , I ’ll see you then , ”
+31287	31300	31301	31302	his secretary	104	“ Mr. Titan , you have an international call on line one , ”
+31310	31316	31317	31317	he	7	“ I ’ve got it , ”
+31450	31477	31478	31478	he	7	“ Has no one taught you manners ? You should knock before walking into someone ’s office . I could ’ve been in an important meeting , ”
+31501	31516	31485	31485	her	12	“ Where the hell is my secretary anyway , she should have stopped you . ”
+31517	31598	31599	31599	she	824	“ You ’ve obviously been terrorizing your office staff and I told your secretary we were meeting for lunch and there was no need to buzz you . If you have a problem with that then you can take it out on me and not her . I think if you blow up at the poor woman one more time , she ’s going to walk out the door , while telling you where you can stick your bad attitude , ”
+31605	31621	31622	31622	he	825	“ So , I guess you ’re telling me how to run my offices now ? ”
+31626	31633	31634	31634	she	824	“ Obviously , someone needs to , ”
+31639	31649	31650	31650	he	825	“ You drive me to the point of madness , ”
+31653	31690	31691	31691	she	824	“ Well that makes two of us . I do n’t see why you want to continue this arrangement when we are both so miserable . You ’re the one who insisted I come down here , ”
+31713	31722	31723	31723	he	825	“ I ’m hungry , let ’s go , ”
+31807	31811	31812	31812	she	824	“ Yes sir , ”
+31905	31940	31941	31941	he	825	“ Order lunch for everybody today and use my credit card . After lunch , those who do n’t have immediate things to be finished tonight can have the rest of the afternoon off , ”
+31958	31965	31949	31949	He	825	“ Thank you , Mr. Titan , ”
+31998	32006	32007	32007	Nicole	12	“ That was really sweet of you , ”
+32067	32074	32075	32075	he	825	“ I ’m a nice guy , ”
+32340	32347	32348	32348	he	825	“ Let ’s do some shopping , ”
+32387	32399	32400	32400	she	12	“ I do n’t want to leave Patsy for too long , ”
+32429	32445	32446	32446	he	825	“ Patsy has round the clock care and will be fine for a few hours , ”
+32470	32479	32480	32480	Nicole	12	“ I know but she still needs me , ”
+32819	32826	32827	32827	she	12	“ How can I help you ? ”
+32843	32863	32864	32864	he	7	“ We need to purchase an entire wardrobe . I ’m sure you ’ll be able to help us , ”
+32953	32967	32968	32968	she	12	“ I can certainly help you with new clothing , please follow me , ”
+32982	32991	32992	32992	Nicole	12	“ What do you think you ’re doing ? ”
+33009	33017	33018	33018	he	7	“ I ’m purchasing you some clothes , ”
+33042	33060	33061	33061	she	12	“ I did n’t ask for you to purchase me clothing , nor do I want them , ”
+33105	33129	33130	33130	he	7	“ You ’ll allow me to do this . You need to dress a certain way for occasions I want you to attend , ”
+33162	33167	33168	33170	the sales lady	892	“ Are you coming ? ”
+33201	33207	33208	33208	Ryan	7	“ Yes , we are , ”
+33859	33867	33868	33868	Derek	8	“ Hey , where did you go ? ”
+33872	33880	33881	33881	Ryan	7	“ Sorry , my mind drifted off , ”
+33886	33906	33907	33907	Derek	8	“ Yeah , I remember those days . I bet your thoughts were filled with a dark haired beauty , ”
+33916	33931	33932	33932	Ryan	7	“ No , of course not . I ’m thinking about my upcoming trip , ”
+33936	33942	33932	33932	Ryan	7	“ When are you leaving ? ”
+33943	33977	33978	33978	Ryan	7	“ I have to take off tonight . I wo n’t be back for at least a month , maybe longer . Hopefully by then I ’ll have some more control over myself , ”
+34023	34067	34068	34068	Derek	8	“ I have a trip next week in that direction so I ’ll stop by and see what you ’re working on . I have n’t been able to take Jasmine out in a while and I think she ’d really love Rome , ”
+34079	34098	34068	34068	Derek	8	“ Seriously Derek , you ’re disgustingly pleasant now . What the hell happened to the corporate powerhouse ? ”
+34099	34129	34130	34130	Derek	8	“ Jasmine happened . I did n’t know I could be so happy but man , if I ’m away from her for even a night I feel empty , ”
+34181	34195	34196	34196	Ryan	7	“ I feel like a freaking third wheel around you and Drew now , ”
+34239	34283	34227	34227	they	65	“ I ’ll see if Drew and Trinity want to join me on the trip . I do n’t think Trinity ’s ever been to Rome either . I do n’t know if I can drag them away from the kids , though . ”
+34284	34301	34302	34302	Ryan	7	“ Yeah , yeah you guys can all come and throw your happiness in my face , ”
+34331	34366	34367	34367	Derek	8	“ All joking aside , I think you have something special with Nicole . Take my advice and let down your defenses and maybe you ’ll get that same sappy look on your face , ”
+34371	34378	34367	34367	Derek	8	“ I ’ll pass on that . ”
+34379	34401	34402	34402	Derek	8	“ Yeah , that ’s what I said too . Let ’s see if you last as long as I did , ”
+35643	35652	35653	35653	she	12	“ Hey , I ’m an innocent bystander , ”
+35659	35672	35653	35653	she	12	“ Nicole , sorry we did n’t know you were out here , ”
+35711	35727	35728	35728	he	10	“ I heard a noise over here and thought it was one of the guys , ”
+35740	35757	35758	35758	she	12	“ I ’m fine Jacob , it looks like you guys are having a great time , ”
+35762	35773	35774	35774	he	10	“ We are , do you want to join us ? ”
+35785	35799	35800	35800	she	12	“ No , I have to get back but maybe some other time , ”
+35925	35932	35933	35933	Ryan	7	“ What happened to your leg ? ”
+35990	36011	36012	36012	she	12	“ I got shot with a paintball but it looks far worse than it is . This is only paint , ”
+36261	36268	36253	36253	he	7	“ How did you get shot ? ”
+36269	36307	36308	36308	she	12	“ Oh , your nephews were having a paintball war and I was in the wrong place at the wrong time . It could ’ve been worse , they might ’ve been going for the kill shot , ”
+36322	36327	36328	36328	he	7	“ I missed you , ”
+36385	36402	36403	36403	she	12	“ Um , I um , need to , um go get this off of me , ”
+36526	36534	36535	36535	Ryan	7	“ Where the hell have you been ? ”
+36572	36587	36588	36588	she	12	“ Not that it ’s any of your business but I was at work , ”
+36776	36793	36794	36794	he	7	“ Everything you do is my business . How quickly you forget what we agreed upon , ”
+36954	36973	36974	36974	he	7	“ You ’ll quit whatever crappy job you took because I want you home when I need you , ”
+37035	37118	37026	37026	He	7	“ I wo n’t quit my job . I happen to have found one that I love . I know my measly little paycheck for two weeks does n’t even compare to what you make in one hour but it ’s my money and I ’m earning it on my own . I ’ve told you before I ’ll pay back every penny you ’ve spent on Patsy and I. I need a job to be able to afford to do that . ”
+37119	37133	37134	37134	he	1003	“ I ’ve told you I do n’t want a dime from you , ”
+37141	37157	37134	37134	he	1003	“ Well , I do n’t take hand outs and I ’ll be paying you . ”
+37158	37198	37199	37199	he	1003	“ Why the hell do you have to be so stubborn all the time ? It ’s ridiculous and you ’re doing nothing but hurting yourself and your sister . Grow up and stop acting like a damn child , ”
+37205	37256	37257	37257	she	1004	“ Just because you have far more money than any one person should ever have does n’t mean you can throw it in my face . If I want to pay you back then I ’ll do it , whether I have to stuff it down your throat or not , ”
+37262	37271	37272	37272	he	1003	“ I ca n’t even talk to you , ”
+37286	37298	37276	37276	he	1003	“ Well , that goes both ways , you arrogant jerk , ”
+37299	37332	37333	37333	he	1003	“ I guess then I ’ll have to drag you away from this job you have . I ’ve done it once , do n’t think I wo n’t do it again , ”
+37336	37351	37352	37352	she	1004	“ I do n’t think you ’re going to be able to do that , ”
+37366	37385	37352	37352	she	1004	“ I can figure out easily where you ’re working Nicole , so do n’t act so cocky . ”
+37386	37424	37425	37425	she	1004	“ Oh , I do n’t have a problem telling you where I work . My co - workers will rip you apart if you so much as lay one finger on me while I ’m there , ”
+37501	37536	37537	37537	he	1003	“ If you ’re working at some trashy night club , or bar I swear I ’ll be going to jail for pounding the crap out of whoever has dared to look at you , ”
+37572	37589	37590	37590	she	12	“ If you must know , I ’m working with Jasmine and Trinity at their place , ”
+37890	37914	37915	37915	he	7	“ I ’ve bought you new clothes and you still choose to wear those rags . I demand you toss them out now , ”
+37927	37941	37942	37942	she	12	“ I ’d rather be naked than wear your charity hand - outs , ”
+38049	38054	38055	38055	he	7	“ Take them off , ”
+38063	38069	38070	38070	she	12	“ Not on your life , ”
+38372	38380	38381	38381	she	12	“ How dare you burn my clothes , ”
+38447	38456	38457	38457	he	7	“ I do whatever I want to do , ”
+38464	38481	38482	38482	she	12	“ Well , you know what ? Let ’s just add more fuel to the fire , ”
+38796	38808	38809	38809	she	12	“ Do n’t you dare touch me , you arrogant pig , ”
+38895	38903	38904	38904	he	7	“ Do n’t touch you like this ? ”
+38965	38970	38971	38971	he	7	“ Or like this ? ”
+39012	39016	39017	39017	he	7	“ Or this ? ”
+39200	39206	39207	39207	he	7	“ Say you want me , ”
+39274	39278	39279	39279	he	7	“ Say it , ”
+39310	39315	39316	39316	she	12	“ I want you , ”
+39695	39703	39706	39706	Ryan	7	“ Do n’t even think about it , ”
+39719	39727	39728	39728	she	12	“ I need to use the restroom , ”
+39758	39777	39778	39778	he	7	“ I ’ll come and hunt you down if you are n’t back in less than five minutes , ”
+40208	40218	40219	40219	Ryan	7	“ When will you actually start listening to me ? ”
+40242	40268	40269	40269	she	12	“ I ’m not your possession , your call - girl , or your employee and therefore I do n’t have to listen to you , ”
+40280	40285	40269	40269	she	12	“ You ’ll learn . ”
+40286	40321	40322	40322	she	12	“ I would n’t hold your breath in anticipation of that . No , wait a minute , go ahead and do just that . I ’m sure it wo n’t take too long , ”
+40567	40589	40590	40590	Nicole	12	“ There ’s absolutely no way I ’m going to another one of those parties with you and that ’s final , ”
+40605	40644	40645	40645	he	7	“ We have an agreement and if I want to parade you around to ten of those parties a week , you wo n’t only go but you ’ll do it with a smile plastered across your face , ”
+40714	40730	40731	40731	she	12	“ I do n’t care about the stupid agreement . You ’re expecting too much , ”
+40735	40754	40755	40755	he	7	“ The only reason you were miserable at the last party was because of your own stupid stubbornness , ”
+40880	40893	40894	40894	he	7	“ Well you can take your party and stick it up your … ”
+40998	41007	41008	41008	he	7	“ You ’ll be ready by seven tonight , ”
+41384	41392	41393	41393	she	12	“ That ’s a real good girl , ”
+41536	41546	41547	41547	Trinity	21	“ Good morning Nicole , how are you today ? ”
+41557	41566	41547	41547	Trinity	21	“ I ’m great , how about you ? ”
+41567	41596	41597	41597	Trinity	21	“ Wonderful . Now , come sit with us and have some breakfast . Jasmine just made the most incredible pastries I ’ve ever eaten in my life , ”
+41632	41640	41641	41641	she	12	“ I really should get to work , ”
+41645	41688	41689	41689	Jasmine	22	“ Nonsense . As you can see , we do n’t have any customers right now and the whole idea of having a place like this is so we can have our own place to gossip and get away from the house , ”
+41753	41766	41767	41767	she	12	“ I think my clothes are fitting tighter just being in here , ”
+41808	41822	41823	41823	Trinity	21	“ So , if you could do anything , what would it be ? ”
+41837	41906	41907	41907	she	12	“ I ’d love to have some place like this , actually . This is amazing . I ’d enjoy having my own scrapbooking store , someday . I have n’t had time to create any albums of my own in years . The cost to get set up is expensive and with as much as I ’ve always worked , I could n’t justify spending the money , ”
+41913	41939	41940	41940	Trinity	21	“ Oh my gosh , it ’s so interesting you mention that because Jasmine and I have talked about expanding and bringing in more products , ”
+41946	42009	42010	42010	Nicole	12	“ That would be so great if you brought in scrapbooking supplies . I know you would n’t regret it . It ’s such a popular craft . I know you do n’t need money but it ’s a huge earning potential . I ’d love to help you pick out some products and I could even teach some of the classes , ”
+42016	42028	42029	42029	Jasmine	22	“ How about if you ’re running your own scrapbooking store , ”
+42112	42138	42139	42139	Nicole	12	“ That would be such a dream , but now is n’t the right time in my life to go into such a huge investment , ”
+42144	42203	42204	42204	Trinity	21	“ Well , you have two new best friends who already own the space . It would n’t take Ryan long to build an addition and you have nothing to lose as we ’re already established . We ’re going to invest in you because we know beyond a shadow of a doubt you ’ll excel at it , ”
+42292	42330	42331	42331	Nicole	12	“ I appreciate it , I really do and maybe later I can think about doing that but not right now . For now , I ’ll help the two of you because I love working here , ”
+42335	42345	42346	42346	she	12	“ Now , I have to use the restroom , ”
+42985	42991	42992	42992	he	7	“ Get in , Nicole , ”
+43073	43078	43079	43079	she	12	“ No thank you , ”
+43197	43221	43222	43222	he	7	“ I swear to you Nicole , if you get out of this car , I ’ll tie you down in the trunk , ”
+43507	43533	43534	43534	she	12	“ How dare you have my car destroyed ? You call them back right now and tell them I want it going to the shop , ”
+43539	43587	43588	43588	he	7	“ There ’s no chance in hell you ’re driving that car again . Do you know what could ’ve happened to you out there on that dark road ? You ’re incredibly lucky it was me who found you and not some sick and demented fool , ”
+43593	43622	43623	43623	she	12	“ I do n’t call it lucky , you being the one to come to my rescue . I would ’ve rather taken my chances with a psycho , ”
+43661	43675	43676	43676	he	7	“ You ’re pushing me to the ends of my limit , Nicole , ”
+43685	43702	43703	43703	she	12	“ Good , then maybe you ’ll figure it out and leave me the heck alone , ”
+43983	44020	44021	44021	he	7	“ I ’m not going to hurt you , Nicole . I do n’t care how bad we ’re fighting , or how angry I am . I ’d never hurt you . Do you understand ? ”
+44042	44051	44052	44052	he	7	“ I ’m going to take you upstairs , ”
+44340	44366	44367	44367	he	7	“ I ’m going to undress you now . I have a bath ready for you . I think it will help calm your nerves , ”
+44475	44483	44484	44484	he	7	“ Will you be okay in here ? ”
+44488	44516	44517	44517	she	12	“ I ’m fine , Ryan . I ’m sorry about that . I think I ’m just tired . I know you ’d never hit me , ”
+44554	44561	44562	44562	he	7	“ I ’ll be back soon , ”
+44766	44775	44776	44776	she	13	“ I did n’t hear you come in , ”
+44782	44810	44811	44811	he	7	“ I ’m sorry about that . I knocked but I do n’t think you would ’ve heard if the house had come falling down around you , ”
+44897	44903	44882	44882	he	7	“ What ’s up Ryan ? ”
+44904	44925	44926	44926	he	7	“ I was wondering if we could talk for a few minutes . Can you come downstairs , with me ? ”
+44953	44966	44967	44967	she	13	“ Sure , I was starting to crave some chocolate , anyway , ”
+45028	45060	45061	45061	he	7	“ I want to talk to you about Nicole . She wo n’t want to talk to me about it but I need to know , so I can help her , ”
+45081	45094	45095	45095	she	13	“ You want to know about the beatings , do n’t you ? ”
+45121	45124	45125	45125	he	7	“ Yes , ”
+45188	45198	45199	45199	Patsy	13	“ It started when she was still pretty young , ”
+45229	45334	45335	45335	she	1174	“ When dad lost his job , he sunk to an all - time low . He was always grouchy and kind of cruel with his words but when he lost work , he started taking it out on Nicole . Mom was a drunk and did n’t help at home . As I got older , he started noticing me more , but Nicole always got between us . She never once allowed him to hit me but that just meant she took twice as much . I know he cracked a few of her bones and she was always black and blue , ”
+45346	45502	45503	45503	Patsy	13	“ He was really careful to never hit her in the face though . He could n’t let anyone see how he was terrorizing her . I begged for her to let me tell someone but she said she ’d take it until she turned eighteen . Then she ’d be able to look after me . She said if we ever told anyone they ’d put us in foster care and we would n’t be in the same home . She was always so strong too , she never screamed , or even cried out . Her tears would fall which that bastard seemed to really enjoy . It seemed his whole purpose in life was to break her but she was so strong . He never really did break her . I think she hurt far more when you were no longer a part of her life , than when he hit her , ”
+45518	45523	45524	45524	he	1175	“ I never knew , ”
+45528	45664	45665	45665	she	1176	“ Nobody knew because that ’s how she wanted it . When we left , neither of us ever looked back and when they died , neither of us cried . We did n’t feel any loss . To tell you the truth , we both felt safer knowing there was no chance he could come after us again . If it would n’t have been for Nicole he would ’ve broken me . I ’m not nearly as strong as her and I could n’t have taken the beatings , like she did . I tried though , Ryan , I really did . I tried to come between them but she ’d lock me out of her room and I ’d hear him through the doorway , hitting her over and over again , ”
+45940	45946	45947	45947	Patsy	13	“ I ’m okay now , ”
+45968	45989	45990	45990	he	7	“ I ’m sorry you went through all that and I ’m even sorrier I was n’t there for you , ”
+46002	46024	46025	46025	Patsy	13	“ You could n’t have been there for us . She did n’t allow anyone to help her shoulder the pain , ”
+46434	46441	46442	46442	she	13	“ I can do that myself , ”
+46705	46717	46718	46718	he	7	“ I did n’t want to go to that party anyway , ”
+46729	46732	46733	46733	she	13	“ Ha , ”
+47578	47589	47594	47594	she	12	“ Fine , I ’ll use the stupid car then , ”
+47743	47750	47751	47751	he	7	“ Was that really so hard ? ”
+47757	47768	47769	47769	she	12	“ Yes , it was , and thanks for asking , ”
+47954	47961	47962	47962	she	12	“ Are you stalking me now ? ”
+47973	47981	47982	47982	he	7	“ I ’m leaving for work too , ”
+47994	48004	48005	48005	she	12	“ Well then , I ’ll see you later , ”
+48029	48035	48036	48036	he	7	“ Think about that today , ”
+48987	48991	48992	48992	Ryan	7	“ Good morning , ”
+49050	49057	49058	49058	she	12	“ What are you doing here ? ”
+49063	49081	49082	49082	he	7	“ I ’m meeting an architect here for the girls , they want some remodel work done , ”
+49086	49094	49095	49095	she	12	“ Oh , I did n’t know , ”
+49139	49162	49163	49163	he	7	“ It looks like we ’ll be around each other a lot because this project will take at least a couple months , ”
+49219	49234	49235	49235	she	12	“ Well , um , I need to do some stuff in the back , ”
+49456	49473	49474	49474	he	7	“ I have to head back home . I ’ll see you in a few hours , ”
+49881	49887	49888	49888	she	12	“ What is all this ? ”
+49893	49903	49904	49904	he	174	“ I thought you deserved a bit of romance , ”
+49929	49940	49941	49941	she	12	“ I … I do n’t know what to say , ”
+49974	49979	49980	49980	he	174	“ Dance with me , ”
+50291	50323	50324	50324	he	7	“ I want you badly , never doubt that but tonight is about romance and if I keep kissing you dinner will be forgotten and we ’ll end up in bed , ”
+50468	50548	50549	50549	he	7	“ Nicole , you ’re unlike any other woman I ’ve ever known and before you get all defensive , that ’s a good thing . You ’re beautiful , without a doubt but you ’re also compassionate , loyal , giving , passionate , stubborn and everything else any man could possibly ever want . I started this relationship wanting to punish you for leaving me . No do n’t try and pull away , let me finish , ”
+50626	50782	50783	50783	he	1293	“ I ’m trying to say I screwed up . I tried to punish you for leaving me but I know what really happened . Patsy talked to me and I wish so much you would ’ve told me . I would have been there for you and protected you . I loved you then and I love you now and it nearly destroys me to know I was n’t there to keep you safe . I should ’ve been the one taking your pain . I should ’ve known something was wrong but I let pride get in my way . I ’ll never let that happen again . I ’m laying my heart before you , right here and now . I love you , Nicole and I ca n’t imagine my life without you in it . Please accept my love and let me protect you for the rest of my life , ”
+50942	50975	50976	50976	she	12	“ I love you too , Ryan . I always have and I had to send you away back then because I did n’t want you to know how weak I was , ”
+50979	51063	51064	51064	he	1296	“ Do n’t you dare ever say you were weak . You ’re the strongest person I ’ve ever known and you took all that punishment for your sister ’s sake . You took the weight of the world on your shoulders , you stubborn fool . I would ’ve gladly taken that weight for you but I understand why you did it . Now , you have me by your side and we can conquer anything as long as we ’re together , ”
+51068	51104	51105	51105	she	1297	“ I was a fool Ryan , I always blamed myself for the beatings and I thought you would be horrified and leave me anyway if you knew about it . I was so young , ”
+51110	51115	51116	51116	he	1296	“ Tell me again , ”
+51127	51156	51157	51157	she	1297	“ I love you Ryan Titan , I always have and I always will , even when you ’re driving me insane with your cave - man ways , ”
+51251	51293	51294	51294	he	1296	“ Marry me , Nicole . Make me an honest man . Tell me always when I ’m wrong , love me day and night , give me a lot of children and let me help you fulfill all your dreams , ”
+51395	51410	51411	51411	he	1296	“ I hope you like it . I had it made especially for you , ”
+51417	51445	51446	51446	she	1297	“ It ’s stunning , Ryan but you did n’t have to get such a large one . I would ’ve been happy with a simple band , ”
+51465	51501	51502	51502	he	1296	“ If your ring size equaled the love I feel for you , you would n’t be able to lift your hand . I actually toned it down a bit from what I originally wanted , ”
+51585	51596	51597	51597	she	1297	“ So you want a lot of children , huh ? ”
+51602	51617	51618	51618	he	1296	“ I ’d love to fill this house from top to bottom with them , ”
+51625	51652	51653	51653	she	1297	“ I do n’t know about filling the place from top to bottom but I could manage to have one in here in about five months , ”
+51751	51759	51760	51760	he	1296	“ How could I not have realized ? ”
+51796	51829	51830	51830	she	1297	“ I ’ve suspected for a while but just found out for sure today . At first I thought I was getting fat from all the food you ’ve been feeding me , ”
+51836	51873	51874	51874	he	1296	“ I love your body . Do n’t ever say anything like that again . I ’ve enjoyed your curves and was simply so turned on by you I did n’t pay attention to the changes , ”
+51883	51893	51874	51874	he	1296	“ Ryan , you ’re so good for me . ”
+51894	51911	51912	51912	he	1296	“ I plan on being there for you every day for the rest of our lives , ”
+52003	52011	52012	52012	Nicole	12	“ Blow out the candles , baby , ”
+52070	52087	52088	52088	Ryan	7	“ That ’s daddy ’s good girl . I ca n’t believe how big you are , ”
+52320	52329	52330	52330	Drew	9	“ We ’ve done really well , cousin , ”
+52349	52354	52355	52355	Ryan	7	“ Yes we have , ”
+52359	52379	52380	52380	Derek	8	“ I ca n’t believe how stupid we were to think life was complete without these women in it , ”
+52390	52434	52435	52435	he	8	“ I feel like the luckiest man alive . I have an amazing wife , beautiful daughter and though Nicole wanted to wait a couple more weeks to tell you , I ca n’t stand not sharing . She ’s pregnant , again , ”
+52439	52444	52445	52445	Drew	9	“ That ’s wonderful , ”
+52462	52465	52466	52466	Derek	8	“ Congratulations , ”
+52471	52477	52478	52478	Drew	9	“ How is Patsy doing ? ”
+52481	52555	52556	52556	Ryan	7	“ She ’s loving college but man do I miss her . I ’m glad she decided to stay closer to home but still we do n’t see her enough with her living on campus . I ’ve already had to scare the crap out of one guy who was getting far too amorous with her . She was mad at me for weeks because he wo n’t even look at her now , ”
+52561	52589	52590	52590	Derek	8	“ I would ’ve done the same thing . I ca n’t even imagine what I ’m going to go through when my kids begin to date , ”
+52599	52636	52637	52637	he	8	“ Yeah , I know . Patsy is technically my sister - in - law but I think of her like a daughter and I swear I ’ll destroy any guy who tries to hurt her , ”
+52641	52659	52660	52660	Derek	8	“ I almost feel sorry for the poor guys who try and over - step their bounds , ”
+52680	52691	52692	52692	Ryan	7	“ At least we have a long time to prepare , ”
+52695	52698	52692	52692	Ryan	7	“ Amen , ”
+52705	52711	52712	52712	Trinity	21	“ Come eat , boys , ”

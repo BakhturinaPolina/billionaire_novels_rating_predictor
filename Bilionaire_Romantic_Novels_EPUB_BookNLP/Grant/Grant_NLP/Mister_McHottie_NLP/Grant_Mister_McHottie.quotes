@@ -1,0 +1,989 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+36	51	26	26	I	389	“ Some of us have to work in a few hours , you jackrabbits ! ”
+234	240	208	208	Crunchy	60	“ It ’s a Small World ”
+629	639	643	643	Parker	63	“ I ca n’t lose my job , Sia , ”
+646	661	662	662	She	62	“ I ’m half a paycheck away from moving back in with my parents . ”
+756	762	763	763	I	389	“ You ’ll be fine , ”
+775	784	763	763	I	389	“ We kick ass . Crunchy needs us . ”
+980	989	990	990	April	66	“ I heard he ’s stopping by today , ”
+1036	1051	1033	1033	Nikon	67	“ I also heard he can bench a Volkswagen . I ’d shoot that . ”
+1064	1075	1033	1033	Nikon	67	“ Better for our image if he benched a Tesla . ”
+1083	1097	1033	1033	Nikon	67	“ That ’s brilliant . I ’m putting it in the suggestion box . ”
+1098	1114	1117	1117	Madison	68	“ We can make life - size cardboard cut - outs for all our stores , ”
+1164	1182	1119	1119	She	66	“ Fueled by Crunchy . New slogan . I call dibs on putting it in the box . ”
+1192	1211	1119	1119	She	66	“ He wo n’t change the employee suggestion box , will he ? I like the suggestion box . ”
+1240	1254	1231	1231	I	389	“ Did n’t his date wear fur to some charity auction last year ? ”
+1748	1760	1740	1740	I	389	“ Is it too much to offer to have his babies ? ”
+1761	1769	1770	1770	I	389	“ Sexual harassment will get you fired , ”
+1774	1786	1770	1770	I	389	“ Jeez , who put insecticide in your mangoes this morning ? ”
+2124	2131	2132	2133	The Dick	65	“ Morning , ladies and gentlemen . ”
+2162	2192	2193	2193	I	389	“ Just wanted to stop in and say hi . Love what you ’ve done here , and I ’m excited to be a part of the Crunchy family . ”
+2249	2256	2235	2235	he	286	“ O.M.G. He ’s watching you . ”
+2295	2346	2285	2285	I	389	“ You do n’t look good . Do you need an energy bar ? Tell me you did n’t go bar - hopping and have a one - night stand with Hottie McBillions last night . Oh , wait . Tell me you did . Then tell me everything else . ”
+2347	2356	2357	2357	Rod	70	“ Ah , Sia , always working hard . ”
+2362	2376	2357	2357	Rod	70	“ Sia ? Sia ! Tell Mr. Jett about the Choy Joy campaign . ”
+2667	2684	2664	2665	The bastard	294	“ The Choy Joy campaign is launching in three weeks across all our social media platforms , ”
+2743	2756	2761	2761	He	292	“ We ’re doing for bok choy what Beyoncé did for kale . ”
+2757	2760	2761	2761	He	292	“ Interesting . ”
+2800	2805	2806	2806	I	389	“ Your pairing suggestions ? ”
+2823	2827	2828	2828	he	292	“ And sausages , ”
+2839	2842	2843	2843	Madison	68	“ Sausages ! ”
+2846	2868	2869	2869	Madison	68	“ Oh , Mr. Jett , that ’s brilliant . Of course we ’ll add a recipe for Choy Joy Sausages . ”
+2899	2903	2904	2904	Chase	0	“ And bratwurst , ”
+3062	3066	3067	3067	He	298	“ Definitely bratwurst . ”
+3073	3079	3080	3081	Sports fans	304	“ Appeal to sports fans . ”
+3088	3097	3098	3098	Madison	68	“ We sell the best organic turkey bratwurst , ”
+3106	3114	3101	3101	Chase	0	“ Good to know , Ms … ? ”
+3115	3118	3119	3119	Her	305	“ Madison . ”
+3138	3150	3129	3129	she	305	“ Madison O’Connor . The Joy Choy campaign was my idea . ”
+3151	3156	3157	3157	Chase	0	“ Was it now ? ”
+3175	3187	3164	3166	A good boss	306	“ I love it . Good work . Add the bratwurst . ”
+3245	3262	3234	3234	He	306	“ Carry on . I look forward to working with each and every one of you . ”
+3519	3522	3523	3523	I	389	“ Hey . ”
+3545	3552	3523	3523	I	389	“ How ’s my favorite lady ? ”
+3553	3568	3611	3611	she	389	“ Chase ! Honey , tell me you did n’t buy a grocery store . ”
+3569	3590	3611	3611	she	389	“ Guilty as charged . You ’ll never have to pay for your organic , free - range chicken again . ”
+3617	3623	3611	3611	she	389	“ How ’s the Mediterranean ? ”
+3785	3796	3797	3797	Mom	657	“ What else are you buying while I ’m gone ? ”
+3810	3824	3800	3800	I	389	“ I hear there ’s a whole town for sale in South Dakota , ”
+3829	3839	3825	3825	I	389	“ Big enough for a castle with a moat . ”
+3840	3845	3846	3846	She	657	“ Oh , stop . “
+4004	4016	4017	4017	Mom	657	“ We ’re docking in Mykonos next week for three days , ”
+4032	4059	4060	4060	She	657	“ Greece ? Hmm . I suppose I could buy a country instead . I ’ll fly over and check it out . How ’s Tuesday ? ”
+4064	4080	4060	4060	She	657	“ Oh , honey , you ’d have to be a trillionaire to buy Greece . ”
+4081	4085	4091	4091	Family	76	“ Challenge accepted . ”
+4272	4277	4266	4266	Squeaky	62	“ Woo pig sooie , ”
+4645	4654	4657	4657	Willow	96	“ Hey , guys . What ’s up ? ”
+4867	4870	4859	4859	I	389	“ Sit . ”
+4871	4878	4879	4879	Willow	96	“ You ’re not from Philadelphia , ”
+4882	4885	4879	4879	Willow	96	“ Pittsburgh , ”
+4936	4940	4941	4941	Parker	63	“ There either . ”
+4993	5009	4972	4972	she	356	“ You were arrested naked in the Bratwurst Wagon in Hottie McBillionaire ’s Minnesota hometown ! ”
+5041	5047	5048	5048	Willow	96	“ Did you know him ? ”
+5051	5061	5062	5062	Eloise	95	“ More important , did you sleep with him ? ”
+5105	5109	5110	5110	Parker	63	“ Shut up . ”
+5125	5136	5121	5122	Jordan Knight	101	“ Friends tell each other things . Things like this . ”
+5151	5165	5137	5137	I	389	“ Yes , yes , and I ’m only sorry I got caught , ”
+5186	5190	5181	5181	Eloise	95	“ Go on . ”
+5191	5197	5198	5198	I	389	“ Can I keep this ? ”
+5205	5210	5211	5211	Willow	96	“ In Royal Veritas , ”
+5267	5276	5277	5277	Eloise	95	“ In Crown Royal , there is truth , ”
+5280	5288	5277	5277	Eloise	95	“ And we want the whole truth . ”
+5385	5401	5379	5379	I	389	“ Yes , I was arrested for grand theft Bratwurst Wagon when I was eighteen , ”
+5409	5416	5402	5402	I	389	“ That is so fucking cool , ”
+5424	5445	5417	5417	Eloise	95	“ My little stunt , as my parents called it , got me expelled from Vassar before I even started . ”
+5507	5512	5513	5513	Eloise	95	“ The naked part ? ”
+5516	5527	5513	5513	Eloise	95	“ Ritualistic virginity shedding with my brothers ’ best friend . ”
+5588	5601	5602	5602	I	389	“ Does n’t everyone want to do it in the Bratwurst Wagon ? ”
+5611	5618	5619	5619	Parker	63	“ Must be a Minnesota thing , ”
+5646	5653	5639	5640	Crown Royal	18	“ I did n’t plan it . ”
+5711	5803	5701	5701	we	386	“ Once he hid all my Barbies ’ clothes and told me they were prostitutes damned to Hell . I was , like , seven . He ripped every other page out of my copy of The Secret Garden . Every time he ’d come over , he ’d be like , Hey , Bro , got something for you and then he ’d pull a dead mosquito out of his pocket and hand it to me one wing and leg at a time . And that was all before puberty . ”
+5804	5809	5810	5810	Willow	96	“ He sounds disturbed , ”
+5898	5992	6065	6065	Bro	147	“ I do n’t know what his deal was , but when he gave me a case of canned baloney for my twelfth birthday , I was done . I started pranking him back . After six years of war , the Bratwurst Wagon came to town for the baloney festival , and I knew if I did n’t do something first , he would . I was going to leave a trail of sausages from the Bratwurst Wagon to his house , but he was already there , armed with spray paint . ”
+5993	6003	6004	6004	Eloise	95	“ I think I see where this is going , ”
+6007	6051	6004	6004	Eloise	95	“ The two of us breaking into the Bratwurst Wagon , having mad angry sex on the floor under the sausages , and then trying to Bonnie and Clyde our way out of trouble ? Yeah , that pretty much sums it up . ”
+6371	6384	6385	6385	Parker	63	“ He was n’t mentioned in the article we found on you , ”
+6388	6413	6414	6414	Willow	96	“ We saw the lights , he said Go , and while I went for the keys , he went for the back door . ”
+6420	6428	6414	6414	Willow	96	“ That ’s a rather impressive misunderstanding . ”
+6429	6437	6414	6414	Willow	96	“ Or one hell of a setup . ”
+6438	6451	6414	6414	Willow	96	“ Aw , Sia , you really think he set you up ? ”
+6452	6498	6499	6499	Parker	63	“ I told the cops he was with me , but he denied everything . Which left me the crazy naked chick leading the police on a thirty - mile - an - hour Bratwurst Wagon chase around Wishberry Lake at two in the morning . ”
+6631	6653	6654	6654	she	407	“ How does a guy go from being a grade - A dick to a billionaire buying out organic grocery stores ? ”
+6657	6666	6667	6667	I	389	“ Do n’t know , do n’t care . ”
+6674	6685	6686	6686	Parker	63	“ You remember when Frenemy Crush was huge on Facebook ? ”
+6695	6723	6724	6724	I	389	“ That matching game that uses your six least favorite Facebook friends ’ profile pictures for game pieces that you explode with flaming darts and volcanic blasts ? ”
+6727	6733	6724	6724	I	389	“ Yeah , that one . ”
+6734	6741	6742	6742	Eloise	95	“ I fucking loved that game , ”
+6745	6769	6770	6770	Willow	96	“ At my mom ’s wedding , I saw the princes playing it using the profile pictures of the heads of other countries , ”
+6773	6779	6780	6780	Parker	63	“ Mr. Jett built it , ”
+6784	6788	6789	6789	I	389	“ The Dick , ”
+6792	6796	6797	6797	She	389	“ The Dick . ”
+6800	6845	6797	6797	She	389	“ Anyway , he made a killing on the game , invested his profits in some tech startups that paid off big - time , and now he ’s diversifying . Healthcare , energy , transportation . He even owns a small publishing company . ”
+6846	6874	6883	6883	Willow	96	“ Great . All he needs is a construction company and a bank and he can buy his own town and the friends to put in it . ”
+6875	6882	6883	6883	Willow	96	“ I would n’t move there , ”
+6890	6902	6886	6886	Eloise	95	“ I would , but only to poison the water supply . ”
+6920	6941	6797	6797	She	389	“ Anyway , the good news is , I ’ll have way more time to practice my keyboard skills soon . ”
+6942	6947	6948	6948	Parker	63	“ What ? Why ? ”
+6951	7019	6948	6948	Parker	63	“ My current moral dilemma . Refuse to let Chase Jett ’s presence in my workplace affect me and do my job anyway like a big girl , or quit because I refuse to let him boss me around while he profits off my work ? And let ’s not forget to take into account the increased probability that I ’ll be terminated because of our history . ”
+7020	7045	7046	7046	Willow	96	“ If he fires you because he banged you and left you in the Bratwurst Wagon , you can sue him for wrongful termination , ”
+7057	7092	7053	7053	Willow	96	“ But if she decorates his office with dicks and sends a company - wide exposé memo , he ’ll almost have to fire her , and then she can call in the lawyers . ”
+7102	7111	7112	7112	I	389	“ Being fired would n’t be all terrible . ”
+7115	7154	7112	7112	I	389	“ Maybe I ’ll be a subway performer . I could start writing original songs . I went to jail for banging a billionaire in the Bratwurst Wagon has a ring to it , do n’t you think ? ”
+7192	7197	7198	7198	Parker	63	“ Uh - oh , ”
+7201	7204	7198	7198	Parker	63	“ What ? ”
+7205	7261	7284	7284	Eloise	95	“ Anti - dick moves . According to Wikipedia , he runs in the St. Jude Marathon every year . Also , since officially reaching billionaire status two years ago , he ’s built a new no - kill shelter in upstate Minnesota and started a foundation that ’s running food banks in four states . ”
+7262	7283	7284	7284	Eloise	95	“ If I had a billion dollars , I could buy a PR company and look like an angel too . ”
+7292	7305	7284	7284	Eloise	95	“ You know what you need to do , do n’t you ? ”
+7306	7345	7346	7346	Willow	96	“ Legally change my name and apply to be a maid at Willow ’s stepdad ’s place ? They need fresh , young , non - incestuous blood to bear a few royal babies , do n’t they ? ”
+7350	7366	7346	7346	Willow	96	“ I do n’t think my stepbrothers have any issues finding non - incestuous blood . ”
+7367	7376	7377	7377	Eloise	95	“ You need to sleep with him again , ”
+7405	7412	7393	7393	She	389	“ You ’re lacking in closure . ”
+7413	7445	7446	7446	Eloise	95	“ The only closure I need is to not work for the man who let me take the fall for our Bratwurst Wagon adventure . Either he goes or I go . ”
+7452	7459	7446	7446	Eloise	95	“ Do you want to go ? ”
+7460	7465	7393	7393	She	389	“ Um , no . ”
+7466	7488	7489	7492	All three of us	413	“ Then we need a plan . He might have a billion dollars , but we have something he does n’t . ”
+7498	7507	7508	7508	she	389	“ The collective outrage of scorned women everywhere , ”
+7517	7522	7523	7523	Parker	63	“ Uh , sure , ”
+7526	7555	7523	7523	Parker	63	“ We owe it to women everywhere to show this pompous prick that we ’re done doing jail time for his crimes while he rakes in the dough . ”
+7556	7566	7567	7567	I	389	“ I ’d rather just forget it ever happened , ”
+7621	7665	7611	7611	I	389	“ But I ’d feel happier staying at Crunchy if he agreed to donate fifty percent of his profits to charity every year . That ’s reasonable , right ? Then I ’m not working for him . I ’m working for charity . ”
+7666	7669	7670	7670	Eloise	95	“ Charity ? ”
+7673	7713	7670	7670	Eloise	95	“ No , the man has to pay , and we ’re just the women to make him do it . We collectively have ten brothers . If anyone can find ways to torture a man , we can . ”
+7714	7723	7724	7724	Willow	96	“ Um , can we not count mine ? ”
+7727	7737	7724	7724	Willow	96	“ I do n’t know them all that well . ”
+7738	7749	7750	7750	I	389	“ That ’s okay . Mine count for three apiece , ”
+7754	7761	7750	7750	I	389	“ That ’s eleven brothers then . ”
+7765	7776	7762	7762	Eloise	95	“ We ’re going to hand this dick his balls . ”
+8046	8056	8057	8057	They	433	“ Evening , gentlemen . How ’s night watch ? ”
+8062	8065	8057	8057	They	433	“ Good , ”
+8079	8087	8057	8057	They	433	“ All quiet and normal , sir . ”
+8137	8143	8122	8122	I	389	“ Excellent . Carry on . ”
+8326	8334	8335	8335	I	389	“ Working late or coming in early ? ”
+8338	8345	8346	8346	she	437	“ The hogs are mating again , ”
+8366	8381	8382	8382	she	437	“ Do you always wait in elevator banks for women you want to harass ? ”
+8385	8397	8398	8398	I	389	“ Only when I ’ve gotten bored staking out the bathrooms . ”
+8412	8424	8398	8398	I	389	“ Do you always assume the elevators can read your mind ? ”
+8425	8441	8408	8408	she	437	“ They were doing better than you . I did n’t want to go up . ”
+8442	8451	8408	8408	she	437	“ And you ’re standing here because … ? ”
+8452	8459	8398	8398	I	389	“ It ’s my thinking spot . ”
+8460	8470	8408	8408	she	437	“ It ’s 3 AM on a Wednesday morning . ”
+8471	8520	8408	8408	she	437	“ Do you see me judging you on wanting to use an elevator at 3 AM on a Wednesday morning ? No , you do n’t . So why do you have to judge me for wanting to think in an elevator bank at 3 AM ? Hmmmmmm ? ”
+8586	8593	8594	8594	I	389	“ Drinking on the job again ? ”
+8597	8649	8594	8594	I	389	“ Again implies I ’ve done it before . Which I have not , unless you count that time the guava kale juice fermented , which I do n’t , because it only counts as drinking if I enjoy the alcohol . Also , all whisky was consumed off - premise . ”
+8650	8656	8594	8594	I	389	“ So you ’re drunk . ”
+8657	8675	8676	8676	I	389	“ I ’m not drunk . I ’m barely buzzed enough to be able to tolerate you . ”
+8721	8726	8727	8727	I	389	“ Was it organic ? ”
+8731	8738	8739	8739	Christ	117	“ It ’s whisky , dickhead . ”
+8759	8768	8769	8769	She	437	“ You should n’t call your superiors names . ”
+8788	8794	8795	8795	I	389	“ Looking for disciplinary action ? ”
+8798	8806	8812	8812	she	437	“ Oh , do n’t you wish . ”
+8852	8860	8861	8861	she	437	“ And you ’re not my superior , ”
+8864	8870	8861	8861	she	437	“ I write your paycheck . ”
+8871	8878	8879	8879	Spittle	118	“ Not yet you have n’t . ”
+8933	8947	8948	8948	she	437	“ So Mr. Liver - bellied Bratwurst - runner - away - er , ”
+8951	8982	8983	8983	I	389	“ would n’t you be happier owning a grocery store that I do n’t work for ? Because I ’m sure we can find another zagillionaire to take your place . ”
+9019	9034	9014	9014	her	437	“ Aw , Bro , your inflated opinion of my bank account is touching . ”
+9035	9061	9062	9062	I	389	“ You could be a mega - ka - billion - trillionaire , and you still would n’t have enough money to buy a soul . ”
+9098	9113	9091	9091	Her	437	“ Who needs a soul when I have the power to sack tempestuous employees ? ”
+9114	9122	9123	9123	She	437	“ Go ahead . I dare you . ”
+9318	9325	9326	9326	She	437	“ Go on , rich boy . ”
+9341	9349	9326	9326	She	437	“ Buy your way out of that . ”
+9456	9472	9438	9438	She	147	“ It ’s my birthday , happy birthday , it ’s my birth — oomph ! ”
+9565	9572	9573	9573	I	389	“ I fucking hate bok choy , ”
+9576	9589	9590	9590	she	147	“ Then you should n’t have bought a fucking organic grocery store , ”
+9695	9703	9704	9704	she	147	“ Not enough bratwurst for one day ? ”
+9707	9720	9704	9704	she	147	“ You had to put a crooked one in your pocket too ? ”
+9754	9768	9740	9740	I	389	“ You want my long , thick cock , and you know it . ”
+9769	9783	9733	9733	her	147	“ I want to break it in two and feed it to maggots . ”
+9784	9800	9740	9740	I	389	“ You want to bite it . And suck on it . And ride it . ”
+9801	9807	9808	9808	I	389	“ I fucking hate you . ”
+10013	10020	10021	10021	she	147	“ You are such an asshole , ”
+10024	10034	10035	10035	She	147	“ Save it for someone who cares , Bro . ”
+10165	10172	10173	10173	she	147	“ That ’s right , fucker , ”
+10176	10184	10173	10173	she	147	“ You ca n’t handle my pussy . ”
+10276	10280	10270	10270	Her	147	“ You diiiiiiiiiiick , ”
+10425	10432	10433	10433	she	147	“ Two - point - one , ”
+10436	10443	10444	10444	I	389	“ Seconds to make you come ? ”
+10447	10452	10444	10444	I	389	“ You ’re easy . ”
+10453	10459	10460	10460	she	147	“ I did n’t come , ”
+10463	10489	10490	10490	I	389	“ That was my body recoiling in horror , and you get a two - point - one a scale of zero to one hundred . ”
+10493	10506	10490	10490	I	389	“ We both know better , Bro . Now suck my dick . ”
+10507	10513	10514	10514	I	389	“ Suck your own dick . ”
+10602	10612	10592	10592	I	389	“ Oh . Ow . Stop . That hurts . ”
+10730	10733	10734	10734	she	147	“ Flaccid , ”
+10737	10750	10734	10734	she	147	“ And still crooked . You should see a doctor about that . ”
+10751	10765	10767	10767	she	147	“ If you do n’t like it , you could quit touching it . ”
+10779	10790	10772	10772	I	389	“ I can barely tell your hand is there anyway . ”
+10791	10813	10734	10734	she	147	“ It ’s a mercy stroke . I ’m generous like that . And you ’re a lying fuck - face . ”
+10814	10829	10767	10767	she	147	“ Beg all you want . I ’m not giving you a pity fuck . ”
+10830	10855	10856	10856	I	389	“ I do n’t want a pity fuck . It ’s all I can do to not barf while I ’m looking at you . ”
+10973	10980	10981	10981	I	389	“ Bend over , cabbage face , ”
+10984	11002	10981	10981	I	389	“ Why ? You could n’t find my g - spot with a flashlight and a guide . ”
+11003	11016	11017	11017	I	389	“ Fine . Look me in the eye while I go spelunking . ”
+11040	11047	11048	11048	She	147	“ I really fucking hate you . ”
+11239	11246	11232	11232	She	147	“ Knew you could n’t find — ”
+11565	11569	11570	11570	I	389	“ Get up , ”
+11598	11603	11604	11604	I	389	“ Fucking get up , ”
+11607	11617	11618	11618	Her	147	“ Why did n’t you have a fucking condom ? ”
+11741	11760	11731	11731	she	147	“ Better luck next time , Jett . Keep the panties . Last souvenir you ’ll ever have . ”
+11907	11925	11926	11926	Parker	63	“ When I said distract the guards , I did n’t mean have sex with Chase Jett , ”
+11952	11963	11964	11964	I	389	“ What ? It ’s not like I enjoyed it , ”
+12124	12131	12114	12114	Parker	63	“ You did n’t enjoy it ? ”
+12141	12146	12134	12134	I	389	“ Not on purpose . ”
+12147	12162	12163	12163	Eloise	95	“ If you have to have sex , might as well be good sex , ”
+12186	12194	12195	12195	I	389	“ Did you get into his office ? ”
+12260	12285	12286	12286	She	484	“ In and out and completely unspotted . He ’ll be cleaning glitter out of his butt crack and fingernails for the next year . ”
+12454	12469	12470	12470	Eloise	95	“ Do your security cameras record footage , or just run a live stream ? ”
+12497	12500	12501	12501	Parker	63	“ Benny , ”
+12523	12534	12518	12518	She	495	“ Sia , he ’s sleeping with Tisha in accounting . ”
+12608	12617	12618	12618	Parker	63	“ Benny ’s one of the night guards . ”
+12628	12653	12618	12618	Parker	63	“ Tisha ’s the reason Crunchy had to issue a gossip policy . The whole company ’s going to know about this by morning . ”
+13116	13123	13124	13124	Rod	70	“ Ambrosia , have a seat , ”
+13142	13148	13149	13149	I	389	“ What ’s this about ? ”
+13211	13226	13227	13227	Rod	70	“ Ambrosia , you were seen in the building at three AM this morning , ”
+13240	13245	13246	13246	he	70	“ In the elevator , ”
+13259	13262	13253	13253	Sia	64	“ Mm . ”
+13263	13266	13267	13267	Rod	70	“ Without … ”
+13278	13284	13285	13285	he	70	“ Without your clothes on , ”
+13288	13292	13293	13293	I	389	“ Was I ? ”
+13296	13301	13302	13305	the chief of security	509	“ Very much so , ”
+13316	13319	13320	13320	I	389	“ Mm , ”
+13335	13338	13339	13339	Rod	70	“ Sia . ”
+13344	13361	13339	13339	Rod	70	“ We have certain expectations of our employees , clearly spelled out in the employee handbook — ”
+13362	13370	13371	13371	I	389	“ And I ’m glad we do , ”
+13374	13409	13410	13411	The president	509	“ The gossip has really become a problem lately , and it ’s interfering with office morale and productivity . By the way , has Mr. Jett received a copy of the employee handbook ? ”
+13474	13488	13489	13489	Rod	70	“ You were observed on video engaging in sexual activities in the workplace , ”
+13493	13504	13505	13505	I	389	“ We ’re going to have to let you go . ”
+13519	13527	13505	13505	I	389	“ Is Mr. Jett being let go ? ”
+13528	13537	13489	13489	Rod	70	“ Sia , Mr. Jett owns the company . ”
+13538	13607	13505	13505	I	389	“ You ’re saying that because I was observed in a closed room , just me and the owner of the company and however many security guards were glued to their monitors watching us while other suspicious characters were roaming the hallways , and Mr. Jett appeared to be taking liberties with my more personal body parts , that he gets to stay and I have to leave ? ”
+13615	13627	13628	13628	I	389	“ I ’m going to have to decline being let go , ”
+13631	13772	13628	13628	I	389	“ And I ’m afraid I ’m going to have to call my lawyers . And my state representatives . Definitely a few celebrity gossip sites . Mr. Jett is technically a celebrity , so they ’ll want to know . Stuff like this spreads over social media like wildfire . I mean , I hate the hit that Crunchy will take , considering our core customer demographic is seventy - percent women between the ages of twenty - six and forty who are politically active and socially conscious , many of whom have daughters , but it ’s hard to see how you could possibly let me keep my job and take a stand for women ’s sexual liberation and the accountability of man . I mean , your security guards saw my boobs . Federal offense right there . ”
+13796	13799	13800	13800	I	389	“ Or , ”
+13803	13825	13826	13826	Dots	130	“ you can call Mr. Jett in here , and we can work out an amenable arrangement for all of us . ”
+13870	13889	13890	13890	Rod	70	“ We ’re prepared to give you a very generous severance package and a glowing letter of recommendation , ”
+13999	14021	13982	13982	I	389	“ Gentlemen , you can take your crunchy , orgasmic food and shove it up all your collective , sexist asses . ”
+14045	14049	14050	14050	he	65	“ Orgasmic food ? ”
+14083	14087	14088	14088	I	389	“ Organic food , ”
+14142	14151	14152	14152	I	389	“ Get your head out of your dick , ”
+14172	14241	14163	14163	I	389	“ You have two choices , fuckwad . One , you issue an order telling everyone to mind their own fucking business while I go back and do my job , or two , I destroy you . You have ten minutes to make a decision and personally deliver it to me in the snack bar , where I ’ll be racking up a tab in your name . ”
+14332	14340	14341	14341	I	389	“ Rather bitchy , is n’t she ? ”
+14404	14431	14432	14432	I	389	“ How the fuck does a company as awesome to work for as Crunchy get such short - sighted , stuffy assholes on their executive board ? ”
+14446	14462	14438	14439	The secretary	534	“ I ’d do him too , honey , and I would n’t regret it . ”
+14463	14478	14479	14479	I	389	“ Great . You can have him . You can have all of them . ”
+14671	14678	14663	14663	I	389	“ Bill it to Chase Jett , ”
+14683	14693	14694	14694	she	389	“ Yeah , yours , mine , and hers , ”
+14710	14721	14702	14702	Her	389	“ One twenty - five sixty . Cash or credit ? ”
+14722	14730	14731	14731	I	389	“ The Dick ’s paying for it . ”
+14762	14768	14769	14769	she	389	“ You the elevator chick ? ”
+14772	14775	14769	14769	she	389	“ Yep . ”
+14776	14781	14769	14769	she	389	“ They firing you ? ”
+14782	14786	14787	14787	She	389	“ Trying to . ”
+14790	14855	14856	14856	I	389	“ Go back and get some cheese biscuits too . Hormone - free . Taste like hockey pucks , but they freeze good for when you get hungry . I ai n’t seen nothing . Here ’s a bag for your goodies . Take six . Gon na need ‘ em . God bless ya , honey . Hope the screw was worth it . ”
+14983	14986	14988	14988	you	545	“ Berger . ”
+15076	15079	15083	15089	four other people in the snack bar	549	“ Dickhead . ”
+15147	15166	15167	15167	Glitter	136	“ Quit fucking around and get back to work . All that bok choy wo n’t sell itself . ”
+15259	15267	15268	15268	he	65	“ Do n’t make me regret this , ”
+15271	15279	15268	15268	he	65	“ I can make your life hell . ”
+15280	15285	15286	15286	I	389	“ You already do . ”
+15866	15873	15846	15846	I	389	“ I got this , boys . ”
+15874	15878	15889	15889	They	442	“ Mr. Jett — ”
+15879	15888	15889	15889	They	442	“ Back up or you ’re all fired . ”
+15904	15908	15909	15909	I	389	“ Feel better ? ”
+15913	15919	15909	15909	I	389	“ No way , motherfucker . ”
+16008	16022	16023	16029	the biggest of the Crunchy security dudes	1250	“ Sir , we ’re going to have to ask you to leave , ”
+16046	16056	16032	16032	He	1250	“ Or I can crush you like a bug . ”
+16126	16136	16115	16115	I	389	“ Go tell Ambrosia Berger she has a visitor . ”
+16146	16154	16155	16155	Ares	1250	“ You do n’t say her name , ”
+16340	16347	16348	16348	I	389	“ How about putting me down ? ”
+16353	16385	16348	16348	I	389	“ Your sister can take care of herself . She glitter - bombed my office , and god only knows what she buried in my desk drawers to make that stench . ”
+16400	16409	16412	16412	he	1250	“ She got you with that sparkle shit ? ”
+16426	16432	16420	16421	His mother	572	“ All over my ass . ”
+16433	16443	16444	16444	He	1250	“ Got my whole team too . In March . ”
+16466	16475	16476	16476	I	389	“ Heard you made the play - offs . ”
+16511	16514	16504	16504	I	389	“ Nice . ”
+16515	16518	16519	16520	The guard	569	“ Sir ? ”
+16536	16560	16525	16525	he	569	“ Ms. Berger has , erm , declined to see her visitor . And you may consider updating the employee guidelines on profanity . ”
+16668	16672	16673	16673	I	389	“ Too bad . ”
+16676	16694	16673	16673	I	389	“ I thought she ’d enjoy having dinner at Selma ’s with her brother . On me . ”
+16695	16702	16703	16703	Ares	1250	“ They eat raw shit there ? ”
+16706	16711	16703	16703	Ares	1250	“ If you want . ”
+16712	16718	16719	16719	he	1250	“ Like my steak raw , ”
+16785	16790	16791	16791	I	389	“ Look at that , ”
+16794	16811	16791	16791	I	389	“ Your sister ’s decided to join you . I ’ll get a car brought around . ”
+16844	16856	16857	16857	I	389	“ Might want to put stronger steel on the lower windows , ”
+16964	16972	16973	16973	Zeus	147	“ We already ordered two of everything , ”
+16993	17002	16977	16977	His	1250	“ But what am I going to eat ? ”
+17013	17018	17019	17019	Zeus	147	“ A knuckle sandwich , ”
+17072	17078	17059	17059	he	1250	“ A drink , madam ? ”
+17079	17085	17086	17086	I	389	“ I ’m not staying , ”
+17090	17110	17111	17111	He	1250	“ Third wheel and all . But did these two lovebirds order a bottle of your best champagne yet ? ”
+17118	17130	17111	17111	He	1250	“ Not yet , madam . I ’ll see to it . ”
+17171	17178	17179	17179	Zeus	147	“ Ah , she ’s mad , ”
+17184	17205	17179	17179	Zeus	147	“ You should ’ve waited for me . I had a plan to get rid of him without anyone knowing . ”
+17206	17252	17179	17179	Zeus	147	“ The two of you together are as wide as a street . You ca n’t sneeze in Brooklyn without the tremors reaching all the way out to Long Island , and you think you were going to somehow sneak stealthy revenge on a billionaire ? ”
+17253	17259	17260	17260	Zeus	147	“ He impugned your honor , ”
+17263	17269	17270	17270	Ares	1250	“ We can be small , ”
+17302	17325	17297	17297	I	389	“ How long are you in town ? I have band practice tonight , but we could hit a Yankees game tomorrow . ”
+17474	17482	17483	17483	Zeus	147	“ Game sounds fun . Just us ? ”
+17486	17495	17483	17483	Zeus	147	“ Or is the elevator fucker joining us ? ”
+17535	17546	17525	17525	I	389	“ Just us . Does Mom know you say fucker ? ”
+17547	17555	17556	17556	His	147	“ Who do you think taught me ? ”
+17592	17600	17601	17601	Ares	1250	“ She put sparkles on his ass , ”
+17612	17622	17605	17605	Zeus	147	“ You got him with that glitter bomb shit ? ”
+17623	17637	17638	17638	I	389	“ This is a five - star restaurant , not a locker room , ”
+17656	17685	17641	17641	Somebody	604	“ And no . I did n’t plant glitter bombs in his office . But it might ’ve been my idea . And I might ’ve played lookout . ”
+17774	17783	17784	17784	Ares	1250	“ You need us , we ’re here , ”
+17787	17803	17784	17784	Ares	1250	“ Do n’t suppose you two can afford to buy an organic grocery store chain . ”
+17824	17834	17835	17837	A different server	609	“ Dude . It ’s way more than that . ”
+17956	17967	17968	17968	Zeus	147	“ Dated a girl once who ate shit like this , ”
+17979	17982	17983	17983	Ares	1250	“ One ? ”
+17986	17991	17983	17983	Ares	1250	“ One was enough . ”
+18067	18072	18073	18073	I	389	“ Thanks for dinner , ”
+18076	18101	18102	18102	Ares	1250	“ I ’ll get tickets to the game . You guys try to not harass anyone else I work with , mmm - kay ? ”
+18111	18116	18102	18102	Ares	1250	“ He broke you . ”
+18127	18141	18149	18149	I	389	“ It was ten years ago , and I made prison my bitch . ”
+18198	18223	18185	18185	I	389	“ My employment options are limited at the moment , so we ’re all going to play nice until he goes away , okay ? ”
+18224	18232	18233	18233	Zeus	147	“ I ’ll get you a job , ”
+18236	18244	18245	18245	Ares	1250	“ I ’ll get you a job , ”
+18306	18317	18318	18318	I	389	“ I like New York and I like my job , ”
+18322	18332	18318	18318	I	389	“ This will blow over . I ’m staying . ”
+18797	18802	18803	18803	I	389	“ Oh , honey , ”
+18806	18852	18803	18803	I	389	“ I should ’ve warned you about my magic vagina . It makes men fall madly and irresistibly in love with me . The only way to break the spell is to dunk yourself in the Hudson four times at midnight under a full moon . ”
+18920	18927	18928	18928	he	1244	“ Are you on birth control ? ”
+18967	18998	18957	18957	her	150	“ If you two are talking about sex , take it inside . I just got dumped by a retired trash collector and I ’m in no mood for love . ”
+19051	19054	19055	19055	I	389	“ Yes , ”
+19154	19160	19161	19161	I	389	“ What do you want ? ”
+19225	19234	19236	19236	I	389	“ How much do you know about management ? ”
+19289	19302	19277	19277	I	389	“ Piss me off and I ’ll throw you out the window . ”
+19303	19311	19312	19312	he	0	“ Debating throwing myself out the window , ”
+19315	19325	19312	19312	he	0	“ At least we ’re on the same page . ”
+19497	19502	19503	19503	I	389	“ What about management ? ”
+19560	19566	19567	19567	I	389	“ It ’s all male . ”
+19598	19607	19608	19608	I	389	“ Welcome to the twenty - first century , ”
+19614	19628	19608	19608	I	389	“ No , wait … Yeah . Yeah , we ’re still here . ”
+19629	19632	19658	19658	he	1250	“ Why ? ”
+19633	19644	19608	19608	I	389	“ Do I really need to explain this to you ? ”
+19645	19656	19658	19658	he	1250	“ You have the most productive department in the building . ”
+19668	19684	19663	19663	I	389	“ Are you really Chase Jett , or do you have a secret evil twin ? ”
+19685	19723	19658	19658	he	1250	“ Cut the shit , Bro . You would n’t have stayed at Crunchy if it were a terrible place to work . Your department is top - notch , but upper management is all cocksucking dickheads . ”
+19724	19738	19739	19739	He	1250	“ I have a criminal record . I work where I can work . ”
+19760	19768	19745	19745	I	389	“ Quit hiding behind that old bullshit . ”
+19769	19776	19804	19804	she	93	“ You told me to drive . ”
+19777	19787	19745	19745	I	389	“ I told you to get out of there . ”
+19788	19793	19794	19794	Hogzilla	93	“ Ketchup , catsup . ”
+19825	19830	19831	19831	he	1250	“ The mating hogs , ”
+19836	19845	19831	19831	he	1250	“ Welcome to the broke New York life . ”
+19846	19854	19855	19855	He	1250	“ You live under a fucking zoo . ”
+19903	19961	19962	19962	Squeaky	62	“ You want to know about management , call Heidi Rumple . She ’s responsible for the cool marketing office , and she was on the fast track up the ladder when she quit to take a nanny job in Hoboken . Now go away . I ca n’t sell bok choy if I ca n’t sleep . ”
+20023	20033	20034	20034	Chase	0	“ We do n’t have to be like this , ”
+20038	20069	20034	20034	Chase	0	“ You did n’t have to rig paintballs to rain down on me when I left the house for my first day of high school either , but you did . ”
+20070	20114	20034	20034	Chase	0	“ That was fifteen fucking years ago . And if you had n’t told my mother I jerked off in the cafeteria , I probably would n’t have . You were thirteen . You should n’t have even known the word jerk off . ”
+20115	20126	20132	20132	him	0	“ Then you should n’t have taught it to me . ”
+20188	20203	20204	20204	His	0	“ Seriously , why are you here ? What do you want from me ? ”
+20241	20244	20245	20245	he	0	“ Information , ”
+20249	20261	20245	20245	he	0	“ So you can destroy one more thing in my life ? ”
+20262	20295	20297	20297	he	0	“ Yes , Bro , I bought a whole fucking grocery store just so I could lay ruin to it and leave you without a job . You ’ve found me out . ”
+20355	20368	20369	20369	I	389	“ Everyone at Crunchy is there because we believe in the cause , ”
+20373	20440	20441	20441	He	0	“ What we do n’t know is if you do . You have a problem with management , it ’s just that . Your problem . You bought us . You want to fix what ’s broken , great . But do n’t you dare touch my team , because we ’re good , and you would n’t have had a company to buy without us . ”
+20497	20509	20481	20481	he	0	“ Heidi Rumple . Thank you . Enjoy your mood music . ”
+21084	21092	21093	21093	Zeus	147	“ You got a thing for Ambrosia ? ”
+21141	21157	21132	21132	I	389	“ If I say yes , are you going to pound me into the sidewalk ? ”
+21181	21184	21177	21177	Zeus	147	“ No . ”
+21185	21201	21210	21210	Ares	1250	“ If I say no , are you going to pound me into the sidewalk ? ”
+21202	21209	21210	21210	Ares	1250	“ What ’s wrong with her ? ”
+21229	21253	21213	21213	Zeus	147	“ We were talking . Got to remembering all the pranks we pulled on her . How half of them were your idea . ”
+21254	21261	21262	21262	Ares	1250	“ Sunny said you like her , ”
+21319	21331	21332	21332	Zeus	147	“ And considering how many times you ’ve slept with her … ”
+21408	21417	21418	21418	I	389	“ What do you want me to say ? ”
+21421	21426	21427	21427	Ares	1250	“ We miss you , ”
+21441	21447	21448	21448	Zeus	147	“ Used to have fun , ”
+21451	21466	21448	21448	Zeus	147	“ World ’s a lot more fun now . But it ’s missing something . ”
+21467	21476	21477	21477	I	389	“ Bro — Ambrosia does n’t like me , ”
+21545	21549	21550	21550	I	389	“ Like that , ”
+21554	21563	21564	21564	Bro	147	“ She does n’t like me like that . ”
+21593	21596	21597	21597	I	389	“ Yet ? ”
+21711	21729	21699	21699	I	389	“ Got four tickets to see the Yankees tonight . Gates open at six . Be there . ”
+21931	21938	21939	21939	Ares	1250	“ Looking forward to the game . ”
+21945	21955	21942	21942	Zeus	147	“ Got some glitter in your fingernails , dude . ”
+21956	21961	21962	21962	They	281	“ Suck my dick . ”
+22559	22571	22572	22572	she	724	“ I just do n’t get why she gets to stay , ”
+22575	22586	22572	22572	she	724	“ I mean , she had sex in the elevator . ”
+22627	22732	22608	22608	I	389	“ Look , we all have sex . Some of us might like to pretend we do n’t , but it ’s a natural biological function . It ’s necessary for the continuation of our whole entire fu — freaking species . There ’s only shame in sex if we choose to let there be shame in it . We work for an organic grocery store chain , for god ’s sake . We ’re Crunchy . You ask me , we should have dedicated sex rooms on every floor . Embrace your sexuality . Love yourself . And then get back to work . ”
+22810	22821	22808	22808	I	389	“ I believe what Ms. Berger was trying to say , ”
+22841	22923	22822	22822	Chase	0	“ is that no one should be ashamed of their sexuality . I ’d like to reiterate that there ’s a line between comfort in your own sexuality and the harassment of others , which will obviously not be tolerated , but if the need arises , which I trust it wo n’t , I hope we can openly discuss any matters of a sexual nature openly and honestly . I open my mouth , and he holds a hand up . “
+22955	23032	23033	23034	Ms. Elliott	164	” Gasps of delight go up through the room . The Dick just made himself a hero yet again . Him and his giant … chin dimple . Which is still glittering , just for the record . I ’d be mad , but honestly , a nap room would rock . Plus , who cares about my sex life when we ’ve just had management approve napping on the job ? He points at Parker . “
+23041	23042	23033	23034	Ms. Elliott	164	” “
+23049	23053	23047	23047	Sia	64	” she blurts . “
+23059	23623	23624	23624	I	389	” I jerk my head , telling her to go with the Dick , and she stumbles after him . My brothers are still in town , after all . If he messes with my best friend , there will be hell to pay . And when I ’m done with him , I ’ll send Zeus and Ares over just for fun . The door shuts behind them . Everyone ’s hyped up on the idea of nap rooms , and me and my sex room seem to be forgotten . Thank god . A sex room ? I do n’t know how I survived the elevator sex incident , but I am no doubt three heartbeats away from being called in by HR again . For something . Or everything . And I ’m obviously not the only one who thinks so , because a message request pops up from Jett , Chase , CEO and Owner before he could even be to the elevators . A SEX ROOM ? Forget the sex room . His profile is a cartoon sex god . He ’s totally inflated his muscles , his dark hair never looks that shiny or perfectly styled , his chin dimple is dashingly rugged and glitter - free , and his avatar is fake tanning . Okay , I lied . I ca n’t forget the sex room . And now I ’m picturing myself using it . With Chase . What ? I type back . Like the world would n’t be a better place if some people did n’t get off on a regular basis ? YOU CANNOT PUT A SEX ROOM IN THE WORKPLACE . I know why he ’s yelling . It ’s hardly an appropriate suggestion , but I ’m in deep now , and I ’m in it to win , damn it . Sex IS natural , I fire back . If we were as relaxed about sex as we are about eating , sleeping , and going to the bathroom , maybe there would n’t be such a stigma to it . Maybe if we talk about sex like we all have it — and we ALL do , and you know I ’m right , do n’t make me draw you a diagram or pull security footage — and do n’t be all sanctimonious in pretending we do n’t , then maybe there would be a few more women sitting in your executive office like equals . I wait , but he does n’t reply . I tell myself it ’s because he knows I ’m right , and he has no logical , compelling arguments against sex rooms in the workplace leading to women ’s equality in management . I also grab my phone and text Zeus . Do you think the Rangers could use someone new in their marketing or social media departments ? Thirty minutes later , Zeus has n’t replied , but a new message pops up from Chase . You have issues . Yes . Yes , I do . It ’s because I grew up with you , I type back . And then I treat myself to a long lunch in the snack bar , where the cashier tosses two extra cookies on my tray and charges the whole thing to Chase . “
+23627	23639	23624	23624	I	389	” she tells me , even though I did n’t ask . “
+23648	24198	24202	24202	dude	1365	” I get a fist bump and one more cookie , and I wonder if I ’ll be seeing her in counseling with HR too . 11 Chase For eight straight hours , I ’ve had images of Bro ’s sex room seared into my brain . And she ’s in every last image . Her legs spread in invitation on a red velvet chaise . Bent over an ancient metal desk , offering me her ass . In one , there ’s a Bro vending machine , and I keep putting dollars in so I can eat her like an ice cream cone . That one ’s a little weird , I confess . It ’s possible I have a problem . I ca n’t decide if I need to do her again and get her out of my system , or attempt to offer an olive branch and let my mother introduce me to that nice fifty - year - old woman she met on her cruise who would make a much better daughter - in - law than Ambrosia May what the hell are you thinking Berger . That ’s what Mom always calls her . And my mother ’s a fucking saint . She does n’t cuss . Ever . I ’m trying to think about my mother and not Bro Berger when I arrive at Yankee Stadium . Unfortunately , she ’s the first thing I see . Bro , that is . My mother ’s still on her cruise . Ambrosia ’s sandwiched between her brothers , a little speck between two boulders , but I see her first . She ’s doing what she always did when we were growing up — she ’s laughing . She was always laughing with her brothers . Maybe not always — she did n’t like it when they strung her craft beads on their used dental floss . Or when we used her flowery hair things as fishing bait . Or when Ares would fart on her dolls ’ heads . But when her brothers were n’t terrorizing her , or when she was n’t putting itch cream in their jock straps or honey on their field hockey sticks — all those mosquitoes in the summer , and Ares and Zeus always scratching down their pants and getting honey on their nuts … I still have nightmares for them . Point is , she never smiled at me . She never laughed with me . She had this perfect little life , smart parents with good jobs , a big house , and two brothers who ’d pummel you first and ask questions later if they thought you looked at her wrong . But she was always too good for me , and she thought her brothers were too . She was probably right . But look at me now , baby . She catches my eye , and her smile drops off . That ’s Bro Berger for you . Still too good for the riffraff from the wrong side of the tracks . A billion fucking dollars in my bank account , and she ’s the only person in the world who sees me . Zeus lifts a hand and waves to me . “
+24208	24209	24204	24204	Beer	167	” “
+24215	24219	24220	24220	I	389	” Bro asks . “
+24224	24230	24220	24220	I	389	” Zeus grins at her . “
+24239	24240	24241	24241	I	389	” “
+24249	24253	24241	24241	I	389	” she hisses . “
+24270	24566	24567	24567	She	741	” The woman knows how to terrorize her brothers , and do n’t let anyone tell you differently . We ’re escorted in through the players ’ entrance . Fucker did n’t get four seats , he got a private suite , which is good since Bro brought three friends . And my fat bank account is still new enough that I might buy grocery stores , business suits worth more than my hometown , and small pharmaceutical firms doing experimental research in combating the effects of pesticides and factory chemicals , but being treated like royalty still gives me a thrill . Bro takes a seat in the two short rows of stadium seats at one end of the room , which would be comfortably - sized if we were all buddies , but are definitely too small for the seven of us . Her friends take the seats around her after grabbing snacks and drinks from the trays and buckets set out on the bar along the back wall . I know Parker from Crunchy — she has two masters degrees , one in business administration and the other in marketing , fifteen years of experience , and she ’s been stuck in a worker bee job for years . Not because she was n’t applying for promotions , but because she kept getting passed over . I ’m fixing that . The other two women , I do n’t know at all , but the one who reminds me of Snow White with long hair is vaguely familiar . The shorter one with the spiky hair and librarian glasses strikes me as the terrifying sort , and not in the good way . Zeus hands me a beer and straddles a chair . “
+24579	24662	24576	24576	you	252	” Ares is behind me . He crushes a full beer can with his bare fist . Beer drizzles into my hair and down my neck . I jerk out of the seat . I could probably take him down with a well - aimed glass bottle , but at least when we were kids , there were only three places where his body was actually vulnerable , and two of them I would n’t touch with a ten - foot pole . “
+24671	24675	24665	24665	you	252	” Zeus says . “
+24688	24700	24701	24701	I	389	” Ares is twisting the can in his hands , grinning . “
+24705	24713	24701	24701	I	389	” Zeus does a double - take . “
+24721	24729	24718	24718	You	252	” The brothers share a fist bump . “
+24739	24740	24718	24718	You	252	” “
+24747	24757	24761	24761	him	252	” the spiky - haired one with Bro says . “
+24763	24779	24761	24761	him	252	” Bro points at Ares with the death finger that her mother used to use . “
+24825	24856	24815	24815	ESPN	148	” That , too , is classic Bro . And now my dick is sword fighting my zipper . I know what she can do when she channels that passion . “
+24866	24873	24859	24859	he	744	” Zeus asks with a smirk . “
+24879	24880	24881	24881	Sia	64	” “
+24883	24891	24892	24892	He	744	” Snow White chides in a whisper . “
+24901	24906	24892	24892	He	744	” Bro whispers back . “
+24913	24926	24907	24907	I	389	” Her other friend , the scary one , points at me . “
+24937	24990	24929	24929	you	252	” She pulls her eyelid over her eye . Parker ducks her head over a bag of peanuts . Snow claps her hand over her mouth , but I still hear giggles . Bro , on the other hand , is watching me like she knows what ’s up in my pants . “
+25002	25006	25007	25007	Man	170	” Zeus says . “
+25014	25019	25009	25009	she	252	” Good to know . “
+25029	25077	25020	25020	We	745	” Getting into details go could one of two ways . Either Zeus and Ares toss me out the front of the suite for saying sex room in relation to their sister , or the NHL gets a new idea in their suggestion box . Possibly both . “
+25090	25151	25152	25152	I	389	” There ’s three hundred fifty pounds of unpredictable Viking telling me to let his sister have a sex room at work . One day we ’ll look back on this and laugh . Or my dick is going to split the zipper in my jeans as it votes in favor of Bro ’s idea . Zeus ’s eyes narrow . “
+25170	25171	25174	25174	she	252	” “
+25177	25190	25174	25174	she	252	” I say before I realize which head I ’m talking with . “
+25196	25206	25174	25174	she	252	” Bro says , earning another poke from Snow . “
+25214	25215	25207	25207	They	750	” “
+25218	25268	25207	25207	They	750	” I ’m sweating like a Canadian in Florida . I have got to get a grip on this throbbing in my nuts . Even if I ’d prefer she get a grip on my nuts . Fucking Zeus and his You like my sister , do n’t you ? “
+25274	25354	25207	25207	They	750	” Parker , who I belatedly remember knows exactly what we ’re talking about , chokes on a peanut . We all hop up and fight over who ’s going to give her the Heimlich , and for once , my dick gets the memo that something honest - to - god serious is going on and gives me some breathing room . Zeus grabs me by the collar and dangles me to get me out of the way . “
+25359	25378	25207	25207	They	750	” he says . Ares grunts and digs an elbow into his ribs , tripping over the seats . “
+25382	25386	25207	25207	They	750	” Bro shrieks . “
+25404	25405	25406	25406	I	389	” “
+25410	25436	25406	25406	I	389	” Ares says . Parker ’s coughing and sputtering . Snow gives her a good hard whack , and peanut chunks fly across the box . “
+25439	25450	25406	25406	I	389	” Parker rasps . She points at the Berger twins . “
+25457	25550	25551	25551	He	752	” Bro shoves a bottle in her hand , Zeus signals Ares to sit , and I ease back into my seat , being careful with my tender balls . I definitely have a problem . Once everyone ’s certain Parker is n’t going to choke again , the game ’s about to start . We stand for the National Anthem , and the scary one — Eloise , I ’ve learned — whoops and hollers for every last one of the Yankees as they ’re introduced , even the batting manager . “
+25556	25591	25551	25551	He	752	” she says . The first batter goes up , and Zeus pokes me with an elbow that would probably earn him a trip to the penalty box if he were on the ice . “
+25627	25655	25594	25594	man	252	” Bro ’s eyes take on a nuclear glow , and I have to shift in my seat to accommodate my once - again growing lightning rod . “
+25658	25664	25594	25594	man	252	” I say to Zeus . “
+25670	25674	25594	25594	man	252	” Ares grunts . “
+25684	25688	25594	25594	man	252	” Zeus shudders . “
+25702	25703	25594	25594	man	252	” “
+25722	25726	25727	25727	You	252	” Bro says . “
+25732	25733	25727	25727	You	252	” “
+25751	25756	25758	25758	you	252	” He slugs Ares . “
+25760	25761	25758	25758	you	252	” “
+25769	25847	25848	25848	Your	252	” Bro ’s looking a little possessed herself , and my balls are aching again . Pretty sure I ca n’t solve this problem with a quick trip to the bathroom either . As long as she ’s within a quarter mile radius , and pissed off over anything , I ’m going to be worse off than if I were force - fed a handful of little blue pills and tossed in a sultan ’s harem . “
+25851	25883	25848	25848	Your	252	” she says to me , and now I ’m thinking of her handiwork . Her hands . On my cock . Squeezing . Stroking . Guiding it to her mouth — “
+25893	25989	25884	25884	You	252	” I say . It was definitely me . And I would ’ve hit the kitten posters in her room with them too if I ’d known it bothered her . For the first time in my life , I wonder if I was a shithead . Always proudly claimed hellion . Never considered shithead . It ’s enlightening . Not sure how I feel about this . Ares crushes another beer can . While I move yet one more seat closer to the women , Eloise abandons Bro to claim the seat beside Ares . “
+25997	26001	25884	25884	You	252	” she asks . “
+26007	26011	25884	25884	You	252	” he says . “
+26015	26021	25884	25884	You	252	” Zeus lifts his phone . “
+26040	26062	26029	26029	Fellas	176	” I move one more seat down , but I ’m grinning . Because damn . I ’ve missed these nimrods . “
+26071	26077	26069	26069	they	757	” I say to Bro . “
+26086	26425	26081	26081	they	757	” Just like old times . I chuckle to myself , steal a handful of her popcorn , and settle in to watch some baseball . 12 Ambrosia Chase Jett just smiled at me . It ’s not enough that he tortured me through childhood . It ’s not enough that he has enough money to buy a jet to fly to his personal Caribbean island and build his own private Disney World on it . It ’s not enough that I ’ve been wondering how deep I could shove my tongue into his chin dimple . When he smiles , fairies sing and the sun shoots glitter on its light beams and magical , happy , non - possessed unicorns fart rainbows across the sky . I ’ve never seen him smile — excluding all the times he did his evil overlord laugh whenever he ’d get one up on me — and I do n’t like it . And no , I do n’t want to discuss if it ’s his smile I do n’t like , or the fact that I ’ve never seen it . I also do n’t like that he ’s wormed his way into the seat beside me , with his long legs stretched out and crossed at the ankles , his wide shoulders edging into my personal bubble , with a swell in his crotch that ’s making me unfortunately horny . Just a little . Like a subtle swelling in my breasts that are making my barely tight nipples strain sort of - kind of loosely - painfully against my lace bra . Like a barely noticeable , pulsating , volcanic throb between my legs . Like a whisper of a hint that I might possibly desperately need to straddle him and rub my aching , swollen clit all over his long , thick shaft and — Yeah . I ’m just a little horny . Barely noticeable over — wait . When did Willow start talking to him ? “
+26430	26435	26426	26426	I	389	” she ’s saying , “
+26441	26442	26443	26443	Everybody	759	” “
+26446	26450	26443	26443	Everybody	759	” Chase says . “
+26467	26574	26575	26575	I	389	” He smiles that ridiculously handsome smile at her , and I ca n’t decide if I want to slug him or mount him . His teeth are straight and perfect , like he must ’ve gotten braces in the last ten years . The chin dimple makes his full lips seem manly and rugged , even with the glitter still stuck in there , and his eyes are crinkling like he ’s hiding a sense of humor in his blackened soul . Which will only come out a muddy gray in my mind , because even I ca n’t find the evil in this smile . “
+26582	26588	26575	26575	I	389	” He winks at her . “
+26634	26680	26683	26683	baby	1410	” The crowd suddenly groans , and we all leap to our feet as a ball sails out of the park . Those of us from Minnesota , anyway , so basically me , my brothers , and Chase . Home run for the visitors . “
+26685	26826	26683	26683	baby	1410	” Zeus yells . Ares is doing his war cry , a deafening howl that sounds like a flock of chickens being murdered . Huh . Maybe he could stop by my apartment about three AM and demonstrate for Hogzilla . And why has n’t this ever occurred to me before ? Oh , right . Because I do n’t want to get kicked out of my building . Finding an affordable place in the city is akin to finding a new job when you have a criminal record and a current listing as a smokin ’ hot do me now mama on BillionaireBangers.com . Still , it ’s tempting . And it ’s taken my mind off the fact that Chase is pumping a fist and hollering as the Twins go up three to nothing in the first inning . “
+26834	26838	26683	26683	baby	1410	” Parker says . “
+26842	26849	26683	26683	baby	1410	” I reply with a shrug . “
+26856	26860	26683	26683	baby	1410	” Eloise grunts . “
+26863	26867	26868	26868	Pennsyl	177	” Parker corrects . “
+26872	26877	26868	26868	Pennsyl	177	” Eloise fires back . “
+26886	27362	26868	26868	Pennsyl	177	” She has a point , but it ’s been a decade since I ’ve wanted to cheer for the Twins . Now that I ’ve reclaimed my heritage , I could n’t stop myself if I tried . Going to Twins games was a huge deal when I was little . Mom and Dad would take a day off work , we ’d drive down to Minneapolis , have sandwiches in the car , and sit in the bleachers where we could each pick one thing from the snack bars . I ’d go for cotton candy . Zeus and Ares would try to scam their way into more food , saying it was only one thing if they stacked their hamburgers between two large pretzels as bonus buns . Chase went with us once . He got a bag of peanuts and spent the whole game tossing shells into my hair when my parents were n’t looking . Zeus and Ares never went to ball games with Chase ’s family . Or to the lake . Or camping . Not like he ’d tag along with us . It never occurred to me that the only way he got to do all those things was with us . That his parents could n’t afford it . I ’m sure his mom did n’t make much , and I never gave a thought to what his dad did . Or that he might ’ve grown up on canned baloney , and buying Crunchy was his way of never having to eat it again . He was right . Billionaires get to do the weirdest things . Or possibly I ’m spending too much time thinking about the guy who ’s sliding his arm behind my back at the baseball game . I go stiff as steel on the outside and wobbly as my grandma ’s blue - ribbon gelatin mold on the inside . Why is Chase Jett putting high school moves on me ? That volcanic throbbing in my nether regions is back . Lava ’s flowing , people . Chase Jett is touching me and my body is betraying me and — Holy organic sausages , he ’s threading his fingers through my hair . Electric sparks light up my scalp , and I have to squeeze my lips together to keep from moaning . Squeezing my thighs together is n’t doing much good either . I wonder what he ’d do if I follow him home . Or if I just show up naked on his doorstep . I could lob a few insults , question his choice in décor , call his dick some names , and he ’d probably do me in the foyer . What the hell is wrong with me ? My head is suddenly slapped forward . “
+27365	27366	26868	26868	Pennsyl	177	” “
+27373	27388	26868	26868	Pennsyl	177	” Eloise says . She dangles a peanut shell in front of my eyes . “
+27402	27439	27394	27394	He	767	” I yank his ear and twist . His head flops into my lap , but he ’s grinning . Oh , he ’s grinning . A delicious , dark , spank me , baby grin . “
+27451	27452	27394	27394	He	767	” “
+27457	27465	27453	27453	You	768	” I grit out . Ares snorts . “
+27471	27526	27466	27466	I	389	” he says to Zeus . The two of them share a smile and a fist bump . I have no idea what they ’re talking about . Chase apparently does . He flips a double bird at them . I ’m suddenly reliving my childhood , except it ’s oddly non - traumatic . “
+27534	27538	27539	27539	Parker	63	” Chase says . “
+27556	27557	27546	27546	I	389	” “
+27562	27566	27567	27567	I	389	” Chase asks . “
+27576	27577	27567	27567	I	389	” “
+27582	28145	27578	27578	I	389	” I say , and I ’m horrified to realize I ’m smiling back at him . I drop his ear and shove him away . Fine . Maybe he ’s not the devil . But he ’s still not good for me . 13 Ambrosia By the sixth inning , the Twins and Yankees are tied at four runs apiece . Eloise is acting like a puck bunny and hanging on Ares ’s every word . I should n’t be surprised — she ’s always gone for the guys with a limited vocabulary . Parker and Zeus are in a contest to see who can catch the most peanuts — Parker ’s winning , twenty - three to seven — and Chase has discovered Willow ’s stepdad is an honest - to - god king of a small Nordic country , and he ’s grilling her on the country ’s economy . Give a guy a billion bucks , and suddenly he thinks he can hobnob with royalty . Entitled prick . As for me , I ’m trying to enjoy the game . Dusk is settling , it ’s seventy - two degrees , and it ’s anybody ’s ballgame . What more could I want ? I mean , it ’s not like I want Chase to yank me by my hair like a Neanderthal , drag me into the bathroom and make him besmirch my already tattered honor . That would be crazy . It ’s not like I ’ve been sitting here for five innings getting more and more turned on every time the man laughs . Or like I ’ve been eyeballing that bulge in his pants , wondering how much longer he can go before he explodes or if being a billionaire somehow gives him magic junk that swells purely to torture the nearby women without causing him any discomfort . Or like I ’ve been wondering if there ’s any way I could slip my hands into my pants to take some pressure off without anyone noticing . It ’s his cologne , I ’ve decided . His newest form of warfare . Odorless pheromones . I need to steal his recipe . Bottle it and sell it with mobile sex rooms , and then I ’ll be a billionaire too . Or possibly incarcerated again for breaking some obscure pheromone drug and sex peddling laws . Thanks , Chase . Two trips to the pen , all courtesy of you . I growl at him . He shifts his attention back to me and lifts a brow . As if he does n’t know I ’m on to him and his unscented , Ambrosia - targeting pheromones that are making me consider criminal activities . I roll my eyes . He grins , but this is n’t the smile he ’s been giving Willow . No , this is a smile of victory . Of power . Of corruption . That ’s right . Corruption . Sexual corruption . All heavy - lidded and smirky and has he always had those long eyelashes ? and holy sex on a stick what the hell is wrong with me that I want to bang this man blind ? I lift my chin and look away , and suddenly Zeus is punching me in the arm . “
+28149	28153	28147	28147	Cam	181	” he hisses . “
+28157	28234	28236	28236	Cam	181	” We ’re mid - inning and the crowd ’s chanting Kiss her , Kiss her , Kiss her . I lift my gaze to the video board , expecting to see a saggy grandma and gramps or some cute college couple , and instead , I ’m staring straight at myself . And Chase . Zeus ’s giant fist is gargantuan on the screen , poking me hard enough to make my whole body shake . “
+28248	28860	28238	28238	You	770	” Fine . It ’s a rule . I have to kiss Chase . Because the baseball gods demand it . I ’ll do it . But I ’m not going to like it . I turn to him , and see my exact thoughts written in his eyes . Bet you flinch first . He was so on . I lunge at him before he sees it coming . My lips smush against the side of his mouth . My arm bangs the back of his chair . Someone shrieks , and I wonder if my beer is now decorating the suite . That ’s the last rational thought I have before Chase grips my hair , guides my lips to his , and does that holy toe - curling , mind - bending , mouth - orgasm - inducing thing with his tongue . It ’s as twisted as his dick is , and oh my god , I want to suck on it until I ca n’t feel my lips anymore , except then I could n’t feel the glorious way his twisted , wet velvet mouth - dick is making my entire body light up like a flashing neon video board strung with a billion Christmas lights . Pleasure here , enter now and suck face until your ovaries explode . There ’s an armrest between us , and that wo n’t do , nope , absolutely wo n’t do at all . I fling my leg over his leg — god , I ache , just one little touch , one little stroke , please , I ’ll be a good girl and only call you a dick to your face when we ’re naked and not in an elevator and — oh . Oh , yes . I do n’t care if that ’s his hand or the armrest or if it ’s a fucking bratwurst , something ’s rubbing my clit and he ’s still fucking my mouth with his tongue and he has an iron grip on the back of my neck and I ca n’t breathe but I do n’t want to because yes , yes yes yes , more , right there , do n’t stop , oh my god , I ’m rocking on his leg , or his arm , or something , and it ’s perfect and I ’m suddenly remembering that thing he did with his hand in the elevator and I ’m wet and hot and ready and I need to touch him . I need to touch his cock right fucking now . I uncurl my hands from fisting his shirt and tug the fabric out of his pants , seeking , searching — And beer rains down on my head . I jerk up . Just in time , too , because Ares has dropped the twin beer cans he just crushed over our heads and he ’s grabbing Chase by the back of his shirt and lifting him like he ’s a feather . Or maybe a small bird . Or maybe a guy about to be murdered by an angry , three - hundred - fifty - pound brother whose day job is being a monster on and off the ice . Someone screams . I ’m pretty sure it was Parker , but it might ’ve been me , because it ’s totally worth screaming over the way Ares looks like he ’s contemplating tossing Chase out of the suite . Right there . At the edge of the suite . Just drop him six stories onto the unsuspecting fans below . “
+28867	28922	28238	28238	You	770	” Zeus bellows . My heart is simultaneously in my gut and in my throat , my legs are the consistency of melted jelly beans , and I ca n’t catch my breath . Ares twists Chase and stares him right in the eyeball , close enough that they both go cross - eyed . “
+28928	28932	28934	28934	she	553	” he growls . “
+28945	28982	28934	28934	she	553	” Chase growls back as if Ares does n’t have at least eight inches and well over a hundred pounds on him and why am I thinking about inches and pounding and getting turned on again ? “
+28986	29065	29066	29066	Ares	1250	” Eloise whispers . I ’m simultaneously mortified and lustified . And if you do n’t think lustified is a word , trust me , it is , and I am so that right now . Hornified too , which is like being horny and horrified all at once . And I ca n’t make up any more words , because I ’m going to throw up because Ares is going to throw Chase out of the box . “
+29072	29169	29170	29170	You	1250	” I order , but I sound like a sex - crazed nympho at a dildo party . I do n’t know . I ’m not thinking straight . Just go with it . And for God ’s sake , someone make my brother put Chase down . Either Ares reads my mind , or I shriek that last part out loud , because he finally puts Chase down . In the doorway . Which he flings open for the sole purpose of shoving Chase out of the suite , and then slams it shut again . “
+29175	29179	29173	29173	Chase	0	” Ares says . “
+29183	29330	29173	29173	Chase	0	” Oh , shit . Oh , double hornified lustified shit . He ’s right . I did n’t call Chase a dick . I like to think it ’s because I ’m a nice person , but the truth may be far more sinister — and hornifying — than that . Zeus is looking at me with his hockey game face . I ’ve seen that face make grown men cry . I ’ve seen that face make lumberjacks cry . It would probably make God cry , but for other reasons that are n’t really relevant now because Zeus does exist and that is God ’s fault . But that face wo n’t make me cry , because I know Zeus is ticklish on his third rib and that he ’s terrified of daddy long legs , which I silently communicate back to him . “
+29336	29345	29346	29346	I	389	” he says . I toss my hair . “
+29368	29415	29420	29420	Sia	64	” I have a problem . My phone dings somewhere in the suite . My three wide - eyed friends all lunge for the floor in front of the chair that probably needs to be disinfected or burned , and all three of them simultaneously gasp . “
+29427	29431	29420	29420	Sia	64	” Parker whispers . “
+29437	29502	29432	29432	We	775	” I start , but my brain catches up quickly . The Kiss Cam . We just dry - humped on the freaking Kiss Cam . It ’s probably already on Facebook and YouTube . My mother ’s going to see this . My fingers go numb . Thankfully , so does my vagina . Would ’ve been nice five minutes ago , vagina . “
+29513	29519	29508	29509	your mother	314	” I whisper to Willow . “
+29529	29537	29508	29509	your mother	314	” Parker shoves the phone at me . “
+29557	29911	29912	29912	Gentlemen	1184	” I glance down , read the message , and every last inner muscle Chase hit the other night clenches in anticipation . Mortification be damned . Chase just texted that he has a sex room . And that I ’m welcome to join him in it anytime . 14 Chase Bro does n’t text me back . She does n’t drop by my place , does n’t bang on the door to wake me up at some ungodly hour in the middle of the night — bang , that ’d be funny except I did n’t get any last night — and she has n’t booby - trapped my office with glitter bombs or rotting fish or lingerie that smells like her pussy . It ’s like I do n’t exist to her . She ’s so fucking good at fucking with my mind . I spend the next morning interviewing candidates for the executive board . I ’m going to have to go outside the company for some positions , but there ’s a lot of talent internally , and as I explain to each of my prospective board members my long - range goals for Crunchy , I ’m also getting re - invigorated . When I ’m done , there wo n’t be any more canned baloney . No more chemicals hiding in our food and manufacturing processes to make people sick — those canning it or those eating it . Or those doing both . No more kids going hungry in schools either . What good is being among the world ’s richest men if you ca n’t solve a food supply problem ? And before you start throwing shit — I’m not putting people or industries out of work , either . I ’m going to buy them and fix them . All of them . Because I fucking can . I ’m in the middle of interviewing Tina , the world ’s perkiest woman , for a position in sales management when I hear a commotion break out in the lobby . My door flings open . “
+29922	29952	29953	29953	They	1184	” my admin assistant says as thirteen - plus feet and seven hundred pounds of Viking hockey players get stuck battling each other to get through my door first . “
+29957	29969	29953	29953	They	1184	” I tell Tina . I hope I ’m not lying . “
+29982	30028	29976	29980	the Brute and the Force	1184	” she whispers reverently . Zeus wins the battle of the doorway and strolls in first . He whips out a Sharpie , signs Tina ’s head , and then scrawls his name across my desk before doing a mic - drop with the marker . “
+30034	30084	30029	30029	We	1184	” Ares adds his signature to Tina ’s left arm and eyeballs the front of my desk in a way that makes me think he ’s using X - ray vision to locate my crotch . To sign it or turn it into ground meatballs is anybody ’s guess . “
+30090	30096	30097	30097	I	389	” I say to Tina . “
+30103	30104	30097	30097	I	389	” “
+30121	30132	30112	30112	I	389	” she whispers reverently as she stumbles to her feet . “
+30142	30261	30262	30262	Dude	141	” I take her phone and snap a picture of Zeus and Ares holding her mermaid - style , then a normal one with her dwarfed between the two men . If they have time for pictures , they ’re probably not here to chop my legs off . When the door shuts , Ares sits in the leather chair Tina ’s just vacated . It creaks , there ’s a snap and a plume of glitter , and suddenly he ’s in a crumbled pile of old leather , springs , and wood that ’s seen better days . Like yesterday , before a behemoth squashed it with his ass and released one last hidden glitter bomb . “
+30264	30268	30262	30262	Dude	141	” Zeus says . “
+30290	30291	30262	30262	Dude	141	” “
+30298	30350	30262	30262	Dude	141	” Ares hangs his head . I offer him a chocolate from the glass candy dish my admin insisted I needed . He swallows it , wrapper and all , then grabs the bowl and drinks the rest down . I ’ve mentioned I missed these guys , have n’t I ? “
+30357	30393	30351	30351	You	786	” I tell Ares . He grunts and eyes the candy dish like he ’s contemplating taking a bite of it too . We all ignore the glitter flickering through the air and coating us . “
+30398	30416	30417	30417	You	786	” Zeus says to me . I pretend I do n’t know what he ’s talking about . “
+30426	30427	30430	30430	fucker	603	” “
+30474	30475	30458	30458	They	789	” “
+30479	30480	30481	30481	He	603	” “
+30485	30497	30481	30481	He	603	” Zeus translates for Ares . He looks back at me . “
+30505	30539	30481	30481	He	603	” If by help , he meant electric shock therapy treatments to get over this growing obsession that started in my dick and spread to my brain , I ’m inclined to agree . “
+30543	30614	30615	30615	Flowers	187	” I say , then wince . Ares snickers , but it ’s his you ’re two steps from fucking up and I ’d be happy to use you like a nail that needs to be pounded into concrete with Thor ’s hammer snicker . Dude talks in small sentences , but he does his silent communication in metaphor . It ’s one of the things we love about him . “
+30617	30621	30615	30615	Flowers	187	” Zeus says . “
+30633	30916	30626	30626	You	786	” There ’s something wrong about a freakishly large beast telling me I need to woo his sister . I rub a hand over my mouth to keep from telling him his sister is a pain in the ass and that his flowers , wine , and candlelight would all be seen as tools of psychological warfare and take me backwards in my quest to get back in her pants . Or skirt . Hell , I ’d even take her in monk ’s robes , a tutu , or a shark costume . Or all three together . At this point , I ’m not too picky . I just need to do something to return to her puss — ah , the land of sane , functioning , rags - to - riches businessman . Getting off is great , but He was a man who had sex , and lots of it , and in the worst locations , with the woman of his nightmares is n’t the inscription I want on my tombstone . Alright , fine , it could be an addendum . Having that carved in stone over my cold , dead body for all of eternity would be pretty fucking cool . But I also want to be remembered for changing the world . Outside of the bedroom . And elevator . And private suite at Yankee Stadium . And on a pile of hundred dollar bills at the top of the Empire State Building , which I have n’t done yet , but a man can dream . I tug at my collar . Zeus is spot - on . I have a problem . “
+30924	30943	30626	30626	You	786	” he growls . Now I am . Okay , fine , yes . I was before too . “
+30952	30953	30954	30954	We	793	” “
+30962	30963	30964	30964	Bro	147	” “
+30972	30973	30964	30964	Bro	147	” “
+30979	30980	30981	30981	We	793	” “
+31027	31031	31025	31025	we	793	” Ares grins . “
+31038	31045	31046	31046	She	338	” I choke on a laugh . “
+31051	31074	31046	31046	She	338	” Ares holds up four fingers while Zeus punches him in the shoulder . Glitter sparkles on both their T - shirts . “
+31080	31084	31046	31046	She	338	” Zeus says . “
+31106	31205	31206	31207	Your mother	777	” The Berger twins leave a glittery path of destruction on the way out of my office . The security guards are terrified , Zeus barely stops Ares from eating one of the potted plants — all for show , Ares hates vegetables — and I ’ve just been tasked with fixing Bro ’s life when I did n’t even know it was broken . Three days ago , I would n’t have cared . Mavis strolls in and refills my candy jar as though handling Viking candy jar murders is a standard part of her job description . “
+31216	31220	31206	31207	Your mother	777	” she says . “
+31247	31291	31243	31243	she	777	” Might be time to resign from my personal life . 15 Ambrosia Friday night , Parker , Eloise , Willow , and I have a gig booked at O’Farrell ’s Irish Pub and I ’m hoping they ’re paying in straight tequila . “
+31298	31320	31321	31321	Martin	99	” I ask Willow as we get prepped in a storage closet behind the stage . She huffs out a sigh . “
+31455	31462	31442	31442	He	811	” We all blink at her . “
+31472	31476	31442	31442	He	811	” Eloise offers . “
+31501	31534	31442	31442	He	811	” They ’re waiting for marriage to move in together . It ’s kinda sweet , except for the part where it took Martin seven years to propose . Among other things . “
+31540	31550	31442	31442	He	811	” She straightens a brass Buddha on the shelves . “
+31558	31580	31581	31581	I	389	” As long as Chase Jett owns Crunchy , I ’m fairly certain work there will never be better for me . “
+31589	31593	31594	31594	They	780	” I announce . “
+31614	31615	31604	31604	Riiiiiiiight	188	” “
+31618	31622	31604	31604	Riiiiiiiight	188	” Eloise says . “
+31640	31641	31646	31647	my brothers	780	” “
+31671	31672	31673	31674	Your brothers	780	” “
+31680	31796	31673	31674	Your brothers	780	” Parker scowls at me . She ’s on a stool , and she gives one of her guitar ’s tuning knobs a vicious crank . While I spent today getting shit for the Kiss Cam video — which , yes , went viral within five seconds and I ’ve had to talk my mother off a ledge at least six times a day the last two days — Parker was getting promoted to head of marketing . A position she totally deserves and will completely rock at , but also a position I might ’ve been considered for if , you know , Vassar . And no Grand Theft Bratwurst Wagon on my record . “
+31803	31807	31801	31801	Crunchy	60	” she says . “
+31891	31892	31893	31893	You	64	” “
+31897	31898	31893	31893	You	64	” “
+31904	31959	31901	31901	I	389	” Parker could ’ve easily been my older sister . She ’s strong , she ’s devious , and while she ’ll rip me to shreds when it ’s just the two of us , she ’ll defend me to the end against outside evil , and I ’d do the same for her . “
+31965	31969	31970	31970	Chase	0	” Willow says . “
+32058	32308	32312	32312	ladies	1183	” I ’m doing my best to ignore that my friends are calling him by name too . Something changed at the game Wednesday night , and not just the part where we ’re suddenly gossip fodder on Page Six . Or the part where my mother ’s taken up drinking . Yes , yes , it ’s watered - down wine coolers , but for Mom , that ’s like doing vodka shots off an ice luge . She has the shoulders of Norwegian Vikings and the alcohol tolerance of a toddler . Some things , you just ca n’t explain . Like this irrational wish I ’m doing my best to ignore that Chase will show up tonight and watch us play . So I can torture him what my talented fingers can do . Yep . It ’s all about the torture . Definitely not about wanting to show off . Wanting him to see me shine . Wanting him to be impressed . And , you know , turned on . Going primal , barging onto the stage , tossing the instruments out of his way , throwing me over his shoulder and taking me back to his place where we can bang each other ’s brains out all night long . Nope , definitely none of that going on here . That ’s disgusting . I ’ve seen quite enough of Chase Jett ’s hard , flexible , sinful body to last a lifetime . “
+32314	32322	32312	32312	ladies	1183	” My friends are staring at me . “
+32328	32332	32312	32312	ladies	1183	” Eloise asks . “
+32361	32375	32355	32355	They	281	” I get a triple hit of Do n’t play dumb , Sia . “
+32386	32390	32355	32355	They	281	” I grumble . “
+32395	32402	32355	32355	They	281	” Willow sighs . Eloise snorts . “
+32413	32418	32355	32355	They	281	” she tells me . “
+32438	32449	32431	32431	they	281	” I sling an arm around her shoulder and squeeze . “
+32455	32547	32450	32450	I	389	” I might be unemployed by Tuesday , but I ’ll always have my band . 16 Chase I ’m sitting in the back of an Irish bar , drinking a scotch , and watching Bro ’s all - girl band cover the best boy band songs of the last three decades . Only in New York . This town fucking rocks . I forgot she could sing . Her voice is chocolate silk , rich and decadent and wrapping around me like a lover ’s caress . She could be singing “
+32551	32955	32450	32450	I	389	” for all I care . For this moment , when she does n’t know I ’m here , I can soak her up without having to pretend . Her voice , I might ’ve forgotten , but the piano lessons , I remember . After three years of ear torture , Ares put a fist through the instrument . Told his parents there was a spider and that he was protecting Zeus . Using small words and a few hand gestures , of course . Lots of legs . Bad bug . Scaredy Zeus . And then he ’d shown everyone his biceps . It worked . They bought Bro a keyboard with headphones instead , and everyone ’s lives were vastly improved . Got ta hand it to her — her keyboard playing is drastically better . Or all of this could be choreographed and lip - synced . A week ago , I would ’ve thought it with a superior sneer . Today , I ’d be disappointed if she was n’t real . Not that I ’ll admit it to her . I have a half - drunk bottle of cheap white wine — she strikes me as the red type — a bouquet of flowers that I put on my chair and bounced on with my ass , and a box of coconut chocolates on the table . Ambrosia hates coconut like normal people hate expired milk or wasp stings . Probably because she ’s allergic . If this does n’t say I hate you , let ’s go fuck in the back alley , I ’ll have to accept the fact that I ’ll spend the rest of my life at half - mast with no hope of satisfaction . Which might be preferable to confessing to her that I may not hate her at all . They ’ve been playing for about forty - five minutes . I ’m not sure how long their set goes , but I ’m getting antsy . I ’ve had a raging hard - on since I got Zeus ’s text yesterday telling me about Bro ’s band . Girl bands are fucking hot , period . Girl bands with Bro in them are do n’t look too close or you ’ll burn your retinas out . And I actually do mean that in the complimentary way . They finish up “
+32959	33151	32450	32450	I	389	” and hit the opening chords of some classic New Kids on the Block , and suddenly two overgrown blond apes leap on the stage . Are you fucking kidding me ? I ca n’t get in Bro ’s pants with her brothers here . And those leggings she ’s sporting are a fucking wet dream . They ’re sparkly with a red and black swirly - pattern that highlights every curve and crevice . The short tank that lands just above her belly button is n’t bad either , though I ’d rather that was my face on her chest than some boy band dude . On stage , she rolls her eyes , but she ’s smiling . Willow ’s shaking a tambourine in front of the mic with Parker rocking the guitar beside her , both of them laughing . They shift to the side to give the Berger twins more room , and the doofuses — doofusi?—break into boy band dance moves . I hope Zeus thought to check the structural integrity of the stage before jumping up there . Willow starts singing with Bro doing backup on “
+33156	33360	32450	32450	I	389	” and holy shit , the stage is literally shaking under the Berger twins . Not that I care . Because when Bro ’s not singing , she ’s laughing . Head tipped back , long neck exposed , eyes dancing like pixies in the moonlight . I want to be her keyboard , those fingers tripping over me . I want to be her mic , that voice channeling through me . I want to be her chair . Because duh . Damn fucking right I want her straddling me . Cut me some slack here . Limited blood flow . Poetry only goes so far when it ’s been three fucking days since I ’ve been buried inside her tight little pussy . I want that . I want her to laugh at me . I want her to smile at me . I want her to come for me . And I want it now . I grab my gifts , flag down a waiter , and slip him a grand to get me backstage and end their set . Two minutes later , Bro and her band come tripping down the hall . She freezes when she sees me . “
+33365	33414	32450	32450	I	389	” she says hesitantly , like she is n’t sure the word tastes right . I shove the gifts at her . Her lips start to curl as she takes in the crushed flowers , and her brows crash down at the obviously half - empty wine bottle . “
+33422	33426	32450	32450	I	389	” I say . “
+33431	33468	32450	32450	I	389	” She grabs me by the shirt and hauls me into a small room , kicks the door shut , and locks it . Her hands are down my pants before I can count to hallelujah . “
+33482	33521	33469	33469	You	831	” she says . I rip her tank off and grab her breasts . God , they ’re bags of hot orgasmic honey wrapped in pink lace that I ’m going to suck until she screams my name . “
+33539	33606	33522	33522	You	831	” She ’s stroking me and squeezing me and licking her lips while I pump in her hand and pray she still has those sharp fingernails and a hatred of my balls , because Christ , I need to feel everything — pain , pleasure , passion , everything . She pushes me backward , and a set of drums and cymbals clatter to the ground . “
+33610	33614	33615	33615	I	389	” she says . “
+33626	33627	33615	33615	I	389	” “
+33636	33637	33628	33628	I	389	” “
+33645	33806	33810	33810	dickwad	832	” She drops my cock to grab my face and stick her tongue down my throat , and I squeeze her breasts . She jumps on me , wrapping her legs around my hips , and we stumble backward . My back connects with a wooden shelf . Something that feels like a half - full jug of milk grazes my temple . Bro has my bare cock nestled between her legs , rubbing and grinding and driving me to sweet torture , the fabric on her leggings adding an erotic friction . Fuck , I ’ve needed this . I grip her ass and knead it while I yank her tighter against me , making her rock harder against my straining shaft . I ’m so hard I ’m about to split skin and my balls are so tight I can feel them under my ribs . So . Fucking . Good . She punches me in the shoulder . “
+33817	33871	33812	33812	We	833	” I lift her ass and bite her nipple . Her head falls back and she cries out , but when I jerk my mouth away — I’m having twisted sex with a woman who hates me , but I ’m not a total asshole — she shoves it back to her breast . “
+33876	33880	33872	33872	You	834	” she pants . “
+33890	34332	33872	33872	You	834	” I nip again , and she squeezes her thighs so tight around my hips I wonder if it ’s possible for her legs to crush bones . She ’s rocking her pussy on just the tip of my dick , and Holy . Fucking . Vixen . Her legs tighten more , and she ’s still rocking her hot , wet center on my head while I nip and suck and pull on her nipples . She can probably crush beer cans between her thighs . She squeezes tighter , pumping like a fucking bunny teasing the top of my cock , and I start to lose feeling in my toes . This woman . God almighty . I want to fuck her on her back , against the wall , in my shower , on my floor , on my kitchen table , on that beanbag chair in her office , facing her , taking her from behind , sixty - nine , on a set of fucking trapeze bars , and then I want to do it all over again . She ’s slick and wet , so fucking ready for me . I pull her perfect breasts out of the lace bra and lick a circle around one nipple , then the other , before clenching down again . She has a rock hard grip on my head , holding it there while I feast on the rosy buds . Her tits taste like her name . Ambrosia . Nectar of the gods . Too potent for human consumption . I ’m going to fucking eat her anyway . I ’d die of Ambrosia poisoning , and I would n’t have a single regret . She ’s mewling and crying and pumping against my stomach and my head , saying my name . Chase , Chase , Chase in that hot chocolate wine voice . And I ’d thought she was playing music before . I shove away from the shelf , trip over the drums , and catch us before I crush her . There . A desk . I lunge for it and drop her sweet ass on the edge . She leans back on her hands , lifting her ass , and I rip her leggings off . She spreads her long , creamy thighs and silently dares me to touch her . I run a finger under the edge of her pink lace panties . She shivers . She ’s watching me with hooded eyes , breath coming fast , her fantastic tits rising and falling and distracting me from the promised land . “
+34338	34467	34468	34468	I	389	” she says , and maybe it ’s my imagination , but I ca n’t hear the disgust . Like she ca n’t fake it anymore either . But I know Bro . If I say something nice , I ’m not getting to lick her pussy . I stroke her smooth skin again , just beneath the edge of the teensy triangle , and my cock wants to know why we ’re not plundering and pillaging already . She shudders , moans , and drops her head back . That ’s why . I want to see her pleasure . I want to see her lose herself . I want to know I did it to her , and I want her to know it ’s me . “
+34485	34489	34483	34483	me	389	” she gasps . “
+34501	34502	34490	34490	You	835	” “
+34516	34781	34490	34490	You	835	” I rip the bows on her thong . It falls away , and I bury my face at the apex between her thighs , in that sweet , pink pillow hiding her magic button . I lick her seam , taste her arousal , and plunge my tongue where no man will ever go again . This is mine . She rocks on my face , my hair fisted in her grip while I lick and suck and nip her clit just like I worshipped her tits . And if her tits were the nectar of the gods , her creamy center is the forbidden fruit . My balls are so tight dots are dancing in my vision . My dick is pulsing so hard it has its own heartbeat , chanting mine , mine , mine . Her thighs clench around my ears . She cries out my name , and the heady taste of her orgasm coats my tongue . I lap it up , her body pulsing and writhing around my face while she yanks my hair out by the roots , coming and coming and coming . Just when I think she ’s done , I squeeze a finger into her pussy . She clenches around me and her breath comes out on a wheezy cry . I add another finger , then a third , thrusting , rubbing , searching . She pumps against my hand . I nip her clit again , and god , wave after wave of spasms squeeze my fingers until they ’re numb . “
+34785	34809	34490	34490	You	835	” she gasps . I rise on shaky legs . My cock is so engorged I might ’ve strained something vital in it . “
+34816	34849	34850	34850	You	837	” I push at her entrance with my dick , watching my head slide along the seam of her bare pussy . She shoves a strand of hair out of her face . “
+34855	34859	34860	34860	I	389	” she pants . “
+34864	34895	34860	34860	I	389	” I press deeper , her walls so fucking hot and wet and tight , I wonder if maybe she could n’t crush a beer can with her vagina too . “
+34902	34919	34920	34920	You	837	” I smirk . I know she can , and she knows I know she can . “
+34926	34963	34920	34920	You	837	” she fires back . I thrust my crinkly winky deeper into her core . She gasps and rides it , the sight of her sweet , milky pussy riding my dick making me impossibly harder . “
+34969	35088	34920	34920	You	837	” she moans . She grips my tight balls and rakes her nails over them , and oh baby , yes . I sheath myself all the way up to the hilt . One thrust . Two . I have my dick buried so far inside her I might never get it all back out . I do n’t want to come out . I want to let her ride my rocket until we ’re both blind , but she ’s so fucking hot , I can barely hold back . Chase Jett is not a three - thrust wonder . Just for the record . With superhuman strength , I pull myself almost all the way out . “
+35114	35331	35104	35104	I	389	” She sinks her nails into my ass and tries to tug me back in . I thrust at the edges of her pussy , teasing her with my head , but I do n’t give her what she wants . She ’s jerking against me , inching closer , riding higher up on my dick , and it ’s pissed at me too . Let ’s just bang the hot pussy . I ’m not fucking Superman . I can still taste her , and I know she ’s going to squeeze me dry when I finally let her . But once I let go , it ’s over . She ’ll kick my ass out of the room , pretend she does n’t know me , and we ’ll have to do this dance again before I get through her pearly gates once more . She shuts her eyes , drops her head back , rubs her hands over her breasts , teasing her own nipples , which sets off fireworks in my gut and nearly overrides my self - control . She ’s fucking touching herself , and it ’s the hottest thing I ’ve ever seen . And then she does the one thing that I do n’t and ca n’t anticipate . “
+35336	35643	35334	35334	Chase	0	” she whimpers . How the fuck can I resist that ? I shove into her like I ’m coming home . My cock is doing the driving , thrusting , grinding , pumping , into her hot , wet , silky pussy . She ’s already pulsing around me , aftershocks from her first two trips up the mountain or precursors to the real show , I do n’t know . All I know is I ’m buried up to my balls in Bro ’s slick pussy , she ’s raking her nails over my back , thrusting her tongue in my mouth , biting my lip , and matching me thrust for thrust like I ’m her salvation . The metal desk bangs on the wall . A mug of pencils clatters to the ground . She clenches around my shaft and buries her claws in my ass , and I ’m done . I come like a rocket , firing deep inside her while she spasms and screams and comes all over me again . I ride wave after wave after wave of release , every pulse , every heartbeat , every explosion and aftershock making up for not having her in my bed every minute of the last three days . My legs give out as I spend my last , and I collapse on top of her on the desk . Her fingers rest in my hair . Her heart pounds in my ear , and her breasts pillow my head . She does n’t push me away . God in heaven , if she thinks we ’re going again , I ’m going to need an hour . My joystick is still buried inside her . At the idea of another round , it twitches and lifts an interested ear . “
+35652	35656	35644	35644	You	839	” Bro murmurs . “
+35665	35856	35644	35644	You	839	” I smile against her skin . She just said something nice to me . Not that I plan on letting her know I noticed . The room slowly comes back into focus . Drums all over . A stool upended too . A sheaf of papers got scattered . There ’s a bottle of bleach on its side in front of the shelves , Bro ’s clothes scattered about . I ’m somehow still wearing my shirt . And my pants . My dick was free , so that was enough . Next time , we ’re doing this in a bed . Or I might have to trick her into trying that top - of - the - Empire - State - Building thing with the pile of hundred dollar bills first . She might need more public sex before she ’s comfortable at my place . Or before she ’d let me back into her place . I grew up in a two - bedroom shack . I ’m not picky . Though her neighbors were oddly disturbing . Definitely my place first . I suddenly freeze . “
+35864	35887	35644	35644	You	839	” She laughs , and my cock swells inside her . She wiggles , and more blood channels back into my dick . “
+35903	35951	35644	35644	You	839	” she says . I twist my head and bite her nipple . She clenches around my dick . I ’m sore and spent and wobbly , but I rock inside her anyway . Because she ’s not kicking me out . She ’s not leaving me . “
+35962	36045	35644	35644	You	839	” she says . I ’m at full - mast , and I ’m already where I want to be . I suck her nipple all the way to the back of my throat , and she arches into me , grinding against my over stimulated woody . Once she ’s worked up , panting and writhing and pulling my hair and humping me like a rabbit , I let her breast go , scraping my teeth along the hard little bud . “
+36055	36059	35644	35644	You	839	” I murmur . “
+36063	36068	35644	35644	You	839	” she grits out . “
+36090	36098	36069	36069	I	389	” I say . Her hips jerk . “
+36103	36107	36108	36108	I	389	” she moans . “
+36124	36150	36108	36108	I	389	” She ’s picturing it . I can tell by the way her eyes go distant and her hips ca n’t keep a steady rhythm . “
+36162	36240	36241	36241	You	843	” I add . She explodes around me again , and my cock tries to match her volcanic release , but I do n’t have anything left to give . I just ride on the aftershocks , letting her milk me with her core until she ’s limp . Her breathing is shallow , her eyes have rolled back in her head , and for half a second , I wonder if we ’ve actually killed her . “
+36243	36248	36250	36254	a dirty , dirty man	844	” she rasps out , “
+36256	36276	36282	36282	princess	843	” She likes it . For her , I ’ll be the filthiest fucker to ever walk the planet . “
+36284	36513	36277	36277	You	843	” For the first time in my life , I ’m wrapped in a comfortable silence with Bro . So this is what it feels like to not hate her . Or possibly to like her . Or possibly more than like her . I ’m half - hunched on her , still sheathed in her warm center . She ’s crooked on the desk , eyes still closed , with what looks like the makings of a good neck cramp with the way her head ’s leaning against the wall . But it ’s the soft , quiet realness of her that gets to me . I ’ve never seen her not fighting . I run a hand down her arm , and a smile teases her lips . It ’s subtle , but it ’s there . I ’m risking my balls staying attached to my body now , and I know it , but I squeeze her in a gentle hug . She squeezes back — lightly enough she could claim it was a twitch if she wanted to — and my heart melts . I ’m done , ladies and gentlemen . Bro Berger won a gold medal in the orgasm Olympics , and now she ’s hugging me . On purpose . I turn my head and press a kiss between her breasts . “
+36520	36563	36518	36518	Vassar	105	” I say . She goes from chill to shrieking harpy in under a second . Her fist catches my shoulder , and she uses both her feet to shove me away . My dick flops cold and wet against my thigh . “
+36567	36585	36518	36518	Vassar	105	” she screeches . She leaps upright , fully naked , a flush covering her entire body . “
+36596	36603	36608	36608	I	389	” I hold up a hand . “
+36610	36637	36638	36638	Bro	147	” A drumstick flies at my head . Then a mug . She grabs a printer cartridge from the shelf , and I duck that too . “
+36645	36646	36643	36643	I	389	” “
+36650	36658	36643	36643	I	389	” Where did that shoe come from ? “
+36662	36672	36643	36643	I	389	” Oh , Christ , the jug of bleach too “
+36676	36693	36643	36643	I	389	” A stone Buddha head ? Are you kidding ? We ’re in an Irish bar . “
+36698	36708	36643	36643	I	389	” Fuck , that ’s a full bottle of Jameson “
+36712	37014	37017	37017	sis	846	” Running away is not in my DNA . Despite what Bro might tell you about the night we screwed around in the giant bratwurst on wheels , I do n’t run . I make tactical decisions based on my circumstances . And I know , without a doubt , that leaving this woman to wreck this office in peace is my smartest course of action . I ’ll leave a few big bills with management to cover the damages and call her tomorrow . But right now , I ’m not letting the door hit me on my ass on the way out . 17 Ambrosia I am the world ’s biggest sucker . Is it possible to be completely and utterly satisfied down to your marrow and so freaking enraged you want to go all Incredible Hulk on every penis on the face of the planet ? Just want to bend them all until they snap in two ? Ah , I ’m asking for a friend . Because of course I was n’t stupid enough to think sex with Chase Jett and his magic peen could come without a price . I hurl one last potato at the closed door and sink to my knees in the carnage of the supply - slash - prep room . Afterglow gone . I ’m achingly empty and hollow inside . I come from a good family . I ’m moderately intelligent . Still young and pretty enough to attract normal , decent men , yet here I am , sexed - up and slapped down by the one man who has tortured me my entire life . And I keep letting him in . What the hell is wrong with me ? The door opens , and Zeus peeks in . “
+37038	37187	37029	37029	Moses	196	” I fire a drumstick at him and miss . He ’s four freaking feet wide , almost seven feet tall , with his fists shoved into his eye sockets so he ’s basically blind , and I freaking miss . I try again with a potato from the bag I found under the desk . The desk where Chase just made me come so hard I think I might ’ve found some other woman ’s orgasm at the same time . Is that a thing ? Cosmic orgasm - borrowing ? Sign me up for a donation . I do n’t need mine anymore . I ’ll give back the one I borrowed and offer up all of mine to someone who ’s missing hers . The potato bounces off the wall beside Zeus , missing by a country mile . I am such a freaking failure . “
+37191	37243	37029	37029	Moses	196	” I say , but I ca n’t find the heat . It ’s just gone . Like me . I ’m gone . I do n’t know me anymore . Who is this woman who has possessed my body , and when can I have my regularly scheduled life back ? “
+37253	37257	37250	37250	Ares	1250	” Zeus huffs . “
+37276	37548	37266	37267	The manager	847	” The door slams , and it occurs to me that my brothers just stood guard while I had a booty call that , by the looks of this room , was pretty damn acrobatic . I either have the best brothers in the world , or we ’re all highly disturbed and need family counseling . Or possibly both . 18 Ambrosia I do n’t remember getting home . After the last twenty - four hours , I ’m lucky I can remember my name . I think it ’s been twenty - four hours . Life is a little hazy . There ’s fading light outside my apartment window . It must be dusk . I say that , but I ’m not actually sure I saw light earlier either . I probably did , because none of the lamps are on in my apartment , and I do n’t think we ’ve been sitting in the dark for hours . Willow , Parker , Eloise , and I are doing a real - life experiment testing hangover cures . Above me , Hogzilla is once again demonstrating that she ’s better at relationships than I am . She ’s probably also better at avoiding getting arrested . Fucking Chase Jett . Yes , fucking Chase Jett is , once again , the dumbest thing I ’ve ever done . I pour a round of organic , fair trade , responsibly - harvested mango orange guava juice from Whole Foods — take that , Dickhead — into mason jars and pass them around . We all lift our glasses . “
+37554	37882	37266	37267	The manager	847	” we say in unison . Hogzilla ’s bedsprings give an ominously long , loud creak , and I say a prayer that whoever she ’s humping tonight is n’t the size of a house . I do n’t want Hogzilla and her boy toy — boy toys?—to come crashing through the ceiling . Oh , hardy har . Come crashing . Interpret that as you may . Speaking of men the size of houses , my brothers , annoying overgrown ape - men that they are , were my unlikely heroes last night . I do n’t know what they told the manager or the cops after Zeus ordered me back into my clothes , and I frankly do n’t care . I will never say another bad thing about them as long as I live . They got me out of another trip to the slammer and offered to pay for all the damages . And because they ’re my brothers and they ca n’t help themselves , they also bought every last bottle of alcohol in the bar , tipped the bartender some obscene amount of money , rented a limo , and got me and my friends shit - faced while we toured the city . My memories of this weekend pretty much consist of Before The Question and The Aftermath . Before he dropped his little gotcha question ? Four orgasms . Enough said . Maybe I would ’ve said more had The Question not happened , but it did , and I ’ll always have my four orgasms to remember . The Aftermath is really hazy . And not because of the alcohol . I do n’t want to talk about it . Let ’s just say I ’ve come to realize I did something even more stupid than letting him have free reign to my vagina without a condom again . This is what distance and perspective have given me . “
+37889	37893	37898	37898	someone	275	” Eloise says . “
+37900	37994	37898	37898	someone	275	” I grab my phone to open the list , only wincing a little at the name taunting me from the top . Walking has n’t exactly been a stroll in the park today , and I do n’t regret that nearly as much as I want to . He gave me four fucking orgasms , okay ? It ’s like being sorry my hoo - ha got high . Would I do it again ? No . But knowledge is power , people . I now have the four - orgasm knowledge . “
+37997	38008	38011	38011	me	389	” I ask Eloise . She blushes . Eloise blushes . “
+38022	38029	38011	38011	me	389	” she says . I gasp . “
+38041	38042	38043	38043	I	389	” “
+38048	38057	38043	38043	I	389	” She swings her finger around the room . “
+38070	38071	38062	38062	We	851	” “
+38080	38101	38062	38062	We	851	” Willow asks . Parker hits her with my stuffed elephant that I won at Coney Island three years ago . “
+38106	38110	38111	38111	I	389	” she hisses . “
+38118	38122	38111	38111	I	389	” she replies . “
+38130	38131	38125	38126	good people	853	” “
+38147	38148	38149	38149	He	259	” “
+38169	38186	38153	38153	He	259	” For a woman with royal relatives , Willow puts up with a lot of shit . “
+38219	38259	38153	38153	He	259	” For Willow , this is the same as renting a horse and carriage solely to ride around standing up and flipping off all of Central Park . Parker does n’t care that she ’s having a meltdown though . “
+38263	38268	38153	38153	He	259	” Willow goes pink . “
+38275	38356	38153	38153	He	259	” Eloise is taking entirely too long to put a single name on the list , and I need that list , because I want to know who else on the list Willow might be thinking about taking off it . We use first names only in case the list ever ends up in the wrong hands — a precaution I ’m exceptionally grateful for after this last week — but we all know who most of the guys are . “
+38368	38372	38153	38153	He	259	” Parker demands . “
+38376	38380	38153	38153	He	259	” Willow says . “
+38399	38417	38394	38394	we	858	” I steal the phone back from Eloise and find both of my brothers on the list . “
+38423	38427	38428	38430	Both of them	859	” I squeak . “
+38432	38437	38438	38438	Eloise	95	“ Circle of trust . ”
+38443	38465	38438	38438	Eloise	95	“ And for all you know , I met two other guys with the same names as your brothers last night . ”
+38466	38489	38490	38490	Parker	63	“ She ’s mad that Ares would n’t sleep with her , and Zeus would n’t be used to make Ares jealous , ”
+38494	38508	38509	38509	I	389	“ You ca n’t put my brothers on the Dick List for that , ”
+38513	38542	38509	38509	I	389	“ It ’s my fault . I know too many stories that could ruin their reputations , and they know I ’ll use them if I have to . ”
+38543	38568	38569	38569	Willow	96	“ I heard Zeus telling Ares that Chase has a lot of work to do if he ’s ever going to win you over , ”
+38585	38590	38580	38580	she	860	“ You did not , ”
+38603	38627	38594	38594	She	860	“ They love you . They love him . They think if you love each other , they get the best of everything . ”
+38713	38717	38718	38718	she	860	“ Get out ! ”
+38727	38732	38718	38718	she	860	“ What ? What ? ”
+38739	38745	38746	38746	she	860	“ We made Page Six , ”
+38749	38756	38746	38746	she	860	“ Our band made Page Six ! ”
+38787	38793	38794	38794	Willow	96	“ What does it say ? ”
+38804	38815	38797	38797	I	389	“ I do n’t want to know what it says . ”
+38816	38827	38828	38828	Parker	63	“ Amateur band , okay , we can take that , ”
+38831	38859	38828	38828	Parker	63	“ decent vocals — nice , Willow , and they do n’t even mention your stepdad — crowd loved us ! They say the crowd loved us ! ”
+38860	38874	38875	38875	Eloise	95	“ They say the crowd loved the Twin Tanks Right - Stuffing it , ”
+38878	38887	38888	38888	Parker	63	“ Damn yahoos ca n’t right stuff anything . ”
+38906	38912	38913	38913	I	389	“ How bad is it ? ”
+38916	38920	38921	38921	Parker	63	“ Not bad , ”
+38925	38935	38921	38921	Parker	63	“ Really . Just gossip pages being gossip pages . ”
+39008	39018	39019	39019	Willow	96	“ It ’s just conjecture that you hooked up , ”
+39038	39049	39059	39059	Parker	63	“ They do n’t even mention the police being called . ”
+39050	39058	39059	39059	Parker	63	“ It could be a lot worse , ”
+39062	39070	39071	39071	Eloise	95	“ Far worse for him than you , ”
+39075	39086	39071	39071	Eloise	95	“ No one thinks you ’re in love with him . ”
+39724	39733	39734	39734	she	437	“ Hey , I ’ve got your phone — ”
+39751	39754	39734	39734	she	437	“ You . ”
+39797	39803	39782	39782	I	389	“ We need to talk , ”
+39835	39838	39823	39823	I	389	“ Please , ”
+39856	39868	39842	39842	She	437	“ Back , glittery sex demon . I ’m exorcising you . ”
+39937	39948	39949	39949	I	389	“ I ’m not here to take your clothes off , ”
+40072	40085	40086	40086	she	437	“ Back away , and neither one of us will get hurt , ”
+40089	40105	40106	40106	I	389	“ Can we pretend to be adults for two minutes and have a simple conversation ? ”
+40109	40138	40106	40106	I	389	“ You ’re not a grown - up . You ’re some kind of male sex kitten in a glitter suit , and I ’m done with you . ”
+40139	40149	40197	40197	she	437	“ I was thinking dinner . In Central Park . ”
+40150	40161	40197	40197	she	437	“ I am not sucking your dick in Central Park . ”
+40162	40182	40197	40197	she	437	“ I do n’t want you to suck my dick . I want you to have dinner with me . ”
+40183	40188	40189	40189	she	437	“ And eat you , ”
+40357	40368	40345	40345	I	389	“ You can eat vegetarian lasagna for all I care . ”
+40369	40373	40376	40377	this woman	437	“ Eggplant lasagna ? ”
+40395	40402	40403	40403	She	437	“ Carrot lasagna ? Banana lasagna ? ”
+40424	40443	40444	40444	I	389	“ Anything you can get on the printed menu delivered from the kitchen and prepared by the chef , ”
+40448	40484	40444	40444	I	389	“ With our clothes on and our hands above the table . I just want to talk . Like normal human beings . Maybe I ’ll bring flowers . Maybe you ’ll say thank you . ”
+40485	40527	40528	40528	My	389	“ I do n’t know what kind of backwards psychological trick this is , but it wo n’t work . You ca n’t have my pussy . It ’s closed . Permanently . Zipped up and tossed out in the trash . ”
+40541	40544	40528	40528	My	389	“ Ambrosia — ”
+40545	40556	40606	40606	her	437	“ Do . Not . Call . Me . That . ”
+40568	40578	40528	40528	My	389	“ What do you want me to call you ? ”
+40579	40582	40528	40528	My	389	“ Nothing . ”
+40819	40831	40832	40834	the old lady	914	“ Is that the boy you banged at the Yankees game ? ”
+40837	40848	40849	40849	Bro	147	“ He tried , but he has a limp dick , ”
+40852	40887	40888	40888	She	914	“ Too bad . He ’s a looker . Honey , I do n’t mind ‘ em a little limp . You can come try it with me when you get bored with her . ”
+40945	40950	40951	40951	I	389	“ I like you , ”
+41021	41033	41034	41034	Her	914	“ Are you that desperate to get back in my pants ? ”
+41090	41099	41100	41100	She	914	“ You ’re very pretty when you smile . ”
+41113	41121	41100	41100	She	914	“ We have absolutely nothing in common . ”
+41122	41138	41100	41100	She	914	“ We both know where to hit Ares to make him cry like a baby . ”
+41139	41147	41100	41100	She	914	“ We have nothing healthy in common . ”
+41148	41157	41158	41158	She	914	“ We both like it when you come . ”
+41195	41213	41187	41187	I	389	“ You ’re smart . You ’re funny . And I ca n’t stop thinking about you . ”
+41214	41221	41222	41222	she	914	“ Why are you doing this ? ”
+41332	41338	41325	41325	I	389	“ You ’re fucking hot . ”
+41355	41390	41325	41325	I	389	“ I ca n’t stop thinking about your ass . Your tits . Your pussy . And I also ca n’t stop thinking about this smart mouth . Your quick wit . Your balls . ”
+41391	41402	41403	41403	I	389	“ I do n’t have balls , you fucking nimwit . ”
+41430	41460	41415	41415	I	389	“ You ’re strong and stubborn and brave , and it makes me so hot I want to rip your clothes off and make you come in my mouth . ”
+41461	41473	41474	41474	Her	914	“ You do n’t get to say nice things to me . ”
+41502	41508	41509	41509	I	389	“ What if we could ? ”
+41512	41534	41509	41509	I	389	“ What if we could forget yesterday ? We ’re fucking good in bed . What if we ’re good everywhere ? ”
+41535	41545	41571	41571	Her	914	“ We ’ve never done it in a bed . ”
+41546	41570	41571	41571	Her	914	“ Let me take you to dinner and back to my place . I have six beds . We ’ll try them all . ”
+41641	41646	41647	41647	She	914	“ Afraid of hogzilla ? ”
+41650	41657	41647	41647	She	914	“ You ’re such a pussy . ”
+41658	41675	41647	41647	She	914	“ Say something nice , and I ’ll eat your pussy before we go to dinner . ”
+41676	41686	41647	41647	She	914	“ You ’d like that , would n’t you ? ”
+41687	41691	41647	41647	She	914	“ I would . ”
+41709	41719	41647	41647	She	914	“ I ’d very much like eating your pussy . ”
+41720	41725	41726	41726	she	914	“ You ’re lying , ”
+41763	41776	41777	41777	She	914	“ One nice thing , and we both get what we want . ”
+41789	41798	41777	41777	She	914	“ Quit fucking around and just do me . ”
+41806	41815	41816	41816	Her	914	“ I like it when you give orders . ”
+41829	41868	41821	41821	she	914	“ You remember that time you smeared I let my dog do me up the ass on my old Ford ? That was so fucking hot . I could n’t stop thinking about you thinking about my ass . ”
+41869	41875	41876	41876	she	914	“ I like your ass , ”
+41900	41906	41884	41884	I	389	“ I like your breasts . ”
+41907	41915	41919	41919	I	389	“ I like your ugly chin dimple . ”
+41926	41940	41941	41941	She	914	“ I like the way you grip my hair when you ’re coming . ”
+41948	41959	41941	41941	She	914	“ I like that thing you do with your tongue . ”
+41960	41964	41978	41978	she	914	“ Which thing ? ”
+41965	41970	41978	41978	she	914	“ All the things . ”
+41994	42001	41978	41978	she	914	“ Can we shut the door ? ”
+42048	42054	42055	42055	she	914	“ I like your arms , ”
+42100	42106	42107	42107	I	389	“ You have amazing fingers , ”
+42111	42117	42107	42107	I	389	“ I like your penis . ”
+42118	42124	42125	42125	She	914	“ It likes you too . ”
+42211	42217	42218	42218	I	389	“ Holy fuck , Bro . ”
+42355	42358	42359	42359	I	389	“ Ambrosia — ”
+42480	42484	42485	42485	she	914	“ Good boy , ”
+42536	42540	42541	42541	I	389	“ Good girl , ”
+42544	42556	42557	42557	She	914	“ Now tell me you ’ll go to dinner with me . ”
+42567	42573	42574	42574	she	914	“ If I do n’t ? ”
+42609	42626	42603	42603	She	914	“ Say you ’ll go to dinner with me , or I ’ll quit touching you . ”
+42727	42734	42707	42707	I	389	“ I want to touch you , ”
+42741	42751	42752	42752	she	914	“ I — I need you to touch me , ”
+43085	43093	43094	43094	he	927	“ I like how sexy you are , ”
+43133	43141	43120	43120	he	927	“ I like how you like me , ”
+43222	43229	43230	43230	he	927	“ You taste like your name , ”
+43256	43262	43263	43263	I	389	“ My nipples like you , ”
+43344	43351	43352	43352	he	927	“ You ’re a fucking goddess , ”
+43356	43364	43365	43365	I	389	“ My mother almost named me Hera , ”
+43372	43382	43383	43383	His	927	“ But she did n’t like the incestuous implications . ”
+43397	43404	43405	43405	he	927	“ Your family is fucking nuts , ”
+43606	43619	43622	43622	him	0	“ I do n’t know if I can completely not hate you , ”
+43689	43692	43693	43693	he	0	“ Home , ”
+43712	43721	43722	43722	he	0	“ Tell me I have a crooked dick , ”
+43725	43737	43738	43738	I	389	“ It ’s so twisted it belongs in a mental hospital , ”
+43749	43768	43741	43741	He	0	“ Yeah , baby , my dick and I can both live with you and that ugly mouth . ”
+44226	44229	44230	44230	She	955	“ Whoa . ”
+44245	44257	44258	44258	April	66	“ I have n’t seen that since I was a kid . ”
+44265	44270	44271	44271	she	955	“ Oh my god ! ”
+44274	44279	44271	44271	she	955	“ The Bratwurst Wagon ! ”
+44374	44385	44386	44386	Madison	68	“ Why ’s it parked in front of the building ? ”
+44389	44399	44400	44400	April	66	“ Maybe Mr. Jett ’s buying us all dinner , ”
+44403	44416	44417	44417	Parker	63	“ Remember last week , he sent us all bratwurst for lunch ? ”
+44439	44446	44447	44447	she	959	“ Breathe , Sia , breathe , ”
+44535	44542	44543	44543	I	389	“ That fucking douche - shit , ”
+44546	44557	44558	44558	Parker	63	“ Okay , honey , that ’s not a thing . ”
+44586	44609	44572	44572	She	959	“ I ’m sure it ’s a mistake . You know we do n’t let non - organic bratwurst in the building . ”
+44693	44699	44700	44700	Parker	63	“ Sia , stop talking , ”
+44730	44737	44738	44738	Madison	68	“ What ’s she talking about ? ”
+44741	44746	44738	44738	Madison	68	“ Is she crazy ? ”
+44747	44755	44715	44715	I	389	“ It ’s just the Bratwurst Wagon . ”
+44756	44766	44767	44767	I	389	“ Chase Jett fucked me in the Bratwurst Wagon , ”
+44777	44786	44787	44787	she	389	“ She had some bad shrimp at lunch , ”
+44792	44797	44787	44787	she	389	“ I did not . ”
+44803	44871	44798	44798	I	389	“ He took my virginity on the floor between the cabinets where they store the buns and the fridge where they keep the sausages . And then the cops showed up , and he told me to drive and he ran like a lily - livered dog turd , and I got arrested for stealing a giant bratwurst on wheels while he got to be a billionaire . ”
+44880	44888	44872	44872	I	389	“ And now he ’s taunting me . ”
+45053	45056	45057	45057	Mavis	137	“ You . ”
+45062	45070	45071	45071	she	137	“ She took down two security guards , ”
+45093	45101	45090	45090	her	137	“ Probably could ’ve gotten four more . ”
+45102	45108	45109	45109	Parker	63	“ Damn right I could , ”
+45157	45160	45147	45147	I	389	“ Talk . ”
+45161	45181	45182	45183	My secretary	971	“ The fucking Bratwurst Wagon ? First you throw Vassar at her , and now the fucking Bratwurst Wagon . ”
+45231	45234	45235	45235	I	389	“ What , ”
+45239	45245	45235	45235	I	389	“ are you talking about ? ”
+45246	45266	45213	45213	She	137	“ Oh , please . Who else is going to park the Bratwurst Wagon in front of our building ? ”
+45368	45380	45381	45381	I	389	“ What the hell is that monstrosity doing on my street ? ”
+45384	45393	45394	45394	Parker	63	“ Exactly what you told it to do ? ”
+45397	45423	45394	45394	Parker	63	“ Torment Sia until she ’d finally quit and leave you and your tar - ridden soul to run your little organic empire in peace ? ”
+45444	45485	45486	45486	She	137	“ Sit . Lose the attitude . And if someone does n’t fucking tell me what the hell Vassar means , I ’m going to take away your beanbag chairs and replace them with vinyl bench seats made in China . ”
+45489	45494	45486	45486	She	137	“ You would n’t . ”
+45495	45503	45504	45504	I	389	“ Do you know what I am ? ”
+45507	45511	45512	45512	she	137	“ A dick ? ”
+45529	45585	45586	45586	She	137	“ A man . With good intentions but limited understanding of the female language . I also skipped mind - reading in college , so you ’re going to have to start speaking in words that make sense , or I ca n’t fucking fix this . Vassar . Now . What does it mean ? ”
+45591	45598	45586	45586	She	137	“ You seriously do n’t know ? ”
+45619	45632	45633	45633	she	137	“ Sia got kicked out of Vassar for the Bratwurst Wagon incident , ”
+45636	45668	45633	45633	she	137	“ She had to leave Minnesota and go live with some distant relative to go to community college in Pennsylvania after she did her nights in jail and community service hours . ”
+45707	45715	45716	45716	she	137	“ How did you not know that ? ”
+45719	45732	45733	45733	I	389	“ I had a few other problems on my hands back then , ”
+45737	45747	45733	45733	I	389	“ Why ’s the Bratwurst Wagon parked out front ? ”
+45748	45785	45716	45716	she	137	“ I do n’t know . I thought you knew . You know there ’s a restraining order prohibiting Sia from getting within a hundred yards of it for the rest of her life , right ? ”
+45786	45793	45733	45733	I	389	“ That ’s not a thing . ”
+45794	45800	45733	45733	I	389	“ Yes , it is . ”
+45801	45816	45716	45716	she	137	“ A vehicle ca n’t get a restraining order . It ’s not human . ”
+45817	45827	45828	45828	I	389	“ You tell that to your backwoods Minnesota sheriff . ”
+45835	45840	45828	45828	I	389	“ Where ’s Ambrosia ? ”
+45841	45856	45857	45857	My	389	“ If I knew that , do you think I ’d be up here ? ”
+45896	45909	45910	45910	Parker	63	“ She told the whole department about what happened between you two , ”
+45917	45938	45913	45913	She	657	“ And she did n’t leave out anything . Serves you right . You never should ’ve bought her store . ”
+45939	45947	45948	45948	I	389	“ I ’m going to fix this , ”
+45961	45969	45952	45952	She	657	“ I do n’t think you can . ”
+46423	46436	46421	46421	she	147	“ Honey , I do n’t understand your fascination with this woman , ”
+46472	46480	46481	46481	I	389	“ She tried to wreck your life . ”
+46532	46544	46521	46521	I	389	“ Mom , she was n’t lying . I was there . ”
+46545	46559	46560	46560	I	389	“ I ’m well aware , though we both wish I was n’t . ”
+46587	46590	46591	46591	she	657	“ Still , ”
+46594	46607	46591	46591	she	657	“ I know you did n’t tell her to steal that thing . ”
+46851	46870	46844	46845	my mother	314	“ Chase Ryan Jett , tell me you did n’t tell that girl to steal the Bratwurst Wagon . ”
+46871	46892	46893	46893	She	657	“ A wise woman once told me we ca n’t change the past , we can only change the future . ”
+46905	46920	46893	46893	She	657	“ When did you get smart enough to throw my words back at me ? ”
+46921	46939	46895	46896	a mother	314	“ Smart enough to repeat ‘ em , not smart enough to know how to use them . ”
+46940	46948	46893	46893	She	657	“ You want her in your future . ”
+46949	46961	46962	46962	Mom	657	“ Does n’t matter . I ’m not good for her . ”
+46987	47018	46968	46968	I	389	“ She got arrested at eighteen because of me . There was the elevator incident two weeks ago . The Kiss Cam . Do n’t ask about the Irish bar . ”
+47019	47025	47091	47091	she	1005	“ The girl ’s troubled . ”
+47026	47089	47091	47091	she	1005	“ She was never troubled , she was related to Zeus and Ares . She ’s been squeaky - clean the past ten years . Good student , then a dedicated employee . She went from small - town Minnesota girl to making New York City her oyster . Lots of friends . Then I show up , push a few buttons — ”
+47103	47115	47116	47116	She	1005	“ — and one or both of us loses our minds . ”
+47120	47129	47130	47130	she	1005	“ I was like that with your father , ”
+47161	47176	47130	47130	she	1005	“ Exactly . The world ’s a better place if we ’re not together . ”
+47177	47184	47185	47185	She	1005	“ You ’re not your father . ”
+47190	47196	47185	47185	She	1005	“ Though she might be . ”
+47197	47200	47130	47130	she	1005	“ Mom … ”
+47201	47210	47211	47211	She	1005	“ Those Berger boys have really surprised me . ”
+47226	47244	47211	47211	She	1005	“ They ’ve found a productive way to channel all their energy . It ’s rather impressive . ”
+47245	47256	47257	47257	I	389	“ So I can go play with them after school ? ”
+47263	47328	47329	47329	She	1005	“ Do n’t let this give you any ideas , but I was glad you had them . Goodness knows what kind of criminal record you would ’ve had if you ’d run around with boys who were n’t from such a good family . But your obsession with their sister … You ’ve never been able to think straight when she ’s around . ”
+47334	47346	47329	47329	She	1005	“ Oh , look , it ’s my friend , Iris . ”
+47356	47376	47347	47347	She	1005	“ Iris ! Iris , come meet my son . He ’s the one I was telling you about . ”
+47398	47407	47408	47408	Mom	657	“ Do n’t let the cane fool you , ”
+47411	47474	47408	47408	Mom	657	“ She ’s only fifty - eight , and she does n’t look a day over forty when she ’s up close and sitting down with her makeup on . Her husband left her a fortune , and even though she ’s through menopause , she ’s open to the idea of adopting . Which is good , because I want grandchildren . ”
+47486	47492	47475	47475	I	389	“ You are not right . ”
+47493	47516	47554	47554	She	1008	“ She wo n’t break your heart . Or drive you to getting yourself arrested for indecent exposure on the Kiss Cam . ”
+47517	47547	47554	47554	She	1008	“ Next time I book you a cruise , I ’m buying out the rest of the boat and donating all the rooms to sorority girls on spring break . ”
+47548	47553	47554	47554	She	1008	“ Oh , honey . ”
+47559	47576	47554	47554	She	1008	“ You ’ll have plenty of time for that after Iris is in a nursing home . ”
+47608	47627	47599	47599	she	777	“ My goodness , no wonder you were always pulling pranks . This is quite the power trip . ”
+47628	47636	47637	47637	I	389	“ Do n’t get used to it , ”
+47640	47649	47637	47637	I	389	“ Takes a lot to prank a prankster . ”
+47650	47666	47667	47667	She	777	“ Honey , I ’m your mother . I know all your tricks and more . ”
+47880	47931	47932	47932	I	389	“ All I ’m saying , sweetheart , is that you stayed away for ten years . It ’s natural for people to be curious after such a long absence . Even if you were n’t trying to do unspeakable things with the town billionaire on camera at Yankee Stadium . ”
+47997	48022	48030	48030	she	1019	“ Kristy Knutsy asked me if he used his billions for member enhancement . That ’s not curiosity . That ’s invasion of privacy . ”
+48023	48029	48030	48030	she	1019	“ But not your privacy , ”
+48034	48053	48030	48030	she	1019	“ I do n’t want people thinking about penises that I have or have n’t touched , okay ? ”
+48462	48472	48455	48455	Mom	657	“ Ambrosia , you know you were an accident . ”
+48473	48476	48477	48477	She	657	“ MOM ! ”
+48482	48650	48477	48477	She	657	“ That came out wrong . We love you very much , sweetheart , and we ’re glad we have you . I just mean you were n’t planned . By the time your brothers were six months old , we knew we had our hands full and that there was something not entirely normal about them . Frankly , your father and I were a bit concerned that our genes were incompatible , and we were n’t sure we should risk unleashing more of our random genetic combinations on the human race . But you were sweet and perfect , and you slept through the night and never smeared poop on the walls or peed on the cat or shook your weewee at the mailman . You were so responsible , we did n’t realize until too late that we might not have given you enough attention — god knows your brothers needed most of it — and that you might one day act out too . ”
+48671	48681	48682	48682	she	389	“ And I fear we ’ve screwed up again , ”
+48685	48749	48682	48682	she	389	“ If we ’d pressed you harder to come home , this all would ’ve blown over years ago . But we let you stay away . We let people think we were ashamed . We let this grow in everyone ’s imagination until it ’s bigger than it needed to be , and once again , you ’re paying for our mistakes . ”
+48793	48799	48787	48787	I	389	“ Love you , Mom . ”
+49373	49390	49358	49358	I	389	“ My mom almost died of a massive heart attack the night of the Bratwurst Wagon . ”
+49409	49473	49474	49474	He	1250	“ I was a big enough shithead that I probably would ’ve denied everything that happened with you even I had n’t been sitting at her bedside in the hospital while she was recovering from an emergency quadruple bypass , but that ’s why I did n’t know what happened with Vassar . And I ’m sorry . For whatever that ’s worth . ”
+49635	49647	49648	49648	Chase	0	“ Insurance did n’t come close to covering all the bills , ”
+49651	49732	49648	49648	Chase	0	“ Doctors told her to quit eating canned baloney , and that she ’d need at least six months off work because she should n’t stand in the factory for eight to ten hours a day right after heart surgery . Disability barely covered the bills . I went head - down looking for a way to take care of her . Being a shithead and playing video games were all I had , so that ’s where I went . ”
+49773	49782	49783	49783	I	389	“ Yeah , well , prison sucked too , ”
+49800	49819	49786	49786	He	294	“ Could n’t have been too bad . That prison tattoo on your ass is almost spelled right . ”
+49864	49875	49876	49876	He	294	“ I did n’t order the Bratwurst Wagon last week . ”
+49895	49923	49926	49926	him	294	“ I would n’t do that to you . Even if I hated you like I hate canned baloney , I would n’t do that to you . ”
+49981	49992	49993	49993	I	389	“ Do you hate me like you hate canned baloney ? ”
+50056	50072	50043	50043	I	389	“ No , Bro , I do n’t hate you like I hate canned baloney . ”
+50073	50077	50089	50089	He	0	“ Canned tuna ? ”
+50078	50083	50089	50089	He	0	“ Or canned tuna . ”
+50084	50088	50089	50089	He	0	“ Canned mushrooms ? ”
+50102	50125	50089	50089	He	0	“ That might be getting closer . Canned mushrooms are an abomination . I might hate you like I hate canned mushrooms . ”
+50165	50179	50154	50154	he	0	“ Yeah , well , I hate you like I hate boy bands , ”
+50220	50232	50205	50205	His	0	“ I hate you like I hate skiing in the Alps . ”
+50258	50270	50271	50271	He	0	“ I hate you like I hate pineapple tater tot casserole . ”
+50278	50292	50271	50271	He	0	“ Usually I get turned on when you say disgusting things to me . ”
+50293	50317	50318	50318	I	389	“ You have the taste of a hunchbacked mountain troll and your hand is so limp you ca n’t even jack yourself off . ”
+50384	50391	50392	50392	I	389	“ We ’re really fucked up , ”
+50406	50415	50416	50416	he	0	“ I hate you like I hate pussy , ”
+50482	50491	50492	50492	I	389	“ I hate you like I hate breathing , ”
+50495	50503	50492	50492	I	389	“ And I hate myself for that . ”
+50513	50519	50504	50504	I	389	“ And for this too . ”
+50565	50568	50556	50556	I	389	“ Ow ! ”
+50569	50572	50573	50573	Chase	0	“ Fuck ! ”
+50593	50596	50604	50604	he	0	“ Shit . ”
+50616	50622	50623	50623	I	389	“ You need to stop , ”
+50626	50634	50635	50635	His	0	“ You need to stop right now . ”
+50655	50665	50666	50666	he	0	“ Ambrosia May Berger , are you turned on ? ”
+50669	50678	50679	50679	I	389	“ I ’m fucking stuck under this bench , ”
+50697	50705	50682	50682	He	0	“ We ’re in public . Again . ”
+50706	50718	50682	50682	He	0	“ I hate you like I hate doing you in public . ”
+50719	50728	50729	50729	He	0	“ I hate you like I hate orgasms . ”
+50808	50836	50837	50837	she	147	“ For the record , I am two seconds from texting Eloise and asking her to spread a picture of your diseased dick all over the internet , ”
+50845	50856	50857	50857	I	389	“ You do n’t have any pictures of my dick , ”
+50860	50885	50857	50857	I	389	“ Does n’t matter . Everyone knows I ’m in your pants . Plausibility is all I need to ruin your sex life forever . ”
+50886	50907	50908	50908	She	147	“ My sex life is with you . I do n’t care what you tell the world about my penis . ”
+50928	50940	50941	50942	her mother	370	“ Ambrosia , we do not talk about men ’s penises , ”
+50945	50974	50975	50975	she	370	“ First of all , he ’s talking about his penis too . And second of all , you would n’t blink if he talked about my vagina , ”
+50986	50998	50999	50999	I	389	“ I could talk about her vagina if you ’d like , ”
+51089	51093	51094	51095	the chief	1080	“ Mr. Jett , ”
+51098	51107	51094	51095	the chief	1080	“ what can we do for you today ? ”
+51108	51112	51113	51113	Bro	147	“ Mr. Jett , ”
+51116	51123	51124	51124	I	389	“ You can call me dickhead , ”
+51129	51136	51137	51137	Bro	147	“ All my best friends do . ”
+51156	51166	51167	51168	Dr. Berger	218	“ My grandchildren are going to be brainless delinquents , ”
+51171	51181	51182	51182	I	389	“ Zeus might come through for you , ma’am , ”
+51197	51206	51207	51207	I	389	“ I ’m here to turn myself in , ”
+51230	51234	51218	51219	The chief	1080	“ For what ? ”
+51235	51252	51253	51253	Bro	147	“ Defacing and attempted robbery of an official visiting vehicle of Baloney Fest ten years ago . ”
+51318	51337	51310	51311	The chief	1080	“ The statute of limitations has run out on any crimes that may have occurred ten years ago . ”
+51344	51353	51338	51338	I	389	“ I insist you arrest me . Now . ”
+51354	51358	51408	51408	He	1080	“ Mr. Jett — ”
+51359	51362	51363	51363	I	389	“ Dickhead , ”
+51366	51407	51408	51408	He	1080	“ I terrorized this town for almost twenty years , and I left it after doing heinously unspeakable things to an honored vehicular guest . We do n’t need to stand on formality simply because I made a few bucks . ”
+51413	51422	51408	51408	He	1080	“ Son , I ca n’t arrest you . ”
+51423	51446	51447	51447	Bro	147	“ There are very few people in this town who would ’ve claimed me as a son before I was a billionaire . ”
+51457	51467	51447	51447	Bro	147	“ Chase . Stop . This is n’t necessary . ”
+51478	51491	51492	51492	I	389	“ Either you arrest me , or you clear Ambrosia ’s record , ”
+51536	51555	51528	51529	The chief	1080	“ It ’s an honorable thing you ’re doing , son , but the law ’s the law . ”
+51569	51622	51556	51556	I	389	“ The law fucked up , and one person took the fall for two people ’s crimes . You ’re going to tell me the quickest way to solve this , or I ’ll be calling a press conference to discuss every case this office has mishandled in the last twenty years . ”
+51718	51727	51728	51728	he	1080	“ Let me make a few phone calls , ”
+51759	51772	51735	51735	She	147	“ While you ’re doing that , is your holding cell empty ? ”
+51773	51789	51799	51799	Bro	147	“ Joe Gus Johnson ’s back there . Caught him terrorizing a hog last night . ”
+51790	51798	51799	51799	Bro	147	“ Why is it always the hogs ? ”
+51802	51807	51808	51809	Dr. Berger	218	“ I ’m sorry , ”
+51812	51825	51808	51809	Dr. Berger	218	“ but did you just say he was fornicating with a pig ? ”
+51826	51832	51833	51833	Bro	147	“ Do n’t say sorry , ”
+51838	51846	51833	51833	Bro	147	“ That ’s the charge , ma’am . ”
+51847	51870	51871	51871	She	147	“ A man was caught with his peepee in a pig , and my daughter is the one they ’re gossiping over ? ”
+51890	51903	51871	51871	She	147	“ Why is no one talking about this man corrupting a sheep ? ”
+51904	51907	51908	51908	I	389	“ Hog , ”
+51931	51941	51942	51943	the chief	1080	“ Ma’am , I do n’t control the gossip , ”
+51946	51965	51942	51943	the chief	1080	“ Please unhand me before I do have to arrest someone in this room . Namely , you . ”
+51966	51976	51977	51977	Bro	147	“ Give it a good tweak first , Mom , ”
+51991	52013	51980	51980	She	147	“ Excuse me . I have gossip to spread . And a subpoena to file for any pictures you might have . ”
+52014	52028	52029	52029	I	389	“ I ’m going to need you to release Joe Gus on bail , ”
+52034	52055	52029	52029	I	389	“ And I need to use the holding pen . With the cameras turned off . And the doors locked . ”
+52056	52059	52060	52060	Bro	147	“ Chase , ”
+52063	52072	52060	52060	Bro	147	“ You are not putting yourself in jail . ”
+52073	52083	52085	52087	Ambrosia Chase Jett	0	“ Nope . I ’m putting us in jail . ”
+52223	52235	52236	52236	I	389	“ What the ever - loving unholy fuck are you doing ? ”
+52244	52252	52239	52239	He	298	“ Getting ready for my strip search . ”
+52253	52260	52261	52261	I	389	“ This is so not funny , ”
+52612	52618	52606	52606	I	389	“ What are you doing ? ”
+52619	52649	52650	52650	I	389	“ Swear to god , baby , I ’m thinking beautiful , filthy things right now , but I do n’t want to know where that thing ’s been . ”
+52685	52693	52694	52694	I	389	“ I do n’t hate fucking you , ”
+52697	52704	52705	52705	he	298	“ I fucking love fucking you , ”
+52708	52716	52705	52705	he	298	“ Did they turn the cameras off ? ”
+52717	52729	52730	52730	We	1102	“ If they did n’t , I ’ll kill ‘ em . ”
+52766	52771	52772	52772	I	389	“ Too many clothes , ”
+52775	52780	52781	52781	He	298	“ Off . Now . ”
+52969	52972	52973	52973	he	298	“ Bro , ”
+53343	53349	53350	53350	he	298	“ You ’re fucking beautiful , ”
+53440	53444	53445	53445	he	298	“ Naughty minx , ”
+53448	53454	53455	53455	I	389	“ You have no idea , ”
+53458	53461	53462	53462	he	298	“ Bro ? ”
+53465	53468	53462	53462	he	298	“ Mm ? ”
+53469	53479	53480	53480	He	298	“ Congratulations . We just made prison our bitch . ”
+54028	54042	54021	54021	Chase	0	“ I honestly want to know what ’s actually going on up there . ”
+54043	54055	54056	54056	I	389	“ I do n’t usually hate your sick sense of adventure , ”
+54060	54081	54082	54082	he	298	“ You were much more complimentary about my sense of adventure two hours ago when we were in the air , ”
+54114	54119	54120	54120	I	389	“ Oh , please , ”
+54135	54156	54157	54157	He	298	“ I was trying not to yawn the whole time . You know what altitude does to your wrinkled pickle . ”
+54170	54181	54182	54182	He	298	“ I ’ll show you a wrinkled pickle , woman . ”
+54195	54205	54182	54182	He	298	“ You have got to be fucking kidding me . ”
+54223	54236	54237	54237	I	389	“ I do n’t hate when you fuck me on my couch , ”
+54240	54245	54246	54246	he	298	“ Oh , no , ”
+54249	54272	54246	54246	he	298	“ If you ’re still using a boy band blanket , I ’m going to fuck you on your boy band blanket . ”
+54319	54340	54314	54314	they	1129	“ It ’s a comforter , not a blanket . And it ’s my inspiration for my budding musical career . ”
+54362	54373	54374	54374	he	298	“ I do n’t hate your boy band cover band , ”
+54406	54419	54420	54420	He	298	“ I do n’t hate your huge , swollen , wrinkled pickle . ”
+54465	54473	54474	54474	he	298	“ You make me crazy , Bro , ”
+54499	54505	54490	54490	I	389	“ We ’re fucking insane , ”
+54665	54676	54677	54677	he	298	“ I do n’t hate the way I love you , ”
+54726	54738	54707	54707	I	389	“ I do n’t hate the way I love you either . ”
+54739	54743	54744	54744	he	298	“ Show me , ”
+55078	55085	55064	55064	We	1151	“ I Do ( Cherish You ) ”
+55194	55199	55200	55200	Parker	63	“ Seriously , Sia ? ”
+55240	55245	55231	55231	she	1160	“ In a library ? ”
+55246	55253	55254	55254	Chase	0	“ Speed it up , Bro . ”
+55290	55303	55269	55269	I	389	“ I want to check out the comic books before we go . ”
+55304	55311	55312	55312	Willow	96	“ Go on , you two . ”
+55316	55325	55312	55312	Willow	96	“ Be quick and do n’t get caught . ”
+55326	55329	55330	55330	Parker	63	“ Willow ! ”
+55333	55357	55330	55330	Parker	63	“ What ? They ’re gon na do it anyway , might as well get it over with before anyone else catches on . ”
+55377	55384	55385	55385	he	298	“ Your band does n’t suck , ”
+55396	55406	55389	55389	I	389	“ Watching you watch us does n’t suck either . ”
+55485	55499	55500	55500	I	389	“ Who are you , and what have you done with my boyfriend ? ”
+55512	55524	55504	55504	I	389	“ What ? This ? It ’s for my other girlfriend . ”
+55535	55542	55528	55528	I	389	“ Is she hotter than me ? ”
+55543	55547	55548	55548	His	298	“ Way hotter . ”
+55579	55585	55586	55586	I	389	“ Does she sing better ? ”
+55589	55608	55586	55586	I	389	“ Yes . And no man has ever had to break her piano to save anyone ’s ears . ”
+55631	55637	55638	55638	He	298	“ I love touching you . ”
+55677	55693	55696	55696	I	389	“ And seeing you smile . And watching you play . And making you come . ”
+55714	55720	55721	55721	I	389	“ I love loving you , ”
+55835	55844	55845	55845	he	298	“ I love you , Ambrosia May Berger , ”

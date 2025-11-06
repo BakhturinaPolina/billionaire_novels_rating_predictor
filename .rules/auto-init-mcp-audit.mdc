@@ -1,0 +1,51 @@
+---
+alwaysApply: false
+---
+# Rule: Auto-init MCP session for audits
+
+When a user message or prompt includes any of:
+- audit, inventory, map repo, scan repository, read-only inspection
+
+The assistant MUST:
+1) Start an MCP session with the qualitativereesearch server BEFORE any analysis:
+   [TOOL qualiativeresearch.startsession]
+   { "projectName": "${workspaceFolderBasename}", "priority": "high" }
+
+2) During the audit, for each item included in the output tables (scripts, configs, datasets, logs, ledgers, model outputs), immediately persist it via:
+   [TOOL qualiativeresearch.buildcontext]
+   {
+     "entities":[
+       {"type":"document","name":"<basename>","meta":{"path":"<full path>","stage":"<stage>","role":"<role_guess>","deps":"<deps>"}}
+     ],
+     "relations":[
+       {"type":"part_of","from":"<basename>","to":"${workspaceFolderBasename}"},
+       {"type":"has_status","from":"<basename>","to":"active"}
+     ]
+   }
+
+   Use additional relations when appropriate:
+   - {"type":"derived_from","from":"<artifactB>","to":"<artifactA>"}
+   - {"type":"related_to","from":"<script>","to":"<ledger>"}
+   - {"type":"answers","from":"<artifact>","to":"<researchQuestion>"}
+   - {"type":"supports","from":"<artifact>","to":"<theme>"}
+   - {"type":"precedes","from":"<step/script A>","to":"<step/script B>"}
+
+3) The assistant MUST NOT modify, move, or create files in the repository. All persistence happens via MCP calls only.
+
+4) At the end of any audit/inventory response, close the loop:
+   [TOOL qualiativeresearch.endsession]
+   {
+     "summary":{"durationMinutes":45,"focus":"Repo inventory & mapping to pipeline"},
+     "memos":[
+       {"title":"Gaps","text":"Fill in real gaps found."},
+       {"title":"Quick Wins","text":"Fill in quick wins found."}
+     ],
+     "themes":[
+       {"name":"Pareto selection with nr_topics ≥ 200"},
+       {"name":"Hyperparameter importance → Pareto linkage"}
+     ],
+     "statusUpdates":[
+       {"entity":"pareto.csv","status":"pending"}
+     ],
+     "projectStatus":{"overall":"active","priority":"high"}
+   }

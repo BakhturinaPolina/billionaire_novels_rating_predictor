@@ -1,0 +1,27 @@
+# Core ML & Optimization
+optuna==4.5.0
+bertopic==0.16.3
+sentence-transformers==5.1.2
+transformers==4.57.1
+torch==2.9.0
+numpy==2.2.0
+pandas==2.3.3
+scikit-learn==1.7.2
+numba==0.61.2
+gensim==4.4.0
+
+# GPU Acceleration (RAPIDS)
+# Ensure these versions are compatible with your CUDA driver
+cuml-cu12==25.10.0
+cudf-cu12==25.10.0
+dask-cudf-cu12==25.10.0
+cupy-cuda12x==13.6.0
+
+# CPU Fallbacks for BERTopic
+umap-learn==0.5.3
+hdbscan==0.8.40
+
+# CLI & Utilities
+typer==0.20.0
+rich==14.2.0
+tqdm==4.67.1

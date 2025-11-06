@@ -1,0 +1,1576 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+2026	2028	2013	2013	Simon	430	“ mask ”
+3032	3035	3023	3023	I	0	“ Kara ! ”
+3118	3126	3107	3107	her	430	“ Christ , you look like hell ! ”
+3367	3376	3351	3351	she	430	“ Do n’t move . Not one inch . ”
+3377	3403	3404	3404	she	430	“ I ’m fine . I ’ve had a little bug . I thought I was over it . It was just a little dizziness , ”
+3414	3420	3404	3404	she	430	“ You ’re not fine , ”
+3425	3451	3404	3404	she	430	“ The doctor is here to see you . He lives in the building . He saw you nearly take a nosedive into the pavement . ”
+3452	3455	3404	3404	she	430	“ Doctor ? ”
+3470	3478	3479	3479	She	430	“ I do n’t need a doctor . ”
+3486	3500	3479	3479	She	430	“ Too late . He ’s here . And you are being checked . ”
+3501	3506	3507	3507	she	430	“ I can refuse , ”
+3522	3527	3528	3528	he	233	“ You wo n’t , ”
+3714	3719	3720	3720	she	430	“ Who are you ? ”
+3734	3743	3727	3727	he	233	“ Simon Hudson . Helen Hudson ’s son . ”
+3831	3856	3811	3811	he	237	“ Young lady , I heard you ’ve been sick . I ’m Dr. Simms . Let me take a quick look at you . ”
+3887	3916	3917	3917	she	430	“ I ’m fine . A virus . Maybe I was n’t quite over it and it ’s been a long day . Just a little residual fatigue , ”
+4077	4140	4141	4142	The doctor	1470	“ You need rest , food , and more time to get over this virus . You might have been feeling slightly better for a day because your fever broke , but the fever is back and the virus is n’t completely through your system . You ’re already run down and it does n’t sound like you sleep or eat properly . ”
+4147	4169	4141	4142	The doctor	1470	“ Typical of us medical folks . It may have been a while ago , but I still remember medical school . ”
+4179	4187	4174	4175	the doctor	1470	“ Any chance you could be pregnant ? ”
+4232	4239	4240	4240	she	430	“ No . Absolutely no possibility , ”
+4449	4461	4462	4462	Kara	430	“ What in the hell do you think you ’re doing ? ”
+4482	4489	4490	4490	she	430	“ I need to get home , ”
+4585	4595	4575	4575	she	430	“ You ’re sick and you ’re staying here , ”
+4611	4628	4608	4608	he	250	“ I ca n’t . I ’m working tomorrow . I need to get some sleep . ”
+4629	4652	4653	4653	His	250	“ You ’re not working for at least the next week . I already called Mom and told her to replace you . ”
+4676	4711	4608	4608	he	250	“ I also took the liberty of grabbing your keys from your backpack so that my assistant can go to your place and get you some clothes in case your roommate is n’t home . ”
+4712	4715	4608	4608	he	250	“ But I- ”
+4716	4748	4749	4749	He	250	“ Do n’t argue ! This discussion is over . I ’m going to make you something to eat and you will eat it . Then you ’ll go to sleep . ”
+5314	5323	5324	5324	he	265	“ I do n’t know what you like , ”
+5356	5361	5341	5341	He	265	“ Soup . Eat . ”
+5378	5387	5388	5388	she	27	“ Simon , I ca n’t stay here , ”
+5458	5466	5467	5467	He	265	“ You are staying . Take these . ”
+5530	5564	5515	5515	She	270	“ I have to work . I ca n’t afford to be off . I already took two days because I was sick . I ’m sure I ’ll feel better by tomorrow . ”
+5565	5584	5585	5585	he	271	“ You bet your sweet , exposed ass you will . I ’ll make sure that you do , ”
+5629	5638	5627	5627	Simon	430	“ You ’re not my boss , Simon . ”
+5639	5664	5665	5665	he	271	“ No , but my mother is and she agrees that you are n’t working . She did n’t realize you were still ill , ”
+5673	5725	5726	5726	he	271	“ Hell … I do n’t know how she missed it . You have black circles under your eyes that make you look like a raccoon and you look dead on your feet . Mom ’s definitely slipping . She can usually dig out any problem . Painfully , if necessary , ”
+5741	5763	5764	5764	she	272	“ I was feeling better earlier . And she was trying to help me find something to wear over my skirt , ”
+5775	5796	5797	5797	he	271	“ Where in the hell did you get that outfit ? I ’ve never seen you in anything but jeans , ”
+5827	5833	5834	5834	she	272	“ It was a loan , ”
+5854	5881	5834	5834	she	272	“ Like a complete idiot , I spilled coffee down the front of my clothes today and did n’t have time to run home before work . ”
+5882	5889	5890	5890	he	271	“ You are not an idiot , ”
+5915	5936	5937	5937	He	271	“ We ’ve never met . How did you recognize me ? How do you know what I usually wear ? ”
+5944	5953	5937	5937	He	271	“ I ’ve seen you around the restaurant . ”
+5954	5964	5937	5937	He	271	“ I ’ve never seen you at the restaurant . ”
+5965	5981	5982	5982	Helen	27	“ I stop by to see Mom . I usually do n’t go out front . ”
+6020	6024	6025	6025	she	430	“ Thank you , ”
+6046	6055	6038	6038	he	271	“ You need to eat . And sleep . ”
+6070	6084	6056	6056	He	271	“ I ’ve never been close enough to see how tired you look . ”
+6085	6092	6093	6093	she	430	“ The virus kicked my rear , ”
+6115	6125	6126	6126	He	271	“ I ’ll feel well enough to work tomorrow . ”
+6134	6147	6126	6126	He	271	“ Do n’t even think about it . Finish that and sleep . ”
+6886	6892	6893	6893	She	430	“ How are you feeling ? ”
+7019	7033	7013	7013	Kara	430	“ I ’m sorry . I did n’t have anything else to wear . ”
+7044	7062	7063	7063	he	244	“ It looks a hell of a lot better on you than it ever did on me , ”
+7078	7081	7070	7070	he	244	“ Coffee ? ”
+7108	7119	7102	7102	She	430	“ Yes , please . If you do n’t mind . ”
+7120	7130	7131	7131	He	244	“ Sit . You ’re supposed to be resting . ”
+7183	7190	7191	7191	she	430	“ Every coffee lover ’s dream , ”
+7204	7212	7213	7213	he	244	“ I hope you like it bold , ”
+7235	7242	7243	7243	Kara	430	“ It ’s a stronger blend . ”
+7259	7264	7243	7243	Kara	430	“ It smells fabulous . ”
+7344	7350	7330	7330	his	244	“ I ’ll take this . ”
+7423	7427	7428	7428	Her	430	“ Thank you . ”
+7462	7475	7476	7476	She	430	“ You did n’t answer my question . How are you feeling ? ”
+7493	7515	7476	7476	She	430	“ I feel great . Fever ’s gone . Thank you for helping me , but I need to get moving . ”
+7534	7546	7520	7520	she	430	“ You ca n’t leave . Not today . Not tomorrow . ”
+7576	7579	7580	7580	Her	430	“ Why ? ”
+7627	7633	7640	7640	she	430	“ You ’ve been evicted . ”
+7655	7673	7674	7674	She	430	“ That ’s not possible . Lydia pays the rent . She gets my share every month . ”
+7760	7798	7799	7799	Kara	430	“ I ’m afraid your roommate has fled . All that was in the apartment late last night was a few boxes that contained some of your school documents , birth certificate , and other paper items . ”
+7826	7834	7888	7888	OhmyGod	36	“ There has to be some mistake . ”
+7835	7873	7874	7874	Simon	1520	“ It ’s no mistake . My assistant checked with the landlord early this morning . Your roommate was evicted , has been going through the eviction process for some time . Yesterday was the last day . ”
+7920	7928	7929	7929	she	430	“ There has to be some mistake , ”
+7962	7971	7951	7951	she	430	“ What about my things , my clothes ? ”
+7972	7987	7929	7929	she	430	“ Your roommate was thorough . There was nothing there except a few boxes . ”
+7988	7997	7951	7951	she	430	“ It had to be the wrong place . ”
+7998	8011	8012	8012	Simon	1520	“ It ’s the right place , Kara . I ’m sorry . ”
+8026	8030	8012	8012	Simon	1520	“ Everything correct ? ”
+8165	8171	8161	8161	she	430	“ This is not happening , ”
+8216	8220	8221	8221	Simon	1520	“ You okay ? ”
+8233	8243	8244	8244	she	430	“ Yes . No . I do n’t know , ”
+8248	8254	8244	8244	she	430	“ I have to think . ”
+8298	8310	8311	8311	she	430	“ I did n’t know . How could I not know ? ”
+8330	8360	8361	8361	Simon	1520	“ Your roommate dropped out of school last semester . Apparently , she hid everything so that she could still collect your money up until she had to leave , ”
+8370	8387	8388	8388	She	430	“ I ’m sorry , Kara . You have enough on your plate without this happening . ”
+8425	8443	8444	8444	she	430	“ E - everything is gone ? The furniture , my bedroom stuff , my other belongings ? ”
+8452	8476	8477	8477	he	306	“ The only boxes left were brought here by my assistant , Nina . They ’re on the bed in the guest room , ”
+8481	8556	8477	8477	he	306	“ I checked everything out , Kara . It was legal . Your roommate took everything on the very last day . If you had gone home last night , you would have found an empty apartment . I ’m glad you were spared that particular late - night surprise . Nina gave the key back to the landlord . The locks were due to be changed . You ca n’t go back there . ”
+8645	8654	8655	8655	She	308	“ No . Oh , God , no . ”
+8831	8849	8850	8850	Simon	1520	“ Shhh … Kara . It will all be okay . I ’ll take care of you . ”
+9073	9087	9088	9088	She	430	“ We ’ll deal with it , Kara . I ’ll help you . ”
+9104	9111	9112	9112	She	430	“ I got you all wet . ”
+9138	9144	9125	9125	Simon	1520	“ It does n’t matter . ”
+9145	9176	9177	9177	Her	430	“ I ca n’t bawl like a baby all day . I have to see if I can find a shelter . This has put me over the financial edge . ”
+9187	9202	9203	9203	He	312	“ No shelter . You can stay here . I have plenty of space . ”
+9245	9272	9232	9232	She	430	“ Think reasonably , Kara . You need help . I ’m willing to help you . You can finish your last semester and live here . ”
+9273	9291	9292	9292	He	312	“ Why ? Why would you want me here ? I ’m a complete stranger to you . ”
+9327	9346	9318	9318	him	312	“ You need help . Everybody needs help sometimes . I had my brother . I was lucky . ”
+9347	9359	9318	9318	him	312	“ Simon , I ca n’t just take advantage of you . ”
+9395	9410	9385	9385	she	430	“ You are n’t taking advantage . You ’re just accepting a little assistance . ”
+9422	9449	9411	9411	She	430	“ It ’s more than a little . I still have more than four months of school left . No money . No clothing . Nothing . ”
+9468	9479	9465	9465	he	312	“ Nina is getting you some clothes . No worries . ”
+9488	9502	9480	9480	He	312	“ I only have one condition . Otherwise , my assistance is unconditional . ”
+9503	9508	9509	9509	She	430	“ What is it ? ”
+9518	9531	9532	9532	He	312	“ I want you to stop working while you ’re in school . ”
+9568	9584	9585	9585	she	430	“ I ca n’t stop working . I need to live . I have nothing , ”
+9590	9626	9627	9627	He	312	“ No work . I ’ll help you financially . You already do forty hours a week at school and that does n’t include study time . My offer , take it or leave it . ”
+9691	9695	9686	9686	her	430	“ But , I- ”
+9696	9708	9709	9709	He	312	“ That ’s the deal . Take it or leave it ? ”
+9869	9883	9840	9840	she	430	“ What about my insurance , my benefits ? What about the restaurant ? ”
+9884	9903	9904	9904	Kara	430	“ Mom ’s place will be fine . She has waitresses who want to be full - time . ”
+9936	9955	9956	9956	She	430	“ And I ’ll make sure that you stay on COBRA . You wo n’t lose your insurance . ”
+10000	10024	9995	9995	Helen	27	“ Okay . I ’ll do it . But you need to keep track of the funds and I ’ll pay you back . ”
+10025	10029	9995	9995	Helen	27	“ No deal . ”
+10030	10040	10041	10041	She	1520	“ You said you only had that one condition . ”
+10063	10079	10060	10060	He	312	“ It ’s an add - on since you tried to change the original terms . ”
+10080	10108	10109	10109	She	1520	“ What are you getting out of all of this ? I ’m going to disrupt your privacy , take your money , and you get nothing ? ”
+10120	10145	10146	10146	he	312	“ I do n’t want your money . Ca n’t you just take the help without questioning my motives ? I want to help , ”
+10172	10194	10197	10197	she	1520	“ I want to do something , give you something for your trouble . I ’ve always paid my own way . ”
+10324	10327	10328	10328	she	430	“ Sorry , ”
+10338	10351	10332	10332	he	312	“ There ’s only one thing I want from you , Kara . ”
+10446	10451	10435	10435	her	1520	“ W - What ? ”
+10507	10525	10495	10495	He	312	“ You . In my bed . One night . Anything I want , anything I need . ”
+10539	10542	10543	10543	She	430	“ Me ? ”
+10569	10575	10576	10576	he	312	“ You . One night , ”
+10818	10831	10802	10802	He	312	“ God , you are so hot , Kara . So responsive . ”
+10844	10850	10851	10851	She	430	“ I want one night . ”
+10878	10885	10886	10886	he	312	“ So wet , so ready , ”
+10894	10913	10886	10886	he	312	“ I can smell your arousal and it ’s making me crazy . I want to taste you . ”
+10914	10921	10922	10922	Kara	430	“ Oh , God . Please . ”
+10953	10957	10958	10958	he	312	“ So sweet , ”
+11025	11030	11009	11009	Her	430	“ Simon , I need- ”
+11031	11055	11056	11056	His	312	“ I know what you need . The same thing that I need ! But for now , I can give you this . ”
+11127	11134	11135	11135	Kara	430	“ Yes . Oh , yes . ”
+11267	11279	11280	11280	She	430	“ Oh , God . What in the hell was that ? ”
+11295	11309	11310	11310	he	312	“ Pleasure . Just a taste of what we could have in bed , ”
+11324	11375	11310	11310	he	312	“ I ’d like one night , Kara . Not because you have to , but because you want it , too . I ’ll help you regardless . It ’s your choice whether or not to give me what I want . But be warned … I like control . ”
+11388	11395	11384	11384	she	430	“ What does that mean exactly ? ”
+11396	11400	11401	11401	he	312	“ Total surrender , ”
+11417	11441	11401	11401	he	312	“ Think about it . Say the word and I ’ll give you every ounce of pleasure that I ’m capable of giving . ”
+11442	11458	11459	11459	She	430	“ I ’m not really that experienced . I - I … you’d be disappointed . ”
+11496	11509	11510	11510	he	312	“ I do n’t want sexual expertise . I just want you , ”
+11563	11661	11554	11554	He	312	“ Decide later . You ’ve been through a lot today and you need to get over your illness . Rest . Eat . Relax . I ’ll be in my computer lab upstairs if you need anything . Nina will be here soon with your clothes . Feel free to keep the robe . It looks good on you . But just so you know … I’ll have a raging erection every time you wear it . I ’ll remember every sweet sound , every delicious response from you while you were coming in my arms . ”
+11701	11708	11695	11695	he	330	“ Did that really just happen ? ”
+12119	12164	12110	12110	she	430	“ It ’s not like you ’re a paid employee , Kara , even though I appreciate the fact that you keep showing up to help . I ’m fine for today . Are you okay ? Do you need a place to stay ? ”
+12241	12257	12258	12258	she	430	“ Nope . I ’m good . I have a … friend helping me out , ”
+12277	12295	12272	12272	Maddie	138	“ You call me if you need help , Kara . You will , wo n’t you ? ”
+12296	12310	12343	12343	Maddie	138	“ I will . I promise . I ’ll see you next Saturday . ”
+12311	12342	12343	12343	Maddie	138	“ Stay safe . If you ever find that bitch of an ex - roommate , feel free to call me . I ’ll beat the shit out of her , ”
+12353	12371	12350	12350	Kara	430	“ You ’ll have to get in line . I ’m pissed enough to do it myself . ”
+13445	13453	13456	13456	Kara	430	“ Hallelujah , he ’ll finally eat , ”
+13920	13924	13916	13916	she	430	“ Come in . ”
+14043	14051	14039	14039	she	430	“ Hey . Is that Myth World ? ”
+14066	14074	14057	14057	he	244	“ Yeah ! You know the game ? ”
+14075	14085	14086	14086	she	430	“ Know it ? I ’m at expert level , ”
+14105	14120	14121	14121	She	430	“ Lydia had it and I was hooked after trying it the first time . ”
+14245	14257	14228	14228	He	244	“ It ’s my game . This is Myth World II . ”
+14258	14268	14269	14269	She	28	“ Oh , my God . Let me see . ”
+14306	14325	14350	14350	Simon	430	“ Is it done ? Can I play it ? I really miss that little bit of escapism . ”
+14326	14349	14350	14350	Simon	430	“ I just have the demo . It ’s not on the market yet . You can try it if you like , ”
+14413	14419	14420	14420	she	28	“ You made it harder , ”
+14427	14434	14435	14435	he	244	“ Was the original version easy ? ”
+14445	14455	14456	14456	she	28	“ No . But it was n’t this hard , ”
+14467	14481	14482	14482	His	244	“ It was . You just are n’t used to this one yet . ”
+14491	14500	14488	14488	he	244	“ What do you like about the game ? ”
+14501	14531	14532	14532	She	28	“ The strategy , the challenge of figuring out secrets , the make - believe world . It ’s like being catapulted into another dimension for a short time . ”
+14546	14554	14555	14555	she	28	“ You are a genius , Simon , ”
+14562	14573	14555	14555	she	28	“ I never realized that this was a Hudson game . ”
+14590	14600	14582	14582	he	244	“ It ’s just computer stuff . Nothing exciting . ”
+14621	14642	14616	14616	she	28	“ It ’s incredibly creative , Simon . It takes more than programming to come up with something like this . ”
+14643	14652	14653	14653	he	244	“ I ’ll put them on your laptop , ”
+14658	14673	14653	14653	he	244	“ Oh , Lord , no . I ’d never get my studying done . ”
+14685	14693	14694	14694	he	244	“ I think you can control yourself , ”
+14700	14725	14694	14694	he	244	“ Absolutely not . I have no control when it comes to Myth World . Do you have other games that you ’ve designed ? ”
+14726	14734	14681	14681	her	28	“ Of course , dozens of them . ”
+14735	14748	14749	14749	she	28	“ Would you mind putting them on the PC in the den ? ”
+14753	14766	14767	14767	He	244	“ You can come up here . Play on the usage computer . ”
+14779	14802	14803	14803	She	28	“ All of my games are on it . Actually , just about any game you can think of is on there . ”
+14814	14830	14831	14831	He	244	“ Oh , horrors ! You actually have other people ’s games on that computer ? ”
+14845	14858	14831	14831	He	244	“ Sometimes I find it necessary to … check out the competition . ”
+14859	14865	14866	14866	She	28	“ And are they good ? ”
+14879	14893	14894	14894	he	244	“ Nah … but I have to keep up with what ’s selling , ”
+14951	14998	15001	15001	she	28	“ If you do n’t mind , I ’ll take you up on that offer . I ’m used to being busy and I ’m not up on all the recent television shows . I get a little lonely sometimes . This place is so big . ”
+15005	15028	15029	15029	she	28	“ Just do n’t be upset when I do n’t get dinner ready on time . I get lost in your games , ”
+15056	15064	15043	15043	He	244	“ Are you lonely here , Kara ? ”
+15079	15087	15073	15073	his	244	“ You do n’t like it here ? ”
+15088	15109	15110	15110	She	28	“ No . Oh , no . Simon , it ’s lovely here . How could I not be happy ? ”
+15117	15149	15110	15110	She	28	“ I ’m just so used to not having much time to think , much time to myself . It takes getting used to after the crazy pace I had before . ”
+15150	15156	15157	15157	he	244	“ Suicidal , you mean , ”
+15164	15174	15157	15157	he	244	“ That lifestyle was draining you dry , Kara . ”
+15175	15194	15195	15195	she	28	“ I know . And I ’m grateful . Really , I am . This is just different , ”
+15225	15235	15210	15210	she	28	“ I ’ll be happier up here with you . ”
+15236	15242	15243	15243	He	244	“ You want my company ? ”
+15251	15276	15243	15243	He	244	“ Of course . But I know you ’re busy . And I thought maybe you were avoiding me after ... well , after … ”
+15277	15289	15290	15290	he	244	“ After I told you that I wanted to fuck you ? ”
+15300	15303	15304	15304	she	28	“ Yes , ”
+15333	15361	15362	15362	he	244	“ I was n’t avoiding you , Kara . I want to see you , be with you , whether you want to fuck me or not , ”
+15369	15373	15374	15374	she	28	“ You do ? ”
+15382	15385	15374	15374	she	28	“ Why ? ”
+15386	15399	15400	15400	She	28	“ I get lonely sometimes , too . I enjoy your company . ”
+15552	15567	15543	15544	Simon Hudson	430	“ I - I actually came to ask you what you wanted for dinner . ”
+15633	15646	15622	15622	Simon	430	“ I ’ll help you . I ’m done here for now . ”
+15683	15696	15697	15697	Her	430	“ Okay . Let ’s go see what we can round up . ”
+15996	16005	16006	16006	he	244	“ Why do n’t you have a boyfriend ? ”
+16010	16030	16031	16031	They	395	“ Would n’t it have been easier to go to school if you had a man in your life ? ”
+16051	16071	16072	16072	She	430	“ Do you want to help cut the vegetables for a salad ? I ’ll put in some steaks . ”
+16081	16095	16072	16072	She	430	“ Why would I want a boyfriend when I ’m going to school ? ”
+16117	16128	16129	16129	he	244	“ Someone to help . Would n’t it be easier ? ”
+16164	16175	16150	16150	He	244	“ In my experience , boyfriends are n’t exactly helpful . ”
+16192	16196	16181	16181	Simon	430	“ Bad experience ? ”
+16197	16200	16189	16189	her	430	“ Yes . ”
+16201	16205	16206	16206	She	430	“ What happened ? ”
+16251	16266	16267	16267	Simon	430	“ I ’ll cut . You ’re likely to amputate a digit or two . ”
+16287	16293	16294	16294	She	430	“ So , what happened ? ”
+16297	16338	16294	16294	She	430	“ I dated Chris for five years . I thought we would end up married . Unfortunately , I came home from work early one day and caught him in bed with the person I thought was my best friend . ”
+16359	16365	16345	16345	He	1483	“ He was an idiot . ”
+16366	16386	16394	16394	She	402	“ It was n’t meant to be . I ’m actually thankful that I was n’t married to him . ”
+16387	16393	16394	16394	She	402	“ It still hurt you . ”
+16397	16405	16394	16394	She	402	“ It was a long time ago . ”
+16406	16409	16410	16410	Simon	430	“ Bastard . ”
+16423	16428	16416	16416	He	1483	“ What about you ? ”
+16444	16449	16429	16429	She	402	“ What about me ? ”
+16450	16470	16471	16471	She	402	“ Girlfriend ? I feel like I might be cramping your style . Me living here , I mean . ”
+16487	16494	16484	16484	He	1483	“ I ’ve never had one . ”
+16508	16511	16512	16512	Simon	430	“ Seriously ? ”
+16549	16576	16577	16577	he	1483	“ Nope . I ’m not exactly a social kind of guy . Sam is the compulsive dater . He ’s got the looks for it , ”
+16598	16603	16604	16604	he	1483	“ What was that ? ”
+16616	16625	16609	16609	her	403	“ I said that you ’re better looking . ”
+16642	16648	16649	16649	She	403	“ Have you seen Sam ? ”
+16669	16681	16682	16682	His	1483	“ Sure . You have pictures of him and Helen everywhere . ”
+16700	16709	16686	16686	he	1483	“ Then you know that ’s not true . ”
+16710	16718	16719	16719	she	403	“ In my opinion , it is , ”
+16724	16735	16736	16736	Simon	430	“ Just do n’t get a fat head over it . ”
+16764	16789	16754	16754	he	1483	“ What about my scars ? Sam is a movie - star - handsome blond with green eyes . Women seem to love that . ”
+16827	16841	16842	16842	she	430	“ I guess I prefer my men tall , dark , and grouchy , ”
+17039	17046	17026	17026	Simon	430	“ I have something for you . ”
+17063	17083	17047	17047	He	244	“ Simon , I ’m not taking one more thing . You ’ve done enough . Way too much . ”
+17098	17104	17095	17095	he	244	“ You ’ll take this . ”
+17105	17112	17113	17113	God	1520	“ No … I wo n’t . ”
+17165	17171	17157	17157	he	244	“ Oh , my God , ”
+17200	17223	17184	17184	She	430	“ My mother ’s ring . I did n’t think I would ever see it again . How did you find it ? ”
+17224	17228	17229	17229	he	244	“ Pawn shop , ”
+17251	17266	17234	17234	he	244	“ I knew it was the one thing that you were sad to lose . ”
+17267	17296	17297	17297	she	430	“ It ’s not expensive , but it means a great deal to me . It ’s the only thing I have left that belonged to my mom , ”
+17357	17366	17347	17347	Simon	430	“ I ’m glad we could find it . ”
+17442	17457	17426	17426	He	418	“ Thank you , Simon . You ’re the most wonderful man on earth . ”
+17521	17539	17540	17540	he	418	“ I think I deserve a real kiss . I told you that you would accept it , ”
+17829	17838	17816	17816	she	430	“ Kara , I ’m not a saint . ”
+17870	17879	17880	17880	Her	430	“ I want you , Simon . Desperately . ”
+17903	17912	17913	17913	he	50	“ Do n’t do this out of gratitude , ”
+17930	17966	17916	17916	She	430	“ I would never do this out of gratitude . I ’m tired of trying to fight this attraction between us , Simon . I want my one night . The one that you offered . ”
+17976	17980	17970	17970	Simon	430	“ Total surrender ? ”
+17981	18004	18005	18005	Her	430	“ I ’m not sure what that means … but yes … total surrender . I know you would never hurt me . ”
+18046	18078	18037	18037	He	50	“ It means that I need control . I want to tie you to my bed , blindfold you , and fuck you until neither of us is able to move . ”
+18092	18104	18088	18088	she	430	“ Then do it . Take me to bed , Simon . ”
+18625	18628	18629	18629	he	50	“ No , ”
+18643	18651	18652	18652	she	430	“ I just needed to touch you , ”
+18663	18678	18679	18679	he	50	“ I need you naked . This has to go my way , Kara , ”
+18684	18697	18698	18698	His	50	“ I told you what I wanted . I was completely serious . ”
+18809	18824	18789	18789	She	430	“ Holy Christ . You ’re the most beautiful woman I ’ve ever seen , ”
+18867	18874	18875	18875	she	430	“ It ’s the expensive lingerie , ”
+18899	18904	18905	18905	he	50	“ It ’s you , ”
+18932	18937	18938	18938	Kara	430	“ You ’re perfection . ”
+18988	19000	19001	19001	he	50	“ Although I love those panties , they need to go , ”
+19062	19076	19052	19052	she	430	“ Simon , I have n’t been with anyone for a long time . ”
+19077	19081	19082	19082	he	50	“ How long ? ”
+19092	19121	19082	19082	he	50	“ Five years . And even then I was n’t very good in bed . There was only Chris , and I was n’t enough to satisfy him , ”
+19140	19148	19149	19149	He	50	“ Did he fucking tell you that ? ”
+19161	19174	19175	19175	she	430	“ Yes . He said that ’s why he needed another woman , ”
+19203	19238	19239	19239	he	50	“ He was a complete idiot , Kara . You ’re all the woman any man could want or dream about . Exactly what I need . It was his issue , not yours , ”
+19264	19284	19285	19285	she	430	“ I want this . I really do . I want you . I ’m just a little nervous , ”
+19295	19304	19285	19285	she	430	“ I do n’t want to disappoint you . ”
+19305	19310	19311	19311	he	50	“ Listen to me , ”
+19321	19400	19401	19401	She	430	“ You could never , ever disappoint me . I want you so badly I ’m ready to lose my mind . I have you . I have control . I make the decisions . You have nothing to do except to come , as loud and as long as you want to . You please me just by being here and wanting me . As long as I can make you come , I ’ll be ecstatic . ”
+19419	19432	19414	19414	She	430	“ Then make me come , Simon . Take me to bed . ”
+19531	19535	19536	19536	she	430	“ Complete surrender , ”
+19550	19553	19536	19536	she	430	“ Yes , ”
+19732	19740	19741	19741	she	430	“ Are you going to gag me ? ”
+19749	19778	19741	19741	she	430	“ Oh , hell no . I want to hear every little cry of pleasure , every sweet little sound that you make as you come for me . ”
+19873	19899	19854	19854	she	430	“ Being sightless will heighten every sensation , Kara . Every touch of my tongue will be sharper , more acute . Everything more arousing . ”
+19900	19921	19922	19922	she	430	“ I ’m aroused enough , Simon . For God ’s sake , touch me before I die of longing , ”
+19965	20003	20004	20004	His	430	“ You look so incredibly beautiful it ’s hard to decide where to start . I ’ve imagined this for so long . I ca n’t believe you ’re really here with me . In my bed . ”
+20131	20140	20141	20141	She	430	“ Please , Simon . Oh , God . ”
+20213	20226	20227	20227	he	430	“ Jesus , Kara . You ’re so wet , so tight , ”
+20281	20288	20295	20295	he	430	“ I need you . Please . ”
+20289	20294	20295	20295	he	430	“ Soon , sweetheart , ”
+20431	20438	20439	20439	Her	430	“ Oh , God , Simon . ”
+20526	20533	20534	20534	Her	430	“ Yes . Oh , yes . ”
+20660	20665	20666	20666	she	430	“ That was incredible , ”
+20722	20739	20740	20740	he	430	“ You taste like fine wine , Kara . I could have stayed there all day , ”
+20749	20759	20740	20740	he	430	“ You ’re so beautiful . So very beautiful . ”
+20760	20771	20772	20772	she	430	“ So are you , Simon . Please fuck me , ”
+20781	20794	20795	20795	he	430	“ Tell me that you want me , that you need me , ”
+20818	20825	20826	20826	Simon	430	“ Oh , shit . Condom , ”
+20848	20867	20830	20830	She	430	“ I ’m on the pill to regulate my periods . I ’m covered . I ’m clean . ”
+20868	20902	20903	20903	he	430	“ I ’m clean , too , and this would be my first time without a condom . I wo n’t last , but I want you this way . Nothing between us , ”
+20916	20940	20941	20941	she	430	“ I do n’t care . Come inside me , Simon . I want you so much . I need you so badly , ”
+21012	21022	21023	21023	Simon	430	“ God , sweetheart , you ’re so tight , ”
+21034	21047	21023	21023	Simon	430	“ So hot . You feel so damn good , so incredible . ”
+21048	21051	21052	21052	she	430	“ Yes , ”
+21250	21266	21267	21267	His	430	“ Come for me , Kara . Come . I want to watch your pleasure . ”
+21334	21341	21342	21342	Simon	430	“ Oh , Jesus , Kara , ”
+21345	21356	21342	21342	Simon	430	“ You ’re so sweet . And so damned hot . ”
+21778	21790	21765	21765	he	430	“ Thank you , Kara . I ’ll never forget tonight . ”
+22296	22302	22303	22303	she	446	“ Shut the hell up , ”
+23859	23867	23849	23849	she	430	“ I think we ’re almost done . ”
+24171	24180	24181	24181	Maddie	138	“ We ’ll get you later , bitch ! ”
+24204	24227	24199	24199	everyone	480	“ The nice detective should be back soon and we can affirm the police reports and get the hell out of here , ”
+24238	24252	24228	24228	Maddie	138	“ Are you sure you ’re okay ? You look a little pale . ”
+24261	24273	24253	24253	Kara	430	“ A little shaken up is all . I’m … good . ”
+24329	24356	24307	24307	Maddie	138	“ They shot at you . It ’s normal to be upset . That was a damn close call . I ’m so sorry , Kara . ”
+24357	24365	24307	24307	Maddie	138	“ Maddie , it is n’t your fault- ”
+24366	24374	24307	24307	Maddie	138	“ Who the hell shot at her ! ”
+24437	24455	24433	24433	his	244	“ What in the fuck is going on ? The police said you got attacked at some clinic- ”
+24456	24460	24461	24461	Maddie	138	“ My clinic , ”
+24469	24476	24461	24461	Maddie	138	“ Who the hell are you ? ”
+24619	24625	24626	24626	Simon	430	“ I ’m Kara ’s … ”
+24643	24659	24626	24626	Simon	430	“ friend . And I want to know why the hell someone shot at her . ”
+24660	24670	24676	24676	she	430	“ Helloooo . I ’m right here , Simon . ”
+24688	24697	24676	24676	she	430	“ I am able to answer for myself . ”
+24727	24740	24724	24724	he	258	“ What happened ? Are you okay ? Did they hurt you ? ”
+24861	24867	24868	24868	Simon	430	“ Did they catch them ? ”
+24884	24898	24899	24899	Maddie	138	“ No . And Kara needs to be careful since they threatened her . ”
+24908	24915	24916	24916	Simon	430	“ You neglected to mention that . ”
+24961	24977	24978	24978	He	494	“ Can you look at the reports and see if you have anything to add ? ”
+25061	25064	25065	25065	he	53	“ Boyfriend ? ”
+25079	25082	25083	25083	she	430	“ Friend , ”
+25099	25101	25091	25091	she	430	“ yes ”
+25153	25156	25157	25158	The detective	53	“ Careful ! ”
+25169	25177	25178	25178	he	53	“ You ’ve had a tough day , ”
+25202	25225	25187	25187	he	53	“ My card . Call me anytime . My cell phone number is on the back just in case you need it . ”
+25226	25232	25233	25233	Simon	430	“ Is that really necessary ? ”
+25255	25278	25251	25252	The detective	53	“ Yeah . It is . Kara was threatened . I want these ladies to be able to reach me any time . ”
+25279	25292	25296	25296	Kara	430	“ Thank you , Detective Harris . You ’ve been very kind . ”
+25337	25347	25348	25348	she	430	“ It ’s a good day to be alive , ”
+25381	25408	25376	25376	Maddie	138	“ You would n’t happen to be related to Sam Hudson ? I know the last name is pretty common , but I was just wondering . ”
+25424	25442	25443	25443	Maddie	138	“ Yeah … he ’s my brother . Why do you ask ? Do you know him ? ”
+25446	25451	25452	25452	She	138	“ Oh , God . ”
+25459	25472	25452	25452	She	138	“ Uh … yeah … I did . A long time ago . ”
+25473	25478	25479	25479	Simon	430	“ Were you friends ? ”
+25488	25494	25495	25495	Maddie	138	“ No ! Not really ! ”
+25508	25514	25515	25515	Simon	430	“ Ah … I see , ”
+25529	25536	25526	25526	he	499	“ Bad experience with my brother ? ”
+25537	25546	25547	25547	Maddie	138	“ He ’s a complete and total snake . ”
+25585	25604	25571	25571	Kara	430	“ Believe me , you are n’t the first woman to feel that way . I ’m sorry . ”
+25605	25633	25634	25634	she	430	“ It ’s not your fault that your brother is a slimy reptile . I just hope the two of you are n’t similar in some regards , ”
+25638	25644	25634	25634	she	430	“ Take care of Kara . ”
+25645	25651	25652	25652	he	500	“ With pleasure , Maddie , ”
+25662	25672	25652	25652	he	500	“ Bad circumstances , but nice to meet you . ”
+25673	25680	25681	25681	she	430	“ You too . I think , ”
+25692	25716	25684	25684	she	430	“ I know I ca n’t judge one brother by the other , but I hate anything that reminds me of Sam Hudson . ”
+25727	25744	25745	25745	she	430	“ Take care of yourself . I ’ll call you . Do n’t do anything stupid , ”
+25826	25837	25838	25838	Simon	430	“ You too . I ’ll talk to you soon . ”
+25963	25986	25942	25942	He	338	“ We need to eat . This place has the best Italian food in the area , but it ’s nothing fancy . ”
+26015	26025	25987	25987	He	338	“ Uh … I’m not exactly dressed for fancy . ”
+26052	26071	26042	26042	she	430	“ You look beautiful . But I know it ’s been a tough day . Is that okay ? ”
+26072	26085	26042	26042	she	430	“ It ’s great . I love Italian and I ’m starving . ”
+26223	26234	26235	26242	The leggy , beautiful blonde who greeted them	516	“ Mr. Hudson . How lovely to see you again . ”
+26297	26301	26280	26280	She	430	“ Flirty woman . ”
+26328	26333	26334	26334	Simon	430	“ You mean Kate ? ”
+26353	26375	26381	26381	Kara	430	“ Is that her name ? She did n’t introduce herself to me . She seemed much more interested in you . ”
+26390	26408	26409	26409	Simon	430	“ She was n’t flirting . I ’m a regular customer . She has to be nice . ”
+26432	26442	26420	26420	She	430	“ You ’ve been here before . Any recommendations ? ”
+26443	26456	26457	26457	Kara	430	“ It ’s all good . I ’m having the chicken parmesan . ”
+26492	26500	26501	26501	Simon	430	“ It ’s so hard to decide . ”
+26513	26526	26501	26501	Simon	430	“ You look like you ’re trying to solve a major problem . ”
+26527	26539	26540	26540	she	430	“ Do I look like I do n’t get out much ? ”
+26576	26600	26601	26601	She	430	“ You are the loveliest woman I ’ve ever seen sitting across a table from me . No one else even comes close . ”
+26712	26723	26704	26704	Kara	430	“ I think they made me an alcoholic iced tea . ”
+26736	26755	26724	26724	Simon	430	“ It ’s definitely an alcoholic iced tea . I did n’t know you wanted the real thing . ”
+26756	26762	26763	26763	she	430	“ What ’s in this ? ”
+26828	26849	26824	26824	Simon	430	“ Rum , gin , tequila , vodka , triple sec … and a splash of cola and sour mix . ”
+26892	26909	26910	26910	She	430	“ Promise you wo n’t let me dance naked on the table when I ’m done . ”
+26942	26951	26927	26927	he	244	“ Seriously ? From a drink or two ? ”
+26952	26964	26965	26965	she	430	“ It ’s not funny . I do n’t drink much , ”
+27003	27024	26998	26998	Simon	430	“ I know . Try it . If you do n’t like it , I ’ll get you something else . ”
+27044	27069	27070	27070	His	244	“ And I definitely promise that you will not dance naked on the table , unless it ’s at home in a private performance . ”
+27164	27168	27169	27169	She	430	“ Not bad . ”
+27174	27184	27185	27185	He	244	“ It does n’t really taste all that strong . ”
+27192	27202	27185	27185	He	244	“ It ’s deceiving . They ’re pretty potent . ”
+27343	27358	27359	27359	she	430	“ How do you maintain such an incredible body when you eat like that ? ”
+27416	27421	27422	27422	She	430	“ Incredible , huh ? ”
+27438	27444	27433	27433	His	244	“ Well , it is . ”
+27462	27488	27489	27489	his	244	“ I work out in the gym at home every day . If you think I look good , I guess it ’s worth it , ”
+27504	27508	27509	27509	she	430	“ It shows , ”
+27535	27561	27509	27509	she	430	“ It ’s one of the reasons that women like Kate fall all over you . Not the only reason , but one of them . ”
+27584	27604	27605	27605	Simon	430	“ Women do n’t admire my body , my personality , or anything else about me except my money , ”
+27630	27659	27660	27660	God	1520	“ Oh , so it does n’t matter that you ’re insanely handsome , a genius , funny , and extremely kind ? Women just want the cash ? ”
+27689	27692	27693	27693	Her	430	“ Yes . ”
+27756	27760	27761	27761	He	539	“ I do . ”
+27781	27796	27761	27761	He	539	“ I want you . And it has nothing to do with your money . ”
+27835	27846	27808	27808	She	430	“ I do n’t give a shit about your money . ”
+27847	27854	27855	27855	he	539	“ Yeah … I noticed that , ”
+27916	27921	27901	27901	She	430	“ I ’m done . ”
+28466	28474	28475	28475	Simon	430	“ Do n’t go . Not yet . ”
+28526	28531	28532	28532	she	430	“ What ’s wrong ? ”
+28558	28601	28602	28602	He	550	“ I need to hold you for a while . Please . You took twenty years off my life today , Kara . I ’m going to end up old , bald , and crazy if you keep having incidents like this . ”
+28616	28621	28622	28622	She	430	“ I ’m sorry . ”
+28658	28677	28678	28678	he	550	“ I ca n’t take it . I ca n’t stand the thought of anything happening to you , ”
+28815	28831	28799	28799	he	557	“ I had a very hard time not going for your cop ’s throat today . ”
+28832	28835	28799	28799	he	557	“ Why ? ”
+28836	28857	28858	28858	His	557	“ For God ’s sake , Kara , the man was eye - fucking you right there in the station . ”
+28863	28869	28858	28858	His	557	“ He was just being nice- ”
+28870	28883	28884	28884	he	557	“ He was imagining what it would be like to fuck you , ”
+28892	28917	28918	28918	Gulp	58	“ I ’m a guy . Believe me . I know . And I fucking hated it . I do n’t like to share . ”
+28925	28935	28937	28937	she	430	“ I did n’t know that I was yours . ”
+28939	28944	28937	28937	she	430	“ You are now . ”
+28945	28949	28937	28937	she	430	“ Since when ? ”
+28950	28974	28975	28975	His	557	“ Probably since the first moment I saw you . Definitely since the moment I touched you . And absolutely since last night . ”
+29145	29157	29158	29158	He	557	“ I need you to fuck me , Simon . Please . ”
+29170	29173	29158	29158	He	557	“ Bedroom . ”
+29174	29184	29185	29185	she	430	“ No . Here . Now . Right now , ”
+29234	29253	29254	29254	he	557	“ Fuck ! I ca n’t think when you do that . I do n’t want to wait , ”
+29278	29285	29286	29286	Her	430	“ Do n’t wait . Please . ”
+29298	29305	29306	29306	His	557	“ You know I ca n’t . ”
+29324	29328	29314	29314	he	557	“ You can . ”
+29391	29395	29396	29396	Simon	1520	“ Touch me . ”
+29413	29423	29396	29396	Simon	1520	“ Oh Jesus , you ’re so fucking wet . ”
+29424	29428	29429	29429	she	430	“ For you , ”
+29433	29466	29467	29467	she	430	“ So do n’t tell me that no woman wants you for anything other than your money . I want you so damn desperately that I ’m begging you to fuck me , ”
+29563	29569	29570	29570	She	430	“ Yes . Touch me . ”
+29602	29630	29631	29631	he	557	“ You ’re so hot . So damn responsive . It ’s so hard to believe that you want me like this . Tell me . Again , ”
+29642	29652	29631	29631	he	557	“ I need you , Simon . Fuck me . ”
+29653	29657	29676	29676	he	557	“ Only me ? ”
+29658	29674	29676	29676	he	557	“ Only you . You ’re the only one who makes me feel like this . ”
+29738	29758	29759	29759	His	557	“ I want you so fucking much , Kara , but I ’m not sure I can do this . ”
+29790	29820	29781	29781	she	430	“ Hold my hands , Simon . Take control . Fuck me how you need to . I do n’t care , as long as you do it now . ”
+29881	29900	29901	29901	she	430	“ Yes . You have control . I ’m exactly where you want me . Now take me , ”
+30030	30038	30014	30014	She	430	“ Yes . You feel so good . ”
+30054	30078	30039	30039	She	430	“ Shit . You ’re so wet . Nothing between you and my cock . There ’s no fucking better feeling than this , ”
+30362	30372	30373	30373	he	557	“ Holy fuck . Holy fuck . Holy fuck , ”
+30446	30453	30454	30454	he	557	“ I think I just died , ”
+30461	30478	30479	30479	she	430	“ I guess I must be dead right along with you then . I was there , ”
+30549	30558	30544	30544	Simon	1520	“ I ’m heavy . I ’m sorry . ”
+30568	30573	30564	30564	she	430	“ It was fine . ”
+30574	30580	30581	30581	he	557	“ It was beyond fine , ”
+30590	30596	30597	30597	she	430	“ Thank you , Simon , ”
+30601	30605	30606	30606	he	557	“ For what ? ”
+30629	30635	30612	30612	he	557	“ For what just happened . ”
+30685	30701	30676	30676	She	430	“ Sweetheart , do n’t thank me . I should be worshipping at your feet . ”
+30702	30714	30715	30715	She	430	“ Ah … well … if you must … go ahead . ”
+30738	30749	30735	30735	He	557	“ Ca n’t right now . You wore me out . ”
+30750	30754	30755	30755	She	430	“ Ungrateful cad . ”
+30763	30779	30780	30780	he	557	“ I do n’t need to be at your feet . I already worship you , ”
+30813	30827	30828	30828	Denim	59	“ Yeah , yeah … men will say anything after a decent orgasm . ”
+30857	30884	30885	30885	he	557	“ It was a lot more than a good fuck . You were crying . Just tell me if they were good tears or bad tears , ”
+30894	30900	30885	30885	he	557	“ Good . Definitely good . ”
+30944	30957	30930	30930	She	567	“ I need to shower . Someone made me all … wet . ”
+31292	31307	31308	31308	She	27	“ Thank you , James . I ’ll see you in a little bit . ”
+31330	31352	31353	31353	James	44	“ Have a nice visit , Ms. Kara . I ’ll be here waiting for you . Give Helen my best . ”
+31366	31370	31371	31371	She	27	“ Will do . ”
+31497	31511	31487	31487	Helen	27	“ How is my son treating you ? You look good . Rested . ”
+31512	31520	31521	31521	Kara	430	“ Let me get us some coffee . ”
+31555	31572	31573	31573	She	430	“ I ’m doing well . Classes are good . It ’s getting to crunch time . ”
+31590	31608	31573	31573	She	430	“ Honey , you do n’t have to serve coffee . You are n’t an employee anymore . ”
+31785	31792	31793	31793	She	27	“ I need my caffeine fix . ”
+31802	31813	31793	31793	She	27	“ I just got you some at the same time . ”
+31827	31846	31814	31814	She	27	“ And Simon is treating me fine . More than fine . He ’s a wonderful … friend . ”
+31865	31895	31862	31862	Helen	27	“ He sounds happy . I talk to him almost every day . I have n’t heard him so upbeat in a long time . He sounds completely smitten . ”
+31896	31901	31902	31902	Kara	430	“ He ’s not , ”
+31914	31926	31927	31927	God	1520	“ We ’re not . I mean , we ’re friends . ”
+31946	31966	31967	31967	Helen	27	“ Uh huh . And Simon talks about you every day , nonstop for an hour because … why ? ”
+31988	32018	32019	32019	Helen	27	“ I live in his home . He ’s helping me . It ’s only natural that he talks about a roommate . We see each other every day . ”
+32022	32057	32019	32019	Helen	27	“ Sweetie , he and Sam see each other every day , too , and he certainly does n’t ramble on about his brother . And he ’s never talked about a woman before . ”
+32084	32096	32070	32070	Simon	1520	“ He and Sam do n’t live in the same home . ”
+32097	32110	32111	32111	Her	430	“ You like him . And he likes you . A lot . ”
+32140	32164	32129	32129	She	430	“ I do . I just do n’t want to expect too much . Simon is n’t into commitments . I get that . ”
+32168	32178	32129	32129	She	430	“ He ’s never even had a steady girlfriend . ”
+32202	32215	32216	32216	Helen	27	“ It does n’t mean that he ca n’t or wo n’t . ”
+32223	32325	32326	32326	Helen	27	“ Something happened to Simon when he was sixteen and he ’s never been the same , Kara . He ’s always been quiet , my intelligent little boy with his face firmly planted in a book and as studious as any parent could ever wish for . But he was also humane , the type of child that would rescue any stray . I remember how badly Sam used to tease him about his bleeding heart . There was hardly a day that went by that Simon was n’t dragging home a lost animal or trying to right some wrong . ”
+32334	32346	32347	32347	Kara	430	“ But I think he lost that when he was sixteen . ”
+32353	32399	32347	32347	Kara	430	“ He did n’t lose it . It ’s still there . Look at how he ’s helping me . I know something happened . I do n’t know the specifics , Helen , but he ’s still as kind as he ’s always been . ”
+32400	32439	32440	32440	Kara	430	“ That ’s just it . He was n’t before he met you . You ’re the first person outside the family who he ’s cared about in a whole lot of years . It gives me hope . ”
+32443	32471	32472	32472	Helen	27	“ Please , do n’t get your hopes up . We ’re friends . That ’s it . Just consider me a stray that he ’s rescuing . ”
+32492	32521	32487	32487	Kara	430	“ Yeah , well , then you ’re the first stray he ’s taken in for about sixteen years . I ’d say that ’s kind of significant . ”
+32545	32562	32537	32537	Simon	1520	“ I ’m sure that ’s not true . He probably just did n’t tell you . ”
+32595	32634	32589	32589	Helen	27	“ I ’m his mother . I have eyes in the back of my head . Ask my boys . It irritates the hell out of them that I know things even when they have n’t told me . ”
+32837	32848	32819	32819	He	67	“ Hopefully , he ’ll tell me what happened someday , ”
+32854	32873	32874	32874	Helen	27	“ I hope he does . He needs to talk about it and leave it in the past , ”
+32908	32915	32916	32916	Kara	430	“ Do you know what happened ? ”
+32928	32947	32925	32925	Helen	27	“ I know the event . He nearly died . But I do n’t think I know everything . ”
+32954	32967	32925	32925	Helen	27	“ It ’s a painful memory for you . I ’m sorry . ”
+32997	33049	32980	32980	She	605	“ There are a lot of memories in the distant past that are painful . I ca n’t always avoid them . My boys went through a childhood that they never should have had . That no child should ever experience . I should have done more , protected them better . ”
+33074	33106	32980	32980	She	605	“ Stop . Right now . Simon and Sam both turned out fine . They ’re sons to be proud of , Helen . You did your best and it shows . ”
+33117	33138	33139	33139	She	430	“ You do n’t have to have a perfect childhood to grow into a terrific adult . Look at me . ”
+33155	33182	33151	33151	Helen	27	“ Sometimes I forget how hard you ’ve had it , sweetie . Your parents left you alone too young , but they raised you right . ”
+33183	33209	33210	33210	Kara	430	“ And you raised your boys right . I do n’t know Sam , but I do know Simon . He ’s a wonderful man , ”
+33276	33286	33287	33287	Helen	27	“ Simon invited me to Sam ’s party tomorrow . ”
+33290	33317	33287	33287	Helen	27	“ Simon ’s annual birthday bash , hosted by none other than his brother , Sam . You are going to go , are n’t you ? ”
+33318	33338	33339	33339	Kara	430	“ Yep . Simon wants me to go . Are there going to be a lot of people there ? ”
+33408	33413	33414	33414	Helen	27	“ Are you nervous ? ”
+33439	33457	33431	33431	Helen	27	“ A little . It ’s not exactly a crowd that I ’m used to mingling with . ”
+33499	33552	33489	33489	Helen	27	“ One thing I ’ve learned over the years is that rich people are n’t really that much different than normal folks . Some are nice . Some are not so nice . You ’ll be fine . Having money does n’t make any of them better than you are , sweetie . ”
+33642	33645	33634	33634	She	430	“ Simon , ”
+33731	33741	33742	33742	She	430	“ Oh my God , I have to leave . ”
+33754	33757	33742	33742	She	430	“ Why ? ”
+33765	33781	33758	33758	Helen	27	“ Simon ’s threatening to cook if I do n’t get back to the condo . ”
+33808	33823	33799	33799	Helen	27	“ An ominous threat coming from Simon . He ’s likely to hurt himself . ”
+33824	33842	33843	33843	Kara	430	“ Yep . He ’s a culinary disaster if he tries anything except sandwiches or microwave dinners , ”
+33863	33869	33870	33870	Kara	430	“ Sneaky , manipulative man , ”
+33881	33892	33874	33874	she	430	“ He ’s obviously missing you . It ’s romantic . ”
+33909	33921	33922	33922	Kara	430	“ Just do n’t let him get away with too much . ”
+33961	33969	33970	33970	Kara	430	“ I ’ll see you tomorrow night , ”
+34722	34728	34710	34710	James	44	“ Thank you , James . ”
+34754	34771	34739	34739	she	430	“ You ’re most welcome , Ms. Kara . As always . Have a nice evening . ”
+34772	34777	34739	34739	she	430	“ You , too . ”
+35097	35102	35091	35091	he	654	“ Simon , are you- ”
+35243	35268	35239	35239	she	430	“ God , you ’re huge . Muscular . I knew you were ripped , but you make male strippers look like a joke . ”
+35284	35289	35293	35293	Hudson	27	“ I ’m scarred . ”
+35355	35386	35348	35348	she	430	“ Please do n’t ask me not to touch you , Simon . I need to touch you . I think I ’ll die if you do n’t let me . ”
+35434	35443	35444	35444	he	654	“ I do n’t like to be touched , ”
+35451	35464	35465	35465	she	430	“ Do n’t like it , or are n’t used to it ? ”
+35499	35505	35506	35506	he	654	“ I do n’t know , ”
+35517	35526	35527	35527	she	430	“ You have a beautiful body , Simon , ”
+35606	35614	35602	35602	her	654	“ You ’re so hard , Simon . ”
+35623	35628	35617	35617	He	654	“ Fuck ! Kara . ”
+35654	35666	35667	35667	He	654	“ Mmmm … you smell so good . Taste even better . ”
+35709	35712	35713	35713	he	654	“ Stop , ”
+35746	35760	35761	35761	she	654	“ You feel so good , Simon . Do n’t make me stop , ”
+35774	35781	35764	35764	she	654	“ I want to taste you . ”
+35787	35790	35785	35785	she	654	“ Everywhere . ”
+35839	35848	35849	35849	He	654	“ Kara … I have n’t . I don’t- ”
+35890	35906	35907	35907	Her	668	“ Good . Then you wo n’t know if I do n’t do it well . ”
+35939	35951	35952	35952	he	654	“ Not possible that it would n’t be incredible with you , ”
+36186	36191	36192	36192	He	50	“ Shit . Kara . ”
+36327	36332	36309	36309	She	668	“ Oh , Christ . ”
+36438	36450	36451	36451	he	50	“ Oh , hell yeah . I ’m gon na come , ”
+36623	36628	36615	36615	he	50	“ Was it good ? ”
+36648	36662	36640	36640	Simon	1520	“ Sweetheart , if it was any better it would have killed me . ”
+36697	36712	36713	36713	she	430	“ I actually was coming up to ask you what you wanted for dinner , ”
+36737	36760	36713	36713	she	430	“ But seeing you gloriously nude took away my appetite for food . I wanted to take a bite out of you . ”
+36787	36800	36801	36801	he	50	“ I was n’t nude until you stripped me of my towel , ”
+36805	36829	36830	36830	she	185	“ How do you expect me to resist ? You ’re a walking temptation . A testosterone menace in a tiny little towel , ”
+36863	36876	36877	36877	he	50	“ How about I take a bite out of you , now ? ”
+36913	36937	36910	36910	she	430	“ Oh no , you do n’t , mister . I ’m starving now . Put that thing away . It ’s dangerous . ”
+37032	37044	37045	37045	he	50	“ Come on , sweet thing . Just a tiny nibble , ”
+37052	37066	37045	37045	he	50	“ Nope . No way . Put it away . I need food . ”
+37986	37997	37980	37980	Simon	1520	“ Oh good . You ’re here . I was just- ”
+38011	38016	38017	38017	she	430	“ I ’m ready , ”
+38065	38074	38056	38056	his	682	“ D - Do I look all right ? ”
+38086	38091	38092	38092	he	682	“ You ’re stunning , ”
+38107	38123	38124	38124	She	430	“ But you ’re showing way too much skin . And your hair is down . ”
+38130	38135	38124	38124	She	430	“ Is that bad ? ”
+38136	38152	38153	38153	He	682	“ I ’m not sure that I want other men to see you this way . ”
+38187	38197	38198	38198	Kara	430	“ You ’re way too much of a temptation . ”
+38220	38242	38243	38243	she	430	“ I think you ’re the only one who thinks so , Simon . I think you need your eyes checked , ”
+38248	38263	38264	38264	he	682	“ You ’re so fucking beautiful that it almost hurts to look at you , ”
+38273	38286	38264	38264	he	682	“ My cock got hard the minute you walked into the room . ”
+38352	38360	38361	38361	Simon	1520	“ Kara , you drive me insane , ”
+38387	38406	38407	38407	he	682	“ If we start this , we ’ll never get to the party . Not that I mind , ”
+38410	38416	38417	38417	she	430	“ It ’s your party , ”
+38422	38430	38417	38417	she	430	“ You ca n’t blow it off . ”
+38431	38437	38438	38438	he	682	“ Kiss me and see , ”
+38480	38496	38497	38497	He	682	“ Your mom would never forgive me . Let ’s go , party - boy . ”
+38523	38529	38530	38530	he	682	“ You need a coat , ”
+38540	38560	38561	38561	she	430	“ I have one . I ’ll grab it . And I ’m sure Sam ’s house is warm , ”
+38642	38652	38639	38639	He	682	“ Do you think that will be warm enough ? ”
+38653	38688	38689	38689	Kara	430	“ Yes . It ’s fine . We only have to get in and out of the car . I probably would n’t have even worn a jacket if you had n’t mentioned it . ”
+38751	38765	38766	38766	he	682	“ I ’m still not sure I like you showing that much skin , ”
+38820	38827	38828	38828	she	430	“ It ’s not that sexy , ”
+38844	38865	38866	38866	he	682	“ It ’s way too sexy . Every man there will be thinking the same thing as I ’m thinking , ”
+38900	38906	38884	38884	She	430	“ And what is that ? ”
+38907	38915	38916	38916	he	682	“ That I want to fuck you , ”
+38979	38982	38983	38983	He	682	“ Simon ! ”
+38993	38998	38983	38983	He	682	“ It ’s true . ”
+38999	39004	39005	39005	she	430	“ You ’re terrible , ”
+39016	39029	39030	39030	he	682	“ Oh , I can be bad . Very , very bad , ”
+39057	39068	39069	39069	Kara	430	“ Kiss me and I might behave . For now . ”
+39204	39216	39217	39217	Simon	1520	“ What in the hell are you wearing underneath this dress ? ”
+39232	39237	39217	39217	Simon	1520	“ Stockings , panties . ”
+39273	39286	39269	39269	she	430	“ Christ . Those are n’t underwear . Your ass is showing . ”
+39336	39351	39324	39326	Simon ’s assistant	366	“ You bought it . Matching sets . All very similar to this one . ”
+39352	39363	39364	39364	he	366	“ It ’s not that I do n’t appreciate it , ”
+39382	39393	39394	39394	she	430	“ I thought you said you were going to behave , ”
+39411	39437	39440	39440	God	1520	“ I lied . That was before I felt these panties and had to see them . Now I want to see the matched set . ”
+39469	39485	39486	39486	she	430	“ Simon , we ’re in the elevator . We ca n’t do this here , ”
+39530	39548	39521	39521	he	366	“ Private elevator for the penthouse . It ’s not like someone is waiting to use it . ”
+39567	39573	39574	39574	She	430	“ You ’re so beautiful . ”
+39671	39690	39691	39691	He	366	“ I can smell your need and it ’s making my mouth water for a taste of you . ”
+39946	39953	39954	39954	She	430	“ Oh , God . Simon . ”
+40249	40257	40258	40258	She	430	“ Fuck me , Simon . Please . ”
+40273	40276	40258	40258	She	430	“ Upstairs . ”
+40297	40302	40303	40303	she	430	“ Here . Now , ”
+40337	40357	40323	40323	she	430	“ My hands will stay on the wall . Please . Just do it . I need you now . ”
+40358	40361	40362	40362	His	366	“ Fuck ! ”
+40389	40394	40395	40395	Simon	1520	“ I need you . ”
+40492	40499	40500	40500	Kara	430	“ Please , Simon . Now . ”
+40566	40572	40555	40555	She	430	“ Did I hurt you ? ”
+40582	40588	40573	40573	Simon	1520	“ You ’re so tight . ”
+40589	40600	40601	40601	She	430	“ No . No . It just feels so good . ”
+40612	40628	40629	40629	Simon	1520	“ Jesus , Kara . You deserve better than getting fucked in a damn elevator . ”
+40652	40664	40637	40637	his	366	“ But I ca n’t stop . Never want to stop . ”
+40665	40688	40689	40689	Her	430	“ You ca n’t stop . I could n’t take it if you stopped . Harder , Simon . Give me more . ”
+40871	40876	40845	40845	He	366	“ Oh , God ! ”
+40910	40916	40903	40903	she	430	“ Touch me . Please . ”
+40917	40922	40923	40923	Simon	1520	“ Come for me , ”
+41077	41080	41081	41081	Simon	1520	“ Fuck ! ”
+41229	41248	41223	41223	her	430	“ I ’m a mess . I need to go back to the condo for a few minutes . ”
+41264	41279	41261	41261	she	430	“ I guess I need to get a new pair of panties , too . ”
+41288	41294	41295	41295	She	430	“ Did you lose them ? ”
+41312	41322	41323	41323	He	366	“ No . Some caveman ripped them off me . ”
+41328	41336	41337	41337	He	366	“ Must have been some lusty encounter . ”
+41353	41360	41361	41361	She	430	“ I ’ll buy you more . ”
+41366	41403	41361	41361	She	430	“ I do n’t need more . I have several drawers filled with lingerie . I could go without doing laundry for a month . I ’ve never owned so much lingerie in my entire life . ”
+41404	41432	41433	41433	His	366	“ I ’ll still get you more . If what you have is as sexy as the pair I just destroyed , it wo n’t last long . ”
+41481	41495	41464	41464	She	430	“ You ca n’t ruin all my lingerie . Those things are expensive . ”
+41496	41508	41509	41509	His	366	“ I did n’t hear you complaining a few minutes ago . ”
+41525	41556	41557	41557	Kara	430	“ I ’d buy lingerie for you every day if what just happened is the result . Hell , I ’d buy it for you just to see you smile . ”
+41683	41689	41674	41674	she	430	“ Can you zip me ? ”
+41702	41714	41692	41692	she	430	“ Do I have to ? We could skip the party . ”
+41715	41718	41719	41719	She	430	“ Yes . ”
+41794	41806	41807	41807	Kara	430	“ Did I hurt you ? I was a little rough . ”
+41867	41890	41858	41858	She	430	“ I was there , Simon . I think I was begging for it . No , you did n’t hurt me . ”
+41943	41953	41954	41954	She	430	“ Oh God , I hope nobody heard me . ”
+41980	41990	41957	41957	she	430	“ I doubt anyone heard you , although I ’m surprised”-the
+42017	42021	42022	42022	Simon	1520	jumped-“that nobody called . ”
+42030	42035	42022	42022	Simon	1520	“ Oh , God . ”
+42082	42085	42086	42086	His	710	“ Hudson . ”
+42190	42210	42177	42177	she	430	“ No . Everything is fine . I needed something and I stopped the elevator to look for it . ”
+42251	42272	42243	42243	she	430	“ Yes . I ’m quite ecstatic that I found it . Thanks for checking . Have a good night . ”
+42296	42309	42291	42291	She	430	“ How can you tell such a whopper without blinking an eye ? ”
+42319	42344	42310	42310	Simon	1520	“ I ’m quite sure I probably blinked since the average person blinks every ten seconds . And what I said is absolutely true . ”
+42355	42374	42345	42345	He	710	“ I needed something . I found it here in the elevator . And I was definitely ecstatic . ”
+42384	42390	42378	42378	She	430	“ And I was orgasmic . ”
+42400	42411	42412	42412	he	710	“ I know . That ’s why I was ecstatic , ”
+42421	42434	42435	42435	She	430	“ Hearing you come is the sweetest sound I ’ve ever heard . ”
+42499	42521	42484	42484	she	430	“ I ’ll be out in a minute . Try not to get my new pair of panties wet this time . ”
+42532	42545	42522	42522	She	430	“ Getting your panties wet is becoming my main goal in life . ”
+43032	43038	43039	43039	she	430	“ This is … spectacular , ”
+43056	43066	43067	43067	he	44	“ You see why I decided not to drive ? ”
+43085	43095	43096	43096	she	430	“ You draw quite a crowd , Mr. Hudson , ”
+43109	43129	43130	43130	His	44	“ Happy Birthday . I have a present for you , but I ’ll give it to you later . ”
+43149	43163	43130	43130	His	44	“ I thought you gave it to me last night . And tonight . ”
+43164	43167	43168	43168	She	430	“ Simon ! ”
+43248	43276	43239	43239	Simon	1520	“ Well … just saying . But I wo n’t argue if you want to do it again . In fact , we could go home right now- ”
+43277	43285	43286	43286	She	430	“ In the house , birthday boy . ”
+43314	43323	43324	43324	he	733	“ Tomorrow night we ’re going out alone , ”
+43342	43345	43346	43346	she	430	“ Tomorrow ? ”
+43351	43364	43346	43346	she	430	“ For your birthday . I ’m taking you out . Alone . ”
+43385	43403	43365	43365	She	430	“ You are n’t taking me out . You ’ve done enough . It ’s not necessary . ”
+43404	43410	43411	43411	he	733	“ It ’s very necessary , ”
+43418	43428	43411	43411	he	733	“ I want to . It ’s your birthday . ”
+43438	43453	43411	43411	he	733	“ Hey , bro ! Glad you finally decided to join your own party . ”
+43586	43595	43596	43596	Simon	1520	“ Kara , this is my brother Sam , ”
+43629	43648	43649	43649	Sam	244	“ Well , bro , no need to ask why I have n’t seen much of you lately , ”
+43663	43684	43657	43657	Kara	430	“ It ’s nice to meet you , Sam . I ’ve heard a lot about you from your mother . ”
+43685	43689	43690	43690	His	244	“ A pleasure . ”
+43709	43728	43729	43729	Sam	244	“ Mom ’s talked about you a lot , too . All of it good , of course , ”
+43788	43800	43801	43801	Sam	244	“ Eat , get a drink , have a good time , ”
+43811	43818	43801	43801	Sam	244	“ Happy birthday , little brother . ”
+43819	43827	43828	43828	Simon	1520	“ Yeah , thanks for the party , ”
+43867	43877	43878	43878	Sam	244	“ You love me . You know you do . ”
+43891	43895	43896	43896	Simon	1520	“ Not today , ”
+43923	43926	43927	43927	Simon	1520	“ Bastard , ”
+43947	43955	43936	43936	Kara	430	“ He ’s your brother , Simon . ”
+43956	43960	43961	43961	he	244	“ Not today , ”
+44249	44256	44257	44257	she	749	“ God , that was delicious , ”
+44271	44281	44282	44284	the older waiter	753	“ May I get you anything else , madam ? ”
+44288	44298	44299	44299	She	749	“ No , thank you . I ’m full . ”
+44330	44337	44338	44338	he	753	“ I love that about you , ”
+44348	44351	44352	44352	She	749	“ What ? ”
+44386	44426	44427	44427	he	753	“ You enjoy your food . You do n’t pick away at it or eat like a bird . I ’m almost jealous when I watch your face . If it ’s good , you look well - pleasured , ”
+44438	44448	44449	44449	She	749	“ Watching you eat is almost an erotic experience . ”
+44460	44489	44452	44452	she	749	“ If you do n’t have an endless supply and you ’re never sure when your next meal will be , you appreciate the taste of good food . ”
+44490	44501	44502	44502	he	753	“ Will food always be an orgasmic experience for you ? ”
+44534	44537	44525	44525	her	749	“ Probably . ”
+44538	44541	44525	44525	her	749	“ Simon ! ”
+44573	44588	44589	44589	she	749	“ You better circulate , birthday boy . You are the guest of honor , ”
+44596	44610	44611	44611	He	244	“ I ’m going over to talk with your mom for a while . ”
+44944	44969	44978	44978	Kara	430	“ I thought we could spend some time together , Simon . I saw this divine diamond bracelet that I ’d love to have . ”
+45082	45101	45108	45109	the woman	430	“ I ’ve heard about your … arrangements . I was hoping we could come to an agreement . ”
+45768	45780	45781	45781	she	787	“ The problem is … I do n’t really know anymore , ”
+45982	46007	45973	45973	she	430	“ Whatever my brother is giving you , I ’ll give you more if you come to me when he ’s finished with you . ”
+46045	46050	46051	46051	She	787	“ Whoa . Steady . ”
+46084	46092	46066	46066	He	244	“ W - What did you say ? ”
+46106	46120	46121	46121	His	244	“ I ’ll pay . Whatever you want . However much you want . ”
+46211	46217	46218	46218	Sam	244	“ Simon wo n’t mind , ”
+46301	46312	46313	46313	she	787	“ Maddie was right . You are a complete snake , ”
+46322	46328	46313	46313	she	787	“ Maddie ? Maddie Reynolds ? ”
+46427	46433	46420	46420	she	787	“ Please take me home , ”
+46448	46451	46420	46420	she	787	“ Please . ”
+46452	46461	46462	46462	She	787	“ Ms. Kara . Are you all right ? ”
+46483	46496	46497	46497	she	787	“ I ’m not feeling well . I need to go home , ”
+46511	46519	46497	46497	she	787	“ Is there anything I can do ? ”
+46520	46532	46533	46533	She	787	“ Yes . Take me home . I ’ll be fine . ”
+46841	46844	46845	46845	Simon	430	“ Kara ! ”
+46897	46900	46901	46901	He	805	“ Kara ! ”
+46930	46933	46934	46934	He	805	“ Shit ! ”
+47871	47877	47878	47878	he	830	“ Are you tailing her ? ”
+47890	47923	47924	47924	Hoffman	74	“ Of course . I was n’t sure what was going on , but she seems settled for the night . Good neighborhood , decent house . Belongs to a Dr. Reynolds , ”
+47928	47951	47924	47924	Hoffman	74	“ She left . Keep a team on her twenty - four - seven . I want to know if she sneezes . ”
+47952	47960	47961	47961	Simon	430	“ Okay , boss . Will do . ”
+49305	49310	49288	49289	any man	1553	“ Hello , Kara . ”
+49374	49380	49362	49362	Sam	244	“ What do you want ? ”
+49408	49415	49399	49399	He	867	“ I just want to talk . ”
+49460	49463	49452	49452	his	867	“ Please . ”
+49484	49497	49498	49498	she	430	“ I do n’t know you and I have nothing to say , ”
+49520	49541	49542	49542	Kara	430	“ I ’m not going away until you talk to me , so you might as well do it now . ”
+49560	49573	49574	49574	He	244	“ Just say whatever it is you have to say and leave . ”
+49581	49597	49598	49598	She	430	“ I could use a cup of coffee . It ’s been a long day . ”
+49603	49620	49621	49621	He	244	“ I just interviewed there . I really do n’t want to go back in there . ”
+49630	49636	49621	49621	He	244	“ We can go there . ”
+49644	49668	49641	49641	she	430	“ Been there , done that one , too . There is n’t a place in this neighborhood where I have n’t interviewed . ”
+49888	49893	49883	49883	Sam	244	“ I ’m sorry . ”
+49922	49966	49909	49909	she	430	“ That was a shitty thing I did at Simon ’s birthday party . I was so drunk I could barely stand , but that is n’t an excuse . A man needs to be responsible for his actions , drunk or not . ”
+49967	50007	50008	50008	Kara	430	“ Why did you do it ? Why are you doing this ? Did Helen send you to apologize ? I did n’t mention a word about what you did . I ’m not sure how she would know . ”
+50038	50095	50031	50031	Sam	244	“ My mother knows everything , and I appreciate the fact that you did n’t mention it . You did n’t have to . Simon figured it out and beat the hell out of me when I confessed . Our barroom brawl ended the party rather abruptly , soon after I came inside and you left . ”
+50105	50158	50096	50096	He	244	“ And no , my mother did n’t send me here . I ’m here because I want to be . Because Simon is miserable and I was wrong . He does n’t know I ’m here and would probably smash my face in again if he knew I ’d approached you . ”
+50222	50261	50262	50262	Sam	244	“ Why ? Why would Simon do that ? He was already in the process of lining up another woman . I saw him kissing her on the terrace when I walked outside . It makes no sense . ”
+50270	50284	50262	50262	Sam	244	“ He did n’t line up anyone . What did she look like ? ”
+50285	50307	50308	50308	Kara	430	“ Tall , thin , blonde , perfect make - up but she ’d probably look just as good without it . ”
+50313	50316	50308	50308	Kara	430	“ Beautiful . ”
+50322	50393	50317	50317	His	244	“ Constance . I saw her march in as I was stepping outside . I saw you go out on the terrace , but I got caught up by a client for a few minutes before I could follow you . If it makes you feel any better , he did n’t take her up on her offer . Connie was coming in angry , and Simon was already gone . ”
+50410	50489	50490	50490	Kara	430	“ Simon would never fuck Connie . She ’s married to a man old enough to be her grandfather , but her husband is n’t exactly generous with his money . My brother does n’t do married women . And if he was fu … uhh … having a relationship with you , he certainly would n’t be arranging another one . Simon may not get emotionally involved , but he only has one woman at a time . ”
+50650	50663	50639	50639	she	430	“ Thanks for telling me all of this . And for apologizing . ”
+50690	50710	50676	50676	Sam	244	“ He cares about you . I did n’t know or I would never have made you an offer . ”
+50711	50732	50676	50676	Sam	244	“ Why did you ? I ’m sure there are plenty of women who throw themselves at you every day . ”
+50733	50740	50741	50741	he	244	“ Because I ’m a billionaire , ”
+50752	50838	50741	50741	he	244	“ I saw how happy Simon was after you came to live with him . I ’ve heard my mother talk about you . I guess I thought that once you and Simon split , that I could grab a little happiness for myself . I was drunk . Feeling sorry for myself . I ’m an asshole . You ’re the first woman my brother has ever cared about and I betrayed him . And I insulted you . You did n’t deserve that . ”
+50854	50895	50839	50839	Kara	430	“ Simon does n’t care about me that way . But I admit , I was insulted . You ca n’t buy any woman you want , Sam . And I do n’t believe it was really me you wanted . ”
+50902	50945	50946	50946	His	244	“ I wanted … something . I guess in my drunken pity party , I was ready to try anything . And there ’s only one woman who cared about anything except my money in the past . And I blew it . ”
+50957	50966	50946	50946	His	244	“ Are you going to accept my apology ? ”
+51043	51067	51032	51032	She	880	“ Yes , I accept . I guess we all say and do things that we would n’t normally do when we drink . ”
+51100	51112	51113	51113	Sam	244	“ But I ’m not sure why it matters to you . ”
+51137	51175	51124	51124	she	880	“ Kara , Simon cares . He ’s had a rough time and he may not know how to express it . But he does . Please do n’t judge my brother because I was an asshole . ”
+51251	51266	51242	51242	His	244	“ It is n’t you , Sam . It is n’t what you did . ”
+51277	51290	51291	51291	He	244	“ What is it ? Tell me . I ’ll fix it . ”
+51330	51344	51320	51320	they	883	“ You ca n’t . Just know that it is n’t your fault . ”
+51361	51375	51376	51376	He	244	“ You do n’t like or respect me at all , do you ? ”
+51402	51425	51426	51426	Her	880	“ I do n’t know you well enough to like or dislike you . And money does n’t buy respect for me . ”
+51441	51454	51455	51455	He	244	“ But I do respect you a lot for loving your brother . ”
+51464	51498	51460	51460	he	244	“ Who says I love him ? He ’s a pain in the ass and he messed up my face so bad that I could n’t step outside the house for a week . ”
+51515	51543	51544	51544	Sam	244	“ I ’m sorry . I know you and Simon are close and I would never want to be the cause of any problems in your relationship . ”
+51547	51562	51563	51563	She	880	“ We ’ve been through tough times before . We ’ll get through it . ”
+51569	51574	51575	51575	He	244	“ Are you speaking ? ”
+51579	51588	51575	51575	He	244	“ Trading insults . It ’s a start . ”
+51589	51603	51575	51575	He	244	“ Do you know what happened to him ? How he got scarred ? ”
+51625	51644	51616	51616	Sam	244	“ You ’ve seen his scars ? All of them ? Is that why you ’re avoiding him ? ”
+51659	51671	51648	51648	her	880	“ Jesus , do you think every woman is that superficial ? ”
+51684	51737	51681	51681	she	880	“ Your brother is the most attractive man I have ever met , scars or no scars . He ’s hot enough to melt glaciers in Antarctica . Obviously , he suffered a severe trauma and I hate that for him . But I do n’t give a damn about his scars . ”
+51738	51749	51756	51756	Sam	244	“ You think he ’s better looking than I am ? ”
+51771	51779	51756	51756	Sam	244	“ Yes . No contest . Sorry . ”
+51813	51825	51809	51809	she	880	“ I wonder if you could give Simon something for me . ”
+51835	51838	51826	51826	Sam	244	“ What ? ”
+51839	51849	51850	51850	Sam	244	“ A check . I need to pay him . ”
+51861	51868	51850	51850	Sam	244	“ That good , was it ? ”
+51869	51901	51902	51902	Kara	430	“ He put money in my account . I want him to have most of it back . I intend to pay back the rest later when I get a job . ”
+51938	51975	51976	51976	He	244	“ You want to pay Simon ? Newsflash … in case you did n’t realize it , he ’s a billionaire . If he wanted you to have the money , I ’m not taking it . ”
+51989	52009	52010	52010	Her	880	“ He ’d really chew my ass up and spit it out . He ’s in a lousy mood . ”
+52021	52050	52014	52014	she	880	“ Yeah . I did n’t think about that . I do n’t want him mad at you . I just wanted to get it back to him . ”
+52051	52058	52059	52059	Sam	244	“ Without having to see him ? ”
+52067	52078	52079	52079	He	244	“ Guess you ’ll just have to do it personally . ”
+52088	52101	52102	52102	She	880	“ I ’d better get moving . I have studying to do . ”
+52114	52126	52106	52106	Sam	244	“ Are you living with Maddie Reynolds ? Redhead ? Beautiful ? ”
+52135	52138	52127	52127	He	244	“ Yes . ”
+52159	52164	52165	52165	He	244	“ How is she ? ”
+52194	52215	52185	52185	Kara	430	“ She ’s good . She has a private practice and does some work in a free children ’s clinic . ”
+52216	52227	52228	52228	Sam	244	“ She made it . She graduated from medical school . ”
+52250	52270	52243	52243	He	244	“ Yep . One of the best and kindest physicians I ’ve ever met . And an awesome friend . ”
+52301	52309	52289	52289	she	430	“ Take care , Sam . Bye . ”
+52792	52800	52777	52777	she	430	“ Shut the fuck up , bitch , ”
+52991	52995	52970	52970	She	430	“ Fucking bastards ! ”
+53213	53219	53220	53220	she	430	“ Do n’t hurt Sam , ”
+53232	53242	53243	53244	The man	244	“ Sorry , sir . Did n’t recognize you . ”
+53302	53307	53296	53296	Sam	244	“ No . No . ”
+53415	53435	53409	53409	he	244	“ Kara ! Are you ok ? Fuck ! Your head is pouring blood . What were you doing ? ”
+53464	53470	53471	53471	she	430	“ Wanted to help you , ”
+53478	53482	53471	53471	she	430	“ Crazy woman . ”
+53507	53518	53504	53504	he	244	“ Get an ambulance . Now . She ’s hurt . ”
+53536	53540	53541	53541	Her	430	“ Tell Simon … ”
+53593	53610	53611	53611	Simon	430	“ You can tell him yourself . He ’s on his way and pissed as hell . ”
+53662	53671	53645	53645	she	430	“ Kara . Are you still with me ? ”
+53708	53711	53714	53714	his	244	“ Simon . ”
+54155	54158	54159	54159	she	430	“ Simon , ”
+54539	54542	54543	54543	Simon	430	“ Kara ! ”
+54582	54587	54588	54588	Her	430	“ You ’re awake . ”
+54671	54676	54677	54677	she	430	“ Where am I ? ”
+54715	54744	54745	54745	Simon	430	“ You have several stitches from a cut on your forehead . From what Sam told me , you ’re damn lucky they did n’t crack your skull . ”
+54754	54761	54762	54762	she	430	“ I have a hard head , ”
+54796	54803	54789	54789	He	925	“ Like I have n’t noticed ? ”
+54828	54838	54839	54839	Her	430	“ You ’re never leaving me again . Ever . ”
+54859	54866	54867	54867	she	430	“ Forever is a long time , ”
+54897	54937	54890	54890	he	925	“ I do n’t give a fuck . You ’re going back home with me , and I ’m not leaving your safety in the hands of a few green security agents . If Sam had n’t been there ... ”
+54938	54954	54955	54955	she	430	“ He saved my life , Simon . Your brother risked his life for me , ”
+55002	55040	54999	54999	he	244	“ He damn well should have seen you home . And the security guys were inexperienced . They should have been tailing you so close that they could hear you breathe . Their reaction time was unacceptable . ”
+55041	55089	54999	54999	he	244	“ I left . I did n’t give Sam a chance to offer to take me home . He was asking questions about Maddie and I wanted to leave . And the agents got there fast . These guys were quick . It all happened in seconds . ”
+55097	55115	55116	55116	he	935	“ Sam should n’t have been there at all . You would have been home and safe , ”
+55130	55174	55125	55125	She	935	“ You do n’t know that . They might have gotten to me anyway . It would have been worse if Sam had n’t been there . Please do n’t blame Sam or the agents . I ’m grateful to all of them . ”
+55175	55232	55233	55233	He	936	“ Does n’t matter . You ’re coming home with me tomorrow . And you ’ll have better security than the president of the United States . Even Maddie agrees that you ’re safer at the condo . Although I ’m not sure she ’s thrilled about you being in such close proximity to any Hudson . ”
+55256	55261	55262	55262	she	936	“ Maddie was here ? ”
+55278	55303	55304	55304	She	936	“ She just left an hour or two ago . I called her . She was here all evening . You do n’t remember ? ”
+55309	55330	55304	55304	She	936	“ Everything that happened after the actual attack is just snippets of memory . Did I really vomit on you ? ”
+55331	55336	55337	55337	He	936	“ You remember that ? ”
+55362	55381	55304	55304	She	936	“ Maddie found me a pair of scrubs and a shower after you got settled in a room . ”
+55382	55390	55355	55355	she	936	“ Oh God . I ’m sorry . ”
+55406	55427	55428	55428	Kara	430	“ Why ? You did n’t do it on purpose . And I was actually relieved that you were awake . ”
+55457	55463	55468	55468	He	936	“ Is Sam all right ? ”
+55464	55467	55468	55468	He	936	“ Fine . ”
+55476	55513	55468	55468	He	936	“ Except for the fact that he had to be in the same room with Maddie Reynolds . Sam looked uncomfortable as hell and Maddie looked like she wanted to kill him , slowly and painfully . ”
+55514	55524	55525	55525	she	430	“ I wish I knew what happened between them , ”
+55560	55573	55574	55574	He	936	“ You want some pain medication ? I can call the nurse . ”
+55581	55586	55574	55574	He	936	“ No . Wait . ”
+55613	55661	55662	55662	His	936	“ I ca n’t go home with you , Simon . I ’ll go back to Maddie ’s . I ’ll be fine . They caught one guy and the other one is probably running scared . I doubt his main concern is to come after me . ”
+55687	55706	55707	55707	he	936	“ The matter is n’t up for debate . You . Are . Coming . With . Me , ”
+55719	55741	55713	55713	She	430	“ You are n’t my keeper . I do n’t need one . I ’ve been alone for a long time . ”
+55821	55834	55835	55835	he	936	“ Yeah ... well ... get used to having company , sweetheart , ”
+55850	55875	55835	55835	he	936	“ As long as you ’re in danger , I wo n’t be very far away . And you wo n’t be without protection . ”
+55947	55978	55979	55979	Her	430	“ You ca n’t tell me what to do . We ’ve only known each other for a handful of weeks . Why are you concerning yourself about my safety ? ”
+56043	56056	56057	56057	he	936	“ Your safety has been my concern for over a fucking year ! ”
+56069	56099	56057	56057	he	936	“ And there has n’t been a day that has passed in all that time when I have n’t been completely obsessed with whether or not you were safe . ”
+56100	56110	56111	56111	Her	430	“ But we just met a few weeks ago ... ”
+56149	56176	56119	56119	He	936	“ Mom talked about you all the time . She pointed you out to me over a year ago while you were serving in the restaurant . ”
+56188	56238	56177	56177	He	936	“ I ca n’t really explain it because I do n’t understand it myself , but from that moment on , I felt compelled to look out for you . Fuck , I even followed you home every night just to make sure you got to your apartment safely . ”
+56248	56264	56241	56241	she	941	“ Like I was your friend because I was a friend of your mother ’s ? ”
+56277	56297	56265	56265	He	936	“ No . Like a goddamn obsession that I could n’t control . Like you ’re mine to protect . ”
+56425	56441	56409	56409	she	941	“ Why me ? There must be tons of women who could use your protection . ”
+56457	56477	56478	56478	He	936	“ I have no idea . You ’re the only woman who ’s ever made me feel this way . ”
+56615	56641	56601	56601	They	406	“ Looking out for me because I was your mother ’s friend was very kind of you . But you ca n’t protect me forever . ”
+56660	56678	56679	56679	His	944	“ You do n’t get it , do you ? I ’m not the least bit kind . ”
+56716	56743	56744	56744	His	944	“ My behavior was n’t magnanimous or unselfish . I wanted to fuck you . I think that ’s a pretty damn self - serving motivation . ”
+56773	56814	56753	56753	She	946	“ If that was your motive , then why did n’t you ? You could have made your presence known , asked your mom to introduce us . I think it ’s pretty obvious that I ’m attracted to you . ”
+56832	56847	56848	56848	He	944	“ I forgot about your pain medication . I ’m sure you ’re hurting . ”
+56871	56877	56862	56864	the small speaker	952	“ Can I help you ? ”
+56885	56893	56894	56894	Simon	430	“ Ms. Foster needs some pain medication . ”
+56912	56919	56900	56900	he	944	“ Someone will be right there , ”
+56992	57002	57003	57003	she	430	“ That tactic wo n’t work on me anymore , ”
+57008	57012	57013	57013	he	944	“ What tactic ? ”
+57030	57055	57056	57056	She	430	“ The one where I ’m supposed to feel like I ’m Little Red Riding Hood and you ’re the big , bad wolf . ”
+57229	57257	57258	57258	His	944	“ Do n’t be so sure that I ’m not the big , bad wolf , little girl . I ’d gobble you up in a heartbeat . ”
+57356	57368	57369	57369	she	138	“ I ’m surprised that I do n’t have a roommate , ”
+57378	57386	57369	57369	she	138	“ This hospital is usually pretty busy . ”
+57447	57468	57444	57444	he	956	“ There are some benefits to being a billionaire who just happens to be a generous donor to medical charities . ”
+57490	57502	57503	57503	Her	138	“ So you asked for a private room because you donate ? ”
+57519	57541	57516	57516	He	956	“ Not me . Sam took care of it while I was taking a shower . And I doubt he asked . ”
+57616	57627	57628	57628	she	138	“ Pain medication . I ’m not used to it , ”
+57635	57643	57644	57644	he	244	“ Sleep . I ’ll be here , ”
+57653	57672	57644	57644	he	244	“ You should go home and sleep . You ’ve been here all night . I ’m fine . ”
+57673	57686	57687	57687	he	244	“ I ’m not leaving until you can come home with me , ”
+57696	57703	57704	57704	she	138	“ Not coming home with you , ”
+57711	57719	57720	57720	His	244	“ We ’ll see . Just sleep . ”
+59104	59110	59111	59111	He	244	“ Sweetheart , what happened ? ”
+59140	59143	59144	59144	she	430	“ Dream , ”
+59155	59160	59161	59161	She	430	“ Just a dream . ”
+59206	59213	59214	59214	He	244	“ What were you dreaming about ? ”
+59241	59250	59251	59251	she	430	“ The attack . It was so real , ”
+59258	59273	59251	59251	she	430	“ It ’s over . You ’re safe . You ’ll always be safe . ”
+59307	59317	59286	59286	he	244	“ No ! Please ! Do n’t go yet . ”
+59346	59358	59333	59333	he	244	“ It ’s okay . I ’m not leaving you alone . ”
+59576	59579	59580	59580	he	244	“ Okay ? ”
+59590	59612	59613	59613	She	430	“ Yeah . I ’m sorry I woke you . I ’ll go back to my own bed in a minute . ”
+59651	59658	59659	59659	he	244	“ You ’re not going anywhere , ”
+59665	59672	59673	59673	she	430	“ But you wo n’t sleep , ”
+59685	59711	59712	59712	His	244	“ I wo n’t get a fucking minute of sleep unless you ’re here . I have n’t slept worth a shit for two weeks . ”
+59735	59740	59725	59725	she	430	“ You ’re naked . ”
+59741	59757	59758	59758	he	244	“ Yeah . I sleep in the raw , sweetheart . Get used to it , ”
+59765	59775	59758	59758	he	244	“ You want to tell me about the nightmare ? ”
+59834	59925	59829	59829	she	430	“ It was just a dream about what happened . Only in the dream , they got me into the car . They were going to rape me before they shot me in the head . I fought , but they were ripping at my clothes . They were so much stronger . All I could think about was that I wanted to die before they could violate me , but the one who got away was on top of me , the other holding the gun to my head . ”
+59949	59975	59976	59976	Her	430	“ But it was so real . I could smell their body odor , see those evil eyes . I woke up just as they ... ”
+60004	60025	59985	59985	Simon	430	“ Shhh ... it ’s okay , sweetheart . You ’re safe . They ca n’t get to you anymore . ”
+60084	60094	60095	60095	she	430	“ Make love to me . Make me forget , ”
+60168	60177	60178	60178	Simon	430	“ Shit ! We ca n’t do this ! ”
+60190	60213	60178	60178	Simon	430	“ There ’s no better feeling than having your hands all over me , but you just got out of the hospital . ”
+60214	60248	60249	60249	She	430	“ Several days ago . And I ’m not hurt . I feel fine . I have a little cut on my forehead . There ’s only one place where I really ache . ”
+60294	60297	60298	60298	Her	430	“ Please . ”
+60327	60340	60341	60341	His	988	“ No ! Christ ! I ’ll come if you touch me . ”
+60379	60388	60370	60370	his	988	“ You ’re wet . So fucking hot . ”
+60389	60395	60396	60396	She	430	“ Because I need you . ”
+60530	60542	60519	60519	He	988	“ No . I ca n’t . I fucking ca n’t . ”
+60702	60711	60712	60712	She	430	“ Simon . It ’s me . Kara . ”
+60725	60730	60719	60719	she	430	“ Talk to me . ”
+60731	60746	60750	60750	he	989	“ I know who you are . I just ca n’t fucking do it . ”
+60756	60760	60750	60750	he	989	“ Kiss me . ”
+60905	60908	60909	60909	He	989	“ Kara . ”
+60929	60942	60909	60909	He	989	“ Yes . Just you and me , Simon . Just us . ”
+60943	60949	60955	60955	his	989	“ Need to fuck you . ”
+60963	60971	60955	60955	his	989	“ Do it . Just like this . ”
+61011	61027	60995	60995	She	430	“ I ’m sorry , sweetheart . It felt so good , but I just couldn’t- ”
+61028	61046	61047	61047	She	430	“ No . Do n’t . It does n’t matter . I just want you inside me . ”
+61058	61066	61069	61069	he	989	“ Can you let go of me ? ”
+61081	61088	61089	61089	he	989	“ Yeah . I think so , ”
+61122	61134	61102	61102	she	430	“ I just want to hold you . You have control . ”
+61135	61149	61150	61150	he	989	“ Around you , I doubt I ’ll ever really have any control , ”
+61161	61169	61150	61150	he	989	“ Make love to me , Simon . ”
+61474	61482	61483	61483	His	430	“ Touch me , sweetheart . Please . ”
+61739	61744	61745	61745	he	430	“ Nothing between us , ”
+61781	61791	61755	61755	She	430	“ Mine . You ’re mine . Say it . ”
+61873	61877	61878	61878	His	244	“ Say it . ”
+61899	61908	61891	61891	she	430	“ I ’m yours . I need you . ”
+61938	61946	61947	61947	He	244	“ Fuck ! You feel so good . ”
+61968	61987	61947	61947	He	244	“ I ’m not sure I know how to make love . I only know how to fuck . ”
+62002	62018	62019	62019	she	430	“ I ’m not sure I do either . I guess we ’ll learn together , ”
+62134	62137	62131	62131	he	244	“ Mine ! ”
+62276	62286	62265	62265	He	244	“ Nothing better than feeling you come around me . ”
+62381	62385	62386	62386	he	244	“ You okay ? ”
+62420	62425	62426	62426	He	244	“ I ’m fine . ”
+62527	62532	62533	62533	he	244	“ We made love , ”
+62551	62554	62547	62547	she	430	“ Yes . ”
+63401	63436	63391	63391	He	1004	“ You look like a man who ’s ready to attend his own execution . What ’s the matter , little brother ? Getting tired of Kara ? ’Cause if you are I would gladly- ”
+63437	63444	63455	63455	Simon	430	“ Touch her and you die . ”
+63477	63484	63485	63485	He	171	“ Do n’t you fucking knock ? ”
+63567	63577	63578	63578	Simon	430	“ Why would I ? I own the company . ”
+63604	63614	63615	63615	he	244	“ Last time I checked , so did I , ”
+63632	63642	63643	63643	Sam	244	“ I ’m older . It gives me seniority . ”
+63692	63701	63675	63675	Simon	430	“ Get your damn feet off my desk ! ”
+63818	63824	63795	63795	he	244	“ Was that really necessary ? ”
+63837	63842	63827	63827	Simon	430	“ I thought so . ”
+63843	63882	63883	63883	Sam	244	“ It ’s not my fault that you made the mistake of falling in love and now you ’re miserable . Shit , I thought you ’d be happy now that she ’s living at your place again . ”
+63904	63911	63898	63898	Simon	430	“ Who said I love her ? ”
+63919	63959	63916	63916	Sam	244	“ You did n’t have to say a damn thing . I think I figured it out when I ended up practically blind from the swelling when you beat the hell out of me just because I touched her . ”
+63960	63969	63970	63970	Simon	430	“ That does n’t mean I love her , ”
+63973	63988	63970	63970	Simon	430	“ And it was n’t because you touched her . It was the intent . ”
+63989	64004	63916	63916	Sam	244	“ When was the last time you thrashed me because I touched a woman ? ”
+64005	64008	63970	63970	Simon	430	“ Never . ”
+64009	64012	64013	64013	Simon	430	“ Exactly . ”
+64016	64025	64013	64013	Simon	430	“ Kara and I had a slight disagreement . ”
+64047	64050	64038	64038	he	1019	“ About ? ”
+64051	64069	64070	64070	Simon	430	“ She wants me to trust her . Tell her about the incident that left me scarred . ”
+64076	64081	64070	64070	Simon	430	“ She thinks I still have”-he
+64085	64087	64038	64038	he	1019	out-“issues . ”
+64094	64103	64091	64091	Sam	244	“ And do you ? Still have issues ? ”
+64104	64122	64123	64123	Simon	430	“ No ! Hell no ! For Christ ’s sake , it happened over sixteen years ago , ”
+64133	64145	64146	64146	Sam	244	“ Time does n’t necessarily make everything go away , Simon , ”
+64150	64203	64146	64146	Sam	244	“ Maybe you should just tell her . Maybe you need to . Is your silence really worth losing her ? She obviously loves you , and whether you want to admit it or not , you love her too . Guess you just need to decide if she ’s worth it . ”
+64215	64235	64204	64204	Sam	244	“ Do n’t fuck up . You ’ll regret it for the rest of your life if you do . ”
+64320	64326	64327	64327	Simon	430	“ She ’s being unreasonable , ”
+64355	64363	64364	64364	Sam	244	“ Admit it . You love her . ”
+64375	64380	64364	64364	Sam	244	“ She ’s stubborn . ”
+64381	64386	64364	64364	Sam	244	“ You love her . ”
+64387	64398	64364	64364	Sam	244	“ I trust her . I tell her everything else . ”
+64399	64404	64364	64364	Sam	244	“ You love her . ”
+64405	64408	64409	64409	Simon	430	“ Fuck ! ”
+64428	64588	64409	64409	Simon	430	“ She makes me crazy . She makes me happy . I think she ’s so beautiful that I want to just sit and look at her for hours . One minute , I ’m perfectly sane , and the next , I ’m totally losing it . She could n’t give a shit less about the fact that I ’m rich , and I think the woman is blind because I swear she does n’t even notice that I ’m scarred . The way she looks at me sometimes makes me feel like I ’m ten feet tall . And she ’s looking at me . Not the billionaire , not the wealthy executive . Just the man . She can be as stubborn as a damn mule , but I even like that because she ’s determined . Smart . Kind . And she puts up with my cranky ass , accepts me exactly as I am . ”
+64613	64656	64605	64605	He	1023	“ So , yeah . If these wild , lunatic , possessive feelings for her that I have every fucking minute of every day are love ... I’m screwed . I ca n’t even imagine having to live my life without her . ”
+64674	64679	64662	64662	he	1023	“ Then do n’t , ”
+64694	64739	64740	64740	Sam	244	“ We built this company together . We started in a crappy , one - bedroom apartment , bro . Now we ’re wealthy beyond our wildest dreams and a major player worldwide . If you can accomplish that , you can handle this . ”
+64752	64765	64749	64749	he	244	“ Pull your head out of your ass and solve the problem . ”
+64873	64893	64894	64894	Sam	244	“ Sometimes I think that I ’d rather rebuild a whole business than to have to deal with this . ”
+64897	64938	64939	64939	Sam	244	“ Business is business . It ’s not always easy , but the outcome is fairly predictable . Relationships are messy . You have no data , no statistics . Nothing to justify taking the leap , except for emotion . ”
+64957	64971	64972	64972	Simon	430	“ Then why in the hell are you telling me to do it ? ”
+64981	64986	64972	64972	Simon	430	“ You need her . ”
+64996	65007	64987	64987	Sam	244	“ But if you ever decide you do n’t want her- ”
+65008	65013	65014	65014	Simon	430	“ Do n’t start ! ”
+65182	65192	65175	65175	Sam	244	“ You love me . You know you do . ”
+65193	65198	65199	65199	Simon	430	“ Not right now , ”
+65267	65270	65258	65258	Simon	430	“ Sam ? ”
+65279	65282	65271	65271	Sam	244	“ Yeah ? ”
+65283	65288	65258	65258	Simon	430	“ Thanks for listening . ”
+65347	65367	65368	65368	Sam	244	“ Nobody deserves happiness more than you , little brother . It ’s within your grasp . Take it , ”
+65839	65846	65847	65847	Her	38	“ You need something , boss ? ”
+65920	65929	65930	65930	he	244	“ Nice flowers . What ’s the occasion ? ”
+65949	65970	65971	65973	The little woman	1056	“ Boss , it ’s February fourteenth . Valentine ’s Day . You know ... hearts , flowers , romance . ”
+65978	65998	65999	65999	She	1056	“ My Ralph has sent me two dozen red roses every Valentine ’s Day for thirty - seven years . ”
+66002	66009	65999	65999	She	1056	“ He ’s still so romantic . ”
+66101	66107	66083	66083	He	244	“ Where are your flowers ? ”
+66134	66159	66123	66123	she	38	“ Have n’t gotten them yet . My hubby will give them to me before we go out to dinner . He always does . ”
+66160	66171	66172	66172	He	244	“ Uh ... is this normal ? Dinner ? Flowers ? ”
+66214	66225	66226	66227	his assistant	1062	“ It depends . Most couples make their own traditions , ”
+66234	66239	66226	66227	his assistant	1062	“ Are you okay ? ”
+66397	66400	66401	66401	Nina	38	“ Kara . ”
+66404	66417	66401	66401	Nina	38	“ She ’s a gem , boss . A wonderful young woman . ”
+66438	66443	66428	66428	he	196	“ I need help . ”
+66460	66476	66477	66478	His assistant	1062	“ I ’m not sure what to do . Can you help me , Nina ? ”
+68824	68827	68808	68808	He	53	“ Simon . ”
+69115	69118	69119	69119	She	430	“ Simon . ”
+69302	69316	69317	69317	His	53	“ Do n’t stop . Please . I need to watch you come . ”
+69341	69349	69334	69334	she	430	“ I ’m sorry , Simon . I- ”
+69350	69385	69386	69386	She	430	“ Make yourself come , Kara . Keep going . Think about me . There ’s nothing more that I want in this world than to watch you pleasure yourself . It ’s beautiful . ”
+69423	69441	69442	69442	He	53	“ No . You ’re beautiful , Simon . The most beautiful man I ’ve ever seen . ”
+69585	69596	69597	69597	he	53	“ That ’s right , baby . Bring yourself off , ”
+69727	69734	69735	69735	he	53	“ Make yourself come for me , ”
+69917	69927	69906	69906	she	430	“ I ca n’t believe I just did that . ”
+69928	69934	69935	69935	His	53	“ Do n’t , Kara . ”
+69952	69998	69935	69935	His	53	“ Do n’t ever be embarrassed with me . You ’re beautiful . The sexiest woman I ’ve ever seen . Watching you come was so fucking hot that it damn near gave me heart failure . There ’s no shame in something that incredible . ”
+70125	70147	70148	70148	She	430	“ I ’ve just never done that when someone was watching . I told you I do n’t have much experience . ”
+70151	70197	70148	70148	She	430	“ I missed you . I know I pushed you away . I should n’t have . I just wanted you to share what happened with me , to help me understand what happened the other night . I ’m really sorry , Simon . I- ”
+70198	70203	70204	70204	His	53	“ Shhh ... stop ! ”
+70213	70221	70210	70210	he	53	“ It is n’t you , Kara . ”
+70281	70321	70331	70331	she	1110	“ It ’s my problem . Something that I ’ve never told anyone . Shit ! I never even told the shrink that Mom made me see after the whole thing happened . Not the whole truth , anyway . ”
+70322	70330	70331	70331	she	1110	“ Helen had you see a counselor ? ”
+70517	70532	70533	70533	His	1110	“ Yeah , she did . I saw Dr. Evans for over a year . ”
+70547	70558	70533	70533	His	1110	“ Mom wanted to make sure I was okay emotionally . ”
+70623	70626	70627	70627	she	1113	“ Simon ? ”
+70631	70634	70635	70635	He	1110	“ Yeah ? ”
+70643	70648	70635	70635	He	1110	“ I love you . ”
+70655	70690	70649	70649	Her	1113	“ I love everything that you are , every part of you . Nothing that happened in your distant past is going to change that . I even love you when you ’re bossy . ”
+70691	70697	70698	70698	he	1110	“ I ’m never bossy , ”
+70769	70785	70764	70764	He	1110	“ You know that I ’ll never let you go now , do n’t you ? ”
+70803	70823	70829	70829	she	1116	“ I did n’t tell you so that you would feel obligated . I just wanted you to know . ”
+70832	70845	70829	70829	she	1116	“ And you are bossy . Now tell me about Dr. Evans . ”
+70960	70978	70955	70955	He	1110	“ Before I tell you about Dr. Evans , I guess I should start at the beginning . ”
+71053	71137	71138	71138	His	1119	“ My father died a month before the incident . Overdose . Drugs and alcohol . He was foolish enough to steal drugs from one of the biggest drug dealers on the West Coast , a guy he ran errands for or distributed drugs for in return for enough drugs and booze to feed his own habit . He rarely got paid in cash , and even if he did , he did n’t use it to feed his family or his wife . ”
+71154	71228	71229	71229	His	1119	“ Mom tried her best , but she had dropped out of high school and could n’t get anything but minimum - wage jobs . She did whatever she could to feed us and keep dear old dad ’s business away from our shitty apartment and away from me and Sam . Mostly , she kept us out of trouble , making us see that we could be something more , something better . ”
+71333	71366	71367	71367	He	244	“ Rose was my childhood friend , really my only friend other than Sam . She grew up in the apartment next to ours . She was a year older than me . ”
+71383	71422	71367	71367	He	244	“ We were as close as friends can be until my hormones started to rage and I started to see her as a female . I cared about her a lot and I thought she cared about me . ”
+71423	71436	71437	71437	She	1123	“ So you did have a girlfriend when you were a teenager ? ”
+71460	71559	71560	71560	Kara	430	“ Yes and no . I guess . We kissed , we held hands . I had horny , teenage - boy wet dreams about her every night . I wanted to get laid for the first time and I was n’t exactly an attractive teenager . I was quiet and skinny , not much to look at . Clumsy as hell . I read a lot . Mom made sure Sam and I had books from the library or reading programs . But Rose seemed to like me even though I was a gawky , ugly kid . ”
+71589	71630	71631	71631	She	430	“ She started changing when she turned seventeen . She dropped out of school , started hanging with my father ’s crowd , would n’t talk to me anymore or was so distant that she acted like I was nobody . ”
+71636	71642	71631	71631	She	430	“ That must have hurt . ”
+71643	71647	71648	71648	He	1124	“ It did . ”
+71656	71735	71648	71648	He	1124	“ I knew she was using , stoned out of her mind most of the time . I begged her to let me help her , but she would n’t listen . She just laughed in my face , saying that there was nothing I could do because I was as poor as she was . And she was right , damn it ! But I wanted to help her get clean . And stop working the streets . ”
+71736	71742	71746	71747	poor Simon	430	“ She became a prostitute ? ”
+71765	71792	71756	71756	she	430	“ She had to pay for her habit somehow and I know she gave some of the money to her mom to help her younger brother . ”
+71793	71803	71804	71804	Kara	430	“ You did n’t give up , did you ? ”
+71839	71862	71863	71863	He	1125	“ No . I wanted to believe that the Rose I knew was still inside her , waiting to come out again . ”
+71866	71897	71863	71863	He	1125	“ It did n’t matter how many times she tried to avoid me or told me fuck off , I still tried . I was pretty naive , I guess . ”
+71958	71969	71970	71970	He	1125	“ Having hope does n’t make you naive , Simon . ”
+71980	72078	71970	71970	He	1125	“ I was gullible . I did n’t see her for about a month after my father died . Then one night , she showed up at our apartment , dressed in a short sexy skirt and a friendly smile . For a teenage male virgin ... that was all it took for me . Mom was working and Sam had already gone to Florida to start a construction job there . I was getting ready to graduate from high school and Sam had made enough money working construction to bring us to Florida to join him . ”
+72079	72092	72109	72109	he	1130	“ You were graduating from high school at the age of sixteen ? ”
+72093	72108	72109	72109	he	1130	“ I skipped a grade . Twice . School was never difficult for me , ”
+72139	72149	72128	72128	she	1131	“ So , what happened after she came in ? ”
+72150	72220	72221	72221	He	1130	“ She came on to me hot and heavy . I responded like a sixteen - year - old who had never gotten laid . She had me in my bedroom within minutes . She was experienced and I let her take the lead . She opened my fly and had my dick out of my pants and a condom on me before I really knew what was happening . ”
+72234	72264	72221	72221	He	1130	“ Not that I would have objected . I had a beautiful woman above me , ready to fuck me senseless . I was a teenager in complete ecstasy . ”
+72293	72303	72304	72304	His	1130	“ She had the knife hidden in her bra . ”
+72323	72396	72308	72308	She	430	“ So there I was , getting my first fuck , drowning in erotic bliss , never once thinking that there was something strange about the whole situation . She grabbed the knife and started stabbing the moment I started to come . It took me by surprise . She had stabbed me so many times before I realized what was happening that I did n’t have a chance to defend myself . ”
+72433	72436	72437	72437	she	430	“ Why ? ”
+72448	72455	72437	72437	she	430	“ Why would she do that ? ”
+72518	72595	72511	72511	he	1133	“ Revenge . My father died before he could be punished for stealing from a powerful boss in an organized and huge cartel . The organization was sending a message , letting people know what happens to a person or their family if they try to steal from them . They could n’t let my father ’s bad deed go unpunished . He died before they could send that message . I was just a substitute . ”
+72596	72601	72511	72511	he	1133	“ But why Rose ? ”
+72602	72643	72511	72511	he	1133	“ The boss knew we had been friends since childhood . Her loyalty was being tested . She was pretty deeply involved in the organization . They threatened to kill her mother and brother if she did n’t kill me . ”
+72666	72672	72662	72662	she	1134	“ Is she in jail ? ”
+72673	72678	72679	72679	His	1134	“ She ’s dead . ”
+72684	72792	72679	72679	His	1134	“ She fled as soon as I passed out from blood loss , obviously convinced that I was a goner . She went straight to an alley , took a lethal amount of drugs and slit her wrists with the same knife she used to stab me . They found a suicide note and her confession in her pocket . She begged forgiveness from both her mother and mine , saying that she had to protect her family . She never knew that I survived . Mom came home a few minutes later and found me . If she had n’t , I would have been dead . ”
+72842	72848	72836	72840	a woman he had adored	150	“ I ’m so sorry . ”
+72849	72852	72853	72853	he	150	“ Why ? ”
+72859	72866	72867	72867	He	150	“ You did n’t stab me . ”
+72877	72888	72867	72867	He	150	“ Do n’t cry . I do n’t like it . ”
+72964	72971	72991	72991	He	150	“ Tell me about your injuries ? ”
+72972	72982	72983	72983	His	150	“ I had stab wounds . Lots of them . ”
+73003	73015	72991	72991	He	150	“ Are you going to cry again if I tell you ? ”
+73047	73058	73018	73019	good Lord	1543	“ I ’ll try to contain myself . Tell me . ”
+73059	73129	73130	73130	He	1543	“ I was in the hospital for a while . Lucky for me , Rose was a lousy murderer . She managed to miss most of my vital organs and some of the wounds were shallow . They had to do surgery and repair a few organs , but I lived through it . As soon as I was well enough , Sam moved Mom and me to Tampa . ”
+73138	73143	73144	73144	she	1543	“ Were you scared ? ”
+73177	73187	73188	73188	He	1543	“ Honestly , I barely remember any of it . ”
+73194	73224	73188	73188	He	1543	“ Sam said Mom was a total wreck . The only thing I remember was being ashamed when I was finally coherent . And sad because Rose was dead . ”
+73242	73252	73239	73239	she	1543	“ Why ? You did n’t do anything wrong . ”
+73253	73335	73336	73336	His	1543	“ I was duped because I was horny . I was thinking with the head below my waist instead of the one above it . Rose coming on to me was n’t logical . It did n’t make any sense . I should have been suspicious . Christ ! All she had said to me in months was to go to hell . Should have known something was n’t right . But I did n’t think about anything but getting off . ”
+73343	73386	73387	73387	Her	1543	“ I was pissed at myself . I put my mom and Sam through hell because I was stupid . I knew better . I grew up in the neighborhood . I sure as hell knew how to watch my own back . ”
+73466	73492	73458	73464	a sixteen - year - old boy	1143	“ Simon ... you were sixteen . Still a boy . You may have been a boy genius , but you were still a teenager . ”
+73493	73510	73511	73511	He	1543	“ Yeah , and I did n’t grow up to be exactly ... uh ... normal . ”
+73549	73577	73531	73531	He	1543	“ No , you did n’t . You grew up to be extraordinary . You have reason not to trust easily . What happened with Dr. Evans ? ”
+73615	73711	73612	73612	she	1543	“ He made me talk . I hated it , but I went every week to make my mom feel better . After a while , it got easier . He helped me through my feelings about Rose ’s death and about my father . But I never told him what really happened . I could n’t . I could n’t tell anyone . Everyone assumed that Rose came in through an unlocked door and stabbed me while I was sleeping ... and I just let them continue to think that . It seemed easier . ”
+73716	73725	73612	73612	she	1543	“ It was a coward ’s way out . ”
+73726	73740	73809	73809	His	1146	“ But there must have been signs at the scene . The condom and- ”
+73741	73808	73809	73809	His	1146	“ Apparently , Rose had some sort of feelings for me , some guilt . There was no condom and my dick was in my pants . No one ever assumed that it was anything but an attack on me while I was asleep . A revenge hit against my father . You ’re the only person who knows . I could n’t even tell Sam . ”
+73852	73903	73838	73838	she	1146	“ Listen to me . You were attacked when you were young and vulnerable . You have no reason to feel guilty or ashamed . Not one bit of it was your fault . I understand why you have trust issues . I understand why you panicked the other night . ”
+73916	73968	73969	73969	Her	1146	“ But know this ... you survived and grew into a gorgeous , sexy , brilliant , successful man in spite of the fact that you got a raw deal when you were younger . You ’re the most incredible man I ’ve ever known . Do you understand me ! ? ”
+74007	74023	74024	74024	She	1146	“ Yeah . I got it . Can we go back to the sexy part ? ”
+74043	74052	74053	74053	she	1146	“ Is that the only part you heard ? ”
+74058	74069	74070	74070	He	1146	“ No . But it was the most interesting part . ”
+74092	74103	74104	74104	He	1146	“ I ’m trying to explain something to you here . ”
+74158	74168	74139	74139	he	1146	“ Do you want to know what I understand ? ”
+74201	74327	74198	74198	he	1146	“ I understand that I have to be the luckiest bastard on the planet because you love me , you accept me . Hell , I think you almost understand me - which is a fucking miracle because sometimes I do n’t even understand myself . I do n’t really know how to romance you like I should , but it is n’t because I do n’t want to . I just do n’t know how . I understand that before I met you I was living in a very small world , and somehow you dragged me into the light , made me look around and actually see things that I never saw before . I understand that you make me a better man . ”
+74361	74369	74350	74350	he	244	“ Is that enough understanding for you ? ”
+74423	74431	74417	74417	she	244	“ It ’s enough . For now . ”
+74432	74445	74446	74446	His	244	“ I need you , Kara . Do n’t leave me again . ”
+74507	74514	74523	74523	he	244	“ I ’m not going anywhere . ”
+74515	74522	74523	74523	he	244	“ Damn right you ’re not ! ”
+74610	74616	74617	74617	She	244	“ Did you love her ? ”
+74631	74634	74617	74617	She	244	“ Who ? ”
+74635	74643	74648	74648	His	244	“ Rose ? Did you love her ? ”
+74644	74647	74648	74648	His	244	“ No . ”
+74657	74736	74737	74737	She	244	“ I cared about her as a friend and I had a gigantic crush on her . But I did n’t love her . I did n’t want her to die . The sad part of the whole thing is that she died for nothing . A few days after she killed herself , the whole organization was brought down by the authorities . The boss and everyone associated with the cartel are going to rot in jail . ”
+74762	74766	74753	74753	He	244	“ Good therapist ? ”
+74767	74793	74794	74794	He	244	“ Yeah . Dr. Evans was the best . We still have dinner occasionally . I think he ’s still trying to figure me out . ”
+74806	74813	74800	74800	She	244	“ You ’re a fascinating subject . ”
+74814	74823	74824	74824	he	244	“ Are you saying that I ’m odd ? ”
+74830	74837	74838	74838	She	244	“ Hmmm ... I’m not sure . ”
+74902	74920	74921	74921	He	244	“ I think I need to study you a bit more before I come to any conclusions . ”
+74941	74964	74921	74921	He	244	“ Sweetheart , if you keep flashing that sexy body at me , I ’m going to be doing my own studying . ”
+74988	74999	74979	74979	his	244	“ And I examine and test my data very thoroughly . ”
+75046	75053	75043	75043	she	244	“ No . I ’m thirsty . ”
+75100	75105	75088	75088	she	244	“ Are you thirsty ? ”
+75113	75118	75106	75106	His	244	“ Did you eat ? ”
+75170	75177	75156	75156	she	244	“ I ’m not that hungry . ”
+75217	75224	75211	75212	The man	244	“ You need hydration and food . ”
+75320	75329	75308	75308	she	244	“ Seriously , I ’m not that hungry . ”
+75343	75348	75330	75330	He	244	“ You ’ll eat . ”
+75361	75374	75349	75349	He	244	“ I plan to fuck you until you beg for mercy later . ”
+75799	75805	75784	75784	Simon	430	“ Diet Coke or water ? ”
+75820	75824	75825	75825	she	430	“ Diet Coke , ”
+75924	75930	75916	75916	he	1159	“ Happy Valentine ’s Day . ”
+76043	76052	76033	76033	he	1159	“ You do n’t like any of it ? ”
+76087	76096	76067	76067	They	1161	“ Oh Simon , what did you do ? ”
+76130	76142	76097	76097	Kara	430	“ Okay . Those two are definitely fired in the morning ! ”
+76179	76185	76186	76186	She	430	“ Who are you firing ? ”
+76197	76215	76186	76186	She	430	“ Nina and Marcie . They told me that these types of gifts make a woman happy . ”
+76268	76278	76279	76279	he	1159	“ We could go shopping . Pick something else , ”
+76297	76306	76279	76279	he	1159	“ You asked Nina and Marcie for advice ? ”
+76307	76310	76327	76327	Her	166	“ Yeah . ”
+76311	76326	76327	76327	Her	166	“ Simon , this is incredible . I do n’t know what to say . ”
+76354	76375	76379	76379	She	166	“ I think Marcie and Nina were giving you suggestions . They did n’t mean for you to buy everything . ”
+76395	76438	76439	76439	he	1159	“ I do n’t know your favorite flower . Or what kind of candy you like . I do n’t really know your favorite color . Should n’t a guy know those things ? Should n’t I know how to please you ? ”
+76460	76478	76455	76455	she	166	“ You did n’t need to do all this . I ’ve never even gotten flowers before . ”
+76517	76530	76512	76512	he	1159	“ I went shopping . It was n’t exactly a big effort . ”
+76562	76571	76572	76572	Her	38	“ You did all of this for me . ”
+76584	76695	76572	76572	Her	38	“ The flowers are beautiful . I love them all . I want a piece of that candy so badly that I can taste it already , and everything else is so overwhelming that I ’m speechless . I would have been over the moon with a few flowers or a card . You did n’t need to do this . It ’s more gifts than a woman gets in a lifetime . But it is n’t the things that amaze me . It ’s you . Your desire to make me happy . You ’re the most incredible man on the planet . That ’s why I love you . ”
+76794	76807	76783	76783	Nina	38	“ You ’re insane . You know that , do n’t you ? ”
+76822	76830	76811	76811	she	38	“ But I love that about you . ”
+76859	76872	76856	76856	she	38	“ But one gift next time , okay ? Or a card . ”
+76887	76892	76878	76878	He	1168	“ We ’ll see . ”
+76898	76907	76908	76908	She	38	“ Wait . I have something for you . ”
+76934	76943	76919	76919	She	38	“ The bag was definitely screaming your name . ”
+76956	76974	76950	76950	she	38	“ I do n’t really have my own money to spend , so I had to improvise . ”
+76975	76988	76989	76989	He	1168	“ You need more money ? Why did n’t you tell me ? ”
+77006	77047	77048	77048	She	38	“ I do n’t need you to give me anything more . I want you to take some of it back . I have almost a hundred grand in my bank account . I do n’t need it , Simon . ”
+77060	77084	77085	77085	She	38	“ You have n’t spent hardly any of it . How in the hell are you living , taking care of your needs ? ”
+77088	77149	77085	77085	She	38	“ You take care of my needs . What in the hell do I need money for ? I do n’t have one single need or want . I ’m living like a spoiled brat right now . All I have to do is mention something and it magically appears . I do n’t need to buy one single thing . ”
+77150	77167	77170	77170	he	1168	“ Women love to shop . Buy things . Even when they do n’t need them . ”
+77184	77214	77215	77215	She	146	“ Not me . I ’d rather be reading . Or playing Myth World II , if I have time . I have every comfort , every need met . ”
+77241	77251	77252	77252	She	146	“ The only recurring need I have is you . ”
+77267	77279	77280	77280	he	1168	“ The money was a gift . You ’re keeping it , ”
+77307	77314	77315	77315	She	146	“ I ’m not keeping it . ”
+77327	77332	77315	77315	She	146	“ Open the bag . ”
+77428	77449	77484	77484	Her	430	“ They caught the other guy today . He ’s in jail . You probably have a message from Harris . ”
+77450	77483	77484	77484	Her	430	“ Oh , thank God . You can call off the security . I think they intimidate some of my fellow students . They do n’t exactly keep a low profile anymore . ”
+77560	77568	77542	77542	She	430	“ Not happening . The security stays . ”
+77569	77576	77610	77610	Granted	98	“ I do n’t need them anymore- ”
+77577	77609	77610	77610	Granted	98	“ No ! I ca n’t take the risk of something happening to you . There are too many crazy people out there and I ’ve made enemies over the years . ”
+77645	77650	77651	77651	He	244	“ The security stays . ”
+77752	77761	77762	77762	She	430	“ They ’re so ... you , Simon . ”
+77774	77802	77762	77762	She	430	“ You ’ll look hot . Not that you do n’t already , but all I could think about was how sexy they ’d look on you . ”
+77866	77885	77886	77886	She	430	“ I already took the tags off . Try them on so I can take them off later . ”
+77950	77957	77958	77958	she	430	“ Hot . Definitely very hot , ”
+78037	78042	78021	78021	She	166	“ What ’s this ? ”
+78087	78103	78077	78077	She	430	“ It ’s a heart - wish . I did n’t really have my own money- ”
+78119	78170	78104	78104	She	430	“ Do n’t start that again . Anyway , I made these up . You can cash them in any time . They ’re good for one wish or favor that you want from me . Anything that you can think of that ’s in my power to grant you . ”
+78171	78174	78175	78175	His	244	“ Anything ? ”
+78190	78198	78185	78185	She	430	“ Anything I ’m capable of doing . ”
+78199	78220	78185	78185	She	430	“ I wish you would keep the money I put in your bank account and not argue about the security . ”
+78257	78267	78237	78237	She	430	“ I’m - so - disappointed - in - you ”
+78284	78304	78275	78275	She	430	“ That wish interferes with my morals and values . Plus , that ’s two wishes . Not fair . ”
+78305	78308	78309	78309	he	244	“ Compromise ? ”
+78326	78331	78322	78322	Her	430	“ I ’m open . ”
+78332	78377	78275	78275	She	430	“ Keep the money in your account . Use it if you need to . I ’m not saying you have to keep it forever . Just keep it for now . Until you graduate and get a job . We can renegotiate later . ”
+78409	78413	78414	78414	She	430	“ Wish granted . ”
+78429	78432	78414	78414	She	430	“ Security ? ”
+78433	78467	78469	78469	his	244	“ Let me leave the security in place , but I ’ll make them back off . You ’ll barely know that they ’re there . But let me keep security on you . ”
+78477	78489	78469	78469	his	244	“ For my peace of mind , Kara . For me . ”
+78490	78510	78511	78511	She	430	“ I ’ll do it for you provided they back off and quit scaring my classmates . Wish granted . ”
+78539	78545	78524	78524	He	244	“ How many were there ? ”
+78596	78599	78600	78600	she	430	“ Five , ”
+78640	78643	78627	78627	she	430	“ What ? ”
+78655	78668	78627	78627	she	430	“ You made two wishes . You owe me one of those . ”
+78669	78673	78674	78674	he	244	“ I compromised , ”
+78699	78702	78703	78703	she	430	“ Gimme , ”
+78741	78749	78733	78733	he	430	“ Can I have these every holiday ? ”
+78750	78755	78756	78756	she	430	“ We ’ll see , ”
+78774	78796	78768	78768	she	430	“ What did you mean when you said you ’d never gotten flowers ? You had a long - term boyfriend . ”
+78801	78824	78797	78797	She	430	“ He did n’t do gifts . Thought they were a waste of money . Especially flowers , because they eventually die . ”
+78825	78845	78846	78846	His	430	“ No offense , sweetheart , but why in the hell did you stay with him for so long ? ”
+78861	78905	78851	78851	he	430	“ I honestly do n’t know . It probably had something to do with the death of my parents . I missed them . I felt so alone after they died . I guess I was pretty young , vulnerable , and stupid . ”
+78966	78986	78948	78948	He	430	“ Never again , baby . You ’ll always have me . I ’ll never let you be lonely . ”
+79041	79050	79051	79051	he	430	“ I ’ve been waiting for you forever , ”
+79201	79204	79205	79205	She	1191	“ Simon . ”
+79369	79381	79382	79382	he	430	“ Do you remember what I told you about this robe , ”
+79397	79401	79402	79402	she	1191	“ Every word , ”
+79411	79421	79402	79402	she	1191	“ I have very fond memories of this robe . ”
+79422	79426	79427	79427	he	430	“ Me too , ”
+79445	79456	79427	79427	he	430	“ But right now I wish you would get naked . ”
+79560	79567	79568	79568	he	430	“ I love these fucking hearts , ”
+79594	79612	79580	79580	Her	1191	“ You wasted that one . I would have done it for nothing . I need you . ”
+79750	79755	79731	79731	He	430	“ Time for bed . ”
+79756	79760	79761	79761	she	1191	“ About time , ”
+79852	79861	79830	79830	She	166	“ Tie me . I do n’t mind . ”
+79916	79925	79909	79909	He	430	“ You want me to tie you up ? ”
+79926	79966	79970	79970	I	0	“ I want you . Tie me up . Tie me down . Whatever you want . It ’s hot . You ’re hot . I just want you to fuck me . However you ’re comfortable with it . ”
+79980	80017	79974	79974	He	430	“ Sweetheart , the possessive caveman in me would love nothing more than to have you at my mercy and make you come until you scream , but I do n’t need to tie you up . ”
+80032	80072	80018	80018	He	430	“ But now that I know it makes you hot , I ’ll do it another time . Right now , I just need to watch you come , make love to you until neither of us can move . ”
+80255	80260	80236	80236	he	430	“ Relax , baby , ”
+80307	80319	80320	80320	She	0	“ I ’m sorry . I guess I ’m feeling desperate . ”
+80365	80405	80408	80408	his	430	“ No more desperate than I am . Every time I hear your voice , see you , talk to you , I want to get closer . Hell , all I have to do is think about you . ”
+80421	80443	80408	80408	his	430	“ I want inside of you . I want us to be fused so tightly that you can never get away . ”
+80540	80554	80529	80529	He	430	“ Fuck ! You ’re sweet . So sweet and so damn hot ! ”
+80665	80674	80675	80675	Her	0	“ Simon . Oh , God . Please . ”
+80790	80813	80814	80814	He	430	“ You smell so sweet . Like aroused woman . My woman . Mine to satisfy . My honey to lick up . ”
+80847	80863	80832	80832	Her	0	“ Yes , Simon . Please . I need you . I need to come . ”
+80864	80876	80877	80877	He	430	“ I need to make you come . Satisfy my woman . ”
+81160	81164	81165	81165	his	430	“ Feel better ? ”
+81181	81189	81175	81175	She	430	“ Were you trying to kill me ? ”
+81190	81197	81198	81198	he	430	“ Only with pleasure , baby , ”
+81205	81213	81198	81198	he	430	“ Well , then you were successful . ”
+81283	81289	81290	81290	she	430	“ You ’re so gorgeous , ”
+81307	81323	81324	81324	he	430	“ I ’m starting to think we need to take you to an eye doctor , ”
+81334	81352	81324	81324	he	430	“ My eyesight is perfect and so is my perception . You ’re so strong . Handsome . ”
+81361	81365	81366	81366	He	430	“ And big . ”
+81412	81433	81435	81435	his	430	“ Fuck ! I love feeling your hands on me . It ’s the best damn feeling in the world . ”
+81529	81539	81512	81512	He	430	“ Ride me , sweetheart . Fuck me senseless . ”
+81581	81586	81560	81560	Her	430	“ Are you sure ? ”
+81630	81655	81656	81656	he	430	“ Yeah . I want to watch you ride me . I want to watch your face as you come from riding my cock , ”
+81687	81706	81681	81681	He	430	“ You do n’t need to prove anything to me . We do n’t have to do this . ”
+81707	81719	81720	81720	he	430	“ Take me inside you , sweetheart . I need you , ”
+81891	81904	81868	81868	He	430	“ Christ ! You feel so good . So tight and hot . ”
+81988	82001	82002	82002	he	430	“ Only you , Kara . It ’s only ever been you , ”
+82010	82026	82002	82002	he	430	“ You look so beautiful . Let go . Ride me . Come for me . ”
+82101	82115	82089	82089	She	430	“ Yeah . Take what you want , sweetheart . Whatever you need . ”
+82272	82277	82278	82278	she	430	“ I love you , ”
+82365	82368	82356	82356	He	430	“ Stay . ”
+83109	83112	83113	83113	he	874	“ What ? ”
+83119	83126	83113	83113	he	874	“ Did you ask her yet ? ”
+83160	83170	83143	83143	Sam	244	“ No . She ’s getting ready for dinner . ”
+83171	83182	83143	83143	Sam	244	“ You ’ve had a week . What the hell ? ”
+83183	83189	83143	83143	Sam	244	“ What do you care ? ”
+83221	83250	83251	83251	She	138	“ She ’s good for you . You need her . Plus , I do n’t want to put up with your shitty mood if she says no . ”
+83298	83305	83288	83288	Simon	430	“ I ’ll call you later . ”
+83306	83310	83311	83311	Simon	430	“ Ask her . ”
+83426	83431	83432	83432	he	244	“ You look beautiful , ”
+83467	83484	83485	83485	she	138	“ Thanks . You ’re looking very handsome yourself , Mr. Hudson . Are we ready ? ”
+83611	83617	83602	83602	he	244	“ In just a minute . ”
+83631	83639	83618	83618	He	244	“ I need to talk to you . ”
+83650	83655	83656	83656	she	138	“ Is something wrong ? ”
+83664	83667	83668	83668	He	244	“ No . ”
+83686	83694	83668	83668	He	244	“ I need to ask you something . ”
+83721	83740	83707	83707	He	244	“ Do n’t waste it on asking for sex , ’cause I ’m pretty much a sure thing , ”
+83798	83807	83792	83792	she	138	“ I wish that you would marry me . ”
+83821	83835	83808	83808	His	244	“ Oh , my God . Simon , I did n’t expect this . ”
+83860	83869	83836	83836	She	138	“ I do n’t know what to say . ”
+83870	83876	83808	83808	His	244	“ Say yes . Please . ”
+83896	83930	83887	83887	She	138	“ You want to marry me ? Simon , you have n’t even told me that you love me . I assumed you just were n’t ready . I did n’t expect this . ”
+83957	83970	83972	83972	he	244	“ I love you . I love you . I love you . ”
+83980	84001	84002	84002	She	138	“ I do . I ca n’t believe I ’ve never said it , but you had to have known . ”
+84008	84025	84002	84002	She	138	“ I know . I just was n’t sure if you were ready to say it . ”
+84026	84043	84044	84044	His	244	“ I ’m more than fucking ready . You ’re mine and I want it official . ”
+84053	84144	84145	84145	He	244	“ I should have told you that I loved you . I ’ll make sure you hear it so often from now on that you ’ll be tired of hearing me say it . You deserve to hear it every fucking day . Maybe I have n’t verbalized it because there are n’t really words to explain how I feel about you . Love seems lukewarm , not enough . But I love hearing it coming from your lips . I should have known that you wanted to hear it . ”
+84148	84163	84164	84164	She	1227	“ You ’re my life , sweetheart . Please be mine . Mine forever . ”
+84197	84201	84202	84202	she	1227	“ Mine forever , ”
+84237	84248	84223	84223	She	1227	“ Do n’t cry . I do n’t like it . ”
+84249	84259	84223	84223	She	1227	“ I know . But they ’re happy tears . ”
+84302	84308	84299	84299	he	244	“ You ’re marrying me . ”
+84309	84316	84317	84317	She	1227	“ I thought you were asking . ”
+84324	84331	84317	84317	She	1227	“ I have n’t said yes . ”
+84332	84336	84337	84337	he	244	“ You will , ”
+84344	84350	84337	84337	he	244	“ Say that you will . ”
+84397	84401	84402	84402	He	244	“ Wish granted . ”
+84413	84416	84402	84402	He	244	“ Yes ? ”
+84417	84431	84462	84462	he	244	“ Yes . I ’ll marry you . I love you , too . ”
+84432	84435	84436	84436	he	244	“ Soon , ”
+84439	84446	84462	84462	he	244	“ We ’ll see . Compromise ? ”
+84447	84450	84451	84451	He	244	“ No ! ”
+84469	84475	84476	84476	She	1227	“ No compromise this time . ”
+84500	84505	84492	84492	she	1227	“ A small compromise ? ”
+84506	84509	84510	84510	He	244	“ No . ”
+84536	84543	84544	84544	she	1227	“ You can give a little , ”
+84571	84581	84554	84554	He	244	“ Are you trying to seduce me into compromise ? ”
+84582	84589	84590	84590	she	1227	“ Maybe . Is it working ? ”
+84595	84599	84590	84590	she	1227	“ fuck - me ”
+84602	84610	84611	84611	he	244	“ Hell yes , it ’s working , ”
+84620	84630	84631	84631	He	244	“ Fine . We ’ll talk terms . Later . ”
+84646	84649	84650	84650	she	1227	“ Later , ”
+84653	84657	84658	84658	She	1227	“ Much later . ”
+84806	84811	84812	84813	Simon Hudson	430	“ Can we talk ? ”
+85330	85333	85334	85334	Kara	430	“ Simon ? ”
+85373	85382	85363	85363	He	244	“ What did you want to talk about ? ”
+85383	85400	85401	85401	She	430	“ I need you to read something and sign it . It ’s no big deal . ”
+85437	85447	85430	85430	he	244	“ This is a contract . A prenuptial agreement . ”
+85476	85484	85485	85485	She	430	“ What in the hell is this ? ”
+85488	85556	85485	85485	She	430	“ I had an attorney draw it up . We ’re getting married in a month . You ’re a billionaire and I ’m a brand new registered nurse without a penny to her name . It ’s hardly an equal arrangement . I think it ’s only fair that you ’re protected . I ’ve already signed it . I just need your signature . Please . ”
+85575	85632	85564	85564	he	244	“ Not happening , sweetheart . Christ , you are n’t allowing yourself anything . What attorney would even agree to this for their client ? You ’re never leaving me and I ’m sure as hell never leaving you . Till death do us part , what ’s mine is yours , etc . etc . ”
+85755	85777	85778	85778	Her	1244	“ Things happen , Simon . You saved my life . We are n’t equals financially . I owe you this . ”
+85804	85871	85798	85798	he	244	“ Things do n’t happen to us . And you do n’t owe me a damn thing . You do n’t let me buy you anything without a major argument ; you wo n’t take a penny of my money . I ’m willing to bet everything that I have that you ’ve barely touched the money I put in your account over a year ago . ”
+86031	86082	86022	86022	Kara	430	“ You rescued me from the streets , Simon . You sheltered me , cared for me , made me fall madly in love with you and loved me in return . You ’ve given me every single thing a woman could ever want . Let me give you this . ”
+86326	86352	86323	86323	Simon	430	“ No contracts . Nothing between us . Not now . Not in the future . You ’re mine . You ’ll always be mine . ”
+86602	86605	86606	86606	Kara	430	“ Simon , ”
+86656	86661	86662	86662	she	430	“ I love you , ”
+86696	86704	86677	86677	her	430	“ I love you too , sweetheart . ”
+86786	86796	86778	86778	She	430	“ No more talk about prenuptial agreements , okay ? ”
+86827	86835	86824	86824	she	430	“ We have to talk about it . ”
+86886	86900	86901	86901	He	244	“ You know I already revised my will . We went over it . ”
+86925	86942	86921	86921	She	430	“ It ’s one thing if you leave me unwillingly by death . But what if … ”
+86943	86947	86948	86948	he	244	“ Not happening , ”
+86962	87002	87003	87003	Simon	430	“ This is forever . I ’m not signing a damn prenuptial agreement . You and I are not a fucking business deal . This is about you and me . Together . For the rest of our lives . ”
+87043	87060	87036	87036	she	138	“ I want you to know that I ’m not marrying you because of your money . ”
+87076	87087	87090	87090	he	244	“ Do n’t cry . I do n’t like it . ”
+87142	87158	87129	87129	Kara	430	“ And it ’s always been quite obvious that you are n’t after my money . ”
+87177	87214	87173	87173	she	138	“ How can you know that ? You supported me while I finished nursing school , paid my expenses , buy me outrageously expensive gifts . I want you to be able to trust me completely . ”
+87247	87290	87291	87291	he	244	“ I ’ve trusted you with every detail of my life , Kara . I trust you . I would n’t be marrying you if I did n’t . I do n’t need a prenuptial agreement . I do n’t want one , ”
+87338	87354	87318	87318	she	1256	“ If you had enough faith in me , you would n’t need it either . ”
+87639	87651	87634	87634	he	244	“ I ’m sorry . I should n’t have said that . ”
+87678	87706	87675	87675	she	430	“ You would n’t have said it if there was n’t some truth to it . Maybe you ’re right . Maybe this is all a mistake . ”
+87714	87720	87707	87707	His	244	“ What kind of mistake ? ”
+87721	87724	87725	87725	She	430	“ Us . ”
+87734	87757	87758	87758	Hands	104	“ Maybe we should n’t be considering marriage right now . Maybe there ’s just too big a difference in our circumstances . ”
+88028	88045	88025	88025	Simon	430	“ We are getting married and you need to tell me what ’s really going on . ”
+88124	88135	88136	88136	Her	1266	“ I do n’t know if I can marry you . ”
+88222	88250	88251	88251	His	244	“ You ’re marrying me . No fucking prenuptial . I need you , Kara . I ’ll always need you . Please do n’t do this . ”
+88389	88397	88398	88398	he	244	“ Do n’t even think about it , ”
+88422	88427	88428	88428	he	244	“ Talk to me , ”
+88490	88495	88483	88483	Kara	430	“ Are you okay ? ”
+88577	88587	88588	88588	She	430	“ Yes . No . I do n’t know . ”
+88660	88665	88666	88666	she	430	“ Ca n’t breathe , ”
+88676	88690	88666	88666	she	430	“ Shit . I ’m sorry . Kara , I do n’t understand . ”
+88764	88778	88779	88779	Her	430	“ I have to go . Maddie is expecting me at the clinic . ”
+88809	88827	88828	88828	Simon	430	“ No ! Kara . We are n’t finished . Do n’t you dare leave right now , ”
+88887	88908	88909	88909	Simon	430	“ Whoa , bro . Let her go . It does n’t look like you were resolving much of anything . ”
+88919	88933	88909	88909	Simon	430	“ Take your fucking hands off me . She ’s going to listen . ”
+88979	88997	88960	88960	Sam	244	“ Oh yeah , you both looked like you were totally ready to have a rational conversation . ”
+89003	89058	89059	89059	Deflated	106	“ Calm the hell down and think about what you ’re doing . The woman was dissolving in a puddle of tears . You love her . Is this really the mood you need to be in when you talk ? You ’ll say stupid things that you ’ll regret later . Trust me . ”
+89073	89080	89081	89081	He	244	“ Fuck . I already did . ”
+89126	89131	89113	89113	Sam	244	“ You good now ? ”
+89146	89155	89113	89113	Sam	244	“ Yeah . Yeah , I think so . ”
+89187	89204	89184	89184	he	244	“ I really need to talk to Kara . Work things out . Something ’s wrong . ”
+89271	89307	89263	89263	he	244	“ Bro , you really need to work on your communication skills . If that was working things out , I ’d really hate to see what happens when you two are having an argument . ”
+89308	89318	89319	89319	Kara	430	“ You ’re not sick . You ’re pregnant . ”
+89353	89359	89348	89348	she	430	“ How is that possible ? ”
+89386	89403	89404	89404	Maddie	138	“ You ’re a nurse . Do we really need a refresher on anatomy and physiology ? ”
+89434	89449	89450	89450	She	430	“ Part A is inserted into part B , which may result in pregnancy . ”
+89465	89472	89457	89457	she	430	“ You know the other details . ”
+89473	89487	89457	89457	she	430	“ I ’m on the pill , Maddie . It ’s not possible . ”
+89488	89519	89520	89520	Maddie	138	“ You know it can still happen . And I think it ’s entirely possible that you conceived soon after you had that stomach virus between Christmas and New Years , ”
+89527	89538	89539	89539	Kara	430	“ You missed your period recently , did n’t you ? ”
+89543	89579	89580	89580	Kara	430	“ But I still took my pill every day when I was sick . I did n’t forget . And I did n’t take any antibiotics that would interfere with the effectiveness of my pill , ”
+89594	89623	89587	89587	Maddie	138	“ But you were vomiting every day for a week . I suspect most of your pill came right back up and was never dissolved in your bloodstream . ”
+89624	89631	89632	89632	Maddie	138	“ Shit , shit , shit . ”
+89691	89706	89683	89683	Kara	430	“ You were sick . Do n’t blame yourself because your brain was scrambled . ”
+89716	89751	89707	89707	Maddie	138	“ Here ’s the result of your HCG . It ’s positive . You know the test is pretty damn accurate , but we can repeat it in a week if you want to . ”
+89777	89795	89796	89796	Maddie	138	“ I ca n’t believe it . Oh God , how am I going to tell Simon ? ”
+89856	89902	89903	89903	Kara	430	“ You think Simon will be upset ? Kara … I do n’t think he will . You ’re getting married in a month . It ’s a little soon , but I think he ’ll be delighted . And I know you want kids . ”
+89913	89956	89957	89957	She	430	“ I do want children . I ’m thirty years old and I ’d like to have more than one . But any time I bring up the subject with Simon , he shuts it down immediately . He wants to wait . ”
+89986	90013	89976	89976	She	430	“ I do n’t think he ’ll be happy . His expression looks pained every time I talk about it . And we fought this morning . ”
+90014	90017	90018	90018	Maddie	138	“ About ? ”
+90022	90101	90102	90102	Maddie	138	“ I was being a raving bitch . I have n’t been myself for the last few weeks . That ’s why I wanted you to run a few blood tests . I think I knew I could be pregnant , but did n’t want to admit it . I feel so emotional all the time , so scared . I had a premarital agreement drawn up by an attorney to protect Simon and he would n’t sign . ”
+90109	90140	90141	90141	Maddie	138	“ You know , I like that man more and more every day . Good for him . He trusts you enough to know that you would never screw him . ”
+90144	90183	90141	90141	Maddie	138	“ Not financially anyway . Any other billionaire with Simon ’s money would have already had your signature on a prenup the moment he put that gorgeous ring on your finger . Why would you argue about that ? ”
+90184	90274	90275	90275	Kara	430	“ I insisted he sign . He refused . Told me I did n’t have enough faith in him . Then I told him that maybe we should reconsider this marriage because we were just too different . God , I do n’t even know why I said that . Simon is like a missing piece of my soul , my other half . I do n’t know what I ’d do without him . We fit in every way except for the money . I guess I panicked . ”
+90358	90413	90414	90414	Maddie	138	“ You ’re pregnant , girlfriend , and your hormones are raging out of control . It ’s normal to be a little touchy , do and say irrational things , and to have mood swings . Tell Simon . Let him understand and be there for you . You need him right now , ”
+90429	90441	90422	90422	Kara	430	“ It ’s hard to believe that you once hated him . ”
+90442	90471	90472	90472	Maddie	138	“ I never hated Simon . I did n’t know him . I was just afraid he ’d end up being a snake like his brother , Sam . ”
+90486	90535	90472	90472	Maddie	138	“ It ’s pretty clear that he ’s not . He adores you , makes you happy . For that alone … I love the guy . But he ’s also a very good person . He ’s helped me keep this free clinic afloat with his donations . ”
+90615	90629	90604	90604	Kara	430	“ Sam ’s a good man , Maddie . He saved my life . ”
+90630	90638	90639	90639	Maddie	138	“ Yeah . After he insulted you , ”
+90644	90657	90658	90658	Kara	430	“ He ’s not perfect , but he has a good heart , ”
+90742	90750	90751	90751	Maddie	138	“ He ’s a man - whore , ”
+90875	90891	90862	90862	Maddie	138	“ Something happened between you two . Are you ever going to tell me what ? ”
+90892	90907	90908	90908	Maddie	138	“ No . It was a long time ago and it ’s not important . ”
+90931	90945	90920	90920	her	430	“ You need to start taking prenatal vitamins and see an OB doc . ”
+90946	90956	90957	90957	Kara	430	“ I ’ll make an appointment with Dr. Shapiro . ”
+91157	91168	91152	91152	Maddie	138	“ Katherine Shapiro is an excellent OB . Good choice . ”
+91188	91195	91178	91178	Maddie	138	“ Hey , where are you ? ”
+91211	91224	91226	91226	Simon	430	“ Um … sorry . I was just thinking about the baby . ”
+91231	91243	91229	91229	Simon	430	“ Are you okay ? I know this was a shock . ”
+91256	91298	91299	91299	Kara	430	“ Do n’t worry about the moodiness and being emotional . It ’s hormones . Tell Simon and let him help you . He ’ll understand your emotional behavior once he understands that it ’s caused by your hormones and pregnancy . ”
+91349	91358	91359	91359	She	430	“ I ’d better get back to work , ”
+91377	91397	91371	91371	Maddie	138	“ Thanks for taking the time out to check me over . I thought I was losing my mind . ”
+91398	91409	91410	91410	Maddie	138	“ You ’re pregnant . Pretty much the same thing , ”
+91419	91456	91457	91457	She	430	“ Go home . The schedule is light for the rest of the day . I can handle it alone . Go and talk to Simon . You both need time to get used to this . ”
+91469	91504	91457	91457	She	430	“ Everything will be okay . Simon loves you and you love him . You ’re getting married in a month and you ca n’t cancel the wedding - I already have my dress ! ”
+91532	91538	91539	91539	she	180	“ Thank you , Maddie , ”
+91803	91814	91794	91794	Maddie	138	“ No morning sickness , I take it ? Cravings ? ”
+91815	91886	91887	91887	Kara	430	“ Food and sex . Sex and food . Which one is more important , changes frequently . I ’m a little queasy in the morning , but it does n’t last long and then I ’m eating like a horse for the rest of the day . Sometimes I crave things that I do n’t even like . How could I have not suspected that I might be pregnant ? ”
+91903	91936	91939	91939	she	430	“ If you ’re sure you do n’t mind , I think I ’ll go home . I have to tell Simon , so I might as well get it over with . ”
+91992	92041	91980	91980	she	430	“ You volunteer your time here , Kara . Every damn week , even though you have a full - time job at the hospital . I ’m grateful for your help , but you do n’t have to ask permission to leave . I ’ll be fine . ”
+92047	92062	92063	92063	Kara	430	“ You said you were scared ? Do you mind if I ask why ? ”
+92107	92132	92133	92133	Maddie	138	“ Have you ever had something happen to you , something so good that it ’s hard to believe that it ’s even real ? ”
+92139	92144	92145	92145	Kara	430	“ Yeah . Once . ”
+92155	92209	92145	92145	Kara	430	“ It ’s like that with Simon . Sometimes I need to pinch myself to make sure that I ’m not dreaming , that he ’s real , that he loves me . I guess I ’m afraid that something this good will somehow be taken away , that it is n’t forever . ”
+92210	92267	92268	92268	Maddie	138	“ You lost your parents at the age of eighteen and did n’t have any other family . Maybe it ’s the memory of that loss that makes all of this so scary , so terrifying to feel the way you do . Everything seems amplified when you ’re pregnant and you ’re running on emotions , ”
+92297	92350	92292	92292	her	430	“ That ’s possible . I guess I just want Simon to know how much I love him and that it ’s not about his wealth . I ’ve been scared lately , afraid that he wo n’t understand that I love him for the man he is and not his money . ”
+92351	92361	92362	92362	Maddie	138	“ The problem is , he already knows that . ”
+92369	92440	92362	92362	Maddie	138	“ He is n’t seeing your gestures to protect him or prove your love for him as reassurance , Kara . He ’s seeing it as rejection , a refusal to accept all that he is . Simon might have grown up poor , but he and Sam busted their asses to become successful . It ’s a major accomplishment in his life and you want no part of it . ”
+92449	92504	92446	92446	Maddie	138	“ I understand what you ’re trying to do and I get that you ’ve always been independent , but if your positions were reversed and you had more money than Fort Knox , would n’t you want to share it with Simon , make his life easier after living a life of poverty ? ”
+92513	92591	92505	92505	Maddie	138	“ In his own screwed - up way , he ’s trying to take care of you . Sometimes men connect their own self - worth with their ability to take care of the woman they love . Yeah , it ’s old - fashioned and ridiculous , but true . Believe me ; Simon has never had any question about you being a gold - digger . That ’s your hang - up , not his . ”
+92592	92621	92705	92705	Maddie	138	“ I do accept him . I do n’t reject any part of Simon . I admire the way he and Sam pulled themselves up from poverty and … ”
+92622	92704	92705	92705	Maddie	138	“ Then for God ’s sake , drop the prenup idea and let the guy buy you stuff . If it makes him happy , what does it matter if he spends his money to give you something ? You deserve it and he knows you are n’t after him for his money . But you need to accept that he ’s richer than God and anything he gives you wo n’t make even a tiny dent in his net worth . ”
+92722	92735	92717	92717	Kara	430	“ He already buys me things . More things than I need . ”
+92736	92930	92931	92931	Kara	430	“ Yeah . And you fight him over it . I understand that you ’ve lived with almost nothing your entire life , so you think you do n’t need anything . You ’re going to have to deal with the fact that you ’re marrying one of the richest men in the world . If he were trying to buy your love or could only show his affection through material things , that would be a problem . But that ’s not true in Simon ’s case . He ’s just trying to be thoughtful , trying to take care of you . I say … let him do it and enjoy the things he gives you without feeling guilty . If you really want him to be happy , let him spend his money on you . Compromise . You ’re still living in survival mode , counting every penny you spend . I get that . But you do n’t need to do that anymore and Simon does n’t see his spending as extravagant . He sees it as normal because he ’s become accustomed to being wealthy . Understand ? ”
+93051	93065	93036	93036	she	430	“ How did you ever become so wise when it comes to men ? ”
+93087	93189	93084	93084	Maddie	138	“ It ’s easy to see as an observer . Harder to recognize when you ’re actually emotionally involved . I ’ve watched you and Simon for a year now , seen your reaction on your birthday , Christmas , and any other time he gives you something nice . Instead of accepting his gifts with a smile , you chew him out for spending money on you . And I ’ve seen his injured looks . He thinks he ’s giving you something that will please you and it does n’t . I think it ’s hard on his ego . ”
+93190	93215	93216	93216	Tears	37	“ Oh , God . I ’m such a bitch . I did n’t know . I did n’t think about it that way . ”
+93231	93312	93313	93313	Maddie	138	“ Hey , do n’t beat yourself up over it . You ’re a survivor . Your attitude has gotten you through a lot of challenges in your life . There ’s no shame in that . I ’m just saying that it ’s time to let go of that particular defense mechanism and relax a little . Let Simon give you some nice stuff , take a nice honeymoon . The man has a private jet . Use it . ”
+93325	93336	93313	93313	Maddie	138	“ Try to go somewhere other than Disneyworld this time . ”
+93361	93384	93352	93352	Kara	430	“ Hey , I wanted to go to the Magic Kingdom . I ’d never been there before . It was wonderful . ”
+93385	93420	93421	93421	Kara	430	“ Save Mickey Mouse for after you have the kid . Let Simon fire up that jet and whisk you away to someplace romantic . There ’s plenty of time for family vacations later . ”
+93424	93431	93432	93432	They	1320	“ London ? Paris ? Italy ? ”
+93459	93486	93451	93451	Maddie	138	“ Now you ’re talking . Think big . Very big . I have a sneaking suspicion that Simon would n’t mind a very long honeymoon . ”
+93527	93547	93522	93522	she	430	“ You ’re going to have to deal with Sam for my wedding . Are you okay with that ? ”
+93570	93580	93554	93554	she	430	“ Of course , He ’s nothing to me . ”
+93587	93620	93621	93621	Maddie	138	“ If you spend some time together , you might discover that he is n’t quite the ogre that you think he is . Maybe he ’s matured since you knew him . ”
+93628	93678	93679	93679	She	430	“ Pleeeze ! I do read the newspaper and magazines . The man still has a set of horns underneath those golden curls of his . Do n’t hold your breath on that assumption . You might pass out , and it would n’t be good for the baby . ”
+93691	93696	93679	93679	She	430	“ Headed for home ? ”
+93716	93786	93787	93791	The coin collector in Simon	1325	“ Shortly . I have some shopping to do first . It is Valentine ’s Day . I need to pick something up and hit a few other stores . I had my lucky penny made into a medallion with a men ’s gold chain for Simon so he ca n’t give it back . The jeweler was able to do it without ruining the integrity of the coin . ”
+93813	93825	93796	93796	she	430	“ I need to pick it up at the jewelry store . ”
+93826	93839	93840	93840	Maddie	138	“ I guess it is Valentine ’s Day . I actually forgot , ”
+94160	94181	94157	94157	he	244	“ Fine . It ’s done . The world is n’t going to end because I signed the stupid thing . ”
+94229	94238	94239	94239	he	244	“ I just want her to be happy , ”
+94410	94418	94419	94419	he	244	“ I should have done it before , ”
+94479	94485	94472	94472	she	430	“ Should have done what ? ”
+94520	94539	94503	94503	Simon	430	“ Should have signed the fucking papers when you wanted me to sign instead of fighting over it , ”
+94603	94608	94609	94609	Kara	430	“ You signed them ? ”
+94615	94626	94628	94628	Simon	430	“ Yes . I ’m sorry for what I said . ”
+94710	94721	94691	94691	Kara	430	“ Why ? I thought you did n’t want this . ”
+94722	94727	94728	94728	He	244	“ I do n’t . ”
+94731	94748	94749	94749	He	244	“ But I want you to be happy . I know the money issue bothers you . ”
+94757	94773	94749	94749	He	244	“ I signed them for you . But you ’re still not leaving me . Ever ”
+94837	94856	94857	94857	His	244	“ You ’re right . I ’m not leaving you . Not as long as you love me . ”
+94864	94882	94883	94883	he	244	“ That would be as long as I ’m still breathing . Why are you doing that ? ”
+94899	94924	94925	94925	Her	430	“ Because I never should have let money be an issue between us . I ’m so sorry , Simon . So very sorry . ”
+94978	94988	94959	94959	He	244	“ I should n’t have said what I said . ”
+94989	95026	95027	95027	she	430	“ I hurt you because of my own insecurities . You ’ve never let money be a problem in our relationship , and I should n’t have either . You were right . I was wrong , ”
+95062	95087	95088	95088	Kara	430	“ I love you . I just want you to be happy again . You seem so sad . I do n’t like it . ”
+95102	95114	95088	95088	Kara	430	“ I ’m not sad , Simon . I ’m emotional . ”
+95115	95128	95129	95129	he	244	“ I ’d rather see you be happy emotional than sad emotional , ”
+95151	95188	95148	95148	she	430	“ You ’re an incredible man , Simon Hudson . Always so worried about my happiness , my safety , so willing to sacrifice for me . I love you so much it scares me sometimes . ”
+95205	95237	95238	95238	Simon	430	“ I never sacrifice anything for you . I love you . And feel free to love me as much as you want to . You wo n’t hear me complaining . ”
+95274	95326	95270	95270	Kara	430	“ I spent money today . Your money . Um … I mean our money . And I ’ve decided that I need a car . Or maybe an SUV . Something … uh … with more space . And I want a long honeymoon . Can we use the jet ? ”
+95327	95337	95339	95339	God	1520	“ Absolutely . Any place you want to go . ”
+95351	95356	95346	95346	he	244	“ Was it painful ? ”
+95372	95404	95368	95368	Simon	430	“ Horribly . I started out on the clearance racks , but I could n’t find anything I wanted there so I had to move to the regular - priced stuff . ”
+95405	95408	95409	95409	God	1520	“ Ouch . ”
+95416	95423	95409	95409	God	1520	“ And how did that go ? ”
+95424	95441	95442	95442	she	430	“ Okay . My hand only shook a tiny bit as I ran my debit card , ”
+95447	95477	95478	95478	Simon	430	“ I even went to get a manicure and pedicure . I ’ve never done that before . It felt … weird … but I wanted to try it . ”
+95520	95526	95492	95493	this woman	430	“ What did you buy ? ”
+95527	95542	95543	95543	Her	430	“ A few things . And um … a new wardrobe . Bigger clothes . ”
+95550	95558	95543	95543	Her	430	“ Are you planning on gaining weight ? ”
+95587	95604	95579	95579	Her	430	“ For a while . Oh … hell ! I might as well just say it . ”
+95630	95663	95664	95664	Simon	430	“ I ’m pregnant . We ’re going to have a baby . That ’s the reason I ’m so emotional . I feel like my hormones are taking over my brain . ”
+95725	95730	95735	95735	they	1342	“ How ? Why ? ”
+95772	95830	95831	95832	Our baby	1344	“ I ’m sorry . It probably happened when I was sick . I did n’t get enough of the pill in my system because I was vomiting . I should have been more careful . I know you do n’t want to be a father right now . But I already love our baby so much . ”
+95856	95880	95845	95845	he	1344	“ Shhhh … it will be okay . I … I … oh holy shit . I ’m going to be a father . ”
+95900	95905	95906	95906	she	430	“ I ’m sorry , ”
+95912	95935	95936	95936	He	1344	“ Please do n’t be sorry , sweetheart . It is n’t your fault . Are you ready to be a mother ? ”
+95968	96001	96002	96002	She	430	“ Yes . I want it so desperately . But I know you do n’t . You ’ve never wanted to talk about it before except to say you wanted to wait . ”
+96009	96054	96002	96002	She	430	“ It is n’t that I do n’t want our child . I just ca n’t fucking stand the thought of you being in that much pain , that something might happen to you . It ’s dangerous . Women can die in childbirth . ”
+96190	96221	96222	96222	Her	430	“ It ’s not dangerous , Simon . Women do it every day . Most women say the pain is soon forgotten once they have their child in their arms . ”
+96229	96235	96222	96222	Her	430	“ You do n’t mind ? ”
+96236	96251	96256	96256	he	1348	“ I mind , but not in the way that you ’re concerned about . ”
+96294	96300	96307	96308	her mother	1822	“ I want a girl . ”
+96310	96372	96373	96373	He	1348	“ We need to move . Buy a place outside of downtown where she can have a yard . Maybe a dog . Oh hell , whatever makes her happy . And we need to be in a good area with good schools . She ’ll be beautiful just like you , so no dating until she ’s at least thirty . ”
+96402	96416	96392	96392	Kara	430	“ I want a boy . A sweet little boy like his daddy . ”
+96417	96420	96388	96388	His	1350	“ Girl . ”
+96421	96424	96392	96392	Kara	430	“ Boy . ”
+96425	96428	96429	96429	he	1350	“ Girl , ”
+96435	96465	96466	96466	Simon	430	“ Healthy . I ’ll be happy if our baby is just healthy and happy . I do n’t really care . He or she will be dearly loved . ”
+96492	96532	96466	96466	Simon	430	“ Me , too , baby . I ’d love to have either one . I just hope the baby looks like you . I ’ll love our child so much and give the baby everything I never had . ”
+96543	96588	96589	96589	He	1351	“ Are you feeling okay ? You said you were emotional . Are you sick ? We should see the doctor . What else do we need to do ? What do you need ? Tell me and I ’ll get it for you . ”
+96685	96696	96697	96697	she	430	“ I need your hot body and some ice cream , ”
+96704	96712	96697	96697	she	430	“ But first I need a shower . ”
+96713	96726	96697	96697	she	430	“ Me ? You need me ? Should we be doing that ? ”
+96750	96771	96772	96772	she	430	“ Oh yeah . We should be doing it a lot . I ’m horny all the time . Hormones , ”
+96812	96818	96819	96819	he	1351	“ We should be careful , ”
+96851	96869	96870	96870	Kara	430	“ I need sex . Lots and lots of sex . Hot , sweaty , crazy sex , ”
+96875	96890	96870	96870	Kara	430	“ And I expect you to meet my needs since you knocked me up . ”
+96918	96923	96924	96924	Simon	430	“ How crazy exactly ? ”
+96936	96941	96924	96924	Simon	430	“ What ’s safe ? ”
+96942	96995	96996	96996	Kara	430	“ Any way I want you to fuck me . I ’m only at about five weeks pregnant right now . Some women get tired , sick or lose their sex drive during their first trimester , but not me . I want to get laid at least five times a day . ”
+97008	97032	96996	96996	Kara	430	“ Do n’t be afraid to make love to me . It ’s safe . And I need you . In every way . ”
+97052	97073	97075	97075	she	430	“ I ’ll take care of you , baby . Always . And you ’ll tell me how you feel ? ”
+97123	97142	97143	97143	she	430	“ Right now I want a shower . I want to orgasm . And I want ice cream , ”
+97188	97195	97177	97177	he	1351	“ I ’m up for that . ”
+97243	97266	97240	97240	he	1351	“ I love you . Ask me for anything and I ’ll do it . No questions asked , no negative replies . ”
+97277	97284	97240	97240	he	1351	“ I thought I just did . ”
+97302	97353	97287	97287	she	430	“ I just … need you . I feel needy as hell . I ’m not myself right now . Please try not to take anything I do or say personally . It ’s not you . It ’s hormones right now . I think they ’re eating my brain . ”
+97354	97371	97289	97289	his	1351	“ Be needy . Be grouchy . I wo n’t even tell you not to cry . ”
+97404	97433	97434	97434	he	1351	“ Just do n’t ask me not to worry , or be protective , or be concerned about your happiness and safety . I ca n’t do that , ”
+97442	97449	97450	97450	Simon	430	“ You wo n’t be bossy ? ”
+97453	97456	97450	97450	Simon	430	“ No . ”
+97465	97469	97450	97450	Simon	430	“ Or demanding ? ”
+97484	97486	97482	97482	he	1351	“ Nope ”
+97487	97492	97482	97482	he	1351	“ Domineering ? Controlling ? ”
+97505	97510	97511	97511	he	1351	“ I ’ll try , ”
+97552	97581	97545	97545	She	430	“ I give you twenty - four hours . Those traits are so deeply embedded in your DNA that you ’ll never make it more than a day . ”
+97638	97644	97645	97645	he	1351	“ A week at least , ”
+97897	97902	97890	97891	his mother	133	“ Hello , Madeline . ”
+97956	97965	97946	97946	Kara	430	“ I did n’t mean to scare you . ”
+98014	98034	97988	97988	she	138	“ How did you get by Simon ’s security ? And what in the hell are you doing here ? ”
+98083	98116	98117	98118	Arrogant bastard	1378	“ They ’re my security too , Sunshine . They work for Hudson . Do you think they would do anything other than let me by them with a polite good evening ? ”
+98216	98243	98196	98196	she	138	“ What do you want , Sam ? This is hardly your neighborhood . And I do n’t think you need the services of a hooker ? ”
+98301	98322	98297	98297	he	244	“ Would you care , Sunshine ? Would it matter to you if I fucked every woman in the city ? ”
+98323	98342	98343	98343	Maddie	138	“ Ha ! Like you have n’t already ? And stop calling me by that ridiculous pet name , ”
+98406	98443	98444	98444	he	244	“ Why are you still here ? My security alerted me that you were here after dark . You should be home . This neighborhood is n’t safe during the day , much less at night , ”
+98448	98452	98444	98444	he	244	“ Simon ’s security ”
+98517	98533	98534	98534	He	244	“ What if some thug got through security , found you here alone and vulnerable ? ”
+98636	98651	98652	98652	he	244	“ A man could take advantage of a woman alone in an empty office , ”
+98684	98704	98661	98661	Maddie	138	“ Move . Back off , Hudson , before I ’m forced to send your balls into your throat . ”
+98722	98741	98661	98661	Maddie	138	“ I taught you that move , remember . And never tell your attacker your intensions , Madeline . ”
+98836	98843	98828	98828	his	244	“ Go fuck yourself , Hudson . ”
+98880	98914	98915	98915	Liar	122	“ I ’d rather fuck you , Sunshine . Much more satisfying . You ’re still the most beautiful woman I ’ve ever seen . Even more beautiful than you were years ago . ”
+98939	98951	98952	98953	The bastard	244	“ Let go and get the hell out of my office . ”
+98988	99006	99007	99007	Sam	244	“ Kiss me first . Prove to me that there is n’t something left unfinished between us , ”
+99026	99057	99058	99058	Maddie	138	“ The only thing left unfinished is the fact that you never even said you were sorry for what you did . You did n’t give a damn . You didn’t- ”
+99338	99345	99346	99346	he	244	“ Shit . Maddie . Maddie , ”
+99404	99409	99410	99410	Fury	123	“ Get off me . ”
+99543	99548	99530	99530	She	138	“ Maddie . Wait . ”
+99592	99649	99579	99579	Maddie	138	“ Do n’t touch me again . Ever . I ’m not the stupid , naïve woman you once knew . I trusted you once , and I forgave myself because I was young . I wo n’t do it again . I do n’t have the excuse of youth to even justify being that stupid . ”
+99650	99656	99657	99657	Sam	244	“ You still want me , ”
+99684	99712	99680	99680	she	138	“ No , I do n’t . My body might respond to a gorgeous man , but it ’s just physiological , a sexual reaction . You , ”
+99725	99733	99713	99713	she	138	“ mean absolutely nothing to me anymore . ”
+99734	99754	99755	99755	he	244	“ You want me to fuck you until you scream . I can still make you purr , Kitten , ”
+99787	99804	99767	99767	She	138	“ I would n’t know . You ’ve never fucked me . And you never will . ”
+100070	100076	100061	100061	He	244	“ Can you lock up ? ”
+100081	100094	100077	100078	The man	244	“ Yes sir . Hope your meeting with Dr. Reynolds went okay . ”
+100105	100113	100114	100114	He	244	“ Yeah . It was very informative . ”
+100176	100179	100164	100164	Her	1403	“ Fuck ! ”
+100669	100689	100690	100690	he	244	“ Fuck ! I ca n’t do it . I ca n’t be with another woman . Not now , ”
+101051	101054	101037	101037	He	244	“ Yes ! ”
+101774	101777	101778	101778	Kara	430	“ Simon ? ”
+101811	101819	101820	101820	Simon	430	“ In the bedroom , come here , ”
+101946	101954	101940	101940	she	430	“ Simon , what are you doing ? ”
+102063	102075	102060	102060	his	244	“ I wish you would believe that I trust you completely . ”
+102076	102083	102084	102084	Kara	430	“ No , Simon . No . ”
+102127	102135	102123	102123	she	430	“ Tell me how to release these . ”
+102184	102199	102168	102168	him	244	“ You did n’t need to do this . I do trust you completely . ”
+102200	102211	102212	102212	His	244	“ Kara , stop . Now . Before you hurt yourself ”
+102246	102260	102243	102243	he	244	“ I ’m not uncomfortable . Well … except for some minor swelling . ”
+102433	102451	102419	102419	His	244	“ How did you do this ? How is it possible to put yourself into these things ? ”
+102475	102478	102479	102479	Simon	430	“ Sam , ”
+102486	102499	102479	102479	Simon	430	“ I think the bastard enjoyed making them as tight as possible . ”
+102522	102528	102507	102507	Kara	430	“ Your brother did this ? ”
+102529	102564	102565	102565	Simon	430	“ I ’m sure I ’ll never hear the end of it . I wanted to be naked , but he insisted that I cover my family jewels so he would n’t go blind , ”
+102643	102652	102653	102653	She	430	“ I ca n’t believe you did this . ”
+102673	102725	102653	102653	She	430	“ Wish granted . But I already trust you completely , Simon . I told you it was hormones . And I ’ve done some thinking . I realize now how my actions could have seemed like rejection or doubt to you , but it was my issue , not yours . ”
+102726	102744	102745	102745	he	244	“ I wanted to make sure you trusted me . Now touch me before I go insane , ”
+102818	102828	102805	102805	she	430	“ You are the sexiest man on the planet . ”
+102838	102862	102829	102829	Her	430	“ I think you need your eyes examined . I ’ve always thought so . I have scars , sweetheart . Ugly scars . ”
+102886	102898	102877	102877	Kara	430	“ Like a dark warrior , the hero of my dreams . ”
+102925	102930	102931	102931	he	244	“ You ’re crazy , ”
+102940	102947	102948	102948	she	430	“ You make me that way , ”
+103015	103024	103025	103025	Simon	430	“ Holy shit . What are you wearing ? ”
+103043	103049	103032	103032	she	430	“ Another Valentine gift for you ”
+103137	103155	103156	103156	Simon	430	“ Of course , I had to shave . Completely . These panties do n’t cover much . ”
+103171	103176	103177	103177	He	244	“ Completely … bare ? ”
+103188	103194	103177	103177	He	244	“ You were n’t earlier . ”
+103218	103255	103202	103202	she	430	“ I had to do it when I put it on . Right before you took me upstairs to play my new game . It ’s wonderful , Simon . I think you should release it . ”
+103256	103270	103271	103271	he	244	“ For Christ sake , release it . I ’m ready to explode , ”
+103279	103297	103298	103298	She	430	“ I was n’t talking about your cock , silly . I was referring to the game . ”
+103319	103331	103332	103332	he	244	“ Do n’t give a shit about the game right now , ”
+103504	103511	103512	103512	she	430	“ I ’m having a craving , ”
+103529	103536	103537	103537	His	244	“ Kara . Get back here . ”
+103583	103588	103563	103563	she	430	“ Mmmm … delicious , ”
+103616	103637	103638	103638	She	430	“ There ’s only one thing that would taste better exploding into my mouth right now . Something I crave . ”
+103650	103653	103638	103638	She	430	“ Kara . ”
+103719	103730	103711	103711	Simon	430	“ Kara . I ’ll make you pay for this . ”
+103739	103756	103731	103731	She	430	“ I ’m counting on it , big guy . And I do mean … big . ”
+103829	103845	103809	103809	She	430	“ Fuck . I wo n’t last . Goddamn it , Kara . Free me . ”
+103915	103926	103927	103927	she	430	“ I thought you wanted to satisfy all my cravings , ”
+103933	103939	103940	103940	Simon	430	“ I crave tasting you . ”
+103966	103974	103975	103975	he	244	“ You ’re going to kill me , ”
+104078	104091	104092	104092	He	244	“ Fuck . Kara . Sweetheart . Ahhhh … God . Yessss . ”
+104172	104178	104160	104160	He	244	“ Bare pussy . Now . ”
+104201	104205	104206	104206	She	430	“ Help me . ”
+104366	104375	104376	104376	he	127	“ God , you ’re so fucking beautiful , ”
+104386	104405	104406	104406	Kara	430	“ Time for revenge . You want to play , little girl , you have to pay up . ”
+104450	104455	104443	104443	She	430	“ Please , Simon . ”
+104456	104466	104467	104467	he	127	“ Please , what ? What do you want ? ”
+104472	104478	104467	104467	he	127	“ Fuck me . Please . ”
+104479	104509	104514	104514	she	430	“ I think not . I ’m having a craving of my own . My mouth is watering for some cream . Are you wet for me , sweetheart ? ”
+104519	104522	104514	104514	she	430	“ Yes . ”
+104578	104591	104562	104562	she	430	“ You ’re going to come for me while I taste you . ”
+104711	104725	104726	104726	he	127	“ I can already smell your arousal , see how wet you are , ”
+104751	104760	104737	104737	She	430	“ Please , Simon . I need you . ”
+104773	104777	104778	104778	he	127	“ Like this ? ”
+104785	104788	104789	104789	she	430	“ More , ”
+104806	104810	104811	104811	He	127	“ Like this ? ”
+104824	104832	104833	104833	She	430	“ More . Damn it . More . ”
+104844	104848	104849	104849	His	127	“ Like this ? ”
+104928	104940	104941	104941	She	430	“ Yes . Please , Simon . I need to come . ”
+105107	105115	105116	105116	His	127	“ Fuck me , Simon . Now . ”
+105129	105132	105133	105133	he	127	“ Mine , ”
+105138	105145	105133	105133	he	127	“ You ’ll always be mine . ”
+105146	105151	105152	105152	Simon	430	“ Yes . Always . ”
+105282	105304	105279	105279	he	127	“ Tell me you ’re mine . I need you . I love you . You ’re never fucking leaving me . ”
+105305	105324	105325	105325	Her	430	“ I ’ll always be yours , Simon . Nothing will tear us apart . I love you . ”
+105417	105424	105425	105425	Simon	430	“ Fuck . Kara . Kara . ”
+105465	105471	105461	105461	he	1457	“ Did I hurt you ? ”
+105482	105485	105472	105472	She	430	“ No , ”
+105494	105503	105486	105486	she	430	“ You gave me exactly what I needed . ”
+105650	105660	105661	105661	she	430	“ I love you . Happy Valentine ’s Day , ”
+105668	105682	105683	105683	Simon	430	“ Happy Valentine ’s Day , sweetheart . I ’ll love you forever , ”
+105713	105720	105721	105721	she	430	“ You ’ll always have me , ”
+105728	105743	105744	105744	he	649	“ I know , baby . I ’m the luckiest bastard in the world , ”
+105836	105840	105841	105841	she	138	“ Damn it , ”
+106012	106022	106023	106023	she	138	“ Who is it and what do you want ? ”
+106030	106040	106041	106042	the man	244	“ Special Valentine ’s Day delivery for Dr. Reynolds , ”
+106046	106052	106041	106042	the man	244	“ Leave it and go . ”
+106072	106088	106089	106091	The uniformed man	244	“ I understand , ma’am . I ’ll just leave it here on the doorstep . ”

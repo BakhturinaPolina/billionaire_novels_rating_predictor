@@ -1,0 +1,190 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+462	472	473	473	I	0	" Sir ? What can I get for you ? "
+654	657	658	658	she	30	" Sir ? "
+673	680	658	658	she	30	" Americano , dark , black . "
+920	932	933	933	I	0	" Yeah , I 've got a new assignment for you , "
+2817	2827	2830	2830	him	122	" What can I get for you , sir ? "
+2970	2981	2966	2966	he	122	" Are you looking for a new job , Lacey ? "
+2989	2992	2982	2982	I	0	" What ? "
+2993	2997	2998	2998	he	122	" A job , "
+3001	3026	2998	2998	he	122	" As personal assistant to my boss . He needs a new secretary , but you 'll fulfill the role of PA as well . "
+3027	3032	3033	3033	I	0	" I — I — "
+3069	3076	3077	3077	he	122	" You 'll be well compensated , "
+3088	3090	3080	3080	He	122	" salary "
+3112	3114	3080	3080	He	122	" salary "
+3166	3181	3148	3148	I	0	" Am I being punked or something ? Cause this is totally not funny . "
+3191	3194	3148	3148	I	0	" Punked ? "
+3195	3223	3224	3225	The man	127	" Yeah , you know where this is all one big joke and then someone will jump out and pop my balloon once I get all excited ? "
+3249	3290	3237	3237	He	127	" I assure you the offer is real , and my boss needs assistance right away . Today , preferably , so if you 're willing , I 'd like you to come with me so you can get started . "
+3363	3367	3368	3368	I	0	" Why me ? "
+3401	3406	3394	3394	he	127	" Do you accept ? "
+3407	3413	3394	3394	he	127	" Hey , come on ! "
+3428	3437	3414	3426	the guy standing in line behind the man I 'm talking to complains	135	" Some of us have places to be . "
+3600	3608	3589	3589	I	0	" What the hell ? Why not ? "
+3625	3629	3630	3630	I	0	" I quit , "
+3686	3694	3668	3669	the team	148	" Lacey , are you crazy ? ! "
+3884	3888	3889	3889	James	10	" Miss Sunshine , "
+4188	4205	4206	4206	She	9	" Miss Sunshine , I 'm Devon DeMarco . I 'm pleased you accepted the job . "
+4288	4302	4303	4303	she	9	" So , this is real and you 're not a serial killer , "
+4352	4371	4345	4345	She	9	" You suspected a serial killer might be luring you away with him , yet you went anyway ? "
+4404	4414	4401	4401	She	9	" Curiosity obviously won out over self - preservation . "
+4440	4449	4450	4450	she	9	" I would like to know one thing , "
+4475	4479	4464	4464	I	0	" Why me ? "
+4531	4558	4559	4559	She	9	" I was impressed with how you handled yourself under pressure in the coffee shop . I need a competent assistant . You fit the bill . "
+4600	4623	4625	4625	me	0	" Well , then , thank you for the position , Mr. DeMarco . I 'm thrilled to be working for you . "
+4991	4994	4995	4995	I	0	“ Lacey , ”
+5025	5031	5014	5014	She	14	“ Yes , Mr. DeMarco ? ”
+5032	5043	5014	5014	She	14	“ Can you step into my office for a moment ? ”
+5117	5120	5121	5121	I	0	“ Devon , ”
+5133	5136	5130	5130	She	14	“ What ? ”
+5137	5142	5130	5130	She	14	“ Call me Devon . ”
+5143	5148	5149	5149	She	14	“ Okay … Devon . ”
+5210	5217	5218	5218	she	14	“ Did I do okay today ? ”
+5264	5269	5270	5270	She	14	“ You 're perfect . ”
+5349	5360	5361	5361	I	0	“ Would you like to have dinner with me tonight ? ”
+5371	5380	5366	5366	She	14	“ Oh . I do n't know Mr. — ”
+5406	5409	5410	5410	she	14	“ Devon , ”
+5426	5432	5414	5414	she	14	“ Like a business dinner ? ”
+5433	5436	5437	5437	I	0	“ No , ”
+5457	5464	5465	5465	I	0	“ This dinner would be pleasure , ”
+5667	5676	5677	5677	she	14	“ I do n’t think that ’s appropriate , ”
+5682	5688	5677	5677	she	14	“ You ’re my boss . ”
+5689	5713	5677	5677	she	14	“ So ? I may be your boss at work , but after hours , we ’re just a man and a woman . ”
+5768	5774	5755	5755	Lacey	6	“ Devon … Mr. DeMarco , ”
+5784	5806	5775	5775	I	0	“ Thank you for the job , and thank you for the invitation , but I 'm afraid I must decline . ”
+6701	6708	6709	6709	Devon	6	“ Why are you fighting this ? ”
+6723	6735	6709	6709	Devon	6	“ Fuck , Lacey , your body is trembling for me . ”
+6863	6869	6870	6870	he	6	“ You smell so sweet , ”
+6881	6890	6874	6874	he	6	“ Have dinner with me tonight , sunshine . ”
+6938	6941	6926	6926	He	6	“ No , ”
+7233	7236	7237	7237	He	6	“ Why ? ”
+7271	7278	7279	7279	I	0	“ Because you 're my boss . ”
+7340	7352	7353	7353	I	0	“ It 's not good policy to mix business with pleasure , ”
+7357	7376	7353	7353	I	0	“ Employers and employees should n’t date . There ’s an uneven balance of power and all that . ”
+7386	7406	7377	7377	He	6	“ You do n’t have to worry about that . I 'll take care of you no matter what . ”
+7467	7493	7460	7460	his	6	“ Come on . Have dinner with me , Lacey . I promise you , nothing will happen that you do n't want to happen . ”
+7638	7651	7652	7652	His	6	“ Is that all it is ? That I ’m your employer ? ”
+7690	7717	7677	7677	he	6	“ If I had approached you on the street and asked you out without this bridge of power between us , would you have said yes ? ”
+7796	7805	7806	7806	he	6	“ In that case , you 're fired , ”
+8701	8703	8704	8704	I	0	“ D. ”
+8819	8824	8808	8808	I	0	“ What the hell ? ”
+8872	8875	8876	8876	I	0	“ Unbelievable , ”
+9062	9089	9055	9055	I	0	“ I was n’t implying that . I ’m just trying to take care of you . Please let me . Do you like the roses ? ”
+9112	9119	9120	9120	I	0	“ Why are you doing this ? ”
+9123	9129	9130	9130	he	239	“ Because you ’re mine , ”
+9141	9147	9148	9148	I	0	“ I ’m not yours , ”
+9153	9171	9148	9148	I	0	“ Oh , but , sweetheart , you are . You just do n’t know it yet . ”
+9193	9202	9203	9203	I	0	“ Let me take you to dinner tonight . ”
+9255	9262	9250	9250	I	0	“ Do I have a choice ? ”
+9275	9284	9263	9263	He	6	“ I ’ll pick you up at eight . ”
+9535	9541	9530	9530	she	242	“ Are you stalking me ? ”
+9559	9584	9553	9553	I	0	“ You asked what you should wear . I prefer the red one . It looks beautiful with your blonde hair and blue eyes . ”
+9606	9620	9595	9595	she	242	“ You are unbelievable . Did you put cameras up in my place ? ”
+9621	9624	9625	9625	She	242	“ I — "
+9631	9683	9625	9625	She	242	“ No , you 've gone too far this time . I appreciate you giving me a job , but then you hounded me all week until I agreed to this dinner that I told you I did n't think was a good idea due to the nature of our relationship . ”
+9684	9690	9691	9691	I	0	“ And I rectified that , ”
+9700	9732	9691	9691	I	0	“ You all but admitted yourself that were I not your employer , you would go out with me , so we 're no longer in an employer - employee relationship . ”
+9733	9741	9742	9742	she	243	“ So , I am still fired ? ”
+9756	9784	9746	9746	I	0	“ No , I do n't want you fired . I want you to come into the office every day where I can continue to watch you . ”
+9839	9856	9868	9868	her	243	“ You watch me at work too ? How ? Are there cameras up there too ? ”
+9872	9877	9863	9863	she	243	“ How , Devon ? ”
+9882	9896	9863	9863	she	243	“ The windows in my office . They 're one - way mirrors . ”
+9897	9900	9901	9901	she	243	“ Unbelievable , ”
+9905	9924	9901	9901	she	243	“ Normal rules of society . You just do n't think they apply to you , do you ? ”
+9988	10048	10049	10049	I	0	“ What I do n't get is why . Why me ? Why did you just offer me a job out of nowhere ? Why are you so insistent on going on a date with me ? Is this all just some misogynist thing ? You 're not used to women telling you no ? You enjoy the chase ? ”
+10064	10072	10073	10073	I	0	“ That 's not it at all , ”
+10078	10092	10073	10073	I	0	“ I 've never felt about any woman the way I do you . ”
+10093	10106	10107	10107	She	243	“ When did you see me ? What sparked this … this … ”
+10124	10214	10215	10215	She	243	“ At the coffee shop . You served me . That 's the first time I saw you , and that 's when I decided I wanted to be near you . I was already looking for a new secretary anyway . It seemed like a win - win . I 'd get you out of that hellhole and give you a better job , and you 'd be closer to me . What 's wrong with that , Lacey ? What did I do that ’s so wrong ? ”
+10237	10290	10225	10225	she	243	“ There are a million things wrong with that . So , what ? You just saw me in a coffee shop and decided you wanted to bang me and instead of asking me out like a normal person , this is your way of going about it ? Oh my God . ”
+10301	10329	10225	10225	she	243	“ It was you . You ’re the one I ’ve felt watching me . How long , Devon ? How long have you been stalking me ? ”
+10330	10342	10343	10343	I	0	“ I do n't just want to fuck you , Lacey . ”
+10367	10387	10364	10364	She	243	“ Do n't tell me . One look into my eyes and you fell madly , obsessively in love ? ”
+10388	10397	10398	10398	I	0	“ That 's exactly what the fuck happened , ”
+10466	10500	10501	10501	She	243	“ Call it love . Call it obsession . Call it whatever you will , but I want you , Lacey — more than I 've ever wanted anything in my entire life . ”
+10506	10512	10503	10503	her	243	“ You 're a psycho . ”
+10513	10520	10521	10521	I	0	“ I would never hurt you , ”
+10526	10536	10521	10521	I	0	“ You know that . I know you do . ”
+10572	10607	10567	10567	she	243	“ No , Devon . This is n't love . Obsession maybe , but you do n't manipulate the people you claim to love into doing what you want for your own selfish reasons . ”
+10608	10626	10627	10627	I	0	“ How is it selfish of me to want to keep you and take care of you ? ”
+10633	10651	10627	10627	I	0	“ How do I know you ’ll want anything to do with me after you fuck me ? ”
+10659	10663	10657	10657	she	243	“ fuck me . ”
+10664	10744	10747	10747	her	243	“ Because , Lacey , I do n't want to just fuck you . Yes , I want to see your blood staining my cock and know that I ’m the only man who ’s ever been inside you , but I also want to climb so deep inside you they 'll never be room for another man . I want to break your virgin cunt in so good that there 'll be an imprint of me inside you . ”
+10753	10760	10747	10747	her	243	“ How do you know — ? ”
+10766	10813	10814	10814	She	243	“ I know everything about you . I know you 're a virgin . I know you 're an orphan . I know you ca n't sleep with socks on because they make your feet hot . I want to know everything about you , Lacey . ”
+10825	10828	10829	10829	I	0	“ And , ”
+10833	10861	10829	10829	I	0	“ I also know exactly how to give you pleasure . I promise when you give yourself to me , you wo n't regret it , sunshine . ”
+10896	10906	10907	10907	she	243	“ I think I will wear the red dress , ”
+10950	10955	10947	10947	she	243	“ I 'm glad — "
+10965	10985	10960	10960	she	243	“ I 'm going out tonight , Devon , but not with you . Do n't bother coming by . ”
+10986	10989	10990	10990	I	0	“ Lacey , ”
+11071	11074	11075	11075	I	0	“ Fuck ! ”
+11620	11628	11613	11613	his	264	“ Where are you going , babe ? ”
+11668	11679	11663	11663	He	6	“ Do n't ever put your fucking hands on her . ”
+11706	11709	11693	11693	Devon	6	“ Devon ! ”
+11743	11751	11737	11737	he	6	“ Not a fucking word , Lacey . ”
+11768	11775	11776	11776	I	0	“ How did you find me ? ”
+11781	11788	11776	11776	I	0	“ It ’s my fucking club . ”
+11962	11970	11948	11948	He	6	“ What the fuck were you thinking ? ”
+11971	11981	11982	11982	I	0	“ I do n't have to answer to you , ”
+11989	11992	11993	11993	he	6	“ Lacey , ”
+12004	12016	11996	11996	he	6	“ Do n't leave your place without your phone ever again . ”
+12017	12020	12021	12021	I	0	“ Why ? ”
+12031	12038	12027	12027	I	0	“ So you can track me ? ”
+12049	12059	12044	12044	his	6	“ So I can make sure you 're safe . ”
+12060	12068	12069	12069	I	0	“ I can take care of my — "
+12339	12370	12336	12336	he	6	“ There we go as , baby . It ’s okay . Let it all out . I 'm here now . I 'm going to take care of you . ”
+12410	12417	12418	12418	My	0	“ Devon , I … I — ”
+12448	12452	12453	12453	he	6	“ I know , ”
+12457	12473	12474	12474	He	6	“ I feel it too . There are no words . It 's just us . ”
+12485	12491	12481	12481	he	6	“ It ’s just us . ”
+12492	12499	12481	12481	he	6	“ Devon , this is crazy , ”
+12526	12565	12523	12523	he	6	“ It ’s just us . It does n’t matter if it does n’t make sense . It does n’t matter what anyone thinks . Nothing matters except us . Me and you . Do you understand me ? ”
+12566	12571	12523	12523	he	6	“ What about work ? ”
+12587	12603	12584	12584	he	6	“ Lacey , I 'm a billionaire . You do n't have to work anymore . ”
+12604	12607	12608	12608	I	0	“ But — "
+12622	12691	12612	12612	he	6	“ You 're mine . I 'm going to take care of you . If you want to come into the office every day , then you 're more than welcome . I love having you near me all the time so I can kiss and touch you whenever I want , but if you want to stay home and do nothing , that 's fine , too . ”
+12692	12695	12696	12696	I	0	“ Home ? ”
+12703	12706	12696	12696	I	0	“ Yes , ”
+12712	12727	12707	12707	His	6	“ Our home . You 're coming home with me . Where you belong . ”
+12893	12905	12906	12906	he	6	“ Do you see what you do to me , Lacey ? ”
+12912	12943	12906	12906	he	6	“ You make me lose control . Make me feel like coming in my pants . You know I have n’t nutted since the day I first saw your face ? ”
+12953	12958	12959	12959	he	6	“ That 's right , ”
+12962	12986	12959	12959	he	6	“ I was n't going to come until I could put it in between your sweet thighs where it ’s supposed to go . ”
+13009	13012	13013	13013	I	0	“ Devon , ”
+13019	13025	13026	13026	he	6	“ Let me worship you , ”
+13375	13378	13379	13379	I	0	“ Yes , ”
+13520	13547	13548	13548	I	0	“ I ’m going to have to get inside you soon before I burst , baby , but not before I taste what 's finally mine . ”
+13617	13626	13627	13627	I	0	“ Taste like pure fucking sugar , honey , ”
+13683	13692	13693	13693	I	0	“ Have you ever orgasmed before , baby ? ”
+13773	13779	13760	13760	she	288	“ Why did you stop ? ”
+13800	13816	13817	13817	I	0	“ Because your first orgasm is going to be on my cock where it belongs , ”
+13913	13921	13922	13922	I	0	“ You ’re so perfect , sweetheart , ”
+13982	13987	13988	13988	I	0	“ You ’re mine , ”
+14027	14032	14015	14015	She	288	“ It ’ll fit , ”
+14145	14156	14157	14157	I	0	“ Look at me when I 'm making you mine , ”
+14331	14336	14337	14337	She	288	“ Are you okay ? ”
+14398	14424	14387	14387	I	0	“ Fuck , you ca n't do that , baby . Not unless you want this to be over with before it 's even begun . ”
+14449	14479	14441	14441	I	0	“ Fuck , look at how beautiful you are impaled on my cock . You ’re going to kill me with that beautiful smile and that pretty little giggle . ”
+14480	14483	14484	14484	she	288	“ Devon , ”
+14510	14513	14514	14514	I	0	“ Fuck , ”
+14521	14528	14517	14517	I	0	“ Got ta move , sunshine . ”
+14568	14573	14574	14574	I	0	“ That 's it , ”
+14578	14599	14574	14574	I	0	“ Hold on to me . I 've got you , baby . You want me to make you come ? ”
+14649	14652	14653	14653	she	288	“ Devon ! ”
+14667	14696	14660	14660	she	288	“ Oh , fuck yes . I feel that little pussy falling open for me . Give it to me , baby . Yes , just like that . ”
+14839	14842	14843	14843	I	0	“ Mine , ”
+14856	14863	14864	14864	I	0	“ You ’re mine , Lacey , ”
+14893	14898	14901	14901	her	288	“ I 'm yours , ”
+15135	15140	15141	15141	she	35	“ Mommy ! Mommy ! ”
+15378	15379	15372	15372	Us	320	” “
+15387	15394	15395	15395	Linda	16	” I ask our baby girl . “
+15399	15574	15397	15397	Linda	16	” she screams her babysitter ’s name and claps her hands excitedly . I smile . I love that our baby girl loves her babysitter . While Devon and I both try to spend as much time with our daughter as we can , we also schedule at least one night a week for just us , and tonight is that night . I can already see the promises in Devon ’s eyes every time his gaze rakes over me . They tell me that my husband has a night of sex in store for me . He looks like he ’s going to pounce on me at any moment . In fact , we do n't even make it out of my office . No sooner does Linda , who also works as my secretary , take our baby girl out for some ice cream , does Devon lock the door of my office , draw the shades , and push me up against the wall . He pulls my skirt up roughly . “
+15583	15701	15397	15397	Linda	16	” he groans as he kisses my mouth while pushing my panties to the side . He 's already pulled his cock out , and he 's inside me in one hard thrust . I moan at the sudden penetration . It does n't matter how many times we have sex or the fact that I had a baby . I still struggle to take all of my husband ’s length and girth . He still stretches me impossibly wide and makes me feel fuller than I ever could have imagined , and I love it . I wrap my arms and legs around him as he picks me up and fucks me furiously against the wall . “
+15717	15750	15397	15397	Linda	16	” he prompts me . I already know what he wants , so I give it to him . Moisture pools between my thighs as I get more turned on , too . “
+15763	15771	15758	15758	you	0	” I speak right against his ear . “
+15774	15779	15758	15758	you	0	” he stutters out . “
+15814	15815	15799	15799	I	0	” “
+15819	15956	15799	15799	I	0	” His filthy talk sets me off . Without warning , I 'm orgasming , coming so hard around him it takes my breath away . My release must trigger his because he buries his head in my neck and roars as he rides out his own release , jutting his hips up into mine . I feel his hot cum spurting up inside me and branding me with his liquid heat until it drips down my thighs . That 's another thing about my husband . He comes like a racehorse , always making a sticky mess of us . It 's no wonder I got pregnant as soon as I did with him busting big loads like this inside me . He kisses my lips sweetly as we both float back down to earth . “
+15963	15983	15957	15957	I	0	” he tells me as he runs a hand through my hair . I smile back at him contentedly . “
+15991	16006	15984	15984	I	0	” He smirks at me smugly , as always completely unapologetic . My billionaire stalker .

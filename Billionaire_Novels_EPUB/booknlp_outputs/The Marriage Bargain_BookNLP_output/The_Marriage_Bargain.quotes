@@ -1,0 +1,1521 @@
+quote_start	quote_end	mention_start	mention_end	mention_phrase	char_id	quote
+635	638	631	631	He	64	“ Yes ? ”
+639	646	647	647	Nick	64	“ Did you feed the fish ? ”
+652	659	660	660	She	67	“ Alexa , I ’m working . ”
+666	684	660	660	She	67	“ So am I. But at least I worry about poor Otto . Did you feed him ? ”
+685	688	631	631	He	64	“ Otto ? ”
+689	701	631	631	He	64	“ You kept calling him Fish . That hurt his feelings . ”
+702	716	660	660	She	67	“ Fish do n’t have feelings . And yes , I fed him . ”
+717	774	775	775	Nick	64	“ Fish certainly do have feelings . And while we ’re discussing Otto , I wanted to tell you I ’m worried about him . He ’s placed in the study and no one ever goes in there . Why do n’t we move him into the living room where he can see us more often ? ”
+787	820	821	821	Frost	71	“ Because I do n’t want a fish tank ruining the look of the main rooms . Maggie gave me the damn thing as a joke and I hated it on sight . ”
+827	868	821	821	Frost	71	“ Messy , too , are n’t they ? I guess you do n’t do humans or animals . I ’m sorry to inform you , but even fish get lonely . Why do n’t we get him some company ? ”
+882	905	915	915	she	212	“ No . I do n’t want another fish , and he will not be moved . Do I make myself clear ? ”
+910	913	915	915	she	212	“ Crystal . ”
+967	975	951	951	He	64	“ He ’s gon na be mad . ”
+1170	1176	1177	1177	Maggie	140	“ What should I do ? ”
+1180	1218	1219	1219	She	140	“ Tell him the truth . You ’re only taking them for a night or two until the shelter can make other arrangements . If you give them back , they ’ll all be put to sleep . ”
+1222	1234	1219	1219	She	140	“ What if he still makes me get rid of them ? ”
+1235	1242	1254	1254	she	140	“ Take them to your apartment . ”
+1243	1247	1248	1248	Maggie	140	“ Too small . ”
+1259	1296	1248	1248	Maggie	140	“ Hell , no , I ’m not taking them to my place ! I ’ve got someone coming over and he ’ll be a lot warmer than a puppy . You ’re on your own . ”
+1297	1302	1303	1303	Maggie	140	“ But , Maggs — ”
+1308	1334	1303	1303	Maggie	140	“ Got ta go . Man , I ’d love to see the show when my brother walks in . Call me on my cell . ”
+1699	1702	1683	1683	she	67	“ Hi . ”
+1740	1743	1744	1744	He	64	“ Hi . ”
+1755	1761	1744	1744	He	64	“ What ’s going on ? ”
+1762	1786	1792	1792	her	67	“ Nothing . I was just about to cook dinner . Unless you ’re tired and want to go to bed right now . ”
+1796	1802	1792	1792	her	67	“ It ’s six o’clock . ”
+1803	1834	1837	1837	he	64	“ Right . Well , I bet you have a lot of work to do , huh ? I ’ll bring your food upstairs to your office if you want . ”
+1842	1864	1837	1837	he	64	“ I did enough work today . I want to relax with a glass of wine and watch the ball game . ”
+1865	1871	1792	1792	her	67	“ Are the Mets on ? ”
+1872	1900	1901	1901	She	67	“ Do n’t know . They ’re not in the playoffs anyway and they did n’t make the Wild Card . The Yanks still have a chance . ”
+1908	1931	1901	1901	She	67	“ They ’re too far back — it’ll never happen . New York wo n’t be getting in the series this year . ”
+1939	1949	1932	1932	He	64	“ Why do n’t you watch the Mets upstairs ? ”
+1950	1957	1932	1932	He	64	“ I want the big TV . ”
+1958	1962	1932	1932	He	64	“ So do I. ”
+1991	2001	1981	1981	She	67	“ Fine , I ’m calling in my favor . ”
+2054	2060	2039	2039	He	64	“ What did you say ? ”
+2061	2123	2039	2039	He	64	“ I ’m calling in my favor . I want to watch the Mets game downstairs on the big TV . I want you to stay upstairs and watch the Yankees game , and I do n’t want to hear a sound . Not a cheer , or a yell , or a ‘ Go Yankees ’ rally . Got it ? ”
+2271	2276	2277	2277	He	64	“ You ’re insane . ”
+2292	2304	2277	2277	He	64	“ These favors are supposed to be used for important things . ”
+2305	2312	2313	2313	He	64	“ My choice . My favor . ”
+2413	2428	2399	2399	Alexa	67	“ You ’re using a favor in order to watch a lousy baseball game ? ”
+2429	2432	2433	2433	She	67	“ Yep . ”
+2499	2519	2486	2486	He	64	“ Favors are rare . Want to waste it on a stupid ball game that does n’t mean anything ? ”
+2520	2559	2560	2560	He	64	“ I care about every game the Mets play . You , on the other hand , do n’t take it as seriously because you ’re complacent . Winning comes too easily . You take it for granted . ”
+2566	2575	2560	2560	He	64	“ I do n’t win all the time . ”
+2584	2607	2576	2576	She	67	“ Even after losing the World Series to the Sox you never lost your arrogance . Still did n’t respect another team . ”
+2608	2619	2486	2486	He	64	“ Never knew the poor Yanks caused such a fuss . ”
+2620	2662	2703	2703	his	250	“ It ’s the fans more than the team . We know what it ’s like to lose . And each game we win is a small victory we appreciate and never take for granted . We ’re also more loyal . ”
+2663	2672	2703	2703	his	250	“ Hmmm . Talking Mets or their fans ? ”
+2673	2700	2701	2701	He	250	“ See , you think it ’s funny . If you experienced loss more , you ’d be humbled . The win would feel even sweeter . ”
+2722	2728	2729	2729	he	250	“ Maybe you ’re right , ”
+2777	2780	2767	2767	Her	67	“ What ? ”
+2792	2805	2806	2806	He	250	“ Maybe I ’m starting to appreciate things I ca n’t have . ”
+2830	2840	2821	2821	his	250	“ Maybe I ’m starting to learn about wanting . ”
+2907	2923	2898	2898	she	67	“ So , you agree ? You understand why the Mets are a better team ? ”
+2934	2950	2951	2951	He	253	“ No . The Yankees are a better team . They win for one reason . ”
+2959	2979	2951	2951	He	253	“ They want it more . If you want something bad enough , Alexa , you eventually take it . ”
+3008	3027	3028	3028	His	253	“ I ’ll call when dinner ’s ready . Until then , I expect you ’ll be upstairs . ”
+3802	3805	3783	3783	Nick	64	“ Aaaaghhh ! ”
+4163	4171	4172	4172	She	281	“ What the hell is going on ? ”
+4175	4264	4172	4172	She	281	“ Nick , I ’m sorry . I did n’t know what to do because the shelter called and said they were full and asked if I ’d take a few for the night , and I could n’t say no , Nick , I could n’t or they would be put to sleep because the funding is so hard for the shelters nowadays , but I know you hate animals so I just thought they ’d spend a quiet night here and go home in the morning . ”
+4265	4279	4280	4280	He	286	“ You thought you could hide a room full of dogs from me ? ”
+4380	4388	4389	4389	He	286	“ He wants you to throw it . ”
+4392	4437	4438	4438	He	286	“ I know what the damn dog wants , I ’m not an idiot . Contrary to what you must think of me , that is . You used your favor to keep me locked upstairs so I would n’t find out about this . ”
+4445	4462	4438	4438	He	286	“ You ’re a good liar , Alexa . I guess I never knew how good . ”
+4478	4507	4469	4469	herself	289	“ I had to lie ! I ’m living with an animal hater who ’d rather see innocent puppies in the gas chamber than mess up his house ! ”
+4515	4561	4508	4508	Nick	64	“ Do n’t try to turn this around on me , woman . You never even asked , just snuck a bunch of dogs in my spare room . Did you see what they did to my house ? And where ’s my orange afghan ? ”
+4573	4652	4565	4565	her	289	“ I should have known you care more about your stupid possessions than a life ! You ’re just like the guy from Chitty Chitty Bang Bang — remember he used to lock away all the children so the city would be neat and clean and organized ? Heaven forbid everything did n’t go exactly the way he wanted it . Let ’s keep life tidy . Let ’s make sure the orange afghan does n’t get ruined . ”
+4704	4757	4680	4680	they	290	“ Chitty Chitty Bang Bang ? You ’re insane — you need to be locked up in the loony bin . Lie to me , wreck my house , then compare me to a children ’s villain , all because you ca n’t be a normal person and take responsibility and apologize ? ”
+4769	4778	4779	4779	He	289	“ I tried but you ’re being unreasonable . ”
+4800	4829	4795	4795	he	289	“ Unreasonable ? Unreasonable ? It ’s the middle of the night and I ’m standing in a room full of dogs , talking about a stupid movie ! ”
+4830	4882	4788	4788	His	289	“ It ’s not stupid . Why could n’t you be more like Ralph Kramden from the Honeymooners ? Sure , he was loud and obnoxious , but he saved the whole shelter of dogs when he found out they would be destroyed . Why ca n’t you be more human ? ”
+4883	4935	4795	4795	he	289	“ The friggin Honeymooners , now ? That ’s it , I ’ve had enough . You are going to pack up every one of those dogs and take them back to the shelter right now , or God help me , Alexa , I ’ll get rid of them myself ! ”
+4936	4943	4795	4795	he	289	“ I wo n’t do it . ”
+4944	4948	4788	4788	His	289	“ You will . ”
+4949	4953	4795	4795	he	289	“ Make me . ”
+4954	4961	4962	4962	His	292	“ Make you ? Make you ? ”
+5586	5591	5555	5555	his	292	“ Nick , I — ”
+5592	5600	5601	5601	He	292	“ Do n’t tell me to stop . ”
+5667	5672	5673	5673	She	281	“ Do n’t stop . ”
+5714	5717	5682	5682	He	292	“ Police ! ”
+5814	5818	5807	5807	his	64	“ You okay ? ”
+5826	5829	5830	5830	He	64	“ Yes . ”
+5882	5892	5877	5877	He	64	“ Sir , you reported a break - in . ”
+5925	5944	5906	5906	He	64	“ Right . I ’m sorry , officer , there ’s been a mistake . Please come in . ”
+5994	5997	5989	5989	He	64	“ Ma’am . ”
+6002	6009	6012	6012	she	213	“ Officer . Sorry about this . ”
+6026	6079	6021	6021	she	213	“ My husband thought someone was in the house but it ’s all my fault . I hid these dogs in the spare room , hoping he would n’t find out , and they must have made some noise in the middle of the night and he thought it was an intruder . ”
+6095	6104	6090	6090	He	64	“ Alexa , why do n’t we just — ”
+6105	6165	6166	6167	The cop	303	“ No , Nick , let me finish . You see , officer , my husband does n’t like animals and I volunteer for the shelter so sometimes I take strays in and this time I did n’t want him to find out about it so I tried to sneak the dogs to a place he would n’t notice . ”
+6173	6186	6166	6167	The cop	303	“ You did n’t notice a room full of dogs , sir ? ”
+6194	6201	6166	6167	The cop	303	“ She made me stay upstairs . ”
+6202	6206	6259	6260	The cop	303	“ I see . ”
+6207	6258	6259	6260	The cop	303	“ So , anyway , my husband heard the dogs and called 911 but when he tried to check the scene out himself he found the dogs and got mad and started yelling and I came down and we had a bit of a fight and then you showed up . ”
+6269	6286	6259	6260	The cop	303	“ Sir , you were trying to surprise a burglar with nothing but a baseball bat ? ”
+6301	6318	6298	6298	He	64	“ I called the cops but I figured I ’d try to get the thug myself . ”
+6319	6327	6259	6260	The cop	303	“ You do n’t own a gun ? ”
+6328	6331	6298	6298	He	64	“ No . ”
+6332	6363	6259	6260	The cop	303	“ I ’d recommend next time you think there ’s an intruder , call 911 , lock yourself and your wife in a room , and wait for the police . ”
+6372	6376	6367	6367	he	64	“ Of course . ”
+6386	6398	6377	6378	The cop	303	“ Ma’am , will you be okay tonight with the dogs ? ”
+6399	6407	6298	6298	He	64	“ Yes , we ’ll be fine . ”
+6408	6426	6427	6427	He	64	“ Then I ’ll be on my way . Let me take some information for my report . ”
+6450	6477	6478	6478	She	313	“ Cute dogs . You ’re doing a wonderful thing , Mrs. Ryan . I ’d hate to see any of these animals put to sleep . ”
+6496	6500	6478	6478	She	313	“ Thank you . ”
+6501	6505	6511	6511	he	64	“ Good night . ”
+6674	6677	6654	6654	She	67	“ Alexa — ”
+6678	6681	6682	6682	She	67	“ No . ”
+7048	7055	7056	7056	She	313	“ Nick , I ’m sorry . ”
+7072	7120	7056	7056	She	313	“ I was wrong to hide those dogs from you . I ’ll get everything cleaned up and drive them back to the shelter in the morning . If they need me again , I ’ll tell you and I ’m sure we can work it out . ”
+7121	7124	7125	7125	She	313	“ Alexa — ”
+7131	7217	7125	7125	She	313	“ And about what happened here . It ’s okay . I got caught up in the moment like you , and I ’ve heard anger usually turns to passion , and let ’s face it , we ’re both sexually frustrated . These episodes are bound to happen . And I do n’t want to talk about it — I’m sick of talking this business relationship to death . It ’s just about money so we need to stick to the contract . Okay ? ”
+7419	7429	7410	7410	He	64	“ Apology and explanation accepted . No more analyzing . ”
+7439	7453	7430	7430	She	281	“ Good . Why do n’t you go upstairs while I clean up ? ”
+7454	7459	7434	7434	her	281	“ I ’ll help . ”
+7460	7468	7469	7469	He	64	“ I ’d rather do it myself . ”
+7702	7742	7692	7693	Jed Ryan	88	“ No losers in this house , buddy . Maybe if you got a real dog like a German Shepherd . That mutt was good for nothing and actually crapped in the house . I got rid of it . ”
+8354	8357	8345	8345	He	64	“ Hello . ”
+8358	8361	8362	8362	He	64	“ Nicky ? ”
+8367	8375	8376	8376	She	382	“ Gabriella . What do you want ? ”
+8379	8400	8376	8376	She	382	“ I need to see you . There ’s something important to discuss and I ca n’t over the phone . ”
+8401	8419	8345	8345	He	64	“ I ’m down by the river . Why do n’t you come to the office tomorrow ? ”
+8420	8425	8480	8480	Gabriella	87	“ By the marina ? ”
+8426	8431	8376	8376	She	382	“ Yes , but — ”
+8432	8444	8345	8345	He	64	“ I ’m on my way . Be there in ten . ”
+8449	8455	8456	8456	he	64	“ Son of a bitch , ”
+8526	8528	8539	8539	her	382	“ won ”
+8645	8648	8649	8649	Her	382	“ Nick . ”
+8658	8666	8667	8667	He	64	“ It ’s good to see you . ”
+8670	8676	8667	8667	He	64	“ What ’s going on ? ”
+8677	8692	8653	8653	her	382	“ I need some advice . I got a contract offer for Lace Cosmetics . ”
+8693	8709	8710	8710	She	382	“ That ’s a huge account , Gabby . Congratulations . What ’s the problem ? ”
+8724	8741	8710	8710	She	382	“ It ’s a two - year deal but I ’d need to relocate to California . ”
+8754	8780	8710	8710	She	382	“ This is my home . And I hate Baywatch mentality . I ’ve always been a die - hard New Yorker . Like you . ”
+8790	8809	8710	8710	She	382	“ You need to decide this for yourself . It ’s over between us . I ’m married . ”
+8810	8831	8832	8832	He	64	“ We had something real . I think you got spooked and jumped at the first female you could control . ”
+8842	8857	8832	8832	He	64	“ I ’m sorry , that ’s not true . I have to go . ”
+8858	8861	8864	8864	she	386	“ Wait ! ”
+8896	8901	8902	8902	she	386	“ I miss this , ”
+8905	8929	8902	8902	she	386	“ You know how good we are together . Marriage or no marriage , I still want you . And you want me . ”
+8930	8933	8941	8941	She	386	“ Gabriella — ”
+8934	8940	8941	8941	She	386	“ I ’ll prove it . ”
+9287	9303	9282	9282	she	386	“ Something ’s going on , Nick . All the pieces do n’t add up . ”
+9336	9360	9361	9361	Gabriella	87	“ Let me tell you my theory . You needed to get married fast for some business deal and she fit the bill . ”
+9373	9418	9364	9364	she	386	“ She ’s playing you , Nick . You ’ll never get out of this marriage without a baby or giving up a hell of a lot of money , no matter what she ’s told you . Your worst nightmare will come true . ”
+9425	9447	9419	9419	Her	386	“ Just mark my words when her little , ‘ Ooops , I guess we made a mistake ’ pops up . ”
+9461	9483	9484	9484	She	386	“ Good luck . I ’m going to take the job in California , but if you need me , call . ”
+10238	10244	10245	10245	He	64	“ What are you doing ? ”
+10250	10254	10247	10247	his	64	“ Making dinner . ”
+10261	10268	10255	10255	She	67	“ I just want a salad . ”
+10269	10286	10287	10287	His	64	“ I already made it . In the refrigerator , chilling . How was your day ? ”
+10294	10298	10287	10287	His	64	“ Just ducky . ”
+10299	10305	10306	10306	She	67	“ That good , hmmm ? ”
+10327	10334	10335	10335	He	64	“ Did you feed the fish ? ”
+10407	10451	10401	10401	He	64	“ Odd choice of a word , is n’t it ? Fish is either singular , or plural . Imagine my surprise when I walked in the study and found not one fish in a tiny fish bowl , but an entire aquarium . ”
+10461	10488	10401	10401	He	64	“ Otto was lonely and you were practicing animal cruelty . He was too isolated . Now , he has friends and a place to swim . ”
+10489	10508	10571	10571	her	67	“ Yes , nice little tunnels and rocks and algae to play hide and seek with his buddies . ”
+10509	10515	10401	10401	He	64	“ You ’re being sarcastic . ”
+10516	10522	10523	10523	She	67	“ And you ’re cranky . ”
+10606	10613	10596	10596	he	419	“ I had a bad day . ”
+10614	10620	10637	10637	He	419	“ Wanna talk about it ? ”
+10621	10632	10596	10596	he	419	“ No . And I ’m not eating any spaghetti . ”
+10633	10636	10637	10637	He	419	“ Okay . ”
+10750	10758	10759	10759	He	419	“ How ’s the waterfront contract going ? ”
+10775	10788	10759	10759	He	419	“ Had a drink with Hyoshi and he gave me his vote . ”
+10799	10811	10812	10812	He	419	“ Nick , that ’s wonderful . That only leaves Michael . ”
+10815	10824	10812	10812	He	419	“ Yeah . Conte may cause a problem . ”
+10825	10834	10835	10835	His	419	“ You can talk to him Saturday night . ”
+10839	10849	10835	10835	His	419	“ I ’d rather not go to the party . ”
+10850	10860	10812	10812	He	419	“ Oh . Okay , I ’ll go alone . ”
+10861	10869	10812	10812	He	419	“ Forget it , I ’ll go . ”
+10870	10890	10891	10891	She	67	“ We ’ll have fun . It will give you another chance to pitch him in a relaxed environment . ”
+10926	10939	10919	10919	she	67	“ If Conte nixes the deal , the whole thing is off . ”
+10940	10945	10981	10981	his	419	“ He wo n’t . ”
+10946	10952	10919	10919	she	67	“ How do you know ? ”
+10953	10960	10919	10919	she	67	“ Because you ’re the best . ”
+10988	10994	10984	10984	He	419	“ How would you know ? ”
+10998	11085	10995	10995	Alexa	67	“ I ’ve seen your work . I used to watch when we were young , and you ’d build things in the garage . I always thought you ’d be a carpenter , but when I saw Mt. Vesuvius restaurant , I knew you found your true calling . The whole place pulled at me , Nick . From the trickling water , to the flowers and bamboo and the resemblance to an old Japanese hut in the mountains . You ’re a brilliant architect . ”
+11121	11129	11130	11130	He	421	“ Why do you look so surprised ? ”
+11138	11160	11130	11130	He	421	“ I do n’t know . I never had a woman interested in my career . No one really understands it . ”
+11161	11180	11185	11185	he	421	“ Then they ’re stupid . Can I finish this last portion or do you want some more ? ”
+11191	11196	11185	11185	he	421	“ Be my guest . ”
+11211	11223	11185	11185	he	421	“ Alexa , what ’s going on with your bookstore expansion ? ”
+11288	11293	11305	11305	She	422	“ Are you okay ? ”
+11294	11304	11305	11305	She	422	“ Fine . Just went down the wrong pipe . ”
+11310	11322	11305	11305	She	422	“ We have to go over my parents ’ for Thanksgiving . ”
+11323	11369	11370	11370	Her	422	“ No , I hate holidays . You did n’t answer my question . You got the cash and I was under the impression you needed to start the cafe right away . I have some ideas I ’d like to go over with you . ”
+11391	11435	11444	11444	her	422	“ Umm , Nick , I do n’t expect you to help me with the cafe . You have enough on your plate with the waterfront project and the board hounding your every step . Besides , I already sort of hired someone . ”
+11436	11439	11442	11442	She	422	“ Who ? ”
+11454	11485	11442	11442	She	422	“ Forgot his name . A customer recommended him . He ’s , um , drawing up the plans and we ’ll start soon . I may wait until spring . ”
+11489	11514	11442	11442	She	422	“ No reason to wait . I do n’t trust this guy already . Give me his number and I ’ll talk to him . ”
+11515	11518	11577	11577	she	422	“ No . ”
+11519	11523	11442	11442	She	422	“ Why not ? ”
+11524	11533	11577	11577	she	422	“ Because I do n’t want you involved . ”
+11586	11596	11597	11597	Her	422	“ Fine . If that ’s what you prefer . ”
+11601	11632	11597	11597	Her	422	“ I ’d just like to stick to business in our relationship . Getting you involved in my cafe project is n’t a good idea . Do n’t you agree ? ”
+11633	11640	11597	11597	Her	422	“ Sure . Whatever you want . ”
+11656	11671	11651	11651	She	422	“ Back to Thanksgiving . You have to go , there ’s no choice . ”
+11672	11680	11653	11653	her	422	“ Tell them I have to work . ”
+11681	11705	11653	11653	her	422	“ You ’re going . It ’s important to my family . They ’d suspect something ’s up if we do n’t attend . ”
+11706	11711	11651	11651	She	422	“ I hate Thanksgiving . ”
+11712	11726	11653	11653	her	422	“ I heard you the first time but I still do n’t care . ”
+11727	11736	11653	11653	her	422	“ Family holidays were n’t in the contract . ”
+11737	11749	11750	11750	His	428	“ Sometimes we ca n’t follow the contract to the letter . ”
+11765	11786	11758	11758	she	422	“ You ’re probably right . We have to allow for some flexibility and maybe some mistakes along the way . ”
+11796	11805	11787	11787	She	422	“ Exactly . So , you ’ll come ? ”
+11806	11809	11810	11810	His	428	“ Sure . ”
+11835	11842	11843	11843	he	428	“ Funny you mentioned the contract , ”
+11846	11858	11843	11843	he	428	“ A little problem came up but it ’s solved now . ”
+11883	11905	11906	11906	She	422	“ I was n’t going to say anything but I wanted to be honest . You probably wo n’t even care . ”
+11929	11934	11935	11935	Her	422	“ Gabriella kissed me . ”
+11940	11946	11947	11947	He	428	“ What did you say ? ”
+11950	11990	11947	11947	He	428	“ She called and wanted to meet me . She said she ’s moving to California . I did n’t initiate , so I guess it was her idea of a good - bye kiss . End of story . ”
+12020	12038	12039	12039	She	422	“ A good - bye kiss , huh ? Well , that does n’t sound too threatening . ”
+12068	12073	12050	12050	She	422	“ Cheek or lips ? ”
+12074	12081	12050	12050	She	422	“ Lips . Quick , though . ”
+12082	12091	12096	12096	his	428	“ Okay . So no tongue , right ? ”
+12108	12112	12100	12104	The son of a bitch	429	“ Not really . ”
+12113	12116	12050	12050	She	422	“ Sure ? ”
+12117	12130	12100	12104	The son of a bitch	429	“ Maybe a little . Happened so fast I do n’t remember . ”
+12172	12190	12159	12159	Nick	64	“ Okay . The main thing is you told me the truth . Where did this happen ? ”
+12191	12197	12050	12050	She	422	“ Down by the river . ”
+12198	12203	12100	12104	The son of a bitch	429	“ After your meeting ? ”
+12204	12207	12159	12159	Nick	64	“ Yep . ”
+12208	12216	12050	12050	She	422	“ She called on your cell phone . ”
+12217	12248	12100	12104	The son of a bitch	429	“ I told her not to come but she said it was important so I waited for her . I told her I wanted nothing more to do with her . ”
+12249	12260	12159	12159	Nick	64	“ Then she kissed you and you pushed her away . ”
+12261	12264	12050	12050	She	422	“ Right . ”
+12265	12271	12100	12104	The son of a bitch	429	“ Where were her hands ? ”
+12292	12298	12277	12277	He	433	“ What do you mean ? ”
+12299	12311	12159	12159	Nick	64	“ Her hands . Around your neck , waist , where ? ”
+12312	12317	12159	12159	Nick	64	“ Around my neck . ”
+12318	12324	12159	12159	Nick	64	“ Where were your hands ? ”
+12325	12334	12335	12335	Bingo	93	“ Before or after I pushed her away ? ”
+12337	12340	12335	12335	Bingo	93	“ Before . ”
+12341	12346	12159	12159	Nick	64	“ Around her waist . ”
+12347	12382	12383	12383	He	433	“ Okay . So it sounds like it was a while before you finally pushed her away , and tongue was involved , and her body was plastered to yours for about how long ? ”
+12397	12401	12383	12383	He	433	“ Not long . ”
+12402	12409	12159	12159	Nick	64	“ One minute ? A second ? ”
+12410	12422	12159	12159	Nick	64	“ A couple of minutes . Then I pushed her away . ”
+12423	12431	12432	12432	She	433	“ Yes , you said that already . ”
+12484	12493	12494	12494	She	433	“ You have no reason to be upset . ”
+12535	12555	12519	12519	she	433	“ Why would I be upset ? The kiss was nothing , even if you did break the contract . ”
+12556	12577	12519	12519	she	433	“ We just said that sometimes the contract ca n’t be followed to the letter . What are you doing ? ”
+12578	12594	12595	12595	She	433	“ Making dessert . So , what did Gabriella do when you pushed her away ? ”
+12608	12617	12595	12595	She	433	“ She was upset because I rejected her . ”
+12618	12628	12629	12629	He	433	“ Why ’d you push her away , Nick ? ”
+12634	12656	12629	12629	He	433	“ Because we made some promises . Even if we ’re not sleeping together , we agreed I would n’t cheat . ”
+12657	12692	12693	12693	His	433	“ Very logical . I ’m surprised you were able to think so clearly after such a kiss . With me , I understand . But Gabriella seems to inspire a more passionate response . ”
+12719	12729	12730	12730	She	433	“ You think I react more passionately to Gabriella ? ”
+12735	12776	12730	12730	She	433	“ It was obvious the night I met her you two tore up the sheets together . We do n’t have that problem . The only times you ’ve ever kissed me was when you were pissed off or bored . ”
+12777	12780	12781	12781	He	433	“ Bored ? ”
+12803	12823	12800	12800	his	433	“ I do n’t believe this . You have no idea how I was feeling when Gabriella kissed me . ”
+13077	13082	13083	13083	His	433	“ What the hell ? ”
+13124	13197	13198	13198	She	433	“ Being the clearheaded , reasonable man you ’re supposed to be , I expected you to push Gabriella away and honor the contract . Instead , you made out with her in public , at the river , with your tongue in her mouth and your hands on her body . This is my clearheaded , reasonable response to your betrayal , you son of a bitch . Enjoy your dessert . ”
+13784	13788	13789	13789	Alexa	67	“ Husband alert . ”
+13829	13832	13820	13820	She	67	“ Behave . ”
+13833	13841	13822	13822	her	67	“ Do n’t I always , cara ? ”
+13842	13857	13858	13858	Their	464	“ This is the second time tonight you ’ve kept me from my husband . ”
+13932	13953	13954	13954	She	67	“ Then I am doing my job well , signora . He makes you sad tonight , I can tell . ”
+13991	13997	13967	13967	she	67	“ We had a fight . ”
+13998	14008	13960	13960	him	64	“ Do you want to tell me about it ? ”
+14009	14013	14014	14014	He	64	“ Men suck . ”
+14019	14050	14014	14014	He	64	“ Sometimes , yes . Sometimes when we wear our hearts on our sleeves , we are wonderful . But mostly we are scared of breaking open ourselves to another . ”
+14051	14057	13960	13960	him	64	“ Some men never do . ”
+14058	14070	14071	14071	She	67	“ Yes . Some never do . You must keep trying . ”
+14076	14094	14071	14071	She	67	“ I ’m giving you my friend Maggie ’s number . Promise me you ’ll call her . ”
+14101	14119	14095	14095	He	64	“ If this will make you happy , I shall call her and invite her to dinner . ”
+14120	14137	14071	14071	She	67	“ Grazie . I just ca n’t shake this odd instinct I have about you two . ”
+14138	14150	14095	14095	He	64	“ Ah , you are a matchmaker at heart , cara . ”
+14544	14549	14550	14550	she	281	“ Are you ready ? ”
+14554	14568	14550	14550	she	281	“ Yes . I think I ’m ready for a lot of things . ”
+14600	14637	14638	14639	The count	481	“ Michael , I wonder if you ’d be kind enough to call us a cab ? I do n’t want to risk the drive . I ’ll send someone tomorrow to pick up the car . ”
+14644	14656	14638	14639	The count	481	“ Of course . I ’ll be back in a moment . ”
+14856	14860	14842	14842	She	67	“ Good night . ”
+14874	14877	14842	14842	She	67	“ Alexa ? ”
+14878	14881	14890	14890	Her	67	“ Yes ? ”
+14882	14889	14890	14890	Her	67	“ Did you sleep with him ? ”
+14937	14943	14944	14944	He	64	“ What did you say ? ”
+15011	15043	15044	15044	She	67	“ You heard me the first time . I wondered if you had time to make it to the bedroom or did Conte just take you against the wall before dessert ? ”
+15057	15086	15087	15087	Her	67	“ I do n’t screw other men or kiss them in public because I have more respect for our marriage than you do . And so does Michael . ”
+15112	15125	15103	15103	his	65	“ You let him paw you in front of my business associates . ”
+15126	15150	15180	15180	His	65	“ You ’re nuts ! He was a perfect gentleman . Besides , you were all over Gabriella in a public parking lot ! ”
+15151	15161	15103	15103	his	65	“ That was different . I pushed her away . ”
+15162	15179	15180	15180	His	65	“ Sure , after you stuck your tongue in her mouth . I ’m done here . ”
+15186	15190	15180	15180	His	65	“ Not yet . ”
+15209	15240	15241	15241	Her	495	“ I ’m going to bed . You may be able to control who I do n’t sleep with , but you do n’t have any power over my fantasies . ”
+15330	15346	15318	15318	He	64	“ If you want sex so bad , all you have to do is ask . ”
+15352	15360	15318	15318	He	64	“ I ’m not interested in you . ”
+15372	15376	15369	15369	her	495	“ Try again . ”
+15377	15386	15369	15369	her	495	“ Go play your head games with Gabriella . ”
+15387	15400	15404	15404	her	495	“ You want me . Why do n’t you finally admit it ? ”
+15408	15421	15404	15404	her	495	“ I do n’t want you . I just want your money . ”
+15503	15512	15520	15520	he	64	“ I ’m calling your bluff , baby . ”
+15547	15551	15552	15552	He	64	“ Prove it . ”
+15851	15862	15844	15844	she	67	“ I do n’t think this is a good idea . ”
+15921	15927	15928	15928	He	64	“ I do n’t care . ”
+16140	16144	16145	16145	His	64	“ Your turn . ”
+16555	16579	16549	16549	She	67	“ Damn it , are you going to sit there and look at me all night or are you going to do something ? ”
+16697	16740	16689	16689	He	64	“ I intend on doing something . I ’ve thought about looking at you for so long , I figured I ’d indulge . But it looks like you also have a temper in bed , so I ’ll move it along . ”
+16741	16744	16764	16764	his	64	“ Nick — ”
+16745	16755	16756	16756	He	64	“ Not now , Alexa . I ’m busy . ”
+17107	17115	17096	17096	He	64	“ Too fast ? Talk to me . ”
+17130	17139	17116	17116	She	67	“ No , I just , I need — ”
+17140	17144	17102	17102	he	64	“ Tell me . ”
+17163	17176	17102	17102	he	64	“ I need you to want me . Only me . Not — ”
+17177	17182	17183	17183	He	64	“ Oh , Jesus . ”
+17272	17299	17300	17300	She	67	“ It ’s always been you . I do n’t want anybody else , I do n’t dream about anybody else . It ’s only you . ”
+18517	18520	18499	18499	she	67	“ Hey . ”
+18521	18524	18525	18525	she	67	“ Hey , ”
+18547	18551	18541	18541	Alexa	67	“ For me ? ”
+18552	18557	18558	18558	He	64	“ Oh , yeah . ”
+18606	18609	18598	18598	She	67	“ Good ? ”
+18610	18618	18619	18619	His	64	“ Perfect . I hate wimpy coffee . ”
+18624	18628	18619	18619	His	64	“ I figured . ”
+18772	18778	18779	18779	he	64	“ How do you feel ? ”
+18901	18919	18891	18891	She	67	“ Fine . My muscles are a bit sore , though . I need a hot shower . ”
+18920	18926	18992	18992	She	67	“ Yes , a shower . ”
+18927	18934	18994	18994	her	67	“ Do you want some breakfast ? ”
+18935	18938	18891	18891	She	67	“ Breakfast ? ”
+18939	18963	18992	18992	She	67	“ I ’ll cook something once I get dressed . You do n’t have to go into the office today , do you ? ”
+18964	18971	18992	18992	She	67	“ I do n’t think so . ”
+18972	18980	18994	18994	her	67	“ Okay . What do you want ? ”
+18981	18984	18992	18992	She	67	“ Want ? ”
+18985	18991	18992	18992	She	67	“ Yeah . For breakfast . ”
+19081	19093	19076	19076	Nick	64	“ I ’m not hungry . Have to go to work . ”
+19094	19102	19078	19078	his	64	“ You said you ’re not working . ”
+19103	19106	19107	19107	Her	67	“ Right . ”
+19160	19172	19150	19150	She	67	“ So , are we going to talk about last night ? ”
+19192	19198	19199	19199	She	67	“ Last night was good . ”
+19248	19252	19236	19236	She	67	“ Just good ? ”
+19253	19262	19263	19263	He	64	“ No , no , it was great . ”
+19266	19270	19263	19263	He	64	“ Really great . ”
+19281	19318	19277	19277	She	67	“ I ’m glad . I ’ve been thinking about us and where we go from here . We can move on and decide not to sleep together again . Keep things less complicated , right ? ”
+19332	19335	19326	19326	he	64	“ Right . ”
+19336	19342	19326	19326	he	64	“ Or we can continue . ”
+19343	19346	19326	19326	he	64	“ Continue ? ”
+19347	19352	19326	19326	he	64	“ To have sex . ”
+19353	19356	19326	19326	he	64	“ Mmmm . ”
+19357	19363	19326	19326	he	64	“ What do you think ? ”
+19364	19368	19369	19369	Alexa	67	“ About what ? ”
+19429	19432	19412	19412	he	64	“ Nick ? ”
+19433	19436	19409	19409	him	64	“ Yeah ? ”
+19437	19446	19409	19409	him	64	“ Are you going to answer the question ? ”
+19447	19453	19412	19412	he	64	“ What was the question ? ”
+19454	19475	19409	19409	him	64	“ Do we keep having sex until the marriage is over or do we go back to being just friends ? ”
+19476	19479	19409	19409	him	64	“ Alexa ? ”
+19480	19483	19412	19412	he	64	“ Yeah ? ”
+19484	19490	19409	19409	him	64	“ I vote for sex . ”
+19619	19626	19627	19627	she	67	“ I ’m on the pill , ”
+19630	19636	19627	19627	she	67	“ To regulate my periods . ”
+19763	19766	19767	19767	He	64	“ Now . ”
+19790	19794	19795	19795	She	67	“ Say please . ”
+19841	19844	19833	19833	She	67	“ Please . ”
+20065	20073	20074	20074	she	67	“ I guess this cements the deal , ”
+20091	20113	20087	20087	She	67	“ I think we made a logical choice . Now we have something more interesting to do than chess or poker . ”
+20121	20142	20114	20114	She	67	“ You ’re not getting out of our tournaments , buster . We ’ll just spice things up a bit . ”
+20143	20147	20077	20077	He	64	“ Such as ? ”
+20148	20154	20077	20077	He	64	“ Ever play strip poker ? ”
+20155	20164	20114	20114	She	67	“ You ’re an amazing woman , Alexa . ”
+20165	20169	20077	20077	He	64	“ I know . ”
+20172	20180	20114	20114	She	67	“ I do n’t want to go . ”
+20181	20212	20114	20114	She	67	“ I heard you the first time , the second , and the third . Now be quiet and pull in the driveway slowly . The wine will tip over . ”
+20213	20219	20220	20220	Alexa	67	“ I hate family functions . ”
+20302	20335	20336	20336	Nick	64	“ We do n’t have a choice . As a married couple , we ’re expected to show up for dinner . There wo n’t be too many people there , anyway . ”
+20339	20345	20336	20336	Nick	64	“ I ’ll be bored . ”
+20346	20350	20351	20351	He	64	“ Get drunk . ”
+20422	20430	20406	20406	She	67	“ I knew we ’d be late . ”
+20506	20518	20488	20488	He	64	“ I clearly asked if you wanted to continue , remember ? ”
+20525	20543	20488	20488	He	64	“ You should n’t have started in the first place . You knew we ’d be late . ”
+20544	20557	20562	20562	his	64	“ We could skip the whole thing and spend Thanksgiving in bed . ”
+20566	20572	20562	20562	his	64	“ What do you think ? ”
+20573	20583	20600	20600	his	64	“ I think you ’re trying to bribe me . ”
+20584	20589	20600	20600	his	64	“ Is it working ? ”
+20590	20597	20600	20600	his	64	“ No . Let ’s go . ”
+20688	20693	20694	20694	She	67	“ Hi , Ma . ”
+20728	20736	20694	20694	She	67	“ Smells great . You look pretty . ”
+20737	20753	20694	20694	She	67	“ Thanks . It ’s amazing what paying off the mortgage does for stress load . ”
+20763	20776	20759	20759	She	67	“ Mom , please do n’t mention it — remember our deal ? ”
+20780	20799	20759	20759	She	67	“ Ok , honey . I ’m just so grateful and it feels strange not to say something . ”
+20800	20803	20694	20694	She	67	“ Mom ! ”
+20804	20812	20813	20813	Her	67	“ Fine , my lips are sealed . ”
+20838	20845	20827	20827	Alexa	67	“ I ’ll bring it out . ”
+20846	20860	20813	20814	Her mom	546	“ Do n’t eat them all on the way . Where ’s Nick ? ”
+20861	20870	20902	20902	He	240	“ Talking with Dad in the living room . ”
+20871	20876	20877	20877	Alexa	67	“ God help us . ”
+21000	21005	20990	20990	She	67	“ Hey , squirt . ”
+21006	21015	20990	20990	She	67	“ Aunt Al , I want ice cream . ”
+21016	21023	20990	20990	She	67	“ You can have some later . ”
+21024	21032	20990	20990	She	67	“ Okay . I want an olive . ”
+21033	21038	21039	21039	She	67	“ Green or black ? ”
+21050	21055	21039	21039	She	67	“ Green is yucky . ”
+21084	21095	21068	21068	Nick	64	“ The child has great taste . Here you go . ”
+21107	21110	21096	21096	He	64	“ Good ? ”
+21111	21121	21122	21122	Alexa	67	“ Hmmm . Now can I have ice cream ? ”
+21125	21139	21122	21122	Alexa	67	“ After dinner , okay ? Go tell Mommy to finish dressing you . ”
+21140	21143	21144	21144	Taylor	103	“ Okay . ”
+21518	21533	21506	21506	Jim	108	“ Charlie , did you hear what Nick ’s doing down by the waterfront ? ”
+21540	21566	21567	21567	Jim	108	“ He ’s one of the few firms up for a bid to completely renovate all the buildings . We ’re talking big time here . ”
+21573	21592	21567	21567	Jim	108	“ Now I got a doctor and an architect to brag about . Not too shabby , huh ? ”
+21786	21789	21791	21791	he	64	“ great sex ”
+21826	21838	21839	21839	They	590	“ Hi . Um , just looking for an empty bathroom . ”
+21852	21871	21848	21848	Alexa	67	“ Use the one in the back bedroom , sweetheart . And shut the door , will you ? ”
+21872	21875	21876	21876	He	64	“ Sure . ”
+21920	21923	21913	21918	the three - year - old	593	“ Hi . ”
+21924	21927	21928	21928	he	64	“ Hi , ”
+21966	21977	21988	21988	she	67	“ Uh , I ’m just looking for the bathroom . ”
+21978	21987	21988	21988	she	67	“ I have to go potty , too , ”
+21991	22004	21988	21988	she	67	“ Oh . Okay , why do n’t you get your mommy ? ”
+22005	22019	22020	22020	She	67	“ She ’s not here . Have to go bad . Come on . ”
+22073	22091	22062	22062	He	64	“ Uh , no , Taylor , why do n’t you get Aunt Alexa to take you ? ”
+22099	22107	22062	22062	He	64	“ Got ta go now . Bad . ”
+22108	22112	22113	22113	He	64	“ Wait here . ”
+22134	22139	22113	22113	He	64	“ Who is it ? ”
+22140	22156	22113	22113	He	64	“ Nick . Uh , Alexa , your niece needs you to take her potty . ”
+22160	22183	22113	22113	He	64	“ I ’m busy now , honey . Just go in with her , okay ? It ’ll only take a minute . ”
+22226	22242	22218	22218	He	64	“ Uh , can you wait one more minute ? Maybe Grandma will take you ? ”
+22254	22264	22245	22245	her	597	“ Got ta go now , please , please . ”
+22265	22269	22270	22270	He	64	“ One minute . ”
+22287	22290	22280	22280	Maria	67	“ Maria ? ”
+22291	22296	22245	22245	her	597	“ Yes , Nicholas ? ”
+22297	22313	22314	22314	She	597	“ Uh , Taylor needs to go the bathroom and wants you to take her . ”
+22325	22345	22314	22314	She	597	“ Ca n’t right now , why do n’t you take her ? It will only take a minute . ”
+22404	22420	22421	22421	He	64	“ Okay , let ’s go . Hold it , hold it , hold it . ”
+22510	22516	22521	22521	Nick	64	“ I want ice cream . ”
+22534	22543	22526	22526	Alexa	67	“ You can have ice cream after dinner . ”
+22544	22549	22550	22550	He	64	“ No , now . ”
+22559	22576	22550	22550	He	64	“ You can definitely have ice cream . But just wait a bit longer , okay ? ”
+22582	22615	22577	22577	Her	597	“ I want ice cream now . I ’ve waited , and waited , and I promise I ’ll eat all of my dinner if you get me some now . Please ? ”
+22655	22679	22649	22649	He	64	“ First eat your dinner , then you can have ice cream . You have to listen to your mom and your aunt . ”
+22693	22758	22759	22759	He	603	“ But Mommy and Aunt Al and Grandma never listen to me . I promise , promise , promise to eat everything on my plate , but I want some now . You can sneak it from the freezer and I ’ll eat it right here and I ’ll never tell . And you will be my best friend forever and ever ! Please ! ”
+22770	22775	22759	22759	He	603	“ I ca n’t . ”
+22867	22878	22879	22879	She	604	“ Okay , I ’ll get you the ice cream . ”
+22896	22902	22883	22883	Droplets	114	“ I ’ll wait here . ”
+23037	23050	23026	23026	she	604	“ Thank you . You will be my very best new friend ! ”
+23094	23099	23080	23080	he	603	“ Uh , Taylor ? ”
+23100	23103	23146	23146	He	603	“ What ? ”
+23104	23123	23124	23124	She	604	“ Do n’t forget the ice cream is a secret , remember ? Just between you and me . ”
+23128	23145	23146	23146	He	603	“ Emily and me have lots of secrets together . But we ca n’t tell anybody . ”
+23151	23161	23162	23162	Someone	1585	“ Exactly . Secrets are n’t told to anybody . ”
+23168	23176	23162	23162	Someone	1585	“ Nick , are you in there ? ”
+23177	23193	23162	23162	Someone	1585	“ Go away , Alexa , we ’re fine . Be out in a minute . ”
+23194	23201	23202	23202	Taylor	103	“ Auntie Al , guess what ? ”
+23205	23211	23202	23202	Taylor	103	“ I got ice cream ! ”
+23273	23278	23252	23252	he	603	“ Ah , shit . ”
+23279	23288	23289	23289	Taylor	103	“ Shit . Shit , shit , shit , ”
+23293	23313	23289	23289	Taylor	103	“ See my ice cream , Auntie Al ? I got it from him ! My new best friend . ”
+23373	23394	23364	23364	She	67	“ You really did it this time , squirt . Have one last bite and give the pop to me . ”
+23395	23398	23402	23402	she	67	“ Okay . ”
+23535	23543	23544	23544	he	64	“ What did you say to her ? ”
+23554	23585	23547	23547	She	67	“ Told her if she breathed a word about any ice cream , she ’d never get any more from us . Trust me , the kid speaks our language . ”
+23586	23592	23593	23593	She	67	“ You ’re not mad ? ”
+23599	23625	23593	23593	She	67	“ Are you kidding ? You have no idea how many things I ’ve snuck that little angel . She cried , did n’t she ? ”
+23631	23639	23626	23626	His	64	“ Yeah , how did you know ? ”
+23640	23661	23593	23593	She	67	“ Happens to me all the time . You did n’t have a chance . Oh , one more thing . ”
+23662	23665	23626	23626	His	64	“ What ? ”
+23666	23686	23687	23687	Astonishment	117	“ I am incredibly turned on right now and will show you exactly how much when we get home . ”
+23692	23699	23687	23687	Astonishment	117	“ You ’re playing with me . ”
+23731	23745	23747	23747	she	67	“ No . But I ’ll be certain to play with you later . ”
+24030	24033	24023	24023	He	64	“ Alexa ! ”
+24094	24100	24086	24087	this woman	392	“ He goes . Now . ”
+24101	24104	24133	24133	She	281	“ But — ”
+24105	24132	24133	24133	She	281	“ I mean it , Alexa . For God ’s sakes , I want that dog out of my house . Look what he just did . ”
+24180	24257	24133	24133	She	281	“ Just listen for a second . I realize we ca n’t keep him , I wo n’t even try to convince you , but the shelter called and told me his time was up and he ’d be put to sleep today . I do n’t know why nobody wants him — he ’s a lovely dog — and if we keep him for a day or two I promise I can find a home . ”
+24284	24304	24305	24305	She	641	“ Nobody wants him because he ’s the ugliest dog I ’ve ever seen . He could be dangerous . ”
+24308	24347	24305	24305	She	641	“ He ’s very sweet , does n’t even know how to growl . The shelter told me they found him on a deserted road with a broken leg . He was probably thrown from a moving car . ”
+24350	24404	24413	24413	he	643	“ I know he ’s messy but I think he ’s smart and no one ever trained him . I ’ll keep him in the back room and clean up and I promise he ’ll be out in a few days . Please , Nick ? Just give me a couple of days . ”
+24505	24515	24516	24516	She	642	“ Just a few days . I mean it . ”
+24541	24547	24538	24538	his	643	“ Have you cooked dinner ? ”
+24548	24582	24583	24583	He	643	“ Almost ready . Salmon steaks with fresh vegetables and rice pilaf . The wine is chilling . Salad is done . You ’ll have plenty of time to see the Giants game . ”
+24614	24625	24606	24606	He	643	“ Think I ’ll take a shower first before dinner . ”
+24626	24648	24606	24606	He	643	“ I ’ll bring a glass of wine up for you then . You can eat in front of the television . ”
+24649	24654	24655	24655	She	642	“ Maybe I will . ”
+24870	24880	24881	24881	His	64	“ Your wine is on the sink , honey . ”
+24887	24890	24881	24881	His	64	“ Thanks . ”
+24910	24915	24891	24891	She	67	“ You ’re welcome . ”
+25131	25134	25121	25121	she	67	“ Alexa . ”
+25135	25139	25140	25140	She	67	“ Shut up . ”
+25364	25373	25358	25358	he	207	“ The dog can stay for a week . ”
+25418	25435	25454	25454	He	207	“ I did n’t do this for the dog . This was purely for selfish reasons . ”
+25436	25442	25454	25454	He	207	“ My kind of woman . ”
+25443	25453	25454	25454	He	207	“ I brought your wine . Dinner is ready . ”
+25544	25550	25526	25526	she	67	“ I ca n’t be — ”
+25551	25561	25562	25562	He	207	“ Yes , you can . Again , Alexa . ”
+25798	25803	25783	25783	She	67	“ Ready for dinner ? ”
+25828	25831	25832	25832	He	207	“ Yes . ”
+25842	25846	25832	25832	He	207	“ Go away . ”
+26276	26299	26267	26267	she	281	“ Is n’t this great ? We ’re going to get another blizzard next week so we may have a white Christmas . ”
+26300	26306	26248	26248	She	281	“ Why are you late ? ”
+26307	26312	26313	26313	She	281	“ Were you worried ? ”
+26325	26348	26313	26313	She	281	“ No . But I told you last week you needed new tires on your car . Have you done that yet ? ”
+26349	26353	26248	26248	She	281	“ Not yet . ”
+26354	26379	26380	26380	She	281	“ You ca n’t drive in the snow with bad tires . I told you to take the BMW and drop your car off . ”
+26386	26418	26380	26380	She	281	“ I hate the BMW , it makes me nervous . Besides , I ’ve driven in worse weather than this with worse vehicles . Oooh , the fire feels good . ”
+26427	26459	26419	26419	She	281	“ Damn cold , it just wo n’t go away . Do we have any holiday wine for tonight ? I think It ’s a Wonderful Life is on at nine . ”
+26471	26495	26460	26460	He	678	“ That movie is corny . You ’ve been sick for the past few days . You need to go to the doctor . ”
+26496	26511	26380	26380	She	281	“ I have no time . Holidays are the busiest season at the store . ”
+26512	26554	26555	26555	She	281	“ I ’ll bring you tomorrow . Then I ’ll drop you off at the bookstore and take your car to the shop for new tires . You should get rid of that thing anyway . Just buy a new one . ”
+26561	26584	26555	26555	She	281	“ Okay , Mr. Moneybags . I ca n’t afford a new car right now and I happen to like my Bug . ”
+26585	26591	26555	26555	She	281	“ I ’ll buy it . ”
+26592	26596	26604	26604	She	281	“ No thanks . ”
+26700	26715	26695	26695	She	281	“ You ’re my wife and I ’m allowed to buy you a car . ”
+26716	26725	26741	26741	she	281	“ A car ’s not in the contract . ”
+26726	26731	26732	26732	He	679	“ Neither is sex . ”
+26749	26771	26772	26772	He	679	“ Yeah , I guess you ’re right . But I ’ll keep the sex and say no to the car . ”
+26782	26791	26772	26772	He	679	“ Think of it as a gift then . ”
+26792	26821	26741	26741	she	281	“ You can buy me flowers if you want , but I ’m not getting rid of the car . Boy , are you in a mood today . ”
+26822	26830	26832	26832	he	679	“ I ’m not in a mood . ”
+26852	26865	26866	26866	She	281	“ Why wo n’t you let me do something nice for you ? ”
+26889	26894	26866	26866	She	281	“ Let him stay . ”
+26899	26902	26895	26895	He	679	“ Who ? ”
+26903	26907	26958	26958	she	281	“ The dog . ”
+26908	26938	26939	26939	He	679	“ I gave you time , Alexa . You promised he ’d be out on Friday . I do n’t want a dog . I do n’t want him . ”
+26969	26979	26958	26958	she	281	“ Okay . He ’ll be out by tomorrow . ”
+27397	27400	27401	27401	He	64	“ Nick ? ”
+27414	27417	27401	27401	He	64	“ Yeah ? ”
+27418	27462	27463	27463	She	686	“ If you do n’t want to watch the movie , give me another suggestion . I thought we ’d get drunk in front of the fire and watch the blizzard , but if you ’re cranky , I ’m open to options . ”
+27637	27646	27624	27624	he	64	“ I want to make love to you . ”
+27802	27816	27786	27786	he	64	“ You ’re my wife and I want to make love to you . ”
+27999	28006	27990	27990	He	64	“ Look at me , Alexa . ”
+28043	28050	28051	28051	He	64	“ It ’s always been you . ”
+28084	28092	28093	28093	He	64	“ And it will always be you . ”
+28302	28308	28297	28297	he	64	“ The dog can stay . ”
+28323	28326	28297	28297	he	64	“ What ? ”
+28327	28340	28351	28351	he	64	“ It ’s my gift to you . The dog can stay . ”
+28402	28408	28409	28409	She	709	“ I told you so . ”
+28428	28443	28444	28444	He	64	“ You ’re not supposed to say those words . I need more Nyquil . ”
+28461	28494	28444	28444	He	64	“ Hell , no , not with the antibiotics and codeine cough syrup . The doctor warned me . No more nasal spray , either . I read an article about it . ”
+28495	28501	28502	28502	He	64	“ I want my mother . ”
+28513	28543	28502	28502	He	64	“ You have the television and remote . A box of tissues . A romance novel and the phone . Get some rest and I ’ll be back soon . ”
+28544	28559	28444	28444	He	64	“ I have to get to the bookstore . Maggie sucks at customer service . ”
+28560	28586	28587	28587	She	709	“ She can handle it for the day . Think of all the men she ’ll charm into buying more books . Eat your soup . ”
+28795	28798	28790	28790	he	64	“ Hello ? ”
+28799	28807	28838	28839	His father	344	“ About time you took my call . ”
+28829	28837	28838	28839	His father	344	“ Jed . What do you want ? ”
+28842	28862	28838	28839	His father	344	“ Is that the type of greeting I ’m warranted from my own son ? How ’ve you been ? ”
+28876	28885	28863	28863	Nick	64	“ Fine . Back from Mexico so soon ? ”
+28886	28893	28838	28839	His father	344	“ Yeah , I got married . ”
+28935	28950	28997	28997	Nick	64	“ Congratulations . Listen , I got ta go , no time to chat . ”
+28951	28967	29010	29010	him	64	“ I have something to discuss with you , Son . Meet me for lunch . ”
+28968	28975	29010	29010	him	64	“ Sorry , I ’m busy . ”
+28976	28989	28997	28997	Nick	64	“ I just need an hour , tops . Make the time . ”
+29033	29047	29048	29048	He	64	“ Fine . I ’ll meet you at three o’clock . Planet Diner . ”
+29419	29427	29428	29428	Jed	88	“ Nick , good to see you . ”
+29451	29463	29446	29446	Nick	64	“ So , what brings you to New York , Jed ? ”
+29464	29503	29504	29504	Nick	64	“ This is Amber ’s hometown . Came back for a visit . I ’m thinking of settling back in town for a while . Set up house . Maybe we can spend a bit more time together ? ”
+29525	29528	29529	29529	Jed	88	“ Why ? ”
+29532	29556	29529	29529	Jed	88	“ Thought I ’d hang out with my only son . It ’s been a while , you know . How ’s business ? ”
+29557	29560	29561	29561	Nick	64	“ Good . ”
+29566	29575	29561	29561	Nick	64	“ What did you want to talk about ? ”
+29576	29591	29592	29592	Nick	64	“ Heard you got married . Congrats . Love , money , or sex ? ”
+29595	29599	29592	29592	Nick	64	“ Excuse me ? ”
+29607	29664	29600	29601	His father	344	“ Why ’d you marry her ? I married your mother for love and that ended in a frickin ’ disaster . Wife two and three were for sex , and that blew up . But Amber is all about the money . Money and some respect . I already sense this one will be permanent . ”
+29665	29669	29561	29561	Nick	64	“ Interesting theory . ”
+29670	29678	29679	29679	His	88	“ So , which one is it ? ”
+29683	29686	29687	29687	Jed	88	“ Love . ”
+29695	29720	29687	29687	Jed	88	“ You ’re screwed . At least you got a nice piece of the pie from Uncle Earl . I heard all about it . ”
+29721	29736	29561	29561	Nick	64	“ Do n’t even think about contesting the will . It ’s already done . ”
+29737	29776	29777	29777	Jed	88	“ Arrogant , are you ? You know , I think we ’re more alike than you want to believe . We both like money , and we both like women . There ’s nothing wrong with that . ”
+29784	29841	29777	29777	Jed	88	“ I ’m not here to make trouble — I got my own fortune and do n’t need yours . But Amber has a bug up her ass about me getting closer to my children . I thought we could all do lunch together . You know , Maggie and you , and Amber ’s kids . ”
+29929	29953	29924	29924	Nick	64	“ Appreciate the offer , Jed , but I ’ll pass . Have n’t needed you before . Do n’t need you now . ”
+29961	30001	30002	30002	He	64	“ Always thought you were better than me , huh ? The golden boy . Listen up , son , blood is blood , and soon you ’ll realize you ’re destined to make the same mistakes I did . ”
+30009	30061	30002	30002	He	64	“ Wanna know the truth ? I married your mother for love , but she only wanted my money . Once I sniffed out the truth , I was going to break it off but it was too late . She got pregnant . And I got stuck . With you . ”
+30071	30074	30002	30002	He	64	“ What ? ”
+30081	30124	30075	30075	Jed	88	“ That ’s right , you were her desperate attempt to keep me , and it worked . A kid means child support and alimony for life . I decided to stay and make it work , but I never forgave her . ”
+30149	30156	30137	30137	Jed	88	“ Why tell me this now ? ”
+30162	30206	30207	30207	He	344	“ As a warning . Watch this new wife of yours . If she married you for money and feels you slipping away , the oops will be coming . Mark my words . And then you ’ll be trapped just like me . ”
+30210	30220	30207	30207	He	344	“ Because you are just like me , Nick . ”
+30386	30397	30377	30377	he	88	“ We ’re nothing alike . Good luck , Jed . ”
+30535	30547	30548	30548	he	1800	“ Did you take any other medicine for the past month ? ”
+30552	30582	30583	30583	She	67	“ No . I just take Tylenol when I have a headache … but wait , I did . I had walking pneumonia and I had to go on … ”
+30596	30629	30592	30593	The doctor	1800	“ Antibiotics . Your primary should have warned you it reduces the effects of the pill . I see this slip up a lot , actually . Happy news , I hope ? ”
+31165	31168	31155	31155	He	124	“ Hey . ”
+31169	31172	31173	31173	They	769	“ Hey . ”
+31179	31183	31184	31184	she	67	“ Whatcha cooking ? ”
+31187	31202	31184	31184	she	67	“ Grilled salmon , spinach , roasted potatoes . And the salad of course . ”
+31203	31207	31173	31173	They	769	“ Of course . ”
+31208	31213	31214	31214	he	124	“ I have news , ”
+31238	31248	31227	31227	his	124	“ Oh my God . You got the contract . ”
+31249	31255	31256	31256	She	67	“ I got the contract . ”
+31337	31368	31369	31369	She	67	“ We ’re celebrating , baby . We have an extra bottle of champagne from New Year ’s Eve chilling in the fridge . Let ’s get drunk and crazy . ”
+31438	31445	31446	31446	He	124	“ I ca n’t drink anymore . ”
+31456	31483	31446	31446	He	124	“ Trying to lay off the sauce , huh ? It ’s not this stupid diet , is it ? Wine is good for the blood . ”
+31484	31506	31507	31507	He	124	“ No , not the diet . I was at the doctor ’s today and he said I could n’t drink . ”
+31514	31564	31507	31507	He	124	“ Are you okay ? Are you sick again ? I told you to see my doctor instead . Yours is that weird holistic guru who likes to give out herbs and stuff . I had to practically tackle him to give you real drugs when you had pneumonia . ”
+31580	31596	31565	31565	He	124	“ No , I ’m not sick . There ’s something else he told me . ”
+31597	31600	31601	31601	He	124	“ Oh . ”
+31614	31630	31631	31631	His	124	“ Baby , you ’re starting to freak me out . What ’s going on ? ”
+31650	31657	31636	31636	She	775	“ Nick , I ’m pregnant . ”
+31717	31723	31701	31701	He	124	“ What did you say ? ”
+31730	31743	31724	31724	She	775	“ I ’m pregnant . We ’re going to have a baby . ”
+31752	31764	31765	31765	He	124	“ But that ’s impossible . You ’re on the pill . ”
+31768	31773	31765	31765	He	124	“ Are n’t you ? ”
+31774	31789	31798	31798	He	124	“ Of course . But these things sometimes happen . Actually the doctor said — ”
+31790	31794	31795	31795	She	775	“ How convenient . ”
+31831	31859	31818	31818	She	775	“ I know this is a shock . It was for me , too . But a baby is coming and we have to talk about it . ”
+31870	31933	31865	31865	she	775	“ I never planned for this . I never planned to make this a real marriage . But I love you , Nick . I ’ve just been waiting for the right time to tell you . And I ’m sorry I sprung it on you like this , but I did n’t want to wait . Please say something . Anything . ”
+32009	32017	32003	32003	Nick	64	“ I do n’t want this baby . ”
+32071	32097	32068	32068	her	775	“ Okay . You do n’t want the baby . I understand you ’re scared , but maybe with some time your feelings will change . ”
+32289	32319	32320	32320	He	64	“ What ’s the matter , Alexa ? Was n’t the one hundred fifty grand enough for you ? Or did you get a little hungrier along the way ? ”
+32344	32351	32337	32337	Her	67	“ What are you talking about ? ”
+32352	32419	32420	32420	She	67	“ Game ’s up . You ’re a smart girl . The end of the contract is looming . Hell , we ’re already at five months . You were n’t sure what would happen , so you had a little accident to cement the deal . Trouble is , I do n’t want the baby . So , you ’re right back to square one . ”
+32431	32438	32420	32420	She	67	“ Is that what you believe ? ”
+32449	32462	32439	32439	She	67	“ You believe I did this on purpose , to trap you ? ”
+32463	32505	32506	32506	He	788	“ Why else would you tell me you ’re on the pill so I ’d stop wearing condoms ? You admitted you wanted money from the beginning , then conned me by pretending to be independent . Kept me off balance . ”
+32512	32537	32506	32506	He	788	“ Refusing the new car was smart . I bought that act good . But you were really holding out for the big time . ”
+32538	32544	32545	32545	She	67	“ Oh , my God . ”
+32672	32677	32678	32678	she	67	“ I never knew , ”
+32682	32698	32678	32678	she	67	“ I never knew this was what you really thought of me . I thought — ”
+32709	32723	32724	32724	She	67	“ I guess it does n’t matter what I thought , does it ? ”
+32738	32747	32729	32729	he	788	“ You made a big mistake , Alexa . ”
+32748	32753	32754	32754	she	67	“ You ’re right , ”
+32757	32761	32754	32754	she	67	“ I did . ”
+32963	32974	32953	32953	he	788	“ Jim , Maria , what are you doing here ? ”
+33095	33101	33102	33102	Maria	67	“ May we come in ? ”
+33105	33109	33110	33110	He	64	“ Of course . ”
+33144	33151	33132	33132	Nick	64	“ I have coffee or tea . ”
+33152	33157	33158	33158	Jim	108	“ Coffee , please , ”
+33186	33198	33199	33199	he	64	“ I ’m assuming you ’re here to talk about Alexa , ”
+33210	33255	33256	33256	Jim	108	“ Yes . She ’s been avoiding us , Nicholas . We think something ’s wrong . She does n’t take our phone calls . We visited the store to make sure everything was okay , but she made excuses and shuffled us out . ”
+33259	33300	33256	33256	Jim	108	“ She has n’t spoken to her brother or Izzy and Gen , either . We decided to come over ourselves and talk to her . Tell us , Nick . Are you two having problems ? Where is she ? ”
+33388	33405	33382	33382	They	810	“ Um , I think there may be something going on at BookCrazy . Poetry night . ”
+33431	33449	33425	33425	Her	67	“ No more lies . You are part of the family now . Tell us the truth . ”
+33504	33509	33500	33500	he	64	“ We broke up . ”
+33573	33577	33578	33578	Maria	67	“ What happened ? ”
+33601	33611	33595	33595	he	64	“ Alexa told me she was having our baby . ”
+33626	33637	33612	33612	He	64	“ But I told her I did n’t want it . ”
+33656	33670	33671	33671	Maria	67	“ I warned her from the beginning I ca n’t be a father . ”
+33683	33715	33671	33671	Maria	67	“ Nicky , why would you say such a thing ? You will be a wonderful father . You are loving , and firm , and have so much to give . ”
+33721	33732	33718	33718	his	64	“ No , I do n’t . You ’re wrong . ”
+33765	33789	33749	33749	He	64	“ There are other personal reasons , Maria . Things I ca n’t discuss . Things I may not be able to forgive . ”
+33790	33797	33798	33798	Jim	108	“ You ’re wrong , Nicholas , ”
+33802	33850	33798	33798	Jim	108	“ There is always room for forgiveness . If you love each other . I betrayed my children ’s trust . My wife . I ran and turned my back on everyone I promised to cherish . But they forgave me , and we are whole again . ”
+33854	33880	33851	33851	Maria	67	“ Marriage is messy . People make mistakes . Sometimes we do terrible things . But the vows you spoke encompassed good times and bad . ”
+33890	33936	33881	33881	Nick	64	“ I do n’t have staying power . I ’m like my father . He ’s on wife number four , and he only cares about himself . I ca n’t stand hurting an innocent child . There ’s nothing worse than not being wanted . ”
+33964	34033	33947	33947	Maria	67	“ Oh , Nicholas , how could you possibly say that ? Do n’t you remember how often you ’d sneak into my house to steal cookies and keep an eye on your sister ? You are a loving , whole man and nothing like your father . I see this every time you look at my daughter , and your love for her shines from your eyes . ”
+34039	34074	34036	34036	his	108	“ You are your own man , Nick . You make your own mistakes and choices . Do n’t go blaming anything on genes or hide behind excuses . You ’re better than that . ”
+34092	34128	34083	34083	Her	67	“ A man like your father would never have given us such a generous gift . The money you and Alexa gave us allowed us to take care of our children and keep our home . ”
+34132	34135	34129	34129	Nick	64	“ Money ? ”
+34141	34169	34138	34138	her	67	“ I know Alexa said it was a condition that I never mention it , but really , sweetheart , you must know how grateful we are . ”
+34191	34208	34209	34209	Maria	67	“ Yes , of course , it was our pleasure . And you used it for … ”
+34214	34252	34211	34211	her	67	“ To save our home , of course . Now Jim and I can take care of the bills , and the upkeep . We finally have a chance . And it ’s all because of you . ”
+34817	34825	34811	34811	he	64	“ I have to talk to her . ”
+34829	34835	34836	34836	He	64	“ Go make it right . ”
+34852	34874	34836	34836	He	64	“ I screwed up , too . I can only hope she forgives me . But I ’m going to try . ”
+34878	34884	34875	34875	Jim	108	“ You will , son . ”
+34899	34907	34885	34885	Nick	64	“ I think I have an idea . ”
+34933	34941	34942	34942	She	140	“ No caffeine . Tea has antioxidants . ”
+34948	34973	34942	34942	She	140	“ Yes , Mom . But I do n’t think a cafe mocha when I ’m this exhausted is going to cause any damage . ”
+34974	34982	34909	34909	Maggie	140	“ Caffeine stunts the baby ’s growth . ”
+34983	34997	34942	34942	She	140	“ So does stress and not making enough money to afford a baby . ”
+34998	35011	34942	34942	She	140	“ Hmm , must be the hormones . You ’re definitely cranky . ”
+35012	35015	35016	35017	Her friend	224	“ Maggs ! ”
+35029	35059	35016	35017	Her friend	224	“ I just like to piss you off . Make sure you have n’t turned into one of those mooning tragic heroines you like to read about so much . ”
+35060	35064	35016	35017	Her friend	224	“ Screw you . ”
+35065	35068	35069	35069	Alexa	67	“ Better . ”
+35196	35207	35184	35184	He	854	“ The count took me to dinner the other night . ”
+35220	35228	35229	35229	Maggie	140	“ And you did n’t tell me ? ”
+35232	35253	35254	35254	Alexa	67	“ We clashed . All he did was talk about you . He ’s in love with you , Al . ”
+35257	35271	35272	35272	She	67	“ Trust me . There ’s no spark and there never will be . ”
+35279	35293	35294	35294	Maggie	140	“ You fought , huh ? You may have finally met your match . ”
+35297	35302	35303	35303	She	140	“ That ’s ridiculous . ”
+35310	35324	35305	35305	her	140	“ He may be the only man who can handle you , Maggs . ”
+35325	35332	35305	35305	her	140	“ Pregnancy has warped your brain . ”
+35747	35833	35736	35736	his	64	“ I ’m not a poet . But my wife is . She taught me to look for the extraordinary in the simplicity . She taught me about emotion , and truth , and second chances . You see , I never realized a person can keep giving everything with no thought to take . Alexa , you changed my life , but I was too afraid to reach for it . I believed I was n’t good enough . Now I realize the truth . ”
+35967	36063	35953	35953	She	67	“ I love you , Alexa . I want you and I want our baby . I want this ridiculous hound dog because I ’ve grown to love him , too . I also figured out what I do n’t want . I do n’t want to live my life without you . I do n’t want to be alone anymore . And I do n’t want to believe I deserve not to have you . And I swear to God , I ’ll spend the rest of my life making this up to you . ”
+36076	36083	36084	36084	She	870	“ Do you still love him ? ”
+36090	36101	36084	36084	She	870	“ I ’m afraid I ca n’t do it anymore . ”
+36113	36137	36102	36102	Maggie	140	“ Yes , you can . You can do it again , and again , and again . If you love him enough . ”
+36161	36173	36177	36177	he	240	“ It was always you . You made me whole again . ”
+36189	36193	36194	36194	he	240	“ My baby , ”
+36197	36221	36194	36194	he	240	“ I was afraid I had nothing to give . But I do . And I want to give it all to you . ”
+36295	36307	36292	36292	Maggie	140	“ About time you came to your senses , big brother . ”
+36337	36351	36352	36352	Alexa	67	“ I hope you know I intend to be godmother of this baby . ”
+36355	36379	36352	36352	Alexa	67	“ God help us all if it ’s a girl . She ’ll be dressed in baby leather and brought to underwear shoots . ”
+36380	36401	36402	36402	Nick	64	“ And if it ’s a boy , I ’ll teach him the proper way to make a woman happy . ”
+36412	36437	36402	36402	Nick	64	“ Oh , you ’ll get both , Maggs . I think I ’ll take my wife home and start practicing on a second . ”
+36443	36462	36438	36438	Alexa	67	“ A second ? First I have to get past the morning sickness and weight gain and labor . ”
+36463	36477	36402	36402	Nick	64	“ Piece of cake . I ’ll be there through the whole thing . ”
+36478	36487	36488	36488	Nick	64	“ Only if you wear that Mets jersey . ”
+36491	36519	36488	36488	Nick	64	“ Actually , I ’ve thought about your arguments on the subject . Maybe you ’re right . Maybe the Mets deserve another fan in their arena . ”
+36529	36536	36537	36537	she	67	“ Thank you , Earth Mother , ”
+36589	36595	36585	36585	Nick	64	“ Let ’s go home . ”
+36891	36893	36884	36884	Her	59	“ Masquerade ”
+37646	37654	37631	37631	she	67	“ About time you answered the door . ”
+37672	37681	37682	37682	Maggie	140	“ You were supposed to be a man . ”
+37707	37733	37688	37688	She	140	“ Yeah , keep dreaming . You scared your last date off so I wo n’t be setting you up again . What happened here ? ”
+37734	37752	37753	37753	Maggie	140	“ What do you mean I scared him ? I thought he was going to attack me . ”
+37758	37800	37753	37753	Maggie	140	“ He leaned in to give you a good - night kiss . You stumbled and fell on your ass , and he felt like an idiot . People kiss after a date , Al . It ’s a ritual thing . ”
+37815	37832	37801	37801	Alexa	67	“ He had tons of garlic at dinner and I did n’t want him near me . ”
+37869	37884	37844	37844	She	140	“ Remind me again why you have n’t had sex in the last decade ? ”
+37885	37888	37844	37844	She	140	“ Witch . ”
+37889	37892	37893	37893	Alexa	67	“ Celibate . ”
+37899	37922	37893	37893	Alexa	67	“ Okay , you win . Why are you gracing me with your presence on a Saturday night ? You look good . ”
+37923	37938	37844	37844	She	140	“ Thanks . I ’m meeting someone for drinks at eleven . Wanna come ? ”
+37939	37944	37945	37945	Megan	140	“ On your date ? ”
+37957	37969	37945	37945	Megan	140	“ You ’ll be better company . He ’s a bore . ”
+37970	37979	37844	37844	She	140	“ Why are you going out with him ? ”
+37980	37985	37986	37986	Alexa	67	“ He looks good . ”
+37997	38018	37986	37986	Alexa	67	“ I wish I could be like you , Maggie . Why do I have so many hang - ups ? ”
+38019	38027	38028	38028	Maggie	140	“ Why do n’t I have any ? ”
+38045	38056	38039	38039	she	140	“ So , what ’s the deal with the fire ? ”
+38060	38076	38057	38057	Alexa	67	“ I was creating a love spell . To , uh … get a man . ”
+38086	38099	38081	38081	her	224	“ Okay . What ’s that have to do with the bucket ? ”
+38112	38123	38124	38124	she	67	“ I made a fire to honor the Earth Mother , ”
+38127	38133	38124	38124	she	67	“ Oh , my God . ”
+38134	38171	38081	38081	her	224	“ Hear me out . I ’m desperate . I still have n’t met Mr. Right and another small problem came up I need to solve , so I combined both my needs into one list . ”
+38172	38178	38124	38124	she	67	“ What kind of list ? ”
+38179	38215	38081	38081	her	224	“ One of my customers told me she bought this book on love spells , and when she made a list of all the qualities she looked for in a man , he showed up . ”
+38222	38236	38218	38218	Maggie	140	“ A man appeared in her life with all the things she wanted ? ”
+38237	38281	38282	38282	Maggie	140	“ Yep . The list has to be specific . It ca n’t be too general , or supposedly the universe gets confused with your desires and sends nothing . She said if you follow the spell , the right man will appear . ”
+38288	38295	38282	38282	Maggie	140	“ Let me see the book . ”
+38329	38337	38338	38338	She	140	“ Hmmm . Show me your list . ”
+38344	38348	38338	38338	She	140	“ Burned it . ”
+38349	38369	38370	38370	Her	67	“ I know you have another copy under your bed . Forget it , I ’ll get it myself . ”
+38430	38434	38435	38435	Maggie	140	“ Number one , ”
+38438	38443	38435	38435	Maggie	140	“ A Mets fan . ”
+38451	38454	38455	38455	Maggie	140	“ Baseball ? ”
+38472	38524	38458	38458	She	140	“ Damn it , how can you make your number one priority baseball ? They have n’t made it to the World Series in years ! It ’s a fact in New York there are more Yankees fans than Mets fans , and that wipes out most of the male population . ”
+38543	38572	38532	38532	she	67	“ The Mets have heart and character , and I need a man who can root for the underdog . I refuse to sleep with a Yankees fan . ”
+38573	38582	38583	38583	Maggie	140	“ You ’re hopeless . I give up , ”
+38586	38598	38583	38583	Maggie	140	“ Number two : loves books , art , and poetry . ”
+38609	38631	38632	38632	She	140	“ I accept . Three : believes in monogamy . Very important to the list . Number four : wants children . ”
+38636	38640	38632	38632	She	140	“ How many ? ”
+38647	38670	38641	38641	Alexa	67	“ I ’d like three . But I ’d settle for two . Should I have specified how many in the list ? ”
+38671	38681	38682	38682	Maggie	140	“ No , Earth Mother will get it right . ”
+38685	38733	38734	38734	She	140	“ Number five : knows how to communicate with a woman . Good one . I ’m sick of reading books about Venus and Mars . I ’ve gone through the whole series and I still do n’t have a clue . Number six : loves animals . ”
+38737	38746	38734	38734	She	140	“ That ’s as bad as the Mets ! ”
+38757	38805	38747	38747	Alexa	67	“ If he hates dogs , how can I continue my volunteer program at the shelter ? And what if he ’s a hunter ? I ’d wake up in the middle of the night and find a dead deer staring at me from over the mantelpiece . ”
+38806	38812	38813	38813	Maggie	140	“ You ’re so dramatic . ”
+38820	38863	38813	38813	Maggie	140	“ Number seven : has a moral code of ethics and believes in honesty . Should ’ve been number one on the list , but what the hell , I ’m not a Mets fan . Number eight : a good lover . ”
+38869	38899	38866	38866	her	140	“ That would be number two on my list . But I ’m proud the item even shows up . Maybe you ’re not as hopeless as I thought . ”
+38909	38913	38864	38864	She	140	“ Keep going . ”
+38914	38942	38866	38866	her	140	“ Number nine : has a strong sense of family . Makes sense — you guys remind me of the frickin ’ Waltons . Okay number ten … ”
+38955	38967	38968	38968	Alexa	67	“ Alexa , I think I ’m reading number ten wrong . ”
+38971	38975	38976	38976	Maggie	140	“ Probably not . ”
+38982	38989	38990	38990	She	140	“ Needs $ 150,000 available cash . ”
+38994	39000	38990	38990	She	140	“ I need more details . ”
+39006	39029	39030	39030	Maggie	140	“ I need a man I can love , with an extra $ 150,000 thrown in . And I need him fast . ”
+39040	39044	39032	39032	her	140	“ For what ? ”
+39045	39050	39051	39051	Maggie	140	“ To save Tara . ”
+39054	39057	39051	39051	Maggie	140	“ Tara ? ”
+39058	39144	39145	39145	Maggie	140	“ Yeah , my mother ’s home . You know , like in the movie , Gone with the Wind ? Remember how my mom used to joke about needing more cotton to pay the bills ? I have n’t told you how bad it ’s got , Maggs . Mom wants to sell and I ca n’t let her . They have no money , and nowhere else to go . I ’ll do anything to help , even marry . Just like Scarlett . ”
+39163	39169	39152	39152	She	140	“ What are you doing ? ”
+39207	39242	39243	39243	Alexa	67	“ Canceling my date . I think this new item needs to be discussed . Then I ’m calling my therapist . She ’s very good , discreet , and she takes midnight appointments . ”
+39246	39256	39243	39243	Alexa	67	“ You ’re such a good friend , Maggie . ”
+39257	39265	39243	39243	Alexa	67	“ Yeah , tell me about it . ”
+40714	40717	40709	40709	Nick	64	“ Ryan . ”
+40718	40727	40728	40728	She	281	“ Nick , it ’s me . Maggie . ”
+40731	40739	40728	40728	She	281	“ Did you find a wife yet ? ”
+40774	40780	40746	40747	His sister	872	“ Working on it now . ”
+40781	40788	40789	40789	His	64	“ I think I found her . ”
+40794	40799	40789	40789	His	64	“ Who is it ? ”
+40803	40841	40842	40842	He	64	“ You ’d have to meet her terms but I do n’t think they ’ll be a problem . Be open - minded . I know that ’s not your forte . But you can trust her . ”
+40869	40876	40927	40927	Nick	64	“ Who is it , Maggs ? ”
+40886	40889	40927	40927	Nick	64	“ Alexa . ”
+41653	41665	41639	41639	He	64	“ Hello , Alexa . It ’s been a long time . ”
+41686	41695	41677	41677	She	392	“ Hello , Nick . How are you ? ”
+41696	41711	41677	41677	She	392	“ Fine . Please sit down . Can I pour you coffee ? Tea ? ”
+41712	41717	41677	41677	She	392	“ Coffee , please . ”
+41718	41723	41677	41677	She	392	“ Cream ? Sugar ? ”
+41724	41730	41731	41731	She	392	“ Cream . Thank you . ”
+41775	41790	41769	41769	He	64	“ Napoleon ? Apple fritter ? They ’re from the bakery across the street . ”
+41791	41797	41829	41829	her	392	“ No , thank you . ”
+41798	41801	41829	41829	her	392	“ Sure ? ”
+41802	41823	41829	41829	her	392	“ Yes . I ’d never be able to stop at one . I ’ve learned not to tempt myself . “
+41909	41918	41898	41898	She	392	“ I ’m sorry about your Uncle Earl . ”
+41919	41932	41898	41898	She	392	“ Thank you . Did Maggie fill you in on the details ? ”
+41933	41940	41898	41898	She	392	“ The whole thing sounds crazy . ”
+41941	41978	41898	41898	She	392	“ It is . Uncle Earl believed in family , and before he died he was convinced I ’d never settle down . Therefore , he decided a strong push would be for my own good . ”
+41979	41987	41988	41988	He	1015	“ You do n’t believe in marriage ? ”
+41991	42013	41988	41988	He	1015	“ Marriage is unnecessary . The dream of forever is a fairy tale . White knights and monogamy do n’t exist . ”
+42020	42033	42014	42014	She	392	“ You do n’t believe in making a commitment to another person ? ”
+42034	42074	42075	42075	She	392	“ Commitments are short - lived . Sure , people mean it when they confess love and devotion , but time erodes all the good stuff and leaves the bad . Do you know anyone who is happily married ? ”
+42085	42105	42077	42077	her	392	“ Besides my parents ? I guess not . But that does n’t mean there are n’t happy couples . ”
+42106	42109	42110	42110	His	1015	“ Maybe . ”
+42117	42132	42133	42133	she	392	“ I guess there are a lot of issues we do n’t agree upon , ”
+42148	42163	42133	42133	she	392	“ We ’ll need some time together to see if this thing will work . ”
+42164	42199	42200	42200	She	392	“ We have no time . The wedding has to take place by the end of next week . It does n’t matter if we get along . This is strictly a business arrangement . ”
+42205	42228	42202	42202	her	392	“ I see you ’re the same overbearing bully who teased me about my chest size . Some things do n’t change . ”
+42240	42257	42229	42229	He	1015	“ I guess you ’re right . Some things remain the same . Others keep expanding . ”
+42273	42280	42266	42266	she	392	“ And other things remain small . ”
+42401	42421	42391	42391	He	1015	“ Maggie told me you needed a specific amount of money . I kept the figure open for negotiation . ”
+42438	42444	42445	42445	He	1015	“ Is this the contract ? ”
+42448	42461	42445	42445	He	1015	“ I know you ’ll need your lawyer to look it over . ”
+42462	42493	42494	42494	He	1015	“ No need . A friend of mine is a lawyer . I learned enough , since I helped him study for the bar exam . May I see it ? ”
+42739	42747	42748	42748	She	67	“ You have a list of requirements ? ”
+42776	42789	42773	42773	his	1015	“ Just a few qualities I ’d like my wife to have . ”
+42810	42831	42801	42801	She	67	“ You want a hostess , an orphan , and a robot all rolled into one . Is that fair ? ”
+42838	42865	42832	42832	He	1015	“ You ’re exaggerating . Just because I ’d like to marry someone with grace and business sense , does n’t mean I ’m a monster . ”
+42872	42894	42866	42866	She	67	“ You want a Stepford wife without the sex . Have n’t you learned anything about women since you were fourteen ? ”
+42895	42920	42921	42921	She	67	“ I learned plenty . That ’s why Uncle Earl had to force me into an institution that favors women in the first place . ”
+42924	42932	42921	42921	She	67	“ Men get plenty out of marriage ! ”
+42933	42937	42866	42866	She	67	“ Like what ? ”
+42938	42944	42866	42866	She	67	“ Steady sex and companionship . ”
+42945	42960	42921	42921	She	67	“ After six months the headaches start and you bore each other to tears . ”
+42961	42968	42866	42866	She	67	“ Someone to grow old with . ”
+42969	42987	42988	42988	Her	67	“ Men never want to grow old . That ’s why they keep seeking out younger women . ”
+43001	43017	42993	42993	She	67	“ Children … a family … someone who will love you in sickness and health . ”
+43018	43038	42866	42866	She	67	“ Someone who spends all your money and nags you every night and bitches about cleaning up your mess . ”
+43039	43044	42988	42988	Her	67	“ You ’re sick . ”
+43045	43050	43051	43051	She	67	“ You ’re deluded . ”
+43079	43089	43090	43090	she	67	“ God , your parents really screwed you up , ”
+43093	43099	43090	43090	she	67	“ Thank you , Freud . ”
+43100	43112	43125	43125	she	67	“ What if I do n’t fit in all these categories ? ”
+43113	43120	43121	43121	Her	67	“ We ’ll work on it . ”
+43351	43367	43340	43340	He	64	“ Why do n’t you tell me what you ’re looking for in this marriage ? ”
+43368	43389	43390	43390	He	64	“ One hundred and fifty thousand dollars . Cash . Up front and not at the end of the year . ”
+43398	43409	43390	43390	He	64	“ Hell of a lot of money . Gambling debts ? ”
+43417	43420	43390	43390	He	64	“ No . ”
+43421	43425	43429	43429	her	67	“ Shopping spree ? ”
+43432	43460	43429	43429	her	67	“ None of your business . Part of the deal is that you ask me no questions about the money or how I intend to use it . ”
+43461	43467	43429	43429	her	67	“ Hmmm , anything else ? ”
+43468	43474	43429	43429	her	67	“ Where do we live ? ”
+43475	43479	43429	43429	her	67	“ My home . ”
+43480	43497	43429	43429	her	67	“ I ’m not giving up my apartment . I ’ll pay the rent as usual . ”
+43503	43528	43429	43429	her	67	“ As my wife , you ’ll need a proper wardrobe . You ’ll get an allowance and have access to my personal shopper . ”
+43529	43548	43549	43549	He	64	“ I ’ll wear what I want , when I want , and pay my own damn way . ”
+43572	43602	43565	43565	he	64	“ You ’ll play hostess to my business associates . I have a huge deal on the line , so you have to make nice with the other wives . ”
+43603	43639	43429	43429	her	67	“ I can manage to keep my elbows off the table and laugh at their stupid jokes . But I need to be free to run my own business and enjoy my own social life . ”
+43640	43654	43742	43742	Alexa	67	“ Of course . I expect you to carry on your individual lifestyle . ”
+43655	43665	43565	43565	he	64	“ As long as I do n’t embarrass you ? ”
+43666	43669	43670	43670	She	1023	“ Exactly . ”
+43680	43690	43670	43670	She	1023	“ I ’ve got some problems with this list . ”
+43691	43698	43565	43565	he	64	“ I ’m a flexible person . ”
+43699	43722	43565	43565	he	64	“ I ’m very close to my family and they ’ll need a good reason to believe I ’m suddenly getting married . ”
+43723	43741	43742	43742	Alexa	67	“ Just tell them we ran into each other after all these years and decided to marry . ”
+43747	43790	43744	43744	her	1023	“ They ’re not allowed to know about this arrangement , so they need to believe we ’re madly in love . You ’ll have to come to dinner so we can make the announcement . And it needs to be convincing . ”
+43807	43815	43791	43791	He	1024	“ You still speak with your father ? ”
+43816	43819	43744	43744	her	1023	“ Yes . ”
+43820	43827	43791	43791	He	1024	“ You used to hate him . ”
+43828	43872	43873	43873	He	831	“ He made amends . I chose to forgive . Anyway , my brother and sister - in - law and niece and the twins all live with my parents . They ’ll ask a million questions and you have to be convincing . ”
+43876	43883	43873	43873	He	831	“ I do n’t like complications . ”
+43884	43895	43791	43791	He	1024	“ Tough luck . That ’s part of the deal . ”
+43906	43912	43898	43898	he	64	“ Fine . Anything else ? ”
+43913	43922	43923	43923	His	831	“ Yeah . I get a real wedding . ”
+43927	43936	43923	43923	His	831	“ I was thinking justice of the peace . ”
+43937	43957	43898	43898	he	64	“ I was thinking a white dress outside with my family in attendance and Maggie as maid of honor . ”
+43958	43965	43898	43898	he	64	“ I do n’t like weddings . ”
+43966	43988	43923	43923	His	831	“ So you ’ve said . My family will never believe I eloped . We have to do this for them . ”
+43989	44004	44005	44005	Her	1029	“ I ’m marrying you for business reasons , Alexa . Not your family . ”
+44029	44058	44024	44024	she	1029	“ Believe me , I ’m not happy about this either , but we have to play the part if people are going to think this is real . ”
+44068	44071	44063	44063	he	831	“ Fine . ”
+44078	44082	44072	44072	His	831	“ Anything else ? ”
+44686	44691	44678	44678	She	67	“ One other thing . ”
+44692	44695	44696	44696	he	64	“ Yes ? ”
+44699	44705	44678	44678	She	67	“ Do you watch baseball ? ”
+44706	44710	44711	44711	Her	67	“ Of course . ”
+44717	44725	44726	44726	He	64	“ Do you have a favorite team ? ”
+44732	44741	44729	44729	Literally	149	“ There ’s only one New York team . ”
+44752	44756	44742	44742	Alexa	67	“ Which one ? ”
+44757	44780	44781	44781	She	67	“ The Yankees , of course . It ’s the only team that wins . It ’s the only team that matters . ”
+44834	44841	44842	44842	She	67	“ Alexa ? Are you okay ? ”
+44898	44901	44902	44902	She	67	“ Alexa ? ”
+45032	45044	45022	45022	He	64	“ Do n’t tell me . You ’re a Mets fan . ”
+45051	45091	45045	45045	She	67	“ I refuse to talk baseball with you . You will not wear any of your Yankees gear when you ’re with me . I do n’t care what you put on when I ’m not around . Understand ? ”
+45119	45125	45106	45106	He	64	“ Are you kidding me ? ”
+45133	45136	45128	45128	her	67	“ No . ”
+45137	45149	45182	45182	he	64	“ I ’m not even allowed to wear my Yankees cap ? ”
+45150	45155	45182	45182	he	64	“ That ’s right . ”
+45156	45161	45162	45162	he	64	“ You ’re insane , ”
+45165	45180	45162	45162	he	64	“ Sticks and stones . Tell me now before we waste any more time . ”
+45291	45332	45333	45333	She	67	“ I wo n’t wear any Yankees gear , but the same applies to you . No Mets junk . I do n’t even want to see a coffee mug or key chain lying around my house . Got it ? ”
+45349	45381	45385	45385	his	64	“ I disagree . We have n’t won a Series since 1986 , so I get to wear mine . You get enough glory — you do n’t need any more . ”
+45389	45419	45385	45385	his	64	“ Nice try , but I ’m not one of the Twinkies you ’re used to dating . No Yankees , no Mets . Take it or leave it . ”
+45420	45427	45428	45428	He	64	“ I do n’t date Twinkies ! ”
+45431	45437	45428	45428	He	64	“ I do n’t care . ”
+45483	45505	45506	45506	She	67	“ Well ? Do you want to sleep on it or whatever women do when they ca n’t make a decision ? ”
+45519	45527	45506	45506	She	67	“ Fine . You have a deal . ”
+45528	45532	45546	45546	He	64	“ Anything else ? ”
+45533	45540	45546	45546	He	64	“ I guess that covers it . ”
+45541	45545	45546	45546	He	64	“ Not quite . ”
+45622	45632	45613	45613	He	64	“ I want to talk to you about sex . ”
+45633	45636	45641	45641	her	67	“ Sex ? ”
+45682	45699	45664	45664	He	64	“ See , we need to be extremely discreet with , uh , our extracurricular activities . ”
+45700	45703	45664	45664	He	64	“ Discreet ? ”
+45704	45764	45664	45664	He	64	“ Yes . I deal with some very high - end clients , and I have a reputation to protect . Let alone the terms of the agreement would be broken if our marriage was questioned . I think it best if you agreed to remain celibate for the year . It ’s doable , do n’t you think ? ”
+45765	45774	45775	45775	He	64	“ Or a lot of non - doing . ”
+45969	45973	45966	45966	She	67	“ I understand . ”
+45980	45984	45966	45966	She	67	“ You do ? ”
+45985	46017	45966	45966	She	67	“ Of course . If the marriage is supposed to be real , how would it look to find your wife the gossip of an affair so soon after the wedding ? ”
+46018	46021	45966	45966	She	67	“ Exactly . ”
+46022	46062	46063	46063	He	64	“ And you should n’t have to deal with humiliating questions regarding your manhood . If your wife is sleeping around , it ’s obvious what the problem is . She was n’t getting it good enough at home . ”
+46075	46079	46068	46068	His	64	“ I guess . ”
+46080	46087	46088	46088	He	64	“ So , what about Gabriella ? ”
+46094	46102	46088	46088	He	64	“ How do you know about her ? ”
+46103	46106	46068	46068	His	64	“ Maggie . ”
+46107	46121	46068	46068	His	64	“ Do n’t worry about Gabriella . I ’ll take care of her . ”
+46122	46129	46088	46088	He	64	“ Are you sleeping with her ? ”
+46142	46147	46148	46148	She	1068	“ Does it matter ? ”
+46155	46224	46148	46148	She	1068	“ I want to clarify the sex issue . At least I ’ve filled the number one and two spot . I sure as hell do n’t love you , and we ’re not attracted to one another . You ’re saying if I want to have a rollicking one night stand , I ca n’t go for it . So , what are the rules for you ? ”
+46361	46364	46353	46353	she	1071	“ Nick ? ”
+46365	46368	46350	46350	He	64	“ Hmmm ? ”
+46369	46375	46350	46350	He	64	“ Did you hear me ? ”
+46376	46393	46353	46353	she	1071	“ Yeah . Sex . I promise you ’ll never find yourself in an awkward situation . ”
+46394	46409	46350	46350	He	64	“ So , you ’re telling me you still intend to sleep with Gabriella ? ”
+46410	46420	46350	46350	He	64	“ Gabriella and I are involved in a relationship . ”
+46421	46429	46353	46353	she	1071	“ But you wo n’t marry her . ”
+46449	46458	46437	46437	He	64	“ It ’s not that kind of relationship . ”
+46459	46486	46350	46350	He	64	“ Hmmm , interesting . So , you ’re saying I ca n’t screw around because I do n’t have anybody steady to screw around with . ”
+46553	46587	46588	46588	She	1075	“ If you had someone steady in your life , we ’d work out the situation . But strangers are too dangerous . I can guarantee Gabriella knows how to keep a secret . ”
+46629	46635	46620	46620	Fascinated	151	“ No way , baby . ”
+46649	46652	46636	46636	He	64	“ Pardon ? ”
+46653	46715	46716	46716	She	1075	“ No sex for me . No sex for you . I do n’t care if it ’s Gabriella or a stripper or the love of your damn life . If I do n’t have any fun , you do n’t . You ’ll just have to get your kicks out of this very proper business marriage and build your buildings . ”
+46719	46723	46716	46716	She	1075	“ Get it ? ”
+46762	46803	46750	46750	His	64	“ Alexa , I understand this does n’t seem fair . But a man is different . Gabriella has a reputation to uphold , also , so you ’ll never be put in a bad position . Do you understand ? ”
+46804	46807	46750	46750	His	64	“ Yes . ”
+46808	46818	46750	46750	His	64	“ So , you ’ll agree to the terms ? ”
+46819	46822	46750	46750	His	64	“ No . ”
+46842	46879	46826	46826	He	64	“ We ’ve been able to agree on everything else . We ’ve compromised . It ’s only one year , and then you can walk away and have a damn orgy for all I care . ”
+46894	46969	46970	46970	She	1076	“ If you get to have your orgies , I get mine . If you want to be celibate , so will I. I do n’t care about your crap regarding men and women and their differences . If I have to go to bed alone for three hundred sixty - four nights , then so will you . And if you want action , you ’ll have to turn to your own wife . ”
+46983	47021	47022	47022	She	1076	“ And since we know we ’re not attracted to each other , you ’ll just have to find some other ways to ease the pressure . Use a little creativity . Celibacy should open other outlets . ”
+47025	47036	47022	47022	She	1076	“ ’Cause that ’s all you ’re gon na get . ”
+47114	47146	47108	47108	He	1077	“ You want to be unreasonable ? Fine . Deal is off . Kiss your money good - bye . I ’ll just have to manage the board for a while . ”
+47166	47178	47155	47155	her	1076	“ It was nice to see you again , Pretty Boy . ”
+47250	47268	47239	47239	his	1077	“ Yeah , it was nice . Stop by some time . Do n’t be a stranger . ”
+47269	47274	47275	47275	She	1076	“ I wo n’t . ”
+47278	47282	47275	47275	She	1076	“ See ya . ”
+47340	47343	47326	47326	She	1076	“ Okay . ”
+47434	47460	47421	47421	She	1076	“ I know the contract does n’t state our new agreement . Do you give me your word you ’ll stick to the new terms ? ”
+47461	47470	47421	47421	She	1076	“ I can draw up a revised document . ”
+47471	47482	47483	47483	Her	1076	“ No need . Do you give me your word ? ”
+47510	47517	47491	47491	she	1076	“ I give you my word . ”
+47518	47558	47491	47491	she	1076	“ Then I ’ll shake on it . Oh , and the dissolution of the marriage after one year ? My family ca n’t be hurt in this deception . We cite irreconcilable differences and pretend to part friends . ”
+47559	47566	47619	47619	her	1076	“ I can live with that . ”
+47567	47598	47599	47599	He	64	“ Good . Pick me up tonight at seven and we ’ll go see my family to break the news . I ’ll take care of all the wedding arrangements . ”
+47643	47650	47651	47651	she	1076	“ My address at the bookstore , ”
+47654	47661	47651	47651	she	1076	“ I ’ll see you tonight . ”
+47762	47771	47772	47772	He	64	“ Do you have any Black Eyed Peas ? ”
+47779	47783	47772	47772	He	64	“ To eat ? ”
+47790	47808	47784	47784	She	67	“ I ’ll even settle for some of the old classics . Sinatra , Bennett , Martin . ”
+47813	47828	47809	47809	He	64	“ Eagles ? Beatles ? Just yell if any of these names sound familiar . ”
+47833	47845	47829	47829	His	64	“ I know who they are . Would you prefer Beethoven ? ”
+47846	47850	47851	47851	They	1086	“ Forget it . ”
+47904	47912	47898	47898	She	67	“ Maggie says you have a fish . ”
+47922	47925	47898	47898	She	67	“ Yes . ”
+47926	47932	47937	47937	She	67	“ What ’s his name ? ”
+47933	47936	47937	47937	She	67	“ Fish . ”
+47940	47950	47937	47937	She	67	“ You did n’t even give it a name ? ”
+47951	47958	47937	47937	She	67	“ Did I commit a crime ? ”
+47959	47971	47937	47937	She	67	“ Do n’t you know animals have feelings just like people ? ”
+47972	47979	47980	47980	he	1090	“ I do n’t like animals , ”
+47983	47992	47980	47980	he	1090	“ Why ? Are you afraid of them ? ”
+47993	47998	47937	47937	She	67	“ Of course not . ”
+47999	48028	47980	47980	he	1090	“ You were afraid of that snake we found in the woods . Remember how you would n’t get close , and you made some excuse to leave ? ”
+48041	48062	48063	48063	She	67	“ I was n’t afraid , I just did n’t care . I told you I do n’t like animals . ”
+48144	48151	48152	48152	he	64	“ What are you smiling about ? ”
+48155	48165	48152	48152	he	64	“ Nothing . Do you remember everything we discussed ? ”
+48172	48211	48212	48212	She	67	“ Yes . We went over all your family members in detail . I know names and general backgrounds . For God ’s sakes , Alexa , I used to play at your house when we were younger . ”
+48215	48255	48212	48212	She	67	“ You only wanted my mother ’s chocolate chip cookies . And you loved torturing me and your sister . Besides , that was years ago . You ’ve had nothing to do with them over the past decade . ”
+48286	48304	48305	48305	She	67	“ Speaking of which , you never mention your parents . Have you seen your father lately ? ”
+48320	48323	48324	48324	She	67	“ No . ”
+48332	48342	48324	48324	She	67	“ How about your mom ? Did she remarry ? ”
+48343	48361	48381	48381	His	64	“ No . I do n’t want to talk about my parents . There ’s no point . ”
+48362	48380	48381	48381	His	64	“ Wonderful . What are we supposed to tell my family about them ? They ’ll ask . ”
+48386	48421	48381	48381	His	64	“ Tell them my father ’s lounging in Mexico and my mother is off somewhere with her new boyfriend . Tell them whatever you want . They wo n’t be at the wedding anyway . ”
+48453	48463	48445	48445	Alexa	67	“ Here ’s the turn for my parents ’ . ”
+48582	48587	48588	48588	he	64	“ Are we ready ? ”
+48698	48711	48712	48712	His	64	“ You look like you stepped in a pile of dog doo . ”
+48727	48736	48720	48720	his	64	“ Hmmm , Maggie said you wrote poetry . ”
+48737	48795	48720	48720	his	64	“ We ’re supposed to be madly in love . If they suspect otherwise , I ca n’t marry you , and my mother would make my life a living hell . So put on a good act . Oh , and do n’t be afraid to touch me . I promise I do n’t have cooties . ”
+48796	48803	48804	48804	His	64	“ I ’m not afraid to — ”
+48874	48881	48882	48882	His	64	“ See ? No big deal . ”
+48929	48933	48918	48918	She	1095	“ Show time . ”
+49064	49067	49051	49051	themselves	1116	“ Congratulations ! ”
+49068	49074	49047	49047	Isabella	126	“ Welcome to the family ! ”
+49075	49102	49051	49051	themselves	1116	“ Izzy , I told you he ’d turn out to be gorgeous . How awesome is this ? Childhood friends and now husband and wife ! ”
+49103	49111	49051	49051	themselves	1116	“ Did you set a wedding date ? ”
+49112	49121	49122	49122	Nick	64	“ Can I be in the bridal party ? ”
+49160	49180	49144	49144	She	67	“ Stop scaring him , guys . I finally got a fiancé . Do n’t ruin this for me . ”
+49270	49276	49277	49277	she	67	“ Taylor , the Troublemaker , ”
+49280	49292	49277	49277	she	67	“ meet Nick Ryan . Uncle Nick to you , squirt . ”
+49322	49327	49314	49314	her	67	“ Hi , Nick ! ”
+49332	49337	49314	49314	her	67	“ Hi , Taylor . ”
+49338	49342	49343	49343	Alexa	67	“ Approval bestowed , ”
+49351	49378	49346	49346	She	67	“ Let me make the rest of the introductions . My twin sisters , Isabella and Genevieve , now all grown up and out of diapers . ”
+49387	49417	49379	49379	She	67	“ My sister - in - law , Gina , and you know my brother Lance and my parents . Everyone , this is Nick Ryan , my fiancé . ”
+49440	49449	49450	49450	She	605	“ Nicky , you ’re all grown up . ”
+49458	49465	49453	49453	her	605	“ And you ’re so handsome . ”
+49490	49506	49485	49485	He	64	“ Umm , thank you , Mrs. McKenzie . It ’s been a long time . ”
+49517	49544	49487	49487	his	64	“ Hey , Nick , have n’t seen you in centuries . Now I hear you ’re going to be part of the family . Congrats . ”
+49545	49548	49549	49550	Her father	831	“ Thanks . ”
+49559	49564	49565	49565	he	831	“ Call me Jim , ”
+49568	49596	49565	49565	he	831	“ I remember you used to torture my little girl on many occasions . I think her first official curse word came out with you in mind . ”
+49597	49606	49607	49607	Nick	64	“ I think I still have that effect , ”
+49629	49644	49645	49645	she	161	“ Now maybe I ’ll have someone to even out the odds around here , ”
+49653	49662	49663	49663	Alexa	67	“ You can get outnumbered in family meetings . ”
+49666	49687	49663	49663	Alexa	67	“ He ’s still a man , Gina . Trust me , he ’ll take Lance ’s side every time . ”
+49701	49723	49724	49724	Alexa	67	“ The odds are turning , baby . I finally got another man in the house to battle all the PMS . ”
+49740	49753	49737	49737	her	67	“ Lancelot , men do not speak like that with ladies around . ”
+49754	49758	49759	49759	Maria	67	“ What ladies ? ”
+49766	49786	49759	49759	Maria	67	“ Everyone inside . We ’ll have a champagne toast , eat , and then have some good espresso . ”
+49787	49793	49737	49737	her	67	“ Can I have champagne ? ”
+49794	49799	49800	49800	Maria	67	“ Me , too ? ”
+49813	49829	49800	49800	Maria	67	“ You ’ll have sparkling apple cider . I bought a bottle for this occasion . ”
+49830	49837	49838	49838	Alexa	67	“ Me too ! Me too ! ”
+49851	49863	49838	49838	Alexa	67	“ Okay , squirt . Apple juice for you , too . ”
+50045	50049	50050	50050	she	67	“ You okay ? ”
+50053	50063	50050	50050	she	67	“ I ’m fine . Let ’s go in . ”
+50261	50272	50251	50252	Jim McKenzie	108	“ So , Nick , tell me about your job . ”
+50273	50276	50289	50289	her	67	“ Dad — ”
+50277	50284	50285	50285	Nick	64	“ No , it ’s okay . ”
+50292	50320	50285	50285	Nick	64	“ Dreamscape is an architectural firm that designs buildings in the Hudson Valley . We designed the Japanese restaurant at the top of the mountain in Suffern . ”
+50328	50341	50342	50342	He	831	“ Wonderful place to eat . Maria always loved the gardens there . ”
+50345	50357	50342	50342	He	831	“ So , what do you think of Alexa ’s paintings ? ”
+50447	50465	50466	50466	Jim	108	“ They ’re fantastic . I ’ve always told her she should hang them in a gallery . ”
+50472	50487	50469	50469	his	108	“ You like them , huh ? Which one do you like the most ? ”
+50488	50491	50469	50469	his	108	“ Dad — ”
+50492	50505	50506	50506	Panic	163	“ The landscape one . Definitely puts you right at the scene . ”
+50556	50563	50542	50546	The rest of her family	1158	“ She does n’t paint landscapes . ”
+50581	50598	50575	50575	Nick	64	“ She just tried her hand at landscapes . Darling , did n’t you tell them ? ”
+50604	50627	50575	50575	Nick	64	“ No , sorry , Dad , I have n’t brought you up to speed . I ’m painting mountain landscapes now . ”
+50628	50633	50664	50664	he	64	“ You hate landscapes . ”
+50634	50638	50639	50639	she	67	“ Not anymore , ”
+50643	50656	50639	50639	she	67	“ I have a new appreciation for landscapes since meeting an architect . ”
+50667	50677	50664	50664	he	64	“ So , Nick , baseball fan or football ? ”
+50678	50681	50664	50664	he	64	“ Both . ”
+50682	50711	50664	50664	he	64	“ Great season for the Giants , huh ? I ’m hoping for another New York Super Bowl . Hey , have you read Alexa ’s new poem ? ”
+50712	50716	50664	50664	he	64	“ Which one ? ”
+50717	50724	50664	50664	he	64	“ The one about the rainstorm . ”
+50725	50736	50664	50664	he	64	“ Oh , yes . I thought it was wonderful . ”
+50737	50776	50777	50777	Alexa	67	“ She never wrote a poem about a rainstorm . She writes about experiences in life relating to love or loss . She ’s never written a nature poem , just as she ’s never painted a landscape . ”
+50799	50812	50664	50664	he	64	“ Umm , Dad , I just wrote one about a rainstorm . ”
+50813	50836	50837	50837	She	67	“ Really ? Would you recite it for us ? Your mother and I have n’t heard some of your new work . ”
+50840	50861	50837	50837	She	67	“ Well , it ’s still in creation mode . I ’ll definitely share as soon as it ’s perfect . ”
+50862	50870	50664	50664	he	64	“ But you let Nick see it . ”
+50888	50916	50917	50917	Jim	108	“ Yes . Well , Nick , maybe we better get going . It ’s late and I have a lot of wedding plans to get together . ”
+51006	51016	51017	51017	Jim	108	“ I meant to ask you about the wedding , ”
+51020	51052	51017	51017	Jim	108	“ You ’re putting it together in a week . Why not give everyone some time to get to know Nick and welcome him into the family ? Why the rush ? ”
+51060	51097	51053	51053	Nick	64	“ I understand , Jim , but Alexa and I talked about this and we both do n’t want a big fuss . We decided we want to be together and start our lives right away . ”
+51098	51105	51106	51106	Izzy	126	“ It ’s romantic , Dad , ”
+51122	51126	51115	51115	she	67	“ I agree . ”
+51144	51190	51191	51191	Jim	108	“ Let us enjoy the wedding . We ’d love to throw you an engagement party so Nick can meet the rest of the family . There ’s just not time for everyone to come down on Saturday . All your cousins will miss out . ”
+51194	51206	51191	51191	Jim	108	“ Then it ’s settled . You ’ll postpone the date . ”
+51210	51214	51207	51207	Maria	67	“ Excellent idea . ”
+51221	51235	51215	51215	Alexa	67	“ Darling , can I see you in the bedroom for a second ? ”
+51236	51242	51243	51243	She	67	“ Of course , dear . ”
+51262	51268	51269	51269	she	67	“ You ’ve ruined everything , ”
+51273	51295	51269	51269	she	67	“ I told you to pretend but you suck at it and now my parents know we ’re not in love ! ”
+51296	51333	51215	51215	Alexa	67	“ I suck at it ? You ’re acting like this is some stupid play you ’ve put together for the neighbors . This is real life , and I ’m doing the best I can . ”
+51334	51357	51358	51358	He	64	“ My plays were not stupid . We made a lot of money in admission tickets . I thought Annie was excellent . ”
+51361	51374	51358	51358	He	64	“ You ca n’t even sing and you cast yourself as Annie . ”
+51375	51390	51391	51391	He	64	“ You ’re still pissed because I would n’t let you play Daddy Warbucks . ”
+51407	51420	51391	51391	He	64	“ How the hell do you get me on these ridiculous subjects ? ”
+51421	51457	51215	51215	Alexa	67	“ You better come up with something quick . God , do n’t you know how to treat a girlfriend ? You acted like I was some polite stranger . No wonder my father suspects ! ”
+51458	51500	51391	51391	He	64	“ You ’re a grown up now , Alexa , and he ’s still interrogating your boyfriends . We do n’t need their permission . We get married on Saturday and if your parents do n’t like it , too bad . ”
+51501	51513	51391	51391	He	64	“ I want my father to walk me down the aisle ! ”
+51514	51523	51215	51215	Alexa	67	“ It ’s not even a real wedding ! ”
+51524	51537	51391	51391	He	64	“ It ’s the best I ’m going to get right now ! ”
+51655	51661	51662	51662	she	1168	“ You better fix this , ”
+51665	51674	51662	51662	she	1168	“ What do you want me to do ? ”
+51688	51707	51682	51682	she	1168	“ Do something , damn it ! Prove to my father this will be a real marriage or — ”
+51708	51711	51726	51727	her mother	605	“ Alexa ? ”
+51739	51745	51746	51746	he	64	“ Your mother ’s coming , ”
+51749	51762	51746	51746	he	64	“ I know — she probably heard us arguing . Do something ! ”
+51763	51766	51791	51791	his	64	“ What ? ”
+51767	51770	51775	51775	He	64	“ Anything ! ”
+51771	51774	51775	51775	He	64	“ Fine ! ”
+51999	52006	52007	52007	Nick	64	“ Alexa , I — oh ! ”
+52033	52040	52027	52027	he	64	“ I ’m sorry , Maria . ”
+52063	52076	52049	52049	Maria	67	“ Sorry to interrupt . Come join us when you ’re finished . ”
+52246	52254	52255	52255	he	64	“ I think we solved our problem , ”
+52263	52271	52258	52258	She	67	“ Is n’t this what you wanted ? ”
+52293	52298	52299	52299	He	64	“ I guess so . ”
+52307	52315	52299	52299	He	64	“ We better present a united front . ”
+52367	52389	52354	52355	Nick Ryan	64	“ Are you okay ? She gritted her teeth and smiled so brightly she could have done an advertisement for toothpaste . “
+52400	52401	52354	52355	Nick Ryan	64	” “
+52405	52406	52354	52355	Nick Ryan	64	” “
+52424	52425	52422	52422	Gabriella	87	” “
+52434	52448	52426	52426	I	0	” The cutting remark slashed through her but she refused to show weakness . “
+52468	52469	52465	52466	Pretty Boy	1034	” “
+52475	52476	52470	52470	I	0	” “
+52480	52491	52470	52470	I	0	” She led him back out into the living room . “
+52510	52529	52499	52499	I	0	” Everyone jumped up to say good - bye . Maria kissed her cheek and winked with approval . “
+52537	52541	52499	52499	I	0	” she whispered , “
+52557	52562	52583	52583	honey	1749	” Her throat tightened . “
+52577	52578	52567	52567	We	1182	” “
+52585	52600	52583	52583	honey	1749	” They were almost to the door when Jim took a last ditch attempt . “
+52627	52646	52619	52619	Nick	64	” Nick put his hand on her father ’s shoulder . His other firmly clasped his fiancée ’s . “
+52685	52711	52682	52682	your	67	” Everyone grew quiet . Even Taylor stopped her babbling to watch the scene before her . Alexa waited for the explosion . Jim nodded . “
+52723	52724	52725	52725	Dad	102	” “
+52727	52728	52725	52725	Dad	102	” “
+52734	52807	52725	52725	Dad	102	” Nick followed Jim into the kitchen . Alexa bit back the worry as she chatted with Izzy and Gen about bridesmaid dresses . She caught a glimpse of Nick ’s serious expression as he listened to her father . After a few minutes , they shook hands and Jim looked a bit chastened as he kissed her good - bye . They said their final farewells and got into the car . “
+52814	52831	52832	52832	He	1870	” Nick pulled out of the driveway and concentrated on the road in front of him . “
+52841	52880	52832	52832	He	1870	” Guilt assaulted her in massive gulps . She ’d completely forgotten about the wedding expenses . Of course , her father probably assumed he ’d pay , even though times have changed . Sweat pricked her forehead . “
+52887	52893	52883	52883	you	0	” Nick glanced at her . “
+52975	53007	53009	53009	you	1870	” She let out her breath in a rush and studied him in the flash of oncoming headlights . His face remained expressionless , but his gesture tugged at her heart . “
+53011	53026	53009	53009	you	1870	” she said softly . He jerked as if her words punched through him . “
+53066	53168	53058	53058	I	0	” She choked back emotion as they drove for a while in silence . Alexa stared out the window into the darkness . His offer suggested a real relationship between them , and made her long for more . She should have introduced her family to a real life love — not a fake . The lies of the night pressed down on her spirits as she realized she ’d made a bargain with the devil for cold hard cash . Cash to save her family . But cash nonetheless . His gravelly voice broke the silence and her gloomy thoughts . “
+53178	53179	53169	53169	You	1195	” “
+53187	53188	53180	53180	I	0	” “
+53194	53206	53180	53180	I	0	” An uncomfortable silence settled between them . Nick pressed on . “
+53265	53347	53348	53348	I	0	” The words bubbled up and she almost told him the truth . Her father ’s sickness shortly after his return . The lack of medical insurance to pay the staggering bills . Her brother ’s struggle to get through medical school while supporting a new family . The endless calls from collectors until her mother had no choice but to sell the house , already heavily mortgaged . And the weight of responsibility and helplessness Alexa carried along the way . “
+53353	53358	53348	53348	I	0	” she said simply . “
+53364	53656	53657	53657	You	1201	” She closed her eyes at the taunt . He wanted to believe she was selfish and shallow . In that moment , she realized she needed every defense against this man . His kiss had shattered all illusions of neutrality between them . His lips over hers had rocked her to the bottom of her soul , just like the very first time in the woods . Nicholas Ryan tore through her walls and left her vulnerable . After a week living in close quarters , she ’d be jumping his bones . Alexa had no other choice . She needed to cultivate his hatred for her . If he thought she had shady character , he ’d leave her alone and she ’d walk away with her pride intact and her family whole . She refused to foster his pity or take his charity . If she told the truth about her family , the rest of her defenses would shatter . He may even give her the money free and clear , and then she ’d be forever in his debt . The image of him casting her in a role of the martyr to save Tara choked her with humiliation . No , better off if he believed her to be a cold - hearted businesswoman as he craved . At least he ’d resent her and keep his distance . Just being near the man set her off like a firecracker , and she ’d be damned if she took a backseat to his precious Gabriella . Her deal with the devil would be on her own terms . Alexa drew on her inner reserve and lapsed into her second phase of lies for the night . “
+53665	53666	53657	53657	You	1201	” “
+53674	53675	53669	53669	I	0	” “
+53755	53756	53736	53736	I	0	” “
+53770	53771	53762	53762	You	1201	” “
+53813	53814	53855	53855	you	1201	” “
+53832	53836	53837	53837	I	0	” She shrugged . “
+53893	53894	53895	53895	I	0	” “
+53905	53967	53897	53897	you	1201	” The statement should have been a compliment . She burned with humiliation , but knew she ’d bought the distance desperately needed . Of course , the price was her character . But she reminded herself of the goal and remained silent . He pulled up to her apartment building . She opened the car door and grabbed her purse . “
+53990	53994	53975	53975	I	0	” He nodded . “
+54034	54035	54018	54018	you	1201	” “
+54041	54042	54044	54044	ya	1201	” “
+54046	54756	54044	54044	ya	1201	” She let herself into her apartment , closed the door behind her , and slid her back down the frame until she hit the floor . Then cried . … Nick watched her safely enter her loft and waited for the light to click on . The low purr of the BMW was the only sound to break the silence . His annoyance at her blunt admission bothered him . Why did he care if she wanted the money ? It was a perfect motivation to get them both through the next year with no damages . He needed to keep his distance . Her parents caused a dangerous longing to bubble up from deep inside . He quickly squashed the emotion , but the idea that he still retained some sick ray of hope for a normal family pissed him off . Maybe it was the way she looked tonight . She ’d pinned her hair up , and stubborn black curls stabbed through the bobby pins to lay across her cheek and down her neck . Her skin looked warm to the touch , slightly flushed with pleasure from being around her family . She smiled so easily , her lips full and relaxed . He ’d wanted to dip his head and taste what lay beneath those ruby , bee - stung lips . Wanted to slip his tongue deep inside and tempt her to play . The snug material of her jeans showed off the curve of her buttocks and swing of her hips . A hot pink button - down shirt seemed conservative enough , until she leaned forward and Nick caught a glimpse of pale rose lace cupping her full breasts . The image burned through his mind and wreaked havoc with his concentration . He ’d spent most of the evening trying to get her to bend down to sneak a peek . Just like a horny teenager . The light bulb kicked on and he roared away from the curb . Temper bit at him like a moody pit bull . She bothered him in a deep gutted way . So did her family . He remembered how loving her mother was . Remembered the guilt when he ’d wished his own mother would disappear and leave him with Maria McKenzie . Remembered the old pain of being out of control in a world not meant for children to be alone . Remembered things he ’d vowed to never unearth . Marriage . Children . Connections only caused a ripping pain no one deserved . He had erected walls so Alexa would n’t spot any moments of weakness . If she suspected he desired her in any way , the rules would change . He did n’t intend for this siren of a woman to have any power over him . Until the kiss . Nick muttered a foul curse . He remembered how her breath came in choppy gasps and her eyes snapped . That damn shirt finally gaped open enough for him to spot ripe flesh encased in pink lace . He ’d been ready to push her away , and then she ’d grabbed him at her mother ’s call . Was n’t his fault he gave in to instinct to save their ruse . Until her hot , wet mouth opened under his . Until her sweet taste swamped his senses , and the maddening scents of vanilla and spice made him want to howl at the moon . He finally knew she approached sex the same way she approached anger — no holds barred — no prisoners taken . Demanding . Punishing . Passionate . He was so screwed . And not in a good way . But she ’d never know . He had made sure to screen his face to a nothing blankness , though his jutting erection screamed he was a liar . Did n’t matter . Nick refused to break the rules . Alexa was a woman who lived in the light and would never be happy with the deal he ’d made himself when he was a child . One year was enough . He hoped he emerged in one piece .
+55052	55062	55041	55043	The limo driver	1220	“ Sir , we ’ve arrived at our destination . ”
+55063	55073	55041	55043	The limo driver	1220	“ Thank you . You can pull up front . ”
+55175	55185	55186	55186	He	64	“ Oh , my God , we did it . ”
+55194	55217	55218	55218	She	67	“ Not yet , but it is our honeymoon . I ’ll be happy to oblige if you ’re in the mood . ”
+55223	55254	55218	55218	She	67	“ You did n’t do anything for this wedding but show up . Try scheduling every last detail within seven days and I ’ll sit back and watch you collapse . ”
+55255	55267	55268	55268	Alexa	67	“ I told you to get a Justice of the Peace . ”
+55271	55289	55268	55268	Alexa	67	“ Typical male . You do n’t lift a finger to help and cry innocent when challenged . ”
+55290	55294	55295	55295	Her	67	“ You snore . ”
+55299	55305	55295	55295	Her	67	“ I do not snore ! ”
+55306	55310	55268	55268	Alexa	67	“ Do too . ”
+55311	55321	55268	55268	Alexa	67	“ Do not . Someone would have told me . ”
+55322	55342	55295	55295	Her	67	“ I ’m sure your lovers did n’t want to be kicked out of bed . You ’re cranky . ”
+55343	55347	55268	55268	Alexa	67	“ Am not . ”
+55348	55352	55268	55268	Alexa	67	“ Are too . ”
+55518	55524	55525	55525	he	1226	“ What do you think ? ”
+55533	55538	55539	55539	she	67	“ It ’s stunning , ”
+55542	55552	55539	55539	she	67	“ The most beautiful house I ’ve ever seen . ”
+55562	55571	55530	55530	her	67	“ Thank you . I designed it myself . ”
+55572	55577	55530	55530	her	67	“ It looks old . ”
+55578	55594	55595	55595	She	67	“ That was my goal . I promise I have all the necessary indoor plumbing . ”
+55643	55661	55662	55662	She	67	“ Come on , I ’ll show you around . Unless you want to get undressed first . ”
+55681	55685	55686	55686	He	64	“ Lead on . ”
+55859	55893	55894	55894	He	64	“ My room is down the hallway . I have a private office but there ’s a spare computer in the library you can use . I can order anything else you need . ”
+55902	55927	55928	55928	He	64	“ I ’ve given you a room with a private bath . I was n’t sure of your taste so feel free to redecorate . ”
+55949	55958	55959	55959	she	67	“ This will be fine . Thank you , ”
+55976	56020	56021	56021	She	67	“ You know we ’re stuck here for at least two days , right ? We used work as an excuse not to go on a honeymoon , but I ca n’t show up at the office until Monday . People will gossip . ”
+56024	56042	56021	56021	She	67	“ I can use the computer to keep up . And Maggie said she ’d help out . ”
+56046	56064	56043	56043	He	64	“ Get comfortable and meet me down in the kitchen . I ’ll cook something for dinner . ”
+56065	56069	56112	56112	he	64	“ You cook ? ”
+56070	56094	56112	56112	he	64	“ I do n’t like strange people in my kitchen — I had enough of that growing up . So , I learned . ”
+56095	56100	56101	56101	He	64	“ Are you good ? ”
+56104	56110	56101	56101	He	64	“ I ’m the best . ”
+56523	56528	56529	56529	She	67	“ Want to help ? ”
+56543	56551	56529	56529	She	67	“ Sure . What are we having ? ”
+56552	56565	56570	56570	her	67	“ Fettuccini Alfredo with shrimp , garlic bread , and a salad . ”
+56573	56581	56570	56570	her	67	“ Oh God , you ’re mean . ”
+56582	56590	56613	56613	his	1260	“ You do n’t like the menu ? ”
+56591	56605	56606	56606	He	1260	“ I like it too much . I ’ll just have the salad . ”
+56616	56643	56606	56606	He	1260	“ I ’m tired of females who order a salad , then look as if they deserve a medal . A good meal is a gift . ”
+56650	56751	56644	56644	She	67	“ Well , thanks so much for that smug viewpoint of the female population . For your information , I can appreciate good food better than you . Did you see the appetizers I ordered for our wedding ? Did n’t you see how much I ate ? Dammit , it ’s just like a man to put a rich , fattening meal in front of a woman and get offended when she wo n’t eat . Then you seem shocked in the bedroom when you ’re looking at her hips and wondering how she put on ten extra pounds ! ”
+56752	56761	56762	56762	She	67	“ Nothing wrong with curves on a woman . ”
+56775	56800	56762	56762	She	67	“ I ’ve heard that one before . Let ’s put this to the test , shall we ? How much does Gabriella weigh ? ”
+56822	56844	56806	56806	She	67	“ Oh , are we tongue - tied now ? Is she one hundred pounds or is that considered fat nowadays ? ”
+56855	56869	56849	56849	his	1264	“ She ’s a model . She has to retain a lighter weight . ”
+56870	56883	56806	56806	She	67	“ And does she order salads when she goes out to dinner ? ”
+56899	56923	56924	56924	He	1264	“ Ah , I guess that means yes . But I ’m sure you appreciate her discipline when you rip her clothes off . ”
+56939	56946	56930	56930	his	1264	“ Gabriella is a bad example . ”
+56952	56979	56947	56947	He	1264	“ I have another puzzle . Maggie said you tend to date only models . Seems you like skinny women and accept them eating a salad . ”
+56993	57027	56980	56980	She	1265	“ But if it ’s someone you ’re not thinking of sleeping with , I guess you do n’t care how fat she gets as long as she keeps you company at meals . ”
+57028	57088	56930	56930	his	1264	“ I happen to detest going out to dinner with most of my dates . I understand they ’re in the business , but I enjoy a woman who likes good food and is n’t afraid to eat it . You ’re not fat . You never were fat so I do n’t know where this obsession comes from . ”
+57089	57096	56980	56980	She	1265	“ You called me fat once . ”
+57097	57102	56980	56980	She	1265	“ I did not . ”
+57103	57127	56930	56930	his	1264	“ Yes , you did . When I was fourteen , you told me I was filling out in all the wrong places . ”
+57128	57154	56980	56980	She	1265	“ Hell , woman , I meant your breasts . I was a snotty teenager who wanted to torture you . You were always beautiful . ”
+57210	57256	57197	57197	Nick	64	“ You know what I mean . Beautiful in the sense of sisterly . I watched you and Maggie go through puberty , and grow into women . Neither of you are ugly . Or fat . I think you ’re being hard on yourself . ”
+57302	57325	57294	57294	she	67	“ Well , I ’m going to eat this salad and I do n’t want to hear any more comments about women . ”
+57326	57345	57346	57346	She	67	“ Fine . Would you open a bottle of wine ? There ’s one chilling in the fridge . ”
+57655	57671	57672	57672	She	67	“ Stop drinking the wine like that . You ’re not in a porno flick . ”
+57675	57708	57672	57672	She	67	“ Hey , do n’t take things out on me just ’cause you ’re cranky . I ca n’t help it if business was more important to you than a real marriage . ”
+57709	57734	57735	57735	She	67	“ Yeah , but as soon as I gave a price you jumped . I bought you just as much as you bought me . ”
+57745	57779	57735	57735	She	67	“ Who are you to judge me ? You ’ve had everything given to you your whole life . You got a Mitsubishi Eclipse for your sixteenth birthday . I got a Chevette . ”
+57786	57796	57797	57797	She	67	“ You got a family . I got shit . ”
+57812	57817	57797	57797	She	67	“ You got Maggie . ”
+57818	57822	57672	57672	She	67	“ I know . ”
+57823	57836	57837	57837	He	1272	“ What happened to you guys ? You used to be close . ”
+57840	57904	57837	57837	He	1272	“ She changed in high school . Suddenly , she would n’t talk to me . She stopped letting me in her room for our talks , then shut me out completely . So , I let her go and concentrated on having a life of my own . You lost touch with her for a while back then , did n’t you ? ”
+57905	57939	57672	57672	She	67	“ Yeah . I always thought something happened , but she never talks about it . Anyway , my own family was screwed up for a while , so you were n’t alone . ”
+57940	57951	57952	57952	She	1273	“ But now it ’s like the Waltons in there . ”
+57964	57986	57952	57952	She	1273	“ My father has a lot to make up for , but I think we ’ve managed to heal the cycle . ”
+57987	57990	57672	57672	She	67	“ Cycle ? ”
+57991	58019	57672	57672	She	67	“ The karmic cycle , when someone screws up really bad and hurts you . Our first instinct is to hurt back , or refuse to forgive . ”
+58020	58024	57952	57952	She	1273	“ Sounds reasonable . ”
+58025	58076	58077	58077	Nick	64	“ Ah , but now the cycle of hurt and abuse continues . When he came back , I decided I only had one father , and I ’d accept whatever he could give . Eventually , he gave up the booze and tried to make up for the past . ”
+58083	58123	58077	58077	Nick	64	“ He took off when you were young and left his family behind for the bottle . Abandoned your twin sisters . Then he shows up asking for forgiveness ? Why would you even want him in your life ? ”
+58137	58143	58144	58144	she	1274	“ I made a choice , ”
+58147	58176	58144	58144	she	1274	“ I ’ll never forget , but if my own mother learned to forgive him , how can I refuse ? Family sticks together no matter what happens . ”
+58195	58220	58190	58190	He	1275	“ Better to walk away with your head held high and your pride intact . Let them suffer for all the pain they caused . ”
+58229	58295	58221	58221	She	1274	“ I almost did . But I realized besides being my father , he ’s just a human being who screwed up . I ’d have my pride , but I would n’t have a father . When I made my decision I broke the cycle . He ended up getting sober and rebuilt our relationship . Have you ever thought of contacting your father ? ”
+58315	58330	58304	58304	Nick	64	“ Jed Ryan does n’t exist in my eyes . That was my decision . ”
+58376	58382	58383	58383	He	1275	“ What about your mom ? ”
+58389	58413	58383	58383	He	1275	“ She ’s shacked up with another actor . She likes when they ’re in show business . It makes her feel important . ”
+58414	58421	58383	58383	He	1275	“ Do you see her often ? ”
+58422	58443	58493	58493	His	1275	“ The idea of an adult son reminds her of age . She likes to pretend I do n’t exist . ”
+58444	58449	58383	58383	He	1275	“ I ’m sorry . ”
+58501	58523	58493	58493	His	1275	“ Poor little rich boy . But you ’re right about one thing — that was a hell of a Mitsubishi . ”
+58531	58555	58524	58524	She	1279	“ Tell me about the deal you ’re working on . Must be something big in order to remain celibate for a year . ”
+58572	58588	58556	58556	He	1275	“ I want to involve Dreamscape in a bid to build down by the waterfront . ”
+58593	58626	58556	58556	He	1275	“ I heard they want to build a spa , along with a few restaurants . Everyone ’s buzzing about it . People used to be afraid to go near the river . ”
+58633	58703	58556	58556	He	1275	“ The area ’s changing . They ’ve beefed up security , and the few bars and shops already there are doing well . This will break the area wide open to both residents and tourism . Can you picture lit pathways along the water , with outside lounges ? How about a huge spa that overlooks the mountains while you get a massage ? It ’s the future . ”
+58704	58722	58723	58723	His	1275	“ I also heard they only want the biggest companies in Manhattan to bid on the job . ”
+58758	58767	58748	58748	His	1275	“ I ’m going to get that contract . ”
+58782	58790	58791	58791	He	1275	“ Can Dreamscape handle such a job ? ”
+58798	58827	58791	58791	He	1275	“ The board thinks it ’s too ambitious , but I ’m going to prove them wrong . If I succeed , Dreamscape will rise to the top . ”
+58828	58835	58836	58836	He	1275	“ Is it about the money ? ”
+58841	58893	58838	58838	his	1275	“ I do n’t care about the money . I want to make my mark , and I know how I want to approach it . Nothing too citified . Nothing to compete with the mountains , but a structure that bows to nature and blends , rather than fighting back . ”
+58894	58908	58909	58909	He	1275	“ It sounds like you ’ve thought about this for a long time . ”
+58929	58964	58909	58909	He	1275	“ I knew the city would make this decision soon , and I wanted to be prepared . I ’ve been thinking about designs by the river for years . Now I ’m ready . ”
+58965	58974	58975	58975	Nick	64	“ How are you going to get it ? ”
+58996	59051	58983	58983	she	1280	“ I already have one of the partners on board . Richard Drysell is building the spa , and we share the same vision . He ’s having a dinner party next Saturday . The final two men I need to convince will be there , so I ’m hoping to make an impression . ”
+59131	59148	59149	59149	She	1280	“ Well , the salad looks awfully good . Are n’t you going to eat it ? ”
+59161	59169	59170	59170	He	64	“ Of course . I adore salads . ”
+59173	59177	59170	59170	He	64	“ Any dessert ? ”
+59184	59187	59178	59178	She	1280	“ Funny . ”
+59227	59235	59236	59236	she	1280	“ Are you going to work tonight ? ”
+59239	59250	59236	59236	she	1280	“ No , it ’s late . What about you ? ”
+59251	59257	59236	59236	she	1280	“ Nah , too tired . ”
+59266	59276	59277	59277	Her	1280	“ So , what do you want to do ? ”
+59365	59374	59375	59375	She	1280	“ Do n’t know . TV ? Movie ? ”
+59380	59383	59377	59377	her	1280	“ Poker . ”
+59384	59388	59389	59389	Her	1280	“ Excuse me ? ”
+59394	59407	59377	59377	her	1280	“ Poker . I have a deck of cards in my suitcase . ”
+59408	59415	59377	59377	her	1280	“ You carry your own cards ? ”
+59416	59426	59377	59377	her	1280	“ You never know when you ’ll need them . ”
+59427	59434	59435	59435	She	1280	“ What do we play for ? ”
+59447	59459	59435	59435	She	1280	“ Money , of course . Unless you ’re too chicken . ”
+59460	59470	59471	59471	She	1280	“ Fine . But we ’ll use my cards . ”
+59481	59487	59488	59488	He	64	“ Okay . I deal . ”
+59579	59591	59592	59592	He	64	“ Dealer ’s choice . Five card stud . Ante up . ”
+59595	59599	59600	59600	he	64	“ With what ? ”
+59603	59613	59600	59600	he	64	“ I told you we ’re playing for money . ”
+59614	59635	59665	59665	She	1280	“ Should I have my butler unlock the safe ? Or maybe we ’ll just play for the family jewels ? ”
+59636	59649	59650	59650	His	64	“ Very funny . Do n’t you have any singles lying around ? ”
+59654	59660	59650	59650	His	64	“ Sorry . Only hundreds . ”
+59661	59664	59665	59665	She	1280	“ Oh . ”
+59676	59686	59665	59665	She	1280	“ How about we play for something more interesting ? ”
+59687	59695	59650	59650	His	64	“ I do n’t play strip poker . ”
+59696	59701	59702	59702	His	64	“ I meant favors . ”
+59723	59729	59730	59730	she	1280	“ What kind of favors ? ”
+59733	59761	59730	59730	she	1280	“ The first one to win three full hands gets a free favor from the other . It can be used any time , like a voucher . ”
+59769	59781	59762	59762	Her	1280	“ You can use the favor toward anything ? No rules ? ”
+59782	59786	59762	59762	Her	1280	“ No rules . ”
+59878	59882	59872	59872	He	64	“ Full house . ”
+59883	59890	59891	59891	Nick	64	“ Two jacks . Your deal . ”
+59949	59954	59955	59955	he	64	“ One more hand , ”
+59958	59966	59955	59955	he	64	“ I can count . My deal . ”
+59974	59983	59984	59984	He	64	“ So , where ’d you learn poker ? ”
+59990	60013	59984	59984	He	64	“ Buddy of mine kept a weekly game . It was a good excuse to do some serious drinking and hanging out . ”
+60014	60024	60025	60025	He	64	“ Always thought you were more the chess type . ”
+60034	60043	60025	60025	He	64	“ I ’m good at that , too . ”
+60050	60053	60054	60054	She	1280	“ Show . ”
+60074	60078	60079	60079	He	64	“ Good hand . ”
+60086	60092	60079	60079	He	64	“ But not good enough . ”
+60112	60118	60101	60101	his	64	“ Nice try , though . ”
+60127	60146	60119	60119	She	1280	“ The odds on four aces in five card stud are … oh my God , you cheated ! ”
+60157	60183	60149	60149	his	64	“ Come on , Al , I thought you were a better competitor . Are you still a sore loser ? Now about my favor … ”
+60194	60221	60149	60149	his	64	“ Nobody can get four aces unless he palmed the cards . Do n’t lie to me , because I was thinking of doing it myself ! ”
+60222	60234	60149	60149	his	64	“ Do n’t accuse me of something you ca n’t prove . ”
+60235	60239	60240	60240	Her	1280	“ You cheated . ”
+60250	60260	60261	60261	He	64	“ You lied to me on our wedding night . ”
+60264	60288	60261	60261	He	64	“ If you do n’t want to pay your debt , say so . Just like a woman to be a bad loser . ”
+60297	60306	60289	60289	She	1280	“ You ’re a swindler , Nick Ryan . ”
+60307	60311	60336	60336	she	1280	“ Prove it . ”
+60312	60316	60317	60317	She	1280	“ I will . ”
+60564	60585	60558	60558	Nick	64	“ I know you have the cards planted . Just admit it and we ’ll forget this whole thing happened . ”
+60586	60594	60595	60595	he	64	“ You ’re crazy , you know , ”
+60598	60610	60595	60595	he	64	“ Do n’t you ever think about consequences of your actions ? ”
+60632	60638	60639	60639	Her	1280	“ I did n’t cheat . ”
+60670	60697	60664	60664	her	1280	“ We ’re not kids anymore , Alexa . Next time you go tackling a man to the ground , be prepared to take the heat . ”
+60698	60723	60664	60664	her	1280	“ Who are you , Clint Eastwood ? Is your next line going to be , ‘ Go ahead , make my day ’ ? ”
+61060	61063	61064	61064	Her	67	“ Nick ? ”
+61123	61128	61116	61116	he	64	“ This means nothing . ”
+61407	61412	61413	61413	he	64	“ Are you okay ? ”
+61507	61514	61515	61515	He	64	“ Sure . Answer the door . ”
+61797	61805	61788	61788	her	1313	“ I just had to meet her . ”
+61922	61926	61927	61927	she	67	“ I understand , ”
+61931	61941	61927	61927	she	67	“ Gabby , how did you get past security ? ”
+61961	61990	61950	61950	Gabriella	87	“ I still had my key and the security code . After you told me you were going to marry , well , things got a bit intense . ”
+62051	62077	62078	62078	She	67	“ Gabriella , I ’m sorry if you were hurt by our decision . It came rather fast for both of us , you know . ”
+62087	62109	62110	62110	She	67	“ We knew each other from years ago and when we met again , we got caught up in a whirlwind . ”
+62153	62168	62135	62135	his	1331	“ I have to ask you to leave . It ’s our honeymoon night . ”
+62177	62191	62169	62169	Gabriella	87	“ Odd you would n’t be taking a trip somewhere more … romantic . ”
+62196	62208	62209	62209	Gabriella	87	“ I have work obligations so we delayed our island getaway . ”
+62216	62235	62209	62209	Gabriella	87	“ Fine . I ’ll leave . I needed to see for myself who he chose over me . ”
+62248	62271	62236	62236	Her	67	“ I ’ll be out of town for a bit . I committed to help in Haiti with some of the rebuilding . ”
+62311	62326	62301	62301	Gabriella	87	“ Hmmm , I always loved cards . Just not for a wedding night . ”
+62378	62396	62344	62344	she	67	“ I ’m sorry , Alexa . I never expected her to show up at my house . ”
+62431	62441	62428	62428	her	67	“ Why did you marry me and not her ? ”
+62500	62506	62507	62507	he	64	“ It does n’t matter , ”
+62511	62517	62507	62507	he	64	“ I need to know . ”
+62551	62572	62539	62539	she	67	“ Because she wanted more than I can give her . She wanted to settle down and raise a family . ”
+62579	62587	62573	62573	Alexa	67	“ What ’s so wrong about that ? ”
+62588	62631	62632	62632	He	64	“ I told Gabriella the truth from the beginning . I do n’t do permanent . I never want children , and I will never be the type of man to settle down long - term . I promised myself years ago . ”
+62635	62642	62632	62632	He	64	“ So I married you instead . ”
+62769	62774	62775	62775	She	67	“ Are you okay ? ”
+62842	62877	62878	62878	His	64	“ Stop asking me if I ’m okay . Of course I ’m okay . Just do n’t think you can sneak in a quickie with your ex . A deal is a deal . ”
+62882	62891	62878	62878	His	64	“ I gave you my word , remember ? ”
+62892	62899	62878	62878	His	64	“ You also cheated at poker . ”
+62933	62938	62939	62939	She	67	“ About what happened — ”
+62948	62967	62939	62939	She	67	“ Oh , Lord , we ’re not going to have a talk about that , are we ? ”
+62973	63009	62970	62970	her	67	“ Listen , Nick , I have to admit something . Sure , this marriage is a business arrangement , but I was wearing the dress , and it was technically our wedding night and … ”
+63018	63036	63010	63010	She	67	“ I got carried away with the whole idea . You just happened to be , well — ”
+63037	63040	63071	63071	He	64	“ Available ? ”
+63041	63070	63071	63071	He	64	“ I was thinking more … handy . You were handy . It did n’t mean anything so let ’s just blow the whole thing off , okay ? ”
+63127	63142	63143	63143	She	67	“ We ’ll blame it on the wine and the full moon or something . ”
+63146	63157	63143	63143	She	67	“ I ’m going to bed . It ’s late . ”
+63158	63164	63123	63123	He	64	“ Okay . Good night . ”
+63165	63169	63170	63170	She	67	“ Good night . ”
+63657	63669	63670	63670	she	67	“ I ’m assuming you have a general plan of attack ? ”
+63673	63685	63686	63686	He	64	“ Who are the two players you need to concentrate on ? ”
+63715	63738	63703	63713	a man impeccably dressed in a gray suit and silk tie	1365	“ Hyoshi Komo is building the Japanese restaurant . His vote is key to gain the third partner in the waterfront deal . ”
+63739	63754	63755	63755	She	67	“ So , why do n’t you go over there and give your pitch ? ”
+63778	63799	63800	63800	She	67	“ Because I do n’t want to be one of the crowd . I have a different plan in mind . ”
+63809	63815	63800	63800	She	67	“ Do n’t get drunk . ”
+63822	63843	63816	63816	She	67	“ I never knew husbands were so controlling . Okay , who ’s the final guy you need to impress ? ”
+63852	63888	63849	63849	his	64	“ Count Michael Conte . He owns a successful pastry business in Italy , and decided to try his luck in the States . He ’s focused on the first bakery opening at the waterfront . ”
+63925	63928	63906	63906	Nick	64	“ Eat . ”
+63929	63932	63906	63906	Nick	64	“ Right . ”
+63984	63991	63969	63969	He	64	“ Alexa , are you listening ? ”
+63992	64011	64012	64012	He	64	“ Yes . Conte . Bakery . I guess you expect me to mingle while do your business ? ”
+64018	64063	64012	64012	He	64	“ I ’ll work on Hyoshi for now . Why do n’t you keep your eyes open for the Count ? He ’s tall , Italian accent , dark hair and eyes . Engage him in some conversation — it will keep you occupied . ”
+64088	64097	64098	64098	He	64	“ You want me to talk to him ? ”
+64104	64121	64098	64098	He	64	“ Sure . Be nice . If you find out anything interesting , let me know . ”
+64134	64143	64147	64147	his	64	“ You want me to spy for you ? ”
+64150	64163	64147	64147	his	64	“ You ’re being ridiculous . Just relax and enjoy the party . ”
+64164	64181	64182	64182	Nick	64	“ Easy for you to say . Your boobs are n’t hanging out of your dress . ”
+64189	64204	64184	64184	his	64	“ If you were n’t comfortable , you should n’t have worn the dress . ”
+64208	64223	64205	64205	She	67	“ I borrowed it from Maggie . I did n’t have an expensive dress . ”
+64224	64233	64184	64184	his	64	“ I would have given you the money . ”
+64234	64242	64184	64184	his	64	“ I do n’t need your money . ”
+64243	64272	64205	64205	She	67	“ Somehow , I doubt it . You did n’t sign the contract for any lofty reasons . Might as well take as much as you can get . ”
+64285	64309	64310	64310	She	67	“ You ’re right . I was an idiot . Next time I ’ll buy out Macy ’s and send you the bill . ”
+64320	64334	64335	64335	She	67	“ After all , the only benefit to this marriage is your money . ”
+65202	65210	65196	65196	her	67	“ I Get a Kick out of You ”
+65339	65360	65361	65361	She	67	“ Ah , so to get you to notice me tonight , I should turn into a book , no ? ”
+65513	65520	65521	65521	She	67	“ Oh , I noticed you . ”
+65533	65548	65521	65521	She	67	“ I knew you ’d get to me by the end of the night . ”
+65549	65561	65604	65604	his	1413	“ And were you looking forward to the moment , Signorina ? ”
+65562	65584	65521	65521	She	67	“ With baited breath . So , should we use one of the bedrooms here or go back to your place ? ”
+65653	65660	65661	65661	She	67	“ You are teasing , no ? ”
+65670	65676	65661	65661	She	67	“ I guess I am . ”
+65684	65697	65679	65679	his	1413	“ You are a wicked woman to tempt a man like that . ”
+65698	65714	65679	65679	his	1413	“ You are a wicked man to think a woman would do such a thing . ”
+65715	65745	65679	65679	his	1413	“ Perhaps , you are right . A woman like you should have a husband watching at all times . Such a treasure could be stolen at any moment . ”
+65746	65774	65775	65775	He	1413	“ Ah , but if I were a true treasure , I would n’t be stolen easily . Certainly not by the first line thrown at me . ”
+65779	65806	65775	65775	He	1413	“ Signorina , I would never insult you by thinking it would not be a long treasure hunt . You ’d require a lot of work . ”
+65807	65810	65811	65811	she	1414	“ Signora , ”
+65814	65819	65811	65811	she	1414	“ I am married . ”
+65830	65833	65820	65820	His	1413	“ Pity . ”
+65834	65842	65775	65775	He	1413	“ Somehow , I think you knew . ”
+65843	65859	65775	65775	He	1413	“ Perhaps . But let me introduce myself formally . I am Count Michael Conte . ”
+65860	65869	65870	65870	He	1413	“ Alexa McKenz — er , Alexa Ryan . ”
+65884	65890	65870	65870	He	1413	“ Newly married , yes ? ”
+65891	65894	65775	65775	He	1413	“ Yes . ”
+65895	65916	65917	65917	He	1413	“ Yet you wander the hallways alone , and were not seen in the company of your husband all night . ”
+65922	65929	65919	65919	his	1413	“ These American ways are tragic . ”
+65930	65938	65775	65775	He	1413	“ My husband is here on business . ”
+65939	65945	65946	65946	She	1414	“ Nicholas Ryan , correct ? ”
+65949	65966	65946	65946	She	1414	“ You should know him well . He ’s making a pitch for the waterfront deal . ”
+66018	66032	66033	66033	He	531	“ I have not had the pleasure of meeting him as of yet . ”
+66148	66162	66163	66163	she	67	“ I think you will love my husband as much as I do , ”
+66177	66193	66166	66166	He	65	“ We shall see . As for us , we will be friends , no ? ”
+66197	66202	66194	66194	She	67	“ Yes . Friends . ”
+66203	66225	66226	66226	She	67	“ I will accompany you back to the dining room for a cordial and you will tell me all about yourself . ”
+66241	66272	66226	66226	She	67	“ You know , Michael , I think I have the perfect woman for you . She ’s a close friend of mine . And she may be your match . ”
+66273	66280	66281	66281	He	65	“ You underestimate yourself , signora . ”
+66287	66295	66281	66281	He	65	“ I am still grieving your loss . ”
+66358	66381	66336	66336	he	65	“ Hello , darling . I was chatting with Signore Conte . I do n’t think you two have formally met yet ? ”
+66422	66437	66417	66417	Nick	64	“ Michael , how are you ? I see you ’ve met my wife . ”
+66579	66606	66571	66571	She	67	“ Congratulations , Nicholas . Alexa tells me you are newlyweds . How difficult it must be to drag yourself to a business function , no ? ”
+66607	66610	66611	66611	His	240	“ Absolutely . ”
+66662	66689	66653	66653	Michael	65	“ It seems Richard thinks you are the perfect man for the job . Perhaps we can set up a meeting to go over your ideas . ”
+66690	66704	66705	66705	She	67	“ Thank you . I ’ll call your secretary and arrange an appointment . ”
+66745	66749	66750	66750	Michael	65	“ Very good . ”
+66762	66772	66773	66773	His	240	“ It was lovely to meet you , Alexandria . ”
+66780	66802	66773	66773	His	240	“ I ’m having a dinner party for a few close friends two weeks from tonight . Would you join me ? ”
+66818	66825	66805	66805	he	240	“ Darling ? Are we free ? ”
+66878	66885	66867	66867	He	240	“ We ’d love to come . ”
+66886	66899	66900	66900	He	240	“ Wonderful . I look forward to seeing you . Eight o’clock . ”
+66911	66917	66900	66900	He	240	“ Have a good evening . ”
+66956	66961	66944	66944	His	64	“ Let ’s go . ”
+67024	67032	67033	67033	He	64	“ Did you have a good time ? ”
+67043	67081	67082	67082	He	64	“ The food was really good , huh ? And I was surprised at how nice some of the women were . I was invited to an art opening for Millie Dryer . Is n’t that great ? ”
+67085	67096	67082	67082	He	64	“ How did business go ? Were you successful tonight ? ”
+67103	67113	67097	67097	He	64	“ Not as successful as you , I guess . ”
+67126	67130	67120	67120	Her	67	“ Excuse me ? ”
+67131	67135	67136	67136	Her	67	“ Never mind . ”
+67152	67205	67246	67246	He	1433	“ You ’re a hypocrite and a jerk . You asked me to seek Michael out and bring you back information . Do you think I ’m stupid , Nick ? You used me , but now you ’re pissed off . I did everything you wanted . Consider your favor completed . ”
+67206	67245	67246	67246	He	1433	“ I only suggested you may be able to pick up something to help me with my business . I asked you to soften him up , not give him a hard on that ’ll last for days . ”
+67269	67351	67263	67263	She	1436	“ Screw you , Nick Ryan ! He treated me with courtesy and never crossed the line once he found out I was married . But you ’re missing the big picture , Pretty Boy . Michael does n’t let business interfere with pleasure . I could ’ve stripped off all my clothes and begged him to give you the contract and he would n’t have budged . I ca n’t help you with this one — you’re on your own . ”
+67372	67395	67396	67396	She	1436	“ Fine . Then we do n’t have to go to his party . I ’ll just set up a business meeting . ”
+67405	67416	67396	67396	She	1436	“ So , do n’t go . But I am . ”
+67417	67420	67364	67364	He	1439	“ What ? ”
+67421	67438	67439	67439	He	1439	“ I ’m going . I liked him and I think his party will be fun . ”
+67456	67473	67474	67474	She	1436	“ You are my wife . You will not be going to any parties without me . ”
+67487	67518	67474	67474	She	1436	“ I ’m a business partner who follows the rules . We ’re free to have our own lives as long as we do n’t sleep with anyone . Correct ? ”
+67531	67550	67519	67519	He	1439	“ I ’m concerned about my reputation . I do n’t want him to get the wrong impression . ”
+67560	67605	67553	67553	her	1436	“ I ’ll follow the rules of our deal but I ’m going to Michael ’s party . It ’s been a long time since I ’ve enjoyed a man ’s company . A man who is actually charming and funny and … warm . ”
+67696	67706	67707	67707	His	1439	“ Do you need someone that bad , Alexa ? ”
+67894	67906	67907	67907	He	1439	“ Maybe I should give you what you need so badly . ”
+67943	67961	67925	67925	His	1439	“ Maybe if I took you now , you would n’t need to go running to Conte . ”
+68153	68159	68160	68160	she	67	“ No , thank you , ”
+68171	68182	68183	68183	She	67	“ I prefer we stick to business . Good night . ”
+68807	68822	68823	68823	she	67	“ Nick and I want you to have this to pay off the mortgage , ”
+68826	68874	68823	68823	she	67	“ There will be no arguments or protests . We talked about this for a long time , and we ’re lucky to have so much money . We want to share . It means a lot to us , so please accept this as our gift . ”
+68962	68970	68971	68971	Maria	67	“ But how can you do this ? ”
+68986	69034	69035	69035	Jim	108	“ Nick should n’t feel like we ’re a burden . You ’re a young married couple with dreams . For your bookstore . For a family with lots of children . You should n’t be taking care of us , Alexandria . We are the parents . ”
+69038	69055	69035	69035	Jim	108	“ I already decided to take an extra job . We do n’t need the money . ”
+69065	69109	69110	69110	Alexa	67	“ Listen to me . Nick and I have plenty of money , and this is important to us . Dad , a second job is n’t an option in your condition , unless you want to die . You heard the doctor . ”
+69114	69173	69110	69110	Alexa	67	“ This will give you the home free and clear so you can concentrate on paying the other bills . Save for Izzy ’s and Gen ’s college . Help Lance through his final year of medical school . We ’re not giving you enough to retire , guys , just enough to make things a bit easier . ”
+69205	69233	69192	69192	Alexa	67	“ Nick did n’t want to come with me today . There ’s one condition to this money — he never wants to hear about it again . ”
+69237	69261	69234	69234	Maria	67	“ I have to thank him . He needs to know how much we appreciate this — how he ’s changed our lives . ”
+69271	69298	69262	69262	She	67	“ Nick does n’t like to show a lot of emotion . When we discussed this , he insisted he never wants the money mentioned again . ”
+69302	69329	69299	69299	Jim	108	“ He wo n’t accept a simple thank you ? After all , if it was n’t for me we would n’t be in this mess . ”
+69330	69338	69339	69339	she	67	“ Anyone can get sick , Dad , ”
+69351	69356	69339	69339	she	67	“ But I left . ”
+69357	69362	69363	69363	Maria	67	“ And came back . ”
+69370	69387	69363	69363	Maria	67	“ You came back to us and made it right . No more talk like this . ”
+69400	69434	69435	69435	Her	605	“ We will accept the check , Alexandria . And we ’ll never mention it to Nick . As long as you promise to go home and tell him he is our angel . ”
+69439	69449	69435	69435	Her	605	“ I ’m so proud you are my daughter . ”
+69777	69782	69773	69773	Maggie	140	“ Java , anyone ? ”
+69793	69817	69818	69818	Maggie	140	“ Thank God . If I did n’t serve them caffeine they ’d read to each other in the Starbucks down the street . ”
+69845	69881	69840	69840	she	140	“ Al , you ’re nuts . You know how much money you spend on coffee just so these artists can read poetry in front of each other ? Let them get their own coffee . ”
+69882	69909	69840	69840	she	140	“ I need the business . Until I find a way to get a loan to expand the store , I need to keep them caffeinated . ”
+69910	69920	69921	69921	She	140	“ Ask Nick . He ’s technically your husband . ”
+69929	69947	69921	69921	She	140	“ No , I do n’t want him involved . You promised you would n’t say anything . ”
+69954	69970	69948	69948	Maggie	140	“ What ’s the big deal ? Nick knows you ’d pay off the loan . ”
+69971	70005	69840	69840	she	140	“ I want to do this on my own . I took the initial payoff and that was the deal . No more . It ’s not like this is a real marriage . ”
+70006	70016	70017	70017	Alexa	67	“ Did you give the money to your parents ? ”
+70020	70031	70017	70017	Alexa	67	“ Almost made the company of your brother worth it . ”
+70032	70072	70073	70073	She	140	“ I still do n’t get it . Why not just tell Nick the truth about the money ? He ’s a pain in the ass but has a good heart . Why are you playing games , girlfriend ? ”
+70153	70173	70174	70174	Alexa	67	“ Is something else going on with you two ? You ’re not attracted to him , are you ? ”
+70179	70185	70174	70174	Alexa	67	“ I hate your brother . ”
+70186	70213	70214	70214	Alexa	67	“ You ’re lying . I always know when you lie . You want to sleep with him , do n’t you ? Oh , yuck ! ”
+70222	70244	70245	70245	Maggie	140	“ This conversation is over . I am not attracted to your brother , and he is not attracted to me . ”
+70252	70294	70245	70245	Maggie	140	“ Okay , now that I ’m over the initial grossness of the idea , let ’s talk about it . He ’s your husband , right ? You might as well be getting sex for the next year with someone . ”
+70381	70390	70376	70376	Maggie	140	“ I think you should sleep with him . ”
+70400	70405	70391	70391	Alexa	67	“ Leave me alone . ”
+70406	70472	70473	70473	She	67	“ I ’m serious . I ’ve now had a few minutes to think . It ’s perfect . You both have to be faithful anyway , so you know he wo n’t be sleeping with someone else . This way you get the sex you need , and in a year , just say good - bye . No hard feelings . No complications . ”
+70576	70588	70561	70561	her	140	“ You disappeared on me again . Is Nick coming tonight ? ”
+70589	70617	70561	70561	her	140	“ Oh , yeah , your brother would just love this kind of night out . He ’d probably prefer a root canal and a prostate exam . ”
+70618	70631	70638	70638	her	140	“ How are you two getting along ? Besides the physical attraction . ”
+70632	70635	70636	70636	Maggie	140	“ Fine . ”
+70641	70656	70638	70638	her	140	“ Lying again . You ’re not going to tell me , are you ? ”
+70743	70748	70736	70736	her	67	“ I love you . ”
+70823	70830	70831	70831	Alexa	67	“ There ’s nothing going on , ”
+70834	70847	70831	70831	Alexa	67	“ Can I listen to the next poem in peace , please ? ”
+70848	70862	70897	70901	the figure in the doorway	1507	“ I do n’t think peace is in the cards tonight , babe . ”
+70863	70869	70897	70901	the figure in the doorway	1507	“ What do you mean ? ”
+70870	70886	70887	70887	She	67	“ Nick ’s here . Your husband . The guy you ’re not attracted to . ”
+71239	71248	71249	71249	Maggie	140	“ Oh yeah . Definitely no attraction there . ”
+71633	71636	71629	71629	He	64	“ Hi . ”
+71637	71640	71641	71641	He	64	“ Hi . ”
+71649	71657	71641	71641	He	64	“ Maggie May , how goes it ? ”
+71658	71686	71687	71687	Alexa	67	“ Fine , brother dearest . What brings you ? You ’re not going to read that poem you wrote when you were eight , are you ? ”
+71694	71698	71689	71689	her	67	“ What poem ? ”
+71723	71730	71706	71710	the two women before him	1527	“ Do n’t listen to her . ”
+71731	71738	71739	71739	Alexa	67	“ I thought you had work , ”
+71805	71837	71796	71796	He	64	“ I wrapped up early . Thought I ’d check out poetry night . Do all artists smoke ? There ’s a long line outside and they ’re all puffing away . ”
+71882	71897	71871	71880	a younger sister who still enjoyed torturing her older brother	1534	“ Still having cravings , Nick ? Bet I could bum one for you . ”
+71898	71915	71916	71916	Alexa	67	“ Thanks . It ’s always nice to have a family member as your drug pusher . ”
+71919	71923	71916	71916	Alexa	67	“ You smoke ? ”
+71929	71937	71926	71926	his	64	“ Used to . Quit years ago . ”
+71938	71969	71970	71970	Alexa	67	“ Yeah , but when he gets stressed or upset , he regresses . Do you believe he does n’t think it counts as long as he does n’t buy ? ”
+71973	72002	71970	71970	Alexa	67	“ This is very enlightening , guys . We need to get together more often . Tell me , Maggs , does your brother cheat at card games ? ”
+72003	72008	72009	72009	Nick	64	“ All the time . ”
+72025	72039	72009	72009	Nick	64	“ Show me the rest of the store while this guy finishes up . ”
+72050	72063	72044	72044	herself	140	“ He ’s just afraid of what I ’ll tell you next . ”
+72064	72070	72071	72071	Nick	64	“ You ’re absolutely right . ”
+72182	72190	72229	72229	She	67	“ I want to talk to you . ”
+72201	72204	72229	72229	She	67	“ Okay . ”
+72205	72209	72232	72232	her	67	“ About us . ”
+72210	72213	72232	72232	her	67	“ Okay . ”
+72214	72228	72229	72229	She	67	“ I do n’t think we should go to bed with each other . ”
+72319	72336	72297	72297	she	67	“ Funny , I do n’t remember offering you my body . Did I miss something ? ”
+72347	72373	72337	72337	He	64	“ You know what I ’m trying to say . The night of the party got out of hand , and I take full responsibility . ”
+72374	72380	72297	72297	she	67	“ How chivalrous of you . ”
+72381	72445	72474	72474	her	1542	“ Stop being a smart mouth . I ’m trying to tell you I was out of line and it wo n’t happen again . I had too much to drink , I was pissed about Conte , and I took it out on you . I intend to stick to our original agreement , and I ’m sorry I lost my control . ”
+72446	72469	72470	72470	Nick	64	“ Apology accepted . I ’m sorry for contributing to the whole episode , too . Let ’s put it behind us . ”
+72506	72538	72501	72501	He	64	“ We have a long year ahead of us , Alexa . Why do n’t we try to build on friendship ? It will be better for appearances and for us . ”
+72539	72551	72503	72503	his	64	“ What ’d you have in mind ? More poker games ? ”
+72624	72627	72628	72628	He	64	“ Nick ? ”
+72708	72711	72718	72718	he	64	“ Nick ? ”
+72753	72773	72774	72774	She	1542	“ Ummm , right . I mean , sure , we can play card games . Just not Monopoly . ”
+72780	72819	72820	72820	He	64	“ You always sucked at that game . Remember when Maggie made you cry when you landed on Boardwalk ? You tried to bargain but she wanted cash . You did n’t speak to her for a week . ”
+72823	72846	72820	72820	He	64	“ You ’re thinking of Harold , the kid who lived down the street . I ’d never cry at a game . ”
+72847	72850	72851	72851	Her	1542	“ Sure . ”
+72889	72903	72876	72876	she	1542	“ So , we ’ll be friends . I can live with that . ”
+72904	72911	72876	72876	she	1542	“ Then it ’s a deal . ”
+72912	72923	72924	72924	He	64	“ Is that why you came to the poetry reading ? ”
+72935	72945	72924	72924	He	64	“ I wanted to show you I can compromise . ”
+72984	72990	72979	72979	She	1542	“ Thank you , Nick . ”
+73001	73012	73013	73013	Alexa	67	“ Forget it . Are you going to read tonight ? ”
+73016	73035	73013	73013	Alexa	67	“ I better get back . I ’m usually the last one . Go ahead and look around . ”
+73189	73195	73196	73196	she	67	“ A Small Dark Place , ”
+73249	73384	73385	73385	Alexa	67	“ Hidden between soft fur and smooth suede ; My legs cramped and folded beneath me . I wait for the end and for the beginning , I wait for the bright , clean light to bring me back ; To the world of glittering colors and of perfumed scents that attack my nostrils ; To the world of sharp tongues , snaking out to shred soft smiles . I listen as ice tinkles against amber liquid . Heat burns within , a reminder of a suicide from the past ; a reminder of a silent murder . Seconds … minutes … centuries … The sudden knowledge twists my belly ; I am home . I open my eyes to the blinding flash of a door opening . And wonder if I will remember . ”
+73582	73588	73589	73589	He	64	“ What ’d you think ? ”
+73599	73614	73615	73615	Maggie	140	“ Oh . I liked it . I ’ve never heard her work before . ”
+73624	73649	73615	73615	Maggie	140	“ I keep telling her she can get an anthology published , but she does n’t seem interested . Her real passion is BookCrazy . ”
+73650	73657	73658	73658	Maggie	140	“ Ca n’t she do both ? ”
+73661	73738	73658	73658	Maggie	140	“ Sure . Me and you would do it in a heartbeat , because we never miss an opportunity . Al is different . She ’s happy just by sharing — she does n’t need the glory of publication . She ’s been printed in some magazines , and she goes to a critique group , but that ’s more for the others than her . That ’s our problem , bro . Always has been . ”
+73739	73742	73767	73767	she	67	“ What ? ”
+73743	73761	73762	73762	They	1561	“ We ’re better at taking . Part of our childhood screw - ups , I guess . ”
+73780	73801	73767	73767	she	67	“ But Al found her way by doing the opposite . There ’s nothing she wo n’t do for someone . ”
+73828	73855	73821	73821	Her	140	“ One warning , pal . I love you dearly , but if you hurt her , I ’ll personally kick your ass . Got it ? ”
+73879	73913	73870	73870	he	1563	“ You ’re a good friend , Maggie May . I would n’t be so quick to judge yourself as a taker . I just hope the right guy sees that one day . ”
+73923	73939	73918	73918	Her	140	“ Are you drunk ? Or an imposter ? Where did my big brother go ? ”
+73940	73947	73948	73948	Nick	64	“ Do n’t push your luck . ”
+73956	73965	73948	73948	Nick	64	“ What ’s going on with the expansion ? ”
+73981	74019	73975	73975	he	64	“ Do n’t worry — it ’s no longer a secret . Alexa admitted she wants the money to add a cafe . I gave her the check but figured she ’d ask me for a consult . ”
+74031	74040	74028	74028	Nick	64	“ Cat got your tongue , Maggie May ? ”
+74041	74046	74047	74047	He	64	“ Oh , shit . ”
+74052	74058	74047	74047	He	64	“ What ’s the matter ? ”
+74075	74103	74061	74061	she	872	“ Nothing . Umm , I think she may be embarrassed because she ’s hiring someone else to do it . Did n’t want to bother you . ”
+74111	74119	74061	74061	she	872	“ I have time to help her . ”
+74131	74147	74148	74148	She	872	“ I ’d leave it alone , bro . Got ta go . See ya . ”
+74217	74223	74224	74224	he	64	“ Did you have dinner ? ”
+74232	74246	74229	74229	her	872	“ No time . Want to pick up a pizza on the way ? ”
+74247	74258	74259	74259	His	64	“ I ’ll throw something together for us at home . ”
+74281	74287	74269	74269	he	64	“ Wo n’t take long . ”
+74288	74296	74297	74297	She	872	“ Okay . See you at home . ”
+74308	74317	74305	74305	her	872	“ Oh , Nick , do n’t forget — ”
+74318	74322	74323	74323	Her	872	“ The salad . ”
+74360	74366	74351	74351	she	872	“ Right . The salad . ”
