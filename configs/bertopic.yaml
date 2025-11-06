@@ -1,0 +1,54 @@
+# BERTopic model configuration
+
+# Embedding model
+embedding:
+  model_name: "all-MiniLM-L12-v2"  # Default embedding model
+  cache_embeddings: true
+  device: "auto"  # auto, cpu, cuda
+
+# BERTopic hyperparameters
+bertopic:
+  # UMAP parameters
+  umap:
+    n_neighbors: 15
+    n_components: 5
+    min_dist: 0.0
+    metric: "cosine"
+  
+  # HDBSCAN parameters
+  hdbscan:
+    min_cluster_size: 10
+    min_samples: 5
+    metric: "euclidean"
+    cluster_selection_method: "eom"
+  
+  # Vectorizer
+  vectorizer:
+    max_features: 5000
+    ngram_range: [1, 2]
+    stop_words: "english"
+  
+  # c-TF-IDF
+  ctfidf:
+    bm25_weighting: false
+    reduce_frequent_words: false
+  
+  # Representation
+  representation:
+    type: "KeyBERTInspired"  # KeyBERTInspired, MaximalMarginalRelevance, PartOfSpeech
+    top_n_words: 10
+
+# Training settings
+training:
+  coherence_sample: 25000
+  chunk_size: 50000
+  save_topics_info: true
+  verbose: true
+  seed: 42
+
+# Text processing
+text:
+  text_column: "Sentence"
+  custom_stopwords_file: null
+  character_names_file: null
+

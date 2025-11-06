@@ -1,0 +1,27 @@
+# Model selection configuration (Pareto efficiency)
+
+# Constraints
+constraints:
+  min_nr_topics: 200  # Minimum number of topics required
+  max_nr_topics: null  # Maximum (null = no limit)
+  min_coherence: null  # Minimum coherence score (null = no limit)
+  min_diversity: null  # Minimum diversity score (null = no limit)
+
+# Pareto optimization
+pareto:
+  objectives:
+    - "coherence"  # Maximize coherence
+    - "diversity"  # Maximize diversity
+  direction: "maximize"  # maximize both objectives
+  
+# Selection criteria
+selection:
+  top_k: 10  # Number of top models to select
+  tie_breaker: "coherence"  # If tied, prefer higher coherence
+
+# Output
+output:
+  pareto_csv: "results/pareto/pareto.csv"
+  topics_dir: "results/pareto/topics"
+  plots_dir: "results/pareto"
+

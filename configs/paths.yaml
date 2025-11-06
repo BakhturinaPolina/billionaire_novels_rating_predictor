@@ -1,0 +1,29 @@
+# Data paths configuration
+# All paths are relative to project root unless absolute
+
+data:
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+
+# Input files
+inputs:
+  chapters_csv: "data/processed/chapters.csv"
+  chapters_subset_csv: "data/processed/chapters_subset_10000.csv"
+  goodreads_csv: "data/processed/goodreads.csv"
+  custom_stoplist: "data/processed/custom_stoplist.txt"
+  booknlp_dir: "data/interim/booknlp"
+  octis_dataset: "data/interim/octis"
+  # Legacy dataset path (for bertopic_runner compatibility)
+  processed_novels_sentences: "data/processed/chapters.csv"
+
+# Output directories
+outputs:
+  models: "models"
+  results: "results"
+  experiments: "results/experiments"
+  pareto: "results/pareto"
+  topics: "results/topics"
+  figures: "results/figures"
+  logs: "logs"
+

@@ -1,0 +1,29 @@
+# OCTIS framework configuration
+
+# Dataset settings
+dataset:
+  path: "data/interim/octis"
+  name: "billionaire_novels"  # Dataset identifier
+
+# Model wrapper
+model:
+  class_name: "BERTopicOctisModelWithEmbeddings"
+  save_models: true
+  save_step: 1
+
+# Evaluation metrics
+metrics:
+  primary: "c_v"  # Primary metric for optimization
+  extra:
+    - "c_npmi"
+    - "topic_diversity"
+    - "inverted_rbo"
+
+# Output settings
+output:
+  save_path: "results/experiments"
+  save_name: "result"
+  optimization_results_dir: "data/interim/octis/optimization_results"
+  plot_best_seen: false
+  plot_model: false
+

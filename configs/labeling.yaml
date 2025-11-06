@@ -1,0 +1,22 @@
+# Topic labeling configuration
+
+# Labeling method
+method: "semi_supervised"  # semi_supervised, manual, composite
+
+# Composite building
+composites:
+  enabled: true
+  mapping_file: null  # Path to manual mapping file (if exists)
+  codebook_file: null  # Path to codebook file (if exists)
+  output_file: "results/topics/composites.parquet"
+
+# Topic grouping
+grouping:
+  enabled: true
+  method: "thematic_clusters"  # thematic_clusters, manual, correlation
+
+# Output
+output:
+  labeled_topics: "results/topics/labeled_topics.csv"
+  composites: "results/topics/composites.parquet"
+

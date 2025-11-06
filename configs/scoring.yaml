@@ -1,0 +1,43 @@
+# Scoring and statistical analysis configuration
+
+# Goodreads integration
+goodreads:
+  csv_path: "data/processed/goodreads.csv"
+  rating_column: "average_rating_weighted_mean"
+  ratings_count_column: "ratings_count_sum"
+
+# Stratification
+strata:
+  method: "quartiles"  # quartiles, terciles, deciles
+  column: "average_rating_weighted_mean"
+  labels: ["bottom", "lower_middle", "upper_middle", "top"]
+
+# Statistical analysis
+statistics:
+  fdr_correction: true
+  alpha: 0.05
+  method: "benjamini_hochberg"  # benjamini_hochberg, bonferroni
+  
+# Group comparisons
+comparisons:
+  test: "mannwhitneyu"  # mannwhitneyu, ttest_ind
+  groups: ["top", "bottom"]  # Groups to compare
+
+# Input files
+inputs:
+  topics_csv: "results/topics/by_book.csv"  # topic_distribution_by_book.csv
+  goodreads_csv: "data/processed/goodreads.csv"  # cleaned_goodreads_dataset.csv
+  ap_composites_parquet: "results/topics/ap_composites.parquet"
+  ap_deltas_csv: "results/analysis/AP_composites_deltas_with_BHFDR.csv"
+  manual_mapping_md: "results/experiments/reproducible_scripts topics vs readers appreciation/Billionaire_Manual_Mapping_Topics_by_Thematic_Clusters.md"
+  codebook_csv: "results/experiments/reproducible_scripts topics vs readers appreciation/focused_topic_codebook.csv"
+
+# Output
+output:
+  prepared_books_parquet: "data/processed/prepared_books.parquet"
+  strata_csv: "results/analysis/strata.csv"
+  statistics_csv: "results/analysis/statistics.csv"
+  figures_dir: "results/figures"
+  charts_dir: "results/figures/charts_with_stars"
+  consolidated_pdf: "results/figures/Consolidated_Table_Plots.pdf"
+
