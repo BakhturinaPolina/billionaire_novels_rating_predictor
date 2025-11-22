@@ -2,7 +2,7 @@
 
 # Constraints
 constraints:
-  min_nr_topics: 200  # Minimum number of topics required
+  min_nr_topics: null  # Minimum number of topics required (null = no limit)
   max_nr_topics: null  # Maximum (null = no limit)
   min_coherence: null  # Minimum coherence score (null = no limit)
   min_diversity: null  # Minimum diversity score (null = no limit)
