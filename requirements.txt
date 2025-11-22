@@ -1,14 +1,25 @@
 # Core ML & Optimization
-optuna==4.5.0
 bertopic==0.16.3
 sentence-transformers==5.1.2
 transformers==4.57.1
 torch==2.9.0
-numpy==2.2.0
+numpy==1.26.4  # Downgraded due to tomotopy/octis requirements (requires numpy<2.0)
 pandas==2.3.3
 scikit-learn==1.7.2
 numba==0.61.2
 gensim==4.4.0
+scipy==1.16.3
+
+# Hyperparameter Optimization
+octis==1.14.0
+scikit-optimize==0.10.2
+
+# Topic Modeling (OCTIS dependencies)
+tomotopy==0.13.0
+libsvm==3.23.0.4
+
+# NLP & Text Processing
+spacy==3.8.11
 
 # GPU Acceleration (RAPIDS)
 # Ensure these versions are compatible with your CUDA driver
@@ -22,6 +33,12 @@ umap-learn==0.5.3
 hdbscan==0.8.40
 
 # CLI & Utilities
+click==8.3.0
 typer==0.20.0
 rich==14.2.0
 tqdm==4.67.1
+
+# Monitoring & Visualization
+gputil==1.4.0
+flask==3.1.2
+matplotlib==3.10.7
