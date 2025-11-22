@@ -45,3 +45,6 @@ data/processed/*.parquet
 logs/
 *.log
 
+# Cache directories
+cache/
+
