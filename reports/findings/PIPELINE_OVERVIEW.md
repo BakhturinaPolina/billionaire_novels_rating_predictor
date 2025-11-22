@@ -1,6 +1,6 @@
 ### BERTopic + OCTIS Pipeline Overview
 
-This document reverse-engineers the workflow implemented in the `octis bertopic full project` directory.  It serves as living documentation for anyone who needs to rerun, extend or analyse the experiments.
+It serves as living documentation for anyone who needs to rerun, extend or analyse the experiments.
 
 ---
 

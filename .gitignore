@@ -19,3 +19,29 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Data directories (excluded due to size and copyright)
+data/raw/
+data/interim/
+
+# Large output files
+*.npz
+results/experiments/**/*.npz
+
+# Model files
+models/*.pt
+models/*.pkl
+models/*.h5
+models/*.safetensors
+
+# Environment files
+.env
+*.env
+
+# Large CSV files (keep small ones for reproducibility)
+data/processed/chapters.csv
+data/processed/*.parquet
+
+# Logs
+logs/
+*.log
+

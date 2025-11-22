@@ -1,6 +1,6 @@
 # Makefile for stage-based pipeline
 
-.PHONY: inventory contracts stage01 stage02 stage03 stage04 stage05 stage06 stage07 experiments pareto topics analysis all
+.PHONY: inventory contracts stage01 stage02 stage03 stage05 stage06 stage07 experiments pareto topics analysis all
 
 inventory:
 	@echo "Repository structure inventory"
@@ -24,10 +24,6 @@ stage03:
 	@echo "Running Stage 03: Modeling"
 	python -m src.stage03_modeling.main train --config configs/bertopic.yaml
 
-stage04:
-	@echo "Running Stage 04: Experiments"
-	python -m src.stage04_experiments.main --config configs/optuna.yaml
-
 stage05:
 	@echo "Running Stage 05: Selection"
 	python -m src.stage05_selection.main --config configs/selection.yaml
@@ -41,8 +37,8 @@ stage07:
 	python -m src.stage07_analysis.main --config configs/scoring.yaml
 
 experiments:
-	@echo "Running experiments (Stage 04)"
-	$(MAKE) stage04
+	@echo "Running hyperparameter optimization (Stage 03)"
+	python -m src.stage03_modeling.main optimize --config configs/octis.yaml
 
 pareto:
 	@echo "Running Pareto selection (Stage 05)"
@@ -56,6 +52,6 @@ analysis:
 	@echo "Statistical analysis (Stage 07)"
 	$(MAKE) stage07
 
-all: stage01 stage02 stage03 stage04 stage05 stage06 stage07
+all: stage01 stage02 stage03 stage05 stage06 stage07
 	@echo "All stages completed"
 

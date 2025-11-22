@@ -70,7 +70,7 @@ results/experiments/
 ├── <embedding_model>/
 │   └── <study_id>/
 │       ├── result.json                   # Full experiment log
-│       └── optimization_results/        # Optuna results (if applicable)
+│       └── optimization_results/        # OCTIS results (if applicable)
 ```
 
 ### Topics

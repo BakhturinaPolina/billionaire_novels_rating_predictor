@@ -32,7 +32,7 @@ class Optimizer:
             length_scale=1.0, length_scale_bounds=(1e-1, 10.0), nu=1.5),
         acq_func="LCB", random_state=False, x0=None, y0=None,
         save_models=True, save_step=1, save_name="result",
-        save_path=None, early_stop=False, early_step=5,
+        save_path="results/", early_stop=False, early_step=5,
         plot_best_seen=False, plot_model=False, plot_name="B0_plot",
             log_scale_plot=False, topk=10):
         """
@@ -134,17 +134,7 @@ class Optimizer:
         self.random_state = random_state
         self.x0 = x0
         self.y0 = y0
-        # Load save_path from config if not provided
-        if save_path is None:
-            try:
-                from src.common.config import load_config, resolve_path
-                octis_cfg = load_config(Path("configs/octis.yaml"))
-                self.save_path = str(resolve_path(Path(octis_cfg["output"]["save_path"])))
-            except Exception:
-                # Fallback to default
-                self.save_path = "results/experiments"
-        else:
-            self.save_path = save_path
+        self.save_path = save_path
         self.save_step = save_step
         self.save_name = save_name
         self.save_models = save_models
