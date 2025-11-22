@@ -544,7 +544,10 @@ with torch.no_grad():
 
         # Example usage
         print("[STEP 23] Setting up embedding file path...")
-        embedding_file = "precalculated_embeddings.npy"  # Changed from .pkl to .npy for faster I/O
+        # Embeddings cache directory (matches test_octis_pipeline.py pattern)
+        embeddings_cache_dir = Path(octis_dataset_path) / "embeddings_cache"
+        embeddings_cache_dir.mkdir(parents=True, exist_ok=True)
+        embedding_file = str(embeddings_cache_dir / "precalculated_embeddings.npy")
         print(f"[STEP 23.1] Embedding file: {embedding_file}")
 
         # BERTopic works by converting documents into numerical values, called embeddings.
