@@ -561,7 +561,17 @@ with torch.no_grad():
             print(f"[STEP 24.{idx+2}] Checking if embedding file exists: {embedding_file}")
             if os.path.exists(embedding_file):
                 print(f"[STEP 24.{idx+2}] ✓ Embedding file exists, loading...")
-                precalculated_embeddings = load_embeddings(embedding_file)
+                loaded_embeddings = load_embeddings(embedding_file)
+                # Ensure loaded embeddings are in a list format (even if single array)
+                if isinstance(loaded_embeddings, np.ndarray):
+                    # Single array - wrap in list to match expected structure
+                    precalculated_embeddings = [loaded_embeddings]
+                    print(f"[STEP 24.{idx+2}] Wrapped single array in list, shape: {loaded_embeddings.shape}")
+                elif isinstance(loaded_embeddings, list):
+                    precalculated_embeddings = loaded_embeddings
+                else:
+                    # Fallback: wrap in list
+                    precalculated_embeddings = [loaded_embeddings]
                 print(f"[STEP 24.{idx+2}] ✓ Loaded embeddings, breaking loop")
                 break
             else:
@@ -926,11 +936,24 @@ with torch.no_grad():
                 print(f"[STEP 26.{index+2}] Embedding model name: {embedding_model_name}")
                 print(f"[STEP 26.{index+2}] Instantiating BERTopicOctisModelWithEmbeddings for {embedding_model_name}...")
                 print(f"[STEP 26.{index+2}] Using embeddings index: {index}")
-                print(f"[STEP 26.{index+2}] Embeddings shape: {precalculated_embeddings[index].shape if hasattr(precalculated_embeddings[index], 'shape') else type(precalculated_embeddings[index])}")
+                
+                # Get embeddings and validate shape
+                embeddings_to_use = precalculated_embeddings[index]
+                if isinstance(embeddings_to_use, np.ndarray):
+                    if len(embeddings_to_use.shape) != 2:
+                        raise ValueError(
+                            f"Embeddings must be 2D array (num_documents, embedding_dim), "
+                            f"got shape: {embeddings_to_use.shape}. "
+                            f"This may indicate incorrect indexing of precalculated_embeddings."
+                        )
+                    print(f"[STEP 26.{index+2}] Embeddings shape: {embeddings_to_use.shape}")
+                else:
+                    print(f"[STEP 26.{index+2}] Embeddings type: {type(embeddings_to_use)}")
+                
                 model = BERTopicOctisModelWithEmbeddings(
                     embedding_model=embedding_model,
                     embedding_model_name=embedding_model_names[index],
-                    embeddings=precalculated_embeddings[index],
+                    embeddings=embeddings_to_use,
                     dataset_as_list_of_strings=dataset_as_list_of_strings,
                     optimization_results_dir=optimization_results_dir,
                     verbose=True

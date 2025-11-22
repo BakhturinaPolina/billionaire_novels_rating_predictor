@@ -35,6 +35,7 @@ from bertopic import BERTopic
 from bertopic.representation import KeyBERTInspired, MaximalMarginalRelevance, PartOfSpeech
 from bertopic.vectorizers import ClassTfidfTransformer
 from octis.models.model import AbstractModel
+from scipy.sparse import csr_matrix, issparse
 
 # Import GPU models (RAPIDS required)
 try:
@@ -340,6 +341,8 @@ class BERTopicOctisModelWithEmbeddings(AbstractModel):
             
             # Convert embeddings to numpy array if needed (e.g., if it's a CuPy array)
             # BERTopic requires numpy arrays, not CuPy arrays
+            # Note: RAPIDS cuML (UMAP/HDBSCAN) will automatically transfer NumPy arrays to GPU
+            # during fit_transform, so clustering operations run on GPU even with NumPy input
             if hasattr(self.embeddings, 'get'):  # CuPy array
                 if self.verbose:
                     print("[TRAIN] Converting CuPy array to NumPy array...")
@@ -362,8 +365,13 @@ class BERTopicOctisModelWithEmbeddings(AbstractModel):
             
             if self.verbose:
                 print(f"[TRAIN] Final embeddings shape: {embeddings_numpy.shape}, dtype: {embeddings_numpy.dtype}")
+                print("[TRAIN] Note: RAPIDS cuML will automatically use GPU for UMAP and HDBSCAN clustering")
+                # Log GPU memory before clustering to confirm GPU usage
+                print_gpu_memory_usage("Pre-clustering GPU Memory", verbose=True)
             
             # Track memory peak during training
+            # This includes GPU-accelerated UMAP dimensionality reduction and HDBSCAN clustering
+            # RAPIDS cuML automatically transfers NumPy arrays to GPU during operations
             with track_memory_peak(f"BERTopic Training: {self.embedding_model_name}"):
                 topics, probabilities = topic_model.fit_transform(
                     self.dataset_as_list_of_strings,
@@ -421,7 +429,67 @@ class BERTopicOctisModelWithEmbeddings(AbstractModel):
                 output_dict['topics'] = None
             
             # Add matrices
-            output_dict['topic-word-matrix'] = np.array(topic_model.c_tf_idf_)
+            # Extract topic-word matrix (c-TF-IDF matrix)
+            # According to BERTopic API: c_tf_idf_ is a csr_matrix (sparse matrix)
+            # Reference: https://maartengr.github.io/BERTopic/api/bertopic.html
+            topic_word_matrix = None
+            
+            # Try to access c_tf_idf_ directly (primary method per BERTopic API)
+            if hasattr(topic_model, 'c_tf_idf_') and topic_model.c_tf_idf_ is not None:
+                c_tf_idf = topic_model.c_tf_idf_
+                # Handle sparse matrix (csr_matrix) - convert to dense array
+                if issparse(c_tf_idf):
+                    topic_word_matrix = c_tf_idf.toarray()
+                    if self.verbose:
+                        print(f"[TRAIN] Found c-TF-IDF matrix via c_tf_idf_ (sparse, shape: {c_tf_idf.shape})")
+                else:
+                    topic_word_matrix = np.array(c_tf_idf)
+                    if self.verbose:
+                        print(f"[TRAIN] Found c-TF-IDF matrix via c_tf_idf_ (dense, shape: {topic_word_matrix.shape})")
+            elif hasattr(topic_model, 'ctfidf_model') and topic_model.ctfidf_model is not None:
+                # Fallback: Access through ctfidf_model if available
+                ctfidf = topic_model.ctfidf_model
+                if hasattr(ctfidf, 'c_tf_idf_') and ctfidf.c_tf_idf_ is not None:
+                    c_tf_idf = ctfidf.c_tf_idf_
+                    if issparse(c_tf_idf):
+                        topic_word_matrix = c_tf_idf.toarray()
+                    else:
+                        topic_word_matrix = np.array(c_tf_idf)
+                    if self.verbose:
+                        print(f"[TRAIN] Found c-TF-IDF matrix via ctfidf_model.c_tf_idf_")
+                elif hasattr(ctfidf, 'matrix_') and ctfidf.matrix_ is not None:
+                    matrix = ctfidf.matrix_
+                    if issparse(matrix):
+                        topic_word_matrix = matrix.toarray()
+                    else:
+                        topic_word_matrix = np.array(matrix)
+                    if self.verbose:
+                        print(f"[TRAIN] Found c-TF-IDF matrix via ctfidf_model.matrix_")
+            
+            # Validate the matrix
+            if topic_word_matrix is None:
+                if self.verbose:
+                    print("[TRAIN] ⚠️ Warning: c-TF-IDF matrix not found")
+                    print("[TRAIN] Checking available attributes on topic_model...")
+                    # Check if model has been fitted
+                    if not hasattr(topic_model, 'c_tf_idf_'):
+                        print("[TRAIN] ⚠️ Model may not be fitted yet - c_tf_idf_ attribute missing")
+                    else:
+                        print(f"[TRAIN] c_tf_idf_ exists but is None or empty")
+                    attrs = [attr for attr in dir(topic_model) if not attr.startswith('_') and ('tf' in attr.lower() or 'idf' in attr.lower() or 'matrix' in attr.lower())]
+                    if attrs:
+                        print(f"[TRAIN] Available relevant attributes: {attrs[:10]}")
+                # Create empty matrix as fallback (shape will be ())
+                topic_word_matrix = np.array([])
+            elif topic_word_matrix.size == 0:
+                if self.verbose:
+                    print("[TRAIN] ⚠️ Warning: c-TF-IDF matrix is empty (size=0)")
+                # Keep the empty matrix
+            else:
+                if self.verbose:
+                    print(f"[TRAIN] ✓ c-TF-IDF matrix extracted successfully, shape: {topic_word_matrix.shape}")
+            
+            output_dict['topic-word-matrix'] = topic_word_matrix
             output_dict['topic-document-matrix'] = np.array(probabilities)
             
             if self.verbose:
