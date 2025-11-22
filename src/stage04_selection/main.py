@@ -148,8 +148,9 @@ def main(config: Path):
         # Step 8: Generate visualizations
         logger.info("Step 8: Generating visualizations")
         
-        # Overall Pareto frontier
-        pareto_all = df[df['Pareto_Efficient_All']].copy()
+        # Overall Pareto frontier - use iloc to avoid reindexing issues
+        mask_all = df['Pareto_Efficient_All'].fillna(False).values
+        pareto_all = df.iloc[mask_all].reset_index(drop=True).copy()
         pareto_plots.plot_pareto_frontier(
             df,
             pareto_df=pareto_all,
@@ -174,14 +175,18 @@ def main(config: Path):
         pareto_csv_path.parent.mkdir(parents=True, exist_ok=True)
         
         # Save all Pareto-efficient models (overall)
-        pareto_all_sorted = df[df['Pareto_Efficient_All']].sort_values(
+        pareto_all_sorted = pareto_all.sort_values(
             'Combined_Score',
             ascending=False
-        )
+        ).reset_index(drop=True)
         pareto_all_sorted['pareto_rank'] = range(1, len(pareto_all_sorted) + 1)
         pareto_all_sorted.to_csv(pareto_csv_path, index=False)
         
         logger.info(f"Saved {len(pareto_all_sorted)} Pareto-efficient models to: {pareto_csv_path}")
+        
+        # Count per-model Pareto-efficient
+        mask_per_model = df['Pareto_Efficient_PerModel'].fillna(False).values
+        pareto_per_model_count = mask_per_model.sum()
         
         # Print summary
         print("\n" + "=" * 80)
@@ -189,7 +194,7 @@ def main(config: Path):
         print("=" * 80)
         print(f"Total models analyzed: {len(df)}")
         print(f"Pareto-efficient (overall): {len(pareto_all_sorted)}")
-        print(f"Pareto-efficient (per model): {len(df[df['Pareto_Efficient_PerModel']])}")
+        print(f"Pareto-efficient (per model): {pareto_per_model_count}")
         print(f"Top {len(top_models)} models selected")
         print(f"\nResults saved to:")
         print(f"  - CSV: {pareto_csv_path}")

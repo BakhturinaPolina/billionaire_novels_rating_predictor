@@ -136,7 +136,9 @@ def plot_pareto_by_model(
     
     for i, model_name in enumerate(unique_models):
         ax = axes[i]
-        subset = df[df['Embeddings_Model'] == model_name]
+        # Use iloc to avoid reindexing issues
+        model_mask = (df['Embeddings_Model'] == model_name).values
+        subset = df.iloc[model_mask].reset_index(drop=True).copy()
         
         # Plot all runs for this model
         ax.scatter(
@@ -150,9 +152,11 @@ def plot_pareto_by_model(
         
         # Highlight Pareto-efficient runs
         if 'Pareto_Efficient_PerModel' in subset.columns:
-            pareto_subset = subset[subset['Pareto_Efficient_PerModel']]
+            pareto_mask = subset['Pareto_Efficient_PerModel'].fillna(False).values
+            pareto_subset = subset.iloc[pareto_mask].reset_index(drop=True).copy()
         elif 'Pareto_Efficient' in subset.columns:
-            pareto_subset = subset[subset['Pareto_Efficient']]
+            pareto_mask = subset['Pareto_Efficient'].fillna(False).values
+            pareto_subset = subset.iloc[pareto_mask].reset_index(drop=True).copy()
         else:
             pareto_subset = pd.DataFrame()
         

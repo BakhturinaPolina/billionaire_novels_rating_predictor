@@ -31,6 +31,9 @@ def load_evaluation_results(csv_path: Path) -> pd.DataFrame:
     logger.info(f"Loading evaluation results from: {csv_path}")
     df = pd.read_csv(csv_path)
     
+    # Reset index to ensure it's unique
+    df = df.reset_index(drop=True)
+    
     # Validate required columns
     required_columns = ['Embeddings_Model', 'Coherence', 'Topic_Diversity']
     missing_columns = [col for col in required_columns if col not in df.columns]
@@ -67,6 +70,18 @@ def normalize_metrics(
     if missing_metrics:
         raise ValueError(f"Missing metric columns: {missing_metrics}")
     
+    # Ensure index is unique
+    df = df.reset_index(drop=True).copy()
+    
+    # Check if normalized columns already exist
+    normalized_columns = [f"{metric}_norm" for metric in metrics]
+    existing_norm_cols = [col for col in normalized_columns if col in df.columns]
+    
+    if existing_norm_cols:
+        logger.info(f"Normalized columns already exist: {existing_norm_cols}. Recalculating...")
+        # Remove existing normalized columns
+        df = df.drop(columns=existing_norm_cols)
+    
     logger.info(f"Normalizing metrics: {metrics}")
     
     # Extract metric values
@@ -80,7 +95,6 @@ def normalize_metrics(
         normalized_values = scaler.transform(metric_values)
     
     # Add normalized columns
-    normalized_columns = [f"{metric}_norm" for metric in metrics]
     for i, col_name in enumerate(normalized_columns):
         df[col_name] = normalized_values[:, i]
     
@@ -293,12 +307,18 @@ def select_top_models(
     Returns:
         DataFrame with top K models, sorted by score
     """
+    # Ensure index is unique before filtering
+    df = df.reset_index(drop=True).copy()
+    
     # Filter to Pareto-efficient models if column exists
     if pareto_column in df.columns:
-        df_pareto = df[df[pareto_column]].copy()
+        # Get boolean mask as numpy array to avoid reindexing issues
+        mask = df[pareto_column].fillna(False).values
+        df_pareto = df.iloc[mask].reset_index(drop=True).copy()
         logger.info(f"Filtering to {len(df_pareto)} Pareto-efficient models (using column: {pareto_column})")
     elif 'Pareto_Efficient' in df.columns:
-        df_pareto = df[df['Pareto_Efficient']].copy()
+        mask = df['Pareto_Efficient'].fillna(False).values
+        df_pareto = df.iloc[mask].reset_index(drop=True).copy()
         logger.info(f"Filtering to {len(df_pareto)} Pareto-efficient models (using default column)")
     else:
         df_pareto = df.copy()
