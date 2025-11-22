@@ -1,5 +1,12 @@
 # Model selection configuration (Pareto efficiency)
 
+# Outlier filtering (applied before constraints)
+# Filters models with too few topics that may have artificially high scores
+outlier_filtering:
+  max_diversity: 0.9  # Maximum diversity threshold (filters extreme values, likely few topics)
+  use_iqr: true  # Use IQR method for outlier detection
+  iqr_multiplier: 1.5  # IQR multiplier (1.5 = standard, higher = more lenient)
+
 # Constraints
 constraints:
   min_nr_topics: null  # Minimum number of topics required (null = no limit)

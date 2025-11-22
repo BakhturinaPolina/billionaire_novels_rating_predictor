@@ -74,6 +74,16 @@ def main(config: Path):
     print(f"    - pareto.csv: {pareto_csv_path}")
     print(f"    - plots: {plots_dir}")
     
+    # Get outlier filtering configuration
+    outlier_config = cfg.get("outlier_filtering", {})
+    
+    print(f"\n  Outlier Filtering:")
+    if outlier_config.get("max_diversity") is not None:
+        print(f"    - max_diversity <= {outlier_config.get('max_diversity')}")
+    if outlier_config.get("use_iqr", False):
+        multiplier = outlier_config.get("iqr_multiplier", 1.5)
+        print(f"    - IQR method (multiplier={multiplier})")
+    
     print(f"\n  Constraints:")
     if constraints.get("min_nr_topics") is not None:
         print(f"    - min_nr_topics >= {constraints.get('min_nr_topics')}")
@@ -132,12 +142,17 @@ def main(config: Path):
         # Ensure index is unique again after operations
         df = df.reset_index(drop=True)
         
-        # Step 6: Apply constraints
-        logger.info("Step 6: Applying constraints")
+        # Step 6: Filter outliers (models with too few topics)
+        logger.info("Step 6: Filtering outliers")
+        outlier_config = cfg.get("outlier_filtering", {})
+        df = pareto_analysis.filter_outliers(df, outlier_config)
+        
+        # Step 7: Apply constraints
+        logger.info("Step 7: Applying constraints")
         df_filtered = pareto_analysis.apply_constraints(df, constraints)
         
-        # Step 7: Select top K models
-        logger.info("Step 7: Selecting top K models")
+        # Step 8: Select top K models
+        logger.info("Step 8: Selecting top K models")
         top_models = pareto_analysis.select_top_models(
             df_filtered,
             top_k=top_k,
@@ -145,8 +160,8 @@ def main(config: Path):
             pareto_column='Pareto_Efficient_All'
         )
         
-        # Step 8: Generate visualizations
-        logger.info("Step 8: Generating visualizations")
+        # Step 9: Generate visualizations
+        logger.info("Step 9: Generating visualizations")
         
         # Overall Pareto frontier - use iloc to avoid reindexing issues
         mask_all = df['Pareto_Efficient_All'].fillna(False).values
@@ -170,8 +185,8 @@ def main(config: Path):
             save_path=plots_dir / "combined_score_distribution.png"
         )
         
-        # Step 9: Save results
-        logger.info("Step 9: Saving results")
+        # Step 10: Save results
+        logger.info("Step 10: Saving results")
         pareto_csv_path.parent.mkdir(parents=True, exist_ok=True)
         
         # Save all Pareto-efficient models (overall)

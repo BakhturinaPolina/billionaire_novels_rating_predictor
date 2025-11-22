@@ -2,22 +2,19 @@
 
 Short summary of Pareto-efficient model configurations from hyperparameter optimization.
 
+**Note:** Results filtered to remove outliers (models with too few topics that had artificially high diversity scores).
+
 ---
 
-#### Top Performers
+#### Top Performers (After Outlier Filtering)
 
-**1. paraphrase-mpnet-base-v2 (Rank 1)**
+**1. paraphrase-mpnet-base-v2, iteration 0 (Rank 1)**
 - **Combined Score:** 1.75
 - **Coherence:** 0.463 (highest)
 - **Topic Diversity:** 0.82
 - **Best balance** between coherence and diversity
 
-**2. multi-qa-mpnet-base-cos-v1, iteration 26 (Rank 3)**
-- **Combined Score:** 1.66
-- **Coherence:** 0.402
-- **Topic Diversity:** 0.90 (higher diversity, lower coherence)
-
-**3. multi-qa-mpnet-base-cos-v1, iteration 11 (Rank 5)**
+**2. multi-qa-mpnet-base-cos-v1, iteration 11 (Rank 3)**
 - **Combined Score:** 1.33
 - **Coherence:** 0.419
 - **Topic Diversity:** 0.83
@@ -26,10 +23,10 @@ Short summary of Pareto-efficient model configurations from hyperparameter optim
 
 #### Key Observations
 
-- **Trade-off pattern:** mpnet models favor coherence; MiniLM models achieve higher diversity (0.92-0.93) but lower coherence (0.28-0.32)
-- **All 12 configurations are Pareto-efficient** (both globally and per-model)
-- **Model hierarchy:** mpnet variants outperform MiniLM variants in combined score
-- **Recommendation:** `paraphrase-mpnet-base-v2` iteration 0 offers the best overall performance
+- **Outlier filtering applied:** Removed 21 models (4 with diversity >0.9, 17 via IQR method) that likely had too few topics
+- **Final results:** 4 Pareto-efficient models (down from 12 before filtering)
+- **Model hierarchy:** mpnet variants outperform other models in combined score
+- **Recommendation:** `paraphrase-mpnet-base-v2` iteration 0 offers the best overall performance with highest coherence (0.463) and good diversity (0.82)
 
 ---
 
@@ -47,6 +44,21 @@ Top configuration (paraphrase-mpnet-base-v2):
 
 ---
 
+#### Outlier Filtering Details
+
+Applied two-stage outlier filtering:
+1. **Max diversity threshold:** Removed models with diversity > 0.9 (likely too few topics)
+2. **IQR method:** Removed statistical outliers using 1.5×IQR multiplier
+
+**Filtering results:**
+- Original models: 272
+- After max_diversity filter: 268 (removed 4)
+- After IQR filter: 251 (removed 17 additional)
+- Final Pareto-efficient: 4 models
+
+---
+
 *Analysis date: 2025-01-27*  
-*Source: `results/pareto/pareto.csv`*
+*Source: `results/pareto/pareto.csv`*  
+*Outlier filtering: max_diversity=0.9, IQR multiplier=1.5*
 

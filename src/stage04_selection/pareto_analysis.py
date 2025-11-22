@@ -228,6 +228,73 @@ def _calculate_pareto_flags(metric_values: np.ndarray) -> np.ndarray:
     return pareto_efficient
 
 
+def filter_outliers(
+    df: pd.DataFrame,
+    outlier_config: Dict[str, any]
+) -> pd.DataFrame:
+    """
+    Filter outliers that may represent models with too few topics.
+    
+    Models with very few topics can have artificially high diversity scores
+    because there are fewer topics to compare, making them appear more diverse.
+    
+    Args:
+        df: DataFrame to filter
+        outlier_config: Dictionary with outlier filtering configuration:
+            - max_diversity: Maximum allowed diversity (filters extreme values)
+            - use_iqr: Whether to use IQR method for outlier detection
+            - iqr_multiplier: Multiplier for IQR (default: 1.5)
+        
+    Returns:
+        Filtered DataFrame
+    """
+    original_len = len(df)
+    df_filtered = df.copy()
+    
+    logger.info("Filtering outliers:")
+    
+    # Filter by maximum diversity threshold (catches models with very few topics)
+    if 'max_diversity' in outlier_config and outlier_config['max_diversity'] is not None:
+        threshold = outlier_config['max_diversity']
+        before = len(df_filtered)
+        df_filtered = df_filtered[df_filtered['Topic_Diversity'] <= threshold]
+        logger.info(f"  max_diversity <= {threshold}: {before} -> {len(df_filtered)} rows")
+    
+    # Use IQR method to filter outliers
+    if outlier_config.get('use_iqr', False):
+        before = len(df_filtered)
+        
+        # Calculate IQR for both metrics
+        q1_co = df_filtered['Coherence'].quantile(0.25)
+        q3_co = df_filtered['Coherence'].quantile(0.75)
+        iqr_co = q3_co - q1_co
+        
+        q1_div = df_filtered['Topic_Diversity'].quantile(0.25)
+        q3_div = df_filtered['Topic_Diversity'].quantile(0.75)
+        iqr_div = q3_div - q1_div
+        
+        multiplier = outlier_config.get('iqr_multiplier', 1.5)
+        
+        # Filter outliers (values beyond Q3 + multiplier*IQR or below Q1 - multiplier*IQR)
+        # For diversity, we mainly care about upper outliers (too high = suspicious)
+        # For coherence, we filter both extremes
+        coherence_outliers = (
+            (df_filtered['Coherence'] > q3_co + multiplier * iqr_co) |
+            (df_filtered['Coherence'] < q1_co - multiplier * iqr_co)
+        )
+        diversity_outliers = df_filtered['Topic_Diversity'] > q3_div + multiplier * iqr_div
+        
+        # Remove outliers
+        df_filtered = df_filtered[~(coherence_outliers | diversity_outliers)]
+        
+        removed = before - len(df_filtered)
+        logger.info(f"  IQR outlier removal (multiplier={multiplier}): {before} -> {len(df_filtered)} rows (removed {removed})")
+    
+    logger.info(f"Outlier filtering complete: {original_len} -> {len(df_filtered)} rows")
+    
+    return df_filtered
+
+
 def apply_constraints(
     df: pd.DataFrame,
     constraints: Dict[str, Optional[float]]
