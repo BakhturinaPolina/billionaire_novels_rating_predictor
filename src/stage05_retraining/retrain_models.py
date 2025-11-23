@@ -222,75 +222,303 @@ def create_octis_dataset(csv_path: Path, octis_dataset_path: Path,
 def load_or_create_embeddings(embedding_model_name: str, 
                                dataset_as_list_of_strings: List[str],
                                cache_dir: Path,
-                               use_cache: bool = True) -> np.ndarray:
-    """Load cached embeddings or create new ones."""
+                               use_cache: bool = True,
+                               processing_batch_size: int = 10000) -> np.ndarray:
+    """
+    Load cached embeddings or create new ones with batch processing and incremental saving.
+    
+    This function processes embeddings in batches to avoid memory issues and allows
+    resuming from interruptions. Each batch is saved immediately after processing.
+    
+    Args:
+        embedding_model_name: Name of the embedding model
+        dataset_as_list_of_strings: List of document strings to encode
+        cache_dir: Directory for caching embeddings
+        use_cache: Whether to use cached embeddings if available
+        processing_batch_size: Number of documents to process per batch (default: 10000)
+    
+    Returns:
+        numpy.ndarray: Complete embeddings array
+    """
     print_step(3, f"Loading/Creating embeddings: {embedding_model_name}")
+    print(f"[EMBEDDINGS] ========== Embedding Processing with Batch Saving ==========")
+    print(f"[EMBEDDINGS] Model: {embedding_model_name}")
+    print(f"[EMBEDDINGS] Total documents: {len(dataset_as_list_of_strings):,}")
+    print(f"[EMBEDDINGS] Processing batch size: {processing_batch_size:,} documents")
+    print(f"[EMBEDDINGS] Cache directory: {cache_dir}")
     
     cache_dir.mkdir(parents=True, exist_ok=True)
+    
+    # File paths
     embedding_file = cache_dir / f"{embedding_model_name}_embeddings.npy"
+    metadata_file = cache_dir / f"{embedding_model_name}_embeddings_metadata.json"
+    batch_dir = cache_dir / f"{embedding_model_name}_batches"
+    batch_dir.mkdir(parents=True, exist_ok=True)
     
-    # Check for cached embeddings
+    print(f"[EMBEDDINGS] Final embeddings file: {embedding_file}")
+    print(f"[EMBEDDINGS] Metadata file: {metadata_file}")
+    print(f"[EMBEDDINGS] Batch directory: {batch_dir}")
+    
+    # Step 1: Check for final concatenated embeddings file
+    print(f"\n[EMBEDDINGS] Step 1: Checking for final concatenated embeddings file...")
     if use_cache and embedding_file.exists():
-        print(f"📁 Found cached embeddings: {embedding_file}")
-        print(f"   Loading from cache...")
-        embeddings = np.load(embedding_file)
-        print(f"✅ Loaded embeddings shape: {embeddings.shape}")
-        print(f"   Dataset size: {len(dataset_as_list_of_strings):,} documents")
+        print(f"[EMBEDDINGS] ✓ Found final embeddings file: {embedding_file}")
+        print(f"[EMBEDDINGS]   File size: {embedding_file.stat().st_size / (1024**2):.2f} MB")
+        print(f"[EMBEDDINGS]   Loading final embeddings...")
         
-        # Validate that cached embeddings match dataset size
-        if embeddings.shape[0] != len(dataset_as_list_of_strings):
-            print(f"⚠️  Cached embeddings size ({embeddings.shape[0]:,}) doesn't match dataset size ({len(dataset_as_list_of_strings):,})")
-            print(f"   Regenerating embeddings for this dataset...")
-            # Don't return cached embeddings, continue to create new ones
-        else:
-            print(f"✅ Cached embeddings match dataset size, using cache")
-            print(f"[STEP 3] ✓ Embeddings loading completed successfully")
-            return embeddings
+        try:
+            embeddings = np.load(embedding_file)
+            print(f"[EMBEDDINGS] ✓ Loaded embeddings shape: {embeddings.shape}")
+            print(f"[EMBEDDINGS]   Dataset size: {len(dataset_as_list_of_strings):,} documents")
+            
+            # Validate that cached embeddings match dataset size
+            if embeddings.shape[0] != len(dataset_as_list_of_strings):
+                print(f"[EMBEDDINGS] ⚠️  Cached embeddings size ({embeddings.shape[0]:,}) doesn't match dataset size ({len(dataset_as_list_of_strings):,})")
+                print(f"[EMBEDDINGS]   Regenerating embeddings for this dataset...")
+                # Continue to create new ones
+            else:
+                print(f"[EMBEDDINGS] ✅ Cached embeddings match dataset size, using cache")
+                print(f"[EMBEDDINGS] ========== Embedding loading completed successfully ==========")
+                print(f"[STEP 3] ✓ Embeddings loading completed successfully")
+                return embeddings
+        except Exception as e:
+            print(f"[EMBEDDINGS] ❌ Error loading final embeddings file: {e}")
+            print(f"[EMBEDDINGS]   Will attempt to resume from batch files or regenerate...")
     
-    # Create embeddings
-    print(f"🤖 Loading embedding model: {embedding_model_name}")
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"🖥️  Device: {device}")
+    # Step 2: Check for existing batch files and metadata
+    print(f"\n[EMBEDDINGS] Step 2: Checking for existing batch files and progress...")
+    metadata = None
+    completed_batches = []
     
-    # Set up persistent cache directory
-    cache_dir_hf = os.path.join(os.getcwd(), "cache", "huggingface")
-    os.makedirs(cache_dir_hf, exist_ok=True)
-    print(f"💾 Using persistent cache: {cache_dir_hf}")
+    if metadata_file.exists():
+        print(f"[EMBEDDINGS] ✓ Found metadata file: {metadata_file}")
+        try:
+            with open(metadata_file, 'r') as f:
+                metadata = json.load(f)
+            print(f"[EMBEDDINGS]   Metadata loaded:")
+            print(f"[EMBEDDINGS]     Total documents: {metadata.get('total_documents', 'unknown'):,}")
+            print(f"[EMBEDDINGS]     Processing batch size: {metadata.get('processing_batch_size', 'unknown'):,}")
+            print(f"[EMBEDDINGS]     Embedding dimensions: {metadata.get('embedding_dim', 'unknown')}")
+            print(f"[EMBEDDINGS]     Total batches: {metadata.get('total_batches', 'unknown')}")
+            print(f"[EMBEDDINGS]     Completed batches: {metadata.get('completed_batches', 0)}")
+            
+            # Validate metadata matches current dataset
+            if metadata.get('total_documents') != len(dataset_as_list_of_strings):
+                print(f"[EMBEDDINGS] ⚠️  Metadata document count ({metadata.get('total_documents', 0):,}) doesn't match current dataset ({len(dataset_as_list_of_strings):,})")
+                print(f"[EMBEDDINGS]   Will regenerate embeddings...")
+                metadata = None
+            else:
+                # Check which batch files exist
+                total_batches = metadata.get('total_batches', 0)
+                for batch_idx in range(total_batches):
+                    batch_file = batch_dir / f"batch_{batch_idx:05d}.npy"
+                    if batch_file.exists():
+                        completed_batches.append(batch_idx)
+                        batch_size_mb = batch_file.stat().st_size / (1024**2)
+                        print(f"[EMBEDDINGS]   ✓ Batch {batch_idx}: {batch_file.name} ({batch_size_mb:.2f} MB)")
+                    else:
+                        print(f"[EMBEDDINGS]   ✗ Batch {batch_idx}: Missing")
+                
+                print(f"[EMBEDDINGS]   Found {len(completed_batches)}/{total_batches} completed batches")
+        except Exception as e:
+            print(f"[EMBEDDINGS] ⚠️  Error loading metadata: {e}")
+            print(f"[EMBEDDINGS]   Will start fresh...")
+            metadata = None
     
-    embedding_model = load_embedding_model(embedding_model_name, device=device)
+    # Step 3: Calculate batch information
+    print(f"\n[EMBEDDINGS] Step 3: Calculating batch information...")
+    total_documents = len(dataset_as_list_of_strings)
+    total_batches = (total_documents + processing_batch_size - 1) // processing_batch_size
+    print(f"[EMBEDDINGS]   Total documents: {total_documents:,}")
+    print(f"[EMBEDDINGS]   Processing batch size: {processing_batch_size:,}")
+    print(f"[EMBEDDINGS]   Total batches needed: {total_batches}")
     
-    # GPU-specific optimizations
-    if device == "cuda":
-        batch_size = 128
-        print(f"⚡ Using GPU batch size: {batch_size}")
+    # Determine if we need to process embeddings
+    need_processing = True
+    if metadata and len(completed_batches) == total_batches:
+        print(f"[EMBEDDINGS] ✓ All batches completed! Concatenating into final file...")
+        need_processing = False
+    elif len(completed_batches) > 0:
+        print(f"[EMBEDDINGS] ⚠️  Found {len(completed_batches)} completed batches, will resume from batch {max(completed_batches) + 1}")
+        need_processing = True
     else:
-        batch_size = 32
-        print(f"🐌 Using CPU batch size: {batch_size}")
+        print(f"[EMBEDDINGS]   No existing batches found, starting fresh...")
+        need_processing = True
     
-    print(f"\n📊 Encoding {len(dataset_as_list_of_strings):,} documents...")
-    print(f"   This may take several minutes...")
+    # Step 4: Load embedding model if needed
+    if need_processing:
+        print(f"\n[EMBEDDINGS] Step 4: Loading embedding model...")
+        print(f"[EMBEDDINGS]   Model name: {embedding_model_name}")
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        print(f"[EMBEDDINGS]   Device: {device}")
+        
+        # Set up persistent cache directory
+        cache_dir_hf = os.path.join(os.getcwd(), "cache", "huggingface")
+        os.makedirs(cache_dir_hf, exist_ok=True)
+        print(f"[EMBEDDINGS]   HuggingFace cache: {cache_dir_hf}")
+        
+        print(f"[EMBEDDINGS]   Loading model (this may download if not cached)...")
+        embedding_model = load_embedding_model(embedding_model_name, device=device)
+        print(f"[EMBEDDINGS] ✓ Embedding model loaded")
+        
+        # Get embedding dimension from model (encode a dummy to check)
+        print(f"[EMBEDDINGS]   Determining embedding dimensions...")
+        dummy_embedding = embedding_model.encode(["test"], convert_to_numpy=True)
+        embedding_dim = dummy_embedding.shape[1]
+        print(f"[EMBEDDINGS]   Embedding dimensions: {embedding_dim}")
+        
+        # GPU-specific optimizations for encoding
+        if device == "cuda":
+            encoding_batch_size = 128
+            print(f"[EMBEDDINGS]   GPU encoding batch size: {encoding_batch_size}")
+        else:
+            encoding_batch_size = 32
+            print(f"[EMBEDDINGS]   CPU encoding batch size: {encoding_batch_size}")
+        
+        # Initialize or update metadata
+        if not metadata:
+            metadata = {
+                'embedding_model': embedding_model_name,
+                'total_documents': total_documents,
+                'processing_batch_size': processing_batch_size,
+                'encoding_batch_size': encoding_batch_size,
+                'embedding_dim': int(embedding_dim),
+                'total_batches': total_batches,
+                'completed_batches': 0,
+                'device': device,
+                'created_at': datetime.now().isoformat(),
+                'last_updated': datetime.now().isoformat()
+            }
+            print(f"[EMBEDDINGS]   Created new metadata")
+        else:
+            metadata['last_updated'] = datetime.now().isoformat()
+            print(f"[EMBEDDINGS]   Updated existing metadata")
+        
+        # Step 5: Process batches incrementally
+        print(f"\n[EMBEDDINGS] Step 5: Processing batches incrementally...")
+        print(f"[EMBEDDINGS]   Starting from batch: {len(completed_batches)}")
+        print(f"[EMBEDDINGS]   Remaining batches: {total_batches - len(completed_batches)}")
+        
+        import time
+        overall_start_time = time.time()
+        
+        for batch_idx in range(len(completed_batches), total_batches):
+            batch_start_idx = batch_idx * processing_batch_size
+            batch_end_idx = min((batch_idx + 1) * processing_batch_size, total_documents)
+            batch_documents = dataset_as_list_of_strings[batch_start_idx:batch_end_idx]
+            
+            batch_file = batch_dir / f"batch_{batch_idx:05d}.npy"
+            
+            print(f"\n[EMBEDDINGS]   {'='*70}")
+            print(f"[EMBEDDINGS]   Processing batch {batch_idx + 1}/{total_batches}")
+            print(f"[EMBEDDINGS]   Documents: {batch_start_idx:,} to {batch_end_idx:,} ({len(batch_documents):,} documents)")
+            print(f"[EMBEDDINGS]   Batch file: {batch_file.name}")
+            
+            # Check if batch already exists (shouldn't happen, but safety check)
+            if batch_file.exists():
+                print(f"[EMBEDDINGS]   ⚠️  Batch file already exists, skipping...")
+                continue
+            
+            # Encode batch
+            print(f"[EMBEDDINGS]   Encoding batch...")
+            batch_start_time = time.time()
+            
+            try:
+                batch_embeddings = embedding_model.encode(
+                    batch_documents,
+                    show_progress_bar=True,
+                    batch_size=encoding_batch_size,
+                    convert_to_numpy=True,
+                    normalize_embeddings=False,
+                    device=device
+                )
+                batch_elapsed = time.time() - batch_start_time
+                
+                print(f"[EMBEDDINGS]   ✓ Batch encoded in {batch_elapsed:.1f} seconds")
+                print(f"[EMBEDDINGS]   Batch embeddings shape: {batch_embeddings.shape}")
+                print(f"[EMBEDDINGS]   Throughput: {len(batch_documents)/batch_elapsed:.0f} sentences/second")
+                
+                # Save batch immediately
+                print(f"[EMBEDDINGS]   Saving batch to disk...")
+                np.save(batch_file, batch_embeddings)
+                batch_size_mb = batch_file.stat().st_size / (1024**2)
+                print(f"[EMBEDDINGS]   ✓ Batch saved: {batch_file.name} ({batch_size_mb:.2f} MB)")
+                
+                # Update metadata
+                metadata['completed_batches'] = batch_idx + 1
+                metadata['last_updated'] = datetime.now().isoformat()
+                
+                # Save metadata after each batch
+                with open(metadata_file, 'w') as f:
+                    json.dump(metadata, f, indent=2)
+                print(f"[EMBEDDINGS]   ✓ Metadata updated: {batch_idx + 1}/{total_batches} batches completed")
+                
+                # Clean up batch from memory
+                del batch_embeddings
+                if device == "cuda":
+                    torch.cuda.empty_cache()
+                
+                # Progress summary
+                elapsed_total = time.time() - overall_start_time
+                remaining_batches = total_batches - (batch_idx + 1)
+                if batch_elapsed > 0:
+                    estimated_remaining = (elapsed_total / (batch_idx + 1)) * remaining_batches
+                    print(f"[EMBEDDINGS]   Progress: {batch_idx + 1}/{total_batches} batches ({100*(batch_idx+1)/total_batches:.1f}%)")
+                    print(f"[EMBEDDINGS]   Elapsed: {elapsed_total/60:.1f} minutes")
+                    print(f"[EMBEDDINGS]   Estimated remaining: {estimated_remaining/60:.1f} minutes")
+                
+            except Exception as e:
+                print(f"[EMBEDDINGS]   ❌ Error processing batch {batch_idx}: {e}")
+                import traceback
+                traceback.print_exc()
+                print(f"[EMBEDDINGS]   Batch processing failed, but previous batches are saved")
+                print(f"[EMBEDDINGS]   You can resume by running again - it will continue from batch {batch_idx + 1}")
+                raise
+        
+        overall_elapsed = time.time() - overall_start_time
+        print(f"\n[EMBEDDINGS] ✓ All batches processed successfully!")
+        print(f"[EMBEDDINGS]   Total time: {overall_elapsed/60:.1f} minutes")
+        print(f"[EMBEDDINGS]   Average throughput: {total_documents/overall_elapsed:.0f} sentences/second")
     
-    import time
-    start_time = time.time()
-    embeddings = embedding_model.encode(
-        dataset_as_list_of_strings,
-        show_progress_bar=True,
-        batch_size=batch_size,
-        convert_to_numpy=True,
-        normalize_embeddings=False,
-        device=device
-    )
-    elapsed_time = time.time() - start_time
-    print(f"⚡ Encoding completed in {elapsed_time/60:.1f} minutes")
-    print(f"   Throughput: {len(dataset_as_list_of_strings)/elapsed_time:.0f} sentences/second")
-    print(f"✅ Encoding completed, shape: {embeddings.shape}")
+    # Step 6: Concatenate all batches into final file
+    print(f"\n[EMBEDDINGS] Step 6: Concatenating batches into final embeddings file...")
+    print(f"[EMBEDDINGS]   Loading all batch files...")
     
-    # Save to cache
-    if use_cache:
-        print(f"\n💾 Saving embeddings to cache...")
-        np.save(embedding_file, embeddings)
-        print(f"✅ Cached embeddings saved")
+    batch_files = sorted([batch_dir / f"batch_{i:05d}.npy" for i in range(total_batches)])
+    print(f"[EMBEDDINGS]   Found {len(batch_files)} batch files to concatenate")
     
+    batch_arrays = []
+    for idx, batch_file in enumerate(batch_files):
+        if not batch_file.exists():
+            raise FileNotFoundError(f"Batch file missing: {batch_file}")
+        print(f"[EMBEDDINGS]   Loading batch {idx + 1}/{len(batch_files)}: {batch_file.name}")
+        batch_array = np.load(batch_file)
+        batch_arrays.append(batch_array)
+        print(f"[EMBEDDINGS]     Shape: {batch_array.shape}, Size: {batch_file.stat().st_size / (1024**2):.2f} MB")
+    
+    print(f"[EMBEDDINGS]   Concatenating {len(batch_arrays)} batches...")
+    embeddings = np.concatenate(batch_arrays, axis=0)
+    print(f"[EMBEDDINGS]   ✓ Concatenated embeddings shape: {embeddings.shape}")
+    
+    # Clean up batch arrays from memory
+    del batch_arrays
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    
+    # Save final concatenated file
+    print(f"[EMBEDDINGS]   Saving final concatenated embeddings file...")
+    np.save(embedding_file, embeddings)
+    final_size_mb = embedding_file.stat().st_size / (1024**2)
+    print(f"[EMBEDDINGS]   ✓ Final embeddings saved: {embedding_file.name} ({final_size_mb:.2f} MB)")
+    
+    # Update metadata
+    metadata['final_file_created'] = datetime.now().isoformat()
+    metadata['final_file_size_mb'] = final_size_mb
+    with open(metadata_file, 'w') as f:
+        json.dump(metadata, f, indent=2)
+    print(f"[EMBEDDINGS]   ✓ Metadata updated with final file information")
+    
+    print(f"\n[EMBEDDINGS] ========== Embedding processing completed successfully ==========")
     print(f"[STEP 3] ✓ Embeddings processing completed successfully")
     return embeddings
 
