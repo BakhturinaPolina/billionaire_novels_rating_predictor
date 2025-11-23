@@ -1,421 +1,289 @@
-"""Pareto efficiency analysis for model selection."""
-
-import logging
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+"""Pareto efficiency analysis functions."""
 
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from scipy.stats import pearsonr, spearmanr
+from pathlib import Path
+from typing import List, Tuple, Dict, Any
+import math
 
-logger = logging.getLogger(__name__)
 
-
-def load_evaluation_results(csv_path: Path) -> pd.DataFrame:
+def identify_pareto(df: pd.DataFrame, metrics: List[str]) -> np.ndarray:
     """
-    Load and validate model evaluation results CSV.
+    Identify Pareto-efficient points for given metrics.
     
-    Args:
-        csv_path: Path to model_evaluation_results.csv
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        DataFrame containing the data points
+    metrics : list
+        List of column names to use for Pareto analysis
         
     Returns:
-        DataFrame with evaluation results
-        
-    Raises:
-        FileNotFoundError: If CSV file doesn't exist
-        ValueError: If required columns are missing
+    --------
+    np.ndarray
+        Boolean array indicating whether each row is Pareto-efficient
     """
-    if not csv_path.exists():
-        raise FileNotFoundError(f"CSV file not found: {csv_path}")
+    pareto_efficient = np.ones(df.shape[0], dtype=bool)
+    # Use enumerate to get positional index, not DataFrame index
+    for pos_idx, (df_idx, row) in enumerate(df.iterrows()):
+        # If there are any other points that are strictly better, mark as not Pareto-efficient
+        # Compare current row with all rows (including itself)
+        other_rows_better = (
+            np.all(df[metrics].values >= row[metrics].values, axis=1) & 
+            np.any(df[metrics].values > row[metrics].values, axis=1)
+        )
+        pareto_efficient[pos_idx] = not np.any(other_rows_better)
+    return pareto_efficient
+
+
+def clean_data(
+    df: pd.DataFrame,
+    remove_failed: bool = True,
+    outlier_std_dev: float = 2.0
+) -> Tuple[pd.DataFrame, Dict[str, Any]]:
+    """
+    Clean model evaluation data by removing failed runs and outliers.
     
-    logger.info(f"Loading evaluation results from: {csv_path}")
-    df = pd.read_csv(csv_path)
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Input dataframe with model evaluation results
+    remove_failed : bool
+        Remove runs where Topic_Diversity or Coherence equals 1.0
+    outlier_std_dev : float
+        Number of standard deviations for outlier bounds
+        
+    Returns:
+    --------
+    Tuple[pd.DataFrame, Dict[str, Any]]
+        Cleaned dataframe and statistics dictionary
+    """
+    df_clean = df.copy()
+    stats = {}
     
-    # Reset index to ensure it's unique
-    df = df.reset_index(drop=True)
+    # Remove failed runs
+    if remove_failed:
+        initial_count = len(df_clean)
+        df_clean = df_clean[
+            (df_clean['Topic_Diversity'] < 1.0) & 
+            (df_clean['Coherence'] < 1.0)
+        ].copy()
+        stats['removed_failed'] = initial_count - len(df_clean)
+        stats['after_failed_removal'] = len(df_clean)
     
-    # Validate required columns
-    required_columns = ['Embeddings_Model', 'Coherence', 'Topic_Diversity']
-    missing_columns = [col for col in required_columns if col not in df.columns]
-    if missing_columns:
-        raise ValueError(f"Missing required columns: {missing_columns}")
+    # Compute bounds for outlier detection
+    coherence_mean = df_clean['Coherence'].mean()
+    coherence_std = df_clean['Coherence'].std()
+    topic_diversity_mean = df_clean['Topic_Diversity'].mean()
+    topic_diversity_std = df_clean['Topic_Diversity'].std()
     
-    logger.info(f"Loaded {len(df)} model evaluation results")
-    logger.info(f"Columns: {list(df.columns)}")
+    coherence_lower = coherence_mean - outlier_std_dev * coherence_std
+    coherence_upper = coherence_mean + outlier_std_dev * coherence_std
+    topic_diversity_lower = topic_diversity_mean - outlier_std_dev * topic_diversity_std
+    topic_diversity_upper = topic_diversity_mean + outlier_std_dev * topic_diversity_std
     
-    return df
+    stats['coherence_bounds'] = [coherence_lower, coherence_upper]
+    stats['topic_diversity_bounds'] = [topic_diversity_lower, topic_diversity_upper]
+    
+    # Remove outliers sequentially
+    before_outliers = len(df_clean)
+    df_clean = df_clean[
+        (df_clean['Coherence'] >= coherence_lower) & 
+        (df_clean['Coherence'] <= coherence_upper)
+    ]
+    df_clean = df_clean[
+        (df_clean['Topic_Diversity'] >= topic_diversity_lower) & 
+        (df_clean['Topic_Diversity'] <= topic_diversity_upper)
+    ]
+    df_clean = df_clean.reset_index(drop=True)
+    
+    stats['removed_outliers'] = before_outliers - len(df_clean)
+    stats['final_count'] = len(df_clean)
+    
+    return df_clean, stats
 
 
 def normalize_metrics(
     df: pd.DataFrame,
-    metrics: List[str] = None,
-    scaler: Optional[StandardScaler] = None
-) -> Tuple[pd.DataFrame, StandardScaler]:
+    method: str = "zscore"
+) -> pd.DataFrame:
     """
-    Apply Z-score normalization to specified metrics.
+    Normalize Coherence and Topic Diversity metrics.
     
-    Args:
-        df: DataFrame with metrics to normalize
-        metrics: List of metric column names to normalize
-        scaler: Optional pre-fitted scaler (if None, fits new scaler)
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Dataframe with Coherence and Topic_Diversity columns
+    method : str
+        Normalization method: "zscore" or "minmax"
         
     Returns:
-        Tuple of (DataFrame with normalized columns added, fitted scaler)
+    --------
+    pd.DataFrame
+        Dataframe with added normalized columns
     """
-    if metrics is None:
-        metrics = ['Coherence', 'Topic_Diversity']
+    df_norm = df.copy()
     
-    # Check that all metrics exist
-    missing_metrics = [m for m in metrics if m not in df.columns]
-    if missing_metrics:
-        raise ValueError(f"Missing metric columns: {missing_metrics}")
-    
-    # Ensure index is unique
-    df = df.reset_index(drop=True).copy()
-    
-    # Check if normalized columns already exist
-    normalized_columns = [f"{metric}_norm" for metric in metrics]
-    existing_norm_cols = [col for col in normalized_columns if col in df.columns]
-    
-    if existing_norm_cols:
-        logger.info(f"Normalized columns already exist: {existing_norm_cols}. Recalculating...")
-        # Remove existing normalized columns
-        df = df.drop(columns=existing_norm_cols)
-    
-    logger.info(f"Normalizing metrics: {metrics}")
-    
-    # Extract metric values
-    metric_values = df[metrics].values
-    
-    # Fit or use existing scaler
-    if scaler is None:
+    if method == "zscore":
         scaler = StandardScaler()
-        normalized_values = scaler.fit_transform(metric_values)
+        df_norm[['Coherence_norm', 'Topic_Diversity_norm']] = scaler.fit_transform(
+            df_norm[['Coherence', 'Topic_Diversity']]
+        )
+    elif method == "minmax":
+        scaler = MinMaxScaler()
+        df_norm[['Coherence_norm', 'Topic_Diversity_norm']] = scaler.fit_transform(
+            df_norm[['Coherence', 'Topic_Diversity']]
+        )
     else:
-        normalized_values = scaler.transform(metric_values)
+        raise ValueError(f"Unknown normalization method: {method}")
     
-    # Add normalized columns
-    for i, col_name in enumerate(normalized_columns):
-        df[col_name] = normalized_values[:, i]
-    
-    logger.info(f"Added normalized columns: {normalized_columns}")
-    logger.info(f"Normalized value ranges: {[(col, df[col].min(), df[col].max()) for col in normalized_columns]}")
-    
-    return df, scaler
+    return df_norm
 
 
 def calculate_combined_score(
     df: pd.DataFrame,
-    weight_coherence: float = 0.5,
-    weight_diversity: float = 0.5,
-    coherence_col: str = 'Coherence_norm',
-    diversity_col: str = 'Topic_Diversity_norm'
+    weight_coherence: float,
+    weight_topic_diversity: float
 ) -> pd.DataFrame:
     """
     Calculate combined score from normalized metrics.
     
-    Args:
-        df: DataFrame with normalized metrics
-        weight_coherence: Weight for coherence (default: 0.5)
-        weight_diversity: Weight for diversity (default: 0.5)
-        coherence_col: Column name for normalized coherence
-        diversity_col: Column name for normalized diversity
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Dataframe with normalized metrics
+    weight_coherence : float
+        Weight for coherence in combined score
+    weight_topic_diversity : float
+        Weight for topic diversity in combined score
         
     Returns:
-        DataFrame with Combined_Score column added
+    --------
+    pd.DataFrame
+        Dataframe with added Combined_Score column
     """
-    # Validate weights sum to 1.0 (with small tolerance)
-    weight_sum = weight_coherence + weight_diversity
-    if abs(weight_sum - 1.0) > 1e-6:
-        logger.warning(f"Weights sum to {weight_sum}, not 1.0. Normalizing...")
-        weight_coherence = weight_coherence / weight_sum
-        weight_diversity = weight_diversity / weight_sum
-    
-    # Check that normalized columns exist
-    if coherence_col not in df.columns:
-        raise ValueError(f"Column not found: {coherence_col}")
-    if diversity_col not in df.columns:
-        raise ValueError(f"Column not found: {diversity_col}")
-    
-    logger.info(f"Calculating combined score with weights: coherence={weight_coherence}, diversity={weight_diversity}")
-    
-    # Calculate combined score
-    df['Combined_Score'] = (
-        weight_coherence * df[coherence_col] +
-        weight_diversity * df[diversity_col]
+    df_scored = df.copy()
+    df_scored['Combined_Score'] = (
+        weight_coherence * df_scored['Coherence_norm'] + 
+        weight_topic_diversity * df_scored['Topic_Diversity_norm']
     )
-    
-    logger.info(f"Combined score range: [{df['Combined_Score'].min():.4f}, {df['Combined_Score'].max():.4f}]")
-    
-    return df
+    return df_scored
 
 
-def identify_pareto_efficient(
+def analyze_pareto_efficiency(
     df: pd.DataFrame,
     metrics: List[str],
-    groupby: Optional[str] = None
+    per_model: bool = True
 ) -> pd.DataFrame:
     """
-    Identify Pareto-efficient points.
+    Identify Pareto-efficient models.
     
-    A point is Pareto-efficient if no other point dominates it (i.e., no other point
-    has >= values in all metrics and > value in at least one metric).
-    
-    Args:
-        df: DataFrame with metrics
-        metrics: List of metric column names for Pareto analysis
-        groupby: Optional column name to group by (e.g., 'Embeddings_Model')
-                If provided, Pareto efficiency is calculated within each group
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Dataframe with normalized metrics
+    metrics : list
+        List of metric column names for Pareto analysis
+    per_model : bool
+        Also analyze Pareto efficiency per embedding model
         
     Returns:
-        DataFrame with 'Pareto_Efficient' boolean column added
+    --------
+    pd.DataFrame
+        Dataframe with Pareto efficiency flags
     """
-    # Validate metrics exist
-    missing_metrics = [m for m in metrics if m not in df.columns]
-    if missing_metrics:
-        raise ValueError(f"Missing metric columns: {missing_metrics}")
+    df_pareto = df.copy()
     
-    logger.info(f"Identifying Pareto-efficient points for metrics: {metrics}")
-    if groupby:
-        logger.info(f"Grouping by: {groupby}")
+    # Overall Pareto efficiency
+    df_pareto['Pareto_Efficient_All'] = identify_pareto(df_pareto, metrics)
     
-    # Initialize result column
-    df['Pareto_Efficient'] = False
+    # Per-model Pareto efficiency
+    if per_model:
+        df_pareto['Pareto_Efficient_PerModel'] = False
+        for model_name, group in df_pareto.groupby('Embeddings_Model'):
+            pareto_flags = identify_pareto(group, metrics)
+            df_pareto.loc[group.index, 'Pareto_Efficient_PerModel'] = pareto_flags
     
-    if groupby:
-        # Calculate Pareto efficiency within each group
-        for group_name, group_df in df.groupby(groupby):
-            group_indices = group_df.index
-            pareto_flags = _calculate_pareto_flags(group_df[metrics].values)
-            df.loc[group_indices, 'Pareto_Efficient'] = pareto_flags
-            logger.info(f"Group '{group_name}': {pareto_flags.sum()}/{len(group_df)} Pareto-efficient")
+    return df_pareto
+
+
+def cohen_d(group1: pd.Series, group2: pd.Series) -> float:
+    """Calculate Cohen's d for two groups."""
+    diff_mean = np.mean(group1) - np.mean(group2)
+    pooled_std = np.sqrt(((np.std(group1, ddof=1) ** 2) + (np.std(group2, ddof=1) ** 2)) / 2)
+    return diff_mean / pooled_std if pooled_std > 0 else 0
+
+
+def choose_test(df: pd.DataFrame, parameter: str, metric: str) -> Tuple[float, float, str]:
+    """
+    Choose between Pearson or Spearman based on data distribution.
+    
+    Returns:
+    --------
+    Tuple[float, float, str]
+        Correlation coefficient, p-value, and test type
+    """
+    if abs(df[parameter].skew()) < 1:
+        corr, p_value = pearsonr(df[parameter], df[metric])
+        test_type = "Pearson"
     else:
-        # Calculate Pareto efficiency across all points
-        pareto_flags = _calculate_pareto_flags(df[metrics].values)
-        df['Pareto_Efficient'] = pareto_flags
-        logger.info(f"Overall: {pareto_flags.sum()}/{len(df)} Pareto-efficient")
-    
-    return df
+        corr, p_value = spearmanr(df[parameter], df[metric])
+        test_type = "Spearman"
+    return corr, p_value, test_type
 
 
-def _calculate_pareto_flags(metric_values: np.ndarray) -> np.ndarray:
-    """
-    Calculate Pareto efficiency flags for a set of points.
-    
-    Args:
-        metric_values: Array of shape (n_points, n_metrics) with metric values
-        
-    Returns:
-        Boolean array of shape (n_points,) indicating Pareto efficiency
-    """
-    n_points = metric_values.shape[0]
-    pareto_efficient = np.ones(n_points, dtype=bool)
-    
-    # For each point, check if any other point dominates it
-    for i in range(n_points):
-        point = metric_values[i]
-        # Check if any other point has >= values in all metrics and > in at least one
-        # A point j dominates point i if:
-        #   - All metrics of j >= metrics of i (all(metric_values[j] >= point))
-        #   - At least one metric of j > metric of i (any(metric_values[j] > point))
-        dominated = np.any(
-            np.all(metric_values >= point, axis=1) &
-            np.any(metric_values > point, axis=1)
-        )
-        # If dominated, then not Pareto-efficient
-        pareto_efficient[i] = not dominated
-    
-    return pareto_efficient
+def calculate_cohens_d(df: pd.DataFrame, parameter: str, metric: str) -> float:
+    """Split by median and calculate Cohen's d."""
+    median_value = df[parameter].median()
+    group1 = df[df[parameter] <= median_value][metric]
+    group2 = df[df[parameter] > median_value][metric]
+    return cohen_d(group1, group2)
 
 
-def filter_outliers(
+def analyze_hyperparameters(
     df: pd.DataFrame,
-    outlier_config: Dict[str, any]
+    hyperparameters: List[str],
+    performance_metrics: List[str]
 ) -> pd.DataFrame:
     """
-    Filter outliers that may represent models with too few topics.
+    Analyze correlations and effect sizes between hyperparameters and performance metrics.
     
-    Models with very few topics can have artificially high diversity scores
-    because there are fewer topics to compare, making them appear more diverse.
-    
-    Args:
-        df: DataFrame to filter
-        outlier_config: Dictionary with outlier filtering configuration:
-            - max_diversity: Maximum allowed diversity (filters extreme values)
-            - use_iqr: Whether to use IQR method for outlier detection
-            - iqr_multiplier: Multiplier for IQR (default: 1.5)
+    Parameters:
+    -----------
+    df : pd.DataFrame
+        Dataframe with hyperparameters and performance metrics
+    hyperparameters : list
+        List of hyperparameter column names
+    performance_metrics : list
+        List of performance metric column names
         
     Returns:
-        Filtered DataFrame
+    --------
+    pd.DataFrame
+        Dataframe with correlation analysis results
     """
-    original_len = len(df)
-    df_filtered = df.copy()
+    results = {
+        'Hyperparameter': [],
+        'Metric': [],
+        'Correlation': [],
+        'p-value': [],
+        'Test_Type': [],
+        'Cohen_d': []
+    }
     
-    logger.info("Filtering outliers:")
+    for param in hyperparameters:
+        for metric in performance_metrics:
+            corr, p_val, test_type = choose_test(df, param, metric)
+            cohens_d_val = calculate_cohens_d(df, param, metric)
+            
+            results['Hyperparameter'].append(param)
+            results['Metric'].append(metric)
+            results['Correlation'].append(corr)
+            results['p-value'].append(p_val)
+            results['Test_Type'].append(test_type)
+            results['Cohen_d'].append(cohens_d_val)
     
-    # Filter by maximum diversity threshold (catches models with very few topics)
-    if 'max_diversity' in outlier_config and outlier_config['max_diversity'] is not None:
-        threshold = outlier_config['max_diversity']
-        before = len(df_filtered)
-        df_filtered = df_filtered[df_filtered['Topic_Diversity'] <= threshold]
-        logger.info(f"  max_diversity <= {threshold}: {before} -> {len(df_filtered)} rows")
-    
-    # Use IQR method to filter outliers
-    if outlier_config.get('use_iqr', False):
-        before = len(df_filtered)
-        
-        # Calculate IQR for both metrics
-        q1_co = df_filtered['Coherence'].quantile(0.25)
-        q3_co = df_filtered['Coherence'].quantile(0.75)
-        iqr_co = q3_co - q1_co
-        
-        q1_div = df_filtered['Topic_Diversity'].quantile(0.25)
-        q3_div = df_filtered['Topic_Diversity'].quantile(0.75)
-        iqr_div = q3_div - q1_div
-        
-        multiplier = outlier_config.get('iqr_multiplier', 1.5)
-        
-        # Filter outliers (values beyond Q3 + multiplier*IQR or below Q1 - multiplier*IQR)
-        # For diversity, we mainly care about upper outliers (too high = suspicious)
-        # For coherence, we filter both extremes
-        coherence_outliers = (
-            (df_filtered['Coherence'] > q3_co + multiplier * iqr_co) |
-            (df_filtered['Coherence'] < q1_co - multiplier * iqr_co)
-        )
-        diversity_outliers = df_filtered['Topic_Diversity'] > q3_div + multiplier * iqr_div
-        
-        # Remove outliers
-        df_filtered = df_filtered[~(coherence_outliers | diversity_outliers)]
-        
-        removed = before - len(df_filtered)
-        logger.info(f"  IQR outlier removal (multiplier={multiplier}): {before} -> {len(df_filtered)} rows (removed {removed})")
-    
-    logger.info(f"Outlier filtering complete: {original_len} -> {len(df_filtered)} rows")
-    
-    return df_filtered
-
-
-def apply_constraints(
-    df: pd.DataFrame,
-    constraints: Dict[str, Optional[float]]
-) -> pd.DataFrame:
-    """
-    Apply constraints to filter DataFrame.
-    
-    Args:
-        df: DataFrame to filter
-        constraints: Dictionary of constraint_name -> threshold value
-                    (None means constraint is not applied)
-        
-    Returns:
-        Filtered DataFrame
-    """
-    original_len = len(df)
-    df_filtered = df.copy()
-    
-    logger.info("Applying constraints:")
-    
-    # Apply min_nr_topics constraint (if specified and column exists)
-    if 'min_nr_topics' in constraints and constraints['min_nr_topics'] is not None:
-        threshold = constraints['min_nr_topics']
-        if 'nr_topics' in df_filtered.columns:
-            before = len(df_filtered)
-            df_filtered = df_filtered[df_filtered['nr_topics'] >= threshold]
-            logger.info(f"  min_nr_topics >= {threshold}: {before} -> {len(df_filtered)} rows")
-        else:
-            logger.warning("  min_nr_topics constraint specified but 'nr_topics' column not found. Skipping.")
-    
-    # Apply max_nr_topics constraint (if specified and column exists)
-    if 'max_nr_topics' in constraints and constraints['max_nr_topics'] is not None:
-        threshold = constraints['max_nr_topics']
-        if 'nr_topics' in df_filtered.columns:
-            before = len(df_filtered)
-            df_filtered = df_filtered[df_filtered['nr_topics'] <= threshold]
-            logger.info(f"  max_nr_topics <= {threshold}: {before} -> {len(df_filtered)} rows")
-        else:
-            logger.warning("  max_nr_topics constraint specified but 'nr_topics' column not found. Skipping.")
-    
-    # Apply min_coherence constraint
-    if 'min_coherence' in constraints and constraints['min_coherence'] is not None:
-        threshold = constraints['min_coherence']
-        before = len(df_filtered)
-        df_filtered = df_filtered[df_filtered['Coherence'] >= threshold]
-        logger.info(f"  min_coherence >= {threshold}: {before} -> {len(df_filtered)} rows")
-    
-    # Apply min_diversity constraint
-    if 'min_diversity' in constraints and constraints['min_diversity'] is not None:
-        threshold = constraints['min_diversity']
-        before = len(df_filtered)
-        df_filtered = df_filtered[df_filtered['Topic_Diversity'] >= threshold]
-        logger.info(f"  min_diversity >= {threshold}: {before} -> {len(df_filtered)} rows")
-    
-    logger.info(f"Constraints applied: {original_len} -> {len(df_filtered)} rows")
-    
-    return df_filtered
-
-
-def select_top_models(
-    df: pd.DataFrame,
-    top_k: int = 10,
-    tie_breaker: str = 'coherence',
-    score_column: str = 'Combined_Score',
-    pareto_column: str = 'Pareto_Efficient'
-) -> pd.DataFrame:
-    """
-    Select top K models from Pareto-efficient models.
-    
-    Args:
-        df: DataFrame with Pareto-efficient models
-        top_k: Number of top models to select
-        tie_breaker: Column name to use for breaking ties (default: 'coherence')
-        score_column: Column name for sorting (default: 'Combined_Score')
-        pareto_column: Column name indicating Pareto efficiency (default: 'Pareto_Efficient')
-        
-    Returns:
-        DataFrame with top K models, sorted by score
-    """
-    # Ensure index is unique before filtering
-    df = df.reset_index(drop=True).copy()
-    
-    # Filter to Pareto-efficient models if column exists
-    if pareto_column in df.columns:
-        # Get boolean mask as numpy array to avoid reindexing issues
-        mask = df[pareto_column].fillna(False).values
-        df_pareto = df.iloc[mask].reset_index(drop=True).copy()
-        logger.info(f"Filtering to {len(df_pareto)} Pareto-efficient models (using column: {pareto_column})")
-    elif 'Pareto_Efficient' in df.columns:
-        mask = df['Pareto_Efficient'].fillna(False).values
-        df_pareto = df.iloc[mask].reset_index(drop=True).copy()
-        logger.info(f"Filtering to {len(df_pareto)} Pareto-efficient models (using default column)")
-    else:
-        df_pareto = df.copy()
-        logger.warning("'Pareto_Efficient' column not found. Using all models.")
-    
-    if len(df_pareto) == 0:
-        logger.warning("No Pareto-efficient models found. Returning empty DataFrame.")
-        return df_pareto
-    
-    # Sort by score (descending), then by tie_breaker (descending)
-    if score_column not in df_pareto.columns:
-        raise ValueError(f"Score column not found: {score_column}")
-    
-    sort_columns = [score_column]
-    if tie_breaker in df_pareto.columns and tie_breaker != score_column:
-        sort_columns.append(tie_breaker)
-    
-    df_sorted = df_pareto.sort_values(
-        by=sort_columns,
-        ascending=False
-    )
-    
-    # Select top K
-    top_models = df_sorted.head(top_k).copy()
-    
-    # Add rank column
-    top_models['pareto_rank'] = range(1, len(top_models) + 1)
-    
-    logger.info(f"Selected top {len(top_models)} models")
-    logger.info(f"Score range: [{top_models[score_column].min():.4f}, {top_models[score_column].max():.4f}]")
-    
-    return top_models
+    return pd.DataFrame(results)
 
