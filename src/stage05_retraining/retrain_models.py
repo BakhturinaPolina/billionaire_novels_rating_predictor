@@ -5,6 +5,7 @@ import json
 import pickle
 import csv
 import re
+import unicodedata
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
 from datetime import datetime
@@ -12,6 +13,7 @@ from datetime import datetime
 import numpy as np
 import pandas as pd
 import torch
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 
 # Helper functions for formatted output (matching stage03_modeling style)
@@ -83,6 +85,78 @@ from src.stage03_modeling.bertopic_octis_model import (
 )
 
 
+def load_custom_stopwords(stoplist_path: Path) -> List[str]:
+    """
+    Load custom stopwords from a file.
+    
+    Args:
+        stoplist_path: Path to the custom stoplist file
+        
+    Returns:
+        List of stopwords
+    """
+    if not stoplist_path.exists():
+        print(f"⚠️ Custom stoplist not found at: {stoplist_path}")
+        return []
+        
+    print(f"📖 Loading custom stopwords from: {stoplist_path}")
+    stopwords = set()
+    try:
+        with open(stoplist_path, 'r', encoding='utf-8', errors='ignore') as f:
+            for line in f:
+                word = line.strip()
+                if word and not word.startswith('#'):
+                    # Add original
+                    stopwords.add(word)
+                    # Add lowercase
+                    stopwords.add(word.lower())
+                    
+        print(f"✅ Loaded {len(stopwords)} unique custom stopwords")
+        return list(stopwords)
+    except Exception as e:
+        print(f"❌ Error loading custom stoplist: {e}")
+        return []
+
+
+def clean_text(text: str) -> str:
+    """
+    Clean text by fixing mojibake and normalizing unicode.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        Cleaned text
+    """
+    if not isinstance(text, str):
+        return str(text)
+        
+    # Fix common mojibake artifacts
+    mojibake_map = {
+        'â€™': "'",
+        'â€œ': '"',
+        'â€': '"',
+        'â€“': '-',
+        'â€”': '-',
+        'â€˜': "'",
+        'â€¦': '...',
+        'â€': '"', # Generic catch-all for remaining quotes
+    }
+    
+    for bad, good in mojibake_map.items():
+        text = text.replace(bad, good)
+    
+    # Normalize unicode (decomposes characters, e.g., é -> e + accent)
+    # NFKD compatibility decomposition
+    text = unicodedata.normalize('NFKD', text)
+    
+    # Remove newlines and excessive whitespace
+    text = re.sub(r'\n+', ' ', text)
+    text = re.sub(r'\s+', ' ', text)
+    
+    return text.strip().lower()
+
+
 def load_and_validate_csv(csv_path: Path) -> Tuple[pd.DataFrame, List[str], List[List[str]]]:
     """
     Load CSV file and validate structure.
@@ -126,17 +200,14 @@ def load_and_validate_csv(csv_path: Path) -> Tuple[pd.DataFrame, List[str], List
         raise ValueError(f"'Sentence' column not found. Available columns: {df.columns}")
     
     print("\n🧹 Cleaning sentences...")
+    print("   - Fixing mojibake artifacts")
+    print("   - Normalizing unicode")
     print("   - Removing newlines")
     print("   - Normalizing whitespace")
     print("   - Converting to lowercase")
     
     # Clean sentences
-    df['Sentence'] = df['Sentence'].apply(
-        lambda x: re.sub(r'\n+', ' ', str(x)) if isinstance(x, str) else str(x)
-    )
-    df['Sentence'] = df['Sentence'].apply(
-        lambda x: re.sub(r'\s+', ' ', x).strip().lower()
-    )
+    df['Sentence'] = df['Sentence'].apply(clean_text)
     
     # Show sample
     print("\n📝 Sample cleaned sentences:")
@@ -166,7 +237,7 @@ def load_and_validate_csv(csv_path: Path) -> Tuple[pd.DataFrame, List[str], List
 
 def create_octis_dataset(csv_path: Path, octis_dataset_path: Path, 
                         df: pd.DataFrame) -> Path:
-    """Create OCTIS dataset format (corpus.tsv)."""
+    """Create OCTIS dataset format (corpus.tsv) using cleaned DataFrame."""
     print_step(2, f"Creating OCTIS dataset format")
     
     # Create directory if needed
@@ -176,23 +247,57 @@ def create_octis_dataset(csv_path: Path, octis_dataset_path: Path,
     corpus_tsv_path = octis_dataset_path / 'corpus.tsv'
     print(f"📄 Output file: {corpus_tsv_path}")
     
-    # Read original CSV to get raw sentences
-    print("\n📖 Reading original CSV for OCTIS format...")
-    tsv_data = []
+    # Use cleaned DataFrame instead of re-reading raw CSV
+    print("\n📖 Preparing OCTIS format from cleaned DataFrame...")
+    print(f"   Using cleaned sentences (already processed for mojibake, unicode, etc.)")
     
-    with open(csv_path, mode='r', newline='', encoding='latin1') as csv_file:
-        csv_reader = csv.reader(csv_file)
-        header = next(csv_reader)  # Skip header
+    # Identify column names (handle different possible column name formats)
+    sentence_col = 'Sentence'
+    author_col = None
+    book_title_col = None
+    
+    # Try to find author and book title columns
+    possible_author_names = ['Author', 'author', 'Author_Name', 'author_name']
+    possible_book_names = ['Book_Title', 'book_title', 'Book', 'book', 'Title', 'title']
+    
+    for col in df.columns:
+        if col in possible_author_names:
+            author_col = col
+        if col in possible_book_names:
+            book_title_col = col
+    
+    # If not found, try to infer from column order (assuming standard: Author, Book_Title, Chapter, Sentence)
+    if author_col is None or book_title_col is None:
+        cols = list(df.columns)
+        if len(cols) >= 4:
+            # Assume standard order: Author, Book_Title, Chapter, Sentence
+            if author_col is None and cols[0].lower() not in ['sentence', 'chapter']:
+                author_col = cols[0]
+            if book_title_col is None and cols[1].lower() not in ['sentence', 'chapter']:
+                book_title_col = cols[1]
+    
+    print(f"   Detected columns: Sentence='{sentence_col}', Author='{author_col}', Book_Title='{book_title_col}'")
+    
+    # Prepare TSV data using cleaned DataFrame
+    tsv_data = []
+    for idx, row in df.iterrows():
+        sentence = row[sentence_col]  # Already cleaned by clean_text()
+        partition = 'train'
         
-        for row in csv_reader:
-            if len(row) == 4:
-                author, book_title, chapter, sentence = row
-                partition = 'train'
-                label = f"{author},{book_title}"
-                tsv_data.append([sentence, partition, label])
+        # Build label from author and book title if available
+        if author_col and book_title_col and author_col in df.columns and book_title_col in df.columns:
+            author = str(row[author_col]) if pd.notna(row[author_col]) else 'unknown'
+            book_title = str(row[book_title_col]) if pd.notna(row[book_title_col]) else 'unknown'
+            label = f"{author},{book_title}"
+        else:
+            # Fallback: use index or generic label
+            label = f"doc_{idx}"
+        
+        tsv_data.append([sentence, partition, label])
     
     print(f"✅ Prepared {len(tsv_data)} rows for OCTIS format")
     print(f"   Format: sentence<TAB>partition<TAB>label")
+    print(f"   All sentences are cleaned (mojibake fixed, unicode normalized, lowercase)")
     
     # Write TSV file
     print(f"\n💾 Writing corpus.tsv...")
@@ -214,6 +319,44 @@ def create_octis_dataset(csv_path: Path, octis_dataset_path: Path,
     except Exception as e:
         print(f"❌ Failed to load OCTIS dataset: {e}")
         raise
+    
+    # Verify consistency: Compare sample sentences from training data and OCTIS corpus
+    print("\n🔍 Verifying consistency between training text and OCTIS corpus...")
+    print("   Comparing first 5 sentences from both sources:")
+    octis_corpus = octis_dataset.get_corpus()
+    
+    # Get first 5 sentences from training data (already cleaned)
+    training_samples = df[sentence_col].head(5).tolist()
+    
+    # Get first 5 sentences from OCTIS corpus (should also be cleaned)
+    octis_samples = []
+    for i in range(min(5, len(octis_corpus))):
+        # OCTIS corpus is list of lists (tokenized), join back to string
+        if isinstance(octis_corpus[i], list):
+            octis_samples.append(' '.join(octis_corpus[i]))
+        else:
+            octis_samples.append(str(octis_corpus[i]))
+    
+    matches = 0
+    for i, (train_sent, octis_sent) in enumerate(zip(training_samples, octis_samples)):
+        # Normalize for comparison (strip whitespace)
+        train_normalized = train_sent.strip().lower()
+        octis_normalized = octis_sent.strip().lower()
+        
+        if train_normalized == octis_normalized:
+            matches += 1
+            print(f"   ✓ Sentence {i+1}: Match")
+        else:
+            print(f"   ✗ Sentence {i+1}: MISMATCH")
+            print(f"      Training: {train_sent[:80]}...")
+            print(f"      OCTIS:    {octis_sent[:80]}...")
+    
+    print(f"\n   Consistency check: {matches}/{len(training_samples)} sentences match")
+    if matches == len(training_samples):
+        print("   ✅ All sample sentences match - consistency verified!")
+    else:
+        print(f"   ⚠️  Warning: {len(training_samples) - matches} mismatches found")
+        print("   This may indicate preprocessing inconsistency")
     
     print(f"[STEP 2] ✓ OCTIS dataset creation completed successfully")
     return corpus_tsv_path
@@ -567,8 +710,28 @@ class RetrainableBERTopicModel(BERTopicOctisModelWithEmbeddings):
         print(f"[TRAIN] ✓ HDBSCAN model created")
         
         print(f"[TRAIN] Creating CountVectorizer...")
-        vectorizer_model = CountVectorizer(**self.hyperparameters['vectorizer'])
-        print(f"[TRAIN] ✓ CountVectorizer created")
+        
+        # Load custom stopwords
+        custom_stoplist_path = Path("data/processed/custom_stoplist.txt")
+        custom_stopwords = load_custom_stopwords(custom_stoplist_path)
+        
+        # Combine with English stopwords
+        all_stopwords = list(ENGLISH_STOP_WORDS.union(custom_stopwords))
+        print(f"[TRAIN] Total stopwords: {len(all_stopwords)}")
+        
+        # Update vectorizer params
+        vectorizer_params = self.hyperparameters.get('vectorizer', {}).copy()
+        vectorizer_params['stop_words'] = all_stopwords
+        
+        # Enforce stricter token pattern to avoid empty strings and single characters
+        # Default is r'(?u)\b\w\w+\b' which means word chars of length >= 2
+        # User reported empty words, so ensure pattern handles it
+        if 'token_pattern' not in vectorizer_params:
+            vectorizer_params['token_pattern'] = r'(?u)\b[a-zA-Z]{2,}\b'
+            print(f"[TRAIN] Set default token_pattern: {vectorizer_params['token_pattern']}")
+        
+        vectorizer_model = CountVectorizer(**vectorizer_params)
+        print(f"[TRAIN] ✓ CountVectorizer created with {len(all_stopwords)} stopwords")
         
         print(f"[TRAIN] Creating ClassTfidfTransformer...")
         tfdf_model = ClassTfidfTransformer(**self.hyperparameters['tfdf_vectorizer'])
@@ -646,6 +809,28 @@ class RetrainableBERTopicModel(BERTopicOctisModelWithEmbeddings):
         
         if not output_dict['topics']:
             output_dict['topics'] = None
+        else:
+            # Fix for OCTIS save_model_output: pad all topic word lists to same length
+            # This prevents "inhomogeneous shape" error when saving with np.savez_compressed
+            # OCTIS expects topics to be numpy-compatible (same shape for all arrays)
+            max_topic_length = max(len(words) for words in output_dict['topics'])
+            print(f"[TRAIN] Padding topic word lists to length {max_topic_length} for numpy compatibility")
+            
+            # Pad each topic's word list to max_topic_length with empty strings
+            padded_topics = []
+            for words in output_dict['topics']:
+                padded_words = words + [''] * (max_topic_length - len(words))
+                padded_topics.append(padded_words)
+            
+            # Convert to numpy array (numpy will infer string dtype automatically)
+            # All lists are now the same length, so numpy can create a homogeneous 2D array
+            try:
+                output_dict['topics'] = np.array(padded_topics)
+                print(f"[TRAIN] ✓ Topics converted to numpy array (shape: {output_dict['topics'].shape}, dtype: {output_dict['topics'].dtype})")
+            except Exception as e:
+                print(f"[TRAIN] ⚠️ Warning: Could not convert topics to numpy array: {e}")
+                print(f"[TRAIN] Keeping topics as list (may cause save issues)")
+                # Keep as list if conversion fails (fallback)
         
         output_dict['topic-word-matrix'] = np.array([])  # Placeholder
         output_dict['topic-document-matrix'] = np.array(probabilities)
