@@ -80,8 +80,6 @@ This structure facilitates multi-level analyses, such as tracking topic evolutio
    - Columns: `book_id`, `author_id`, `group` ∈ {Top, Medium, Trash}, `avg_rating`, `n_ratings`, `length_tokens|words`, optional `year`
    - Description: Book metadata with popularity grouping
 
-#### Optional Inputs
-
 4. **`chapter_topic_probs.csv`**
    - Columns: `book_id`, `chapter_id/segment` ∈ {begin, middle, end}, `topic_id`, `prob`
    - Description: Per-chapter topic mixtures

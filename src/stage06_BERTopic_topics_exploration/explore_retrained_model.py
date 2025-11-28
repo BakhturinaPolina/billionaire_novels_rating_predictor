@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import logging
 import pickle
 import re
@@ -445,6 +446,171 @@ def evaluate_representations(
     return results
 
 
+def extract_all_topics(
+    topic_model: BERTopic,
+    top_k: int = 10,
+) -> dict[str, dict[int, list[dict[str, Any]]]]:
+    """
+    Extract all topics with word lists for all representations.
+    
+    Returns a nested dictionary:
+    {
+        "Main": {
+            topic_id: [{"word": str, "score": float}, ...],
+            ...
+        },
+        "KeyBERT": {
+            topic_id: [{"word": str, "score": float}, ...],
+            ...
+        },
+        ...
+    }
+    
+    Based on BERTopic documentation:
+    - topic_representations_: Main c-TF-IDF representation
+    - topic_aspects_: Additional representations (KeyBERT, POS, MMR, etc.)
+    """
+    all_topics: dict[str, dict[int, list[dict[str, Any]]]] = {}
+    
+    def _extract_representation(
+        label: str, 
+        representation_dict: dict[int, list[tuple[str, float] | str]]
+    ) -> dict[int, list[dict[str, Any]]]:
+        """Extract words and scores for a single representation."""
+        topics_dict: dict[int, list[dict[str, Any]]] = {}
+        
+        for topic_id, topic_content in representation_dict.items():
+            if topic_id == -1:
+                continue
+            
+            words_list: list[dict[str, Any]] = []
+            for item in topic_content[:top_k]:
+                if isinstance(item, tuple) and len(item) >= 2:
+                    word, score = item[0], item[1]
+                    words_list.append({"word": str(word), "score": float(score)})
+                elif isinstance(item, tuple) and len(item) == 1:
+                    words_list.append({"word": str(item[0]), "score": 0.0})
+                elif isinstance(item, str):
+                    words_list.append({"word": item, "score": 0.0})
+            
+            if words_list:
+                topics_dict[topic_id] = words_list
+        
+        return topics_dict
+    
+    with stage_timer("Extracting all topic representations"):
+        # 1. Extract Main Representation
+        if hasattr(topic_model, "topic_representations_") and topic_model.topic_representations_:
+            LOGGER.info("Extracting 'Main' representation from topic_representations_")
+            all_topics["Main"] = _extract_representation("Main", topic_model.topic_representations_)
+            LOGGER.info("Extracted %d topics for 'Main' representation", len(all_topics["Main"]))
+        else:
+            LOGGER.warning("topic_representations_ not found or empty!")
+            all_topics["Main"] = {}
+        
+        # 2. Extract Other Aspects
+        if hasattr(topic_model, "topic_aspects_") and topic_model.topic_aspects_:
+            LOGGER.info("Extracting additional aspects from topic_aspects_")
+            for aspect_name, aspect_content in topic_model.topic_aspects_.items():
+                all_topics[aspect_name] = _extract_representation(aspect_name, aspect_content)
+                LOGGER.info(
+                    "Extracted %d topics for '%s' representation",
+                    len(all_topics[aspect_name]),
+                    aspect_name,
+                )
+        else:
+            LOGGER.info("No additional topic_aspects_ found.")
+    
+    return all_topics
+
+
+def save_metrics(
+    metrics: list[dict[str, float | str | int]],
+    output_path: Path,
+    format: str = "json",
+) -> None:
+    """
+    Save metrics table to CSV or JSON file.
+    
+    Args:
+        metrics: List of metric dictionaries from evaluate_representations
+        output_path: Path to save the file (without extension)
+        format: Either "csv" or "json"
+    """
+    output_path = Path(output_path)
+    
+    if format.lower() == "json":
+        json_path = output_path.with_suffix(".json")
+        with stage_timer(f"Saving metrics to JSON: {json_path.name}"):
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(metrics, f, indent=2, ensure_ascii=False)
+            LOGGER.info("Saved metrics to %s", json_path)
+    
+    elif format.lower() == "csv":
+        csv_path = output_path.with_suffix(".csv")
+        with stage_timer(f"Saving metrics to CSV: {csv_path.name}"):
+            if not metrics:
+                LOGGER.warning("No metrics to save")
+                return
+            
+            fieldnames = list(metrics[0].keys())
+            with open(csv_path, "w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(metrics)
+            LOGGER.info("Saved metrics to %s", csv_path)
+    
+    else:
+        raise ValueError(f"Unsupported format: {format}. Use 'csv' or 'json'")
+
+
+def save_topics(
+    topics: dict[str, dict[int, list[dict[str, Any]]]],
+    output_path: Path,
+) -> None:
+    """
+    Save extracted topics with all representations to JSON for close reading.
+    
+    The output JSON structure:
+    {
+        "Main": {
+            "0": [{"word": "example", "score": 0.123}, ...],
+            "1": [{"word": "another", "score": 0.456}, ...],
+            ...
+        },
+        "KeyBERT": {
+            "0": [{"word": "example", "score": 0.123}, ...],
+            ...
+        },
+        ...
+    }
+    
+    Args:
+        topics: Dictionary from extract_all_topics
+        output_path: Path to save the JSON file (without extension)
+    """
+    json_path = output_path.with_suffix(".json")
+    
+    with stage_timer(f"Saving topics to JSON: {json_path.name}"):
+        # Convert topic IDs to strings for JSON serialization
+        topics_serializable: dict[str, dict[str, list[dict[str, Any]]]] = {}
+        for rep_name, rep_topics in topics.items():
+            topics_serializable[rep_name] = {
+                str(topic_id): word_list for topic_id, word_list in rep_topics.items()
+            }
+        
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(topics_serializable, f, indent=2, ensure_ascii=False)
+        
+        total_topics = sum(len(rep_topics) for rep_topics in topics.values())
+        LOGGER.info(
+            "Saved %d topics across %d representations to %s",
+            total_topics,
+            len(topics),
+            json_path,
+        )
+
+
 def parse_args() -> argparse.Namespace:
     """CLI argument parsing for flexible experimentation."""
     parser = argparse.ArgumentParser(
@@ -488,6 +654,24 @@ def parse_args() -> argparse.Namespace:
         default="chapters",
         choices=["chapters", "subset"],
         help="Which default CSV to use when wrapper data is missing.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Directory to save output files (metrics and topics). If not specified, outputs are saved to current directory.",
+    )
+    parser.add_argument(
+        "--metrics-format",
+        type=str,
+        default="json",
+        choices=["csv", "json"],
+        help="Format for saving metrics table (default: json).",
+    )
+    parser.add_argument(
+        "--save-topics",
+        action="store_true",
+        help="Extract and save all topics with all representations to JSON for close reading.",
     )
     return parser.parse_args()
 
@@ -555,6 +739,30 @@ def main() -> None:
         )
 
     print(f"\nLoaded documents: {len(docs)}")
+    
+    # Save metrics to file (always save)
+    if args.output_dir:
+        output_dir = Path(args.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        metrics_path = output_dir / "metrics"
+    else:
+        output_dir = Path.cwd()
+        metrics_path = output_dir / "metrics"
+    
+    save_metrics(metrics, metrics_path, format=args.metrics_format)
+    LOGGER.info("Metrics saved to %s", metrics_path.with_suffix(f".{args.metrics_format}"))
+    
+    # Extract and save topics for close reading (if requested)
+    if args.save_topics:
+        all_topics = extract_all_topics(topic_model, top_k=args.top_k)
+        
+        if args.output_dir:
+            topics_path = output_dir / "topics_all_representations"
+        else:
+            topics_path = Path("topics_all_representations")
+        
+        save_topics(all_topics, topics_path)
+        LOGGER.info("Topics extracted and saved for close reading evaluation")
 
 
 if __name__ == "__main__":
