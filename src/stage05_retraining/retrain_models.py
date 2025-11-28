@@ -760,12 +760,24 @@ def retrain_single_model(model_config: Dict[str, Any],
         print(f"[RETRAIN] ✓ Saved pickle model")
         print(f"[RETRAIN]   File size: {pickle_path.stat().st_size / (1024*1024):.2f} MB")
         
-        # Save BERTopic native format
+        # Save BERTopic native format (safetensors - recommended)
+        # This format avoids GPU array issues and is much smaller than pickle
         if model.trained_topic_model is not None:
             bertopic_dir = model_output_dir / f"model_{pareto_rank}"
-            print(f"[RETRAIN] Saving BERTopic native format: {bertopic_dir}")
-            model.trained_topic_model.save(str(bertopic_dir))
-            print(f"[RETRAIN] ✓ Saved BERTopic native format")
+            print(f"[RETRAIN] Saving BERTopic native format (safetensors): {bertopic_dir}")
+            # Use safetensors format - safe, small, and avoids GPU array issues
+            # Convert embedding model name to sentence-transformers format if needed
+            embedding_model_path = embedding_model_name
+            if not embedding_model_path.startswith("sentence-transformers/"):
+                embedding_model_path = f"sentence-transformers/{embedding_model_name}"
+            
+            model.trained_topic_model.save(
+                str(bertopic_dir),
+                serialization="safetensors",
+                save_embedding_model=embedding_model_path,
+                save_ctfidf=True
+            )
+            print(f"[RETRAIN] ✓ Saved BERTopic native format (safetensors)")
         else:
             print(f"[RETRAIN] ⚠️  No trained topic model to save in native format")
         
