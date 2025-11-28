@@ -85,36 +85,142 @@ from src.stage03_modeling.bertopic_octis_model import (
 )
 
 
+def preprocess_character_name(line: str) -> List[str]:
+    """
+    Preprocess a character name entry to extract clean name tokens.
+    
+    Based on CHARACTER_NAMES_ANALYSIS.md, this function:
+    - Removes prefixes (A, Mr., Miss, the, AKA, #)
+    - Removes leading numbers
+    - Removes quotes and punctuation
+    - Splits multi-word names into individual tokens
+    - Filters out non-name patterns
+    
+    Args:
+        line: Raw line from character names file
+        
+    Returns:
+        List of clean name tokens (empty list if line should be filtered)
+    """
+    # Remove BOM and strip
+    line = line.strip().lstrip('\ufeff')
+    
+    # Skip empty lines and comments
+    if not line or line.startswith('#'):
+        return []
+    
+    # Filter very long lines (>50 chars) - usually descriptions
+    if len(line) > 50:
+        return []
+    
+    # Remove quotes
+    line = line.strip('"\'')
+    
+    # Remove leading prefixes (case-insensitive)
+    prefixes = [
+        r'^a\s+', r'^mr\.?\s+', r'^miss\s+', r'^mrs\.?\s+', r'^the\s+',
+        r'^aka\s+', r'^#\s*', r'^\.\.\.\s*', r'^\d+\s+',  # numbers
+    ]
+    for prefix in prefixes:
+        line = re.sub(prefix, '', line, flags=re.IGNORECASE)
+    
+    # Remove leading/trailing punctuation and whitespace
+    line = line.strip('.,;:!?()[]{}"\'- ')
+    
+    # Filter common non-name phrases
+    non_name_patterns = [
+        r'^a\s+voice$', r'^the\s+wright\s+brothers$', r'^a\s+scowling',
+        r'^a\s+smooth', r'^after\s+t\.j\.', r'^author\s+',
+    ]
+    for pattern in non_name_patterns:
+        if re.match(pattern, line, re.IGNORECASE):
+            return []
+    
+    # If line is empty after cleaning, skip
+    if not line or len(line) < 2:
+        return []
+    
+    # Convert to lowercase
+    line = line.lower()
+    
+    # Split multi-word names and extract tokens
+    # Remove remaining punctuation and split on whitespace
+    tokens = re.sub(r'[^\w\s-]', ' ', line)
+    tokens = tokens.split()
+    
+    # Filter tokens: keep only alphanumeric tokens of length >= 2
+    # Exclude pure numbers and tokens that are mostly numbers
+    clean_tokens = []
+    for token in tokens:
+        # Remove hyphens from token boundaries but keep internal ones
+        token = token.strip('-')
+        # Skip if token is too short or is a pure number
+        if len(token) < 2:
+            continue
+        # Skip if token is mostly digits (like "5683re" or "23")
+        if token.isdigit() or (len(token) <= 4 and sum(c.isdigit() for c in token) >= len(token) * 0.5):
+            continue
+        # Keep alphanumeric tokens (at least one letter)
+        if token.isalnum() and any(c.isalpha() for c in token):
+            clean_tokens.append(token)
+    
+    return clean_tokens
+
+
 def load_custom_stopwords(stoplist_path: Path) -> List[str]:
     """
-    Load custom stopwords from a file.
+    Load custom stopwords from a file with character name preprocessing.
+    
+    The file may contain raw character name entries (e.g., "A Alex", "4 STELLA", 
+    "Mr. Crane") which are preprocessed to extract clean name tokens (e.g., "alex", 
+    "stella", "crane"). This matches the preprocessing described in 
+    CHARACTER_NAMES_ANALYSIS.md.
     
     Args:
         stoplist_path: Path to the custom stoplist file
         
     Returns:
-        List of stopwords
+        List of stopwords (including preprocessed character names)
     """
     if not stoplist_path.exists():
         print(f"⚠️ Custom stoplist not found at: {stoplist_path}")
         return []
         
     print(f"📖 Loading custom stopwords from: {stoplist_path}")
+    print(f"   Processing character names with preprocessing...")
+    
     stopwords = set()
+    total_lines = 0
+    filtered_lines = 0
+    extracted_tokens = 0
+    
     try:
         with open(stoplist_path, 'r', encoding='utf-8', errors='ignore') as f:
             for line in f:
-                word = line.strip()
-                if word and not word.startswith('#'):
-                    # Add original
-                    stopwords.add(word)
-                    # Add lowercase
-                    stopwords.add(word.lower())
-                    
-        print(f"✅ Loaded {len(stopwords)} unique custom stopwords")
+                total_lines += 1
+                
+                # Preprocess character name entry
+                tokens = preprocess_character_name(line)
+                
+                if not tokens:
+                    filtered_lines += 1
+                    continue
+                
+                # Add extracted tokens to stopwords
+                for token in tokens:
+                    stopwords.add(token)
+                    extracted_tokens += 1
+        
+        print(f"   Total lines processed: {total_lines:,}")
+        print(f"   Lines filtered out: {filtered_lines:,} ({filtered_lines/total_lines*100:.1f}%)")
+        print(f"   Name tokens extracted: {extracted_tokens:,}")
+        print(f"✅ Loaded {len(stopwords):,} unique stopwords (preprocessed character names)")
+        
         return list(stopwords)
     except Exception as e:
         print(f"❌ Error loading custom stoplist: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 
