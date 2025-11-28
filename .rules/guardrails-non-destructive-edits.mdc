@@ -1,0 +1,20 @@
+---
+alwaysApply: true
+---
+## Scope
+- Make only the requested change to the specified file/section.
+- If additional changes seem necessary, STOP and ask for confirmation.
+
+## Safety
+- Do not rename/move files unless explicitly asked.
+- Do not add/remove dependencies without approval.
+- Do not execute shell commands or write files outside the directory contract.
+- Maintain single source of truth - only work in the project directory.
+- Always verify working directory before file operations.
+
+## Diff discipline
+- Summarize the minimal diff (what/where/why) before proposing a commit.
+- If unintended large diffs are detected, recommend staging only the relevant hunks and postponing the rest.
+
+## Context
+- Prefer @file/@code for precise scopes; avoid broad @folder unless requested.

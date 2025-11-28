@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+Before generating any code:
+1) Restate understanding of the task in ≤6 sentences.
+2) List ambiguities or missing info and ask concise clarifying questions.
+3) Break the task into clear steps (requirements → plan → code).
+4) For complex tasks, present a brief reasoning plan and expected outputs.
+5) Await approval before writing code or adding new cells.

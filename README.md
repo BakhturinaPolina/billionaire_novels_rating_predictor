@@ -1,190 +1,239 @@
-# Modern Romantic Novels — Themes × Popularity
+# Romantic Novels NLP Research Project
 
-**A Mixed-Methods Computational Analysis of Romance Novel Themes and Reader Appreciation**
+A comprehensive NLP research pipeline for analyzing romantic novels using topic modeling, statistical analysis, and reader appreciation patterns.
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Usage](#usage)
+- [Data](#data)
+- [Pipeline Stages](#pipeline-stages)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+- [Citation](#citation)
+
 ## Overview
 
-This project quantifies and interprets which themes are more frequent in Top / Medium / Trash romance novels and how those themes relate to reader appreciation. We combine topic-model outputs (from the novels) with a theory-driven taxonomy and advanced, light-weight ML to map topics → categories, compute indices, and test hypotheses.
+This project implements a seven-stage research pipeline for analyzing romantic novels through:
+
+- **Topic Modeling**: BERTopic-based topic extraction with multiple embedding models
+- **Hyperparameter Optimization**: Bayesian optimization using OCTIS
+- **Statistical Analysis**: Reader appreciation pattern analysis with FDR correction
+- **Goodreads Integration**: Analysis of book ratings and metadata
+
+The pipeline processes novel texts, extracts topics, and correlates them with reader ratings to identify patterns in reader appreciation.
 
 **Research Question**: Which thematic patterns differentiate highly-rated romance novels from lower-rated ones, and how do these patterns relate to reader appreciation metrics?
-
-## Quick Start
-
-### Prerequisites
-
-- **Python 3.12+**
-- **CUDA-compatible GPU** (required for Stages 03 and 05)
-- **RAPIDS cuML** (CUDA 12.x) - for GPU-accelerated topic modeling
-- See `requirements.txt` for full dependencies
-
-### Installation
-
-```bash
-# Clone repository
-git clone <repository-url>
-cd romantic_novels_project_code
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Verify GPU setup
-python -m src.common.check_gpu_setup
-```
-
-### Running the Pipeline
-
-The project follows a 7-stage pipeline:
-
-```bash
-# Stage 03: Train BERTopic models with hyperparameter optimization
-python -m src.stage03_modeling.main optimize --config configs/octis.yaml
-
-# Stage 04: Select Pareto-efficient models
-python -m src.stage04_selection.main analyze --config configs/selection.yaml
-
-# Stage 05: Retrain top models
-python -m src.stage05_retraining.main retrain --top_n 4
-
-# Stage 06: Build thematic composites
-python -m src.stage06_labeling.composites
-
-# Stage 07: Statistical analysis
-python -m src.stage07_analysis.main --config configs/scoring.yaml
-```
 
 ## Project Structure
 
 ```
 romantic_novels_project_code/
-├── src/                          # Source code
+├── src/                          # Source code organized by pipeline stage
 │   ├── common/                   # Shared utilities (config, GPU, logging)
 │   ├── stage01_ingestion/        # Data loading (Goodreads, BookNLP)
-│   ├── stage02_preprocessing/     # Text cleaning, tokenization
+│   ├── stage02_preprocessing/    # Text cleaning, tokenization
 │   ├── stage03_modeling/         # BERTopic training & optimization
-│   ├── stage04_selection/        # Pareto-efficient model selection
+│   ├── stage04_experiments/      # Hyperparameter optimization
+│   ├── stage05_selection/        # Pareto-efficient model selection
 │   ├── stage05_retraining/       # Retrain top models
-│   ├── stage06_labeling/         # Thematic composite building
-│   └── stage07_analysis/         # Statistical analysis & hypothesis testing
-├── notebooks/                    # Jupyter notebooks for exploration
-│   ├── 03_modeling/              # Modeling experiments
-│   ├── 04_selection/             # Selection analysis
-│   └── 07_analysis/              # Statistical analysis
-├── data/                         # Data directory
-│   ├── raw/                      # Raw data files
-│   ├── interim/                  # Intermediate processed data
-│   └── processed/                # Final processed data
-├── models/                       # Trained models
-├── results/                      # Analysis results
-│   ├── pareto/                   # Pareto analysis outputs
-│   ├── topics/                   # Topic modeling outputs
-│   └── figures/                  # Visualizations
-├── configs/                      # Configuration files
-└── logs/                         # Execution logs
+│   ├── stage06_labeling/         # Topic labeling and composite building
+│   └── stage07_analysis/         # Statistical analysis & visualization
+├── configs/                      # YAML configuration files
+├── notebooks/                    # Jupyter notebooks by stage
+├── data/                         # Data directories (see Data section)
+├── results/                      # Pipeline outputs
+├── reports/                      # Documentation and findings
+└── scripts/                      # Utility scripts
 ```
 
-## Research Pipeline
+For detailed structure information, see [REPOSITORY_STRUCTURE.md](REPOSITORY_STRUCTURE.md).
+
+## Installation
+
+### Prerequisites
+
+- **Python 3.12+**
+- **CUDA-compatible GPU** (required for GPU acceleration)
+- **CUDA 12.x drivers** (for RAPIDS GPU libraries)
+
+### Setup
+
+1. **Clone the repository:**
+```bash
+git clone <repository-url>
+cd romantic_novels_project_code
+```
+
+2. **Create a virtual environment:**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Install SpaCy model:**
+```bash
+python -m spacy download en_core_web_sm
+```
+
+5. **Verify GPU setup (Optional):**
+```bash
+python -m src.common.check_gpu_setup
+```
+
+## Quick Start
+
+1. **Configure paths:**
+   - Edit `configs/paths.yaml` to set your data directories
+   - All paths are relative to the project root
+
+2. **Run a single stage:**
+```bash
+# Using Makefile
+make stage01  # Data ingestion
+make stage03  # Model training
+make stage07  # Analysis
+
+# Or directly with Python
+python -m src.stage03_modeling.main train --config configs/bertopic.yaml
+```
+
+3. **Run the full pipeline:**
+```bash
+make all
+```
+
+## Usage
+
+### Stage-by-Stage Execution
+
+Each stage can be run independently:
+
+```bash
+# Stage 01: Ingestion
+python -m src.stage01_ingestion.main --config configs/paths.yaml
+
+# Stage 02: Preprocessing
+python -m src.stage02_preprocessing.main --config configs/paths.yaml
+
+# Stage 03: Modeling
+python -m src.stage03_modeling.main train --config configs/bertopic.yaml
+# Retrain specific models
+python -m src.stage03_modeling.main retrain --dataset_csv data/processed/chapters.csv --out_dir models/
+
+# Stage 04: Experiments (Hyperparameter Optimization)
+python -m src.stage04_experiments.main --config configs/octis.yaml
+
+# Stage 05: Selection (Pareto Analysis)
+python -m src.stage05_selection.main --config configs/selection.yaml
+
+# Stage 05: Retraining (Retrain Top Models)
+python -m src.stage05_retraining.main retrain --top_n 4
+
+# Stage 06: Labeling
+python -m src.stage06_labeling.main --config configs/labeling.yaml
+
+# Stage 07: Analysis
+python -m src.stage07_analysis.main --config configs/scoring.yaml
+```
+
+### Configuration
+
+All configuration is done via YAML files in `configs/`:
+
+- **`paths.yaml`**: Data and output directory paths
+- **`bertopic.yaml`**: BERTopic model parameters
+- **`octis.yaml`**: Hyperparameter search space
+- **`selection.yaml`**: Model selection criteria (min_nr_topics >= 200)
+- **`scoring.yaml`**: Statistical analysis settings
+- **`labeling.yaml`**: Topic labeling configuration
+
+See individual config files for detailed parameter descriptions.
+
+## Data
+
+### Data Directory Structure
+
+- **`data/raw/`**: Raw input data (excluded from git)
+  - EPUB files and full text novels
+- **`data/interim/`**: Intermediate processing outputs (excluded from git)
+  - BookNLP outputs
+  - OCTIS datasets
+- **`data/processed/`**: Final processed data
+  - `chapters.csv`: Processed novel chapters with sentences (~707K rows)
+  - `chapters_subset_10000.csv`: Subset for testing (10K rows)
+  - `goodreads.csv`: Cleaned Goodreads dataset with ratings
+  - `custom_stoplist.txt`: Custom stopwords (character names)
+
+### Data Exclusion Policy
+
+The following are excluded from git via `.gitignore`:
+- `data/raw/`
+- `data/interim/`
+- Large output files (`.npz`, large `.csv`)
+- Model files (`.pt`, `.pkl`, `.h5`)
+
+## Pipeline Stages
 
 ### Stage 01: Ingestion
-Load raw text files, Goodreads metadata, and BookNLP outputs.
+Load raw texts, Goodreads data, and handle BookNLP I/O operations.
 
 ### Stage 02: Preprocessing
-Text cleaning, tokenization, lemmatization, custom stoplist building.
+Text cleaning, tokenization, lemmatization, and custom stoplist building.
 
-### Stage 03: Modeling ⚡
-**BERTopic model training** with GPU acceleration (RAPIDS cuML) and **OCTIS hyperparameter optimization**. Evaluates 300+ model configurations across 6 embedding models.
+### Stage 03: Modeling
+BERTopic model training with various embedding models. Supports retraining from topic tables with coherence priority.
 
-**Key Technologies**: BERTopic, OCTIS, RAPIDS cuML, SentenceTransformers
+### Stage 04: Experiments
+Bayesian hyperparameter optimization using OCTIS. Optimizes BERTopic parameters across multiple embedding models.
 
-### Stage 04: Selection 📊
-**Pareto-efficient model selection** using multi-objective optimization. Balances coherence and topic diversity with two weighting strategies (equal weights, coherence priority).
+### Stage 05: Selection
+Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Selects optimal models based on coherence and diversity metrics. Also handles retraining of top models.
 
-**Outputs**: Top-performing models, visualizations, correlation analysis
+### Stage 06: Labeling
+Semi-supervised topic labeling and composite building. Creates Appreciation Pattern (AP) composites from topic groups.
 
-### Stage 05: Retraining 🔄
-Retrain top Pareto-efficient models with optimal hyperparameters.
+### Stage 07: Analysis
+Goodreads scoring/stratification, statistical analysis, and FDR correction. Generates visualizations and statistical reports.
 
-### Stage 06: Labeling 🏷️
-Map topics to **16 thematic composites** (A-P) using semi-supervised approach:
-- A: Reassurance/Commitment
-- B: Mutual Intimacy
-- C: Explicit Eroticism
-- D: Power/Wealth/Luxury
-- E: Coercion/Brutality/Danger
-- F: Angst/Negative Affect
-- G: Courtship Rituals/Gifts
-- H: Domestic Nesting
-- I: Humor/Lightness
-- J: Social Support/Kin
-- K: Professional Intrusion
-- L: Vices/Addictions
-- M: Health/Recovery/Growth
-- N: Separation/Reunion
-- O: Aesthetics/Appearance
-- P: Tech/Media Presence
+## Contributing
 
-### Stage 07: Analysis 📈
-**Statistical analysis** combining topic probabilities with Goodreads metadata:
-- Popularity stratification (Top/Medium/Trash)
-- Hypothesis testing (H1-H6)
-- Index computation (Love-over-Sex, HEA Index, etc.)
-- FDR correction (Benjamini-Hochberg)
+We welcome contributions! Please follow these guidelines:
 
-## Key Features
+1. Fork the repository
+2. Create a feature branch
+3. Make changes following PEP 8
+4. Test your changes
+5. Submit a pull request
 
-- **GPU-Accelerated**: Mandatory RAPIDS cuML for fast topic modeling
-- **Multi-Objective Optimization**: Pareto efficiency analysis for model selection
-- **Theory-Driven Taxonomy**: 16 thematic composites based on romance novel theory
-- **Statistical Rigor**: Comprehensive hypothesis testing with FDR correction
-- **Reproducible**: Configuration-driven pipeline with clear data contracts
+## License
 
-## Dataset
-
-The dataset includes **105 standalone billionaire romance novels** by 35 different authors, selected from curated lists such as "100 Best Billionaire Romance Books of All Time". Each novel contains at least 100,000 words, resulting in **680,822 sentences** organized hierarchically by author, book, chapter, and sentence.
-
-## Research Hypotheses
-
-- **H1**: Higher Love-over-Sex and HEA Index in Top vs Trash
-- **H2**: Explicitness Ratio higher in Trash
-- **H3**: Luxury Saturation predicts appreciation only with high (commitment_hea + tenderness_emotion) (interaction)
-- **H4**: Protective–Jealousy Delta higher in Top
-- **H5**: Dark-vs-Tender lower (i.e., more tender) in Top
-- **H6**: Time-course: commitment_hea and apology_repair rise from begin→end; miscommunication and neg_affect fall
-
-## Documentation
-
-- **[SCIENTIFIC_README.md](SCIENTIFIC_README.md)** - Detailed methodology, research questions, and statistical analysis plan
-- **[docs/METHODOLOGY.md](docs/METHODOLOGY.md)** - Technical methodology details
-- **[docs/DATA_CONTRACTS.md](docs/DATA_CONTRACTS.md)** - Input/output data specifications
-- **[docs/INDICES.md](docs/INDICES.md)** - Derived index definitions and formulas
-- Stage-specific READMEs in `src/stage*/README.md`
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
-If you use this code or findings, please cite:
+If you use this code in your research, please cite:
 
 ```bibtex
-@software{romantic_novels_themes_popularity,
+@software{romantic_novels_nlp,
   title = {Modern Romantic Novels — Themes × Popularity: A Mixed-Methods Computational Analysis},
-  author = {[Your Name]},
+  author = {[Your Name/Institution]},
   year = {2025},
   url = {[Repository URL]}
 }
 ```
-
-## License
-
-See [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-This is a research project. For questions or collaboration inquiries, please open an issue.
 
 ## Acknowledgments
 
@@ -195,5 +244,4 @@ This is a research project. For questions or collaboration inquiries, please ope
 
 ---
 
-**Note**: Stages 01, 02, and 06 (main.py) are placeholder implementations showing planned architecture. Core functionality is in specialized modules (e.g., `composites.py` in Stage 06).
-
+**Note**: This is a research project. Some pipeline stages may be under active development. Check individual stage documentation for current implementation status.

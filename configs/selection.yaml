@@ -1,0 +1,68 @@
+# Model selection configuration (Pareto efficiency)
+
+# Input files
+inputs:
+  model_results_csv: "results/experiments/bill_novels_octis_model_results_all_models.csv"
+
+# Output directories
+outputs:
+  base_dir: "results/pareto"
+  figures_dir: "results/pareto/figures"
+  tables_dir: "results/pareto/tables"
+  top_models_dir: "results/pareto/top_models"
+
+# Data cleaning parameters
+cleaning:
+  # Remove runs where metrics equal 1.0 (failed runs)
+  remove_failed_runs: true
+  # Outlier detection using standard deviation
+  outlier_std_dev: 2.0  # Number of standard deviations for outlier bounds
+
+# Normalization
+normalization:
+  method: "zscore"  # Options: "zscore", "minmax"
+
+# Weighting strategies
+weighting_strategies:
+  equal_weights:
+    weight_coherence: 0.5
+    weight_topic_diversity: 0.5
+  coherence_priority:
+    weight_coherence: 0.7
+    weight_topic_diversity: 0.3
+
+# Pareto analysis
+pareto:
+  metrics: ["Coherence_norm", "Topic_Diversity_norm"]
+  analyze_per_model: true  # Analyze Pareto efficiency per embedding model
+
+# Selection criteria
+selection:
+  top_k: 10  # Number of top models to select for each strategy
+
+# Hyperparameter analysis
+hyperparameter_analysis:
+  hyperparameters:
+    - "bertopic__min_topic_size"
+    - "bertopic__top_n_words"
+    - "hdbscan__min_cluster_size"
+    - "hdbscan__min_samples"
+    - "umap__min_dist"
+    - "umap__n_components"
+    - "umap__n_neighbors"
+    - "vectorizer__min_df"
+  performance_metrics:
+    - "Coherence_norm"
+    - "Topic_Diversity_norm"
+    - "Combined_Score"
+
+# Plotting settings
+plotting:
+  style: "whitegrid"
+  figure_dpi: 100
+  figure_size:
+    scatter: [12, 8]
+    distribution: [12, 5]
+    boxplot: [14, 6]
+    per_model_grid: [15, null]  # null will be calculated based on number of models
+
