@@ -24,6 +24,9 @@ Thumbs.db
 data/raw/
 data/interim/
 
+# Processed data (excluded)
+data/processed/
+
 # Large output files
 *.npz
 results/experiments/**/*.npz
@@ -35,14 +38,6 @@ models/
 .env
 *.env
 
-# Large CSV files and data files (excluded due to size and copyright)
-data/processed/chapters.csv
-data/processed/chapters_subset_10000.csv
-data/processed/goodreads.csv
-data/processed/custom_stoplist.txt
-data/processed/*.parquet
-data/processed/Billionaire_ALL_MERGED_TXTs_by_POS/
-
 # Logs
 logs/
 *.log
@@ -52,9 +47,10 @@ cache/
 
 # Excluded folders (large files and development artifacts)
 archive/
-notebooks/
-src/stage06_labeling/
-src/stage07_analysis/
+
+# Timestamped run outputs (generated directories)
+/stage03_modeling_20*/
+/pareto_20*/
 
 # Large files (any file over 10MB)
 *.npy
