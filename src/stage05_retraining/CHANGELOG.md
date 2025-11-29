@@ -42,6 +42,51 @@
 - [x] Add character name extraction logic if needed
 - [ ] Test full retraining pipeline with all fixes
 
+## 2024-11-28: Size Validation and Mismatch Detection
+
+### Fixed Issues
+
+1. **Corpus Size Mismatch Detection**
+   - **Problem**: Mismatch between OCTIS corpus size, training data size, and embeddings size could cause training failures
+   - **Solution**: Added comprehensive size validation logging and critical error checking before training
+   - **Impact**: Catches size mismatches early with clear error messages and diagnostic information
+   - **Files**: `retrain_models.py` (lines 1014-1050)
+
+### Enhancements
+
+1. **Size Validation Logging**
+   - Added detailed logging comparing:
+     - Training data size (sentences)
+     - OCTIS corpus size
+     - Embeddings size
+   - Reports differences and warnings for any mismatches
+   - Provides diagnostic information to identify root cause
+
+2. **Critical Validation Check**
+   - Added pre-training validation that raises error if sizes don't match
+   - Prevents training with mismatched data
+   - Clear error messages explain common causes (empty sentence filtering, cached embeddings, etc.)
+
+3. **OCTIS Dataset Creation Logging**
+   - Added tracking of empty sentences in OCTIS dataset creation
+   - Logs count of empty sentences to help diagnose size mismatches
+
+## 2024-11-28: Logging to File
+
+### Enhancements
+
+1. **Automatic Log File Creation**
+   - **Added**: All retraining output is now automatically saved to `logs/stage05_retraining_YYYYMMDD_HHMMSS.log`
+   - **Implementation**: Uses Tee class to capture both stdout and stderr to log file while still displaying on console
+   - **Impact**: All print statements and error messages are preserved in timestamped log files for debugging and analysis
+   - **Files**: `main.py` (lines 13-36, 78-220)
+
+2. **Logging Integration**
+   - Integrated with existing `setup_logging` utility from `src.common.logging`
+   - Logs directory resolved from config (`outputs.logs` in `paths.yaml`)
+   - Log file path displayed at end of retraining for easy reference
+   - Both structured logging (via logger) and print statements captured
+
 ## 2024-11-28: Character Names Preprocessing
 
 ### Fixed Issues
