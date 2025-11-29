@@ -8,8 +8,10 @@ import json
 import logging
 import pickle
 import re
+import shutil
 import time
 from contextlib import contextmanager
+from datetime import datetime
 from pathlib import Path
 from typing import Iterable, Iterator, Sequence, Tuple, Any
 
@@ -31,7 +33,7 @@ logging.basicConfig(
 )
 
 DEFAULT_BASE_DIR = Path(
-    "/home/polina/Documents/goodreads_romance_research_cursor/romantic_novels_project_code/models/retrained"
+    "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained"
 )
 DEFAULT_EMBEDDING_MODEL = "paraphrase-MiniLM-L6-v2"
 DEFAULT_CORPUS_PATH = Path(
@@ -127,6 +129,26 @@ def load_dictionary_from_corpus(
     return dictionary
 
 
+def load_metadata(
+    base_dir: Path | str = DEFAULT_BASE_DIR,
+    embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+    pareto_rank: int = 1,
+) -> dict[str, Any] | None:
+    """Load metadata JSON file if it exists."""
+    base_dir = Path(base_dir)
+    metadata_path = base_dir / embedding_model / f"model_{pareto_rank}_metadata.json"
+    
+    if not metadata_path.exists():
+        return None
+    
+    try:
+        with open(metadata_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        LOGGER.warning("Could not load metadata: %s", e)
+        return None
+
+
 def load_retrained_wrapper(
     base_dir: Path | str = DEFAULT_BASE_DIR,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
@@ -149,6 +171,25 @@ def load_retrained_wrapper(
     ):
         raise ValueError("Loaded wrapper has no trained_topic_model stored.")
 
+    # Check metadata and warn if topic count doesn't match
+    metadata = load_metadata(base_dir, embedding_model, pareto_rank)
+    if metadata:
+        expected_topics = metadata.get("num_topics")
+        if expected_topics is not None:
+            # Count actual topics in loaded model
+            if hasattr(wrapper.trained_topic_model, "topic_representations_"):
+                actual_topics = len([
+                    tid for tid in wrapper.trained_topic_model.topic_representations_.keys()
+                    if tid != -1
+                ])
+                if actual_topics != expected_topics:
+                    LOGGER.warning(
+                        "⚠️  TOPIC COUNT MISMATCH: Metadata says %d topics, but model has %d topics. "
+                        "This may indicate the model was reduced during training or saving.",
+                        expected_topics,
+                        actual_topics,
+                    )
+
     return wrapper, wrapper.trained_topic_model
 
 
@@ -167,7 +208,28 @@ def load_native_bertopic_model(
         )
 
     with stage_timer(f"Loading BERTopic safetensors: {model_dir}"):
-        return BERTopic.load(model_dir)
+        topic_model = BERTopic.load(model_dir)
+    
+    # Check metadata and warn if topic count doesn't match
+    metadata = load_metadata(base_dir, embedding_model, pareto_rank)
+    if metadata:
+        expected_topics = metadata.get("num_topics")
+        if expected_topics is not None:
+            # Count actual topics in loaded model
+            if hasattr(topic_model, "topic_representations_"):
+                actual_topics = len([
+                    tid for tid in topic_model.topic_representations_.keys()
+                    if tid != -1
+                ])
+                if actual_topics != expected_topics:
+                    LOGGER.warning(
+                        "⚠️  TOPIC COUNT MISMATCH: Metadata says %d topics, but model has %d topics. "
+                        "This may indicate the model was reduced during training or saving.",
+                        expected_topics,
+                        actual_topics,
+                    )
+    
+    return topic_model
 
 
 def log_wrapper_batches(total_docs: int, batch_size: int):
@@ -310,6 +372,13 @@ def apply_representations_and_update(
 ) -> None:
     """Attach new representations and refresh topic words."""
     with stage_timer("Updating topic representations"):
+        # Check topic count before update
+        if hasattr(topic_model, "topic_representations_") and topic_model.topic_representations_:
+            topics_before = len([tid for tid in topic_model.topic_representations_.keys() if tid != -1])
+            LOGGER.info("Topics before update_topics: %d", topics_before)
+        else:
+            LOGGER.warning("topic_representations_ not available before update")
+        
         topic_model.representation_model = representations
         LOGGER.info(
             "Topic representations set: %s",
@@ -317,6 +386,19 @@ def apply_representations_and_update(
         )
         topic_model.update_topics(docs)
         LOGGER.info("topic_model.update_topics completed for %d docs", len(docs))
+        
+        # Check topic count after update
+        if hasattr(topic_model, "topic_representations_") and topic_model.topic_representations_:
+            topics_after = len([tid for tid in topic_model.topic_representations_.keys() if tid != -1])
+            LOGGER.info("Topics after update_topics: %d", topics_after)
+            if topics_before != topics_after:
+                LOGGER.warning(
+                    "Topic count changed from %d to %d after update_topics!",
+                    topics_before,
+                    topics_after,
+                )
+        else:
+            LOGGER.warning("topic_representations_ not available after update")
 
 
 def compute_coherence(
@@ -524,6 +606,20 @@ def extract_all_topics(
     return all_topics
 
 
+def backup_existing_file(file_path: Path) -> None:
+    """
+    Backup an existing file by renaming it with a timestamp suffix.
+    
+    Args:
+        file_path: Path to the file that may need backing up
+    """
+    if file_path.exists():
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        backup_path = file_path.parent / f"{file_path.stem}_backup_{timestamp}{file_path.suffix}"
+        shutil.copy2(file_path, backup_path)
+        LOGGER.info("Backed up existing file: %s -> %s", file_path.name, backup_path.name)
+
+
 def save_metrics(
     metrics: list[dict[str, float | str | int]],
     output_path: Path,
@@ -531,6 +627,7 @@ def save_metrics(
 ) -> None:
     """
     Save metrics table to CSV or JSON file.
+    Backs up existing files before overwriting.
     
     Args:
         metrics: List of metric dictionaries from evaluate_representations
@@ -541,6 +638,7 @@ def save_metrics(
     
     if format.lower() == "json":
         json_path = output_path.with_suffix(".json")
+        backup_existing_file(json_path)
         with stage_timer(f"Saving metrics to JSON: {json_path.name}"):
             with open(json_path, "w", encoding="utf-8") as f:
                 json.dump(metrics, f, indent=2, ensure_ascii=False)
@@ -548,6 +646,7 @@ def save_metrics(
     
     elif format.lower() == "csv":
         csv_path = output_path.with_suffix(".csv")
+        backup_existing_file(csv_path)
         with stage_timer(f"Saving metrics to CSV: {csv_path.name}"):
             if not metrics:
                 LOGGER.warning("No metrics to save")
@@ -570,6 +669,7 @@ def save_topics(
 ) -> None:
     """
     Save extracted topics with all representations to JSON for close reading.
+    Backs up existing files before overwriting.
     
     The output JSON structure:
     {
@@ -590,6 +690,7 @@ def save_topics(
         output_path: Path to save the JSON file (without extension)
     """
     json_path = output_path.with_suffix(".json")
+    backup_existing_file(json_path)
     
     with stage_timer(f"Saving topics to JSON: {json_path.name}"):
         # Convert topic IDs to strings for JSON serialization
@@ -658,8 +759,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=None,
-        help="Directory to save output files (metrics and topics). If not specified, outputs are saved to current directory.",
+        default=Path("results/stage06"),
+        help="Directory to save output files (metrics and topics). Default: results/stage06",
     )
     parser.add_argument(
         "--metrics-format",
@@ -714,6 +815,23 @@ def main() -> None:
         limit=args.limit_docs,
     )
 
+    # Diagnostic: Check model state before any updates
+    LOGGER.info("=== Model Diagnostics (Before Update) ===")
+    if hasattr(topic_model, "topic_representations_") and topic_model.topic_representations_:
+        topic_ids = [tid for tid in topic_model.topic_representations_.keys() if tid != -1]
+        LOGGER.info("Topic IDs in topic_representations_: %s", sorted(topic_ids)[:20])
+        LOGGER.info("Total topics (excluding -1): %d", len(topic_ids))
+    
+    if hasattr(topic_model, "get_topic_info"):
+        try:
+            topic_info = topic_model.get_topic_info()
+            LOGGER.info("Topic info shape: %s", topic_info.shape if hasattr(topic_info, 'shape') else 'N/A')
+            LOGGER.info("Topic info columns: %s", list(topic_info.columns) if hasattr(topic_info, 'columns') else 'N/A')
+            if hasattr(topic_info, 'shape'):
+                LOGGER.info("Number of topics from get_topic_info(): %d", len(topic_info))
+        except Exception as e:
+            LOGGER.warning("Could not get topic_info: %s", e)
+    
     dictionary = load_dictionary_from_corpus(
         corpus_path=args.dictionary_path,
         batch_size=args.batch_size,
@@ -721,6 +839,13 @@ def main() -> None:
 
     representations = build_representation_models(language_model=args.language_model)
     apply_representations_and_update(topic_model, docs, representations)
+    
+    # Diagnostic: Check model state after updates
+    LOGGER.info("=== Model Diagnostics (After Update) ===")
+    if hasattr(topic_model, "topic_representations_") and topic_model.topic_representations_:
+        topic_ids = [tid for tid in topic_model.topic_representations_.keys() if tid != -1]
+        LOGGER.info("Topic IDs in topic_representations_: %s", sorted(topic_ids)[:20])
+        LOGGER.info("Total topics (excluding -1): %d", len(topic_ids))
 
     metrics = evaluate_representations(
         topic_model,
@@ -740,14 +865,16 @@ def main() -> None:
 
     print(f"\nLoaded documents: {len(docs)}")
     
+    # Create model-specific output filenames to preserve results for each model
+    # Sanitize embedding model name for use in filenames
+    model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
+    metrics_filename = f"metrics_{model_name_safe}"
+    topics_filename = f"topics_all_representations_{model_name_safe}"
+    
     # Save metrics to file (always save)
-    if args.output_dir:
-        output_dir = Path(args.output_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-        metrics_path = output_dir / "metrics"
-    else:
-        output_dir = Path.cwd()
-        metrics_path = output_dir / "metrics"
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    metrics_path = output_dir / metrics_filename
     
     save_metrics(metrics, metrics_path, format=args.metrics_format)
     LOGGER.info("Metrics saved to %s", metrics_path.with_suffix(f".{args.metrics_format}"))
@@ -755,12 +882,7 @@ def main() -> None:
     # Extract and save topics for close reading (if requested)
     if args.save_topics:
         all_topics = extract_all_topics(topic_model, top_k=args.top_k)
-        
-        if args.output_dir:
-            topics_path = output_dir / "topics_all_representations"
-        else:
-            topics_path = Path("topics_all_representations")
-        
+        topics_path = output_dir / topics_filename
         save_topics(all_topics, topics_path)
         LOGGER.info("Topics extracted and saved for close reading evaluation")
 

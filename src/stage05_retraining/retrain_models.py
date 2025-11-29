@@ -1220,15 +1220,31 @@ def retrain_single_model(model_config: Dict[str, Any],
             print(f"[RETRAIN] ❌ Training failed - no topics generated")
             return False
         
-        # Get number of topics - handle both list and numpy array
-        topics = output_dict['topics']
-        if isinstance(topics, np.ndarray):
-            # For numpy arrays, use shape[0] to get number of topics (rows), not size (total elements)
-            num_topics = topics.shape[0] if len(topics.shape) > 0 and topics.shape[0] > 0 else 0
+        # Get number of topics from the actual trained model, not from output_dict
+        # This ensures we get the correct count even if output_dict has issues
+        if model.trained_topic_model is not None:
+            # Count topics from the model's topic_representations_ (most reliable)
+            if hasattr(model.trained_topic_model, 'topic_representations_') and model.trained_topic_model.topic_representations_:
+                num_topics = len([tid for tid in model.trained_topic_model.topic_representations_.keys() if tid != -1])
+            else:
+                # Fallback: try to get from output_dict
+                topics = output_dict['topics']
+                if isinstance(topics, np.ndarray):
+                    # For numpy arrays, use shape[0] to get number of topics (rows), not size (total elements)
+                    num_topics = topics.shape[0] if len(topics.shape) > 0 and topics.shape[0] > 0 else 0
+                else:
+                    num_topics = len(topics) if len(topics) > 0 else 0
         else:
-            num_topics = len(topics) if len(topics) > 0 else 0
+            # Fallback: use output_dict if model not available
+            topics = output_dict['topics']
+            if isinstance(topics, np.ndarray):
+                num_topics = topics.shape[0] if len(topics.shape) > 0 and topics.shape[0] > 0 else 0
+            else:
+                num_topics = len(topics) if len(topics) > 0 else 0
+        
         print(f"[RETRAIN] ✓ Training completed successfully")
-        print(f"[RETRAIN]   Topics generated: {num_topics}")
+        print(f"[RETRAIN]   Topics found in model: {num_topics}")
+        print(f"[RETRAIN]   Topics in output_dict: {output_dict['topics'].shape[0] if isinstance(output_dict['topics'], np.ndarray) else len(output_dict['topics']) if output_dict['topics'] else 0}")
         
         # Create output directory
         print_step(8, f"Saving trained model")
