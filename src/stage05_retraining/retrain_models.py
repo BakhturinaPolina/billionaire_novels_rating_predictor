@@ -385,9 +385,21 @@ def create_octis_dataset(csv_path: Path, octis_dataset_path: Path,
     print(f"   Detected columns: Sentence='{sentence_col}', Author='{author_col}', Book_Title='{book_title_col}'")
     
     # Prepare TSV data using cleaned DataFrame
+    # IMPORTANT: Include ALL rows to match training data size
+    # Empty sentences will be handled by OCTIS tokenization
+    print(f"   Processing {len(df):,} rows in batches...", flush=True)
     tsv_data = []
+    empty_sentence_count = 0
+    total_rows = len(df)
+    batch_size = 10000  # Show progress every 10k rows
+    
     for idx, row in df.iterrows():
         sentence = row[sentence_col]  # Already cleaned by clean_text()
+        
+        # Track empty sentences but still include them
+        if not sentence or len(sentence.strip()) == 0:
+            empty_sentence_count += 1
+        
         partition = 'train'
         
         # Build label from author and book title if available
@@ -400,8 +412,15 @@ def create_octis_dataset(csv_path: Path, octis_dataset_path: Path,
             label = f"doc_{idx}"
         
         tsv_data.append([sentence, partition, label])
+        
+        # Show progress every batch_size rows
+        if (idx + 1) % batch_size == 0 or (idx + 1) == total_rows:
+            progress_pct = 100 * (idx + 1) / total_rows
+            print(f"   Processed {idx + 1:,}/{total_rows:,} rows ({progress_pct:.1f}%)", flush=True)
     
-    print(f"✅ Prepared {len(tsv_data)} rows for OCTIS format")
+    print(f"✅ Prepared {len(tsv_data)} rows for OCTIS format", flush=True)
+    if empty_sentence_count > 0:
+        print(f"   Note: {empty_sentence_count} empty sentences included (will match training data size)", flush=True)
     print(f"   Format: sentence<TAB>partition<TAB>label")
     print(f"   All sentences are cleaned (mojibake fixed, unicode normalized, lowercase)")
     
@@ -516,14 +535,26 @@ def load_or_create_embeddings(embedding_model_name: str,
         print(f"[EMBEDDINGS]   Loading final embeddings...")
         
         try:
-            embeddings = np.load(embedding_file)
+            # Use memory-mapped arrays for large embedding files to save RAM
+            # Memory mapping loads data on-demand from disk instead of loading everything into RAM
+            file_size_gb = embedding_file.stat().st_size / (1024**3)
+            if file_size_gb > 0.5:  # Use memory mapping for files > 500MB
+                print(f"[EMBEDDINGS]   File size: {file_size_gb:.2f} GB - using memory-mapped arrays")
+                embeddings = np.load(embedding_file, mmap_mode='r')
+                print(f"[EMBEDDINGS]   ✓ Loaded with memory mapping (efficient for large files)")
+            else:
+                embeddings = np.load(embedding_file)
+                print(f"[EMBEDDINGS]   ✓ Loaded into memory")
             print(f"[EMBEDDINGS] ✓ Loaded embeddings shape: {embeddings.shape}")
             print(f"[EMBEDDINGS]   Dataset size: {len(dataset_as_list_of_strings):,} documents")
             
             # Validate that cached embeddings match dataset size
             if embeddings.shape[0] != len(dataset_as_list_of_strings):
                 print(f"[EMBEDDINGS] ⚠️  Cached embeddings size ({embeddings.shape[0]:,}) doesn't match dataset size ({len(dataset_as_list_of_strings):,})")
-                print(f"[EMBEDDINGS]   Regenerating embeddings for this dataset...")
+                print(f"[EMBEDDINGS]   Deleting mismatched final embeddings file...")
+                embedding_file.unlink()
+                print(f"[EMBEDDINGS]   ✓ Deleted mismatched file: {embedding_file.name}")
+                print(f"[EMBEDDINGS]   Will regenerate embeddings from batch files or create new ones...")
                 # Continue to create new ones
             else:
                 print(f"[EMBEDDINGS] ✅ Cached embeddings match dataset size, using cache")
@@ -593,6 +624,11 @@ def load_or_create_embeddings(embedding_model_name: str,
     else:
         print(f"[EMBEDDINGS]   No existing batches found, starting fresh...")
         need_processing = True
+    
+    # Initialize variables that may be needed for batch regeneration
+    embedding_model = None
+    device = None
+    encoding_batch_size = None
     
     # Step 4: Load embedding model if needed
     if need_processing:
@@ -736,14 +772,82 @@ def load_or_create_embeddings(embedding_model_name: str,
     batch_files = sorted([batch_dir / f"batch_{i:05d}.npy" for i in range(total_batches)])
     print(f"[EMBEDDINGS]   Found {len(batch_files)} batch files to concatenate")
     
-    batch_arrays = []
+    batch_arrays = [None] * total_batches  # Pre-allocate list to maintain order
+    corrupted_batches = []
+    
     for idx, batch_file in enumerate(batch_files):
         if not batch_file.exists():
-            raise FileNotFoundError(f"Batch file missing: {batch_file}")
-        print(f"[EMBEDDINGS]   Loading batch {idx + 1}/{len(batch_files)}: {batch_file.name}")
-        batch_array = np.load(batch_file)
-        batch_arrays.append(batch_array)
-        print(f"[EMBEDDINGS]     Shape: {batch_array.shape}, Size: {batch_file.stat().st_size / (1024**2):.2f} MB")
+            print(f"[EMBEDDINGS]   ⚠️  Batch file missing: {batch_file.name}")
+            corrupted_batches.append(idx)
+            continue
+        
+        file_size = batch_file.stat().st_size
+        if file_size == 0:
+            print(f"[EMBEDDINGS]   ⚠️  Batch file is empty (0 bytes): {batch_file.name}")
+            corrupted_batches.append(idx)
+            continue
+        
+        try:
+            print(f"[EMBEDDINGS]   Loading batch {idx + 1}/{len(batch_files)}: {batch_file.name}")
+            batch_array = np.load(batch_file)
+            batch_arrays[idx] = batch_array
+            print(f"[EMBEDDINGS]     Shape: {batch_array.shape}, Size: {file_size / (1024**2):.2f} MB")
+        except (EOFError, ValueError, OSError) as e:
+            print(f"[EMBEDDINGS]   ⚠️  Error loading batch {idx + 1}: {e}")
+            print(f"[EMBEDDINGS]   Batch file appears corrupted, will regenerate...")
+            corrupted_batches.append(idx)
+    
+    # Regenerate corrupted batches if any
+    if corrupted_batches:
+        print(f"\n[EMBEDDINGS]   Found {len(corrupted_batches)} corrupted/missing batch files")
+        print(f"[EMBEDDINGS]   Regenerating batches: {corrupted_batches}")
+        
+        if embedding_model is None:
+            # Need to load embedding model for regeneration
+            print(f"[EMBEDDINGS]   Loading embedding model for batch regeneration...")
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            embedding_model = load_embedding_model(embedding_model_name, device=device)
+            if device == "cuda":
+                encoding_batch_size = 128
+            else:
+                encoding_batch_size = 32
+        
+        for batch_idx in corrupted_batches:
+            batch_start_idx = batch_idx * processing_batch_size
+            batch_end_idx = min((batch_idx + 1) * processing_batch_size, total_documents)
+            batch_documents = dataset_as_list_of_strings[batch_start_idx:batch_end_idx]
+            batch_file = batch_dir / f"batch_{batch_idx:05d}.npy"
+            
+            print(f"[EMBEDDINGS]   Regenerating batch {batch_idx + 1}/{total_batches}: {batch_file.name}")
+            print(f"[EMBEDDINGS]     Documents: {batch_start_idx:,} to {batch_end_idx:,} ({len(batch_documents):,} documents)")
+            
+            # Delete corrupted file if it exists
+            if batch_file.exists():
+                batch_file.unlink()
+                print(f"[EMBEDDINGS]     Deleted corrupted file")
+            
+            # Encode and save batch
+            batch_embeddings = embedding_model.encode(
+                batch_documents,
+                show_progress_bar=False,
+                batch_size=encoding_batch_size,
+                convert_to_numpy=True,
+                normalize_embeddings=False,
+                device=device
+            )
+            np.save(batch_file, batch_embeddings)
+            batch_size_mb = batch_file.stat().st_size / (1024**2)
+            print(f"[EMBEDDINGS]     ✓ Regenerated: {batch_file.name} ({batch_size_mb:.2f} MB)")
+            
+            batch_arrays[batch_idx] = batch_embeddings
+            del batch_embeddings
+            if device == "cuda":
+                torch.cuda.empty_cache()
+    
+    # Verify all batches are loaded
+    if any(b is None for b in batch_arrays):
+        missing = [i for i, b in enumerate(batch_arrays) if b is None]
+        raise ValueError(f"Failed to load/regenerate batches: {missing}")
     
     print(f"[EMBEDDINGS]   Concatenating {len(batch_arrays)} batches...")
     embeddings = np.concatenate(batch_arrays, axis=0)
@@ -855,9 +959,18 @@ class RetrainableBERTopicModel(BERTopicOctisModelWithEmbeddings):
         )
         print(f"[TRAIN] ✓ BERTopic model instance created")
         
-        # Convert embeddings to numpy if needed
-        print(f"[TRAIN] Preparing embeddings...")
-        if hasattr(self.embeddings, 'get'):
+        # Memory-efficient embedding handling
+        print(f"[TRAIN] Preparing embeddings for memory-efficient processing...")
+        
+        # Check if embeddings are memory-mapped (from cache)
+        embeddings_is_mmap = isinstance(self.embeddings, np.memmap) or (
+            isinstance(self.embeddings, np.ndarray) and hasattr(self.embeddings, 'filename')
+        )
+        
+        if embeddings_is_mmap:
+            print(f"[TRAIN] ✓ Embeddings are memory-mapped (efficient for large datasets)")
+            embeddings_numpy = self.embeddings
+        elif hasattr(self.embeddings, 'get'):
             print(f"[TRAIN] Converting CuPy array to NumPy array...")
             embeddings_numpy = self.embeddings.get()
         elif not isinstance(self.embeddings, np.ndarray):
@@ -876,20 +989,48 @@ class RetrainableBERTopicModel(BERTopicOctisModelWithEmbeddings):
             )
         
         print(f"[TRAIN] Final embeddings shape: {embeddings_numpy.shape}, dtype: {embeddings_numpy.dtype}")
+        print(f"[TRAIN] Memory usage: {embeddings_numpy.nbytes / (1024**3):.2f} GB")
+        if embeddings_is_mmap:
+            print(f"[TRAIN] ✓ Using memory-mapped arrays (data loaded on-demand from disk)")
         print(f"[TRAIN] Note: RAPIDS cuML will automatically use GPU for UMAP and HDBSCAN clustering")
         
-        # Train model
-        print(f"[TRAIN] Starting fit_transform...")
-        print(f"[TRAIN] Input documents: {len(self.dataset_as_list_of_strings):,}")
-        print(f"[TRAIN] This may take several minutes...")
+        # Verify GPU models are being used
+        print(f"[TRAIN] Verifying GPU models:")
+        print(f"[TRAIN]   UMAP model type: {type(umap_model).__module__}.{type(umap_model).__name__}")
+        print(f"[TRAIN]   HDBSCAN model type: {type(hdbscan_model).__module__}.{type(hdbscan_model).__name__}")
+        if 'cuml' in type(umap_model).__module__ and 'cuml' in type(hdbscan_model).__module__:
+            print(f"[TRAIN]   ✅ Both models are using cuML (GPU)")
+        else:
+            print(f"[TRAIN]   ⚠️  WARNING: Models may not be using GPU!")
         
+        # Train model with memory-efficient processing
+        # BERTopic will handle UMAP and HDBSCAN internally, but cuML manages GPU memory efficiently
+        print(f"\n[TRAIN] ========== Starting fit_transform ==========")
+        print(f"[TRAIN] Input documents: {len(self.dataset_as_list_of_strings):,}")
+        print(f"[TRAIN] Embeddings will be automatically transferred to GPU by cuML")
+        print(f"[TRAIN] Processing stages:")
+        print(f"[TRAIN]   1. UMAP dimensionality reduction (GPU-accelerated)")
+        print(f"[TRAIN]   2. HDBSCAN clustering (GPU-accelerated)")
+        print(f"[TRAIN]   3. Topic extraction and representation")
+        print(f"[TRAIN] This may take several minutes for {len(self.dataset_as_list_of_strings):,} documents...")
+        print(f"[TRAIN] Note: cuML handles GPU memory efficiently, minimizing RAM usage")
+        
+        import time
+        start_time = time.time()
+        
+        # BERTopic's fit_transform will:
+        # 1. Use our pre-configured UMAP model (cuML, GPU)
+        # 2. Use our pre-configured HDBSCAN model (cuML, GPU)
+        # 3. Extract topics from the clustered documents
+        # cuML automatically manages GPU memory, so we don't need to batch manually
         with track_memory_peak(f"BERTopic Training: {self.embedding_model_name}"):
             topics, probabilities = topic_model.fit_transform(
                 self.dataset_as_list_of_strings,
                 embeddings=embeddings_numpy
             )
         
-        print(f"[TRAIN] ✓ fit_transform completed")
+        elapsed = time.time() - start_time
+        print(f"[TRAIN] ✓ fit_transform completed in {elapsed/60:.1f} minutes ({elapsed:.1f} seconds)")
         print(f"[TRAIN] Topics found: {len(set(topics)) - (1 if -1 in topics else 0)}")
         print(f"[TRAIN] Outliers: {sum(1 for t in topics if t == -1)}")
         
@@ -1019,7 +1160,53 @@ def retrain_single_model(model_config: Dict[str, Any],
         print(f"[RETRAIN] Dataset folder: {octis_dataset_path}")
         octis_dataset.load_custom_dataset_from_folder(str(octis_dataset_path))
         print(f"[RETRAIN] ✓ OCTIS dataset loaded successfully")
-        print(f"   Corpus size: {len(octis_dataset.get_corpus())}")
+        
+        # Validate sizes match
+        octis_corpus = octis_dataset.get_corpus()
+        octis_corpus_size = len(octis_corpus)
+        training_data_size = len(dataset_as_list_of_strings)
+        embeddings_size = embeddings.shape[0] if embeddings is not None else 0
+        
+        print(f"\n[RETRAIN] Size Validation:")
+        print(f"   Training data (sentences): {training_data_size:,}")
+        print(f"   OCTIS corpus size: {octis_corpus_size:,}")
+        print(f"   Embeddings size: {embeddings_size:,}")
+        
+        if octis_corpus_size != training_data_size:
+            print(f"   ⚠️  WARNING: OCTIS corpus size ({octis_corpus_size:,}) != Training data size ({training_data_size:,})")
+            print(f"   Difference: {abs(octis_corpus_size - training_data_size):,} documents")
+        else:
+            print(f"   ✅ OCTIS corpus size matches training data size")
+        
+        if embeddings_size != training_data_size:
+            print(f"   ⚠️  WARNING: Embeddings size ({embeddings_size:,}) != Training data size ({training_data_size:,})")
+            print(f"   Difference: {abs(embeddings_size - training_data_size):,} documents")
+        else:
+            print(f"   ✅ Embeddings size matches training data size")
+        
+        if octis_corpus_size != embeddings_size:
+            print(f"   ⚠️  WARNING: OCTIS corpus size ({octis_corpus_size:,}) != Embeddings size ({embeddings_size:,})")
+            print(f"   Difference: {abs(octis_corpus_size - embeddings_size):,} documents")
+        else:
+            print(f"   ✅ OCTIS corpus size matches embeddings size")
+        
+        # Critical validation: All sizes must match before training
+        if not (octis_corpus_size == training_data_size == embeddings_size):
+            error_msg = (
+                f"\n❌ CRITICAL ERROR: Size mismatch detected!\n"
+                f"   Training data: {training_data_size:,}\n"
+                f"   OCTIS corpus: {octis_corpus_size:,}\n"
+                f"   Embeddings: {embeddings_size:,}\n"
+                f"\nAll sizes must match for training to succeed.\n"
+                f"This usually indicates:\n"
+                f"  - Empty sentences filtered inconsistently\n"
+                f"  - Embeddings cached from different dataset\n"
+                f"  - OCTIS corpus created from different data\n"
+            )
+            print(error_msg)
+            raise ValueError(f"Size mismatch: training={training_data_size}, octis={octis_corpus_size}, embeddings={embeddings_size}")
+        
+        print(f"\n✅ All sizes match - proceeding with training")
         
         # Train model
         print_step(7, f"Training BERTopic model with hyperparameters")
@@ -1033,7 +1220,13 @@ def retrain_single_model(model_config: Dict[str, Any],
             print(f"[RETRAIN] ❌ Training failed - no topics generated")
             return False
         
-        num_topics = len(output_dict['topics']) if output_dict['topics'] else 0
+        # Get number of topics - handle both list and numpy array
+        topics = output_dict['topics']
+        if isinstance(topics, np.ndarray):
+            # For numpy arrays, use shape[0] to get number of topics (rows), not size (total elements)
+            num_topics = topics.shape[0] if len(topics.shape) > 0 and topics.shape[0] > 0 else 0
+        else:
+            num_topics = len(topics) if len(topics) > 0 else 0
         print(f"[RETRAIN] ✓ Training completed successfully")
         print(f"[RETRAIN]   Topics generated: {num_topics}")
         
@@ -1056,6 +1249,14 @@ def retrain_single_model(model_config: Dict[str, Any],
         if model.trained_topic_model is not None:
             bertopic_dir = model_output_dir / f"model_{pareto_rank}"
             print(f"[RETRAIN] Saving BERTopic native format (safetensors): {bertopic_dir}")
+            
+            # Remove existing directory if it exists to avoid FileExistsError
+            if bertopic_dir.exists():
+                print(f"[RETRAIN]   Removing existing directory: {bertopic_dir}")
+                import shutil
+                shutil.rmtree(bertopic_dir)
+                print(f"[RETRAIN]   ✓ Removed existing directory")
+            
             # Use safetensors format - safe, small, and avoids GPU array issues
             # Convert embedding model name to sentence-transformers format if needed
             embedding_model_path = embedding_model_name
