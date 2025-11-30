@@ -44,7 +44,7 @@ romantic_novels_project_code/
 │   ├── stage04_experiments/      # Hyperparameter optimization
 │   ├── stage05_selection/        # Pareto-efficient model selection
 │   ├── stage05_retraining/       # Retrain top models
-│   ├── stage06_BERTopic_topics_exploration/  # Topic exploration & evaluation
+│   ├── stage06_exploration/      # Topic exploration & evaluation
 │   ├── stage06_labeling/         # Topic labeling and composite building
 │   └── stage07_analysis/         # Statistical analysis & visualization
 ├── configs/                      # YAML configuration files
@@ -144,11 +144,11 @@ python -m src.stage05_selection.main --config configs/selection.yaml
 python -m src.stage05_retraining.main retrain --top_n 4
 
 # Stage 06: Topic Exploration (Evaluate Retrained Models)
-python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
+python -m src.stage06_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
   --save-topics \
-  --output-dir results/stage06
+  --output-dir results/stage06_exploration
 
 # Stage 06: Labeling (Two-Step Process)
 
@@ -156,7 +156,7 @@ python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
 python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
-  --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+  --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
 
 # Step 2: Map Labels to Theory-Aligned Categories
 python -m src.stage06_labeling.category_mapping.main_category_mapping \
@@ -167,7 +167,7 @@ python -m src.stage06_labeling.category_mapping.main_category_mapping \
 python -m src.stage06_labeling.main \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
-  --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+  --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
 
 # Stage 07: Analysis
 python -m src.stage07_analysis.main --config configs/scoring.yaml

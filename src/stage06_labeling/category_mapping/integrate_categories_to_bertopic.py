@@ -11,7 +11,7 @@ from typing import Dict, List
 
 from bertopic import BERTopic
 
-from src.stage06_BERTopic_topics_exploration.explore_retrained_model import (
+from src.stage06_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
     load_native_bertopic_model,

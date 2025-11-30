@@ -18,7 +18,7 @@ from sentence_transformers import SentenceTransformer
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 from src.stage05_retraining.retrain_models import RetrainableBERTopicModel
-from src.stage06_BERTopic_topics_exploration.explore_retrained_model import (
+from src.stage06_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
     load_native_bertopic_model,

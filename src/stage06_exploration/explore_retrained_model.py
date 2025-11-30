@@ -775,8 +775,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("results/stage06"),
-        help="Directory to save output files (metrics and topics). Default: results/stage06",
+        default=Path("results/stage06_exploration"),
+        help="Directory to save output files (metrics and topics). Default: results/stage06_exploration",
     )
     parser.add_argument(
         "--metrics-format",

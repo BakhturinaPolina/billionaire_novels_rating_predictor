@@ -12,7 +12,7 @@ import torch
 
 from src.common.config import load_config, resolve_path
 from src.common.logging import setup_logging
-from src.stage06_BERTopic_topics_exploration.explore_retrained_model import (
+from src.stage06_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
 )

@@ -23,7 +23,7 @@ Interactive tooling for inspecting retrained BERTopic checkpoints coming out of 
 
 ### Basic Usage
 ```bash
-python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
+python -m src.stage06_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
   --dictionary-path data/interim/octis/corpus.tsv \
@@ -36,16 +36,16 @@ This will:
 
 ### Save Topics for Close Reading
 ```bash
-python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
+python -m src.stage06_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
   --save-topics \
-  --output-dir results/stage06
+  --output-dir results/stage06_exploration
 ```
 
 This will:
-- Save metrics to `results/stage06/metrics.json`
-- Extract all topics with all representations and save to `results/stage06/topics_all_representations.json`
+- Save metrics to `results/stage06_exploration/metrics.json`
+- Extract all topics with all representations and save to `results/stage06_exploration/topics_all_representations.json`
 
 The topics JSON file contains a nested structure:
 ```json

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import json
-import os
 import logging
+import os
 import time
 from contextlib import contextmanager
 from pathlib import Path
@@ -117,6 +117,7 @@ ROMANCE_AWARE_USER_PROMPT = """Topic keywords: {kw}{hints}
 Label:"""
 
 # OpenRouter API configuration
+# Get API key from environment variable, fallback to empty string if not set
 DEFAULT_OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-nemo"
 DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"

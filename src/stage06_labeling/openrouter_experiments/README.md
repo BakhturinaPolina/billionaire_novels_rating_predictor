@@ -79,7 +79,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
 ```bash
 python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
-    --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
+    --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
     --num-keywords 15
 ```
 

@@ -97,7 +97,7 @@ python -m src.stage06_labeling.main
 
 # With JSON comparison (loads from BERTopic + compares with JSON for validation)
 python -m src.stage06_labeling.main \
-  --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+  --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
 
 # With custom parameters
 python -m src.stage06_labeling.main \
