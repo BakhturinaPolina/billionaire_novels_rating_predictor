@@ -1,450 +1,450 @@
-topic_id,label,category,weight
-0,True Promise,K_work_corporate,0.500000
-0,True Promise,A_commitment_hea,0.500000
-1,Tongue & Nipple Play,C_explicit,1.000000
-2,Tongue Play,C_explicit,1.000000
-3,Hungry Dinner,H_domestic_nesting,1.000000
-4,Long-Awaited Reunion,N_separation_reunion,0.500000
-4,Long-Awaited Reunion,A_commitment_hea,0.500000
-5,Weekly Fallen Moments,K_work_corporate,1.000000
-6,Wine Service,D_luxury_wealth_status,1.000000
-7,True Choice,Z_noise_oog,1.000000
-8,Wrong Thoughts,Q_miscommunication,0.500000
-8,Wrong Thoughts,F_negative_affect,0.500000
-9,Wedding Planning,G_rituals_gifts,0.500000
-9,Wedding Planning,A_commitment_hea,0.500000
-10,Elevator Encounters,S_scene_anchor,1.000000
-11,Wine Service,D_luxury_wealth_status,0.500000
-11,Wine Service,H_domestic_nesting,0.500000
-12,Tender Tongue Play,B_mutual_intimacy,1.000000
-13,Playful Laughter,I_humor_lightness,0.500000
-13,Playful Laughter,O_appearance_aesthetics,0.500000
-14,Gleeful Smiles,I_humor_lightness,1.000000
-15,Intimate Touch,B_mutual_intimacy,0.500000
-15,Intimate Touch,C_explicit,0.500000
-16,Family Legacy,J_family_support,1.000000
-19,Tense Foreplay,B_mutual_intimacy,1.000000
-20,Gaze & Brows,O_appearance_aesthetics,1.000000
-21,Driveway Encounter,S_scene_anchor,1.000000
-22,Struggling Decisions,Q_miscommunication,1.000000
-23,Armchair Foreplay,B_mutual_intimacy,0.500000
-23,Armchair Foreplay,K_work_corporate,0.500000
-24,Vibrating Phones,P_tech_media,1.000000
-25,Goofy Grins,I_humor_lightness,1.000000
-26,Nighttime Stand,Z_noise_oog,1.000000
-27,Elevator Encounters,S_scene_anchor,1.000000
-28,Guacamole Dilemma,Z_noise_oog,1.000000
-29,Time Apart,N_separation_reunion,1.000000
-30,Ice Hockey Players,Z_noise_oog,1.000000
-31,Tomorrow's Outfit,Z_noise_oog,1.000000
-32,Hesitant Intercourse,Z_noise_oog,1.000000
-33,Financial Negotiation,D_luxury_wealth_status,0.500000
-33,Financial Negotiation,K_work_corporate,0.500000
-34,Risky Archery Bet,S_scene_anchor,1.000000
-35,Silent Ride,S_scene_anchor,1.000000
-36,Foot Foreplay,B_mutual_intimacy,1.000000
-37,Insane Fools,F_negative_affect,1.000000
-38,Gaze & Brows,O_appearance_aesthetics,1.000000
-39,Moist Mouth Play,Z_noise_oog,1.000000
-40,Office Drama,Q_miscommunication,0.500000
-40,Office Drama,K_work_corporate,0.500000
-41,Ashamed Confession,Q_miscommunication,0.375000
-41,Ashamed Confession,F_negative_affect,0.375000
-41,Ashamed Confession,S_scene_anchor,0.250000
-42,First Intimacy,B_mutual_intimacy,1.000000
-43,Research & Preparation,K_work_corporate,1.000000
-44,Proud Stepmom,J_family_support,1.000000
-45,Growling Bear Hug,B_mutual_intimacy,1.000000
-46,Rugged Glance,O_appearance_aesthetics,1.000000
-47,Hair Play,O_appearance_aesthetics,0.750000
-47,Hair Play,S_scene_anchor,0.250000
-48,Deep Breaths,B_mutual_intimacy,1.000000
-49,New Parent Intimacy,M_health_recovery,0.500000
-49,New Parent Intimacy,J_family_support,0.500000
-50,Careful Mind-Reading,Q_miscommunication,0.750000
-50,Careful Mind-Reading,S_scene_anchor,0.250000
-51,Tremulous Reveal,M_health_recovery,0.500000
-51,Tremulous Reveal,J_family_support,0.500000
-52,Masculine Conquest,I_humor_lightness,1.000000
-53,Lacy Lingerie,D_luxury_wealth_status,0.700000
-53,Lacy Lingerie,O_appearance_aesthetics,0.300000
-54,Ringing Phones,P_tech_media,1.000000
-55,Sexual Dominatrix,C_explicit,0.500000
-55,Sexual Dominatrix,P_tech_media,0.500000
-56,Sleep Deprivation,F_negative_affect,1.000000
-57,Bathroom Hygiene,H_domestic_nesting,1.000000
-58,Sweet Spectacle,I_humor_lightness,0.500000
-58,Sweet Spectacle,O_appearance_aesthetics,0.500000
-59,Playful Banter,I_humor_lightness,0.333333
-59,Playful Banter,O_appearance_aesthetics,0.333333
-59,Playful Banter,P_tech_media,0.333333
-60,Boardroom Tension,K_work_corporate,1.000000
-61,Apology & Forgiveness,T_repair_apology,1.000000
-62,Months-Long Deception,Q_miscommunication,0.750000
-62,Months-Long Deception,S_scene_anchor,0.250000
-63,Deceptive Lies,Q_miscommunication,1.000000
-64,Murder Mystery Date,E_threat_danger,0.750000
-64,Murder Mystery Date,S_scene_anchor,0.250000
-65,Redemption Claim,O_appearance_aesthetics,1.000000
-66,Naughty Friendship,B_mutual_intimacy,1.000000
-67,Aisle Stares,I_humor_lightness,0.250000
-67,Aisle Stares,J_family_support,0.250000
-67,Aisle Stares,A_commitment_hea,0.250000
-67,Aisle Stares,O_appearance_aesthetics,0.250000
-68,Grand Century Knock,Z_noise_oog,1.000000
-69,Guilty Hurts,M_health_recovery,0.500000
-69,Guilty Hurts,F_negative_affect,0.500000
-70,Purring Rescue Kittens,Z_noise_oog,1.000000
-71,Ringing Phones,P_tech_media,1.000000
-72,Corporate Hockey Offer,K_work_corporate,1.000000
-73,Rare Emotional Intimacy,B_mutual_intimacy,1.000000
-74,Stadium Stun,O_appearance_aesthetics,1.000000
-75,Bedroom Intimacy,B_mutual_intimacy,0.500000
-75,Bedroom Intimacy,H_domestic_nesting,0.500000
-76,Breathy Whispers,B_mutual_intimacy,1.000000
-77,Puzzled Decision-Making,K_work_corporate,1.000000
-78,Tense Engagement,A_commitment_hea,0.500000
-78,Tense Engagement,O_appearance_aesthetics,0.500000
-79,Mutters of Relief,J_family_support,1.000000
-80,Hockey Goalie's Lovesick Offs,K_work_corporate,1.000000
-81,Family Dynamics,J_family_support,1.000000
-82,Fear and Anxiety,F_negative_affect,0.750000
-82,Fear and Anxiety,S_scene_anchor,0.250000
-83,Animal Encounter,Z_noise_oog,1.000000
-84,Narcissistic Drama,E_threat_danger,0.500000
-84,Narcissistic Drama,A_commitment_hea,0.500000
-85,Honest Victory Celebration,G_rituals_gifts,1.000000
-86,Monthly Rent,Z_noise_oog,1.000000
-87,Caveman's Unsolicited Advance,Z_noise_oog,1.000000
-88,Apologetic Performance,T_repair_apology,1.000000
-89,Perverse Survival Method,Z_noise_oog,1.000000
-90,Medical Intimacy,M_health_recovery,1.000000
-91,Vivid Flashbacks,Z_noise_oog,1.000000
-92,Cozy Interior,H_domestic_nesting,1.000000
-93,Shameless Apologies,T_repair_apology,0.333333
-93,Shameless Apologies,J_family_support,0.333333
-93,Shameless Apologies,F_negative_affect,0.333333
-94,Raging Tempers,F_negative_affect,1.000000
-95,Evening Client Trauma,M_health_recovery,0.500000
-95,Evening Client Trauma,K_work_corporate,0.500000
-96,Husky Whispers,B_mutual_intimacy,1.000000
-97,Fluttering Eyelids,Z_noise_oog,1.000000
-98,Engagement Conversation,J_family_support,0.500000
-98,Engagement Conversation,A_commitment_hea,0.500000
-99,**Dirty Confessions**,Z_noise_oog,1.000000
-100,Yellow Bouquet,G_rituals_gifts,0.500000
-100,Yellow Bouquet,A_commitment_hea,0.500000
-101,Tragic Love Letters,J_family_support,1.000000
-102,Hair Tugging Foreplay,B_mutual_intimacy,1.000000
-103,Wet Nude Encounter,C_explicit,0.500000
-103,Wet Nude Encounter,H_domestic_nesting,0.500000
-104,Pigeon Feeding,J_family_support,1.000000
-105,Popcorn Hurry,Z_noise_oog,1.000000
-106,Nighttime Confession,Z_noise_oog,1.000000
-107,True Matter Dispute,K_work_corporate,1.000000
-108,Eternal Love,A_commitment_hea,1.000000
-109,Eligible Millionaire,D_luxury_wealth_status,0.500000
-109,Eligible Millionaire,K_work_corporate,0.500000
-110,Feverish Argument,M_health_recovery,1.000000
-111,Dreamy Nightmares,F_negative_affect,1.000000
-112,Icy Kiss,B_mutual_intimacy,1.000000
-113,Tabloid Scandal,J_family_support,0.333333
-113,Tabloid Scandal,F_negative_affect,0.333333
-113,Tabloid Scandal,P_tech_media,0.333333
-114,Reluctant Choices,Z_noise_oog,1.000000
-115,Celebrity Golf Break,Z_noise_oog,1.000000
-116,Relatable Imposter,Z_noise_oog,1.000000
-117,Constant Hatred,Z_noise_oog,1.000000
-118,Public Relations Intimacy,K_work_corporate,1.000000
-119,Unapologetic Whispers,B_mutual_intimacy,0.500000
-119,Unapologetic Whispers,I_humor_lightness,0.500000
-120,Strung Words,Z_noise_oog,1.000000
-121,Convenient Pairing,Z_noise_oog,1.000000
-122,Fight Over Information,E_threat_danger,1.000000
-123,Police Encounter,R1_protectiveness,0.333333
-123,Police Encounter,K_work_corporate,0.333333
-123,Police Encounter,E_threat_danger,0.333333
-124,Engagement Surprise,J_family_support,0.500000
-124,Engagement Surprise,A_commitment_hea,0.500000
-125,Airport Encounter,S_scene_anchor,1.000000
-126,Sardonic Glance,O_appearance_aesthetics,0.750000
-126,Sardonic Glance,S_scene_anchor,0.250000
-127,Emotional Panic,F_negative_affect,1.000000
-128,Easy Target,Z_noise_oog,1.000000
-129,Condom Mishap,C_explicit,1.000000
-130,Whispered Doubts,B_mutual_intimacy,0.333333
-130,Whispered Doubts,Q_miscommunication,0.333333
-130,Whispered Doubts,J_family_support,0.333333
-131,Intense Pleading,Z_noise_oog,1.000000
-133,Tongue & Thumb Play,C_explicit,1.000000
-134,Necking on Campus,J_family_support,1.000000
-135,Sunset Stroll,S_scene_anchor,1.000000
-136,Thrilling Diversion,Z_noise_oog,1.000000
-137,Busy Parenting,J_family_support,1.000000
-138,Sailor's Pact,S_scene_anchor,1.000000
-139,Stammered Questions,Z_noise_oog,1.000000
-140,Cheeky Stares,Z_noise_oog,1.000000
-141,Rush of Passion,Z_noise_oog,1.000000
-142,Stainless Countertop,D_luxury_wealth_status,0.500000
-142,Stainless Countertop,H_domestic_nesting,0.500000
-143,Small Talk,Z_noise_oog,1.000000
-144,Dating App Dilemma,G_rituals_gifts,1.000000
-145,Revolutionary Romance,Z_noise_oog,1.000000
-146,Bedtime Intimacy,B_mutual_intimacy,0.500000
-146,Bedtime Intimacy,H_domestic_nesting,0.500000
-147,Fortuitous Encounter,Z_noise_oog,1.000000
-148,Victorian Holiday Celebration,G_rituals_gifts,1.000000
-149,Manager's Regret,K_work_corporate,0.500000
-149,Manager's Regret,P_tech_media,0.500000
-150,Industry Rivalry,S_scene_anchor,1.000000
-151,Cool Negotiation,K_work_corporate,0.500000
-151,Cool Negotiation,P_tech_media,0.500000
-152,Market Glance,J_family_support,0.500000
-152,Market Glance,O_appearance_aesthetics,0.500000
-153,Strange Encounter,Z_noise_oog,1.000000
-154,Unplanned Pregnancy,J_family_support,1.000000
-155,Hushed Whispers,B_mutual_intimacy,1.000000
-156,Trust Instincts,Z_noise_oog,1.000000
-157,Barroom Moment,K_work_corporate,0.750000
-157,Barroom Moment,S_scene_anchor,0.250000
-158,Breathless Stare,Z_noise_oog,1.000000
-159,Plea During Playtime,J_family_support,1.000000
-160,Tearful Foreplay,B_mutual_intimacy,0.500000
-160,Tearful Foreplay,F_negative_affect,0.500000
-161,Brilliant Actor's Qualities,Z_noise_oog,1.000000
-162,Lace-Covered Curves,C_explicit,1.000000
-163,Redemption Orgies,Z_noise_oog,1.000000
-164,Electric Glances,O_appearance_aesthetics,1.000000
-165,Huskier Whispers,B_mutual_intimacy,1.000000
-166,Angry Outburst,H_domestic_nesting,0.500000
-166,Angry Outburst,F_negative_affect,0.500000
-167,Intense Climax,C_explicit,1.000000
-168,Mind-Changing Conversation,Z_noise_oog,1.000000
-169,Risky Temptation,D_luxury_wealth_status,1.000000
-170,Midday Apologies,T_repair_apology,1.000000
-171,Bedtime Foreplay,B_mutual_intimacy,0.500000
-171,Bedtime Foreplay,H_domestic_nesting,0.500000
-172,Unrecognizable Stalker,E_threat_danger,1.000000
-173,Friends with Benefits,Z_noise_oog,1.000000
-174,Despicable Scenario,Z_noise_oog,1.000000
-175,Underwater Glance,S_scene_anchor,1.000000
-176,Throat Tightness,Z_noise_oog,1.000000
-177,Cosmic Command,Z_noise_oog,1.000000
-178,Happy Endings,Z_noise_oog,1.000000
-179,Bathhouse Flirtation,I_humor_lightness,1.000000
-180,Stratospheric Ode,Z_noise_oog,1.000000
-181,Glacial Glare,Z_noise_oog,1.000000
-182,Tough Cheek Caress,B_mutual_intimacy,0.750000
-182,Tough Cheek Caress,S_scene_anchor,0.250000
-183,Divided Hearts,Z_noise_oog,1.000000
-184,Husky Whispers,B_mutual_intimacy,1.000000
-185,Sensual Thrill,O_appearance_aesthetics,1.000000
-187,Political Strategy Session,Z_noise_oog,1.000000
-188,Deal Negotiation,K_work_corporate,1.000000
-189,Weekend Encounter,G_rituals_gifts,1.000000
-190,Religious Intimacy,P_tech_media,1.000000
-191,Karaoke Client Meeting,K_work_corporate,1.000000
-192,Casual Encounters,Z_noise_oog,1.000000
-193,Birthday Surprise,G_rituals_gifts,1.000000
-194,Author Appreciation,Z_noise_oog,1.000000
-195,Gritted Breakthrough,Z_noise_oog,1.000000
-196,Hollywood Gaze,D_luxury_wealth_status,0.700000
-196,Hollywood Gaze,O_appearance_aesthetics,0.300000
-197,Margarita Closure,D_luxury_wealth_status,1.000000
-198,Holiday Flirtation,G_rituals_gifts,1.000000
-199,Apprehensive Soulmates,Z_noise_oog,1.000000
-200,Older Sister's Secret,J_family_support,0.333333
-200,Older Sister's Secret,E_threat_danger,0.333333
-200,Older Sister's Secret,F_negative_affect,0.333333
-201,Jealous Girlfriend,R2_jealousy,1.000000
-202,Historical Rivalry,Z_noise_oog,1.000000
-203,Incessant Revulsion,K_work_corporate,1.000000
-204,Silly Forgetfulness,Z_noise_oog,1.000000
-205,Rule-Breaking Desire,K_work_corporate,1.000000
-206,Sultry Rivalry,Z_noise_oog,1.000000
-207,Earthy Scent,O_appearance_aesthetics,1.000000
-208,Harem's Explicit Reward,Z_noise_oog,1.000000
-209,Clan Obsession,Z_noise_oog,1.000000
-210,Reunion Confessions,N_separation_reunion,0.500000
-210,Reunion Confessions,A_commitment_hea,0.500000
-211,Blonde Strands,O_appearance_aesthetics,1.000000
-212,Office Romance,K_work_corporate,0.500000
-212,Office Romance,P_tech_media,0.500000
-213,Ragged Breaths,B_mutual_intimacy,1.000000
-214,Naughty Interrogation,Z_noise_oog,1.000000
-215,Overprotective Gentlemen's Promise,R1_protectiveness,0.333333
-215,Overprotective Gentlemen's Promise,A_commitment_hea,0.333333
-215,Overprotective Gentlemen's Promise,F_negative_affect,0.333333
-216,Morbid Anniversaries,Z_noise_oog,1.000000
-217,Snarky Raincheck,Z_noise_oog,1.000000
-218,Feathered Antics,S_scene_anchor,1.000000
-219,Enviable Zing,Z_noise_oog,1.000000
-220,Boat Moment,S_scene_anchor,1.000000
-221,Quick Shower,M_health_recovery,0.500000
-221,Quick Shower,H_domestic_nesting,0.500000
-222,Gratitude Sale,Z_noise_oog,1.000000
-223,Professional Undressing,K_work_corporate,1.000000
-225,Furtive Minutes,Z_noise_oog,1.000000
-226,Scandalous Dance,Z_noise_oog,1.000000
-227,Voyeuristic Race,K_work_corporate,0.500000
-227,Voyeuristic Race,F_negative_affect,0.500000
-228,Homecoming Vow,N_separation_reunion,0.333333
-228,Homecoming Vow,K_work_corporate,0.333333
-228,Homecoming Vow,A_commitment_hea,0.333333
-229,Fascinated Gazes,O_appearance_aesthetics,1.000000
-230,Wheelchair Fondness,J_family_support,1.000000
-231,Sweaty Intimacy,B_mutual_intimacy,1.000000
-232,Tiger's Prize,Z_noise_oog,1.000000
-233,Uppity Beauty,O_appearance_aesthetics,1.000000
-234,Postcoital Witch,E_threat_danger,1.000000
-235,Kingly Gaze,O_appearance_aesthetics,1.000000
-236,Sarcastic Jokes,I_humor_lightness,1.000000
-237,Archery Rivalry,Z_noise_oog,1.000000
-238,Unspoken Attraction,Z_noise_oog,1.000000
-239,Tearful Embrace,F_negative_affect,1.000000
-240,Career Opportunity,S_scene_anchor,1.000000
-241,First Touch,Z_noise_oog,1.000000
-242,Audacious Handshake,Z_noise_oog,1.000000
-243,Fearless Ladies,F_negative_affect,1.000000
-244,Power Tool Intimacy,B_mutual_intimacy,1.000000
-245,Midnight Glance,O_appearance_aesthetics,1.000000
-246,Superhero's Gaze,O_appearance_aesthetics,1.000000
-247,Statue's Embrace,J_family_support,1.000000
-248,Doomed Barn Dance,Q_miscommunication,1.000000
-249,Prophetic Garage Encounter,F_negative_affect,1.000000
-250,Protective Conversations,R1_protectiveness,1.000000
-251,Press Conference Mojo,Z_noise_oog,1.000000
-252,Sarcastic Retorts,Z_noise_oog,1.000000
-253,Confused Question,Z_noise_oog,1.000000
-254,Horny Mistake,Q_miscommunication,1.000000
-255,Scorpion's Embrace,Z_noise_oog,1.000000
-256,Awkward Silence,Q_miscommunication,1.000000
-257,Lingering Scents,O_appearance_aesthetics,1.000000
-258,Sunset Parade,S_scene_anchor,1.000000
-259,Office Work,K_work_corporate,0.500000
-259,Office Work,P_tech_media,0.500000
-260,Brief Shrug,Z_noise_oog,1.000000
-261,Nuzzle in Sedan,Z_noise_oog,1.000000
-262,Clever Banter,I_humor_lightness,1.000000
-263,Riddled Rejection,Z_noise_oog,1.000000
-264,Middle School Melee,Z_noise_oog,1.000000
-265,Careful Tune-Up,S_scene_anchor,1.000000
-266,Explicit Photoshoot,Z_noise_oog,1.000000
-267,Cocky Smirk,M_health_recovery,0.500000
-267,Cocky Smirk,K_work_corporate,0.500000
-268,Diary Entries,O_appearance_aesthetics,1.000000
-269,Stony Threat,E_threat_danger,1.000000
-270,Ugly Crying,F_negative_affect,1.000000
-271,Physical Conquest,Z_noise_oog,1.000000
-272,Curious Girlfriend's Assurance,Z_noise_oog,1.000000
-273,Contrite Apology,B_mutual_intimacy,0.333333
-273,Contrite Apology,T_repair_apology,0.333333
-273,Contrite Apology,F_negative_affect,0.333333
-274,Wild Night Out,Z_noise_oog,1.000000
-275,Compatibility Trials,Z_noise_oog,1.000000
-276,Furious Rage,F_negative_affect,1.000000
-277,Corporate Takeover,K_work_corporate,1.000000
-278,East Coast Rescue,Z_noise_oog,1.000000
-279,Pilot's Precautions,Z_noise_oog,1.000000
-280,Throaty Growls,Z_noise_oog,1.000000
-281,Nighttime Slumber,H_domestic_nesting,1.000000
-282,Respectful Intimacy,J_family_support,1.000000
-284,Diabolical Pursuit,Z_noise_oog,1.000000
-285,Massive Size,Z_noise_oog,1.000000
-286,Priest's Glare,Z_noise_oog,1.000000
-287,Gloating Omen,Z_noise_oog,1.000000
-288,Morning Routine,K_work_corporate,1.000000
-289,Jazz Band Intimacy,B_mutual_intimacy,1.000000
-290,Erotic Nipple Play,C_explicit,1.000000
-291,Labored Breaths,B_mutual_intimacy,1.000000
-292,Bathroom Hygiene,H_domestic_nesting,1.000000
-293,Damaged Relationship Talk,F_negative_affect,1.000000
-294,Shameful Embarrassment,F_negative_affect,1.000000
-295,Magical Friendship,Z_noise_oog,1.000000
-296,Office Meetings,K_work_corporate,1.000000
-297,Arrogant Jerk,Z_noise_oog,1.000000
-298,Edgier Nightlife Encounter,J_family_support,1.000000
-299,Gratitude Gifts,G_rituals_gifts,1.000000
-300,Contract Negotiation,K_work_corporate,1.000000
-301,Seductive Lingerie,O_appearance_aesthetics,1.000000
-302,Gunplay,E_threat_danger,1.000000
-303,Personal Motto,S_scene_anchor,1.000000
-304,Taffy Tasting,Z_noise_oog,1.000000
-305,Mannered Recommendation,Z_noise_oog,1.000000
-306,Holiday Laughter,I_humor_lightness,0.500000
-306,Holiday Laughter,G_rituals_gifts,0.500000
-307,Favorite Shades,E_threat_danger,1.000000
-308,Confident Bob's Canal Kiss,B_mutual_intimacy,0.500000
-308,Confident Bob's Canal Kiss,Q_miscommunication,0.500000
-309,Contract Dalliance,Z_noise_oog,1.000000
-310,Feminist Ladies' Experience,Z_noise_oog,1.000000
-311,Yearlong Cycle,G_rituals_gifts,1.000000
-312,Ruffled Morning After,O_appearance_aesthetics,1.000000
-313,Adrenaline-Fueled Races,Z_noise_oog,1.000000
-314,Wise Setup,Z_noise_oog,1.000000
-315,Instrumental Gardener,Z_noise_oog,1.000000
-316,Office Romance,K_work_corporate,0.500000
-316,Office Romance,P_tech_media,0.500000
-317,Sensory Intimacy,G_rituals_gifts,0.500000
-317,Sensory Intimacy,O_appearance_aesthetics,0.500000
-318,Mutual Accomplishment,K_work_corporate,1.000000
-319,Nighttime Carousel Ride,P_tech_media,0.750000
-319,Nighttime Carousel Ride,S_scene_anchor,0.250000
-320,Emotional Turmoil,Z_noise_oog,1.000000
-321,Maine's Tolerant Stage,Z_noise_oog,1.000000
-322,Scornful Lockdown,Z_noise_oog,1.000000
-323,Photo Shoot Intimacy,B_mutual_intimacy,1.000000
-324,Sensory Overload Discussion,Z_noise_oog,1.000000
-325,Owl's Hopeless Repeats,Z_noise_oog,1.000000
-326,Earliest Booty Call,P_tech_media,1.000000
-327,Prompt Agreement,Z_noise_oog,1.000000
-328,Moaning Intimacy,O_appearance_aesthetics,0.500000
-328,Moaning Intimacy,F_negative_affect,0.500000
-329,New Parent Intimacy,R1_protectiveness,0.500000
-329,New Parent Intimacy,J_family_support,0.500000
-330,Giggling Confidante,I_humor_lightness,0.333333
-330,Giggling Confidante,J_family_support,0.333333
-330,Giggling Confidante,K_work_corporate,0.333333
-331,Cocky Shark's Vow,A_commitment_hea,1.000000
-332,Secret Love Affair,Z_noise_oog,1.000000
-333,Dangerous Liaison,E_threat_danger,0.500000
-333,Dangerous Liaison,F_negative_affect,0.500000
-334,Earnest Objections,Z_noise_oog,1.000000
-335,Mutual Outbursts,F_negative_affect,1.000000
-336,Alternative Answers,Z_noise_oog,1.000000
-337,Hasty Presentation,K_work_corporate,1.000000
-338,Roommate Awakening,P_tech_media,1.000000
-339,Tense Wait,K_work_corporate,1.000000
-340,Taboo Office Kiss,B_mutual_intimacy,0.500000
-340,Taboo Office Kiss,K_work_corporate,0.500000
-341,Reunion Supplication,E_threat_danger,0.333333
-341,Reunion Supplication,N_separation_reunion,0.333333
-341,Reunion Supplication,A_commitment_hea,0.333333
-342,Mistaken Encounter,Q_miscommunication,1.000000
-343,Tailored Intimacy,D_luxury_wealth_status,1.000000
-344,Deliberate Pacing,Z_noise_oog,1.000000
-345,Architectural Charmer,Z_noise_oog,1.000000
-346,Passionate Gasps,Z_noise_oog,1.000000
-347,Passionate Affirmation,Z_noise_oog,1.000000
-348,Sales Pitch Seminar,Z_noise_oog,1.000000
-349,Beachside Shoulder Caress,B_mutual_intimacy,0.750000
-349,Beachside Shoulder Caress,S_scene_anchor,0.250000
-350,Bashful Goddesses,M_health_recovery,0.500000
-350,Bashful Goddesses,J_family_support,0.500000
-351,Indoor Pool Encounter,S_scene_anchor,1.000000
-352,Wrongful Termination,K_work_corporate,1.000000
-353,Regretful Realizations,Z_noise_oog,1.000000
-354,Threatening Minion,E_threat_danger,1.000000
-355,Sunburned Cheeks,Z_noise_oog,1.000000
-356,Dragon's Battle,Z_noise_oog,1.000000
-357,Drunken Decadence,L_vices_addictions,1.000000
-358,Tabloid Scandal,P_tech_media,1.000000
-360,Relaxing Interlude,Z_noise_oog,1.000000
-361,Adventurous Consultants,Z_noise_oog,1.000000
-362,Cute Nephew's Shop,Z_noise_oog,1.000000
-363,Webcam Flirtation,P_tech_media,1.000000
-364,Distance Excuses,N_separation_reunion,1.000000
-365,Mirror Glance,O_appearance_aesthetics,0.500000
-365,Mirror Glance,H_domestic_nesting,0.500000
-366,Kitchen Squabble,H_domestic_nesting,1.000000
-367,Unwritten Privacy,R1_protectiveness,1.000000
+topic_id,label,keywords,category,weight
+0,True Promise,"means, idea, promise, work, help, better, true, deal, today, game",K_work_corporate,0.500000
+0,True Promise,"means, idea, promise, work, help, better, true, deal, today, game",A_commitment_hea,0.500000
+1,Tongue & Nipple Play,"hips, tongue, breasts, mouth, body, arms, neck, thighs, nipples, hand",C_explicit,1.000000
+2,Tongue Play,"clit, pussy, tongue, hips, legs, mouth, neck, lip, lower, thighs",C_explicit,1.000000
+3,Hungry Dinner,"dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry",H_domestic_nesting,1.000000
+4,Long-Awaited Reunion,"way, years, matter, things, able, relationship, place, thing, feelings, kind",A_commitment_hea,0.500000
+4,Long-Awaited Reunion,"way, years, matter, things, able, relationship, place, thing, feelings, kind",N_separation_reunion,0.500000
+5,Weekly Fallen Moments,"week, years, job, fallen, days, times, months, able, things, different",K_work_corporate,1.000000
+6,Wine Service,"wine, sip, bottle, drunk, whiskey, waiter, scotch, alcohol, cup, drinks",D_luxury_wealth_status,1.000000
+7,True Choice,"problem, deal, idea, point, luck, choice, true, fault, necessary, need",Z_noise_oog,1.000000
+8,Wrong Thoughts,"wrong, thought, able, feelings, course, control, choice, things, deal, words",F_negative_affect,0.500000
+8,Wrong Thoughts,"wrong, thought, able, feelings, course, control, choice, things, deal, words",Q_miscommunication,0.500000
+9,Wedding Planning,"married, wedding, marriage, divorce, divorced, ceremony, planner, arranged, honeymoon, planning",G_rituals_gifts,0.500000
+9,Wedding Planning,"married, wedding, marriage, divorce, divorced, ceremony, planner, arranged, honeymoon, planning",A_commitment_hea,0.500000
+10,Elevator Encounters,"door, doors, knock, hallway, stairs, elevators, floor, lock, button, lobby",S_scene_anchor,1.000000
+11,Wine Service,"wine, kitchen, plate, sip, waitress, bottle, cup, mug, dinner, food",H_domestic_nesting,0.500000
+11,Wine Service,"wine, kitchen, plate, sip, waitress, bottle, cup, mug, dinner, food",D_luxury_wealth_status,0.500000
+12,Tender Tongue Play,"kisses, tongue, mouth, neck, leans, lip, soft, lower, tender, forehead",B_mutual_intimacy,1.000000
+13,Playful Laughter,"smile, laugh, laughs, grin, eyebrows, giggles, laughter, small, eyebrow, bright",O_appearance_aesthetics,0.500000
+13,Playful Laughter,"smile, laugh, laughs, grin, eyebrows, giggles, laughter, small, eyebrow, bright",I_humor_lightness,0.500000
+14,Gleeful Smiles,"smile, smiles, grin, grins, laughter, gleam, corners, crooked, genuine, mouth",I_humor_lightness,1.000000
+15,Intimate Touch,"clit, hips, pussy, legs, thighs, erection, waist, thigh, panties, hand",B_mutual_intimacy,0.500000
+15,Intimate Touch,"clit, hips, pussy, legs, thighs, erection, waist, thigh, panties, hand",C_explicit,0.500000
+16,Family Legacy,"parents, older, fathers, children, kids, grandson, years, uncles, youngest, dads",J_family_support,1.000000
+19,Tense Foreplay,"stomach, chest, blood, veins, temples, spine, belly, adrenaline, heartbeat, tingle",B_mutual_intimacy,1.000000
+20,Gaze & Brows,"gaze, stare, stares, eye, features, glare, expression, brows, head, attention",O_appearance_aesthetics,1.000000
+21,Driveway Encounter,"car, driver, parking, cars, driveway, suv, curb, cab, drive, vehicle",S_scene_anchor,1.000000
+22,Struggling Decisions,"control, thought, thing, prepared, choice, deal, wrong, problem, way, effort",Q_miscommunication,1.000000
+23,Armchair Foreplay,"board, mug, arm, chair, hand, lodge, table, tone, room, position",K_work_corporate,0.500000
+23,Armchair Foreplay,"board, mug, arm, chair, hand, lodge, table, tone, room, position",B_mutual_intimacy,0.500000
+24,Vibrating Phones,"rings, buzzes, pocket, screen, cellphone, nightstand, message, purse, phones, vibrates",P_tech_media,1.000000
+25,Goofy Grins,"smile, laugh, laughter, grin, burst, forced, lip, loud, goofy, cheeks",I_humor_lightness,1.000000
+26,Nighttime Stand,"tonight, night, evening, nights, stand, nighttime, fun, different, best, middle",Z_noise_oog,1.000000
+27,Elevator Encounters,"door, doors, car, stairs, purse, hall, button, elevators, lock, knob",S_scene_anchor,1.000000
+28,Guacamole Dilemma,"complication, choice, guacamole, mind, things, matter, material, question, fact, invitation",Z_noise_oog,1.000000
+29,Time Apart,"minutes, weeks, months, days, week, hours, years, month, seconds, hour",N_separation_reunion,1.000000
+30,Ice Hockey Players,"game, hockey, puck, players, games, player, teams, goalie, goal, baseball",Z_noise_oog,1.000000
+31,Tomorrow's Outfit,"clothes, outfit, wardrobe, clothing, outfits, tomorrow, selling, different, fashion, compatible",Z_noise_oog,1.000000
+32,Hesitant Intercourse,"offense, say, answer, head, worries, intercourse, plans, word, question, hesitation",Z_noise_oog,1.000000
+33,Financial Negotiation,"business, company, dollars, job, investment, cost, profit, paycheck, income, bank",D_luxury_wealth_status,0.500000
+33,Financial Negotiation,"business, company, dollars, job, investment, cost, profit, paycheck, income, bank",K_work_corporate,0.500000
+34,Risky Archery Bet,"cards, archery, chips, shoulder, half, eclectic, direction, attendees, hunting, wary",S_scene_anchor,1.000000
+35,Silent Ride,"silent, beat, descends, awkward, moment, unspoken, minutes, uncomfortable, companionable, ride",S_scene_anchor,1.000000
+36,Foot Foreplay,"knees, feet, fists, arms, foot, shuffle, fist, sides, legs, heels",B_mutual_intimacy,1.000000
+37,Insane Fools,"ridiculous, insane, fool, dumbass, outrageous, assholes, insanity, idiots, stupidest, absurd",F_negative_affect,1.000000
+38,Gaze & Brows,"gaze, glare, look, glance, expression, chin, eye, head, brows, moment",O_appearance_aesthetics,1.000000
+39,Moist Mouth Play,"lip, teeth, nose, tongue, mouth, bridge, cheek, moan, lower, saliva",Z_noise_oog,1.000000
+40,Office Drama,"job, upset, community, manager, awesome, weeks, friend, wrong, best, thing",K_work_corporate,0.500000
+40,Office Drama,"job, upset, community, manager, awesome, weeks, friend, wrong, best, thing",Q_miscommunication,0.500000
+41,Ashamed Confession,"ready, heartless, ashamed, wrong, scared, picky, type, human, proud, cleaners",F_negative_affect,0.375000
+41,Ashamed Confession,"ready, heartless, ashamed, wrong, scared, picky, type, human, proud, cleaners",Q_miscommunication,0.375000
+41,Ashamed Confession,"ready, heartless, ashamed, wrong, scared, picky, type, human, proud, cleaners",S_scene_anchor,0.250000
+42,First Intimacy,"sexual, intimate, virginity, intimacy, sexuality, just, unprotected, meaningless, sexiest, thing",B_mutual_intimacy,1.000000
+43,Research & Preparation,"ready, aware, prepared, research, reason, terminology, today, user, giver, work",K_work_corporate,1.000000
+44,Proud Stepmom,"stepmother, moms, motherhood, jackass, proud, children, ass, undivided, esteem, things",J_family_support,1.000000
+45,Growling Bear Hug,"thing, things, bearded, stuff, peace, best, point, growling, sample, toys",B_mutual_intimacy,1.000000
+46,Rugged Glance,"pickup, oaks, linemen, glance, scoundrel, gaze, attraction, glint, hand, biscuit",O_appearance_aesthetics,1.000000
+47,Hair Play,"hair, makeup, mascara, lipstick, nape, hairs, rises, bun, strand, neck",O_appearance_aesthetics,0.750000
+47,Hair Play,"hair, makeup, mascara, lipstick, nape, hairs, rises, bun, strand, neck",S_scene_anchor,0.250000
+48,Deep Breaths,"breath, lungs, deep, breathing, breaths, air, catches, oxygen, shaky, calm",B_mutual_intimacy,1.000000
+49,New Parent Intimacy,"babysitter, healthy, infant, months, outsiders, fetal, epidural, unprotected, inflated, coos",J_family_support,0.500000
+49,New Parent Intimacy,"babysitter, healthy, infant, months, outsiders, fetal, epidural, unprotected, inflated, coos",M_health_recovery,0.500000
+50,Careful Mind-Reading,"idea, help, clue, mind, problem, thought, control, wrong, careful, reason",Q_miscommunication,0.750000
+50,Careful Mind-Reading,"idea, help, clue, mind, problem, thought, control, wrong, careful, reason",S_scene_anchor,0.250000
+51,Tremulous Reveal,"clinic, tremulous, friend, sister, physician, results, unable, expression, wept, years",J_family_support,0.500000
+51,Tremulous Reveal,"clinic, tremulous, friend, sister, physician, results, unable, expression, wept, years",M_health_recovery,0.500000
+52,Masculine Conquest,"event, masculine, unethical, nerd, plenty, graveled, problem, humorless, thought, conquer",I_humor_lightness,1.000000
+53,Lacy Lingerie,"dress, dresses, panties, skirt, lace, heels, gown, stilettos, blouse, underwear",D_luxury_wealth_status,0.700000
+53,Lacy Lingerie,"dress, dresses, panties, skirt, lace, heels, gown, stilettos, blouse, underwear",O_appearance_aesthetics,0.300000
+54,Ringing Phones,"rang, message, screen, pocket, rings, texts, ear, ringing, numbers, voicemail",P_tech_media,1.000000
+55,Sexual Dominatrix,"gratification, means, course, world, dominatrix, pretenses, spc, thing, sexual, devices",P_tech_media,0.500000
+55,Sexual Dominatrix,"gratification, means, course, world, dominatrix, pretenses, spc, thing, sexual, devices",C_explicit,0.500000
+56,Sleep Deprivation,"sleep, asleep, nap, hours, night, lack, tired, nights, hour, insomnia",F_negative_affect,1.000000
+57,Bathroom Hygiene,"shower, bathroom, bath, tub, toilet, bathtub, showers, restroom, spray, stall",H_domestic_nesting,1.000000
+58,Sweet Spectacle,"stunning, attractive, sweeter, spectator, sweetness, ly, talented, wonderful, thing, aesthetic",O_appearance_aesthetics,0.500000
+58,Sweet Spectacle,"stunning, attractive, sweeter, spectator, sweetness, ly, talented, wonderful, thing, aesthetic",I_humor_lightness,0.500000
+59,Playful Banter,"smiles, replies, laughs, glares, mutters, widen, looks, listens, calls, stares",O_appearance_aesthetics,0.333333
+59,Playful Banter,"smiles, replies, laughs, glares, mutters, widen, looks, listens, calls, stares",P_tech_media,0.333333
+59,Playful Banter,"smiles, replies, laughs, glares, mutters, widen, looks, listens, calls, stares",I_humor_lightness,0.333333
+60,Boardroom Tension,"ceos, employee, bosses, board, company, manager, job, chief, rule, work",K_work_corporate,1.000000
+61,Apology & Forgiveness,"forgive, sorry, apology, forgiveness, apologies, things, need, rule, way, honeycomb",T_repair_apology,1.000000
+62,Months-Long Deception,"months, chess, situation, careful, opposite, lessons, imposter, days, lie, month",Q_miscommunication,0.750000
+62,Months-Long Deception,"months, chess, situation, careful, opposite, lessons, imposter, days, lie, month",S_scene_anchor,0.250000
+63,Deceptive Lies,"lie, lies, deception, truths, outright, omission, total, consummate, cheater, faults",Q_miscommunication,1.000000
+64,Murder Mystery Date,"questions, answers, murder, builds, request, door, hand, deal, course, robot",E_threat_danger,0.750000
+64,Murder Mystery Date,"questions, answers, murder, builds, request, door, hand, deal, course, robot",S_scene_anchor,0.250000
+65,Redemption Claim,"correct, redemption, corrects, explosion, urn, equation, appearances, understatement, claims, phrase",O_appearance_aesthetics,1.000000
+66,Naughty Friendship,"giggled, friend, breath, buckles, numb, moan, vulgar, sickening, bluff, alternative",B_mutual_intimacy,1.000000
+67,Aisle Stares,"nods, tenses, looks, stares, sister, smiles, rosy, married, aisle, happiness",O_appearance_aesthetics,0.250000
+67,Aisle Stares,"nods, tenses, looks, stares, sister, smiles, rosy, married, aisle, happiness",J_family_support,0.250000
+67,Aisle Stares,"nods, tenses, looks, stares, sister, smiles, rosy, married, aisle, happiness",A_commitment_hea,0.250000
+67,Aisle Stares,"nods, tenses, looks, stares, sister, smiles, rosy, married, aisle, happiness",I_humor_lightness,0.250000
+68,Grand Century Knock,"percent, scale, fourth, century, grand, seventh, knocks, fifth, pounds, ninth",Z_noise_oog,1.000000
+69,Guilty Hurts,"hurts, guilt, painful, painkillers, guilty, injury, agony, ache, physical, gut",F_negative_affect,0.500000
+69,Guilty Hurts,"hurts, guilt, painful, painkillers, guilty, injury, agony, ache, physical, gut",M_health_recovery,0.500000
+70,Purring Rescue Kittens,"kittens, delivery, purr, claws, hairless, cheshire, lap, pasty, paw, rescue",Z_noise_oog,1.000000
+71,Ringing Phones,"pocket, cellphone, rang, screen, message, ringing, jacket, rings, table, button",P_tech_media,1.000000
+72,Corporate Hockey Offer,"hockey, game, bankers, router, corporate, general, offer, box, division, checkpoint",K_work_corporate,1.000000
+73,Rare Emotional Intimacy,"rarity, desolate, special, happiness, insane, superficial, acquaintances, comment, emotions, devotion",B_mutual_intimacy,1.000000
+74,Stadium Stun,"fact, second, amazed, night, years, eyebrows, game, stunned, feeling, stadium",O_appearance_aesthetics,1.000000
+75,Bedroom Intimacy,"bed, bedroom, couch, sheets, sofa, covers, pillows, mattress, edge, room",H_domestic_nesting,0.500000
+75,Bedroom Intimacy,"bed, bedroom, couch, sheets, sofa, covers, pillows, mattress, edge, room",B_mutual_intimacy,0.500000
+76,Breathy Whispers,"whisper, murmur, whispers, breathy, meek, sacred, lavender, steam, disaster, prick",B_mutual_intimacy,1.000000
+77,Puzzled Decision-Making,"tone, plans, puzzled, question, matter, decision, today, paperwork, concern, flourish",K_work_corporate,1.000000
+78,Tense Engagement,"cups, gaze, brushing, arm, expression, engagement, hand, grabs, tightens, bellamy",O_appearance_aesthetics,0.500000
+78,Tense Engagement,"cups, gaze, brushing, arm, expression, engagement, hand, grabs, tightens, bellamy",A_commitment_hea,0.500000
+79,Mutters of Relief,"rule, grandmother, cries, wide, saucers, moment, personality, mutters, chairs, awesome",J_family_support,1.000000
+80,Hockey Goalie's Lovesick Offs,"hockey, players, goalie, scrum, offs, reminders, millionth, office, lovesick, degree",K_work_corporate,1.000000
+81,Family Dynamics,"parents, children, kids, families, aunts, uncles, want, parenting, traditional, cousins",J_family_support,1.000000
+82,Fear and Anxiety,"scared, afraid, sad, terrifying, scary, frightening, frightened, fears, sadness, phobia",F_negative_affect,0.750000
+82,Fear and Anxiety,"scared, afraid, sad, terrifying, scary, frightening, frightened, fears, sadness, phobia",S_scene_anchor,0.250000
+83,Animal Encounter,"goats, dogs, animal, puppies, animals, sheep, pet, lion, pets, herd",Z_noise_oog,1.000000
+84,Narcissistic Drama,"behavior, narcissistic, drama, seminar, afraid, marriage, lack, times, gun, explosion",A_commitment_hea,0.500000
+84,Narcissistic Drama,"behavior, narcissistic, drama, seminar, afraid, marriage, lack, times, gun, explosion",E_threat_danger,0.500000
+85,Honest Victory Celebration,"course, honest, snatchers, finalists, victories, yesss, glorified, best, bum, coulda",G_rituals_gifts,1.000000
+86,Monthly Rent,"rent, lease, city, rental, monthly, landlord, week, yorker, space, month",Z_noise_oog,1.000000
+87,Caveman's Unsolicited Advance,"caveman, league, unfulfilled, unsolicited, detectives, inner, unmade, celibate, course, escort",Z_noise_oog,1.000000
+88,Apologetic Performance,"performance, sorry, train, memo, today, opportunity, anniversaries, perfection, realms, tartare",T_repair_apology,1.000000
+89,Perverse Survival Method,"hate, dislike, method, survival, perverse, word, person, things, particular, uniform",Z_noise_oog,1.000000
+90,Medical Intimacy,"hospital, surgeon, surgery, doctors, trauma, medical, appointment, clinic, operating, specialist",M_health_recovery,1.000000
+91,Vivid Flashbacks,"memories, memory, childhood, vivid, ones, flashback, repressed, years, newer, events",Z_noise_oog,1.000000
+92,Cozy Interior,"furniture, fireplace, ceiling, windows, chairs, floors, wood, walls, floor, ceilings",H_domestic_nesting,1.000000
+93,Shameless Apologies,"parents, apologies, sister, ex, brogue, woozy, daughter, shameless, fault, acquisition",T_repair_apology,0.333333
+93,Shameless Apologies,"parents, apologies, sister, ex, brogue, woozy, daughter, shameless, fault, acquisition",J_family_support,0.333333
+93,Shameless Apologies,"parents, apologies, sister, ex, brogue, woozy, daughter, shameless, fault, acquisition",F_negative_affect,0.333333
+94,Raging Tempers,"anger, rage, blood, frustration, temper, veins, stomach, laces, guts, flares",F_negative_affect,1.000000
+95,Evening Client Trauma,"worlds, spending, personal, client, fib, work, trauma, tyrant, evening, best",K_work_corporate,0.500000
+95,Evening Client Trauma,"worlds, spending, personal, client, fib, work, trauma, tyrant, evening, best",M_health_recovery,0.500000
+96,Husky Whispers,"whispers, whisper, ear, plea, soft, someday, husky, blessed, low, breathy",B_mutual_intimacy,1.000000
+97,Fluttering Eyelids,"closed, eyelids, shut, sockets, vision, flutter, eyeballs, wide, surroundings, accord",Z_noise_oog,1.000000
+98,Engagement Conversation,"engagement, pudding, granite, parents, warning, conversation, ugliest, pickles, shards, topic",J_family_support,0.500000
+98,Engagement Conversation,"engagement, pudding, granite, parents, warning, conversation, ugliest, pickles, shards, topic",A_commitment_hea,0.500000
+99,**Dirty Confessions**,"vacuum, mezcal, pangs, turd, unfiltered, desirable, understandable, yesterday, apparent, wishes",Z_noise_oog,1.000000
+100,Yellow Bouquet,"roses, flowers, bouquet, florist, petals, yellow, lilies, vase, daisies, dozen",G_rituals_gifts,0.500000
+100,Yellow Bouquet,"roses, flowers, bouquet, florist, petals, yellow, lilies, vase, daisies, dozen",A_commitment_hea,0.500000
+101,Tragic Love Letters,"library, letters, kleenex, writer, sister, comebacks, acerbic, bit, pert, tragic",J_family_support,1.000000
+102,Hair Tugging Foreplay,"hair, strands, grip, strand, handful, hand, threads, tugs, grabs, lock",B_mutual_intimacy,1.000000
+103,Wet Nude Encounter,"nude, nudes, nakedness, stark, wet, half, alleged, bed, body, clothes",H_domestic_nesting,0.500000
+103,Wet Nude Encounter,"nude, nudes, nakedness, stark, wet, half, alleged, bed, body, clothes",C_explicit,0.500000
+104,Pigeon Feeding,"pigeon, helpful, sustainable, excited, cork, answers, indecent, pitiful, chimes, sister",J_family_support,1.000000
+105,Popcorn Hurry,"hurry, pro, trade, location, places, place, tripping, rule, area, popcorn",Z_noise_oog,1.000000
+106,Nighttime Confession,"lines, easy, understandable, item, idea, night",Z_noise_oog,1.000000
+107,True Matter Dispute,"matter, sense, true, work, pundits, case, difference, failure, alert, reason",K_work_corporate,1.000000
+108,Eternal Love,"fall, true, fickle, kind, loves, souls, epic, significant, important, thing",A_commitment_hea,1.000000
+109,Eligible Millionaire,"wealthy, richest, millionaire, eligible, wealthiest, wealth, world, businessman, male, dollar",D_luxury_wealth_status,0.500000
+109,Eligible Millionaire,"wealthy, richest, millionaire, eligible, wealthiest, wealth, world, businessman, male, dollar",K_work_corporate,0.500000
+110,Feverish Argument,"listening, reply, feverish, confusion, mort, upfront, pun, pep, unblinking, angrier",M_health_recovery,1.000000
+111,Dreamy Nightmares,"dreams, nightmare, dreaming, nightmares, true, worst, vivid, fantasies, pipe, dreamy",F_negative_affect,1.000000
+112,Icy Kiss,"rain, winter, wet, chilly, icy, flakes, colder, glacier, sky, snowy",B_mutual_intimacy,1.000000
+113,Tabloid Scandal,"drugs, curious, sister, sad, determined, skinny, incidents, clean, cigarette, tabloid",J_family_support,0.333333
+113,Tabloid Scandal,"drugs, curious, sister, sad, determined, skinny, incidents, clean, cigarette, tabloid",F_negative_affect,0.333333
+113,Tabloid Scandal,"drugs, curious, sister, sad, determined, skinny, incidents, clean, cigarette, tabloid",P_tech_media,0.333333
+114,Reluctant Choices,"choices, deter, reluctance, ideal, brief, assistants, gut, expectations, speech, approval",Z_noise_oog,1.000000
+115,Celebrity Golf Break,"golf, years, talk, winced, celebrity, thoughtful, instigator, break, weekend, problems",Z_noise_oog,1.000000
+116,Relatable Imposter,"important, condition, second, ways, dependent, thing, word, arrangement, imposter, relatable",Z_noise_oog,1.000000
+117,Constant Hatred,"hate, dislike, hatred, gravity, guts, mention, constant, rhubarb, shucks, capable",Z_noise_oog,1.000000
+118,Public Relations Intimacy,"publicity, knows, forthcoming, deal, position, impression, board, antics, nation, turn",K_work_corporate,1.000000
+119,Unapologetic Whispers,"snaps, replies, epitome, runners, whispers, barks, potion, unapologetic, gestures, smiles",B_mutual_intimacy,0.500000
+119,Unapologetic Whispers,"snaps, replies, epitome, runners, whispers, barks, potion, unapologetic, gestures, smiles",I_humor_lightness,0.500000
+120,Strung Words,"string, parts, unable, word",Z_noise_oog,1.000000
+121,Convenient Pairing,"better, easier, smoother, sakes, option, ideal, worlds, pair, trips, convenient",Z_noise_oog,1.000000
+122,Fight Over Information,"mission, information, informant, descriptions, friend, fight, poetry, gun, contracts, conscience",E_threat_danger,1.000000
+123,Police Encounter,"police, cops, guard, cop, ambulance, guards, paramedics, station, officers, uniform",R1_protectiveness,0.333333
+123,Police Encounter,"police, cops, guard, cop, ambulance, guards, paramedics, station, officers, uniform",K_work_corporate,0.333333
+123,Police Encounter,"police, cops, guard, cop, ambulance, guards, paramedics, station, officers, uniform",E_threat_danger,0.333333
+124,Engagement Surprise,"engagement, stunt, instances, cheeks, ex, flushed, parents, surprise, weakness, relationship",J_family_support,0.500000
+124,Engagement Surprise,"engagement, stunt, instances, cheeks, ex, flushed, parents, surprise, weakness, relationship",A_commitment_hea,0.500000
+125,Airport Encounter,"flight, plane, jet, airport, helicopter, pilot, runway, airline, planes, airplane",S_scene_anchor,1.000000
+126,Sardonic Glance,"jackass, hog, sardonic, shot, loyal, glance, brows, unqualified, boat, effect",O_appearance_aesthetics,0.750000
+126,Sardonic Glance,"jackass, hog, sardonic, shot, loyal, glance, brows, unqualified, boat, effect",S_scene_anchor,0.250000
+127,Emotional Panic,"panic, emotions, emotional, attack, attacks, hysteria, unease, excited, dread, sadness",F_negative_affect,1.000000
+128,Easy Target,"easy, simple, straightforward, peasy, natural, easiest, comparison, target, task, introductory",Z_noise_oog,1.000000
+129,Condom Mishap,"condom, condoms, wrapper, packet, wallet, nightstand, expired, drawer, pocket, package",C_explicit,1.000000
+130,Whispered Doubts,"prospect, unconvinced, news, stamina, sister, burden, idea, whispery, question, insane",J_family_support,0.333333
+130,Whispered Doubts,"prospect, unconvinced, news, stamina, sister, burden, idea, whispery, question, insane",B_mutual_intimacy,0.333333
+130,Whispered Doubts,"prospect, unconvinced, news, stamina, sister, burden, idea, whispery, question, insane",Q_miscommunication,0.333333
+131,Intense Pleading,"grunts, tenses, inhales, values, honesty, pleads, morals, merger, joined, bodyguards",Z_noise_oog,1.000000
+133,Tongue & Thumb Play,"nipple, nipples, breasts, breast, cups, thumbs, tongue, thumb, mouth, hardened",C_explicit,1.000000
+134,Necking on Campus,"necks, curious, breakthroughs, campus, crush, sister, philanthropist, demeanor, friendly, debt",J_family_support,1.000000
+135,Sunset Stroll,"sun, sky, beach, clouds, horizon, sand, ocean, sunset, orange, sea",S_scene_anchor,1.000000
+136,Thrilling Diversion,"fun, excited, excitement, entertaining, uncomplicated, diversion, thrill, stressful, lot, guys",Z_noise_oog,1.000000
+137,Busy Parenting,"offspring, protocol, publicist, understandable, qualified, apparent, blessed, busy, circumstances, generous",J_family_support,1.000000
+138,Sailor's Pact,"sailors, archery, cards, tapes, arrows, broccoli, pact, olympics, feisty, trainer",S_scene_anchor,1.000000
+139,Stammered Questions,"brass, stammers, weakly, problem, questions, ibits, gum, course, commands, standard",Z_noise_oog,1.000000
+140,Cheeky Stares,"stammers, stares, statements, peas, dirt, coffin, mail, older, cheeky, memo",Z_noise_oog,1.000000
+141,Rush of Passion,rush,Z_noise_oog,1.000000
+142,Stainless Countertop,"kitchen, fridge, cabinets, appliances, counter, stainless, countertops, dishes, kitchens, dishwasher",H_domestic_nesting,0.500000
+142,Stainless Countertop,"kitchen, fridge, cabinets, appliances, counter, stainless, countertops, dishes, kitchens, dishwasher",D_luxury_wealth_status,0.500000
+143,Small Talk,"conversation, talk, conversations, discussion, particulars, simple, lot, messaging, pep, small",Z_noise_oog,1.000000
+144,Dating App Dilemma,"dates, official, service, apps, dilemma, calendar, strings, narcissists, histories, inconsistencies",G_rituals_gifts,1.000000
+145,Revolutionary Romance,"course, options, supplication, revolutionary, adversary, individuals, purpose, country, era, champ",Z_noise_oog,1.000000
+146,Bedtime Intimacy,"bed, mattress, bedroom, sheets, covers, edge, blankets, pillow, blanket, legs",H_domestic_nesting,0.500000
+146,Bedtime Intimacy,"bed, mattress, bedroom, sheets, covers, edge, blankets, pillow, blanket, legs",B_mutual_intimacy,0.500000
+147,Fortuitous Encounter,"luck, luckiest, perfection, fortunate, fit, solution, unlucky, today, miracle, immaculate",Z_noise_oog,1.000000
+148,Victorian Holiday Celebration,"holiday, parties, holidays, presents, christmases, celebration, gala, decorations, victorian, annual",G_rituals_gifts,1.000000
+149,Manager's Regret,"manager, recall, buddies, frowned, gathering, dejected, moment, gem, friend, distraction",P_tech_media,0.500000
+149,Manager's Regret,"manager, recall, buddies, frowned, gathering, dejected, moment, gem, friend, distraction",K_work_corporate,0.500000
+150,Industry Rivalry,"industries, fault, dramatic, skincare, type, detour, crap, flashback, statement, deflect",S_scene_anchor,1.000000
+151,Cool Negotiation,"talk, trickle, technique, deal, strategy, cool, auction, straight, hypotheticals, aids",P_tech_media,0.500000
+151,Cool Negotiation,"talk, trickle, technique, deal, strategy, cool, auction, straight, hypotheticals, aids",K_work_corporate,0.500000
+152,Market Glance,"gaze, hesitates, grandmother, stares, market, glances, moment, photo, hint, mere",O_appearance_aesthetics,0.500000
+152,Market Glance,"gaze, hesitates, grandmother, stares, market, glances, moment, photo, hint, mere",J_family_support,0.500000
+153,Strange Encounter,"odd, confusing, complicated, weirdest, surprising, strangest, peculiar, bizarre, ironic, thing",Z_noise_oog,1.000000
+154,Unplanned Pregnancy,"pregnancy, test, unplanned, weeks, months, birth, conception, injection, childbirth, maternity",J_family_support,1.000000
+155,Hushed Whispers,"whispers, whisper, ear, husky, frightened, breath, iud, cellulite, handset, knuckles",B_mutual_intimacy,1.000000
+156,Trust Instincts,"trust, trustworthy, issues, able, instincts, circle, gut, web, means, anchor",Z_noise_oog,1.000000
+157,Barroom Moment,"segue, wordless, sudden, workshop, memo, tousled, days, moment, warmth, barroom",K_work_corporate,0.750000
+157,Barroom Moment,"segue, wordless, sudden, workshop, memo, tousled, days, moment, warmth, barroom",S_scene_anchor,0.250000
+158,Breathless Stare,"truffle, jaw, comeback, weirdest, asap, road, unblinking, look, breathless, hamptons",Z_noise_oog,1.000000
+159,Plea During Playtime,"plea, innings, response, hesitation, awesome, chimes, colorful, kids, nod, things",J_family_support,1.000000
+160,Tearful Foreplay,"tears, panic, cheeks, stomach, tear, hips, belly, unshed, shivers, corners",F_negative_affect,0.500000
+160,Tearful Foreplay,"tears, panic, cheeks, stomach, tear, hips, belly, unshed, shivers, corners",B_mutual_intimacy,0.500000
+161,Brilliant Actor's Qualities,"actor, nicest, qualities, intelligent, excellent, best, lot, breakthroughs, brilliant, lad",Z_noise_oog,1.000000
+162,Lace-Covered Curves,"skirt, dress, breasts, nipples, curves, fabric, panties, lace, blouse, thigh",C_explicit,1.000000
+163,Redemption Orgies,"redemption, contemporary, blur, favorite, alleged, orgies, inch, duckling, duchess, fodder",Z_noise_oog,1.000000
+164,Electric Glances,"gazes, moment, air, swirls, crackles, connection, connected, glance, bodies, glances",O_appearance_aesthetics,1.000000
+165,Huskier Whispers,"cracks, muffled, murmur, shaky, soft, sound, louder, breaks, low, huskier",B_mutual_intimacy,1.000000
+166,Angry Outburst,"yell, shouting, exasperation, sirens, anger, ambulance, catnap, counterpart, bathroom, undiluted",H_domestic_nesting,0.500000
+166,Angry Outburst,"yell, shouting, exasperation, sirens, anger, ambulance, catnap, counterpart, bathroom, undiluted",F_negative_affect,0.500000
+167,Intense Climax,"orgasms, climax, rips, orgasmic, body, intense, wave, pulses, pleasure, waves",C_explicit,1.000000
+168,Mind-Changing Conversation,"change, changes, mind, topic, things, subject, dynamics, transformation, priorities, chop",Z_noise_oog,1.000000
+169,Risky Temptation,"risky, stake, low, risk, responsibility, temptation, expensive, busy, squabbling, toodles",D_luxury_wealth_status,1.000000
+170,Midday Apologies,"winces, thanks, noon, analogies, prudish, nevermind, skills, actuality, nother, recreational",T_repair_apology,1.000000
+171,Bedtime Foreplay,"bed, mattress, bedroom, edge, covers, pillow, comforter, dips, legs, arms",H_domestic_nesting,0.500000
+171,Bedtime Foreplay,"bed, mattress, bedroom, edge, covers, pillow, comforter, dips, legs, arms",B_mutual_intimacy,0.500000
+172,Unrecognizable Stalker,"unrecognizable, exception, rational, creative, fraction, sweep, stalker, collection, definitions, silkiness",E_threat_danger,1.000000
+173,Friends with Benefits,"friendship, friend, buddies, benefits, friendships, acquaintances, school, inseparable, best, freshman",Z_noise_oog,1.000000
+174,Despicable Scenario,"worse, worst, things, terrible, horrible, despicable, scenario, times, drivers, thing",Z_noise_oog,1.000000
+175,Underwater Glance,"underwater, worst, attention, surface, bar, glance, doh, person, anvil, ability",S_scene_anchor,1.000000
+176,Throat Tightness,"throat, lump, bile, tight, knot, cough, tightness, dry, gagging, clearing",Z_noise_oog,1.000000
+177,Cosmic Command,"command, strong, willing, cosmos, place, enforcer, sort, cobra, whirls, problematic",Z_noise_oog,1.000000
+178,Happy Endings,"happiness, happier, satisfaction, cheerful, tools, percent, endings, centre, outpouring, torrential",Z_noise_oog,1.000000
+179,Bathhouse Flirtation,"bathing, labor, overton, trunk, grin, cutoffs, stresses, enviable, conversation, harem",I_humor_lightness,1.000000
+180,Stratospheric Ode,"ode, geometry, stratosphere, cleanup, forte, pleaser, courts, expiration, assurance, gummy",Z_noise_oog,1.000000
+181,Glacial Glare,"grunt, expressionless, strides, song, glower, heavenward, unfathomable, implacable, glacial, exasperated",Z_noise_oog,1.000000
+182,Tough Cheek Caress,"tough, cheeks",B_mutual_intimacy,0.750000
+182,Tough Cheek Caress,"tough, cheeks",S_scene_anchor,0.250000
+183,Divided Hearts,division,Z_noise_oog,1.000000
+184,Husky Whispers,"low, lowers, gruff, husky, hoarse, rough, soft, rumble, tone, octave",B_mutual_intimacy,1.000000
+185,Sensual Thrill,"awesome, wonderful, extraordinary, glorious, exciting, stunning, spectacular, thrilling, satisfying, exceptional",O_appearance_aesthetics,1.000000
+187,Political Strategy Session,"plan, plans, conditions, suited, planning, successor, feasible, action, politicians, plural",Z_noise_oog,1.000000
+188,Deal Negotiation,"deal, authentic, stuff, struggle, realness, wily, bots, scumbag, regular, thing",K_work_corporate,1.000000
+189,Weekend Encounter,"tomorrow, weekend, weekends, holiday, noon, nudist, memorial, busy, upcoming, week",G_rituals_gifts,1.000000
+190,Religious Intimacy,"et, religion, priest, deity, salvation, religious, greek, fondler, biblically, archaic",P_tech_media,1.000000
+191,Karaoke Client Meeting,"meeting, karaoke, client, remark, disuse, usual, research, baton, trainers, ballbuster",K_work_corporate,1.000000
+192,Casual Encounters,"sashimi, fixable, hookups, encounters, priorities, rule, buffet, buck, ordinary, jog",Z_noise_oog,1.000000
+193,Birthday Surprise,"yells, dopey, friend, announces, birthday, instigating, lovey, dovey, shot, best",G_rituals_gifts,1.000000
+194,Author Appreciation,"authors, acknowledgments, reviews, purchase, series, fiction, novella, permission, writing, review",Z_noise_oog,1.000000
+195,Gritted Breakthrough,"standards, decision, finale, gritted, breakthrough, knockout, recollection, hoot, deal, room",Z_noise_oog,1.000000
+196,Hollywood Gaze,"attractive, refined, handsomeness, irresistible, looks, features, stunning, hollywood, magnificent, photos",D_luxury_wealth_status,0.700000
+196,Hollywood Gaze,"attractive, refined, handsomeness, irresistible, looks, features, stunning, hollywood, magnificent, photos",O_appearance_aesthetics,0.300000
+197,Margarita Closure,"closure, margaritas, rule, numbers, breakup, facts, ciders, decade, switch, things",D_luxury_wealth_status,1.000000
+198,Holiday Flirtation,"growls, stiffens, patron, smirks, snickers, holidays, swings, grownups, horse, investigations",G_rituals_gifts,1.000000
+199,Apprehensive Soulmates,"case, password, owners, danish, figurative, raisin, chafing, soulmates, camel, apprehensive",Z_noise_oog,1.000000
+200,Older Sister's Secret,"sister, niece, daughter, older, disclosure, mask, members, sibling, friend, dangerous",J_family_support,0.333333
+200,Older Sister's Secret,"sister, niece, daughter, older, disclosure, mask, members, sibling, friend, dangerous",F_negative_affect,0.333333
+200,Older Sister's Secret,"sister, niece, daughter, older, disclosure, mask, members, sibling, friend, dangerous",E_threat_danger,0.333333
+201,Jealous Girlfriend,"jealous, jealousy, tribute, envious, mediocre, elderly, girlfriend, pang, ridiculous, irrational",R2_jealousy,1.000000
+202,Historical Rivalry,"history, hatred, modern, toilet, idea, dissertation, comedies, victories, algebra, functional",Z_noise_oog,1.000000
+203,Incessant Revulsion,"revulsion, guests, creature, register, minibar, sight, bahamas, incessant, coworker, broccoli",K_work_corporate,1.000000
+204,Silly Forgetfulness,"forgetting, silliness, requisite, friendliest, nachos, ingredient, implications, hospice, slumber, decency",Z_noise_oog,1.000000
+205,Rule-Breaking Desire,"fuckup, rule, horny, rules, hint, rest, job, world",K_work_corporate,1.000000
+206,Sultry Rivalry,"audience, formidable, compact, authors, amusement, rival, sheepish, sultry, authority, decision",Z_noise_oog,1.000000
+207,Earthy Scent,"scent, cologne, smell, soap, musk, sandalwood, cedar, masculine, earthy, smelling",O_appearance_aesthetics,1.000000
+208,Harem's Explicit Reward,"desperate, harem, explicit, brightest, correction, heavens, reward, offer, nearest, sun",Z_noise_oog,1.000000
+209,Clan Obsession,"eldest, clan, unwarranted, obsession, wing, adoptive, blooded, reins, generation, daughter",Z_noise_oog,1.000000
+210,Reunion Confessions,"ensemble, reunion, feelings, passenger, cutoff, pusher, best, converse, pushy, shorts",A_commitment_hea,0.500000
+210,Reunion Confessions,"ensemble, reunion, feelings, passenger, cutoff, pusher, best, converse, pushy, shorts",N_separation_reunion,0.500000
+211,Blonde Strands,"hair, blonde, waves, shoulders, bun, strands, breeze, braid, auburn, silky",O_appearance_aesthetics,1.000000
+212,Office Romance,"desk, screen, laptop, monitor, office, papers, drawer, chair, paperweight, seat",P_tech_media,0.500000
+212,Office Romance,"desk, screen, laptop, monitor, office, papers, drawer, chair, paperweight, seat",K_work_corporate,0.500000
+213,Ragged Breaths,"breath, hitches, deep, breathing, throat, lungs, ragged, shaky, noise, catches",B_mutual_intimacy,1.000000
+214,Naughty Interrogation,"question, omg, answer, naughtiest, second, scapegoat, questions, important, evasive, fictional",Z_noise_oog,1.000000
+215,Overprotective Gentlemen's Promise,"upset, worries, taser, ogre, promise, bigger, sudden, enraged, overprotective, gentlemen",R1_protectiveness,0.333333
+215,Overprotective Gentlemen's Promise,"upset, worries, taser, ogre, promise, bigger, sudden, enraged, overprotective, gentlemen",A_commitment_hea,0.333333
+215,Overprotective Gentlemen's Promise,"upset, worries, taser, ogre, promise, bigger, sudden, enraged, overprotective, gentlemen",F_negative_affect,0.333333
+216,Morbid Anniversaries,"dead, deaths, mortification, mortifying, lifeless, alive, suicide, anniversaries, poorer, bareback",Z_noise_oog,1.000000
+217,Snarky Raincheck,"snarky, raincheck, tough, frisky, sidekick, obedient, dope, peg, hoo, coerce",Z_noise_oog,1.000000
+218,Feathered Antics,"pigeon, birds, duckling, chirping, wings, crows, antics, feathers, lizards, carnivorous",S_scene_anchor,1.000000
+219,Enviable Zing,"assignment, humans, course, actuality, enviable, par, fixture, zing, principle, endearment",Z_noise_oog,1.000000
+220,Boat Moment,"moment, boat, inspiration, consultant, months, evening, grimace, houseful, relaxing, wonderment",S_scene_anchor,1.000000
+221,Quick Shower,"shower, bathroom, towel, restroom, toilet, tub, towels, quick, showers, clinic",H_domestic_nesting,0.500000
+221,Quick Shower,"shower, bathroom, towel, restroom, toilet, tub, towels, quick, showers, clinic",M_health_recovery,0.500000
+222,Gratitude Sale,"trial, sale, trash, thanks",Z_noise_oog,1.000000
+223,Professional Undressing,"work, presentation, adults, expectations, undies, def, research, awe, niche, school",K_work_corporate,1.000000
+225,Furtive Minutes,"early, minutes, bylaws, mosquitoes, furtive, unreliable, ifs, percentage, conference, diagnosis",Z_noise_oog,1.000000
+226,Scandalous Dance,"disco, infinity, pottery, scandalous, maine, girlfriend, helicopter, wrinkles, blunt, adventure",Z_noise_oog,1.000000
+227,Voyeuristic Race,"scuffle, destructive, voyeur, filing, races, vibrator, strangers, prick, paperwork, secretary",K_work_corporate,0.500000
+227,Voyeuristic Race,"scuffle, destructive, voyeur, filing, races, vibrator, strangers, prick, paperwork, secretary",F_negative_affect,0.500000
+228,Homecoming Vow,"home, edit, homesick, sense, homey, residential, mobile, vow, work, sailing",K_work_corporate,0.333333
+228,Homecoming Vow,"home, edit, homesick, sense, homey, residential, mobile, vow, work, sailing",A_commitment_hea,0.333333
+228,Homecoming Vow,"home, edit, homesick, sense, homey, residential, mobile, vow, work, sailing",N_separation_reunion,0.333333
+229,Fascinated Gazes,"gaze, widen, brows, wide, brighter, head, brow, fascinating, fraction, brightens",O_appearance_aesthetics,1.000000
+230,Wheelchair Fondness,"cast, wheelchair, fond, photo, golf, rancor, threes, children, information, citation",J_family_support,1.000000
+231,Sweaty Intimacy,"sweat, beads, sweating, trickles, sweaty, palms, bead, forehead, skin, spine",B_mutual_intimacy,1.000000
+232,Tiger's Prize,"firsthand, blah, prize, interpretation, anecdote, tigers, bidders, beginner, lookout, convoluted",Z_noise_oog,1.000000
+233,Uppity Beauty,"attractive, proud, intelligent, excellent, pieces, stunning, attribute, uppity, austere, unimaginable",O_appearance_aesthetics,1.000000
+234,Postcoital Witch,"witch, murdering, sitter, daughter, fanatic, valentines, falsehood, postcoital, nolita, ballbuster",E_threat_danger,1.000000
+235,Kingly Gaze,"gaze, remnant, annoyance, menswear, kingly, peasy, meaner, yesss, snout, clone",O_appearance_aesthetics,1.000000
+236,Sarcastic Jokes,"joke, funny, amusing, sick, sarcasm, freakin, proclivities, funnier, gargoyle, heh",I_humor_lightness,1.000000
+237,Archery Rivalry,"rioting, volley, forte, inkling, true, special, reference, archery, fence, trigger",Z_noise_oog,1.000000
+238,Unspoken Attraction,"load, point, things",Z_noise_oog,1.000000
+239,Tearful Embrace,"tears, cheeks, tear, sting, corners, vision, unshed, burst, reddened, sockets",F_negative_affect,1.000000
+240,Career Opportunity,"years, research, deal, thought, career, booked, industry, opportunity, consequences, elections",S_scene_anchor,1.000000
+241,First Touch,start,Z_noise_oog,1.000000
+242,Audacious Handshake,"class, handshake, glad, thrilled, humane, contort, audacious, bereft, biscuit, stiffness",Z_noise_oog,1.000000
+243,Fearless Ladies,"answer, epitome, ladies, mio, outspoken, sophistication, replaceable, mushrooms, scrambles, fearless",F_negative_affect,1.000000
+244,Power Tool Intimacy,"cordless, drill, results, oldest, strides, homebody, maybach, inexorable, letdown, screwdriver",B_mutual_intimacy,1.000000
+245,Midnight Glance,"clock, nightstand, ticking, digital, glance, midnight, countdown, hour, noon, clocks",O_appearance_aesthetics,1.000000
+246,Superhero's Gaze,"wraps, moves, badge, stands, looks, intercom, shuffle, evil, tats, superhuman",O_appearance_aesthetics,1.000000
+247,Statue's Embrace,"statue, sister, piranhas, outpouring, cornbread, hurry, garner, particulars, wholesome, hairstylist",J_family_support,1.000000
+248,Doomed Barn Dance,"interpretation, doom, barn, brownstone, wrong, impending, failure, incident, gallery, actual",Q_miscommunication,1.000000
+249,Prophetic Garage Encounter,"validity, laminate, prophecy, garage, manure, acknowledgement, unfiltered, incentive, significance, references",F_negative_affect,1.000000
+250,Protective Conversations,"protector, soul, conversations, protective, pamper, firelight, bolder, headstrong, sputters, unconditional",R1_protectiveness,1.000000
+251,Press Conference Mojo,"press, conference, cursing, mojo, metabolism, genuineness, guys, instinctual, louisville, discrimination",Z_noise_oog,1.000000
+252,Sarcastic Retorts,"retorts, drawls, harden, manner, heck, frowns, features, glare, merrier, period",Z_noise_oog,1.000000
+253,Confused Question,"shrug, stammer, supremacy, question, sacrilege, plumbing, assortment, buttons, confusion, talents",Z_noise_oog,1.000000
+254,Horny Mistake,"mistake, wrong, mistakes, faulty, huge, foolish, horny, costly, trafficked, luv",Q_miscommunication,1.000000
+255,Scorpion's Embrace,"hotter, hots, hottest, scorpion, empathetic, ceaseless, zillion, coals, hottie, hotness",Z_noise_oog,1.000000
+256,Awkward Silence,"wrong, whack, shhh, oof, pee, doh, cad, mousy, whisk, emu",Q_miscommunication,1.000000
+257,Lingering Scents,"smell, scent, perfume, smells, air, scents, distillery, lavender, whiff, nose",O_appearance_aesthetics,1.000000
+258,Sunset Parade,"parade, issues, beading, loner, worms, motivated, class, shrug, labored, sunset",S_scene_anchor,1.000000
+259,Office Work,"desk, laptop, papers, office, cubicle, stack, screen, paper, chair, seat",P_tech_media,0.500000
+259,Office Work,"desk, laptop, papers, office, cubicle, stack, screen, paper, chair, seat",K_work_corporate,0.500000
+260,Brief Shrug,"shrug, agreement, assertion, gearshift, waiter, leafy, brief, wand, pleased, aviators",Z_noise_oog,1.000000
+261,Nuzzle in Sedan,"uncompromising, tendencies, horizontal, protocol, allowance, nuzzle, sedan, conventional, sleepless, prettier",Z_noise_oog,1.000000
+262,Clever Banter,clever,I_humor_lightness,1.000000
+263,Riddled Rejection,"question, challenge, true, riddle, conventional, presumptuous, temp, relevant, void, phrase",Z_noise_oog,1.000000
+264,Middle School Melee,"daughter, squeeze, dumpling, school, lilies, curl, shouts, contrast, middle, melee",Z_noise_oog,1.000000
+265,Careful Tune-Up,"checking, record, careful, tune, curveball, easy, peasy, tonight, snob, vertical",S_scene_anchor,1.000000
+266,Explicit Photoshoot,"shots, client, photos, explicit, friend, sleazy, purposes, juicy, shiftless, watt",Z_noise_oog,1.000000
+267,Cocky Smirk,"smirk, fuss, pleased, billboard, recommendation, cunning, injuries, deepens, discomfort, cocky",K_work_corporate,0.500000
+267,Cocky Smirk,"smirk, fuss, pleased, billboard, recommendation, cunning, injuries, deepens, discomfort, cocky",M_health_recovery,0.500000
+268,Diary Entries,"diary, frowns, pouts, gaze, snickers, stiffens, waves, slackens, flounces, broadens",O_appearance_aesthetics,1.000000
+269,Stony Threat,"sideways, stony, violence, ranch, spray, panhandlers, readiness, threat, boulevard, regulation",E_threat_danger,1.000000
+270,Ugly Crying,"tears, sobbing, bawling, feminine, undone, sob, hiccupping, ugly, sexless, upholstery",F_negative_affect,1.000000
+271,Physical Conquest,"conquest, labor, advantage, defenses, physical, feminine, moment, coast, asymmetry, sacrilege",Z_noise_oog,1.000000
+272,Curious Girlfriend's Assurance,"girlfriend, talk, exclamation, curious, vessel, assurance, problem, blooded, firm, willpower",Z_noise_oog,1.000000
+273,Contrite Apology,"sorry, apology, apologetic, tears, accident, lack, contrite, disruption, robotic, whispers",F_negative_affect,0.333333
+273,Contrite Apology,"sorry, apology, apologetic, tears, accident, lack, contrite, disruption, robotic, whispers",T_repair_apology,0.333333
+273,Contrite Apology,"sorry, apology, apologetic, tears, accident, lack, contrite, disruption, robotic, whispers",B_mutual_intimacy,0.333333
+274,Wild Night Out,"clubs, members, exclusive, stag, wilder, restaurants, member, strip, whores, frequent",Z_noise_oog,1.000000
+275,Compatibility Trials,"lives, compatible, better, synapses, pasts, buffer, decorum, inseparable, limbo, trials",Z_noise_oog,1.000000
+276,Furious Rage,"anger, rage, furious, dense, disrespectful, temper, thrums, bitterness, surface, depths",F_negative_affect,1.000000
+277,Corporate Takeover,"company, buy, profits, business, companies, funds, businesses, successes, millions, leech",K_work_corporate,1.000000
+278,East Coast Rescue,"east, ways, enlisted, preface, welfare, aneurysm, preview, paddles, upper, paramedic",Z_noise_oog,1.000000
+279,Pilot's Precautions,"mile, pilot, precautions, wolves, trek, booking, competitors, visitors, yards, stammers",Z_noise_oog,1.000000
+280,Throaty Growls,"growls, groans, growl, growling, rips, low, grunts, ears, deep, throaty",Z_noise_oog,1.000000
+281,Nighttime Slumber,"sleep, asleep, night, bed, inertia, exhausted, hours, nights, slumber, nephew",H_domestic_nesting,1.000000
+282,Respectful Intimacy,"respect, mortgage, exceptions, utmost, grandkids, bathrobe, album, impossible, rougher, sweeter",J_family_support,1.000000
+284,Diabolical Pursuit,"bounds, wriggles, perplexed, barks, extremes, ability, client, mustards, novelty, diabolical",Z_noise_oog,1.000000
+285,Massive Size,"bigger, huge, size, solid, heavy, geometry, massive, inch, large, larger",Z_noise_oog,1.000000
+286,Priest's Glare,"supreme, glare, priest, crew, fight, obdurate, conjecture, referee, unpunished, reticence",Z_noise_oog,1.000000
+287,Gloating Omen,"course, gloating, omen, seams, legend, instrument, trepidation, certainty, resources, turkey",Z_noise_oog,1.000000
+288,Morning Routine,"mornings, omg, routine, noon, tomorrow, inspirational, workweek, horrendous, mondays, appalling",K_work_corporate,1.000000
+289,Jazz Band Intimacy,"music, band, song, musicians, classical, jazz, speakers, songs, instrumental, quartet",B_mutual_intimacy,1.000000
+290,Erotic Nipple Play,"nipples, nipple, breasts, pebble, fabric, firm, erect, lace, clamps, nubs",C_explicit,1.000000
+291,Labored Breaths,"breath, breathing, deep, ragged, intake, inhales, breaths, labored, heavy, exhale",B_mutual_intimacy,1.000000
+292,Bathroom Hygiene,"shower, bathroom, towel, bath, tub, restroom, toilet, towels, shirt, washing",H_domestic_nesting,1.000000
+293,Damaged Relationship Talk,"fixer, total, pained, adviser, elimination, dissertation, charity, forte, damaging, talk",F_negative_affect,1.000000
+294,Shameful Embarrassment,"embarrassing, embarrassed, humiliating, shame, embarrassment, ashamed, pity, disgust, glutton, abject",F_negative_affect,1.000000
+295,Magical Friendship,"spell, bookcrazy, spells, explosion, grateful, friend, scrooge, sheer, command, muck",Z_noise_oog,1.000000
+296,Office Meetings,"meeting, office, meetings, board, offices, conference, tomorrow, engineering, noon, business",K_work_corporate,1.000000
+297,Arrogant Jerk,"arrogance, cocky, smack, insufferable, jerks, pompous, jerky, sleazebag, prick, stubborn",Z_noise_oog,1.000000
+298,Edgier Nightlife Encounter,"jail, nightlife, fatherless, haired, lizards, undisclosed, subsidiary, derision, edgier, stocky",J_family_support,1.000000
+299,Gratitude Gifts,"glad, grateful, proud, thrilled, thankful, excited, gratitude, item, happier, readiness",G_rituals_gifts,1.000000
+300,Contract Negotiation,"buts, arguments, contracts, central, argument, success, matter, eye, need",K_work_corporate,1.000000
+301,Seductive Lingerie,"erotic, sexytimes, unnatural, alluring, attractive, seductive, sensual, lingerie, twig, burlesque",O_appearance_aesthetics,1.000000
+302,Gunplay,"gun, weapon, bullets, pistol, guns, barrel, rifle, gunshot, shotgun, trigger",E_threat_danger,1.000000
+303,Personal Motto,"fullest, motto, occasion, cartoonish, lives, lifetime, adult, goal, purgatory, personal",S_scene_anchor,1.000000
+304,Taffy Tasting,"jar, barista, trance, taffy, saltwater, supplement, local, mileage, recycling, monkeys",Z_noise_oog,1.000000
+305,Mannered Recommendation,"best, thing, recommend, quietest, sign, cause, mannered, trait, ruler, commentary",Z_noise_oog,1.000000
+306,Holiday Laughter,"laughs, laugh, laughter, grins, holidays, giggles, amphitheater, humorous, funniest, khaki",G_rituals_gifts,0.500000
+306,Holiday Laughter,"laughs, laugh, laughter, grins, holidays, giggles, amphitheater, humorous, funniest, khaki",I_humor_lightness,0.500000
+307,Favorite Shades,"colors, favorite, yellow, scheme, bright, ones, shade, primary, packets, burgundy",E_threat_danger,1.000000
+308,Confident Bob's Canal Kiss,"confidence, jugular, truest, correct, mcs, reclusive, canal, wrong, proverbial, bobs",B_mutual_intimacy,0.500000
+308,Confident Bob's Canal Kiss,"confidence, jugular, truest, correct, mcs, reclusive, canal, wrong, proverbial, bobs",Q_miscommunication,0.500000
+309,Contract Dalliance,"contract, contracts, clause, promissory, dalliances, supplier, terms, agreement, semantics, nondisclosure",Z_noise_oog,1.000000
+310,Feminist Ladies' Experience,"feminine, ladies, feminist, conscious, godawful, experience, needier, calcium, rarer, demographic",Z_noise_oog,1.000000
+311,Yearlong Cycle,"downs, cycle, yearlong, years, thousands, holiday, times, restoration, chemists, phases",G_rituals_gifts,1.000000
+312,Ruffled Morning After,"hair, stubble, forehead, tousled, shaven, scruff, shadow, usual, comb, collar",O_appearance_aesthetics,1.000000
+313,Adrenaline-Fueled Races,"race, racing, races, deluge, prebuyers, thoroughbred, adrenaline, runners, armpits, downs",Z_noise_oog,1.000000
+314,Wise Setup,"thing, humane, percent, winner, vague, hunch, setup, wise, assholes, suggestion",Z_noise_oog,1.000000
+315,Instrumental Gardener,"heck, meaner, gardener, instrumental, controller, treasures, tuxes, trail, dang, combo",Z_noise_oog,1.000000
+316,Office Romance,"desk, papers, office, chair, monitor, screen, files, paper, stack, seat",P_tech_media,0.500000
+316,Office Romance,"desk, papers, office, chair, monitor, screen, files, paper, stack, seat",K_work_corporate,0.500000
+317,Sensory Intimacy,"scent, smell, perfume, nostrils, shampoo, coconut, lavender, flowers, flowery, sweetness",O_appearance_aesthetics,0.500000
+317,Sensory Intimacy,"scent, smell, perfume, nostrils, shampoo, coconut, lavender, flowers, flowery, sweetness",G_rituals_gifts,0.500000
+318,Mutual Accomplishment,"sign, marvelous, bloodthirsty, jury, blowjob, productive, heavens, feeling, accomplished, mutual",K_work_corporate,1.000000
+319,Nighttime Carousel Ride,"penguins, buildup, cabs, nightie, carousel, bass, devotion, dent, recipe, device",P_tech_media,0.750000
+319,Nighttime Carousel Ride,"penguins, buildup, cabs, nightie, carousel, bass, devotion, dent, recipe, device",S_scene_anchor,0.250000
+320,Emotional Turmoil,"better, feeling, queasy, shittier, delusion, energized, feelings, corset, devastation, liberating",Z_noise_oog,1.000000
+321,Maine's Tolerant Stage,"antidote, maine, entertainment, tolerant, dala, terrorist, endorsement, groupies, buffer, nines",Z_noise_oog,1.000000
+322,Scornful Lockdown,"head, scornful, lockdown, behavior, fuzz, vulgar, problem, melancholy, road, whiskers",Z_noise_oog,1.000000
+323,Photo Shoot Intimacy,"cameras, photos, pictures, photographers, camera, photo, photoshoot, note, images, shoot",B_mutual_intimacy,1.000000
+324,Sensory Overload Discussion,"sensory, discussion, overreaction, overeager, cultural, overdone, overkill, trials, vu, overload",Z_noise_oog,1.000000
+325,Owl's Hopeless Repeats,"owl, repeats, alternatives, hopelessness, presentable, watercolor, glum, passageway, instructs, prod",Z_noise_oog,1.000000
+326,Earliest Booty Call,"earliest, calls, convenience, alright, callers, formalities, caviar, class, booty, help",P_tech_media,1.000000
+327,Prompt Agreement,"nod, prompt, undeniable, guards, reply, agreement, response, chin, conversation, head",Z_noise_oog,1.000000
+328,Moaning Intimacy,"moan, whimper, moans, loud, moaning, fray, unintelligible, frustration, salvation, unattractive",O_appearance_aesthetics,0.500000
+328,Moaning Intimacy,"moan, whimper, moans, loud, moaning, fray, unintelligible, frustration, salvation, unattractive",F_negative_affect,0.500000
+329,New Parent Intimacy,"dependable, coos, wails, parenting, competent, guardian, formula, squeals, faking, diaper",R1_protectiveness,0.500000
+329,New Parent Intimacy,"dependable, coos, wails, parenting, competent, guardian, formula, squeals, faking, diaper",J_family_support,0.500000
+330,Giggling Confidante,"confidante, splutters, pleads, stylist, glance, worker, smiles, exhales, giggles, arab",J_family_support,0.333333
+330,Giggling Confidante,"confidante, splutters, pleads, stylist, glance, worker, smiles, exhales, giggles, arab",K_work_corporate,0.333333
+330,Giggling Confidante,"confidante, splutters, pleads, stylist, glance, worker, smiles, exhales, giggles, arab",I_humor_lightness,0.333333
+331,Cocky Shark's Vow,"jambalaya, tremulous, egotistical, presumptuous, shark, vows, cocky, ass, birthright, shitty",A_commitment_hea,1.000000
+332,Secret Love Affair,"secrets, confidential, secrecy, secretive, discreet, identity, sneaking, sandcastle, kinds, closest",Z_noise_oog,1.000000
+333,Dangerous Liaison,"weapons, threats, cubicle, affair, conscious, spat, prima, ex, threat, similarities",F_negative_affect,0.500000
+333,Dangerous Liaison,"weapons, threats, cubicle, affair, conscious, spat, prima, ex, threat, similarities",E_threat_danger,0.500000
+334,Earnest Objections,"perfunctory, declarations, objection, resolute, prolonged, expectation, head, salute, iced, earnest",Z_noise_oog,1.000000
+335,Mutual Outbursts,"cries, redder, yells, sardine, moot, mutters, aide, fistfight, ale, orders",F_negative_affect,1.000000
+336,Alternative Answers,"alternatives, thanks, answer, way",Z_noise_oog,1.000000
+337,Hasty Presentation,"pointers, metaphor, hasty, boards, deed, lemonade, homework, question, results, presentation",K_work_corporate,1.000000
+338,Roommate Awakening,"freshman, roommate, earful, shrine, messages, awakening, losers, path, standalone, indecent",P_tech_media,1.000000
+339,Tense Wait,"ipo, waits, pumps, elections, beat, tandem, bated, cucumber, complimentary, displeased",K_work_corporate,1.000000
+340,Taboo Office Kiss,"mouths, denial, woes, impropriety, tolerant, hypocrisy, cringes, employers, safest, static",K_work_corporate,0.500000
+340,Taboo Office Kiss,"mouths, denial, woes, impropriety, tolerant, hypocrisy, cringes, employers, safest, static",B_mutual_intimacy,0.500000
+341,Reunion Supplication,"leaving, disrespectful, replacement, reunion, realizations, supplication, threat, coquettish, irritation, issue",A_commitment_hea,0.333333
+341,Reunion Supplication,"leaving, disrespectful, replacement, reunion, realizations, supplication, threat, coquettish, irritation, issue",E_threat_danger,0.333333
+341,Reunion Supplication,"leaving, disrespectful, replacement, reunion, realizations, supplication, threat, coquettish, irritation, issue",N_separation_reunion,0.333333
+342,Mistaken Encounter,"wrong, wrongs, harbinger, critics, uncharacteristic, peculiar, event, gentlemen, levels, mistaken",Q_miscommunication,1.000000
+343,Tailored Intimacy,"navy, tie, crisp, shirt, tailored, charcoal, suits, expensive, necktie, usual",D_luxury_wealth_status,1.000000
+344,Deliberate Pacing,"slow, slower, motion, snail, process, pace, experimentation, pitfalls, weekday, circles",Z_noise_oog,1.000000
+345,Architectural Charmer,"daft, tramp, charmer, architectural, dense, conclusions, jump, fur, buildings, firm",Z_noise_oog,1.000000
+346,Passionate Gasps,"admirable, passionate, shortcuts, anxiousness, verb, horrors, postal, conferences, gasps, coldhearted",Z_noise_oog,1.000000
+347,Passionate Affirmation,yessss,Z_noise_oog,1.000000
+348,Sales Pitch Seminar,"seminar, geniuses, brochures, clients, spiel, pharmaceuticals, brothel, brochure, challenge, inflection",Z_noise_oog,1.000000
+349,Beachside Shoulder Caress,"shoulders, weight, dignity, bunch, shoulder, beachside, fall, coil, risks, burden",B_mutual_intimacy,0.750000
+349,Beachside Shoulder Caress,"shoulders, weight, dignity, bunch, shoulder, beachside, fall, coil, risks, burden",S_scene_anchor,0.250000
+350,Bashful Goddesses,"childhood, months, defensive, sister, clinic, permission, wasteland, decisions, bashful, goddesses",J_family_support,0.500000
+350,Bashful Goddesses,"childhood, months, defensive, sister, clinic, permission, wasteland, decisions, bashful, goddesses",M_health_recovery,0.500000
+351,Indoor Pool Encounter,"pool, swimming, swim, scum, gene, float, swimmer, cabana, indoor, waterfall",S_scene_anchor,1.000000
+352,Wrongful Termination,"lawyers, attorney, termination, assets, case, prosecution, wrongful, banker, job, editors",K_work_corporate,1.000000
+353,Regretful Realizations,"regret, regrets, realizations, validity, runny, entree, eon, scandals, liable, things",Z_noise_oog,1.000000
+354,Threatening Minion,"minion, faintest, freckle, problem, dodge, types, slightest, timing, drugs, threatening",E_threat_danger,1.000000
+355,Sunburned Cheeks,"cheeks, flush, floods, hotter, forest, sunburned, decree, plank, blush, nauseating",Z_noise_oog,1.000000
+356,Dragon's Battle,"fight, battle, fights, battles, dragons, feud, war, confrontation, fighter, supremacy",Z_noise_oog,1.000000
+357,Drunken Decadence,"hungover, herculean, whats, accordion, personality, decadence, protest, tv, gallop, imitation",L_vices_addictions,1.000000
+358,Tabloid Scandal,"earful, victorious, tabloids, goal, local, magnanimous, stag, finite, performances, placid",P_tech_media,1.000000
+360,Relaxing Interlude,"rest, relaxing, relaxed, relaxation, averse, awash, peace, moping, minute, exhibit",Z_noise_oog,1.000000
+361,Adventurous Consultants,"glad, proud, excited, grateful, wonderful, talented, consultants, sentiments, endeavor, adventurous",Z_noise_oog,1.000000
+362,Cute Nephew's Shop,"adorable, cutest, nephew, schnoodle, juvenile, human, immature, shops, lethal, omg",Z_noise_oog,1.000000
+363,Webcam Flirtation,"owners, webcam, goofball, prophecy, blankness, relationships, nightclubs, version, lows, connection",P_tech_media,1.000000
+364,Distance Excuses,"distance, excuses, easier, reminder, role, choice, existent, warehouses, recluse, fictional",N_separation_reunion,1.000000
+365,Mirror Glance,"mirror, reflection, bathroom, mirrors, glance, length, look, haggard, sink, hoodie",O_appearance_aesthetics,0.500000
+365,Mirror Glance,"mirror, reflection, bathroom, mirrors, glance, length, look, haggard, sink, hoodie",H_domestic_nesting,0.500000
+366,Kitchen Squabble,"scowl, beeping, beeps, crews, spelling, bees, smoothie, avocado, bananas, crackers",H_domestic_nesting,1.000000
+367,Unwritten Privacy,"privacy, safer, invasion, protection, safety, duty, secure, footprint, unwritten, identities",R1_protectiveness,1.000000
