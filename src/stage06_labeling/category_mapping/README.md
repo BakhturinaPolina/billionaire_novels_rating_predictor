@@ -539,12 +539,87 @@ For categories Q and R, the current implementation splits 50/50. To refine:
 
 ---
 
+## Integration with BERTopic Model
+
+After generating category mappings, you can integrate them into your BERTopic model. This allows you to:
+
+1. **Calculate probabilities per book and per chapter** using both topic probabilities and category assignments
+2. **View category information in BERTopic visualizations** (labels include category codes)
+3. **Use category tags in topic representations** for downstream analysis
+
+### Usage
+
+```bash
+# Integrate categories into BERTopic model
+python -m src.stage06_labeling.category_mapping.integrate_categories_to_bertopic \
+    --category-probs results/stage06_labeling/category_mapping/topic_to_category_probs.json \
+    --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
+    --embedding-model paraphrase-MiniLM-L6-v2 \
+    --pareto-rank 1 \
+    --use-native
+```
+
+### Options
+
+- `--category-probs`: Path to `topic_to_category_probs.json` (required)
+- `--labels`: Path to labels JSON file from OpenRouter experiments (required)
+- `--model-dir`: Direct path to BERTopic model directory (optional, overrides base-dir/embedding-model)
+- `--base-dir`: Base directory for models (default: `models/retrained`)
+- `--embedding-model`: Embedding model name (default: `paraphrase-MiniLM-L6-v2`)
+- `--pareto-rank`: Model pareto rank (default: `1`)
+- `--use-native`: Load native safetensors instead of pickle wrapper
+- `--output-dir`: Output directory for saved model (default: overwrite original)
+- `--no-update-labels`: Skip updating topic labels
+- `--no-update-representations`: Skip updating topic representations
+
+### What Gets Updated
+
+1. **Topic Labels**: Enhanced with category codes (e.g., "Tender Tongue Play [B Mutual Intimacy | C Explicit]")
+2. **Topic Representations**: Category tags added to topic representations for filtering/analysis
+3. **Model Saved**: Updated model saved back to disk (or to `--output-dir` if specified)
+
+### Calculating Probabilities Per Book/Chapter
+
+After integration, you can use the BERTopic model's `.transform()` method along with category mappings to calculate probabilities:
+
+```python
+from bertopic import BERTopic
+import json
+
+# Load model
+model = BERTopic.load("models/retrained/paraphrase-MiniLM-L6-v2/model_1")
+
+# Load category mappings
+with open("results/stage06_labeling/category_mapping/topic_to_category_probs.json") as f:
+    category_mappings = json.load(f)
+
+# Transform documents (books/chapters)
+topics, probs = model.transform(documents)
+
+# Calculate category probabilities per document
+for doc_idx, (topic_id, topic_probs) in enumerate(zip(topics, probs)):
+    doc_category_probs = {}
+    
+    # Get category weights for each topic
+    for topic_idx, prob in enumerate(topic_probs):
+        topic_id_str = str(topic_idx)
+        if topic_id_str in category_mappings:
+            categories = category_mappings[topic_id_str].get("categories", {})
+            for cat, weight in categories.items():
+                doc_category_probs[cat] = doc_category_probs.get(cat, 0.0) + (prob * weight)
+    
+    # doc_category_probs now contains category probabilities for this document
+```
+
+See [BERTopic documentation](https://bertopic.readthedocs.io/en/latest/) for more details on using `.transform()` and `.approximate_distribution()`.
+
 ## See Also
 
 - **OpenRouter Experiments**: `src/stage06_labeling/openrouter_experiments/`
 - **Main Labeling Module**: `src/stage06_labeling/generate_labels.py`
 - **Scientific Methodology**: `SCIENTIFIC_README.md`
 - **Data Contracts**: `docs/DATA_CONTRACTS.md`
+- **BERTopic Documentation**: https://bertopic.readthedocs.io/en/latest/
 
 ---
 

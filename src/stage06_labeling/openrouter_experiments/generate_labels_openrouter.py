@@ -41,6 +41,81 @@ logging.basicConfig(
     format="[%(asctime)s] [%(levelname)s] %(message)s",
 )
 
+# Try to import spaCy for real POS tagging
+try:
+    import spacy
+    SPACY_AVAILABLE = True
+except ImportError:
+    SPACY_AVAILABLE = False
+    LOGGER.warning("spaCy not available. POS cues will use simplified extraction.")
+
+# Romance-aware prompts for modern romantic fiction
+ROMANCE_AWARE_SYSTEM_PROMPT = """You are a topic-labeling assistant for modern romantic fiction.
+
+Goal
+
+- Produce one short, specific label (2–6 words) for a cluster of romance-novel keywords.
+
+- The label must clearly distinguish this topic from similar ones and prioritize romance-relevant facets.
+
+Romance Context
+
+- Prefer facets common in romantic scenes and plots: physical intimacy (body parts, touches, foreplay, oral), emotional beats (jealousy, fear, apology, panic), relationship milestones (engagement, vows, wedding, breakup, reunion), communication moments (whispers, texts, calls), setting cues (bedroom, doorways/elevators, kitchen/meal, bar/night), family dynamics (parents, kids), and sensual aesthetics (scent, fabric, lingerie, makeup).
+
+- If multiple facets appear, pick the single most distinctive one.
+
+Style
+
+- Output: one short noun phrase, 2–6 words. No quotes. No trailing punctuation.
+
+- Use Title Case where natural.
+
+- Prefer concrete, scene-level romance phrasing over generic abstractions (e.g., "Whispered Promises," not "Communication").
+
+- Use clear disambiguators only when obvious (e.g., "Elevator Encounter," "Wedding Vows," "Tender Foreplay").
+
+- Do not list or repeat the keywords; synthesize the core idea.
+
+Disambiguation Rules
+
+- Body parts / touch verbs / sex acts → intimacy (e.g., "Tender Foreplay," "Breast Play," "Oral Intimacy").
+
+- Eyes/gaze/face/brows → eye-contact or facial expression (e.g., "Lingering Gazes," "Playful Laughter").
+
+- Wedding/engagement/marriage terms → relationship milestone (e.g., "Wedding Planning," "Wedding Vows," "Engagement Drama").
+
+- Phones/rings/buzzes/screens → device-mediated moments (e.g., "Buzzing Phones," "Late-Night Texts").
+
+- Bed/sheets/pillows/night → setting/scene (e.g., "Bedtime Routine," "Nighttime Cuddling").
+
+- Food/kitchen/dinner/wine → meal/hosting scene (e.g., "Wine Service," "Meal Preparation").
+
+- Emotions like fear/anger/jealousy/apology → emotional beat (e.g., "Fear and Anxiety," "Remorseful Apologies," "Jealous Girlfriend").
+
+- Work/career/office: if any romantic cue appears → "Office Romance"; otherwise a compact neutral like "Work & Career."
+
+- Off-genre clusters (e.g., sports with no romance cues): keep a short, literal label to avoid miscasting ("Ice Hockey Players").
+
+Noise Handling
+
+- If keywords are incoherent or overly generic, choose the most concrete facet present; otherwise use the clearest scene-level summary ("Awkward Silence," "Small Talk").
+
+Guidance Inputs (Optional)
+
+- If a line begins with "Context hints:" follow those nudges.
+
+- If a line begins with "POS cues:" use nouns/verbs to anchor the facet (e.g., body-part nouns + tactile verbs → intimacy).
+
+Output
+
+- Return only the label."""
+
+ROMANCE_AWARE_USER_PROMPT = """Topic keywords: {kw}{hints}
+
+{pos}
+
+Label:"""
+
 # OpenRouter API configuration
 DEFAULT_OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-nemo"
@@ -48,6 +123,144 @@ DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 # Module-level cache for MMR embedding model (loaded once, reused for all topics)
 _MMR_EMBEDDING_MODEL: SentenceTransformer | None = None
+
+# Module-level cache for spaCy NLP model (loaded once, reused for all topics)
+_SPACY_NLP = None
+
+
+def _load_spacy_model():
+    """Load spaCy model for POS tagging (cached)."""
+    global _SPACY_NLP
+    if _SPACY_NLP is None and SPACY_AVAILABLE:
+        try:
+            _SPACY_NLP = spacy.load("en_core_web_sm", disable=["ner", "parser"])
+            LOGGER.info("Loaded spaCy model for POS tagging")
+        except OSError:
+            LOGGER.warning("spaCy model 'en_core_web_sm' not found. Install with: python -m spacy download en_core_web_sm")
+            return None
+    return _SPACY_NLP
+
+
+def extract_pos_cues(keywords: list[str]) -> str:
+    """
+    Extract real POS cues from keywords using spaCy POS tagging for romance-aware labeling.
+    
+    Uses actual POS tagging from spaCy to categorize keywords into nouns, verbs, and adjectives.
+    Falls back to simplified extraction if spaCy is not available.
+    
+    Args:
+        keywords: List of keyword strings
+        
+    Returns:
+        Formatted POS cues string (empty if no cues detected)
+    """
+    if not keywords:
+        return ""
+    
+    nlp = _load_spacy_model()
+    
+    # Use real POS tagging if spaCy is available
+    if nlp is not None:
+        nouns = []
+        verbs = []
+        adjs = []
+        
+        # Process each keyword individually for better POS accuracy
+        # (spaCy works better on individual words/phrases than joined text)
+        for kw in keywords:
+            if not kw or not kw.strip():
+                continue
+            
+            # Process keyword with spaCy
+            doc = nlp(kw)
+            
+            # Get POS tag from the first (and usually only) token
+            # For multi-word keywords, use the head token or first significant token
+            pos_tag = None
+            for token in doc:
+                # Skip punctuation and stop words for POS determination
+                if not token.is_punct and not token.is_stop:
+                    pos_tag = token.pos_
+                    break
+            
+            # If no significant token found, use first token's POS
+            if pos_tag is None and len(doc) > 0:
+                pos_tag = doc[0].pos_
+            
+            # spaCy POS tags: NOUN, VERB, ADJ, etc.
+            if pos_tag == "NOUN" or pos_tag == "PROPN":  # Noun or proper noun
+                nouns.append(kw)
+            elif pos_tag == "VERB":
+                verbs.append(kw)
+            elif pos_tag == "ADJ":  # Adjective
+                adjs.append(kw)
+        
+        # Build POS cues string
+        parts = []
+        if nouns:
+            parts.append(f"Nouns→{', '.join(nouns[:5])}")  # Limit to 5 for brevity
+        if verbs:
+            parts.append(f"Verbs→{', '.join(verbs[:5])}")
+        if adjs:
+            parts.append(f"Adjectives→{', '.join(adjs[:5])}")
+        
+        if parts:
+            return "POS cues: " + "; ".join(parts) + "."
+        return ""
+    
+    # Fallback: simplified extraction using domain knowledge
+    # Common body part nouns (from domain lexicon)
+    body_parts = {
+        "lip", "lips", "mouth", "tongue", "teeth", "cheek", "cheeks", "nose", "chin",
+        "brows", "eyebrow", "eyebrows", "eye", "eyes", "neck", "nape", "shoulder",
+        "shoulders", "arm", "arms", "hand", "hands", "finger", "fingers", "fist",
+        "fists", "breast", "breasts", "nipples", "waist", "belly", "stomach", "chest",
+        "spine", "back", "hip", "hips", "thigh", "thighs", "legs", "leg", "knee",
+        "knees", "feet", "foot", "heels", "clit", "clitoris", "pussy", "genitals",
+    }
+    
+    # Common touch/intimacy verbs
+    touch_verbs = {
+        "kiss", "kissed", "kissing", "touch", "touched", "touching", "caress", "caressed",
+        "cup", "cupped", "grab", "grabbed", "grasp", "grasped", "hold", "held", "hug",
+        "hugged", "embrace", "embraced", "stroke", "stroked", "rub", "rubbed", "squeeze",
+        "squeezed", "pinch", "pinched", "lick", "licked", "suck", "sucked", "bite",
+        "bit", "nibble", "nibbled",
+    }
+    
+    # Common emotional/adjective words
+    adjectives = {
+        "tender", "gentle", "soft", "hard", "rough", "smooth", "warm", "cold", "hot",
+        "sweet", "bitter", "sour", "intense", "passionate", "romantic", "loving",
+        "affectionate", "desperate", "urgent", "slow", "fast", "deep", "shallow",
+    }
+    
+    nouns = []
+    verbs = []
+    adjs = []
+    
+    keywords_lower = [kw.lower() for kw in keywords]
+    
+    for kw in keywords_lower:
+        if kw in body_parts:
+            nouns.append(kw)
+        elif kw in touch_verbs:
+            verbs.append(kw)
+        elif kw in adjectives:
+            adjs.append(kw)
+    
+    # Build POS cues string
+    parts = []
+    if nouns:
+        parts.append(f"Nouns→{', '.join(nouns[:5])}")  # Limit to 5 for brevity
+    if verbs:
+        parts.append(f"Verbs→{', '.join(verbs[:5])}")
+    if adjs:
+        parts.append(f"Adjectives→{', '.join(adjs[:5])}")
+    
+    if parts:
+        return "POS cues: " + "; ".join(parts) + "."
+    return ""
 
 
 def load_openrouter_client(
@@ -125,13 +338,23 @@ def generate_label_from_keywords_openrouter(
             diversity=mmr_diversity,
         )
     
-    # Build adaptive universal prompt
+    # Build romance-aware prompt with optional hints and POS cues
     kw_str = ", ".join(keywords)
     domains = detect_domains(keywords)
-    hints = make_context_hints(domains)
-    user_prompt = UNIVERSAL_USER_PROMPT.format(kw=kw_str, hints=("\n" + hints if hints else ""))
+    hints = make_context_hints(domains)  # Already includes "Context hints:" prefix
+    hints_str = hints if hints else ""
+    
+    # Extract POS cues for romance-aware labeling
+    pos_cues = extract_pos_cues(keywords)
+    pos_str = pos_cues if pos_cues else ""
+    
+    user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
+        kw=kw_str,
+        hints=hints_str,
+        pos=pos_str
+    )
     messages = [
-        {"role": "system", "content": UNIVERSAL_SYSTEM_PROMPT},
+        {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
         {"role": "user", "content": user_prompt},
     ]
     

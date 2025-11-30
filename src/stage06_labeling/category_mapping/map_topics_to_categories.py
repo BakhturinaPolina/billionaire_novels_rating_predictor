@@ -48,9 +48,10 @@ CATS = [
     "P_tech_media",            # P
     "Q_miscommunication",     # cross-cut: miscommunication/deception
     "T_repair_apology",        # cross-cut: repair/apology/forgiveness
-    "R_protect_vs_jealous",    # cross-cut: protectiveness vs jealousy
-    "S_scene_anchor",          # auxiliary: scene locations
-    "Z_noise_oog"              # out-of-domain: sports/animals/oddities
+    "R1_protectiveness",      # cross-cut: protectiveness/care
+    "R2_jealousy",            # cross-cut: jealousy/possessiveness
+    "S_scene_anchor",         # auxiliary: scene locations
+    "Z_noise_oog"             # out-of-domain: sports/animals/oddities
 ]
 
 # ---- Rule lists: if label contains any trigger (case-insensitive), assign cat ----
@@ -62,14 +63,14 @@ TRIG = {
     r"\bpromise\b"  # for "True Promise"
   ],
   "B_mutual_intimacy": [
-    r"foreplay", r"bedtime intimacy", r"armchair foreplay", r"first intimacy",
-    r"intimate touch", r"bedroom intimacy", r"kiss", r"caress", r"tender",
-    r"tenderness", r"intimate", r"touching"
+    r"\bforeplay\b", r"\bbed(time|room) intimacy\b", r"\barmchair foreplay\b", r"\bfirst intimacy\b",
+    r"\bintimate touch\b", r"\bcaress(es|ed|ing)?\b", r"\bkiss(es|ed|ing)?\b", r"\btender(ness)?\b",
+    r"\bhug(s|ged|ging)?\b", r"\bwhisper(s|ed|ing)?\b"  # whispers as tender intimacy
   ],
   "C_explicit": [
-    r"nipple|nipples|clit|orgasm|dominatrix|condom|moaning intimacy|wet nude|breast play|tongue & thumb",
-    r"explicit|erotic|sexual|arousal|pleasure|pussy|erection",
-    r"\btongue play\b"  # explicit when standalone (has clit/pussy in keywords)
+    r"\bnipple(s)?\b", r"\bclit\b", r"\borgasm(s)?\b", r"\bdominatrix\b", r"\bcondom\b",
+    r"\bwet nude\b", r"\bbreast play\b", r"\btongue & thumb\b",
+    r"\bpussy\b", r"\berection\b", r"\bcock\b", r"\bpenetrat(e|ion)\b"
   ],
   "D_luxury_wealth_status": [
     r"lacy lingerie", r"wine service", r"millionaire|hollywood|luxury car|stainless|margarita",
@@ -130,9 +131,12 @@ TRIG = {
     r"\bapolog(y|ies|ize|ised|ised)\b", r"\bforgiveness\b", r"\brepair\b",
     r"\bsorry\b", r"\bapologetic\b"
   ],
-  "R_protect_vs_jealous": [
-    r"protect|protective|overprotective|jealous",
-    r"jealousy|possessiveness|care|guardian|guard"
+  "R1_protectiveness": [
+    r"\bprotect(?:ive|ion)?\b", r"\boverprotective\b", r"\bguardian\b", r"\bguard\b",
+    r"\bcare\b"  # care as protectiveness (not jealousy)
+  ],
+  "R2_jealousy": [
+    r"\bjealous(?:y)?\b", r"\bpossessive(?:ness)?\b", r"\benvious\b", r"\benvy\b"
   ],
   "S_scene_anchor": [
     r"elevator|doorways|driveway|airport|boat|barroom|sunset|beach|silent ride",
@@ -154,20 +158,51 @@ def compile_rules(TRIG):
 RULES = compile_rules(TRIG)
 
 
-def infer_categories(label: str) -> Dict[str, float]:
-    """Return a dict {cat: weight} with soft one-hot assignments."""
+def infer_categories(label: str, keywords: List[str] = None) -> Dict[str, float]:
+    """
+    Return a dict {cat: weight} with soft one-hot assignments.
+    
+    Uses both label and keywords for more accurate category inference.
+    All regex patterns match against the combined text (label + keywords),
+    ensuring that both the human-readable label and the underlying topic keywords
+    contribute to category assignment.
+    
+    Args:
+        label: Topic label string (e.g., "Tender Tongue Play")
+        keywords: Optional list of keywords (e.g., ["tongue", "kiss", "tender", "soft"])
+                 These are combined with the label for pattern matching.
+    
+    Returns:
+        Dictionary mapping category codes to weights (sums to 1.0)
+    """
+    # Combine label and keywords into searchable text
+    # This ensures both the label and keywords are considered for category inference
+    if keywords:
+        keywords_text = " " + " ".join(keywords) + " "
+    else:
+        keywords_text = ""
+    
+    # Create combined search text (label + keywords)
+    # All regex patterns will match against this combined text
+    search_text = label + keywords_text
+    
     base_hits = []
     for cat, pats in RULES.items():
-        if any(p.search(label) for p in pats):
+        # Check both label and keywords
+        if any(p.search(search_text) for p in pats):
             base_hits.append(cat)
     
     hits = set(base_hits)
+    
+    # PATCH 1: Make Noise truly "last resort" - drop if other hits exist
+    if "Z_noise_oog" in hits and len(hits) > 1:
+        hits.discard("Z_noise_oog")
     
     # Priority logic: Handle conflicts and special cases
     
     # 1. Vices priority: If vices present, prefer L over H/D unless explicit home cues
     if "L_vices_addictions" in hits:
-        homey = bool(re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", label, re.I))
+        homey = bool(re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", search_text, re.I))
         if homey:
             # Split L + H when home cues present
             return {"L_vices_addictions": 0.67, "H_domestic_nesting": 0.33}
@@ -177,16 +212,28 @@ def infer_categories(label: str) -> Dict[str, float]:
     
     # 2. Separation/Reunion: Nudge toward N when separation terms present
     if {"A_commitment_hea", "N_separation_reunion"} <= hits:
-        if re.search(r"\b(separat|apart|distance|estrange)\w*\b", label, re.I):
+        if re.search(r"\b(separat|apart|distance|estrange)\w*\b", search_text, re.I):
             return {"N_separation_reunion": 0.7, "A_commitment_hea": 0.3}
     
     # 3. Miscommunication vs Repair: Split evenly when both present
     if "Q_miscommunication" in hits and "T_repair_apology" in hits:
         return {"Q_miscommunication": 0.5, "T_repair_apology": 0.5}
     
+    # PATCH 2: Demote Scene anchors when core category is present
+    if "S_scene_anchor" in hits and len(hits) > 1:
+        hits_no_s = [h for h in hits if h != "S_scene_anchor"]
+        w_other = 0.75 / len(hits_no_s)
+        weights = {h: w_other for h in hits_no_s}
+        weights["S_scene_anchor"] = 0.25
+        return weights
+    
+    # PATCH 5: Preference in Luxury vs Appearance co-hits
+    if {"D_luxury_wealth_status", "O_appearance_aesthetics"} <= hits:
+        return {"D_luxury_wealth_status": 0.7, "O_appearance_aesthetics": 0.3}
+    
     # 4. Remove H from hits if only triggered by "wine" (keep D or L instead)
     if "H_domestic_nesting" in hits and "D_luxury_wealth_status" in hits:
-        if not re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", label, re.I):
+        if not re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", search_text, re.I):
             # Only wine triggered H, remove it
             hits.discard("H_domestic_nesting")
     
@@ -196,18 +243,25 @@ def infer_categories(label: str) -> Dict[str, float]:
         return {h: w for h in hits}
     
     # Improved backoff order (reduces empty assignments)
-    if re.search(r"\b(elevator|door|drive|airport|boat|bar(room)?|sunset|beach|ride)\b", label, re.I):
+    # Use search_text (label + keywords) for backoff matching too
+    if re.search(r"\b(elevator|door|drive|airport|boat|bar(room)?|sunset|beach|ride)\b", search_text, re.I):
         return {"S_scene_anchor": 1.0}
-    if re.search(r"\b(gaze|glance|smile|laugh|brows|eye|hair|perfume|scent|lingerie)\b", label, re.I):
+    if re.search(r"\b(gaze|glance|smile|laugh|brows|eye|hair|perfume|scent|lingerie)\b", search_text, re.I):
         return {"O_appearance_aesthetics": 1.0}
-    if re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", label, re.I):
+    if re.search(r"\b(bed(room)?|sheets?|kitchen|dinner|bath(room)?|shower|cozy)\b", search_text, re.I):
         return {"H_domestic_nesting": 1.0}
-    if re.search(r"\b(playful|witty|banter|goofy|gleeful|joke)\b", label, re.I):
+    if re.search(r"\b(playful|witty|banter|goofy|gleeful|joke)\b", search_text, re.I):
         return {"I_humor_lightness": 1.0}
-    if re.search(r"\b(promise|commitment|vow|proposal)\b", label, re.I):
+    if re.search(r"\b(promise|commitment|vow|proposal)\b", search_text, re.I):
         return {"A_commitment_hea": 1.0}
-    if re.search(r"\b(choice|decision|problem|deal)\b", label, re.I):
-        return {"Q_miscommunication": 1.0}  # decision-making/choice as miscomm context
+    # Romance-relevant backoffs using keywords
+    if re.search(r"\b(whisper(s|ed|ing)?|breathy|husky)\b", search_text, re.I):
+        return {"B_mutual_intimacy": 1.0}  # whispers as tender intimacy
+    if re.search(r"\b(breath(s|ing|ed)?|breathy)\b", search_text, re.I):
+        return {"B_mutual_intimacy": 1.0}  # breathing as intimacy cue
+    if re.search(r"\b(emotional intimacy|intimacy|tender|sweet)\b", search_text, re.I):
+        return {"B_mutual_intimacy": 1.0}
+    # PATCH 6: Removed decision fallback - don't overuse Q_miscommunication for neutral decisions
     
     # Final fallback: Noise bucket
     return {"Z_noise_oog": 1.0}
@@ -307,10 +361,9 @@ def compute_indices(catvec: Dict[str, float]) -> Dict[str, float]:
     miscommunication = g("Q_miscommunication")
     repair_apology = g("T_repair_apology")
     
-    # R is still split 50/50 for protectiveness vs jealousy (can be refined later)
-    r_total = g("R_protect_vs_jealous")
-    protectiveness = r_total * 0.5
-    jealousy = r_total * 0.5
+    # PATCH 3: R is now split into R1 and R2 for true delta computation
+    protectiveness = g("R1_protectiveness")
+    jealousy = g("R2_jealousy")
 
     out = {}
     out["Love_over_Sex"] = (commitment_hea + tenderness_emotion) - explicit
@@ -345,7 +398,8 @@ def main():
 
     for tid, rec in topics.items():
         label = rec.get("label", "")
-        cats = infer_categories(label)
+        keywords = rec.get("keywords", [])
+        cats = infer_categories(label, keywords=keywords)
         topic_to_cat[str(tid)] = cats
         # flatten for CSV
         if not cats:

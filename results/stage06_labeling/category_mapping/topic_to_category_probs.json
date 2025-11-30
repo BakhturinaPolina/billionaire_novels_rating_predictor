@@ -1,0 +1,1173 @@
+{
+  "0": {
+    "K_work_corporate": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "1": {
+    "C_explicit": 1.0
+  },
+  "2": {
+    "C_explicit": 1.0
+  },
+  "3": {
+    "H_domestic_nesting": 1.0
+  },
+  "4": {
+    "N_separation_reunion": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "5": {
+    "K_work_corporate": 1.0
+  },
+  "6": {
+    "D_luxury_wealth_status": 1.0
+  },
+  "7": {
+    "Z_noise_oog": 1.0
+  },
+  "8": {
+    "Q_miscommunication": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "9": {
+    "G_rituals_gifts": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "10": {
+    "S_scene_anchor": 1.0
+  },
+  "11": {
+    "D_luxury_wealth_status": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "12": {
+    "B_mutual_intimacy": 1.0
+  },
+  "13": {
+    "I_humor_lightness": 0.5,
+    "O_appearance_aesthetics": 0.5
+  },
+  "14": {
+    "I_humor_lightness": 1.0
+  },
+  "15": {
+    "B_mutual_intimacy": 0.5,
+    "C_explicit": 0.5
+  },
+  "16": {
+    "J_family_support": 1.0
+  },
+  "19": {
+    "B_mutual_intimacy": 1.0
+  },
+  "20": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "21": {
+    "S_scene_anchor": 1.0
+  },
+  "22": {
+    "Q_miscommunication": 1.0
+  },
+  "23": {
+    "B_mutual_intimacy": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "24": {
+    "P_tech_media": 1.0
+  },
+  "25": {
+    "I_humor_lightness": 1.0
+  },
+  "26": {
+    "Z_noise_oog": 1.0
+  },
+  "27": {
+    "S_scene_anchor": 1.0
+  },
+  "28": {
+    "Z_noise_oog": 1.0
+  },
+  "29": {
+    "N_separation_reunion": 1.0
+  },
+  "30": {
+    "Z_noise_oog": 1.0
+  },
+  "31": {
+    "Z_noise_oog": 1.0
+  },
+  "32": {
+    "Z_noise_oog": 1.0
+  },
+  "33": {
+    "D_luxury_wealth_status": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "34": {
+    "S_scene_anchor": 1.0
+  },
+  "35": {
+    "S_scene_anchor": 1.0
+  },
+  "36": {
+    "B_mutual_intimacy": 1.0
+  },
+  "37": {
+    "F_negative_affect": 1.0
+  },
+  "38": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "39": {
+    "Z_noise_oog": 1.0
+  },
+  "40": {
+    "Q_miscommunication": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "41": {
+    "Q_miscommunication": 0.375,
+    "F_negative_affect": 0.375,
+    "S_scene_anchor": 0.25
+  },
+  "42": {
+    "B_mutual_intimacy": 1.0
+  },
+  "43": {
+    "K_work_corporate": 1.0
+  },
+  "44": {
+    "J_family_support": 1.0
+  },
+  "45": {
+    "B_mutual_intimacy": 1.0
+  },
+  "46": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "47": {
+    "O_appearance_aesthetics": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "48": {
+    "B_mutual_intimacy": 1.0
+  },
+  "49": {
+    "M_health_recovery": 0.5,
+    "J_family_support": 0.5
+  },
+  "50": {
+    "Q_miscommunication": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "51": {
+    "M_health_recovery": 0.5,
+    "J_family_support": 0.5
+  },
+  "52": {
+    "I_humor_lightness": 1.0
+  },
+  "53": {
+    "D_luxury_wealth_status": 0.7,
+    "O_appearance_aesthetics": 0.3
+  },
+  "54": {
+    "P_tech_media": 1.0
+  },
+  "55": {
+    "C_explicit": 0.5,
+    "P_tech_media": 0.5
+  },
+  "56": {
+    "F_negative_affect": 1.0
+  },
+  "57": {
+    "H_domestic_nesting": 1.0
+  },
+  "58": {
+    "I_humor_lightness": 0.5,
+    "O_appearance_aesthetics": 0.5
+  },
+  "59": {
+    "I_humor_lightness": 0.3333333333333333,
+    "O_appearance_aesthetics": 0.3333333333333333,
+    "P_tech_media": 0.3333333333333333
+  },
+  "60": {
+    "K_work_corporate": 1.0
+  },
+  "61": {
+    "T_repair_apology": 1.0
+  },
+  "62": {
+    "Q_miscommunication": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "63": {
+    "Q_miscommunication": 1.0
+  },
+  "64": {
+    "E_threat_danger": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "65": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "66": {
+    "B_mutual_intimacy": 1.0
+  },
+  "67": {
+    "I_humor_lightness": 0.25,
+    "J_family_support": 0.25,
+    "A_commitment_hea": 0.25,
+    "O_appearance_aesthetics": 0.25
+  },
+  "68": {
+    "Z_noise_oog": 1.0
+  },
+  "69": {
+    "M_health_recovery": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "70": {
+    "Z_noise_oog": 1.0
+  },
+  "71": {
+    "P_tech_media": 1.0
+  },
+  "72": {
+    "K_work_corporate": 1.0
+  },
+  "73": {
+    "B_mutual_intimacy": 1.0
+  },
+  "74": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "75": {
+    "B_mutual_intimacy": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "76": {
+    "B_mutual_intimacy": 1.0
+  },
+  "77": {
+    "K_work_corporate": 1.0
+  },
+  "78": {
+    "A_commitment_hea": 0.5,
+    "O_appearance_aesthetics": 0.5
+  },
+  "79": {
+    "J_family_support": 1.0
+  },
+  "80": {
+    "K_work_corporate": 1.0
+  },
+  "81": {
+    "J_family_support": 1.0
+  },
+  "82": {
+    "F_negative_affect": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "83": {
+    "Z_noise_oog": 1.0
+  },
+  "84": {
+    "E_threat_danger": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "85": {
+    "G_rituals_gifts": 1.0
+  },
+  "86": {
+    "Z_noise_oog": 1.0
+  },
+  "87": {
+    "Z_noise_oog": 1.0
+  },
+  "88": {
+    "T_repair_apology": 1.0
+  },
+  "89": {
+    "Z_noise_oog": 1.0
+  },
+  "90": {
+    "M_health_recovery": 1.0
+  },
+  "91": {
+    "Z_noise_oog": 1.0
+  },
+  "92": {
+    "H_domestic_nesting": 1.0
+  },
+  "93": {
+    "T_repair_apology": 0.3333333333333333,
+    "J_family_support": 0.3333333333333333,
+    "F_negative_affect": 0.3333333333333333
+  },
+  "94": {
+    "F_negative_affect": 1.0
+  },
+  "95": {
+    "M_health_recovery": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "96": {
+    "B_mutual_intimacy": 1.0
+  },
+  "97": {
+    "Z_noise_oog": 1.0
+  },
+  "98": {
+    "J_family_support": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "99": {
+    "Z_noise_oog": 1.0
+  },
+  "100": {
+    "G_rituals_gifts": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "101": {
+    "J_family_support": 1.0
+  },
+  "102": {
+    "B_mutual_intimacy": 1.0
+  },
+  "103": {
+    "C_explicit": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "104": {
+    "J_family_support": 1.0
+  },
+  "105": {
+    "Z_noise_oog": 1.0
+  },
+  "106": {
+    "Z_noise_oog": 1.0
+  },
+  "107": {
+    "K_work_corporate": 1.0
+  },
+  "108": {
+    "A_commitment_hea": 1.0
+  },
+  "109": {
+    "D_luxury_wealth_status": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "110": {
+    "M_health_recovery": 1.0
+  },
+  "111": {
+    "F_negative_affect": 1.0
+  },
+  "112": {
+    "B_mutual_intimacy": 1.0
+  },
+  "113": {
+    "J_family_support": 0.3333333333333333,
+    "F_negative_affect": 0.3333333333333333,
+    "P_tech_media": 0.3333333333333333
+  },
+  "114": {
+    "Z_noise_oog": 1.0
+  },
+  "115": {
+    "Z_noise_oog": 1.0
+  },
+  "116": {
+    "Z_noise_oog": 1.0
+  },
+  "117": {
+    "Z_noise_oog": 1.0
+  },
+  "118": {
+    "K_work_corporate": 1.0
+  },
+  "119": {
+    "B_mutual_intimacy": 0.5,
+    "I_humor_lightness": 0.5
+  },
+  "120": {
+    "Z_noise_oog": 1.0
+  },
+  "121": {
+    "Z_noise_oog": 1.0
+  },
+  "122": {
+    "E_threat_danger": 1.0
+  },
+  "123": {
+    "R1_protectiveness": 0.3333333333333333,
+    "K_work_corporate": 0.3333333333333333,
+    "E_threat_danger": 0.3333333333333333
+  },
+  "124": {
+    "J_family_support": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "125": {
+    "S_scene_anchor": 1.0
+  },
+  "126": {
+    "O_appearance_aesthetics": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "127": {
+    "F_negative_affect": 1.0
+  },
+  "128": {
+    "Z_noise_oog": 1.0
+  },
+  "129": {
+    "C_explicit": 1.0
+  },
+  "130": {
+    "B_mutual_intimacy": 0.3333333333333333,
+    "Q_miscommunication": 0.3333333333333333,
+    "J_family_support": 0.3333333333333333
+  },
+  "131": {
+    "Z_noise_oog": 1.0
+  },
+  "133": {
+    "C_explicit": 1.0
+  },
+  "134": {
+    "J_family_support": 1.0
+  },
+  "135": {
+    "S_scene_anchor": 1.0
+  },
+  "136": {
+    "Z_noise_oog": 1.0
+  },
+  "137": {
+    "J_family_support": 1.0
+  },
+  "138": {
+    "S_scene_anchor": 1.0
+  },
+  "139": {
+    "Z_noise_oog": 1.0
+  },
+  "140": {
+    "Z_noise_oog": 1.0
+  },
+  "141": {
+    "Z_noise_oog": 1.0
+  },
+  "142": {
+    "D_luxury_wealth_status": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "143": {
+    "Z_noise_oog": 1.0
+  },
+  "144": {
+    "G_rituals_gifts": 1.0
+  },
+  "145": {
+    "Z_noise_oog": 1.0
+  },
+  "146": {
+    "B_mutual_intimacy": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "147": {
+    "Z_noise_oog": 1.0
+  },
+  "148": {
+    "G_rituals_gifts": 1.0
+  },
+  "149": {
+    "K_work_corporate": 0.5,
+    "P_tech_media": 0.5
+  },
+  "150": {
+    "S_scene_anchor": 1.0
+  },
+  "151": {
+    "K_work_corporate": 0.5,
+    "P_tech_media": 0.5
+  },
+  "152": {
+    "J_family_support": 0.5,
+    "O_appearance_aesthetics": 0.5
+  },
+  "153": {
+    "Z_noise_oog": 1.0
+  },
+  "154": {
+    "J_family_support": 1.0
+  },
+  "155": {
+    "B_mutual_intimacy": 1.0
+  },
+  "156": {
+    "Z_noise_oog": 1.0
+  },
+  "157": {
+    "K_work_corporate": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "158": {
+    "Z_noise_oog": 1.0
+  },
+  "159": {
+    "J_family_support": 1.0
+  },
+  "160": {
+    "B_mutual_intimacy": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "161": {
+    "Z_noise_oog": 1.0
+  },
+  "162": {
+    "C_explicit": 1.0
+  },
+  "163": {
+    "Z_noise_oog": 1.0
+  },
+  "164": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "165": {
+    "B_mutual_intimacy": 1.0
+  },
+  "166": {
+    "H_domestic_nesting": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "167": {
+    "C_explicit": 1.0
+  },
+  "168": {
+    "Z_noise_oog": 1.0
+  },
+  "169": {
+    "D_luxury_wealth_status": 1.0
+  },
+  "170": {
+    "T_repair_apology": 1.0
+  },
+  "171": {
+    "B_mutual_intimacy": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "172": {
+    "E_threat_danger": 1.0
+  },
+  "173": {
+    "Z_noise_oog": 1.0
+  },
+  "174": {
+    "Z_noise_oog": 1.0
+  },
+  "175": {
+    "S_scene_anchor": 1.0
+  },
+  "176": {
+    "Z_noise_oog": 1.0
+  },
+  "177": {
+    "Z_noise_oog": 1.0
+  },
+  "178": {
+    "Z_noise_oog": 1.0
+  },
+  "179": {
+    "I_humor_lightness": 1.0
+  },
+  "180": {
+    "Z_noise_oog": 1.0
+  },
+  "181": {
+    "Z_noise_oog": 1.0
+  },
+  "182": {
+    "B_mutual_intimacy": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "183": {
+    "Z_noise_oog": 1.0
+  },
+  "184": {
+    "B_mutual_intimacy": 1.0
+  },
+  "185": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "187": {
+    "Z_noise_oog": 1.0
+  },
+  "188": {
+    "K_work_corporate": 1.0
+  },
+  "189": {
+    "G_rituals_gifts": 1.0
+  },
+  "190": {
+    "P_tech_media": 1.0
+  },
+  "191": {
+    "K_work_corporate": 1.0
+  },
+  "192": {
+    "Z_noise_oog": 1.0
+  },
+  "193": {
+    "G_rituals_gifts": 1.0
+  },
+  "194": {
+    "Z_noise_oog": 1.0
+  },
+  "195": {
+    "Z_noise_oog": 1.0
+  },
+  "196": {
+    "D_luxury_wealth_status": 0.7,
+    "O_appearance_aesthetics": 0.3
+  },
+  "197": {
+    "D_luxury_wealth_status": 1.0
+  },
+  "198": {
+    "G_rituals_gifts": 1.0
+  },
+  "199": {
+    "Z_noise_oog": 1.0
+  },
+  "200": {
+    "J_family_support": 0.3333333333333333,
+    "E_threat_danger": 0.3333333333333333,
+    "F_negative_affect": 0.3333333333333333
+  },
+  "201": {
+    "R2_jealousy": 1.0
+  },
+  "202": {
+    "Z_noise_oog": 1.0
+  },
+  "203": {
+    "K_work_corporate": 1.0
+  },
+  "204": {
+    "Z_noise_oog": 1.0
+  },
+  "205": {
+    "K_work_corporate": 1.0
+  },
+  "206": {
+    "Z_noise_oog": 1.0
+  },
+  "207": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "208": {
+    "Z_noise_oog": 1.0
+  },
+  "209": {
+    "Z_noise_oog": 1.0
+  },
+  "210": {
+    "N_separation_reunion": 0.5,
+    "A_commitment_hea": 0.5
+  },
+  "211": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "212": {
+    "K_work_corporate": 0.5,
+    "P_tech_media": 0.5
+  },
+  "213": {
+    "B_mutual_intimacy": 1.0
+  },
+  "214": {
+    "Z_noise_oog": 1.0
+  },
+  "215": {
+    "R1_protectiveness": 0.3333333333333333,
+    "A_commitment_hea": 0.3333333333333333,
+    "F_negative_affect": 0.3333333333333333
+  },
+  "216": {
+    "Z_noise_oog": 1.0
+  },
+  "217": {
+    "Z_noise_oog": 1.0
+  },
+  "218": {
+    "S_scene_anchor": 1.0
+  },
+  "219": {
+    "Z_noise_oog": 1.0
+  },
+  "220": {
+    "S_scene_anchor": 1.0
+  },
+  "221": {
+    "M_health_recovery": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "222": {
+    "Z_noise_oog": 1.0
+  },
+  "223": {
+    "K_work_corporate": 1.0
+  },
+  "225": {
+    "Z_noise_oog": 1.0
+  },
+  "226": {
+    "Z_noise_oog": 1.0
+  },
+  "227": {
+    "K_work_corporate": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "228": {
+    "N_separation_reunion": 0.3333333333333333,
+    "K_work_corporate": 0.3333333333333333,
+    "A_commitment_hea": 0.3333333333333333
+  },
+  "229": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "230": {
+    "J_family_support": 1.0
+  },
+  "231": {
+    "B_mutual_intimacy": 1.0
+  },
+  "232": {
+    "Z_noise_oog": 1.0
+  },
+  "233": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "234": {
+    "E_threat_danger": 1.0
+  },
+  "235": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "236": {
+    "I_humor_lightness": 1.0
+  },
+  "237": {
+    "Z_noise_oog": 1.0
+  },
+  "238": {
+    "Z_noise_oog": 1.0
+  },
+  "239": {
+    "F_negative_affect": 1.0
+  },
+  "240": {
+    "S_scene_anchor": 1.0
+  },
+  "241": {
+    "Z_noise_oog": 1.0
+  },
+  "242": {
+    "Z_noise_oog": 1.0
+  },
+  "243": {
+    "F_negative_affect": 1.0
+  },
+  "244": {
+    "B_mutual_intimacy": 1.0
+  },
+  "245": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "246": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "247": {
+    "J_family_support": 1.0
+  },
+  "248": {
+    "Q_miscommunication": 1.0
+  },
+  "249": {
+    "F_negative_affect": 1.0
+  },
+  "250": {
+    "R1_protectiveness": 1.0
+  },
+  "251": {
+    "Z_noise_oog": 1.0
+  },
+  "252": {
+    "Z_noise_oog": 1.0
+  },
+  "253": {
+    "Z_noise_oog": 1.0
+  },
+  "254": {
+    "Q_miscommunication": 1.0
+  },
+  "255": {
+    "Z_noise_oog": 1.0
+  },
+  "256": {
+    "Q_miscommunication": 1.0
+  },
+  "257": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "258": {
+    "S_scene_anchor": 1.0
+  },
+  "259": {
+    "K_work_corporate": 0.5,
+    "P_tech_media": 0.5
+  },
+  "260": {
+    "Z_noise_oog": 1.0
+  },
+  "261": {
+    "Z_noise_oog": 1.0
+  },
+  "262": {
+    "I_humor_lightness": 1.0
+  },
+  "263": {
+    "Z_noise_oog": 1.0
+  },
+  "264": {
+    "Z_noise_oog": 1.0
+  },
+  "265": {
+    "S_scene_anchor": 1.0
+  },
+  "266": {
+    "Z_noise_oog": 1.0
+  },
+  "267": {
+    "M_health_recovery": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "268": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "269": {
+    "E_threat_danger": 1.0
+  },
+  "270": {
+    "F_negative_affect": 1.0
+  },
+  "271": {
+    "Z_noise_oog": 1.0
+  },
+  "272": {
+    "Z_noise_oog": 1.0
+  },
+  "273": {
+    "B_mutual_intimacy": 0.3333333333333333,
+    "T_repair_apology": 0.3333333333333333,
+    "F_negative_affect": 0.3333333333333333
+  },
+  "274": {
+    "Z_noise_oog": 1.0
+  },
+  "275": {
+    "Z_noise_oog": 1.0
+  },
+  "276": {
+    "F_negative_affect": 1.0
+  },
+  "277": {
+    "K_work_corporate": 1.0
+  },
+  "278": {
+    "Z_noise_oog": 1.0
+  },
+  "279": {
+    "Z_noise_oog": 1.0
+  },
+  "280": {
+    "Z_noise_oog": 1.0
+  },
+  "281": {
+    "H_domestic_nesting": 1.0
+  },
+  "282": {
+    "J_family_support": 1.0
+  },
+  "284": {
+    "Z_noise_oog": 1.0
+  },
+  "285": {
+    "Z_noise_oog": 1.0
+  },
+  "286": {
+    "Z_noise_oog": 1.0
+  },
+  "287": {
+    "Z_noise_oog": 1.0
+  },
+  "288": {
+    "K_work_corporate": 1.0
+  },
+  "289": {
+    "B_mutual_intimacy": 1.0
+  },
+  "290": {
+    "C_explicit": 1.0
+  },
+  "291": {
+    "B_mutual_intimacy": 1.0
+  },
+  "292": {
+    "H_domestic_nesting": 1.0
+  },
+  "293": {
+    "F_negative_affect": 1.0
+  },
+  "294": {
+    "F_negative_affect": 1.0
+  },
+  "295": {
+    "Z_noise_oog": 1.0
+  },
+  "296": {
+    "K_work_corporate": 1.0
+  },
+  "297": {
+    "Z_noise_oog": 1.0
+  },
+  "298": {
+    "J_family_support": 1.0
+  },
+  "299": {
+    "G_rituals_gifts": 1.0
+  },
+  "300": {
+    "K_work_corporate": 1.0
+  },
+  "301": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "302": {
+    "E_threat_danger": 1.0
+  },
+  "303": {
+    "S_scene_anchor": 1.0
+  },
+  "304": {
+    "Z_noise_oog": 1.0
+  },
+  "305": {
+    "Z_noise_oog": 1.0
+  },
+  "306": {
+    "I_humor_lightness": 0.5,
+    "G_rituals_gifts": 0.5
+  },
+  "307": {
+    "E_threat_danger": 1.0
+  },
+  "308": {
+    "B_mutual_intimacy": 0.5,
+    "Q_miscommunication": 0.5
+  },
+  "309": {
+    "Z_noise_oog": 1.0
+  },
+  "310": {
+    "Z_noise_oog": 1.0
+  },
+  "311": {
+    "G_rituals_gifts": 1.0
+  },
+  "312": {
+    "O_appearance_aesthetics": 1.0
+  },
+  "313": {
+    "Z_noise_oog": 1.0
+  },
+  "314": {
+    "Z_noise_oog": 1.0
+  },
+  "315": {
+    "Z_noise_oog": 1.0
+  },
+  "316": {
+    "K_work_corporate": 0.5,
+    "P_tech_media": 0.5
+  },
+  "317": {
+    "G_rituals_gifts": 0.5,
+    "O_appearance_aesthetics": 0.5
+  },
+  "318": {
+    "K_work_corporate": 1.0
+  },
+  "319": {
+    "P_tech_media": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "320": {
+    "Z_noise_oog": 1.0
+  },
+  "321": {
+    "Z_noise_oog": 1.0
+  },
+  "322": {
+    "Z_noise_oog": 1.0
+  },
+  "323": {
+    "B_mutual_intimacy": 1.0
+  },
+  "324": {
+    "Z_noise_oog": 1.0
+  },
+  "325": {
+    "Z_noise_oog": 1.0
+  },
+  "326": {
+    "P_tech_media": 1.0
+  },
+  "327": {
+    "Z_noise_oog": 1.0
+  },
+  "328": {
+    "O_appearance_aesthetics": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "329": {
+    "R1_protectiveness": 0.5,
+    "J_family_support": 0.5
+  },
+  "330": {
+    "I_humor_lightness": 0.3333333333333333,
+    "J_family_support": 0.3333333333333333,
+    "K_work_corporate": 0.3333333333333333
+  },
+  "331": {
+    "A_commitment_hea": 1.0
+  },
+  "332": {
+    "Z_noise_oog": 1.0
+  },
+  "333": {
+    "E_threat_danger": 0.5,
+    "F_negative_affect": 0.5
+  },
+  "334": {
+    "Z_noise_oog": 1.0
+  },
+  "335": {
+    "F_negative_affect": 1.0
+  },
+  "336": {
+    "Z_noise_oog": 1.0
+  },
+  "337": {
+    "K_work_corporate": 1.0
+  },
+  "338": {
+    "P_tech_media": 1.0
+  },
+  "339": {
+    "K_work_corporate": 1.0
+  },
+  "340": {
+    "B_mutual_intimacy": 0.5,
+    "K_work_corporate": 0.5
+  },
+  "341": {
+    "E_threat_danger": 0.3333333333333333,
+    "N_separation_reunion": 0.3333333333333333,
+    "A_commitment_hea": 0.3333333333333333
+  },
+  "342": {
+    "Q_miscommunication": 1.0
+  },
+  "343": {
+    "D_luxury_wealth_status": 1.0
+  },
+  "344": {
+    "Z_noise_oog": 1.0
+  },
+  "345": {
+    "Z_noise_oog": 1.0
+  },
+  "346": {
+    "Z_noise_oog": 1.0
+  },
+  "347": {
+    "Z_noise_oog": 1.0
+  },
+  "348": {
+    "Z_noise_oog": 1.0
+  },
+  "349": {
+    "B_mutual_intimacy": 0.75,
+    "S_scene_anchor": 0.25
+  },
+  "350": {
+    "M_health_recovery": 0.5,
+    "J_family_support": 0.5
+  },
+  "351": {
+    "S_scene_anchor": 1.0
+  },
+  "352": {
+    "K_work_corporate": 1.0
+  },
+  "353": {
+    "Z_noise_oog": 1.0
+  },
+  "354": {
+    "E_threat_danger": 1.0
+  },
+  "355": {
+    "Z_noise_oog": 1.0
+  },
+  "356": {
+    "Z_noise_oog": 1.0
+  },
+  "357": {
+    "L_vices_addictions": 1.0
+  },
+  "358": {
+    "P_tech_media": 1.0
+  },
+  "360": {
+    "Z_noise_oog": 1.0
+  },
+  "361": {
+    "Z_noise_oog": 1.0
+  },
+  "362": {
+    "Z_noise_oog": 1.0
+  },
+  "363": {
+    "P_tech_media": 1.0
+  },
+  "364": {
+    "N_separation_reunion": 1.0
+  },
+  "365": {
+    "O_appearance_aesthetics": 0.5,
+    "H_domestic_nesting": 0.5
+  },
+  "366": {
+    "H_domestic_nesting": 1.0
+  },
+  "367": {
+    "R1_protectiveness": 1.0
+  }
+}

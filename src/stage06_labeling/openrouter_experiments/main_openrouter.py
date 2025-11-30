@@ -335,9 +335,9 @@ def main() -> None:
         print()
         
         # Step 4: Generate labels from topics (use streaming if JSON available for memory efficiency)
-        # Create model-specific filename
+        # Create model-specific filename with romance-aware suffix
         model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
-        labels_filename = f"labels_pos_openrouter_{model_name_safe}"
+        labels_filename = f"labels_pos_openrouter_romance_aware_{model_name_safe}"
         labels_path = args.output_dir / labels_filename
         
         # Use streaming mode if JSON file is provided (more memory-efficient)

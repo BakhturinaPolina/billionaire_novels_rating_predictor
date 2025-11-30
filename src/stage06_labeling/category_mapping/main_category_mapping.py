@@ -138,15 +138,36 @@ def main():
             
             for tid, rec in topics.items():
                 label = rec.get("label", "")
-                cats = infer_categories(label)
-                topic_to_cat[str(tid)] = cats
+                keywords = rec.get("keywords", [])
+                # Ensure model uses both label and keywords for inference
+                cats = infer_categories(label, keywords=keywords)
                 
-                # Flatten for CSV
+                # Store with keywords for JSON output
+                topic_to_cat[str(tid)] = {
+                    "categories": cats,
+                    "label": label,
+                    "keywords": keywords
+                }
+                
+                # Flatten for CSV (include keywords as comma-separated string)
+                keywords_str = ", ".join(keywords) if keywords else ""
                 if not cats:
-                    rows.append({"topic_id": tid, "label": label, "category": "", "weight": "0.000000"})
+                    rows.append({
+                        "topic_id": tid, 
+                        "label": label, 
+                        "keywords": keywords_str,
+                        "category": "", 
+                        "weight": "0.000000"
+                    })
                 else:
                     for c, w in cats.items():
-                        rows.append({"topic_id": tid, "label": label, "category": c, "weight": f"{w:.6f}"})
+                        rows.append({
+                            "topic_id": tid, 
+                            "label": label, 
+                            "keywords": keywords_str,
+                            "category": c, 
+                            "weight": f"{w:.6f}"
+                        })
             
             # Create output directory
             args.outdir.mkdir(parents=True, exist_ok=True)
@@ -155,7 +176,7 @@ def main():
             print(f"[CATEGORY_MAPPING] Saving topic-to-category mappings...")
             save_json(topic_to_cat, args.outdir / "topic_to_category_probs.json")
             save_csv(rows, args.outdir / "topic_to_category_final.csv",
-                    fieldnames=["topic_id", "label", "category", "weight"])
+                    fieldnames=["topic_id", "label", "keywords", "category", "weight"])
             
             print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_probs.json")
             print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_final.csv")
@@ -167,7 +188,12 @@ def main():
                 print(f"[CATEGORY_MAPPING] Loaded {len(book_rows)} book-topic probability rows")
                 
                 print(f"[CATEGORY_MAPPING] Aggregating to book-level category proportions...")
-                agg = aggregate_book_props(book_rows, topic_to_cat)
+                # Extract just the categories dict for aggregation (backward compatible)
+                topic_to_cat_simple = {
+                    tid: data.get("categories", data) if isinstance(data, dict) and "categories" in data else data
+                    for tid, data in topic_to_cat.items()
+                }
+                agg = aggregate_book_props(book_rows, topic_to_cat_simple)
                 print(f"[CATEGORY_MAPPING] Aggregated {len(agg)} books")
                 
                 # Save book category props

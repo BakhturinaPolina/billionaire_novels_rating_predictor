@@ -1,0 +1,26 @@
+[
+  {
+    "representation": "Main",
+    "n_topics": 368,
+    "coherence_c_v": 0.4037134744227831,
+    "topic_diversity": 0.6016304347826087
+  },
+  {
+    "representation": "KeyBERT",
+    "n_topics": 368,
+    "coherence_c_v": 0.2784409932835664,
+    "topic_diversity": 0.6448369565217391
+  },
+  {
+    "representation": "MMR",
+    "n_topics": 368,
+    "coherence_c_v": 0.26048427608587177,
+    "topic_diversity": 0.7559782608695652
+  },
+  {
+    "representation": "POS",
+    "n_topics": 368,
+    "coherence_c_v": 0.31483998023672244,
+    "topic_diversity": 0.6921195652173913
+  }
+]
