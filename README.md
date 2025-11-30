@@ -150,7 +150,20 @@ python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
   --save-topics \
   --output-dir results/stage06
 
-# Stage 06: Labeling (Generate Topic Labels with Mistral-7B-Instruct)
+# Stage 06: Labeling (Two-Step Process)
+
+# Step 1: Generate Topic Labels with OpenRouter API
+python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+  --embedding-model paraphrase-MiniLM-L6-v2 \
+  --pareto-rank 1 \
+  --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+
+# Step 2: Map Labels to Theory-Aligned Categories
+python -m src.stage06_labeling.category_mapping.main_category_mapping \
+  --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
+  --outdir results/stage06_labeling/category_mapping
+
+# Alternative: Generate Labels with Local Mistral-7B-Instruct
 python -m src.stage06_labeling.main \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
@@ -216,7 +229,13 @@ Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Sel
 ### Stage 06: Topic Exploration & Labeling
 **Topic Exploration**: Interactive tooling for inspecting retrained BERTopic models. Loads models (pickle wrapper or native safetensors), attaches multiple representations (Main, KeyBERT, POS, MMR), computes coherence (c_v) and diversity metrics, and extracts all topics with all representations for close reading evaluation.
 
-**Topic Labeling**: Automated generation of human-readable topic labels using Mistral-7B-Instruct-v0.2 with 4-bit quantization. Extracts POS representation keywords, applies MMR reranking for diversity, and integrates labels back into BERTopic models. Also includes semi-supervised composite building to create Appreciation Pattern (AP) composites from topic groups.
+**Topic Labeling (Two-Step Process)**:
+1. **Label Generation**: Automated generation of human-readable topic labels using either:
+   - **OpenRouter API** (recommended): Cloud-based labeling with `mistralai/mistral-nemo` via OpenRouter API. No local GPU required. See `src/stage06_labeling/openrouter_experiments/`.
+   - **Local Mistral-7B-Instruct**: Local inference with 4-bit quantization. Extracts POS representation keywords, applies MMR reranking for diversity, and integrates labels back into BERTopic models.
+2. **Category Mapping**: Deterministic mapping from topic labels to theory-aligned categories (A-P, Q, R, S). Uses regex-based inference to operationalize theoretical constructs (Radway, Propp functions, Ogas & Gaddam). Generates `topic_to_category_probs.json` and optional book-level aggregates with derived indices. See `src/stage06_labeling/category_mapping/`.
+
+**Composite Building**: Semi-supervised composite building to create Appreciation Pattern (AP) composites from topic groups.
 
 ### Stage 07: Analysis
 Goodreads scoring/stratification, statistical analysis, and FDR correction. Generates visualizations and statistical reports.

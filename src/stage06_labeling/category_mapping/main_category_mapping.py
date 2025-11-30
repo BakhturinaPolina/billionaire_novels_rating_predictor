@@ -1,0 +1,212 @@
+"""CLI entry point for mapping topic labels to theory-aligned categories."""
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from datetime import datetime
+from pathlib import Path
+
+from src.common.config import load_config, resolve_path
+from src.common.logging import setup_logging
+from src.stage06_labeling.category_mapping.map_topics_to_categories import (
+    CATS,
+    aggregate_book_props,
+    compute_indices,
+    infer_categories,
+    load_book_topic_probs,
+    load_labels,
+    save_csv,
+    save_json,
+)
+
+DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling/category_mapping")
+
+
+class Tee:
+    """Write to both file and stdout/stderr with immediate flushing."""
+    def __init__(self, file_path: Path, stream):
+        # Open file in line-buffered mode for immediate flushing
+        self.file = open(file_path, 'w', encoding='utf-8', buffering=1)  # Line buffering
+        self.stream = stream
+    
+    def write(self, data):
+        self.file.write(data)
+        self.stream.write(data)
+        # Force immediate flush for both
+        self.file.flush()
+        self.stream.flush()
+    
+    def flush(self):
+        self.file.flush()
+        self.stream.flush()
+    
+    def close(self):
+        self.flush()
+        self.file.close()
+    
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Map topic labels to theory-aligned categories (A-P, Q, R, S)",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    
+    parser.add_argument(
+        "--labels",
+        type=Path,
+        required=True,
+        help="Path to labels JSON file (e.g., labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json)",
+    )
+    
+    parser.add_argument(
+        "--book-topic-probs",
+        type=Path,
+        default=None,
+        help="Optional: Path to book-topic probability CSV (columns: book_id, topic_id, prob)",
+    )
+    
+    parser.add_argument(
+        "--outdir",
+        type=Path,
+        default=DEFAULT_OUTPUT_DIR,
+        help="Output directory for category mapping files",
+    )
+    
+    parser.add_argument(
+        "--config",
+        type=Path,
+        default=None,
+        help="Path to paths configuration file (optional)",
+    )
+    
+    return parser.parse_args()
+
+
+def main():
+    """Main entry point for category mapping CLI."""
+    args = parse_args()
+    
+    # Setup logging
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+    log_file = log_dir / f"stage06_category_mapping_{timestamp}.log"
+    
+    # Redirect stdout/stderr to log file and console
+    with Tee(log_file, sys.stdout) as tee_stdout, Tee(log_file, sys.stderr) as tee_stderr:
+        sys.stdout = tee_stdout
+        sys.stderr = tee_stderr
+        
+        try:
+            print(f"[CATEGORY_MAPPING] Starting category mapping stage")
+            print(f"[CATEGORY_MAPPING] Labels file: {args.labels}")
+            print(f"[CATEGORY_MAPPING] Output directory: {args.outdir}")
+            
+            # Resolve paths using config if provided
+            if args.config:
+                config = load_config(args.config)
+                args.labels = resolve_path(args.labels, config)
+                args.outdir = resolve_path(args.outdir, config)
+                if args.book_topic_probs:
+                    args.book_topic_probs = resolve_path(args.book_topic_probs, config)
+            
+            # Validate inputs
+            if not args.labels.exists():
+                raise FileNotFoundError(f"Labels file not found: {args.labels}")
+            
+            if args.book_topic_probs and not args.book_topic_probs.exists():
+                raise FileNotFoundError(f"Book-topic-probs file not found: {args.book_topic_probs}")
+            
+            # Load labels
+            print(f"[CATEGORY_MAPPING] Loading labels from {args.labels}")
+            topics = load_labels(args.labels)
+            print(f"[CATEGORY_MAPPING] Loaded {len(topics)} topics")
+            
+            # Map topics to categories
+            print(f"[CATEGORY_MAPPING] Mapping topics to categories...")
+            topic_to_cat = {}
+            rows = []
+            
+            for tid, rec in topics.items():
+                label = rec.get("label", "")
+                cats = infer_categories(label)
+                topic_to_cat[str(tid)] = cats
+                
+                # Flatten for CSV
+                if not cats:
+                    rows.append({"topic_id": tid, "label": label, "category": "", "weight": "0.000000"})
+                else:
+                    for c, w in cats.items():
+                        rows.append({"topic_id": tid, "label": label, "category": c, "weight": f"{w:.6f}"})
+            
+            # Create output directory
+            args.outdir.mkdir(parents=True, exist_ok=True)
+            
+            # Save outputs
+            print(f"[CATEGORY_MAPPING] Saving topic-to-category mappings...")
+            save_json(topic_to_cat, args.outdir / "topic_to_category_probs.json")
+            save_csv(rows, args.outdir / "topic_to_category_final.csv",
+                    fieldnames=["topic_id", "label", "category", "weight"])
+            
+            print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_probs.json")
+            print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_final.csv")
+            
+            # Optional: aggregate to book-level and compute indices
+            if args.book_topic_probs:
+                print(f"[CATEGORY_MAPPING] Loading book-topic probabilities from {args.book_topic_probs}")
+                book_rows = load_book_topic_probs(args.book_topic_probs)
+                print(f"[CATEGORY_MAPPING] Loaded {len(book_rows)} book-topic probability rows")
+                
+                print(f"[CATEGORY_MAPPING] Aggregating to book-level category proportions...")
+                agg = aggregate_book_props(book_rows, topic_to_cat)
+                print(f"[CATEGORY_MAPPING] Aggregated {len(agg)} books")
+                
+                # Save book category props
+                b_rows = []
+                for book, vec in agg.items():
+                    for c in CATS:
+                        b_rows.append({"book_id": book, "category": c, "value": f"{vec.get(c,0.0):.6f}"})
+                save_csv(b_rows, args.outdir / "book_category_props.csv",
+                         fieldnames=["book_id", "category", "value"])
+                print(f"[CATEGORY_MAPPING] ✓ Saved book_category_props.csv")
+                
+                # Compute and save indices
+                print(f"[CATEGORY_MAPPING] Computing derived indices...")
+                i_rows = []
+                for book, vec in agg.items():
+                    idx = compute_indices(vec)
+                    i_rows.append({"book_id": book, **{k: f"{v:.6f}" for k, v in idx.items()}})
+                
+                fns = ["book_id", "Love_over_Sex", "HEA_Index", "Explicitness_Ratio", "Luxury_Saturation",
+                       "Corporate_Frame_Share", "Family_Fertility_Index", "Comms_Density",
+                       "Dark_vs_Tender", "Miscommunication_Balance", "Protective_minus_Jealousy"]
+                save_csv(i_rows, args.outdir / "indices_book.csv", fieldnames=fns)
+                print(f"[CATEGORY_MAPPING] ✓ Saved indices_book.csv")
+            
+            print(f"[CATEGORY_MAPPING] ✓ Category mapping complete!")
+            print(f"[CATEGORY_MAPPING] Output directory: {args.outdir}")
+            
+        except Exception as e:
+            print(f"[CATEGORY_MAPPING] ERROR: {e}", file=sys.stderr)
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
+        
+        finally:
+            # Restore stdout/stderr
+            sys.stdout = sys.__stdout__
+            sys.stderr = sys.__stderr__
+
+
+if __name__ == "__main__":
+    main()
+

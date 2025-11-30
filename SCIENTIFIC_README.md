@@ -164,10 +164,22 @@ All topics with all representations are extracted and saved to JSON format for q
 
 ### Automated Topic Labeling
 
-#### Label Generation with Mistral-7B-Instruct
+#### Label Generation
 
-To generate human-readable labels for topics, we employ **Mistral-7B-Instruct-v0.2** (Jiang et al., 2023) with 4-bit quantization for memory efficiency:
+To generate human-readable labels for topics, we employ two approaches:
 
+**1. OpenRouter API (Recommended)**
+- **Model**: `mistralai/mistral-nemo` via OpenRouter API
+- **Advantages**: No local GPU required, faster iteration, cloud-based inference
+- **Workflow**: Same prompt structure and domain detection as local inference
+- See `src/stage06_labeling/openrouter_experiments/` for details
+
+**2. Local Mistral-7B-Instruct**
+- **Model**: Mistral-7B-Instruct-v0.2 (Jiang et al., 2023) with 4-bit quantization
+- **Memory Requirements**: ~6GB VRAM with quantization (vs. ~14GB without)
+- **Device**: GPU-accelerated when available, with CPU fallback
+
+**Label Generation Process**:
 1. **Keyword Extraction**: Extract top keywords from POS representation (default: 15 keywords per topic)
 2. **MMR Reranking**: Apply Maximal Marginal Relevance (MMR) reranking to balance keyword relevance with diversity, ensuring the model receives a diverse set of representative keywords
 3. **Domain Detection**: Automatically detect semantic domains (e.g., BodyParts, FoodDrink, TimeSpan, Marriage) from keywords to provide context-aware hints
@@ -183,10 +195,67 @@ To generate human-readable labels for topics, we employ **Mistral-7B-Instruct-v0
 
 #### Technical Specifications
 
-- **Model**: Mistral-7B-Instruct-v0.2 (4-bit quantization via bitsandbytes)
-- **Memory Requirements**: ~6GB VRAM with quantization (vs. ~14GB without)
 - **Default Parameters**: 15 keywords per topic, 40 max tokens per label
-- **Device**: GPU-accelerated when available, with CPU fallback
+- **Output Format**: JSON file with `{"topic_id": {"label": "...", "keywords": [...]}}`
+
+### Category Mapping: Theory-Aligned Tagging
+
+#### Overview
+
+After generating human-readable topic labels, we map them to **19 theory-aligned categories** using deterministic regex-based inference. This operationalizes theoretical constructs from Radway (1984), Propp functions, and Ogas & Gaddam (2011), enabling quantitative hypothesis testing.
+
+#### Category Schema
+
+**Core Composites (A-P)**: 16 thematic categories matching the research framework:
+- **A**: Reassurance/Commitment (HEA centrality, Propp functions #8–#11)
+- **B**: Mutual Intimacy (non-explicit; love-over-sex preference)
+- **C**: Explicit Eroticism (contrast against B; explicitness ratio)
+- **D**: Power/Wealth/Luxury (therapeutic safety; luxury × love interaction)
+- **E**: Coercion/Brutality/Danger (dark themes; Dark-vs-Tender)
+- **F**: Angst/Negative Affect (emotional escape vs angst; Radway's conflict arc)
+- **G**: Courtship Rituals/Gifts (romantic rituals; HEA Index component)
+- **H**: Domestic Nesting (compensatory safety; home as refuge)
+- **I**: Humor/Lightness (binge-readability; escape via lightness)
+- **J**: Social Support/Kin (stable social buffers; Family/Fertility Index)
+- **K**: Professional Intrusion (office romance trope; Corporate Frame Share)
+- **L**: Vices/Addictions (escape contrast; may reduce appeal)
+- **M**: Health/Recovery/Growth (protective care; vulnerability → tenderness)
+- **N**: Separation/Reunion (Propp/Radway arc; time-course H6)
+- **O**: Aesthetics/Appearance ("detective agency"; physical/cultural cues)
+- **P**: Tech/Media Presence (modern courtship infrastructure; Comms Density)
+
+**Cross-Cutting Categories**:
+- **Q**: Miscommunication vs Repair (Radway's mid-arc; Miscommunication Balance)
+- **R**: Protectiveness vs Jealousy ("strong but gentle"; Protective–Jealousy Delta, H4)
+
+**Auxiliary Categories**:
+- **S**: Scene Anchors (formulaic scene kits; qualitative sampling)
+
+#### Mapping Logic
+
+1. **Regex-Based Inference**: Case-insensitive regex patterns match topic labels to categories
+2. **Soft Assignments**: When multiple categories match, weights are normalized to sum to 1.0 (equal weights: `1.0 / num_matches`)
+3. **Fallback Heuristics**: If no patterns match, coarse POS-like heuristics assign categories based on semantic cues
+
+#### Operationalization of Hypotheses
+
+The category mapping directly operationalizes all research hypotheses:
+
+- **H1 (Love-over-Sex)**: `(A_commitment_hea + B_mutual_intimacy) > C_explicit`
+- **H2 (HEA Index)**: `A_commitment_hea + G_rituals_gifts`
+- **H3 (Luxury × Love)**: `D_luxury_wealth_status × (A_commitment_hea + B_mutual_intimacy)`
+- **H4 (Protectiveness vs Jealousy)**: `R_protectiveness - R_jealousy` (from R split 50/50)
+- **H5 (Darkness vs Tenderness)**: `(F_negative_affect + E_threat_danger) - B_mutual_intimacy`
+- **H6 (Narrative Arc)**: Time-course analysis with `Q_miscomm ↓`, `Q_repair ↑`, `F_negative_affect ↓`, `A_commitment_hea ↑`
+
+#### Output Files
+
+- **`topic_to_category_probs.json`**: Per-topic soft category assignments (weights sum to 1.0)
+- **`topic_to_category_final.csv`**: Flat table format for inspection
+- **`book_category_props.csv`** (optional): Book-level category proportions
+- **`indices_book.csv`** (optional): All derived indices per book (Love-over-Sex, HEA Index, etc.)
+
+See `src/stage06_labeling/category_mapping/README.md` for detailed documentation.
 
 ### Thematic Mapping: Topic → Category
 
