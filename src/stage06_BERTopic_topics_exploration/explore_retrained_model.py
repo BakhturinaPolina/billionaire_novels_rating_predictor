@@ -565,18 +565,34 @@ def extract_all_topics(
             if topic_id == -1:
                 continue
             
+            # Skip topics with empty or None content
+            if not topic_content:
+                LOGGER.debug("Skipping topic %d: empty content", topic_id)
+                continue
+            
             words_list: list[dict[str, Any]] = []
             for item in topic_content[:top_k]:
+                word = None
+                score = 0.0
+                
                 if isinstance(item, tuple) and len(item) >= 2:
                     word, score = item[0], item[1]
-                    words_list.append({"word": str(word), "score": float(score)})
                 elif isinstance(item, tuple) and len(item) == 1:
-                    words_list.append({"word": str(item[0]), "score": 0.0})
+                    word = item[0]
                 elif isinstance(item, str):
-                    words_list.append({"word": item, "score": 0.0})
+                    word = item
+                
+                # Filter out empty words and whitespace-only words
+                if word is not None:
+                    word_str = str(word).strip()
+                    if word_str:  # Only add non-empty words
+                        words_list.append({"word": word_str, "score": float(score)})
             
+            # Only add topics that have at least one non-empty word
             if words_list:
                 topics_dict[topic_id] = words_list
+            else:
+                LOGGER.debug("Skipping topic %d: no valid words after filtering", topic_id)
         
         return topics_dict
     
