@@ -3,6 +3,8 @@ bertopic==0.17.3
 sentence-transformers==5.1.2
 transformers==4.57.1
 torch==2.9.0
+bitsandbytes==0.48.2  # For 4-bit quantization of Mistral models
+accelerate==1.12.0  # Required for device_map="auto" with quantization
 numpy==1.26.4  # Downgraded due to tomotopy/octis requirements (requires numpy<2.0)
 pandas==2.3.3
 scikit-learn==1.7.2

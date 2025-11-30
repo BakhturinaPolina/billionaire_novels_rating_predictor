@@ -58,15 +58,28 @@ Topics are mapped to composites with weighted assignments:
 - Weights sum to 1.0 per topic
 - Final composite scores = sum of (topic_prob × weight) for all topics
 
-## POS Topic Labeling with FLAN-T5
+## POS Topic Labeling with Mistral-7B-Instruct
 
 ### Overview
 
 Automatically generate human-readable labels for topics by:
 1. Extracting top keywords from POS (Part-of-Speech) representation from BERTopic model
-2. Using a local FLAN-T5 model to generate short noun phrase labels
-3. Saving labels to JSON file for inspection
-4. **Always integrating labels back into BERTopic model** (unless `--no-integrate` is set)
+2. **Filtering empty/invalid keywords** to ensure quality input
+3. **Reranking keywords using MMR (Maximal Marginal Relevance)** for diversity and better coverage
+4. Using Mistral-7B-Instruct-v0.2 with 4-bit quantization to generate short noun phrase labels
+5. Saving labels to JSON file for inspection
+6. **Always integrating labels back into BERTopic model** (unless `--no-integrate` is set)
+
+**Model Requirements:**
+- Mistral-7B-Instruct-v0.2 requires 12-16 GB GPU VRAM (with 4-bit quantization)
+- Uses `bitsandbytes` for efficient quantized inference
+- Uses `accelerate` for device management with quantization
+- Falls back to CPU if CUDA is not available (slower, no quantization)
+
+**Keyword Processing:**
+- **Empty keyword filtering**: Automatically skips topics with no valid keywords and filters out empty/whitespace keywords
+- **MMR reranking**: Uses Maximal Marginal Relevance to balance keyword relevance with diversity, ensuring the model receives a diverse set of representative keywords
+- **Default top_k**: 15 keywords per topic (increased from 8 for richer context)
 
 **Note:** The pipeline always loads from BERTopic model as the primary source. JSON file can be optionally provided for comparison/inspection purposes.
 
@@ -91,9 +104,9 @@ python -m src.stage06_labeling.main \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
   --num-keywords 15 \
-  --max-tokens 20 \
+  --max-tokens 25 \
   --output-dir results/stage06_labeling \
-  --model-name google/flan-t5-small
+  --model-name mistralai/Mistral-7B-Instruct-v0.2
 
 # For even more descriptive labels, use more keywords
 python -m src.stage06_labeling.main \
@@ -112,7 +125,7 @@ python -m src.stage06_labeling.main --use-native
 **Default behavior:**
 - Always loads BERTopic model (primary source for topics)
 - Extracts topics from BERTopic model
-- Generates labels using FLAN-T5
+- Generates labels using Mistral-7B-Instruct with 4-bit quantization (if CUDA available)
 - Saves labels to JSON file
 - **Always integrates labels back into BERTopic model** (so labels are saved to the model)
 
@@ -130,11 +143,11 @@ python -m src.stage06_labeling.main --use-native
 - `--pareto-rank`: Model rank (default: 1)
 - `--base-dir`: Base directory for models (default: `models/retrained`)
 - `--use-native`: Load native safetensors instead of pickle wrapper
-- `--num-keywords`: Number of top keywords per topic (default: 8)
-- `--max-tokens`: Max tokens for label generation (default: 16)
+- `--num-keywords`: Number of top keywords per topic (default: 15)
+- `--max-tokens`: Max tokens for label generation (default: 25)
 - `--output-dir`: Output directory for labels JSON (default: `results/stage06_labeling`)
 - `--no-integrate`: Skip integrating labels back into BERTopic
-- `--model-name`: FLAN-T5 model name (default: `google/flan-t5-small`)
+- `--model-name`: Mistral model name (default: `mistralai/Mistral-7B-Instruct-v0.2`)
 - `--device`: Device to use (`cuda` or `cpu`, default: auto-detect)
 - `--topics-json`: Path to topics JSON file (optional, for comparison/inspection with BERTopic topics)
 
@@ -151,9 +164,11 @@ If `--no-integrate` is not set, labels are also integrated into the BERTopic mod
 
 - **`generate_labels.py`**: Core labeling functions
   - `load_bertopic_model()`: Load retrained BERTopic model
-  - `extract_pos_topics()`: Extract POS representation topics
-  - `load_labeling_model()`: Load FLAN-T5 model
-  - `generate_label_from_keywords()`: Generate label from keywords
+  - `extract_pos_topics()`: Extract POS representation topics (with empty keyword filtering)
+  - `extract_pos_topics_from_json()`: Stream POS topics from JSON (with empty keyword filtering)
+  - `rerank_keywords_mmr()`: Rerank keywords using Maximal Marginal Relevance for diversity
+  - `load_labeling_model()`: Load Mistral-7B-Instruct model with 4-bit quantization
+  - `generate_label_from_keywords()`: Generate label from keywords using Mistral chat format (with MMR reranking)
   - `generate_all_labels()`: Batch process all topics
   - `save_labels()`: Save labels to JSON
   - `integrate_labels_to_bertopic()`: Integrate labels into BERTopic
@@ -210,8 +225,9 @@ See [docs/METHODOLOGY.md](../../docs/METHODOLOGY.md) for detailed mapping algori
 ## Dependencies
 
 ### POS Topic Labeling
-- `transformers` for FLAN-T5 model
+- `transformers` for Mistral-7B-Instruct model
 - `torch` for model inference
+- `bitsandbytes` for 4-bit quantization (reduces VRAM from ~14GB to ~6GB)
 - `bertopic` for topic model loading
 - `sentence-transformers` for embeddings
 

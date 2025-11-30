@@ -1,4 +1,4 @@
-"""CLI entry point for generating topic labels from POS representation using FLAN-T5."""
+"""CLI entry point for generating topic labels from POS representation using Mistral-7B-Instruct."""
 
 from __future__ import annotations
 
@@ -7,6 +7,8 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
+
+import torch
 
 from src.common.config import load_config, resolve_path
 from src.common.logging import setup_logging
@@ -27,9 +29,9 @@ from src.stage06_labeling.generate_labels import (
 )
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling")
-DEFAULT_MODEL_NAME = "google/flan-t5-small"
+DEFAULT_MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.2"
 DEFAULT_NUM_KEYWORDS = 15  # Increased from 8 to 15 for richer context and better labels
-DEFAULT_MAX_TOKENS = 25  # Increased for more descriptive labels (with post-processing cleanup)
+DEFAULT_MAX_TOKENS = 40  # Increased to 40 for more descriptive labels with clauses/parentheses
 DEFAULT_BATCH_SIZE = 50
 
 
@@ -65,7 +67,7 @@ class Tee:
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="Generate topic labels from POS representation using FLAN-T5.",
+        description="Generate topic labels from POS representation using Mistral-7B-Instruct.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     
@@ -107,7 +109,7 @@ def parse_args() -> argparse.Namespace:
         "--max-tokens",
         type=int,
         default=DEFAULT_MAX_TOKENS,
-        help="Maximum number of tokens to generate per label",
+        help=f"Maximum number of tokens to generate per label (default: {DEFAULT_MAX_TOKENS})",
     )
     
     parser.add_argument(
@@ -127,7 +129,7 @@ def parse_args() -> argparse.Namespace:
         "--model-name",
         type=str,
         default=DEFAULT_MODEL_NAME,
-        help="FLAN-T5 model name from Hugging Face",
+        help="Mistral model name from Hugging Face (default: mistralai/Mistral-7B-Instruct-v0.2)",
     )
     
     parser.add_argument(
@@ -135,7 +137,7 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default=None,
         choices=["cuda", "cpu"],
-        help="Device to use for label generation (default: auto-detect)",
+        help="Device to use for label generation (default: auto-detect, prefers GPU when available)",
     )
     
     parser.add_argument(
@@ -191,7 +193,7 @@ def main() -> None:
     log_file = f"stage06_labeling_{timestamp}.log"
     logger = setup_logging(logs_dir, log_file=log_file)
     logger.info("=" * 80)
-    logger.info("Stage 06: POS Topic Labeling with FLAN-T5")
+    logger.info("Stage 06: POS Topic Labeling with Mistral-7B-Instruct")
     logger.info("=" * 80)
     
     # Set up Tee to capture all print output to log file
@@ -217,7 +219,7 @@ def main() -> None:
         logger.info(f"[LABELING_CMD] ========== Starting labeling command ==========")
         print("[LABELING_CMD] ========== Starting labeling command ==========")
         print("=" * 80)
-        print("Stage 06: POS Topic Labeling with FLAN-T5")
+        print("Stage 06: POS Topic Labeling with Mistral-7B-Instruct")
         print("=" * 80)
         print(f"[LABELING_CMD] Arguments:")
         print(f"[LABELING_CMD]   Embedding model: {args.embedding_model}")
@@ -309,47 +311,85 @@ def main() -> None:
                 sys.stdout.flush()
         print()
         
-        # Step 3: Load FLAN-T5 model
-        print("[LABELING_CMD] Step 3: Loading FLAN-T5 labeling model...")
+        # Step 3: Load Mistral model
+        print("[LABELING_CMD] Step 3: Loading Mistral-7B-Instruct labeling model...")
         sys.stdout.flush()
+        
+        # Check and report GPU availability
+        if torch.cuda.is_available():
+            gpu_name = torch.cuda.get_device_name(0)
+            gpu_memory = torch.cuda.get_device_properties(0).total_memory / 1e9
+            print(f"[LABELING_CMD] GPU detected: {gpu_name} ({gpu_memory:.2f} GB VRAM)")
+            print("[LABELING_CMD] Using GPU with 4-bit quantization for efficient inference")
+        else:
+            print("[LABELING_CMD] ⚠️  WARNING: No GPU detected. Using CPU (will be very slow)")
+        sys.stdout.flush()
+        
         tokenizer, model = load_labeling_model(
             model_name=args.model_name,
             device=args.device,
+            use_quantization=True,  # Use 4-bit quantization by default for memory efficiency
         )
         print(f"[LABELING_CMD] ✓ Loaded {args.model_name}")
         sys.stdout.flush()
         print()
         
-        # Step 4: Generate labels from BERTopic topics
+        # Step 4: Generate labels from topics (use streaming if JSON available for memory efficiency)
         # Create model-specific filename
         model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
         labels_filename = f"labels_pos_{model_name_safe}"
         labels_path = args.output_dir / labels_filename
         
-        print(f"[LABELING_CMD] Step 4: Generating labels for all topics (batch_size={args.batch_size})...")
-        sys.stdout.flush()
-        topic_labels = generate_all_labels(
-            pos_topics=pos_topics_dict,
-            tokenizer=tokenizer,
-            model=model,
-            max_new_tokens=args.max_tokens,
-            device=args.device,
-            batch_size=args.batch_size,
-        )
-        print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels")
-        sys.stdout.flush()
-        print()
+        # Use streaming mode if JSON file is provided (more memory-efficient)
+        use_streaming = args.topics_json and args.topics_json.exists()
         
-        # Step 5: Save labels to JSON
-        print("[LABELING_CMD] Step 5: Saving labels to JSON...")
-        sys.stdout.flush()
-        save_labels(
-            topic_labels=topic_labels,
-            output_path=labels_path,
-        )
-        print(f"[LABELING_CMD] ✓ Saved labels to {labels_path.with_suffix('.json')}")
-        sys.stdout.flush()
-        print()
+        if use_streaming:
+            print(f"[LABELING_CMD] Step 4: Generating labels using STREAMING mode (memory-efficient, batch_size={args.batch_size})...")
+            print("[LABELING_CMD]   Labels will be written incrementally to disk")
+            sys.stdout.flush()
+            # Recreate iterator from JSON for streaming
+            pos_topics_iter = extract_pos_topics_from_json(
+                json_path=args.topics_json,
+                top_k=args.num_keywords,
+            )
+            topic_labels = generate_labels_streaming(
+                pos_topics_iter=pos_topics_iter,
+                tokenizer=tokenizer,
+                model=model,
+                output_path=labels_path,
+                max_new_tokens=args.max_tokens,
+                device=args.device,
+                batch_size=args.batch_size,
+            )
+            print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels (streaming mode)")
+            print(f"[LABELING_CMD] ✓ Labels already saved to {labels_path.with_suffix('.json')}")
+            sys.stdout.flush()
+            print()
+        else:
+            print(f"[LABELING_CMD] Step 4: Generating labels for all topics (batch_size={args.batch_size})...")
+            sys.stdout.flush()
+            topic_labels = generate_all_labels(
+                pos_topics=pos_topics_dict,
+                tokenizer=tokenizer,
+                model=model,
+                max_new_tokens=args.max_tokens,
+                device=args.device,
+                batch_size=args.batch_size,
+            )
+            print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels")
+            sys.stdout.flush()
+            print()
+            
+            # Step 5: Save labels to JSON
+            print("[LABELING_CMD] Step 5: Saving labels to JSON...")
+            sys.stdout.flush()
+            save_labels(
+                topic_labels=topic_labels,
+                output_path=labels_path,
+            )
+            print(f"[LABELING_CMD] ✓ Saved labels to {labels_path.with_suffix('.json')}")
+            sys.stdout.flush()
+            print()
         
         # Step 6: Always integrate labels into BERTopic model (unless --no-integrate is set)
         if not args.no_integrate:
