@@ -88,6 +88,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to paths configuration file (optional)",
     )
     
+    parser.add_argument(
+        "--fix-z",
+        action="store_true",
+        help="Run LLM-based fix for topics misclassified as Z_noise_oog (requires OPENROUTER_API_KEY)",
+    )
+    
     return parser.parse_args()
 
 
@@ -264,6 +270,90 @@ def main():
                        "Dark_vs_Tender", "Miscommunication_Balance", "Protective_minus_Jealousy"]
                 save_csv(i_rows, args.outdir / "indices_book.csv", fieldnames=fns)
                 print(f"[CATEGORY_MAPPING] ✓ Saved indices_book.csv")
+            
+            # Optional: Fix Z topics using LLM
+            if args.fix_z:
+                print(f"\n[CATEGORY_MAPPING] Running LLM-based fix for Z_noise_oog topics...")
+                try:
+                    from src.stage06_labeling.category_mapping.fix_z_topics import (
+                        fix_topic_with_llm,
+                        identify_z_topics,
+                        convert_llm_categories_to_weights,
+                    )
+                    from openai import OpenAI
+                    import os
+                    
+                    api_key = os.environ.get("OPENROUTER_API_KEY", "")
+                    if not api_key:
+                        print("[CATEGORY_MAPPING] WARNING: OPENROUTER_API_KEY not set. Skipping fix Z step.")
+                    else:
+                        # Identify Z topics
+                        z_topics = identify_z_topics(topic_to_cat)
+                        print(f"[CATEGORY_MAPPING] Found {len(z_topics)} topics classified as Z_noise_oog only")
+                        
+                        if z_topics:
+                            # Initialize OpenRouter client
+                            client = OpenAI(
+                                api_key=api_key,
+                                base_url="https://openrouter.ai/api/v1",
+                                timeout=60,
+                            )
+                            
+                            # Process Z topics
+                            fixed_count = 0
+                            for topic_id in z_topics[:10]:  # Limit to 10 for now
+                                topic_id_str = str(topic_id)
+                                if topic_id_str not in topics:
+                                    continue
+                                
+                                label = topics[topic_id_str].get("label", "")
+                                keywords = topics[topic_id_str].get("keywords", [])
+                                
+                                try:
+                                    result = fix_topic_with_llm(
+                                        topic_id=topic_id,
+                                        label=label,
+                                        keywords=keywords,
+                                        client=client,
+                                        model_name="mistralai/mistral-nemo",
+                                        temperature=0.3,
+                                    )
+                                    
+                                    if not result.get("is_noise", True):
+                                        # Update category mappings
+                                        new_cats = convert_llm_categories_to_weights(
+                                            result.get("primary_categories", []),
+                                            result.get("secondary_categories", []),
+                                        )
+                                        
+                                        if isinstance(topic_to_cat[topic_id_str], dict) and "categories" in topic_to_cat[topic_id_str]:
+                                            topic_to_cat[topic_id_str]["categories"] = new_cats
+                                        else:
+                                            topic_to_cat[topic_id_str] = new_cats
+                                        
+                                        fixed_count += 1
+                                        print(f"[CATEGORY_MAPPING] Fixed topic {topic_id}: {result.get('primary_categories', [])}")
+                                    
+                                    import time
+                                    time.sleep(0.5)  # Rate limiting
+                                    
+                                except Exception as e:
+                                    print(f"[CATEGORY_MAPPING] ERROR fixing topic {topic_id}: {e}")
+                            
+                            if fixed_count > 0:
+                                # Save updated mappings
+                                save_json(topic_to_cat, args.outdir / "topic_to_category_probs.json")
+                                print(f"[CATEGORY_MAPPING] ✓ Updated category mappings ({fixed_count} topics fixed)")
+                        else:
+                            print(f"[CATEGORY_MAPPING] No Z topics to fix")
+                            
+                except ImportError as e:
+                    print(f"[CATEGORY_MAPPING] WARNING: Could not import fix_z_topics: {e}")
+                    print("[CATEGORY_MAPPING] Skipping fix Z step")
+                except Exception as e:
+                    print(f"[CATEGORY_MAPPING] ERROR in fix Z step: {e}")
+                    import traceback
+                    traceback.print_exc()
             
             print(f"[CATEGORY_MAPPING] ✓ Category mapping complete!")
             print(f"[CATEGORY_MAPPING] Output directory: {args.outdir}")

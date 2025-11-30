@@ -35,6 +35,14 @@ from src.stage06_labeling.generate_labels import (
     stage_timer_local,
 )
 
+# Import improved prompts
+try:
+    from src.stage06_labeling.prompts.prompts import BASE_LABELING_PROMPT
+    PROMPTS_AVAILABLE = True
+except ImportError:
+    PROMPTS_AVAILABLE = False
+    LOGGER.warning("Improved prompts module not available. Using default prompts.")
+
 LOGGER = logging.getLogger("stage06_labeling.openrouter")
 logging.basicConfig(
     level=logging.INFO,
@@ -313,7 +321,8 @@ def generate_label_from_keywords_openrouter(
     mmr_diversity: float = 0.5,
     mmr_top_k: int | None = None,
     temperature: float = 0.3,
-) -> str:
+    use_improved_prompts: bool = False,
+) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
     
@@ -326,9 +335,11 @@ def generate_label_from_keywords_openrouter(
         mmr_diversity: Diversity parameter for MMR (0.0-1.0)
         mmr_top_k: Maximum keywords to use after MMR reranking (None for all)
         temperature: Sampling temperature for generation
+        use_improved_prompts: If True, use BASE_LABELING_PROMPT and parse JSON response
         
     Returns:
-        Generated label string
+        Dictionary with 'label' and optionally 'categories', 'is_noise', 'rationale'
+        If use_improved_prompts is False, returns dict with just 'label' (backward compatible)
     """
     # Apply MMR reranking for diversity if requested
     if use_mmr_reranking and len(keywords) > 1:
@@ -339,25 +350,36 @@ def generate_label_from_keywords_openrouter(
             diversity=mmr_diversity,
         )
     
-    # Build romance-aware prompt with optional hints and POS cues
-    kw_str = ", ".join(keywords)
-    domains = detect_domains(keywords)
-    hints = make_context_hints(domains)  # Already includes "Context hints:" prefix
-    hints_str = hints if hints else ""
-    
-    # Extract POS cues for romance-aware labeling
-    pos_cues = extract_pos_cues(keywords)
-    pos_str = pos_cues if pos_cues else ""
-    
-    user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
-        kw=kw_str,
-        hints=hints_str,
-        pos=pos_str
-    )
-    messages = [
-        {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt},
-    ]
+    # Choose prompt type
+    if use_improved_prompts and PROMPTS_AVAILABLE:
+        # Use improved prompt with JSON output
+        kw_str = ", ".join(keywords)
+        user_prompt = f"Topic keywords: {kw_str}\n\nLabel:"
+        messages = [
+            {"role": "system", "content": BASE_LABELING_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ]
+        max_new_tokens = max(max_new_tokens, 200)  # Need more tokens for JSON
+    else:
+        # Use original romance-aware prompt
+        kw_str = ", ".join(keywords)
+        domains = detect_domains(keywords)
+        hints = make_context_hints(domains)  # Already includes "Context hints:" prefix
+        hints_str = hints if hints else ""
+        
+        # Extract POS cues for romance-aware labeling
+        pos_cues = extract_pos_cues(keywords)
+        pos_str = pos_cues if pos_cues else ""
+        
+        user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
+            kw=kw_str,
+            hints=hints_str,
+            pos=pos_str
+        )
+        messages = [
+            {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
+            {"role": "user", "content": user_prompt},
+        ]
     
     # Call OpenRouter API with timing
     try:
@@ -389,10 +411,54 @@ def generate_label_from_keywords_openrouter(
         else:
             LOGGER.info("API call | time=%.2fs", api_elapsed)
         
-        label = response.choices[0].message.content.strip()
-        LOGGER.debug("Raw API response: %s", label[:100] if len(label) > 100 else label)
+        content = response.choices[0].message.content.strip()
+        LOGGER.debug("Raw API response: %s", content[:200] if len(content) > 200 else content)
         
-        # Post-process label to clean it up
+        # Parse response based on prompt type
+        if use_improved_prompts and PROMPTS_AVAILABLE:
+            # Try to parse JSON response
+            try:
+                # Extract JSON from response (might have markdown code blocks)
+                json_content = content
+                if "```json" in json_content:
+                    json_content = json_content.split("```json")[1].split("```")[0].strip()
+                elif "```" in json_content:
+                    json_content = json_content.split("```")[1].split("```")[0].strip()
+                
+                result = json.loads(json_content)
+                
+                # Extract fields
+                label = result.get("label", "")
+                primary_categories = result.get("primary_categories", [])
+                secondary_categories = result.get("secondary_categories", [])
+                is_noise = result.get("is_noise", False)
+                rationale = result.get("rationale", "")
+                
+                # Clean label
+                label = label.strip().strip('"').strip("'")
+                
+                # Build result dict
+                result_dict = {
+                    "label": label,
+                    "primary_categories": primary_categories,
+                    "secondary_categories": secondary_categories,
+                    "is_noise": is_noise,
+                }
+                if rationale:
+                    result_dict["rationale"] = rationale
+                
+                LOGGER.info("Generated label (improved prompt): %s | Categories: %s", 
+                           label, primary_categories)
+                return result_dict
+                
+            except (json.JSONDecodeError, KeyError) as e:
+                LOGGER.warning("Failed to parse JSON response, falling back to text extraction: %s", e)
+                # Fall through to text extraction
+                label = content
+        else:
+            label = content
+        
+        # Post-process label to clean it up (for non-JSON responses)
         # Strip leading/trailing quotation marks
         label = label.strip().strip('"').strip("'")
         # Remove trailing commas, periods, and incomplete words
@@ -407,14 +473,14 @@ def generate_label_from_keywords_openrouter(
             label = " ".join(words)
         
         LOGGER.info("Generated label: %s", label)
-        return label
+        return {"label": label}  # Return dict for consistency
     except Exception as e:
         LOGGER.warning("Error generating label for keywords %s: %s", keywords[:3], e)
         LOGGER.exception("Full error traceback:")
         # Fallback: create a simple label from first few keywords
         fallback_label = f"{keywords[0]}" if keywords else "Topic"
         LOGGER.info("Using fallback label: %s", fallback_label)
-        return fallback_label
+        return {"label": fallback_label}
 
 
 def generate_labels_streaming(
@@ -426,7 +492,8 @@ def generate_labels_streaming(
     batch_size: int = 50,
     temperature: float = 0.3,
     limit: int | None = None,
-) -> dict[int, str]:
+    use_improved_prompts: bool = False,
+) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
     
@@ -476,19 +543,24 @@ def generate_labels_streaming(
                 
                 # Generate label with timing
                 label_start = time.perf_counter()
-                label = generate_label_from_keywords_openrouter(
+                result = generate_label_from_keywords_openrouter(
                     keywords=keywords,
                     client=client,
                     model_name=model_name,
                     max_new_tokens=max_new_tokens,
                     temperature=temperature,
+                    use_improved_prompts=use_improved_prompts,
                 )
                 label_elapsed = time.perf_counter() - label_start
                 
-                # Store both label and keywords
+                # Extract label (result is now a dict)
+                label = result.get("label", "")
+                
+                # Store label, keywords, and any additional fields from improved prompts
                 topic_data[topic_id] = {
                     "label": label,
-                    "keywords": keywords
+                    "keywords": keywords,
+                    **{k: v for k, v in result.items() if k != "label"}  # Add categories, is_noise, etc.
                 }
                 
                 LOGGER.info("topic %d | label='%s' | generation_time=%.2fs", 
@@ -550,7 +622,8 @@ def generate_all_labels(
     max_new_tokens: int = 40,
     batch_size: int = 50,
     temperature: float = 0.3,
-) -> dict[int, str]:
+    use_improved_prompts: bool = False,
+) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.
     
@@ -589,19 +662,24 @@ def generate_all_labels(
             
             # Generate label with timing
             label_start = time.perf_counter()
-            label = generate_label_from_keywords_openrouter(
+            result = generate_label_from_keywords_openrouter(
                 keywords=keywords,
                 client=client,
                 model_name=model_name,
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
+                use_improved_prompts=use_improved_prompts,
             )
             label_elapsed = time.perf_counter() - label_start
             
-            # Store both label and keywords
+            # Extract label (result is now a dict)
+            label = result.get("label", "")
+            
+            # Store label, keywords, and any additional fields from improved prompts
             batch_labels[topic_id] = {
                 "label": label,
-                "keywords": keywords
+                "keywords": keywords,
+                **{k: v for k, v in result.items() if k != "label"}  # Add categories, is_noise, etc.
             }
             
             LOGGER.info("topic %d | label='%s' | generation_time=%.2fs", 

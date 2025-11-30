@@ -176,6 +176,12 @@ def parse_args() -> argparse.Namespace:
         help="Limit number of topics to process (useful for testing)",
     )
     
+    parser.add_argument(
+        "--use-improved-prompts",
+        action="store_true",
+        help="Use improved BASE_LABELING_PROMPT with JSON output (includes category information)",
+    )
+    
     return parser.parse_args()
 
 
@@ -243,6 +249,7 @@ def main() -> None:
         print(f"[LABELING_CMD]   No integrate: {args.no_integrate}")
         print(f"[LABELING_CMD]   Topics JSON: {args.topics_json} (for inspection/comparison)")
         print(f"[LABELING_CMD]   Limit topics: {args.limit_topics}")
+        print(f"[LABELING_CMD]   Use improved prompts: {args.use_improved_prompts}")
         print()
         
         # Step 1: Always load BERTopic model (primary source for topics and integration)
@@ -364,6 +371,7 @@ def main() -> None:
                 batch_size=args.batch_size,
                 temperature=args.temperature,
                 limit=args.limit_topics,
+                use_improved_prompts=args.use_improved_prompts,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels (streaming mode)")
             print(f"[LABELING_CMD] ✓ Labels already saved to {labels_path.with_suffix('.json')}")
@@ -383,6 +391,7 @@ def main() -> None:
                 max_new_tokens=args.max_tokens,
                 batch_size=args.batch_size,
                 temperature=args.temperature,
+                use_improved_prompts=args.use_improved_prompts,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels")
             sys.stdout.flush()

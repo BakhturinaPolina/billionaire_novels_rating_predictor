@@ -70,7 +70,11 @@ TRIG = {
   "C_explicit": [
     r"\bnipple(s)?\b", r"\bclit\b", r"\borgasm(s)?\b", r"\bdominatrix\b", r"\bcondom\b",
     r"\bwet nude\b", r"\bbreast play\b", r"\btongue & thumb\b",
-    r"\bpussy\b", r"\berection\b", r"\bcock\b", r"\bpenetrat(e|ion)\b"
+    r"\bpussy\b", r"\berection\b", r"\bcock\b", r"\bpenetrat(e|ion)\b",
+    # NEW: catch explicit sex topics
+    r"\bintercourse\b",
+    r"\bsex\b",
+    r"\bmouth play\b",
   ],
   "D_luxury_wealth_status": [
     r"lacy lingerie", r"wine service", r"millionaire|hollywood|luxury car|stainless|margarita",
@@ -144,7 +148,9 @@ TRIG = {
   ],
   "Z_noise_oog": [
     r"\bhockey\b", r"\barchery\b", r"\banimals?\b", r"\bpigeons?\b",
-    r"\bgame\b.*\b(hockey|baseball|football|soccer)\b"  # sports games
+    r"\bgame\b.*\b(hockey|baseball|football|soccer)\b",  # sports games
+    r"\bguacamole\b",
+    r"\bkittens?\b",
   ],
 }
 

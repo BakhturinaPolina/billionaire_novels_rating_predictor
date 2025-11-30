@@ -441,6 +441,57 @@ python -m src.stage06_labeling.category_mapping.main_category_mapping \
     --outdir results/stage06_labeling/category_mapping
 ```
 
+### With Fix Z (LLM-based Reclassification)
+
+To automatically fix topics misclassified as Z_noise_oog using an LLM:
+
+```bash
+python -m src.stage06_labeling.category_mapping.main_category_mapping \
+    --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
+    --outdir results/stage06_labeling/category_mapping \
+    --fix-z
+```
+
+**Note**: This requires `OPENROUTER_API_KEY` environment variable to be set.
+
+### Run Fix Z Standalone
+
+You can also run the fix Z script independently:
+
+```bash
+python -m src.stage06_labeling.category_mapping.fix_z_topics \
+    --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
+    --category-probs results/stage06_labeling/category_mapping/topic_to_category_probs.json \
+    --outdir results/stage06_labeling/category_mapping \
+    --limit 10  # Optional: limit number of topics for testing
+```
+
+**Options**:
+- `--labels`: Path to labels JSON file (required)
+- `--category-probs`: Path to category probabilities JSON (required)
+- `--outdir`: Output directory (required)
+- `--api-key`: OpenRouter API key (or set `OPENROUTER_API_KEY` env var)
+- `--model`: OpenRouter model name (default: `mistralai/mistral-nemo`)
+- `--temperature`: Sampling temperature (default: 0.3)
+- `--limit`: Limit number of topics to process (for testing)
+
+**Outputs**:
+- `topic_to_category_probs_fixed.json`: Updated category mappings
+- `fix_z_results.json`: Detailed LLM responses for each topic
+
+### Compare Fix Z Results
+
+To analyze the impact of fix Z:
+
+```bash
+python -m src.stage06_labeling.category_mapping.compare_fix_z_results \
+    --original results/stage06_labeling/category_mapping/topic_to_category_probs.json \
+    --fixed results/stage06_labeling/category_mapping/topic_to_category_probs_fixed.json \
+    --fix-results results/stage06_labeling/category_mapping/fix_z_results.json \
+    --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
+    --output results/stage06_labeling/category_mapping/fix_z_comparison_report.md
+```
+
 ---
 
 ## Output Files
@@ -612,6 +663,128 @@ for doc_idx, (topic_id, topic_probs) in enumerate(zip(topics, probs)):
 ```
 
 See [BERTopic documentation](https://bertopic.readthedocs.io/en/latest/) for more details on using `.transform()` and `.approximate_distribution()`.
+
+---
+
+## Test Suite
+
+The category mapping module includes a comprehensive test suite to ensure correctness and prevent regressions.
+
+### Running Tests
+
+```bash
+# From project root
+pytest src/stage06_labeling/category_mapping/tests/test_category_mapping.py -v
+```
+
+### Test Coverage
+
+The test suite covers:
+
+- **Weight normalization**: Ensures category weights always sum to 1.0
+- **Noise detection**: Validates that noise topics (sports, animals, food) map to `Z_noise_oog`
+- **Explicit content detection**: Tests that explicit sex topics map to `C_explicit`
+- **Category distinctions**: 
+  - Apology vs miscommunication (`T_repair_apology` vs `Q_miscommunication`)
+  - Protectiveness vs jealousy (`R1_protectiveness` vs `R2_jealousy`)
+- **Backoff logic**: Tests fallback category assignment when no patterns match
+- **Multi-category assignments**: Tests topics that map to multiple categories
+
+### Adding New Tests
+
+To add a new test case, edit `tests/test_category_mapping.py`:
+
+```python
+def test_my_new_case():
+    """Test description."""
+    cats = _cats("My Topic Label", ["keyword1", "keyword2"])
+    assert _weight(cats, "Expected_Category") > 0.0
+```
+
+---
+
+## Improved LLM Prompts
+
+The module includes improved prompts for better category classification.
+
+### BASE_LABELING_PROMPT
+
+A romance-aware prompt that generates labels with category information directly from the LLM. This prompt:
+
+- Includes all category codes (A-P, Q, T, R1, R2, S, Z)
+- Returns JSON with `primary_categories`, `secondary_categories`, `is_noise`, and `rationale`
+- Uses a 30-40% threshold rule: don't use Z if topic is at least 30-40% romance-relevant
+
+**Usage in OpenRouter pipeline**:
+
+```bash
+python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+    --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
+    --use-improved-prompts \
+    --output-dir results/stage06_labeling_openrouter
+```
+
+When using `--use-improved-prompts`, the output JSON will include category information:
+
+```json
+{
+  "0": {
+    "label": "Wedding Planning",
+    "keywords": ["wedding", "ceremony", "planner"],
+    "primary_categories": ["A_commitment_hea"],
+    "secondary_categories": [],
+    "is_noise": false,
+    "rationale": "Topic focuses on wedding planning and commitment milestones."
+  }
+}
+```
+
+### FIX_Z_PROMPT
+
+A specialized prompt for reclassifying topics that were incorrectly classified as `Z_noise_oog`. This prompt:
+
+- Includes 5 in-context examples showing correct classification
+- Helps identify romance-relevant topics that were misclassified as noise
+- Returns JSON with reassigned categories and rationale
+
+**Usage**: Automatically used by the fix Z script (see "With Fix Z" section above).
+
+---
+
+## Troubleshooting
+
+### Fix Z Script Issues
+
+**Problem**: `OPENROUTER_API_KEY not set`
+- **Solution**: Set the environment variable: `export OPENROUTER_API_KEY=your_key_here`
+
+**Problem**: JSON parsing errors
+- **Solution**: The script includes retry logic. If errors persist, check the LLM response format in `fix_z_results.json`
+
+**Problem**: Too many API calls / rate limits
+- **Solution**: Use `--limit` flag to test with a small number of topics first
+
+### Test Failures
+
+**Problem**: Tests fail after modifying regex patterns
+- **Solution**: Run tests to identify which patterns broke, then adjust `TRIG` patterns in `map_topics_to_categories.py`
+
+**Problem**: New topics not mapping correctly
+- **Solution**: Add test cases for the new topics, then update regex patterns until tests pass
+
+### Category Mapping Issues
+
+**Problem**: Topics mapping to wrong categories
+- **Solution**: 
+  1. Check the label and keywords in the labels JSON
+  2. Review regex patterns in `TRIG` dictionary
+  3. Add new patterns if needed
+  4. Run tests to ensure changes don't break existing mappings
+
+**Problem**: Weights don't sum to 1.0
+- **Solution**: This should never happen - if it does, it's a bug. Check the `infer_categories()` function logic.
+
+---
 
 ## See Also
 
