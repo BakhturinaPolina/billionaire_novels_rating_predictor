@@ -131,6 +131,63 @@ Once models are created and evaluated, a **Pareto efficiency analysis** (Liu et 
 
 Based on this analysis, the optimal model is selected from the top 10 models.
 
+### Topic Exploration & Evaluation
+
+After retraining the top-performing models, we conduct comprehensive topic exploration and evaluation:
+
+#### Multiple Representation Strategies
+
+Each retrained BERTopic model is enriched with multiple representation strategies to capture different aspects of topics:
+
+1. **Main Representation**: Standard c-TF-IDF representation (BERTopic default)
+2. **KeyBERT**: Keyword extraction using KeyBERT-inspired representation
+3. **POS (Part-of-Speech)**: Filters keywords by part-of-speech patterns (nouns, verbs, adjectives)
+4. **MMR (Maximal Marginal Relevance)**: Balances keyword relevance with diversity (diversity=0.3)
+
+These representations are attached to the model using BERTopic's `update_topics()` method, allowing for multi-faceted topic analysis.
+
+#### Coherence & Diversity Evaluation
+
+For each representation, we compute:
+
+- **c_v Coherence** (Röder, Both, & Hinneburg, 2015): Measures semantic consistency of topics using a sliding window approach. Higher values indicate more interpretable topics.
+- **Topic Diversity**: Ratio of unique words to total extracted terms. Higher values indicate less redundancy across topics.
+
+Metrics are computed using the same gensim dictionary built from the OCTIS corpus used during retraining, ensuring consistency with the training vocabulary.
+
+#### Topic Extraction for Close Reading
+
+All topics with all representations are extracted and saved to JSON format for qualitative evaluation. This enables researchers to:
+- Compare topic quality across different representations
+- Identify the most interpretable representation for each topic
+- Conduct close reading of topic keywords for thematic analysis
+
+### Automated Topic Labeling
+
+#### Label Generation with Mistral-7B-Instruct
+
+To generate human-readable labels for topics, we employ **Mistral-7B-Instruct-v0.2** (Jiang et al., 2023) with 4-bit quantization for memory efficiency:
+
+1. **Keyword Extraction**: Extract top keywords from POS representation (default: 15 keywords per topic)
+2. **MMR Reranking**: Apply Maximal Marginal Relevance (MMR) reranking to balance keyword relevance with diversity, ensuring the model receives a diverse set of representative keywords
+3. **Domain Detection**: Automatically detect semantic domains (e.g., BodyParts, FoodDrink, TimeSpan, Marriage) from keywords to provide context-aware hints
+4. **Label Generation**: Use Mistral-7B-Instruct with adaptive prompts that include domain-specific hints for more accurate labeling
+5. **Integration**: Automatically integrate generated labels back into BERTopic models for use in visualizations
+
+#### Label Quality Features
+
+- **Universal Prompting**: Domain-agnostic system prompt that works across any corpus
+- **Adaptive Context Hints**: Domain-specific hints generated from keyword analysis (e.g., "If body parts or intimacy are clear, name the exact parts")
+- **Post-processing**: Automatic cleanup of labels (removes quotes, trailing punctuation, incomplete phrases)
+- **Streaming Support**: Memory-efficient processing for large topic sets
+
+#### Technical Specifications
+
+- **Model**: Mistral-7B-Instruct-v0.2 (4-bit quantization via bitsandbytes)
+- **Memory Requirements**: ~6GB VRAM with quantization (vs. ~14GB without)
+- **Default Parameters**: 15 keywords per topic, 40 max tokens per label
+- **Device**: GPU-accelerated when available, with CPU fallback
+
 ### Thematic Mapping: Topic → Category
 
 Topics are mapped to **16 thematic composites** (A-P) using a semi-supervised approach:
@@ -326,10 +383,13 @@ Caring protectiveness vs. jealous possessiveness.
 ### Software Stack
 
 - **Python 3.12+**
-- **BERTopic** (Grootendorst, 2022)
-- **OCTIS** (Terragni et al., 2021)
+- **BERTopic** (Grootendorst, 2022) for topic modeling
+- **OCTIS** (Terragni et al., 2021) for hyperparameter optimization
 - **RAPIDS cuML** for GPU acceleration
 - **SentenceTransformers** for embeddings
+- **Transformers** (Hugging Face) for Mistral-7B-Instruct label generation
+- **bitsandbytes** for 4-bit model quantization
+- **gensim** for coherence evaluation
 - **scikit-learn** for statistical analysis
 - **pandas**, **numpy** for data manipulation
 
@@ -340,6 +400,8 @@ Caring protectiveness vs. jealous possessiveness.
 - Gan, J., Qi, Z., Li, Z., & Zhang, Y. (2024). BERTopic for short texts. *arXiv preprint arXiv:2401.00724*.
 
 - Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. *arXiv preprint arXiv:2203.05794*.
+
+- Jiang, A. Q., Sablayrolles, A., Mensch, A., Bamford, C., Chaplot, D. S., Casas, D. d. l., ... & Lample, G. (2023). Mistral 7B. *arXiv preprint arXiv:2310.06825*.
 
 - Liu, Y., et al. (2022). Pareto efficiency in multi-objective optimization. [Reference details]
 

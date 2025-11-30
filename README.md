@@ -44,6 +44,7 @@ romantic_novels_project_code/
 │   ├── stage04_experiments/      # Hyperparameter optimization
 │   ├── stage05_selection/        # Pareto-efficient model selection
 │   ├── stage05_retraining/       # Retrain top models
+│   ├── stage06_BERTopic_topics_exploration/  # Topic exploration & evaluation
 │   ├── stage06_labeling/         # Topic labeling and composite building
 │   └── stage07_analysis/         # Statistical analysis & visualization
 ├── configs/                      # YAML configuration files
@@ -142,8 +143,18 @@ python -m src.stage05_selection.main --config configs/selection.yaml
 # Stage 05: Retraining (Retrain Top Models)
 python -m src.stage05_retraining.main retrain --top_n 4
 
-# Stage 06: Labeling
-python -m src.stage06_labeling.main --config configs/labeling.yaml
+# Stage 06: Topic Exploration (Evaluate Retrained Models)
+python -m src.stage06_BERTopic_topics_exploration.explore_retrained_model \
+  --embedding-model paraphrase-MiniLM-L6-v2 \
+  --pareto-rank 1 \
+  --save-topics \
+  --output-dir results/stage06
+
+# Stage 06: Labeling (Generate Topic Labels with Mistral-7B-Instruct)
+python -m src.stage06_labeling.main \
+  --embedding-model paraphrase-MiniLM-L6-v2 \
+  --pareto-rank 1 \
+  --topics-json results/stage06/topics_all_representations_paraphrase-MiniLM-L6-v2.json
 
 # Stage 07: Analysis
 python -m src.stage07_analysis.main --config configs/scoring.yaml
@@ -202,8 +213,10 @@ Bayesian hyperparameter optimization using OCTIS. Optimizes BERTopic parameters 
 ### Stage 05: Selection
 Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Selects optimal models based on coherence and diversity metrics. Also handles retraining of top models.
 
-### Stage 06: Labeling
-Semi-supervised topic labeling and composite building. Creates Appreciation Pattern (AP) composites from topic groups.
+### Stage 06: Topic Exploration & Labeling
+**Topic Exploration**: Interactive tooling for inspecting retrained BERTopic models. Loads models (pickle wrapper or native safetensors), attaches multiple representations (Main, KeyBERT, POS, MMR), computes coherence (c_v) and diversity metrics, and extracts all topics with all representations for close reading evaluation.
+
+**Topic Labeling**: Automated generation of human-readable topic labels using Mistral-7B-Instruct-v0.2 with 4-bit quantization. Extracts POS representation keywords, applies MMR reranking for diversity, and integrates labels back into BERTopic models. Also includes semi-supervised composite building to create Appreciation Pattern (AP) composites from topic groups.
 
 ### Stage 07: Analysis
 Goodreads scoring/stratification, statistical analysis, and FDR correction. Generates visualizations and statistical reports.
@@ -241,6 +254,8 @@ If you use this code in your research, please cite:
 - **OCTIS** (Terragni et al., 2021) for hyperparameter optimization
 - **RAPIDS cuML** for GPU acceleration
 - **SentenceTransformers** for embeddings
+- **Mistral-7B-Instruct** (Jiang et al., 2023) for automated topic labeling
+- **bitsandbytes** for efficient model quantization
 
 ---
 
