@@ -32,7 +32,6 @@ from src.stage06_labeling.generate_labels import (
     log_batch_progress,
     make_context_hints,
     rerank_keywords_mmr,
-    save_labels,
     stage_timer_local,
 )
 
@@ -221,12 +220,12 @@ def generate_labels_streaming(
         limit: Maximum number of topics to process (None for all)
         
     Returns:
-        Dictionary mapping topic_id to generated label (for integration if needed)
+        Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
     """
     json_path = output_path.with_suffix(".json")
     json_path.parent.mkdir(parents=True, exist_ok=True)
     
-    topic_labels: dict[int, str] = {}
+    topic_data: dict[int, dict[str, Any]] = {}
     batch_idx = 0
     processed_count = 0
     
@@ -261,19 +260,30 @@ def generate_labels_streaming(
                     temperature=temperature,
                 )
                 label_elapsed = time.perf_counter() - label_start
-                topic_labels[topic_id] = label
+                
+                # Store both label and keywords
+                topic_data[topic_id] = {
+                    "label": label,
+                    "keywords": keywords
+                }
                 
                 LOGGER.info("topic %d | label='%s' | generation_time=%.2fs", 
                            topic_id, label, label_elapsed)
                 
-                # Write to JSON incrementally
+                # Write to JSON incrementally with new structure
                 if not first_item:
                     f.write(",\n")
                 else:
                     first_item = False
                 
-                # Write this topic's label
-                f.write(f'  "{topic_id}": {json.dumps(label, ensure_ascii=False)}')
+                # Write this topic's data (label and keywords)
+                topic_entry = {
+                    "label": label,
+                    "keywords": keywords
+                }
+                # Format JSON entry (compact for incremental writing)
+                entry_json = json.dumps(topic_entry, ensure_ascii=False)
+                f.write(f'  "{topic_id}": {entry_json}')
                 f.flush()  # Ensure immediate write to disk
                 
                 # Log progress every batch_size topics
@@ -301,12 +311,12 @@ def generate_labels_streaming(
             f.flush()
         
         LOGGER.info(
-            "Successfully generated and saved %d labels to %s",
+            "Successfully generated and saved %d topic entries to %s",
             processed_count,
             json_path,
         )
     
-    return topic_labels
+    return topic_data
 
 
 def generate_all_labels(
@@ -332,9 +342,9 @@ def generate_all_labels(
         temperature: Sampling temperature for generation
         
     Returns:
-        Dictionary mapping topic_id to generated label
+        Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
     """
-    topic_labels: dict[int, str] = {}
+    topic_data: dict[int, dict[str, Any]] = {}
     topic_items = list(pos_topics.items())
     total_topics = len(topic_items)
     
@@ -363,7 +373,12 @@ def generate_all_labels(
                 temperature=temperature,
             )
             label_elapsed = time.perf_counter() - label_start
-            batch_labels[topic_id] = label
+            
+            # Store both label and keywords
+            batch_labels[topic_id] = {
+                "label": label,
+                "keywords": keywords
+            }
             
             LOGGER.info("topic %d | label='%s' | generation_time=%.2fs", 
                        topic_id, label, label_elapsed)
@@ -386,7 +401,7 @@ def generate_all_labels(
                     idx,
                     (idx / total_topics * 100) if total_topics > 0 else 0,
                 )
-                topic_labels.update(batch_labels)
+                topic_data.update(batch_labels)
                 batch_labels.clear()
             
             # Small delay to avoid rate limits
@@ -394,9 +409,41 @@ def generate_all_labels(
         
         # Flush any remaining labels
         if batch_labels:
-            topic_labels.update(batch_labels)
+            topic_data.update(batch_labels)
         
-        LOGGER.info("Successfully generated labels for %d topics", len(topic_labels))
+        LOGGER.info("Successfully generated labels for %d topics", len(topic_data))
     
-    return topic_labels
+    return topic_data
+
+
+def save_labels_openrouter(
+    topic_data: dict[int, dict[str, Any]],
+    output_path: Path,
+) -> None:
+    """
+    Save topic labels and keywords to JSON file with new structure.
+    
+    Args:
+        topic_data: Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
+        output_path: Path to save JSON file (without extension)
+    """
+    json_path = output_path.with_suffix(".json")
+    
+    with stage_timer_local(f"Saving labels to JSON: {json_path.name}"):
+        # Convert topic IDs to strings for JSON serialization
+        data_serializable: dict[str, dict[str, Any]] = {
+            str(topic_id): data for topic_id, data in topic_data.items()
+        }
+        
+        # Create parent directory if it doesn't exist
+        json_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data_serializable, f, indent=2, ensure_ascii=False)
+        
+        LOGGER.info(
+            "Saved %d topic entries to %s",
+            len(data_serializable),
+            json_path,
+        )
 

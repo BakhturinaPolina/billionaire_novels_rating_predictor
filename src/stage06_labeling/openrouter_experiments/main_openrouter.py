@@ -27,7 +27,7 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
     generate_all_labels,
     generate_labels_streaming,
     load_openrouter_client,
-    save_labels,
+    save_labels_openrouter,
 )
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
@@ -391,8 +391,8 @@ def main() -> None:
             # Step 5: Save labels to JSON
             print("[LABELING_CMD] Step 5: Saving labels to JSON...")
             sys.stdout.flush()
-            save_labels(
-                topic_labels=topic_labels,
+            save_labels_openrouter(
+                topic_data=topic_labels,
                 output_path=labels_path,
             )
             print(f"[LABELING_CMD] ✓ Saved labels to {labels_path.with_suffix('.json')}")
@@ -404,9 +404,14 @@ def main() -> None:
             print("[LABELING_CMD] Step 6: Integrating labels into BERTopic model...")
             sys.stdout.flush()
             try:
+                # Extract just the labels for BERTopic integration
+                labels_only: dict[int, str] = {
+                    topic_id: data["label"] 
+                    for topic_id, data in topic_labels.items()
+                }
                 integrate_labels_to_bertopic(
                     topic_model=topic_model,
-                    topic_labels=topic_labels,
+                    topic_labels=labels_only,
                 )
                 print("[LABELING_CMD] ✓ Labels integrated into BERTopic model")
                 print("[LABELING_CMD]   (Labels will appear in BERTopic visualizations)")
@@ -428,7 +433,9 @@ def main() -> None:
         print("=" * 80)
         print("[LABELING_CMD] Labeling Summary")
         print("=" * 80)
-        print(f"[LABELING_CMD] Topics processed: {len(topic_labels)}")
+        # Extract labels count (topic_labels now contains dict with label and keywords)
+        topics_count = len(topic_labels)
+        print(f"[LABELING_CMD] Topics processed: {topics_count}")
         print(f"[LABELING_CMD] Labels saved to: {labels_path.with_suffix('.json')}")
         if not args.no_integrate:
             print("[LABELING_CMD] Labels integrated into BERTopic: Yes")
