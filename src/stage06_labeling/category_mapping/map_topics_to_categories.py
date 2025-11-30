@@ -401,17 +401,69 @@ def main():
         keywords = rec.get("keywords", [])
         cats = infer_categories(label, keywords=keywords)
         topic_to_cat[str(tid)] = cats
-        # flatten for CSV
+        
+        # Find primary category (highest weight)
+        primary_cat = None
+        if cats:
+            primary_cat = max(cats.items(), key=lambda x: x[1])[0]
+        
+        # Flatten for CSV
+        keywords_str = ", ".join(keywords) if keywords else ""
         if not cats:
-            rows.append({"topic_id": tid, "label": label, "category": "", "weight": 0})
+            rows.append({
+                "topic_id": tid, 
+                "label": label, 
+                "keywords": keywords_str,
+                "category": "", 
+                "weight": "0.000000",
+                "is_primary": "False"
+            })
         else:
             for c, w in cats.items():
-                rows.append({"topic_id": tid, "label": label, "category": c, "weight": f"{w:.6f}"})
+                rows.append({
+                    "topic_id": tid, 
+                    "label": label, 
+                    "keywords": keywords_str,
+                    "category": c, 
+                    "weight": f"{w:.6f}",
+                    "is_primary": "True" if c == primary_cat else "False"
+                })
 
     outdir = args.outdir
     save_json(topic_to_cat, outdir / "topic_to_category_probs.json")
     save_csv(rows, outdir / "topic_to_category_final.csv",
-             fieldnames=["topic_id", "label", "category", "weight"])
+             fieldnames=["topic_id", "label", "keywords", "category", "weight", "is_primary"])
+    
+    # Also create a summary CSV with one row per topic (primary category only)
+    summary_rows = []
+    for tid, rec in topics.items():
+        label = rec.get("label", "")
+        keywords = rec.get("keywords", [])
+        keywords_str = ", ".join(keywords) if keywords else ""
+        cats = topic_to_cat.get(str(tid), {})
+        
+        if cats:
+            # Get primary category
+            primary_cat = max(cats.items(), key=lambda x: x[1])[0]
+            primary_weight = cats[primary_cat]
+            # Get all categories as comma-separated string
+            all_cats = ", ".join([f"{c}({w:.3f})" for c, w in sorted(cats.items(), key=lambda x: x[1], reverse=True)])
+        else:
+            primary_cat = ""
+            primary_weight = 0.0
+            all_cats = ""
+        
+        summary_rows.append({
+            "topic_id": tid,
+            "label": label,
+            "keywords": keywords_str,
+            "primary_category": primary_cat,
+            "primary_weight": f"{primary_weight:.6f}",
+            "all_categories": all_cats
+        })
+    
+    save_csv(summary_rows, outdir / "topic_to_category_summary.csv",
+            fieldnames=["topic_id", "label", "keywords", "primary_category", "primary_weight", "all_categories"])
 
     # Optional: aggregate to book-level and compute indices
     if args.book_topic_probs:

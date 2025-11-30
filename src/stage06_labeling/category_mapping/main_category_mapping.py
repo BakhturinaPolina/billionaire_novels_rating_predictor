@@ -151,13 +151,20 @@ def main():
                 
                 # Flatten for CSV (include keywords as comma-separated string)
                 keywords_str = ", ".join(keywords) if keywords else ""
+                
+                # Find primary category (highest weight)
+                primary_cat = None
+                if cats:
+                    primary_cat = max(cats.items(), key=lambda x: x[1])[0]
+                
                 if not cats:
                     rows.append({
                         "topic_id": tid, 
                         "label": label, 
                         "keywords": keywords_str,
                         "category": "", 
-                        "weight": "0.000000"
+                        "weight": "0.000000",
+                        "is_primary": "False"
                     })
                 else:
                     for c, w in cats.items():
@@ -166,7 +173,8 @@ def main():
                             "label": label, 
                             "keywords": keywords_str,
                             "category": c, 
-                            "weight": f"{w:.6f}"
+                            "weight": f"{w:.6f}",
+                            "is_primary": "True" if c == primary_cat else "False"
                         })
             
             # Create output directory
@@ -176,10 +184,49 @@ def main():
             print(f"[CATEGORY_MAPPING] Saving topic-to-category mappings...")
             save_json(topic_to_cat, args.outdir / "topic_to_category_probs.json")
             save_csv(rows, args.outdir / "topic_to_category_final.csv",
-                    fieldnames=["topic_id", "label", "keywords", "category", "weight"])
+                    fieldnames=["topic_id", "label", "keywords", "category", "weight", "is_primary"])
+            
+            # Also create a summary CSV with one row per topic (primary category only)
+            summary_rows = []
+            for tid, rec in topics.items():
+                label = rec.get("label", "")
+                keywords = rec.get("keywords", [])
+                keywords_str = ", ".join(keywords) if keywords else ""
+                
+                # Extract categories from topic_to_cat structure
+                cat_data = topic_to_cat.get(str(tid), {})
+                if isinstance(cat_data, dict) and "categories" in cat_data:
+                    cats = cat_data["categories"]
+                else:
+                    # Fallback: cat_data might be the categories dict directly
+                    cats = cat_data if isinstance(cat_data, dict) and all(isinstance(v, (int, float)) for v in cat_data.values()) else {}
+                
+                if cats:
+                    # Get primary category
+                    primary_cat = max(cats.items(), key=lambda x: x[1])[0]
+                    primary_weight = cats[primary_cat]
+                    # Get all categories as comma-separated string
+                    all_cats = ", ".join([f"{c}({w:.3f})" for c, w in sorted(cats.items(), key=lambda x: x[1], reverse=True)])
+                else:
+                    primary_cat = ""
+                    primary_weight = 0.0
+                    all_cats = ""
+                
+                summary_rows.append({
+                    "topic_id": tid,
+                    "label": label,
+                    "keywords": keywords_str,
+                    "primary_category": primary_cat,
+                    "primary_weight": f"{primary_weight:.6f}",
+                    "all_categories": all_cats
+                })
+            
+            save_csv(summary_rows, args.outdir / "topic_to_category_summary.csv",
+                    fieldnames=["topic_id", "label", "keywords", "primary_category", "primary_weight", "all_categories"])
             
             print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_probs.json")
-            print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_final.csv")
+            print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_final.csv (long format)")
+            print(f"[CATEGORY_MAPPING] ✓ Saved topic_to_category_summary.csv (one row per topic)")
             
             # Optional: aggregate to book-level and compute indices
             if args.book_topic_probs:
