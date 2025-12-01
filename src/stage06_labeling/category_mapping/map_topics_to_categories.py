@@ -121,7 +121,8 @@ TRIG = {
   ],
   "O_appearance_aesthetics": [
     r"gaze|brows|eye contact|hair play|lingerie|perfume|scent|mirror",
-    r"appearance|looks|attractive|beautiful|handsome|stunning|aesthetic"
+    r"appearance|looks|attractive|beautiful|handsome|stunning|aesthetic",
+    r"\boutfit(s)?\b", r"\bclothing\b", r"\bwardrobe\b", r"\bfashion\b", r"\bclothes\b"
   ],
   "P_tech_media": [
     r"phone|phones|vibrating|ringing|webcam|tabloid|screen|message",

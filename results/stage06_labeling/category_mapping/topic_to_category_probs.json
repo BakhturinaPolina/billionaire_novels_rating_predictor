@@ -1,10 +1,11 @@
 {
   "0": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.375,
+      "A_commitment_hea": 0.375,
+      "S_scene_anchor": 0.25
     },
-    "label": "True Promise",
+    "label": "Promising Career Partnership",
     "keywords": [
       "means",
       "idea",
@@ -22,7 +23,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Tongue & Nipple Play",
+    "label": "Erotic Intimacy",
     "keywords": [
       "hips",
       "tongue",
@@ -40,7 +41,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Tongue Play",
+    "label": "Erotic Intimacy",
     "keywords": [
       "clit",
       "pussy",
@@ -58,7 +59,7 @@
     "categories": {
       "H_domestic_nesting": 1.0
     },
-    "label": "Hungry Dinner",
+    "label": "Shared Meals and Snacks",
     "keywords": [
       "dinner",
       "food",
@@ -74,10 +75,9 @@
   },
   "4": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "N_separation_reunion": 0.5
+      "Z_noise_oog": 1.0
     },
-    "label": "Long-Awaited Reunion",
+    "label": "Long-Term Relationship Milestones",
     "keywords": [
       "way",
       "years",
@@ -93,9 +93,10 @@
   },
   "5": {
     "categories": {
-      "K_work_corporate": 1.0
+      "K_work_corporate": 0.75,
+      "S_scene_anchor": 0.25
     },
-    "label": "Weekly Fallen Moments",
+    "label": "Career Changes Over Time",
     "keywords": [
       "week",
       "years",
@@ -111,9 +112,9 @@
   },
   "6": {
     "categories": {
-      "D_luxury_wealth_status": 1.0
+      "L_vices_addictions": 1.0
     },
-    "label": "Wine Service",
+    "label": "Drunken Encounters",
     "keywords": [
       "wine",
       "sip",
@@ -131,7 +132,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "True Choice",
+    "label": "Navigating Relationship Challenges",
     "keywords": [
       "problem",
       "deal",
@@ -148,9 +149,9 @@
   "8": {
     "categories": {
       "Q_miscommunication": 0.5,
-      "F_negative_affect": 0.5
+      "P_tech_media": 0.5
     },
-    "label": "Wrong Thoughts",
+    "label": "Misunderstandings and Miscommunication",
     "keywords": [
       "wrong",
       "thought",
@@ -166,10 +167,10 @@
   },
   "9": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "G_rituals_gifts": 0.5
+      "G_rituals_gifts": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Wedding Planning",
+    "label": "Marriage and Divorce",
     "keywords": [
       "married",
       "wedding",
@@ -187,7 +188,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Elevator Encounters",
+    "label": "Approaching the Love Nest",
     "keywords": [
       "door",
       "doors",
@@ -203,10 +204,9 @@
   },
   "11": {
     "categories": {
-      "H_domestic_nesting": 0.5,
-      "D_luxury_wealth_status": 0.5
+      "H_domestic_nesting": 1.0
     },
-    "label": "Wine Service",
+    "label": "Dinner Date",
     "keywords": [
       "wine",
       "kitchen",
@@ -224,7 +224,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Tender Tongue Play",
+    "label": "Tender Kisses and Intimacy",
     "keywords": [
       "kisses",
       "tongue",
@@ -243,7 +243,7 @@
       "I_humor_lightness": 0.5,
       "O_appearance_aesthetics": 0.5
     },
-    "label": "Playful Laughter",
+    "label": "Playful Flirting",
     "keywords": [
       "smile",
       "laugh",
@@ -261,7 +261,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Gleeful Smiles",
+    "label": "Genuine Smiles and Laughter",
     "keywords": [
       "smile",
       "smiles",
@@ -277,10 +277,9 @@
   },
   "15": {
     "categories": {
-      "B_mutual_intimacy": 0.5,
-      "C_explicit": 0.5
+      "C_explicit": 1.0
     },
-    "label": "Intimate Touch",
+    "label": "Erotic Encounter",
     "keywords": [
       "clit",
       "hips",
@@ -298,7 +297,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Family Legacy",
+    "label": "Family Generations",
     "keywords": [
       "parents",
       "older",
@@ -314,9 +313,9 @@
   },
   "19": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Tense Foreplay",
+    "label": "Physical Arousal and Tension",
     "keywords": [
       "stomach",
       "chest",
@@ -334,7 +333,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Gaze & Brows",
+    "label": "Intense Eye Contact",
     "keywords": [
       "gaze",
       "stare",
@@ -352,7 +351,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Driveway Encounter",
+    "label": "Car Chase and Pursuit",
     "keywords": [
       "car",
       "driver",
@@ -370,7 +369,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Struggling Decisions",
+    "label": "Controlling Partner and Power Struggles",
     "keywords": [
       "control",
       "thought",
@@ -386,10 +385,10 @@
   },
   "23": {
     "categories": {
-      "B_mutual_intimacy": 0.5,
+      "H_domestic_nesting": 0.5,
       "K_work_corporate": 0.5
     },
-    "label": "Armchair Foreplay",
+    "label": "Cozy Cabin Interior",
     "keywords": [
       "board",
       "mug",
@@ -407,7 +406,7 @@
     "categories": {
       "P_tech_media": 1.0
     },
-    "label": "Vibrating Phones",
+    "label": "Late-Night Text Messages",
     "keywords": [
       "rings",
       "buzzes",
@@ -425,7 +424,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Goofy Grins",
+    "label": "Playful Laughter and Smiles",
     "keywords": [
       "smile",
       "laugh",
@@ -443,7 +442,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Nighttime Stand",
+    "label": "Nighttime Fun",
     "keywords": [
       "tonight",
       "night",
@@ -461,7 +460,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Elevator Encounters",
+    "label": "Navigating Spaces",
     "keywords": [
       "door",
       "doors",
@@ -479,7 +478,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Guacamole Dilemma",
+    "label": "Decision-Making Dilemmas",
     "keywords": [
       "complication",
       "choice",
@@ -495,9 +494,9 @@
   },
   "29": {
     "categories": {
-      "N_separation_reunion": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Time Apart",
+    "label": "Time Passes",
     "keywords": [
       "minutes",
       "weeks",
@@ -515,7 +514,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Ice Hockey Players",
+    "label": "Sports Rivalry",
     "keywords": [
       "game",
       "hockey",
@@ -531,9 +530,9 @@
   },
   "31": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "O_appearance_aesthetics": 1.0
     },
-    "label": "Tomorrow's Outfit",
+    "label": "Shopping for Love",
     "keywords": [
       "clothes",
       "outfit",
@@ -549,9 +548,9 @@
   },
   "32": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "C_explicit": 1.0
     },
-    "label": "Hesitant Intercourse",
+    "label": "Hesitant Interactions",
     "keywords": [
       "offense",
       "say",
@@ -567,10 +566,10 @@
   },
   "33": {
     "categories": {
-      "D_luxury_wealth_status": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "D_luxury_wealth_status": 0.5
     },
-    "label": "Financial Negotiation",
+    "label": "Corporate Ambition",
     "keywords": [
       "business",
       "company",
@@ -588,7 +587,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Risky Archery Bet",
+    "label": "Hunting Trip with Eclectic Attendees",
     "keywords": [
       "cards",
       "archery",
@@ -606,7 +605,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Silent Ride",
+    "label": "{ \"label\": \"Unspoken Tension",
     "keywords": [
       "silent",
       "beat",
@@ -622,9 +621,9 @@
   },
   "36": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Foot Foreplay",
+    "label": "Physical Altercation",
     "keywords": [
       "knees",
       "feet",
@@ -642,7 +641,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Insane Fools",
+    "label": "Absurd Characters and Situations",
     "keywords": [
       "ridiculous",
       "insane",
@@ -660,7 +659,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Gaze & Brows",
+    "label": "Intense Eye Contact",
     "keywords": [
       "gaze",
       "glare",
@@ -676,9 +675,9 @@
   },
   "39": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "B_mutual_intimacy": 1.0
     },
-    "label": "Moist Mouth Play",
+    "label": "Intimate Kissing",
     "keywords": [
       "lip",
       "teeth",
@@ -694,10 +693,10 @@
   },
   "40": {
     "categories": {
-      "Q_miscommunication": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "Q_miscommunication": 0.5
     },
-    "label": "Office Drama",
+    "label": "Workplace Drama and Misunderstandings",
     "keywords": [
       "job",
       "upset",
@@ -713,11 +712,11 @@
   },
   "41": {
     "categories": {
-      "Q_miscommunication": 0.375,
       "F_negative_affect": 0.375,
+      "Q_miscommunication": 0.375,
       "S_scene_anchor": 0.25
     },
-    "label": "Ashamed Confession",
+    "label": "Picky Partner's Regret",
     "keywords": [
       "ready",
       "heartless",
@@ -735,7 +734,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "First Intimacy",
+    "label": "First Time Intimacy",
     "keywords": [
       "sexual",
       "intimate",
@@ -753,7 +752,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Research & Preparation",
+    "label": "Preparing for Work",
     "keywords": [
       "ready",
       "aware",
@@ -769,9 +768,10 @@
   },
   "44": {
     "categories": {
-      "J_family_support": 1.0
+      "J_family_support": 0.5,
+      "R1_protectiveness": 0.5
     },
-    "label": "Proud Stepmom",
+    "label": "Protective Stepmom",
     "keywords": [
       "stepmother",
       "moms",
@@ -787,9 +787,9 @@
   },
   "45": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Growling Bear Hug",
+    "label": "Domestic Nesting and Toys",
     "keywords": [
       "thing",
       "things",
@@ -807,7 +807,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Rugged Glance",
+    "label": "Flirtatious Glances and Attraction",
     "keywords": [
       "pickup",
       "oaks",
@@ -823,10 +823,9 @@
   },
   "47": {
     "categories": {
-      "O_appearance_aesthetics": 0.75,
-      "S_scene_anchor": 0.25
+      "S_scene_anchor": 1.0
     },
-    "label": "Hair Play",
+    "label": "Beauty Routines and Allure",
     "keywords": [
       "hair",
       "makeup",
@@ -844,7 +843,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Deep Breaths",
+    "label": "Calming Breaths in Stressful Moments",
     "keywords": [
       "breath",
       "lungs",
@@ -860,10 +859,10 @@
   },
   "49": {
     "categories": {
-      "J_family_support": 0.5,
-      "M_health_recovery": 0.5
+      "M_health_recovery": 0.5,
+      "J_family_support": 0.5
     },
-    "label": "New Parent Intimacy",
+    "label": "{\n  \"label\": \"New Parenthood and Babysitter\"",
     "keywords": [
       "babysitter",
       "healthy",
@@ -882,7 +881,7 @@
       "Q_miscommunication": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Careful Mind-Reading",
+    "label": "Careful Consideration",
     "keywords": [
       "idea",
       "help",
@@ -898,10 +897,10 @@
   },
   "51": {
     "categories": {
-      "J_family_support": 0.5,
-      "M_health_recovery": 0.5
+      "M_health_recovery": 0.5,
+      "J_family_support": 0.5
     },
-    "label": "Tremulous Reveal",
+    "label": "Medical Crisis and Support",
     "keywords": [
       "clinic",
       "tremulous",
@@ -919,7 +918,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Masculine Conquest",
+    "label": "Unethical Nerd's Awkward Conquest",
     "keywords": [
       "event",
       "masculine",
@@ -935,10 +934,9 @@
   },
   "53": {
     "categories": {
-      "D_luxury_wealth_status": 0.7,
-      "O_appearance_aesthetics": 0.3
+      "O_appearance_aesthetics": 1.0
     },
-    "label": "Lacy Lingerie",
+    "label": "Fashion Showcase",
     "keywords": [
       "dress",
       "dresses",
@@ -956,7 +954,7 @@
     "categories": {
       "P_tech_media": 1.0
     },
-    "label": "Ringing Phones",
+    "label": "Persistent Communication",
     "keywords": [
       "rang",
       "message",
@@ -972,10 +970,10 @@
   },
   "55": {
     "categories": {
-      "P_tech_media": 0.5,
-      "C_explicit": 0.5
+      "C_explicit": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Sexual Dominatrix",
+    "label": "BDSM Relationship Dynamics",
     "keywords": [
       "gratification",
       "means",
@@ -993,7 +991,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Sleep Deprivation",
+    "label": "Sleep Deprivation and Nighttime Intimacy",
     "keywords": [
       "sleep",
       "asleep",
@@ -1011,7 +1009,7 @@
     "categories": {
       "H_domestic_nesting": 1.0
     },
-    "label": "Bathroom Hygiene",
+    "label": "Bathroom Intimacy",
     "keywords": [
       "shower",
       "bathroom",
@@ -1027,10 +1025,9 @@
   },
   "58": {
     "categories": {
-      "I_humor_lightness": 0.5,
-      "O_appearance_aesthetics": 0.5
+      "O_appearance_aesthetics": 1.0
     },
-    "label": "Sweet Spectacle",
+    "label": "Attractive Spectator",
     "keywords": [
       "stunning",
       "attractive",
@@ -1050,7 +1047,7 @@
       "O_appearance_aesthetics": 0.3333333333333333,
       "P_tech_media": 0.3333333333333333
     },
-    "label": "Playful Banter",
+    "label": "Non-Verbal Communication",
     "keywords": [
       "smiles",
       "replies",
@@ -1068,7 +1065,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Boardroom Tension",
+    "label": "Office Romance",
     "keywords": [
       "ceos",
       "employee",
@@ -1086,7 +1083,7 @@
     "categories": {
       "T_repair_apology": 1.0
     },
-    "label": "Apology & Forgiveness",
+    "label": "Apology and Forgiveness",
     "keywords": [
       "forgive",
       "sorry",
@@ -1105,7 +1102,7 @@
       "Q_miscommunication": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Months-Long Deception",
+    "label": "Careful Courtship: Learning and Deception",
     "keywords": [
       "months",
       "chess",
@@ -1123,7 +1120,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Deceptive Lies",
+    "label": "Deceptive Lovers",
     "keywords": [
       "lie",
       "lies",
@@ -1142,7 +1139,7 @@
       "E_threat_danger": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Murder Mystery Date",
+    "label": "Murder Mystery Investigation",
     "keywords": [
       "questions",
       "answers",
@@ -1160,7 +1157,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Redemption Claim",
+    "label": "Redemption and Correcting Past Mistakes",
     "keywords": [
       "correct",
       "redemption",
@@ -1178,7 +1175,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Naughty Friendship",
+    "label": "Uncomfortable Encounters",
     "keywords": [
       "giggled",
       "friend",
@@ -1195,11 +1192,11 @@
   "67": {
     "categories": {
       "I_humor_lightness": 0.25,
-      "A_commitment_hea": 0.25,
       "O_appearance_aesthetics": 0.25,
-      "J_family_support": 0.25
+      "J_family_support": 0.25,
+      "A_commitment_hea": 0.25
     },
-    "label": "Aisle Stares",
+    "label": "Married Couple's Affectionate Moments",
     "keywords": [
       "nods",
       "tenses",
@@ -1217,7 +1214,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Grand Century Knock",
+    "label": "Historical Romance: Grand Estates",
     "keywords": [
       "percent",
       "scale",
@@ -1236,7 +1233,7 @@
       "M_health_recovery": 0.5,
       "F_negative_affect": 0.5
     },
-    "label": "Guilty Hurts",
+    "label": "Physical Pain and Guilt",
     "keywords": [
       "hurts",
       "guilt",
@@ -1254,7 +1251,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Purring Rescue Kittens",
+    "label": "Rescuing Hairless Kittens",
     "keywords": [
       "kittens",
       "delivery",
@@ -1272,7 +1269,7 @@
     "categories": {
       "P_tech_media": 1.0
     },
-    "label": "Ringing Phones",
+    "label": "Ringing Cellphone",
     "keywords": [
       "pocket",
       "cellphone",
@@ -1290,7 +1287,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Corporate Hockey Offer",
+    "label": "Corporate Hockey Rivalry",
     "keywords": [
       "hockey",
       "game",
@@ -1306,9 +1303,9 @@
   },
   "73": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Rare Emotional Intimacy",
+    "label": "Rare Love in Desolate Places",
     "keywords": [
       "rarity",
       "desolate",
@@ -1326,7 +1323,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Stadium Stun",
+    "label": "Sports Romance",
     "keywords": [
       "fact",
       "second",
@@ -1342,10 +1339,9 @@
   },
   "75": {
     "categories": {
-      "H_domestic_nesting": 0.5,
-      "B_mutual_intimacy": 0.5
+      "H_domestic_nesting": 1.0
     },
-    "label": "Bedroom Intimacy",
+    "label": "Intimate Spaces",
     "keywords": [
       "bed",
       "bedroom",
@@ -1363,7 +1359,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Breathy Whispers",
+    "label": "Whispered Secrets and Intimate Promises",
     "keywords": [
       "whisper",
       "murmur",
@@ -1381,7 +1377,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Puzzled Decision-Making",
+    "label": "Deliberating Couple",
     "keywords": [
       "tone",
       "plans",
@@ -1397,10 +1393,11 @@
   },
   "78": {
     "categories": {
-      "O_appearance_aesthetics": 0.5,
-      "A_commitment_hea": 0.5
+      "O_appearance_aesthetics": 0.3333333333333333,
+      "B_mutual_intimacy": 0.3333333333333333,
+      "A_commitment_hea": 0.3333333333333333
     },
-    "label": "Tense Engagement",
+    "label": "Engaged Couple's Tender Moments",
     "keywords": [
       "cups",
       "gaze",
@@ -1418,7 +1415,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Mutters of Relief",
+    "label": "Emotional Grandmother's Reaction",
     "keywords": [
       "rule",
       "grandmother",
@@ -1436,7 +1433,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Hockey Goalie's Lovesick Offs",
+    "label": "Sports Romance: Hockey Players and Office Lovesick",
     "keywords": [
       "hockey",
       "players",
@@ -1454,7 +1451,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Family Dynamics",
+    "label": "Family Gathering",
     "keywords": [
       "parents",
       "children",
@@ -1473,7 +1470,7 @@
       "F_negative_affect": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Fear and Anxiety",
+    "label": "Heroine's Fears and Anxieties",
     "keywords": [
       "scared",
       "afraid",
@@ -1491,7 +1488,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Animal Encounter",
+    "label": "Animal Companions",
     "keywords": [
       "goats",
       "dogs",
@@ -1507,10 +1504,10 @@
   },
   "84": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "E_threat_danger": 0.5
+      "E_threat_danger": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Narcissistic Drama",
+    "label": "Narcissistic Drama in Marriage",
     "keywords": [
       "behavior",
       "narcissistic",
@@ -1526,9 +1523,9 @@
   },
   "85": {
     "categories": {
-      "G_rituals_gifts": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Honest Victory Celebration",
+    "label": "Sports Competition and Triumph",
     "keywords": [
       "course",
       "honest",
@@ -1544,9 +1541,9 @@
   },
   "86": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "N_separation_reunion": 1.0
     },
-    "label": "Monthly Rent",
+    "label": "Apartment Hunting",
     "keywords": [
       "rent",
       "lease",
@@ -1564,7 +1561,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Caveman's Unsolicited Advance",
+    "label": "Unwanted Attention in the Dating World",
     "keywords": [
       "caveman",
       "league",
@@ -1582,7 +1579,7 @@
     "categories": {
       "T_repair_apology": 1.0
     },
-    "label": "Apologetic Performance",
+    "label": "Apologetic Performance Review",
     "keywords": [
       "performance",
       "sorry",
@@ -1598,9 +1595,9 @@
   },
   "89": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "E_threat_danger": 1.0
     },
-    "label": "Perverse Survival Method",
+    "label": "Dark Methods of Survival",
     "keywords": [
       "hate",
       "dislike",
@@ -1618,7 +1615,7 @@
     "categories": {
       "M_health_recovery": 1.0
     },
-    "label": "Medical Intimacy",
+    "label": "Medical Professionals and Hospital Scenes",
     "keywords": [
       "hospital",
       "surgeon",
@@ -1636,7 +1633,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Vivid Flashbacks",
+    "label": "Repressed Memories",
     "keywords": [
       "memories",
       "memory",
@@ -1654,7 +1651,7 @@
     "categories": {
       "H_domestic_nesting": 1.0
     },
-    "label": "Cozy Interior",
+    "label": "Cozy Home Interior",
     "keywords": [
       "furniture",
       "fireplace",
@@ -1670,11 +1667,11 @@
   },
   "93": {
     "categories": {
-      "J_family_support": 0.3333333333333333,
       "T_repair_apology": 0.3333333333333333,
-      "F_negative_affect": 0.3333333333333333
+      "F_negative_affect": 0.3333333333333333,
+      "J_family_support": 0.3333333333333333
     },
-    "label": "Shameless Apologies",
+    "label": "Family Feuds and Heartfelt Apologies",
     "keywords": [
       "parents",
       "apologies",
@@ -1692,7 +1689,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Raging Tempers",
+    "label": "Angry Outbursts",
     "keywords": [
       "anger",
       "rage",
@@ -1711,7 +1708,7 @@
       "M_health_recovery": 0.5,
       "K_work_corporate": 0.5
     },
-    "label": "Evening Client Trauma",
+    "label": "Workaholic Boss's Evening Routine",
     "keywords": [
       "worlds",
       "spending",
@@ -1729,7 +1726,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Husky Whispers",
+    "label": "Whispered Promises",
     "keywords": [
       "whispers",
       "whisper",
@@ -1747,7 +1744,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Fluttering Eyelids",
+    "label": "Eyes Fluttering in Love",
     "keywords": [
       "closed",
       "eyelids",
@@ -1766,7 +1763,7 @@
       "J_family_support": 0.5,
       "A_commitment_hea": 0.5
     },
-    "label": "Engagement Conversation",
+    "label": "Engagement Announcement and Parental Concerns",
     "keywords": [
       "engagement",
       "pudding",
@@ -1784,7 +1781,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "**Dirty Confessions**",
+    "label": "Desirable Vices and Regrets",
     "keywords": [
       "vacuum",
       "mezcal",
@@ -1800,10 +1797,10 @@
   },
   "100": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "G_rituals_gifts": 0.5
+      "G_rituals_gifts": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Yellow Bouquet",
+    "label": "Romantic Gestures with Flowers",
     "keywords": [
       "roses",
       "flowers",
@@ -1819,9 +1816,10 @@
   },
   "101": {
     "categories": {
-      "J_family_support": 1.0
+      "I_humor_lightness": 0.5,
+      "J_family_support": 0.5
     },
-    "label": "Tragic Love Letters",
+    "label": "Witty Writer's Love Letters",
     "keywords": [
       "library",
       "letters",
@@ -1837,9 +1835,9 @@
   },
   "102": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "O_appearance_aesthetics": 1.0
     },
-    "label": "Hair Tugging Foreplay",
+    "label": "Tense Hair Tugging",
     "keywords": [
       "hair",
       "strands",
@@ -1856,9 +1854,9 @@
   "103": {
     "categories": {
       "H_domestic_nesting": 0.5,
-      "C_explicit": 0.5
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Wet Nude Encounter",
+    "label": "Explicit Intimacy",
     "keywords": [
       "nude",
       "nudes",
@@ -1876,7 +1874,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Pigeon Feeding",
+    "label": "Sustainable Living with Family",
     "keywords": [
       "pigeon",
       "helpful",
@@ -1894,7 +1892,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Popcorn Hurry",
+    "label": "Urban Exploration and Spontaneous Dates",
     "keywords": [
       "hurry",
       "pro",
@@ -1912,7 +1910,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Nighttime Confession",
+    "label": "Simple Nighttime Routine",
     "keywords": [
       "lines",
       "easy",
@@ -1926,7 +1924,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "True Matter Dispute",
+    "label": "Debating the Meaning of Love",
     "keywords": [
       "matter",
       "sense",
@@ -1944,7 +1942,7 @@
     "categories": {
       "A_commitment_hea": 1.0
     },
-    "label": "Eternal Love",
+    "label": "Eternal Love and Commitment",
     "keywords": [
       "fall",
       "true",
@@ -1960,8 +1958,8 @@
   },
   "109": {
     "categories": {
-      "D_luxury_wealth_status": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "D_luxury_wealth_status": 0.5
     },
     "label": "Eligible Millionaire",
     "keywords": [
@@ -1979,9 +1977,10 @@
   },
   "110": {
     "categories": {
-      "M_health_recovery": 1.0
+      "M_health_recovery": 0.5,
+      "T_repair_apology": 0.5
     },
-    "label": "Feverish Argument",
+    "label": "Confused Lover's Apology",
     "keywords": [
       "listening",
       "reply",
@@ -1999,7 +1998,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Dreamy Nightmares",
+    "label": "Disturbing Dreams and Fantasies",
     "keywords": [
       "dreams",
       "nightmare",
@@ -2015,9 +2014,9 @@
   },
   "112": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Icy Kiss",
+    "label": "Snowy Weather",
     "keywords": [
       "rain",
       "winter",
@@ -2033,11 +2032,11 @@
   },
   "113": {
     "categories": {
+      "F_negative_affect": 0.3333333333333333,
       "J_family_support": 0.3333333333333333,
-      "P_tech_media": 0.3333333333333333,
-      "F_negative_affect": 0.3333333333333333
+      "P_tech_media": 0.3333333333333333
     },
-    "label": "Tabloid Scandal",
+    "label": "{ \"label\": \"Determined Sister's",
     "keywords": [
       "drugs",
       "curious",
@@ -2053,9 +2052,9 @@
   },
   "114": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "A_commitment_hea": 1.0
     },
-    "label": "Reluctant Choices",
+    "label": "Reluctant Proposal",
     "keywords": [
       "choices",
       "deter",
@@ -2073,7 +2072,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Celebrity Golf Break",
+    "label": "Celebrity Golf Weekend",
     "keywords": [
       "golf",
       "years",
@@ -2089,9 +2088,9 @@
   },
   "116": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "A_commitment_hea": 1.0
     },
-    "label": "Relatable Imposter",
+    "label": "Marriage of Convenience",
     "keywords": [
       "important",
       "condition",
@@ -2109,7 +2108,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Constant Hatred",
+    "label": "Constant Criticism",
     "keywords": [
       "hate",
       "dislike",
@@ -2127,7 +2126,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Public Relations Intimacy",
+    "label": "Public Relations and Image Management",
     "keywords": [
       "publicity",
       "knows",
@@ -2143,10 +2142,11 @@
   },
   "119": {
     "categories": {
-      "I_humor_lightness": 0.5,
-      "B_mutual_intimacy": 0.5
+      "I_humor_lightness": 0.3333333333333333,
+      "B_mutual_intimacy": 0.3333333333333333,
+      "P_tech_media": 0.3333333333333333
     },
-    "label": "Unapologetic Whispers",
+    "label": "Flirtatious Communication and Body Language",
     "keywords": [
       "snaps",
       "replies",
@@ -2164,7 +2164,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Strung Words",
+    "label": "Inability to Express Love",
     "keywords": [
       "string",
       "parts",
@@ -2176,7 +2176,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Convenient Pairing",
+    "label": "Smooth Travel Planning",
     "keywords": [
       "better",
       "easier",
@@ -2192,9 +2192,10 @@
   },
   "122": {
     "categories": {
-      "E_threat_danger": 1.0
+      "F_negative_affect": 0.5,
+      "E_threat_danger": 0.5
     },
-    "label": "Fight Over Information",
+    "label": "Dangerous Informant Mission",
     "keywords": [
       "mission",
       "information",
@@ -2211,10 +2212,10 @@
   "123": {
     "categories": {
       "K_work_corporate": 0.3333333333333333,
-      "R1_protectiveness": 0.3333333333333333,
-      "E_threat_danger": 0.3333333333333333
+      "E_threat_danger": 0.3333333333333333,
+      "R1_protectiveness": 0.3333333333333333
     },
-    "label": "Police Encounter",
+    "label": "Law Enforcement and Protection",
     "keywords": [
       "police",
       "cops",
@@ -2233,7 +2234,7 @@
       "J_family_support": 0.5,
       "A_commitment_hea": 0.5
     },
-    "label": "Engagement Surprise",
+    "label": "Surprise Engagement",
     "keywords": [
       "engagement",
       "stunt",
@@ -2251,7 +2252,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Airport Encounter",
+    "label": "Air Travel",
     "keywords": [
       "flight",
       "plane",
@@ -2270,7 +2271,7 @@
       "O_appearance_aesthetics": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Sardonic Glance",
+    "label": "{ \"label\": \"Sarcastic Rivalry",
     "keywords": [
       "jackass",
       "hog",
@@ -2288,7 +2289,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Emotional Panic",
+    "label": "Emotional Turmoil",
     "keywords": [
       "panic",
       "emotions",
@@ -2306,7 +2307,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Easy Target",
+    "label": "Simple Tasks and Comparisons",
     "keywords": [
       "easy",
       "simple",
@@ -2324,7 +2325,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Condom Mishap",
+    "label": "Condom Management",
     "keywords": [
       "condom",
       "condoms",
@@ -2340,11 +2341,9 @@
   },
   "130": {
     "categories": {
-      "J_family_support": 0.3333333333333333,
-      "Q_miscommunication": 0.3333333333333333,
-      "B_mutual_intimacy": 0.3333333333333333
+      "J_family_support": 1.0
     },
-    "label": "Whispered Doubts",
+    "label": "Reluctant Suitor's Persuasion",
     "keywords": [
       "prospect",
       "unconvinced",
@@ -2360,9 +2359,9 @@
   },
   "131": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "R1_protectiveness": 1.0
     },
-    "label": "Intense Pleading",
+    "label": "Intimate Confessions and Protective Bodyguards",
     "keywords": [
       "grunts",
       "tenses",
@@ -2380,7 +2379,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Tongue & Thumb Play",
+    "label": "Erotic Breast Play",
     "keywords": [
       "nipple",
       "nipples",
@@ -2398,7 +2397,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Necking on Campus",
+    "label": "Curious Crush on Campus Philanthropist",
     "keywords": [
       "necks",
       "curious",
@@ -2416,7 +2415,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Sunset Stroll",
+    "label": "Beachside Romance",
     "keywords": [
       "sun",
       "sky",
@@ -2434,7 +2433,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Thrilling Diversion",
+    "label": "Exciting Diversions with Guys",
     "keywords": [
       "fun",
       "excited",
@@ -2450,9 +2449,9 @@
   },
   "137": {
     "categories": {
-      "J_family_support": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Busy Parenting",
+    "label": "Public Figure's Love Life",
     "keywords": [
       "offspring",
       "protocol",
@@ -2470,7 +2469,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Sailor's Pact",
+    "label": "Sports and Games in Romance",
     "keywords": [
       "sailors",
       "archery",
@@ -2488,7 +2487,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Stammered Questions",
+    "label": "Nervous Public Speaking",
     "keywords": [
       "brass",
       "stammers",
@@ -2504,9 +2503,9 @@
   },
   "140": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "K_work_corporate": 1.0
     },
-    "label": "Cheeky Stares",
+    "label": "Awkward Office Interactions",
     "keywords": [
       "stammers",
       "stares",
@@ -2524,7 +2523,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Rush of Passion",
+    "label": "Urgent Pursuit",
     "keywords": [
       "rush"
     ]
@@ -2534,7 +2533,7 @@
       "H_domestic_nesting": 0.5,
       "D_luxury_wealth_status": 0.5
     },
-    "label": "Stainless Countertop",
+    "label": "Kitchen Nesting",
     "keywords": [
       "kitchen",
       "fridge",
@@ -2552,7 +2551,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Small Talk",
+    "label": "Small Talk and Messaging",
     "keywords": [
       "conversation",
       "talk",
@@ -2568,9 +2567,9 @@
   },
   "144": {
     "categories": {
-      "G_rituals_gifts": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Dating App Dilemma",
+    "label": "Navigating Dating Dilemmas",
     "keywords": [
       "dates",
       "official",
@@ -2588,7 +2587,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Revolutionary Romance",
+    "label": "Revolutionary Romance: Supplication and Purpose",
     "keywords": [
       "course",
       "options",
@@ -2607,7 +2606,7 @@
       "H_domestic_nesting": 0.5,
       "B_mutual_intimacy": 0.5
     },
-    "label": "Bedtime Intimacy",
+    "label": "Cozy Bedtime Intimacy",
     "keywords": [
       "bed",
       "mattress",
@@ -2625,7 +2624,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Fortuitous Encounter",
+    "label": "Fortunate in Love",
     "keywords": [
       "luck",
       "luckiest",
@@ -2643,7 +2642,7 @@
     "categories": {
       "G_rituals_gifts": 1.0
     },
-    "label": "Victorian Holiday Celebration",
+    "label": "Holiday Celebrations",
     "keywords": [
       "holiday",
       "parties",
@@ -2659,10 +2658,10 @@
   },
   "149": {
     "categories": {
-      "P_tech_media": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Manager's Regret",
+    "label": "Disappointed Colleagues",
     "keywords": [
       "manager",
       "recall",
@@ -2680,7 +2679,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Industry Rivalry",
+    "label": "Dramatic Deflections in Skincare Industry",
     "keywords": [
       "industries",
       "fault",
@@ -2696,10 +2695,10 @@
   },
   "151": {
     "categories": {
-      "P_tech_media": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Cool Negotiation",
+    "label": "Business Negotiations",
     "keywords": [
       "talk",
       "trickle",
@@ -2718,7 +2717,7 @@
       "J_family_support": 0.5,
       "O_appearance_aesthetics": 0.5
     },
-    "label": "Market Glance",
+    "label": "Unsure Glances at the Market",
     "keywords": [
       "gaze",
       "hesitates",
@@ -2736,7 +2735,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Strange Encounter",
+    "label": "Unusual Situations",
     "keywords": [
       "odd",
       "confusing",
@@ -2770,9 +2769,10 @@
   },
   "155": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "F_negative_affect": 0.5,
+      "B_mutual_intimacy": 0.5
     },
-    "label": "Hushed Whispers",
+    "label": "Whispered Intimacy and Fear",
     "keywords": [
       "whispers",
       "whisper",
@@ -2790,7 +2790,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Trust Instincts",
+    "label": "Trust Issues and Instincts",
     "keywords": [
       "trust",
       "trustworthy",
@@ -2809,7 +2809,7 @@
       "K_work_corporate": 0.75,
       "S_scene_anchor": 0.25
     },
-    "label": "Barroom Moment",
+    "label": "Unexpected Barroom Encounter",
     "keywords": [
       "segue",
       "wordless",
@@ -2825,9 +2825,10 @@
   },
   "158": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "N_separation_reunion": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Breathless Stare",
+    "label": "Unexpected Reunion in the Hamptons",
     "keywords": [
       "truffle",
       "jaw",
@@ -2843,9 +2844,10 @@
   },
   "159": {
     "categories": {
-      "J_family_support": 1.0
+      "J_family_support": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Plea During Playtime",
+    "label": "Nervous Proposal",
     "keywords": [
       "plea",
       "innings",
@@ -2861,10 +2863,9 @@
   },
   "160": {
     "categories": {
-      "F_negative_affect": 0.5,
-      "B_mutual_intimacy": 0.5
+      "F_negative_affect": 1.0
     },
-    "label": "Tearful Foreplay",
+    "label": "Anxious Anticipation",
     "keywords": [
       "tears",
       "panic",
@@ -2882,7 +2883,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Brilliant Actor's Qualities",
+    "label": "Admiring the Leading Man",
     "keywords": [
       "actor",
       "nicest",
@@ -2898,9 +2899,10 @@
   },
   "162": {
     "categories": {
-      "C_explicit": 1.0
+      "C_explicit": 0.5,
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Lace-Covered Curves",
+    "label": "Descriptive Fashion and Intimacy",
     "keywords": [
       "skirt",
       "dress",
@@ -2918,7 +2920,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Redemption Orgies",
+    "label": "Redemption and Second Chances",
     "keywords": [
       "redemption",
       "contemporary",
@@ -2936,7 +2938,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Electric Glances",
+    "label": "Electric Moments of Connection",
     "keywords": [
       "gazes",
       "moment",
@@ -2954,7 +2956,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Huskier Whispers",
+    "label": "Hushed Whispers and Breaking Voices",
     "keywords": [
       "cracks",
       "muffled",
@@ -2973,7 +2975,7 @@
       "H_domestic_nesting": 0.5,
       "F_negative_affect": 0.5
     },
-    "label": "Angry Outburst",
+    "label": "Angry Confrontation in the Bathroom",
     "keywords": [
       "yell",
       "shouting",
@@ -2991,7 +2993,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Intense Climax",
+    "label": "Intense Sexual Pleasure",
     "keywords": [
       "orgasms",
       "climax",
@@ -3009,7 +3011,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Mind-Changing Conversation",
+    "label": "Relationship Transformation",
     "keywords": [
       "change",
       "changes",
@@ -3027,7 +3029,7 @@
     "categories": {
       "D_luxury_wealth_status": 1.0
     },
-    "label": "Risky Temptation",
+    "label": "High-Stakes Temptation",
     "keywords": [
       "risky",
       "stake",
@@ -3043,9 +3045,9 @@
   },
   "170": {
     "categories": {
-      "T_repair_apology": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Midday Apologies",
+    "label": "Reluctant Admissions",
     "keywords": [
       "winces",
       "thanks",
@@ -3061,10 +3063,9 @@
   },
   "171": {
     "categories": {
-      "H_domestic_nesting": 0.5,
-      "B_mutual_intimacy": 0.5
+      "H_domestic_nesting": 1.0
     },
-    "label": "Bedtime Foreplay",
+    "label": "Intimate Bedtime",
     "keywords": [
       "bed",
       "mattress",
@@ -3082,7 +3083,7 @@
     "categories": {
       "E_threat_danger": 1.0
     },
-    "label": "Unrecognizable Stalker",
+    "label": "Unconventional Love: Stalker's Obsession",
     "keywords": [
       "unrecognizable",
       "exception",
@@ -3100,7 +3101,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Friends with Benefits",
+    "label": "Best Friends to Lovers",
     "keywords": [
       "friendship",
       "friend",
@@ -3118,7 +3119,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Despicable Scenario",
+    "label": "Despicable Driving Scenario",
     "keywords": [
       "worse",
       "worst",
@@ -3134,9 +3135,9 @@
   },
   "175": {
     "categories": {
-      "S_scene_anchor": 1.0
+      "F_negative_affect": 1.0
     },
-    "label": "Underwater Glance",
+    "label": "Underwater Misadventures",
     "keywords": [
       "underwater",
       "worst",
@@ -3152,9 +3153,9 @@
   },
   "176": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "F_negative_affect": 1.0
     },
-    "label": "Throat Tightness",
+    "label": "Physical Discomfort and Anxiety",
     "keywords": [
       "throat",
       "lump",
@@ -3172,7 +3173,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Cosmic Command",
+    "label": "Powerful Enforcer's Command",
     "keywords": [
       "command",
       "strong",
@@ -3208,7 +3209,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Bathhouse Flirtation",
+    "label": "Relaxing at the Harem: Bathing and Conversation",
     "keywords": [
       "bathing",
       "labor",
@@ -3226,7 +3227,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Stratospheric Ode",
+    "label": "Love's Geometry: Courtship Assurances",
     "keywords": [
       "ode",
       "geometry",
@@ -3244,7 +3245,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Glacial Glare",
+    "label": "Immovable Hero",
     "keywords": [
       "grunt",
       "expressionless",
@@ -3260,10 +3261,9 @@
   },
   "182": {
     "categories": {
-      "B_mutual_intimacy": 0.75,
-      "S_scene_anchor": 0.25
+      "B_mutual_intimacy": 1.0
     },
-    "label": "Tough Cheek Caress",
+    "label": "Tender Touch",
     "keywords": [
       "tough",
       "cheeks"
@@ -3271,9 +3271,9 @@
   },
   "183": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "N_separation_reunion": 1.0
     },
-    "label": "Divided Hearts",
+    "label": "Divorce and Separation",
     "keywords": [
       "division"
     ]
@@ -3282,7 +3282,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Husky Whispers",
+    "label": "Rough and Soft Voice",
     "keywords": [
       "low",
       "lowers",
@@ -3300,7 +3300,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Sensual Thrill",
+    "label": "Romantic Praise and Adoration",
     "keywords": [
       "awesome",
       "wonderful",
@@ -3318,7 +3318,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Political Strategy Session",
+    "label": "Political Succession Planning",
     "keywords": [
       "plan",
       "plans",
@@ -3334,9 +3334,9 @@
   },
   "188": {
     "categories": {
-      "K_work_corporate": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Deal Negotiation",
+    "label": "Authentic Struggle vs. Fake Relationships",
     "keywords": [
       "deal",
       "authentic",
@@ -3354,7 +3354,7 @@
     "categories": {
       "G_rituals_gifts": 1.0
     },
-    "label": "Weekend Encounter",
+    "label": "Upcoming Holidays and Weekends",
     "keywords": [
       "tomorrow",
       "weekend",
@@ -3370,9 +3370,10 @@
   },
   "190": {
     "categories": {
-      "P_tech_media": 1.0
+      "G_rituals_gifts": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Religious Intimacy",
+    "label": "Religious Romance and Archaic Rituals",
     "keywords": [
       "et",
       "religion",
@@ -3390,7 +3391,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Karaoke Client Meeting",
+    "label": "Business Trip Flirtation",
     "keywords": [
       "meeting",
       "karaoke",
@@ -3408,7 +3409,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Casual Encounters",
+    "label": "Casual Encounters and Priorities",
     "keywords": [
       "sashimi",
       "fixable",
@@ -3426,7 +3427,7 @@
     "categories": {
       "G_rituals_gifts": 1.0
     },
-    "label": "Birthday Surprise",
+    "label": "Annoyed Friend Interferes with Lovey-Dovey Couple",
     "keywords": [
       "yells",
       "dopey",
@@ -3444,7 +3445,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Author Appreciation",
+    "label": "Author's Note and Series Information",
     "keywords": [
       "authors",
       "acknowledgments",
@@ -3462,7 +3463,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Gritted Breakthrough",
+    "label": "Climactic Decision",
     "keywords": [
       "standards",
       "decision",
@@ -3481,7 +3482,7 @@
       "D_luxury_wealth_status": 0.7,
       "O_appearance_aesthetics": 0.3
     },
-    "label": "Hollywood Gaze",
+    "label": "Hollywood Heartthrob",
     "keywords": [
       "attractive",
       "refined",
@@ -3499,7 +3500,7 @@
     "categories": {
       "D_luxury_wealth_status": 1.0
     },
-    "label": "Margarita Closure",
+    "label": "Post-Breakup Reflection and Drinking",
     "keywords": [
       "closure",
       "margaritas",
@@ -3517,7 +3518,7 @@
     "categories": {
       "G_rituals_gifts": 1.0
     },
-    "label": "Holiday Flirtation",
+    "label": "Amused Protector on Holiday",
     "keywords": [
       "growls",
       "stiffens",
@@ -3535,7 +3536,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Apprehensive Soulmates",
+    "label": "Cautious Soulmates",
     "keywords": [
       "case",
       "password",
@@ -3551,11 +3552,12 @@
   },
   "200": {
     "categories": {
-      "J_family_support": 0.3333333333333333,
-      "F_negative_affect": 0.3333333333333333,
-      "E_threat_danger": 0.3333333333333333
+      "F_negative_affect": 0.25,
+      "J_family_support": 0.25,
+      "E_threat_danger": 0.25,
+      "R1_protectiveness": 0.25
     },
-    "label": "Older Sister's Secret",
+    "label": "Protective Siblings and Dangerous Secrets",
     "keywords": [
       "sister",
       "niece",
@@ -3591,7 +3593,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Historical Rivalry",
+    "label": "Historical Comedy of Errors",
     "keywords": [
       "history",
       "hatred",
@@ -3609,7 +3611,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Incessant Revulsion",
+    "label": "Disgusted by Coworker's Habits on Bahamas Trip",
     "keywords": [
       "revulsion",
       "guests",
@@ -3627,7 +3629,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Silly Forgetfulness",
+    "label": "Forgetful Friends and Silly Nights",
     "keywords": [
       "forgetting",
       "silliness",
@@ -3645,7 +3647,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Rule-Breaking Desire",
+    "label": "Breaking Rules for Passion",
     "keywords": [
       "fuckup",
       "rule",
@@ -3661,7 +3663,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Sultry Rivalry",
+    "label": "Author Rivalry and Decision Making",
     "keywords": [
       "audience",
       "formidable",
@@ -3679,7 +3681,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Earthy Scent",
+    "label": "Masculine Scent and Aroma",
     "keywords": [
       "scent",
       "cologne",
@@ -3697,7 +3699,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Harem's Explicit Reward",
+    "label": "Explicit Harem Encounters",
     "keywords": [
       "desperate",
       "harem",
@@ -3715,7 +3717,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Clan Obsession",
+    "label": "Clan Heir's Obsession",
     "keywords": [
       "eldest",
       "clan",
@@ -3731,10 +3733,10 @@
   },
   "210": {
     "categories": {
-      "A_commitment_hea": 0.5,
-      "N_separation_reunion": 0.5
+      "N_separation_reunion": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Reunion Confessions",
+    "label": "Pushy Ex-Lover's Unwanted Reunion",
     "keywords": [
       "ensemble",
       "reunion",
@@ -3752,7 +3754,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Blonde Strands",
+    "label": "Descriptive Hair Styling",
     "keywords": [
       "hair",
       "blonde",
@@ -3768,10 +3770,10 @@
   },
   "212": {
     "categories": {
-      "P_tech_media": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Office Romance",
+    "label": "Office Work",
     "keywords": [
       "desk",
       "screen",
@@ -3789,7 +3791,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Ragged Breaths",
+    "label": "Anxious Breathing",
     "keywords": [
       "breath",
       "hitches",
@@ -3807,7 +3809,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Naughty Interrogation",
+    "label": "Evasive Answers to Naughty Questions",
     "keywords": [
       "question",
       "omg",
@@ -3823,11 +3825,11 @@
   },
   "215": {
     "categories": {
+      "F_negative_affect": 0.3333333333333333,
       "A_commitment_hea": 0.3333333333333333,
-      "R1_protectiveness": 0.3333333333333333,
-      "F_negative_affect": 0.3333333333333333
+      "R1_protectiveness": 0.3333333333333333
     },
-    "label": "Overprotective Gentlemen's Promise",
+    "label": "Overprotective Gentleman's Sudden Outburst",
     "keywords": [
       "upset",
       "worries",
@@ -3845,7 +3847,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Morbid Anniversaries",
+    "label": "Morbid Remembrance",
     "keywords": [
       "dead",
       "deaths",
@@ -3863,7 +3865,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Snarky Raincheck",
+    "label": "Tough Guy's Reluctant Sidekick",
     "keywords": [
       "snarky",
       "raincheck",
@@ -3881,7 +3883,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Feathered Antics",
+    "label": "Animal Antics",
     "keywords": [
       "pigeon",
       "birds",
@@ -3899,7 +3901,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Enviable Zing",
+    "label": "Academic Crush",
     "keywords": [
       "assignment",
       "humans",
@@ -3917,7 +3919,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Boat Moment",
+    "label": "Evening Boat Ride with a Consultant",
     "keywords": [
       "moment",
       "boat",
@@ -3936,7 +3938,7 @@
       "H_domestic_nesting": 0.5,
       "M_health_recovery": 0.5
     },
-    "label": "Quick Shower",
+    "label": "Bathroom Encounters",
     "keywords": [
       "shower",
       "bathroom",
@@ -3954,7 +3956,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Gratitude Sale",
+    "label": "Courtroom Drama",
     "keywords": [
       "trial",
       "sale",
@@ -3966,7 +3968,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Professional Undressing",
+    "label": "Professional Presentation Nerves",
     "keywords": [
       "work",
       "presentation",
@@ -3984,7 +3986,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Furtive Minutes",
+    "label": "Unreliable Partner at a Conference",
     "keywords": [
       "early",
       "minutes",
@@ -4002,7 +4004,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Scandalous Dance",
+    "label": "{\n  \"label\": \"Scandalous Pottery Adventure\"",
     "keywords": [
       "disco",
       "infinity",
@@ -4021,7 +4023,7 @@
       "F_negative_affect": 0.5,
       "K_work_corporate": 0.5
     },
-    "label": "Voyeuristic Race",
+    "label": "Office Drama and Sexual Tension",
     "keywords": [
       "scuffle",
       "destructive",
@@ -4037,11 +4039,10 @@
   },
   "228": {
     "categories": {
-      "A_commitment_hea": 0.3333333333333333,
-      "N_separation_reunion": 0.3333333333333333,
-      "K_work_corporate": 0.3333333333333333
+      "K_work_corporate": 0.5,
+      "A_commitment_hea": 0.5
     },
-    "label": "Homecoming Vow",
+    "label": "Home and Work Balance",
     "keywords": [
       "home",
       "edit",
@@ -4059,7 +4060,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Fascinated Gazes",
+    "label": "Fascinated Gaze",
     "keywords": [
       "gaze",
       "widen",
@@ -4077,7 +4078,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Wheelchair Fondness",
+    "label": "Disabled Love and Family",
     "keywords": [
       "cast",
       "wheelchair",
@@ -4113,7 +4114,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Tiger's Prize",
+    "label": "Competitive Bidding and Beginners' Luck",
     "keywords": [
       "firsthand",
       "blah",
@@ -4131,7 +4132,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Uppity Beauty",
+    "label": "Proud and Intelligent Love Interest",
     "keywords": [
       "attractive",
       "proud",
@@ -4149,7 +4150,7 @@
     "categories": {
       "E_threat_danger": 1.0
     },
-    "label": "Postcoital Witch",
+    "label": "Witchy Rivalry and Valentine's Day",
     "keywords": [
       "witch",
       "murdering",
@@ -4165,9 +4166,10 @@
   },
   "235": {
     "categories": {
-      "O_appearance_aesthetics": 1.0
+      "R2_jealousy": 0.5,
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Kingly Gaze",
+    "label": "Jealous Rivalry in Royal Circles",
     "keywords": [
       "gaze",
       "remnant",
@@ -4185,7 +4187,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Sarcastic Jokes",
+    "label": "Humorous Quips and Teasing",
     "keywords": [
       "joke",
       "funny",
@@ -4201,9 +4203,10 @@
   },
   "237": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "F_negative_affect": 0.5,
+      "E_threat_danger": 0.5
     },
-    "label": "Archery Rivalry",
+    "label": "Dangerous Archery Rivalry",
     "keywords": [
       "rioting",
       "volley",
@@ -4221,7 +4224,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Unspoken Attraction",
+    "label": "Loading and Pointing",
     "keywords": [
       "load",
       "point",
@@ -4232,7 +4235,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Tearful Embrace",
+    "label": "Tears of Emotional Overwhelm",
     "keywords": [
       "tears",
       "cheeks",
@@ -4250,7 +4253,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Career Opportunity",
+    "label": "Career Opportunities and Consequences",
     "keywords": [
       "years",
       "research",
@@ -4266,18 +4269,18 @@
   },
   "241": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "R1_protectiveness": 1.0
     },
-    "label": "First Touch",
+    "label": "Protective Hero",
     "keywords": [
       "start"
     ]
   },
   "242": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "K_work_corporate": 1.0
     },
-    "label": "Audacious Handshake",
+    "label": "Business Negotiations and Professional Interactions",
     "keywords": [
       "class",
       "handshake",
@@ -4295,7 +4298,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Fearless Ladies",
+    "label": "Fearless Lady's Epitome of Sophistication",
     "keywords": [
       "answer",
       "epitome",
@@ -4311,9 +4314,9 @@
   },
   "244": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Power Tool Intimacy",
+    "label": "Home Improvement and Domestic Nesting",
     "keywords": [
       "cordless",
       "drill",
@@ -4331,7 +4334,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Midnight Glance",
+    "label": "Midnight Countdown",
     "keywords": [
       "clock",
       "nightstand",
@@ -4347,9 +4350,10 @@
   },
   "246": {
     "categories": {
-      "O_appearance_aesthetics": 1.0
+      "O_appearance_aesthetics": 0.5,
+      "R1_protectiveness": 0.5
     },
-    "label": "Superhero's Gaze",
+    "label": "Superhero's Protective Stance",
     "keywords": [
       "wraps",
       "moves",
@@ -4367,7 +4371,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Statue's Embrace",
+    "label": "Wholesome Sisterly Bond",
     "keywords": [
       "statue",
       "sister",
@@ -4385,7 +4389,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Doomed Barn Dance",
+    "label": "Doomed Love in an Artistic Setting",
     "keywords": [
       "interpretation",
       "doom",
@@ -4403,7 +4407,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Prophetic Garage Encounter",
+    "label": "Rustic Prophecy and Garage Romance",
     "keywords": [
       "validity",
       "laminate",
@@ -4421,7 +4425,7 @@
     "categories": {
       "R1_protectiveness": 1.0
     },
-    "label": "Protective Conversations",
+    "label": "Protective Love Interest",
     "keywords": [
       "protector",
       "soul",
@@ -4439,7 +4443,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Press Conference Mojo",
+    "label": "Professional Rivalry and Instinctual Attraction",
     "keywords": [
       "press",
       "conference",
@@ -4457,7 +4461,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Sarcastic Retorts",
+    "label": "Sassy Retorts and Glare-offs",
     "keywords": [
       "retorts",
       "drawls",
@@ -4475,7 +4479,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Confused Question",
+    "label": "Confused Talents",
     "keywords": [
       "shrug",
       "stammer",
@@ -4493,7 +4497,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Horny Mistake",
+    "label": "Foolish Mistakes and Reckless Love",
     "keywords": [
       "mistake",
       "wrong",
@@ -4511,7 +4515,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Scorpion's Embrace",
+    "label": "Scorching Attraction",
     "keywords": [
       "hotter",
       "hots",
@@ -4529,7 +4533,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Awkward Silence",
+    "label": "Comic Misunderstandings",
     "keywords": [
       "wrong",
       "whack",
@@ -4547,7 +4551,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Lingering Scents",
+    "label": "Scented Love",
     "keywords": [
       "smell",
       "scent",
@@ -4565,7 +4569,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Sunset Parade",
+    "label": "Loner's Sunset Beading",
     "keywords": [
       "parade",
       "issues",
@@ -4581,8 +4585,8 @@
   },
   "259": {
     "categories": {
-      "P_tech_media": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "P_tech_media": 0.5
     },
     "label": "Office Work",
     "keywords": [
@@ -4600,9 +4604,9 @@
   },
   "260": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "K_work_corporate": 1.0
     },
-    "label": "Brief Shrug",
+    "label": "Casual Encounters and Brief Meetings",
     "keywords": [
       "shrug",
       "agreement",
@@ -4618,9 +4622,9 @@
   },
   "261": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "G_rituals_gifts": 1.0
     },
-    "label": "Nuzzle in Sedan",
+    "label": "Unconventional Romance Rituals",
     "keywords": [
       "uncompromising",
       "tendencies",
@@ -4638,7 +4642,7 @@
     "categories": {
       "I_humor_lightness": 1.0
     },
-    "label": "Clever Banter",
+    "label": "Witty Banter",
     "keywords": [
       "clever"
     ]
@@ -4647,7 +4651,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Riddled Rejection",
+    "label": "Riddles and Challenges",
     "keywords": [
       "question",
       "challenge",
@@ -4663,9 +4667,10 @@
   },
   "264": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "J_family_support": 0.5,
+      "R1_protectiveness": 0.5
     },
-    "label": "Middle School Melee",
+    "label": "Protective Father at School",
     "keywords": [
       "daughter",
       "squeeze",
@@ -4683,7 +4688,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Careful Tune-Up",
+    "label": "Careful Date Preparation",
     "keywords": [
       "checking",
       "record",
@@ -4701,7 +4706,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Explicit Photoshoot",
+    "label": "Sleazy Photographer's Explicit Intentions",
     "keywords": [
       "shots",
       "client",
@@ -4720,7 +4725,7 @@
       "M_health_recovery": 0.5,
       "K_work_corporate": 0.5
     },
-    "label": "Cocky Smirk",
+    "label": "Cocky Lover's Manipulation",
     "keywords": [
       "smirk",
       "fuss",
@@ -4738,7 +4743,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Diary Entries",
+    "label": "Flirtatious Interactions",
     "keywords": [
       "diary",
       "frowns",
@@ -4756,7 +4761,7 @@
     "categories": {
       "E_threat_danger": 1.0
     },
-    "label": "Stony Threat",
+    "label": "Threatening Rancher",
     "keywords": [
       "sideways",
       "stony",
@@ -4774,7 +4779,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Ugly Crying",
+    "label": "Emotional Breakdown",
     "keywords": [
       "tears",
       "sobbing",
@@ -4792,7 +4797,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Physical Conquest",
+    "label": "Power Dynamics in Romance",
     "keywords": [
       "conquest",
       "labor",
@@ -4810,7 +4815,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Curious Girlfriend's Assurance",
+    "label": "Curious Girlfriend Seeks Assurance",
     "keywords": [
       "girlfriend",
       "talk",
@@ -4826,11 +4831,11 @@
   },
   "273": {
     "categories": {
-      "T_repair_apology": 0.3333333333333333,
       "F_negative_affect": 0.3333333333333333,
+      "T_repair_apology": 0.3333333333333333,
       "B_mutual_intimacy": 0.3333333333333333
     },
-    "label": "Contrite Apology",
+    "label": "Remorseful Apology",
     "keywords": [
       "sorry",
       "apology",
@@ -4848,7 +4853,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Wild Night Out",
+    "label": "Exclusive Gentlemen's Club",
     "keywords": [
       "clubs",
       "members",
@@ -4866,7 +4871,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Compatibility Trials",
+    "label": "Compatibility and Past Hurdles",
     "keywords": [
       "lives",
       "compatible",
@@ -4884,7 +4889,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Furious Rage",
+    "label": "Angry Confrontation",
     "keywords": [
       "anger",
       "rage",
@@ -4902,7 +4907,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Corporate Takeover",
+    "label": "Business Acquisitions",
     "keywords": [
       "company",
       "buy",
@@ -4918,9 +4923,9 @@
   },
   "278": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "M_health_recovery": 1.0
     },
-    "label": "East Coast Rescue",
+    "label": "Medical Emergency and Rescue",
     "keywords": [
       "east",
       "ways",
@@ -4938,7 +4943,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Pilot's Precautions",
+    "label": "Adventurous Trek with Precautions",
     "keywords": [
       "mile",
       "pilot",
@@ -4956,7 +4961,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Throaty Growls",
+    "label": "Animalistic Alpha Male",
     "keywords": [
       "growls",
       "groans",
@@ -4974,7 +4979,7 @@
     "categories": {
       "H_domestic_nesting": 1.0
     },
-    "label": "Nighttime Slumber",
+    "label": "Nighttime Routines and Sleep",
     "keywords": [
       "sleep",
       "asleep",
@@ -4992,7 +4997,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Respectful Intimacy",
+    "label": "Marital Struggles and Sweet Reconciliations",
     "keywords": [
       "respect",
       "mortgage",
@@ -5010,7 +5015,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Diabolical Pursuit",
+    "label": "Unpredictable Pet and Owner",
     "keywords": [
       "bounds",
       "wriggles",
@@ -5028,7 +5033,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Massive Size",
+    "label": "Size Matters",
     "keywords": [
       "bigger",
       "huge",
@@ -5046,7 +5051,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Priest's Glare",
+    "label": "Religious Dispute and Confrontation",
     "keywords": [
       "supreme",
       "glare",
@@ -5064,7 +5069,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Gloating Omen",
+    "label": "Legendary Rivalry and Certainty",
     "keywords": [
       "course",
       "gloating",
@@ -5082,7 +5087,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Morning Routine",
+    "label": "Weekday Routines and Workweek Blues",
     "keywords": [
       "mornings",
       "omg",
@@ -5098,9 +5103,9 @@
   },
   "289": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Jazz Band Intimacy",
+    "label": "Musical Romance",
     "keywords": [
       "music",
       "band",
@@ -5118,7 +5123,7 @@
     "categories": {
       "C_explicit": 1.0
     },
-    "label": "Erotic Nipple Play",
+    "label": "Erotic Encounter",
     "keywords": [
       "nipples",
       "nipple",
@@ -5136,7 +5141,7 @@
     "categories": {
       "B_mutual_intimacy": 1.0
     },
-    "label": "Labored Breaths",
+    "label": "Labored Breaths in Tension",
     "keywords": [
       "breath",
       "breathing",
@@ -5154,7 +5159,7 @@
     "categories": {
       "H_domestic_nesting": 1.0
     },
-    "label": "Bathroom Hygiene",
+    "label": "Intimate Bathroom Encounters",
     "keywords": [
       "shower",
       "bathroom",
@@ -5170,9 +5175,10 @@
   },
   "293": {
     "categories": {
-      "F_negative_affect": 1.0
+      "F_negative_affect": 0.75,
+      "S_scene_anchor": 0.25
     },
-    "label": "Damaged Relationship Talk",
+    "label": "Career-Damaging Secrets",
     "keywords": [
       "fixer",
       "total",
@@ -5190,7 +5196,7 @@
     "categories": {
       "F_negative_affect": 1.0
     },
-    "label": "Shameful Embarrassment",
+    "label": "Humiliated and Ashamed",
     "keywords": [
       "embarrassing",
       "embarrassed",
@@ -5208,7 +5214,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Magical Friendship",
+    "label": "Magical Romance with Grateful Friend",
     "keywords": [
       "spell",
       "bookcrazy",
@@ -5226,7 +5232,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Office Meetings",
+    "label": "Office Romance",
     "keywords": [
       "meeting",
       "office",
@@ -5244,7 +5250,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Arrogant Jerk",
+    "label": "Arrogant Jerk Heroes",
     "keywords": [
       "arrogance",
       "cocky",
@@ -5262,7 +5268,7 @@
     "categories": {
       "J_family_support": 1.0
     },
-    "label": "Edgier Nightlife Encounter",
+    "label": "Edgy Nightlife and Family Secrets",
     "keywords": [
       "jail",
       "nightlife",
@@ -5278,9 +5284,9 @@
   },
   "299": {
     "categories": {
-      "G_rituals_gifts": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Gratitude Gifts",
+    "label": "Expressions of Gratitude and Happiness",
     "keywords": [
       "glad",
       "grateful",
@@ -5298,7 +5304,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Contract Negotiation",
+    "label": "Business Negotiations",
     "keywords": [
       "buts",
       "arguments",
@@ -5315,7 +5321,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Seductive Lingerie",
+    "label": "Sensual Burlesque Encounters",
     "keywords": [
       "erotic",
       "sexytimes",
@@ -5331,9 +5337,10 @@
   },
   "302": {
     "categories": {
-      "E_threat_danger": 1.0
+      "F_negative_affect": 0.5,
+      "E_threat_danger": 0.5
     },
-    "label": "Gunplay",
+    "label": "Armed Danger",
     "keywords": [
       "gun",
       "weapon",
@@ -5351,7 +5358,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Personal Motto",
+    "label": "Life Goals and Personal Motto",
     "keywords": [
       "fullest",
       "motto",
@@ -5369,7 +5376,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Taffy Tasting",
+    "label": "Coffee Shop Romance",
     "keywords": [
       "jar",
       "barista",
@@ -5387,7 +5394,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Mannered Recommendation",
+    "label": "Quiet Strength: Mannered Ruler",
     "keywords": [
       "best",
       "thing",
@@ -5406,7 +5413,7 @@
       "I_humor_lightness": 0.5,
       "G_rituals_gifts": 0.5
     },
-    "label": "Holiday Laughter",
+    "label": "Humorous Holiday Dates",
     "keywords": [
       "laughs",
       "laugh",
@@ -5424,7 +5431,7 @@
     "categories": {
       "E_threat_danger": 1.0
     },
-    "label": "Favorite Shades",
+    "label": "Color Preferences and Decor",
     "keywords": [
       "colors",
       "favorite",
@@ -5440,10 +5447,9 @@
   },
   "308": {
     "categories": {
-      "Q_miscommunication": 0.5,
-      "B_mutual_intimacy": 0.5
+      "Q_miscommunication": 1.0
     },
-    "label": "Confident Bob's Canal Kiss",
+    "label": "Reclusive Hero's Redemption",
     "keywords": [
       "confidence",
       "jugular",
@@ -5459,9 +5465,9 @@
   },
   "309": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "K_work_corporate": 1.0
     },
-    "label": "Contract Dalliance",
+    "label": "Business Contract Negotiations",
     "keywords": [
       "contract",
       "contracts",
@@ -5479,7 +5485,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Feminist Ladies' Experience",
+    "label": "Feminist Ladies' Empowerment",
     "keywords": [
       "feminine",
       "ladies",
@@ -5497,7 +5503,7 @@
     "categories": {
       "G_rituals_gifts": 1.0
     },
-    "label": "Yearlong Cycle",
+    "label": "Long-Term Relationship Restoration",
     "keywords": [
       "downs",
       "cycle",
@@ -5515,7 +5521,7 @@
     "categories": {
       "O_appearance_aesthetics": 1.0
     },
-    "label": "Ruffled Morning After",
+    "label": "Grooming and Appearance",
     "keywords": [
       "hair",
       "stubble",
@@ -5533,7 +5539,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Adrenaline-Fueled Races",
+    "label": "Horse Racing and Adrenaline Rush",
     "keywords": [
       "race",
       "racing",
@@ -5551,7 +5557,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Wise Setup",
+    "label": "Vague Setup and Wise Advice",
     "keywords": [
       "thing",
       "humane",
@@ -5569,7 +5575,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Instrumental Gardener",
+    "label": "Controlling Gardener",
     "keywords": [
       "heck",
       "meaner",
@@ -5585,10 +5591,10 @@
   },
   "316": {
     "categories": {
-      "P_tech_media": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Office Romance",
+    "label": "Office Work",
     "keywords": [
       "desk",
       "papers",
@@ -5604,10 +5610,10 @@
   },
   "317": {
     "categories": {
-      "O_appearance_aesthetics": 0.5,
-      "G_rituals_gifts": 0.5
+      "G_rituals_gifts": 0.5,
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Sensory Intimacy",
+    "label": "Scented Intimacy",
     "keywords": [
       "scent",
       "smell",
@@ -5625,7 +5631,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Mutual Accomplishment",
+    "label": "Legal Drama and Mutual Intimacy",
     "keywords": [
       "sign",
       "marvelous",
@@ -5641,10 +5647,13 @@
   },
   "319": {
     "categories": {
-      "P_tech_media": 0.75,
+      "A_commitment_hea": 0.1875,
+      "N_separation_reunion": 0.1875,
+      "R2_jealousy": 0.1875,
+      "P_tech_media": 0.1875,
       "S_scene_anchor": 0.25
     },
-    "label": "Nighttime Carousel Ride",
+    "label": "Ice-Cold Jealousy and Late-Night Reunions",
     "keywords": [
       "penguins",
       "buildup",
@@ -5662,7 +5671,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Emotional Turmoil",
+    "label": "Emotional Turmoil and Self-Discovery",
     "keywords": [
       "better",
       "feeling",
@@ -5678,9 +5687,9 @@
   },
   "321": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "R1_protectiveness": 1.0
     },
-    "label": "Maine's Tolerant Stage",
+    "label": "Celebrity Protection and Endorsement",
     "keywords": [
       "antidote",
       "maine",
@@ -5698,7 +5707,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Scornful Lockdown",
+    "label": "Scornful Lockdown Behavior",
     "keywords": [
       "head",
       "scornful",
@@ -5714,9 +5723,9 @@
   },
   "323": {
     "categories": {
-      "B_mutual_intimacy": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Photo Shoot Intimacy",
+    "label": "Photo Shoot and Memories",
     "keywords": [
       "cameras",
       "photos",
@@ -5734,7 +5743,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Sensory Overload Discussion",
+    "label": "Overwhelmed by Cultural Sensory Overload",
     "keywords": [
       "sensory",
       "discussion",
@@ -5752,7 +5761,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Owl's Hopeless Repeats",
+    "label": "Hopeless Love Triangle",
     "keywords": [
       "owl",
       "repeats",
@@ -5768,9 +5777,10 @@
   },
   "326": {
     "categories": {
-      "P_tech_media": 1.0
+      "H_domestic_nesting": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Earliest Booty Call",
+    "label": "Formal Dinner Date",
     "keywords": [
       "earliest",
       "calls",
@@ -5788,7 +5798,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Prompt Agreement",
+    "label": "Undeniable Attraction and Guarded Conversations",
     "keywords": [
       "nod",
       "prompt",
@@ -5804,10 +5814,10 @@
   },
   "328": {
     "categories": {
-      "O_appearance_aesthetics": 0.5,
-      "F_negative_affect": 0.5
+      "F_negative_affect": 0.5,
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Moaning Intimacy",
+    "label": "Explicit Intimacy and Frustration",
     "keywords": [
       "moan",
       "whimper",
@@ -5823,10 +5833,11 @@
   },
   "329": {
     "categories": {
-      "J_family_support": 0.5,
-      "R1_protectiveness": 0.5
+      "J_family_support": 0.375,
+      "R1_protectiveness": 0.375,
+      "S_scene_anchor": 0.25
     },
-    "label": "New Parent Intimacy",
+    "label": "Caring Guardian Parent",
     "keywords": [
       "dependable",
       "coos",
@@ -5843,10 +5854,10 @@
   "330": {
     "categories": {
       "I_humor_lightness": 0.3333333333333333,
-      "J_family_support": 0.3333333333333333,
-      "K_work_corporate": 0.3333333333333333
+      "K_work_corporate": 0.3333333333333333,
+      "J_family_support": 0.3333333333333333
     },
-    "label": "Giggling Confidante",
+    "label": "Nervous Stylist's Glance",
     "keywords": [
       "confidante",
       "splutters",
@@ -5864,7 +5875,7 @@
     "categories": {
       "A_commitment_hea": 1.0
     },
-    "label": "Cocky Shark's Vow",
+    "label": "Arrogant Heir's Vow",
     "keywords": [
       "jambalaya",
       "tremulous",
@@ -5882,7 +5893,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Secret Love Affair",
+    "label": "Hidden Identities",
     "keywords": [
       "secrets",
       "confidential",
@@ -5898,10 +5909,10 @@
   },
   "333": {
     "categories": {
-      "F_negative_affect": 0.5,
+      "K_work_corporate": 0.5,
       "E_threat_danger": 0.5
     },
-    "label": "Dangerous Liaison",
+    "label": "Threatening Office Affair",
     "keywords": [
       "weapons",
       "threats",
@@ -5917,9 +5928,9 @@
   },
   "334": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "A_commitment_hea": 1.0
     },
-    "label": "Earnest Objections",
+    "label": "Resolute Vows and Protests",
     "keywords": [
       "perfunctory",
       "declarations",
@@ -5935,9 +5946,9 @@
   },
   "335": {
     "categories": {
-      "F_negative_affect": 1.0
+      "S_scene_anchor": 1.0
     },
-    "label": "Mutual Outbursts",
+    "label": "Bar Brawl and Intervention",
     "keywords": [
       "cries",
       "redder",
@@ -5955,7 +5966,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Alternative Answers",
+    "label": "Seeking Answers",
     "keywords": [
       "alternatives",
       "thanks",
@@ -5967,7 +5978,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Hasty Presentation",
+    "label": "Rushed Study Session",
     "keywords": [
       "pointers",
       "metaphor",
@@ -5985,7 +5996,7 @@
     "categories": {
       "P_tech_media": 1.0
     },
-    "label": "Roommate Awakening",
+    "label": "College Roommates and Awakening",
     "keywords": [
       "freshman",
       "roommate",
@@ -6003,7 +6014,7 @@
     "categories": {
       "K_work_corporate": 1.0
     },
-    "label": "Tense Wait",
+    "label": "Anticipatory Romance and Tension",
     "keywords": [
       "ipo",
       "waits",
@@ -6019,10 +6030,9 @@
   },
   "340": {
     "categories": {
-      "B_mutual_intimacy": 0.5,
-      "K_work_corporate": 0.5
+      "K_work_corporate": 1.0
     },
-    "label": "Taboo Office Kiss",
+    "label": "Office Romantic Tension",
     "keywords": [
       "mouths",
       "denial",
@@ -6038,11 +6048,11 @@
   },
   "341": {
     "categories": {
-      "A_commitment_hea": 0.3333333333333333,
       "N_separation_reunion": 0.3333333333333333,
-      "E_threat_danger": 0.3333333333333333
+      "E_threat_danger": 0.3333333333333333,
+      "A_commitment_hea": 0.3333333333333333
     },
-    "label": "Reunion Supplication",
+    "label": "Realizing Mistakes and Seeking Reunion",
     "keywords": [
       "leaving",
       "disrespectful",
@@ -6060,7 +6070,7 @@
     "categories": {
       "Q_miscommunication": 1.0
     },
-    "label": "Mistaken Encounter",
+    "label": "Mistaken Identity and Criticism",
     "keywords": [
       "wrong",
       "wrongs",
@@ -6076,9 +6086,10 @@
   },
   "343": {
     "categories": {
-      "D_luxury_wealth_status": 1.0
+      "K_work_corporate": 0.5,
+      "D_luxury_wealth_status": 0.5
     },
-    "label": "Tailored Intimacy",
+    "label": "Businessman in Formal Attire",
     "keywords": [
       "navy",
       "tie",
@@ -6096,7 +6107,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Deliberate Pacing",
+    "label": "Slow Burn Romance",
     "keywords": [
       "slow",
       "slower",
@@ -6114,7 +6125,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Architectural Charmer",
+    "label": "Dashing Rogue and His Reluctant Love",
     "keywords": [
       "daft",
       "tramp",
@@ -6132,7 +6143,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Passionate Gasps",
+    "label": "Passionate Rivalry at Conferences",
     "keywords": [
       "admirable",
       "passionate",
@@ -6148,18 +6159,18 @@
   },
   "347": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "B_mutual_intimacy": 1.0
     },
-    "label": "Passionate Affirmation",
+    "label": "Explicit Intimacy",
     "keywords": [
       "yessss"
     ]
   },
   "348": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "K_work_corporate": 1.0
     },
-    "label": "Sales Pitch Seminar",
+    "label": "Business Negotiations and Challenges",
     "keywords": [
       "seminar",
       "geniuses",
@@ -6175,10 +6186,9 @@
   },
   "349": {
     "categories": {
-      "B_mutual_intimacy": 0.75,
-      "S_scene_anchor": 0.25
+      "S_scene_anchor": 1.0
     },
-    "label": "Beachside Shoulder Caress",
+    "label": "Bearing Burdens on the Beachside",
     "keywords": [
       "shoulders",
       "weight",
@@ -6194,10 +6204,11 @@
   },
   "350": {
     "categories": {
-      "J_family_support": 0.5,
-      "M_health_recovery": 0.5
+      "M_health_recovery": 0.3333333333333333,
+      "J_family_support": 0.3333333333333333,
+      "R1_protectiveness": 0.3333333333333333
     },
-    "label": "Bashful Goddesses",
+    "label": "Sister's Protective Decision",
     "keywords": [
       "childhood",
       "months",
@@ -6215,7 +6226,7 @@
     "categories": {
       "S_scene_anchor": 1.0
     },
-    "label": "Indoor Pool Encounter",
+    "label": "Water Activities and Romance",
     "keywords": [
       "pool",
       "swimming",
@@ -6231,9 +6242,10 @@
   },
   "352": {
     "categories": {
-      "K_work_corporate": 1.0
+      "K_work_corporate": 0.75,
+      "S_scene_anchor": 0.25
     },
-    "label": "Wrongful Termination",
+    "label": "Legal Professionals and Career Changes",
     "keywords": [
       "lawyers",
       "attorney",
@@ -6251,7 +6263,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Regretful Realizations",
+    "label": "Realizations and Regrets",
     "keywords": [
       "regret",
       "regrets",
@@ -6269,7 +6281,7 @@
     "categories": {
       "E_threat_danger": 1.0
     },
-    "label": "Threatening Minion",
+    "label": "Threatening Drug Dealer",
     "keywords": [
       "minion",
       "faintest",
@@ -6287,7 +6299,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Sunburned Cheeks",
+    "label": "Sunburned Blush in the Forest",
     "keywords": [
       "cheeks",
       "flush",
@@ -6305,7 +6317,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Dragon's Battle",
+    "label": "Epic Fantasy Confrontations",
     "keywords": [
       "fight",
       "battle",
@@ -6323,7 +6335,7 @@
     "categories": {
       "L_vices_addictions": 1.0
     },
-    "label": "Drunken Decadence",
+    "label": "Hungover Aftermath and Personality Clashes",
     "keywords": [
       "hungover",
       "herculean",
@@ -6339,9 +6351,10 @@
   },
   "358": {
     "categories": {
-      "P_tech_media": 1.0
+      "G_rituals_gifts": 0.5,
+      "P_tech_media": 0.5
     },
-    "label": "Tabloid Scandal",
+    "label": "Sports Celebration",
     "keywords": [
       "earful",
       "victorious",
@@ -6357,9 +6370,9 @@
   },
   "360": {
     "categories": {
-      "Z_noise_oog": 1.0
+      "M_health_recovery": 1.0
     },
-    "label": "Relaxing Interlude",
+    "label": "Relaxation and Recovery",
     "keywords": [
       "rest",
       "relaxing",
@@ -6377,7 +6390,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Adventurous Consultants",
+    "label": "Proud and Grateful Partner",
     "keywords": [
       "glad",
       "proud",
@@ -6395,7 +6408,7 @@
     "categories": {
       "Z_noise_oog": 1.0
     },
-    "label": "Cute Nephew's Shop",
+    "label": "Adorable Nephew and His Pet",
     "keywords": [
       "adorable",
       "cutest",
@@ -6413,7 +6426,7 @@
     "categories": {
       "P_tech_media": 1.0
     },
-    "label": "Webcam Flirtation",
+    "label": "Prophetic Love Connection",
     "keywords": [
       "owners",
       "webcam",
@@ -6429,9 +6442,10 @@
   },
   "364": {
     "categories": {
-      "N_separation_reunion": 1.0
+      "N_separation_reunion": 0.7,
+      "A_commitment_hea": 0.3
     },
-    "label": "Distance Excuses",
+    "label": "Reluctant Reunion",
     "keywords": [
       "distance",
       "excuses",
@@ -6447,10 +6461,10 @@
   },
   "365": {
     "categories": {
-      "O_appearance_aesthetics": 0.5,
-      "H_domestic_nesting": 0.5
+      "H_domestic_nesting": 0.5,
+      "O_appearance_aesthetics": 0.5
     },
-    "label": "Mirror Glance",
+    "label": "Self-Reflection in the Bathroom",
     "keywords": [
       "mirror",
       "reflection",
@@ -6466,9 +6480,9 @@
   },
   "366": {
     "categories": {
-      "H_domestic_nesting": 1.0
+      "Z_noise_oog": 1.0
     },
-    "label": "Kitchen Squabble",
+    "label": "Morning Routine with Annoyance",
     "keywords": [
       "scowl",
       "beeping",
@@ -6486,7 +6500,7 @@
     "categories": {
       "R1_protectiveness": 1.0
     },
-    "label": "Unwritten Privacy",
+    "label": "Protective Guardian",
     "keywords": [
       "privacy",
       "safer",
