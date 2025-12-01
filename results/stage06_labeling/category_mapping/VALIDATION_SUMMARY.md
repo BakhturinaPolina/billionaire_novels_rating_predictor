@@ -215,7 +215,7 @@ These topics remain classified as `Z_noise_oog` and may need LLM review:
 ### ✅ OpenRouter API - Successfully Regenerated Labels
 
 **Initial Issue**: First API key returned 401 authentication errors.  
-**Resolution**: New API key (`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`) tested and validated successfully.
+**Resolution**: New API key (`sk-or-v1-***REDACTED***`) tested and validated successfully.
 
 **Final Status**:
 - ✅ **361 topics labeled** with LLM-generated romance-aware labels
