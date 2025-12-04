@@ -20,8 +20,8 @@ This module is designed for experiments with different LLM providers and models 
 
 ## Features
 
-- ✅ Same prompt structure as main module (Universal System/User prompts)
-- ✅ Same domain detection and adaptive hints
+- ✅ **Romance-aware prompts** optimized for modern romantic and erotic fiction
+- ✅ Same domain detection and adaptive hints as main module
 - ✅ Same POS topic extraction workflow
 - ✅ **Representative document snippets** for improved label precision
 - ✅ Streaming and batch processing options
@@ -259,10 +259,88 @@ If the model name is invalid:
 2. Verify model name spelling
 3. Try alternative model names
 
+## Multi-Model Comparison
+
+A new script `compare_models_openrouter.py` allows you to test multiple free OpenRouter models side-by-side and generate comparison outputs for manual inspection.
+
+### Free Models Available
+
+The script includes these free models by default:
+
+1. **mistralai/mistral-7b-instruct:free** - General-purpose instruct model, 32k context
+2. **mistralai/mistral-nemo:free** - Instruction-following and reasoning model
+3. **venice/uncensored:free** - Uncensored Mistral-24B variant (handles explicit content with fewer refusals)
+4. **tngtech/tng-r1t-chimera:free** - General chat model
+
+You can specify custom models using the `--models` argument.
+
+### Usage
+
+Compare multiple models with default settings (30 topics per model):
+
+```bash
+python -m src.stage06_labeling.openrouter_experiments.compare_models_openrouter \
+    --embedding-model paraphrase-MiniLM-L6-v2 \
+    --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
+    --limit-topics 30
+```
+
+Compare specific models:
+
+```bash
+python -m src.stage06_labeling.openrouter_experiments.compare_models_openrouter \
+    --embedding-model paraphrase-MiniLM-L6-v2 \
+    --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
+    --models mistralai/mistral-7b-instruct:free mistralai/mistral-nemo:free \
+    --limit-topics 30
+```
+
+### Output Format
+
+The comparison script generates:
+
+1. **CSV file** (`comparison_models_{timestamp}.csv`):
+   - Columns: Topic ID, Keywords, then one column per model with labels
+   - Easy to open in Excel/Google Sheets for side-by-side comparison
+   - Format: Each row shows one topic with all model labels
+
+2. **JSON file** (`comparison_models_{timestamp}.json`):
+   - Structured format with metadata
+   - Format:
+     ```json
+     {
+       "metadata": {
+         "generated_at": "...",
+         "models": ["model1", "model2", ...],
+         "total_topics": 30
+       },
+       "topics": {
+         "0": {
+           "topic_id": 0,
+           "keywords": ["keyword1", "keyword2", ...],
+           "labels": {
+             "model1": "Label from model1",
+             "model2": "Label from model2"
+           }
+         }
+       }
+     }
+     ```
+
+3. **Individual model outputs**: Each model's labels are also saved separately as `labels_pos_openrouter_{model_name}_{embedding_model}.json`
+
+### Comparison Workflow
+
+1. Run comparison with `--limit-topics 30` for initial testing
+2. Review CSV file to compare labels across models
+3. Identify which model produces best labels for your use case
+4. Run full labeling with the best model using `main_openrouter.py`
+
 ## Files
 
 - `generate_labels_openrouter.py`: Main labeling logic with OpenRouter API
-- `main_openrouter.py`: CLI entry point
+- `main_openrouter.py`: CLI entry point for single model labeling
+- `compare_models_openrouter.py`: Multi-model comparison script
 - `prompts.md`: Documentation of all prompt versions (without snippets)
 - `prompts_with_snippets.md`: Documentation of enhanced prompts with snippets
 - `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions for snippets feature
@@ -277,7 +355,6 @@ Potential improvements:
 - Configurable retry strategies
 - Cost tracking and reporting
 - Batch API calls (if supported by OpenRouter)
-- Support for other prompt templates (6-component format)
 
 ## See Also
 

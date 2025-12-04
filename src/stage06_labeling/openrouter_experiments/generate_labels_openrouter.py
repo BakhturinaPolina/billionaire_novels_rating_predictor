@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import time
 from contextlib import contextmanager
 from pathlib import Path
@@ -23,8 +24,6 @@ from tenacity import (
 
 # Import shared utilities from parent module
 from src.stage06_labeling.generate_labels import (
-    UNIVERSAL_SYSTEM_PROMPT,
-    UNIVERSAL_USER_PROMPT,
     detect_domains,
     extract_pos_topics,
     extract_pos_topics_from_json,
@@ -59,101 +58,106 @@ except ImportError:
     LOGGER.warning("spaCy not available. POS cues will use simplified extraction.")
 
 # Romance-aware prompts for modern romantic fiction
-ROMANCE_AWARE_SYSTEM_PROMPT = """You are a topic-labeling assistant for modern romantic fiction.
+ROMANCE_AWARE_SYSTEM_PROMPT = """You are a topic-labeling assistant for modern romantic and erotic fiction.
 
-Goal
+Your job is to assign precise, descriptive labels to topic clusters so that:
+- A human reader can roughly guess the main words and scenes behind the topic.
+- Different topics receive clearly distinguishable labels, even if they share some vocabulary.
 
-- Produce one short, specific label (2–6 words) for a cluster of romance-novel keywords.
+GENERAL RULES
+- Output exactly ONE short noun phrase of 2–6 words.
+- No quotes, no numbering, no extra text.
+- Use clear, neutral, descriptive language – not poetic titles.
+- Prefer concrete scene-level descriptions over abstractions.
+  - Good: "Rough Angry Kisses in Hallway"
+  - Bad: "Intense Love", "Erotic Intimacy", "Romantic Moment"
+- You may use explicit sexual terms found in the keywords (e.g., oral sex, blowjob, fingering, pussy, cock) but keep the tone factual, not arousing.
 
-- The label must clearly distinguish this topic from similar ones and prioritize romance-relevant facets.
+WHAT TO ENCODE IN THE LABEL (IN ORDER OF PRIORITY)
+Focus on the strongest, most frequent signals in the keyword list:
 
-Romance Context
+1) MAIN ACTION OR SEX ACT
+   - If keywords clearly describe a sex act, name it: e.g.,
+     "Oral Sex on Him", "Fingering Her", "Breast Play", "Anal Sex".
+   - If there is a conflict between generic intimacy ("touch", "kiss") and a specific act
+     ("blowjob", "clit", "pussy", "erection"), prioritize the specific act.
 
-- Prefer facets common in romantic scenes and plots: physical intimacy (body parts, touches, foreplay, oral), emotional beats (jealousy, fear, apology, panic), relationship milestones (engagement, vows, wedding, breakup, reunion), communication moments (whispers, texts, calls), setting cues (bedroom, doorways/elevators, kitchen/meal, bar/night), family dynamics (parents, kids), and sensual aesthetics (scent, fabric, lingerie, makeup).
+2) ROLE / TARGET / BODY PART
+   - Include who or what is involved if it clarifies the topic:
+     "Rough Kisses Against Wall", "Gentle Kisses on Neck",
+     "Clitoral Stimulation", "Handjob Under Table".
 
-- If multiple facets appear, pick the single most distinctive one.
+3) SETTING OR SITUATION (IF CLEAR)
+   - Add a concise situational cue when obvious:
+     "Kitchen Argument in Morning",
+     "Elevator Makeout", "Picnic Date in City Park".
+
+4) EMOTIONAL TONE OR PURPOSE
+   - Only if clearly indicated and not speculative:
+     "Comforting Hugs After Fight",
+     "Jealous Rage and Yelling",
+     "Playful Flirting at Bar".
 
 REPRESENTATIVE SNIPPETS
-
 - You will be given several short snippets (usually 3–6 sentences) taken from documents in this topic.
-
 - These are more informative than the keyword list for fine distinctions:
-
   - whether kisses are rough or gentle,
-
   - whether rage is emotional vs physical,
-
   - whether a date is a picnic in a park vs dinner in a restaurant,
-
   - whether a sexual act is a blowjob, fingering, clitoral stimulation, etc.
-
 - When snippets and keywords disagree, trust the snippets.
-
 - Use the snippets as primary evidence for:
-
   - scene type (kitchen argument, car makeout, office meeting, research discussion),
-
   - emotional tone (angry, tender, playful, humiliated),
-
   - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation).
 
-- Do NOT euphemize clearly explicit sexual acts. Label them factually:
+DISAMBIGUATION REQUIREMENTS
+- If two topics are both about similar themes (e.g., rage, kisses, dates)
+  but differ in physical vs emotional focus, setting, or tone:
+  - Encode that distinction explicitly:
+    - "Physical Violence and Rage" vs "Silent Emotional Resentment"
+    - "Gentle Comforting Kisses" vs "Rough Angry Kisses"
+    - "First Date Picnic in Park" vs "Crowded City Restaurant Date".
 
-  - "Blowjob in Car", "Clitoral Stimulation on Couch", "Breast Foreplay in Bed".
+- Do NOT reuse the same vague label (e.g., "Erotic Intimacy", "Erotic Encounter")
+  for multiple distinct topics. Make each label specific to its keywords.
 
-- Keep wording neutral and non-romanticized; this is for scientific analysis, not for readers' enjoyment.
+OUTLIERS AND NOISE
+- Ignore single, isolated outliers (e.g., one city or place name)
+  if most keywords point to a different core idea.
+  - Example: If almost all words are about an unexpected meeting,
+    and one keyword is a city name, do NOT put the city in the label
+    unless multiple location words dominate the topic.
 
-Style
+- If keywords are incoherent, choose the most concrete, frequent facet you see
+  and describe it literally: "Random Small Talk", "Household Objects and Doors".
 
-- Output: one short noun phrase, 2–6 words. No quotes. No trailing punctuation.
+WORK / RESEARCH / META TOPICS
+- Distinguish between:
+  - "Work & Career Tasks" (job, office, boss, meeting, deadline)
+  - "Researching Sexual Terminology" (research, terminology, user, giver, kink)
+  - "Writing or Editing Scenes" (draft, editor, chapter, rewrite)
 
-- Use Title Case where natural.
+Sexual research in the text should not be mislabeled as "Preparing for Work".
 
-- Prefer concrete, scene-level romance phrasing over generic abstractions (e.g., "Whispered Promises," not "Communication").
+SEXUAL CONTENT PRECISENESS
+- Do NOT euphemize explicit sexual content:
+  - If a topic is clearly about blowjob / oral sex, say so, e.g. "Public Blowjob in Alley",
+    not "Erotic Intimacy".
+  - If a topic is about physical foreplay to breasts, label it "Breast Foreplay" or similar.
+  - If a topic is about clitoral stimulation and legs/hips, label it "Clitoral Stimulation Between Thighs" or similar.
+- Always keep the phrasing clinical and non-romanticized.
 
-- Use clear disambiguators only when obvious (e.g., "Elevator Encounter," "Wedding Vows," "Tender Foreplay").
-
-- Do not list or repeat the keywords; synthesize the core idea.
-
-Disambiguation Rules
-
-- Body parts / touch verbs / sex acts → intimacy (e.g., "Tender Foreplay," "Breast Play," "Oral Intimacy").
-
-- Eyes/gaze/face/brows → eye-contact or facial expression (e.g., "Lingering Gazes," "Playful Laughter").
-
-- Wedding/engagement/marriage terms → relationship milestone (e.g., "Wedding Planning," "Wedding Vows," "Engagement Drama").
-
-- Phones/rings/buzzes/screens → device-mediated moments (e.g., "Buzzing Phones," "Late-Night Texts").
-
-- Bed/sheets/pillows/night → setting/scene (e.g., "Bedtime Routine," "Nighttime Cuddling").
-
-- Food/kitchen/dinner/wine → meal/hosting scene (e.g., "Wine Service," "Meal Preparation").
-
-- Emotions like fear/anger/jealousy/apology → emotional beat (e.g., "Fear and Anxiety," "Remorseful Apologies," "Jealous Girlfriend").
-
-- Work/career/office: if any romantic cue appears → "Office Romance"; otherwise a compact neutral like "Work & Career."
-
-- Off-genre clusters (e.g., sports with no romance cues): keep a short, literal label to avoid miscasting ("Ice Hockey Players").
-
-Noise Handling
-
-- If keywords are incoherent or overly generic, choose the most concrete facet present; otherwise use the clearest scene-level summary ("Awkward Silence," "Small Talk").
-
-Guidance Inputs (Optional)
-
-- If a line begins with "Context hints:" follow those nudges.
-
-- If a line begins with "POS cues:" use nouns/verbs to anchor the facet (e.g., body-part nouns + tactile verbs → intimacy).
-
-Output
-
-- Return only the label."""
+OUTPUT FORMAT
+- Return ONLY the label, as a short noun phrase of 2–6 words.
+- No explanations, no extra sentences, no lists."""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
 {kw}{hints}
 
-{pos}{snippets}
+{pos}
+{snippets}
 
 Remember:
 
@@ -526,6 +530,56 @@ def load_openrouter_client(
     return client, model_name
 
 
+# Generic bad labels to avoid
+GENERIC_BAD_LABELS = {
+    "Erotic Intimacy",
+    "Erotic Encounter",
+    "Romantic Moment",
+    "Intense Love",
+}
+
+
+def normalize_label(raw: str) -> str:
+    """Normalize and clean a generated label.
+    
+    Args:
+        raw: Raw label string from API response
+        
+    Returns:
+        Cleaned, normalized label
+    """
+    # Basic cleanup
+    label = raw.strip().strip('"').strip("'")
+    
+    # Remove special tokens and tags (e.g., <s>, </s>, [boss], etc.)
+    label = re.sub(r"<s>|</s>|\[.*?\]", "", label)  # Remove <s>, </s>, and [tag] patterns
+    label = re.sub(r"<[^>]+>", "", label)  # Remove any remaining HTML/XML tags
+    
+    # Clean up whitespace
+    label = re.sub(r"\s+", " ", label)
+    label = label.strip()
+    
+    # Remove trailing punctuation
+    label = label.rstrip(".,;:!-")
+    
+    # If the model accidentally produced a sentence, keep first 6 words
+    words = label.split()
+    if len(words) > 6:
+        words = words[:6]
+    label = " ".join(words)
+
+    # Title-case words, but keep short words lowercased where natural
+    def smart_tc(w: str) -> str:
+        return w if w.lower() in {"and", "or", "in", "on", "of", "at", "to"} else w.capitalize()
+    label = " ".join(smart_tc(w) for w in label.split())
+
+    # Avoid super-generic labels you know are useless
+    if label in GENERIC_BAD_LABELS:
+        # fallback to something slightly more specific using first 2 keywords
+        label = label + " Topic"  # or just let it pass – or trigger a re-prompt in the future
+    return label
+
+
 @retry(
     stop=stop_after_attempt(3),
     wait=wait_exponential(multiplier=1, min=2, max=30),
@@ -625,6 +679,9 @@ def generate_label_from_keywords_openrouter(
             messages=messages,
             max_tokens=max_new_tokens,
             temperature=temperature,
+            top_p=0.7,  # Slightly limits randomness
+            presence_penalty=0,  # Leave penalties neutral
+            frequency_penalty=0,
         )
         api_elapsed = time.perf_counter() - api_start
         
@@ -670,8 +727,15 @@ def generate_label_from_keywords_openrouter(
                 is_noise = result.get("is_noise", False)
                 rationale = result.get("rationale", "")
                 
-                # Clean label
-                label = label.strip().strip('"').strip("'")
+                # Normalize label
+                label = normalize_label(label)
+                
+                # If normalization resulted in empty label, use fallback
+                if not label or label.strip() == "":
+                    LOGGER.warning("Normalized label is empty (improved prompt), using fallback for keywords: %s", keywords[:3])
+                    fallback_label = f"{keywords[0]}" if keywords else "Topic"
+                    LOGGER.info("Using fallback label: %s", fallback_label)
+                    label = fallback_label
                 
                 # Build result dict
                 result_dict = {
@@ -694,19 +758,15 @@ def generate_label_from_keywords_openrouter(
         else:
             label = content
         
-        # Post-process label to clean it up (for non-JSON responses)
-        # Strip leading/trailing quotation marks
-        label = label.strip().strip('"').strip("'")
-        # Remove trailing commas, periods, and incomplete words
-        label = label.rstrip(".,;")
-        # If label is too long or seems incomplete, truncate at first comma/semicolon
-        if "," in label or ";" in label:
-            label = label.split(",")[0].split(";")[0].strip()
-        # If label is just keywords repeated, try to extract a meaningful phrase
-        if len(label.split()) > 6:  # Too many words, likely just keyword list
-            # Take first few meaningful words
-            words = label.split()[:4]
-            label = " ".join(words)
+        # Normalize label using the improved normalizer
+        label = normalize_label(label)
+        
+        # If normalization resulted in empty label, use fallback
+        if not label or label.strip() == "":
+            LOGGER.warning("Normalized label is empty, using fallback for keywords: %s", keywords[:3])
+            fallback_label = f"{keywords[0]}" if keywords else "Topic"
+            LOGGER.info("Using fallback label: %s", fallback_label)
+            label = fallback_label
         
         LOGGER.info("Generated label: %s", label)
         return {"label": label}  # Return dict for consistency
@@ -868,8 +928,9 @@ def generate_labels_streaming(
                         processed_count,
                     )
                 
-                # Small delay to avoid rate limits
-                time.sleep(0.5)
+                # Delay to respect rate limits (16 requests/min = ~3.75s between requests)
+                # Using 4 seconds to stay safely under the limit
+                time.sleep(4.0)
             
             f.write("\n}\n")
             f.flush()
@@ -1006,8 +1067,9 @@ def generate_all_labels(
                 topic_data.update(batch_labels)
                 batch_labels.clear()
             
-            # Small delay to avoid rate limits
-            time.sleep(0.5)
+            # Delay to respect rate limits (16 requests/min = ~3.75s between requests)
+            # Using 4 seconds to stay safely under the limit
+            time.sleep(4.0)
         
         # Flush any remaining labels
         if batch_labels:

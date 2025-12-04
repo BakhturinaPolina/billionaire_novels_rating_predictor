@@ -1,0 +1,675 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-04T21:37:37.136735",
+    "models": [
+      "mistralai/mistral-7b-instruct:free",
+      "venice/uncensored:free",
+      "mistralai/mistral-nemo",
+      "deepseek/deepseek-chat-v3-0324",
+      "x-ai/grok-4.1-fast"
+    ],
+    "total_topics": 30
+  },
+  "topics": {
+    "0": {
+      "topic_id": 0,
+      "keywords": [
+        "means",
+        "idea",
+        "promise",
+        "work",
+        "help",
+        "better",
+        "true",
+        "deal",
+        "today",
+        "game"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Work and Career Tasks",
+        "venice/uncensored:free": "Negotiating Favor Exchange",
+        "mistralai/mistral-nemo": "Negotiated Deal",
+        "deepseek/deepseek-chat-v3-0324": "Negotiating A Deal",
+        "x-ai/grok-4.1-fast": "Negotiating Promises and Deals"
+      }
+    },
+    "1": {
+      "topic_id": 1,
+      "keywords": [
+        "hips",
+        "tongue",
+        "breasts",
+        "mouth",
+        "body",
+        "arms",
+        "neck",
+        "thighs",
+        "nipples",
+        "hand"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Tongue and Breast Foreplay",
+        "venice/uncensored:free": "Mouth and Hip Movement",
+        "mistralai/mistral-nemo": "Tongue and Breast Foreplay",
+        "deepseek/deepseek-chat-v3-0324": "Passionate Kissing and Body Contact",
+        "x-ai/grok-4.1-fast": "French Kissing Breast Gripping"
+      }
+    },
+    "2": {
+      "topic_id": 2,
+      "keywords": [
+        "clit",
+        "pussy",
+        "tongue",
+        "hips",
+        "legs",
+        "mouth",
+        "neck",
+        "lip",
+        "lower",
+        "thighs"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Clitoral Stimulation and Pussy",
+        "venice/uncensored:free": "Clitoral Stimulation With Tongue",
+        "mistralai/mistral-nemo": "Clitoral Tongue Strokes",
+        "deepseek/deepseek-chat-v3-0324": "Clitoral Stimulation With Tongue",
+        "x-ai/grok-4.1-fast": "Tongue on Clit"
+      }
+    },
+    "3": {
+      "topic_id": 3,
+      "keywords": [
+        "dinner",
+        "food",
+        "lunch",
+        "breakfast",
+        "bakery",
+        "chicken",
+        "sandwich",
+        "meal",
+        "dessert",
+        "hungry"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Dinner Invitation",
+        "venice/uncensored:free": "dinner",
+        "mistralai/mistral-nemo": "Dinner Invitation",
+        "deepseek/deepseek-chat-v3-0324": "Dinner Date Invitation",
+        "x-ai/grok-4.1-fast": "Dinner Invitations"
+      }
+    },
+    "4": {
+      "topic_id": 4,
+      "keywords": [
+        "way",
+        "years",
+        "matter",
+        "things",
+        "able",
+        "relationship",
+        "place",
+        "thing",
+        "feelings",
+        "kind"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "First Time With Woman",
+        "venice/uncensored:free": "Unusual Relationship Behavior",
+        "mistralai/mistral-nemo": "Unexpected Connection",
+        "deepseek/deepseek-chat-v3-0324": "Unseen Relationship Dynamics",
+        "x-ai/grok-4.1-fast": "Unusual Relationship Behaviors"
+      }
+    },
+    "5": {
+      "topic_id": 5,
+      "keywords": [
+        "week",
+        "years",
+        "job",
+        "fallen",
+        "days",
+        "times",
+        "months",
+        "able",
+        "things",
+        "different"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Long-term Heartbreak",
+        "venice/uncensored:free": "Long Lost Love",
+        "mistralai/mistral-nemo": "Long-term Absence",
+        "deepseek/deepseek-chat-v3-0324": "Long Absence and Heartbreak",
+        "x-ai/grok-4.1-fast": "Her Absence Over Time"
+      }
+    },
+    "6": {
+      "topic_id": 6,
+      "keywords": [
+        "wine",
+        "sip",
+        "bottle",
+        "drunk",
+        "whiskey",
+        "waiter",
+        "scotch",
+        "alcohol",
+        "cup",
+        "drinks"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Wine Drinking",
+        "venice/uncensored:free": "Wine Sipping at Table",
+        "mistralai/mistral-nemo": "Wine Sipping",
+        "deepseek/deepseek-chat-v3-0324": "Drinking Wine at Table",
+        "x-ai/grok-4.1-fast": "Sipping Wine at Table"
+      }
+    },
+    "7": {
+      "topic_id": 7,
+      "keywords": [
+        "problem",
+        "deal",
+        "idea",
+        "point",
+        "luck",
+        "choice",
+        "true",
+        "fault",
+        "necessary",
+        "need"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Problem Discussion",
+        "venice/uncensored:free": "Denial of Responsibility",
+        "mistralai/mistral-nemo": "Clarifying Misunderstandings",
+        "deepseek/deepseek-chat-v3-0324": "Pit of The Problem (note: Given",
+        "x-ai/grok-4.1-fast": "Denials and Excuses"
+      }
+    },
+    "8": {
+      "topic_id": 8,
+      "keywords": [
+        "wrong",
+        "thought",
+        "able",
+        "feelings",
+        "course",
+        "control",
+        "choice",
+        "things",
+        "deal",
+        "words"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Self-doubt and Hesitation",
+        "venice/uncensored:free": "Uncertain Emotional Conflict",
+        "mistralai/mistral-nemo": "Unwanted Encounter",
+        "deepseek/deepseek-chat-v3-0324": "Emotional Doubt and Hesitation",
+        "x-ai/grok-4.1-fast": "Doubting Feelings and Choices"
+      }
+    },
+    "9": {
+      "topic_id": 9,
+      "keywords": [
+        "married",
+        "wedding",
+        "marriage",
+        "divorce",
+        "divorced",
+        "ceremony",
+        "planner",
+        "arranged",
+        "honeymoon",
+        "planning"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Marriage Status Discussion",
+        "venice/uncensored:free": "Marriage Announcement",
+        "mistralai/mistral-nemo": "Marriage Discussion",
+        "deepseek/deepseek-chat-v3-0324": "Marriage and Divorce Discussions",
+        "x-ai/grok-4.1-fast": "Marriage Status Revelations"
+      }
+    },
+    "10": {
+      "topic_id": 10,
+      "keywords": [
+        "door",
+        "doors",
+        "knock",
+        "hallway",
+        "stairs",
+        "elevators",
+        "floor",
+        "lock",
+        "button",
+        "lobby"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Doorways and Hallways",
+        "venice/uncensored:free": "door",
+        "mistralai/mistral-nemo": "Hallway Doorways",
+        "deepseek/deepseek-chat-v3-0324": "Front Door Access and Entry",
+        "x-ai/grok-4.1-fast": "Front Door Interactions"
+      }
+    },
+    "11": {
+      "topic_id": 11,
+      "keywords": [
+        "wine",
+        "kitchen",
+        "plate",
+        "sip",
+        "waitress",
+        "bottle",
+        "cup",
+        "mug",
+        "dinner",
+        "food"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Wine Service",
+        "venice/uncensored:free": "wine",
+        "mistralai/mistral-nemo": "Wine Sipping at Bar",
+        "deepseek/deepseek-chat-v3-0324": "Wine Drinking in Kitchen",
+        "x-ai/grok-4.1-fast": "Sipping Wine in Kitchen"
+      }
+    },
+    "12": {
+      "topic_id": 12,
+      "keywords": [
+        "kisses",
+        "tongue",
+        "mouth",
+        "neck",
+        "leans",
+        "lip",
+        "soft",
+        "lower",
+        "tender",
+        "forehead"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Tender Forehead Kisses",
+        "venice/uncensored:free": "kisses",
+        "mistralai/mistral-nemo": "Tender Forehead Kisses",
+        "deepseek/deepseek-chat-v3-0324": "Tender Kisses on Mouth",
+        "x-ai/grok-4.1-fast": "Tongue Mouth Neck Kisses"
+      }
+    },
+    "13": {
+      "topic_id": 13,
+      "keywords": [
+        "smile",
+        "laugh",
+        "laughs",
+        "grin",
+        "eyebrows",
+        "giggles",
+        "laughter",
+        "small",
+        "eyebrow",
+        "bright"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Playful Smiles and Laughter",
+        "venice/uncensored:free": "Playful Smiles and Laughter",
+        "mistralai/mistral-nemo": "Playful Smiles",
+        "deepseek/deepseek-chat-v3-0324": "Playful Smiles and Laughter",
+        "x-ai/grok-4.1-fast": "Smiling at Each Other"
+      }
+    },
+    "14": {
+      "topic_id": 14,
+      "keywords": [
+        "smile",
+        "smiles",
+        "grin",
+        "grins",
+        "laughter",
+        "gleam",
+        "corners",
+        "crooked",
+        "genuine",
+        "mouth"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Playful Smiles",
+        "venice/uncensored:free": "Smiles and Greetings",
+        "mistralai/mistral-nemo": "Playful Smiles",
+        "deepseek/deepseek-chat-v3-0324": "Happy Smiles and Grins",
+        "x-ai/grok-4.1-fast": "Smiling at Him"
+      }
+    },
+    "15": {
+      "topic_id": 15,
+      "keywords": [
+        "clit",
+        "hips",
+        "pussy",
+        "legs",
+        "thighs",
+        "erection",
+        "waist",
+        "thigh",
+        "panties",
+        "hand"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Clitoral Stimulation",
+        "venice/uncensored:free": "Clitoral Stimulation With Hands",
+        "mistralai/mistral-nemo": "Clitoral Foreplay",
+        "deepseek/deepseek-chat-v3-0324": "Clitoral Stimulation With Hands",
+        "x-ai/grok-4.1-fast": "Clitoral Stimulation"
+      }
+    },
+    "16": {
+      "topic_id": 16,
+      "keywords": [
+        "parents",
+        "older",
+        "fathers",
+        "children",
+        "kids",
+        "grandson",
+        "years",
+        "uncles",
+        "youngest",
+        "dads"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Family Relationships With Parents",
+        "venice/uncensored:free": "Family Legacy and Responsibility",
+        "mistralai/mistral-nemo": "Fathers' Responsibility",
+        "deepseek/deepseek-chat-v3-0324": "Family Relationships and Generations",
+        "x-ai/grok-4.1-fast": "Discussions About Parents"
+      }
+    },
+    "19": {
+      "topic_id": 19,
+      "keywords": [
+        "stomach",
+        "chest",
+        "blood",
+        "veins",
+        "temples",
+        "spine",
+        "belly",
+        "adrenaline",
+        "heartbeat",
+        "tingle"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Body Sensations and Adrenaline",
+        "venice/uncensored:free": "Anxious Stomach Sensations",
+        "mistralai/mistral-nemo": "Adrenaline-fueled Heart Racing",
+        "deepseek/deepseek-chat-v3-0324": "Racing Heartbeat and Stomach Tension",
+        "x-ai/grok-4.1-fast": "Nervous Stomach Pounding Heart"
+      }
+    },
+    "20": {
+      "topic_id": 20,
+      "keywords": [
+        "gaze",
+        "stare",
+        "stares",
+        "eye",
+        "features",
+        "glare",
+        "expression",
+        "brows",
+        "head",
+        "attention"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Gaze and Expression",
+        "venice/uncensored:free": "gaze",
+        "mistralai/mistral-nemo": "Eye Contact",
+        "deepseek/deepseek-chat-v3-0324": "Intense Eye Contact",
+        "x-ai/grok-4.1-fast": "Meeting Each Other's Gaze"
+      }
+    },
+    "21": {
+      "topic_id": 21,
+      "keywords": [
+        "car",
+        "driver",
+        "parking",
+        "cars",
+        "driveway",
+        "suv",
+        "curb",
+        "cab",
+        "drive",
+        "vehicle"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Car Repair",
+        "venice/uncensored:free": "car",
+        "mistralai/mistral-nemo": "Car Makeout",
+        "deepseek/deepseek-chat-v3-0324": "Car in Driveway",
+        "x-ai/grok-4.1-fast": "Car Scenes"
+      }
+    },
+    "22": {
+      "topic_id": 22,
+      "keywords": [
+        "control",
+        "thought",
+        "thing",
+        "prepared",
+        "choice",
+        "deal",
+        "wrong",
+        "problem",
+        "way",
+        "effort"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "control",
+        "venice/uncensored:free": "control",
+        "mistralai/mistral-nemo": "Refusing to Comply",
+        "deepseek/deepseek-chat-v3-0324": "Internal Conflict and Resistance",
+        "x-ai/grok-4.1-fast": "I Didn't Denials"
+      }
+    },
+    "23": {
+      "topic_id": 23,
+      "keywords": [
+        "board",
+        "mug",
+        "arm",
+        "chair",
+        "hand",
+        "lodge",
+        "table",
+        "tone",
+        "room",
+        "position"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Conversation at Table",
+        "venice/uncensored:free": "Lodge Conversation",
+        "mistralai/mistral-nemo": "Board Game Foreplay",
+        "deepseek/deepseek-chat-v3-0324": "Casual Conversation in Lodge",
+        "x-ai/grok-4.1-fast": "Lodge Room Table Conversation"
+      }
+    },
+    "24": {
+      "topic_id": 24,
+      "keywords": [
+        "rings",
+        "buzzes",
+        "pocket",
+        "screen",
+        "cellphone",
+        "nightstand",
+        "message",
+        "purse",
+        "phones",
+        "vibrates"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Phone Buzzing in Pocket",
+        "venice/uncensored:free": "Phone Buzzes in Pocket",
+        "mistralai/mistral-nemo": "Phone Vibrations",
+        "deepseek/deepseek-chat-v3-0324": "Phone Buzzing in Pocket",
+        "x-ai/grok-4.1-fast": "Phone Buzzing in Pocket"
+      }
+    },
+    "25": {
+      "topic_id": 25,
+      "keywords": [
+        "smile",
+        "laugh",
+        "laughter",
+        "grin",
+        "burst",
+        "forced",
+        "lip",
+        "loud",
+        "goofy",
+        "cheeks"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Fake Smiles",
+        "venice/uncensored:free": "Forced Smiles and Greetings",
+        "mistralai/mistral-nemo": "Forced Smiles",
+        "deepseek/deepseek-chat-v3-0324": "Forced Smiles and Laughter",
+        "x-ai/grok-4.1-fast": "Smiles and Laughter"
+      }
+    },
+    "26": {
+      "topic_id": 26,
+      "keywords": [
+        "tonight",
+        "night",
+        "evening",
+        "nights",
+        "stand",
+        "nighttime",
+        "fun",
+        "different",
+        "best",
+        "middle"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Tonight Plans",
+        "venice/uncensored:free": "Night Out Invitation",
+        "mistralai/mistral-nemo": "Nighttime Date",
+        "deepseek/deepseek-chat-v3-0324": "Evening Plans Discussion",
+        "x-ai/grok-4.1-fast": "Suggesting Outing Tonight"
+      }
+    },
+    "27": {
+      "topic_id": 27,
+      "keywords": [
+        "door",
+        "doors",
+        "car",
+        "stairs",
+        "purse",
+        "hall",
+        "button",
+        "elevators",
+        "lock",
+        "knob"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Doorways and Car Doors",
+        "venice/uncensored:free": "Doorways and Entrances",
+        "mistralai/mistral-nemo": "Doorway Exits",
+        "deepseek/deepseek-chat-v3-0324": "Doorways and Car Exits",
+        "x-ai/grok-4.1-fast": "Opening Doors"
+      }
+    },
+    "28": {
+      "topic_id": 28,
+      "keywords": [
+        "complication",
+        "choice",
+        "guacamole",
+        "mind",
+        "things",
+        "matter",
+        "material",
+        "question",
+        "fact",
+        "invitation"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Rejection of Invitation",
+        "venice/uncensored:free": "Refusal of Invitation",
+        "mistralai/mistral-nemo": "Stubborn Refusal",
+        "deepseek/deepseek-chat-v3-0324": "Indecisive Internal Conflict",
+        "x-ai/grok-4.1-fast": "Defiant Dismissive Statements"
+      }
+    },
+    "29": {
+      "topic_id": 29,
+      "keywords": [
+        "minutes",
+        "weeks",
+        "months",
+        "days",
+        "week",
+        "hours",
+        "years",
+        "month",
+        "seconds",
+        "hour"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Minutes",
+        "venice/uncensored:free": "Short Time Duration",
+        "mistralai/mistral-nemo": "Twenty-minute Wait",
+        "deepseek/deepseek-chat-v3-0324": "Time Measurements in Minutes",
+        "x-ai/grok-4.1-fast": "Minutes Duration References"
+      }
+    },
+    "30": {
+      "topic_id": 30,
+      "keywords": [
+        "game",
+        "hockey",
+        "puck",
+        "players",
+        "games",
+        "player",
+        "teams",
+        "goalie",
+        "goal",
+        "baseball"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Hockey Game",
+        "venice/uncensored:free": "Hockey Game Preparation",
+        "mistralai/mistral-nemo": "Hockey Game",
+        "deepseek/deepseek-chat-v3-0324": "Hockey Game Action",
+        "x-ai/grok-4.1-fast": "Hockey Game Scenes"
+      }
+    },
+    "31": {
+      "topic_id": 31,
+      "keywords": [
+        "clothes",
+        "outfit",
+        "wardrobe",
+        "clothing",
+        "outfits",
+        "tomorrow",
+        "selling",
+        "different",
+        "fashion",
+        "compatible"
+      ],
+      "labels": {
+        "mistralai/mistral-7b-instruct:free": "Clothing Shopping Together",
+        "venice/uncensored:free": "Wardrobe Planning Together",
+        "mistralai/mistral-nemo": "Clothing Discussion",
+        "deepseek/deepseek-chat-v3-0324": "Wardrobe and Outfit Selection",
+        "x-ai/grok-4.1-fast": "Outfit Wardrobe Planning"
+      }
+    }
+  }
+}

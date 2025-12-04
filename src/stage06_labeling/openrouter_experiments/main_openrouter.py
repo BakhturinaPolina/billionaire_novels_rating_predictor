@@ -33,9 +33,9 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
 DEFAULT_NUM_KEYWORDS = 15
-DEFAULT_MAX_TOKENS = 40
+DEFAULT_MAX_TOKENS = 16  # Only need 2–6 words
 DEFAULT_BATCH_SIZE = 50
-DEFAULT_TEMPERATURE = 0.3
+DEFAULT_TEMPERATURE = 0.15  # Lower → less creativity, more deterministic
 
 
 class Tee:
@@ -104,8 +104,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-suffix",
         type=str,
-        default="",
-        help="Optional suffix to append to model filename/directory (e.g., '_with_noise_labels')",
+        default="_with_noise_labels",
+        help="Optional suffix to append to model filename/directory (default: '_with_noise_labels' to use model with noise labels)",
     )
     
     parser.add_argument(
@@ -362,9 +362,10 @@ def main() -> None:
         print()
         
         # Step 4: Generate labels from topics (use streaming if JSON available for memory efficiency)
-        # Create model-specific filename with romance-aware suffix
+        # Create model-specific filename with romance-aware suffix and model name
         model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
-        labels_filename = f"labels_pos_openrouter_romance_aware_{model_name_safe}"
+        model_name_file = model_name.replace("/", "_").replace(":", "_")
+        labels_filename = f"labels_pos_openrouter_{model_name_file}_romance_aware_{model_name_safe}"
         labels_path = args.output_dir / labels_filename
         
         # Use streaming mode if JSON file is provided (more memory-efficient)
