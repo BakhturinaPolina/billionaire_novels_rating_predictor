@@ -162,6 +162,27 @@ All topics with all representations are extracted and saved to JSON format for q
 - Identify the most interpretable representation for each topic
 - Conduct close reading of topic keywords for thematic analysis
 
+#### Topic Quality Analysis & Noisy Topic Detection
+
+Before automated labeling, we conduct quality analysis to identify candidate noisy topics that may not be suitable for LLM labeling or downstream analysis. This process:
+
+1. **Computes Quality Metrics**:
+   - Topic size (number of documents assigned to each topic)
+   - POS representation statistics (count of POS-filtered keywords per topic)
+   - Per-topic POS coherence (c_v coherence computed on POS-filtered keywords using the same gensim dictionary as training)
+
+2. **Flags Noisy Candidates**:
+   - Topics with few POS words (< 3): Indicates topics that may lack interpretable keywords
+   - Topics with low or missing POS coherence (< 0.0): Suggests semantically incoherent topics
+   - Topics below minimum size threshold (< 30 documents): May represent outliers or noise
+
+3. **Labels for Manual Inspection**:
+   - Noisy topics are labeled with inspection tags (e.g., `[NOISE:few_pos<3]`, `[NOISE:low_coh<0.00]`)
+   - Labels are applied to both wrapper pickle and native BERTopic model formats
+   - Quality tables are saved to CSV for review (`topic_quality_{model}.csv`, `topic_noise_candidates_{model}.csv`)
+
+This quality control step ensures that automated labeling and category mapping focus on interpretable, coherent topics, improving the reliability of downstream analyses.
+
 ### Automated Topic Labeling
 
 #### Label Generation

@@ -229,6 +229,14 @@ Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Sel
 ### Stage 06: Topic Exploration & Labeling
 **Topic Exploration**: Interactive tooling for inspecting retrained BERTopic models. Loads models (pickle wrapper or native safetensors), attaches multiple representations (Main, KeyBERT, POS, MMR), computes coherence (c_v) and diversity metrics, and extracts all topics with all representations for close reading evaluation.
 
+**Topic Quality EDA & Noisy Topic Detection**: Before proceeding with LLM-generated topic labeling, we perform exploratory data analysis to identify candidate noisy topics. The analysis (`notebooks/06_labeling/topic_quality_eda.ipynb`) computes:
+- Topic size statistics (document counts per topic)
+- POS representation statistics (number of POS-filtered words per topic)
+- Per-topic POS coherence (c_v coherence computed on POS-filtered keywords)
+- Flags candidate noisy topics based on thresholds (e.g., few POS words < 3, low coherence < 0.0)
+
+Noisy topics are labeled in both the wrapper pickle and native BERTopic model formats for manual inspection and downstream filtering. This ensures that LLM labeling focuses on high-quality, interpretable topics.
+
 **Topic Labeling (Two-Step Process)**:
 1. **Label Generation**: Automated generation of human-readable topic labels using either:
    - **OpenRouter API** (recommended): Cloud-based labeling with `mistralai/mistral-nemo` via OpenRouter API. No local GPU required. See `src/stage06_labeling/openrouter_experiments/`.
