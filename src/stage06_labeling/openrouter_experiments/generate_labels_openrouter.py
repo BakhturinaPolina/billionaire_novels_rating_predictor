@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Any, Iterator
 
 import numpy as np
+from bertopic import BERTopic
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 from tenacity import (
@@ -35,6 +36,8 @@ from src.stage06_labeling.generate_labels import (
     stage_timer_local,
 )
 
+LOGGER = logging.getLogger("stage06_labeling.openrouter")
+
 # Import improved prompts
 try:
     from src.stage06_labeling.prompts.prompts import BASE_LABELING_PROMPT
@@ -42,8 +45,6 @@ try:
 except ImportError:
     PROMPTS_AVAILABLE = False
     LOGGER.warning("Improved prompts module not available. Using default prompts.")
-
-LOGGER = logging.getLogger("stage06_labeling.openrouter")
 logging.basicConfig(
     level=logging.INFO,
     format="[%(asctime)s] [%(levelname)s] %(message)s",
@@ -71,6 +72,36 @@ Romance Context
 - Prefer facets common in romantic scenes and plots: physical intimacy (body parts, touches, foreplay, oral), emotional beats (jealousy, fear, apology, panic), relationship milestones (engagement, vows, wedding, breakup, reunion), communication moments (whispers, texts, calls), setting cues (bedroom, doorways/elevators, kitchen/meal, bar/night), family dynamics (parents, kids), and sensual aesthetics (scent, fabric, lingerie, makeup).
 
 - If multiple facets appear, pick the single most distinctive one.
+
+REPRESENTATIVE SNIPPETS
+
+- You will be given several short snippets (usually 3–6 sentences) taken from documents in this topic.
+
+- These are more informative than the keyword list for fine distinctions:
+
+  - whether kisses are rough or gentle,
+
+  - whether rage is emotional vs physical,
+
+  - whether a date is a picnic in a park vs dinner in a restaurant,
+
+  - whether a sexual act is a blowjob, fingering, clitoral stimulation, etc.
+
+- When snippets and keywords disagree, trust the snippets.
+
+- Use the snippets as primary evidence for:
+
+  - scene type (kitchen argument, car makeout, office meeting, research discussion),
+
+  - emotional tone (angry, tender, playful, humiliated),
+
+  - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation).
+
+- Do NOT euphemize clearly explicit sexual acts. Label them factually:
+
+  - "Blowjob in Car", "Clitoral Stimulation on Couch", "Breast Foreplay in Bed".
+
+- Keep wording neutral and non-romanticized; this is for scientific analysis, not for readers' enjoyment.
 
 Style
 
@@ -118,9 +149,21 @@ Output
 
 - Return only the label."""
 
-ROMANCE_AWARE_USER_PROMPT = """Topic keywords: {kw}{hints}
+ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
-{pos}
+{kw}{hints}
+
+{pos}{snippets}
+
+Remember:
+
+- Base your label primarily on the shared pattern in the snippets.
+
+- Use the keywords to check you are not missing important body parts, actions, or settings.
+
+- Ignore single outlier words (e.g. a random city) unless they appear in multiple snippets and keywords.
+
+- Use precise, neutral, scene-level phrasing, 2–6 words only.
 
 Label:"""
 
@@ -272,6 +315,166 @@ def extract_pos_cues(keywords: list[str]) -> str:
     return ""
 
 
+def format_snippets(
+    docs: list[str],
+    max_snippets: int = 6,
+    max_chars: int = 200,
+) -> str:
+    """
+    Convert a list of documents into a bullet-style snippets block for LLM prompts.
+    
+    Formats representative document snippets as numbered quotes, with truncation
+    for long sentences. Designed for sentence-level documents (each doc is a sentence).
+    
+    Args:
+        docs: List of document strings (sentences in this corpus)
+        max_snippets: Maximum number of snippets to include (default: 6)
+        max_chars: Maximum characters per snippet before truncation (default: 200)
+        
+    Returns:
+        Formatted string with numbered snippets, or empty string if no docs provided
+    """
+    if not docs:
+        return ""
+    
+    snippets = []
+    for i, doc in enumerate(docs[:max_snippets], start=1):
+        # Collapse whitespace
+        s = " ".join(doc.split())
+        
+        # Truncate at word boundary if too long
+        if len(s) > max_chars:
+            s = s[:max_chars].rsplit(" ", 1)[0] + "..."
+        
+        snippets.append(f'{i}) "{s}"')
+    
+    if not snippets:
+        return ""
+    
+    return "Representative snippets (short excerpts for this topic):\n" + "\n".join(snippets)
+
+
+def extract_representative_docs_per_topic(
+    topic_model: BERTopic,
+    max_docs_per_topic: int = 10,
+) -> dict[int, list[str]]:
+    """
+    Extract representative documents for each topic from BERTopic model.
+    
+    Tries get_representative_docs() method first, falls back to representative_docs_
+    attribute. Handles both dict and method return formats.
+    
+    Args:
+        topic_model: BERTopic model instance
+        max_docs_per_topic: Maximum number of representative docs to extract per topic
+        
+    Returns:
+        Dictionary mapping topic_id to list of representative document strings
+    """
+    topic_to_docs: dict[int, list[str]] = {}
+    
+    # Get all topic IDs (excluding outlier topic -1)
+    if hasattr(topic_model, "topics_"):
+        topic_ids = set(topic_model.topics_)
+        topic_ids.discard(-1)  # Skip outlier topic
+    elif hasattr(topic_model, "topic_representations_"):
+        topic_ids = set(topic_model.topic_representations_.keys())
+        topic_ids.discard(-1)
+    else:
+        LOGGER.warning("Cannot determine topic IDs from BERTopic model")
+        return topic_to_docs
+    
+    LOGGER.info("Extracting representative documents for %d topics", len(topic_ids))
+    
+    # Try get_representative_docs() method first (newer BERTopic versions)
+    if hasattr(topic_model, "get_representative_docs"):
+        try:
+            for topic_id in topic_ids:
+                try:
+                    rep_docs = topic_model.get_representative_docs(
+                        topic=topic_id,
+                        nr_docs=max_docs_per_topic,
+                    )
+                    # Handle both list and dict return types
+                    if isinstance(rep_docs, dict):
+                        # If dict, extract the list value
+                        rep_docs = list(rep_docs.values())[0] if rep_docs else []
+                    elif isinstance(rep_docs, list):
+                        # Already a list
+                        pass
+                    else:
+                        LOGGER.warning(
+                            "Unexpected return type from get_representative_docs for topic %d: %s",
+                            topic_id,
+                            type(rep_docs),
+                        )
+                        rep_docs = []
+                    
+                    # Ensure all items are strings
+                    rep_docs = [str(doc) for doc in rep_docs if doc]
+                    topic_to_docs[topic_id] = rep_docs
+                    
+                except Exception as e:
+                    LOGGER.warning(
+                        "Error getting representative docs for topic %d via method: %s",
+                        topic_id,
+                        e,
+                    )
+                    topic_to_docs[topic_id] = []
+            
+            LOGGER.info(
+                "Extracted representative docs via get_representative_docs() for %d topics",
+                len([tid for tid, docs in topic_to_docs.items() if docs]),
+            )
+            return topic_to_docs
+            
+        except Exception as e:
+            LOGGER.warning(
+                "get_representative_docs() method failed, falling back to attribute: %s",
+                e,
+            )
+    
+    # Fallback to representative_docs_ attribute
+    if hasattr(topic_model, "representative_docs_"):
+        try:
+            rep_docs_attr = topic_model.representative_docs_
+            
+            if isinstance(rep_docs_attr, dict):
+                # Dict format: {topic_id: [doc1, doc2, ...]}
+                for topic_id in topic_ids:
+                    if topic_id in rep_docs_attr:
+                        docs = rep_docs_attr[topic_id]
+                        # Ensure it's a list and convert to strings
+                        if isinstance(docs, list):
+                            docs = [str(doc) for doc in docs[:max_docs_per_topic] if doc]
+                        else:
+                            docs = [str(docs)] if docs else []
+                        topic_to_docs[topic_id] = docs
+                    else:
+                        topic_to_docs[topic_id] = []
+            else:
+                LOGGER.warning(
+                    "representative_docs_ is not a dict, got type: %s",
+                    type(rep_docs_attr),
+                )
+            
+            LOGGER.info(
+                "Extracted representative docs via representative_docs_ for %d topics",
+                len([tid for tid, docs in topic_to_docs.items() if docs]),
+            )
+            return topic_to_docs
+            
+        except Exception as e:
+            LOGGER.warning("Error accessing representative_docs_ attribute: %s", e)
+    
+    # If both methods failed, log warning and return empty dict
+    LOGGER.warning(
+        "Could not extract representative docs from BERTopic model. "
+        "Labels will be generated from keywords only."
+    )
+    return topic_to_docs
+
+
 def load_openrouter_client(
     api_key: str = DEFAULT_OPENROUTER_API_KEY,
     model_name: str = DEFAULT_OPENROUTER_MODEL,
@@ -322,6 +525,9 @@ def generate_label_from_keywords_openrouter(
     mmr_top_k: int | None = None,
     temperature: float = 0.3,
     use_improved_prompts: bool = False,
+    representative_docs: list[str] | None = None,
+    max_snippets: int = 6,
+    max_chars_per_snippet: int = 200,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -336,6 +542,9 @@ def generate_label_from_keywords_openrouter(
         mmr_top_k: Maximum keywords to use after MMR reranking (None for all)
         temperature: Sampling temperature for generation
         use_improved_prompts: If True, use BASE_LABELING_PROMPT and parse JSON response
+        representative_docs: Optional list of representative document strings (snippets)
+        max_snippets: Maximum number of snippets to include in prompt (default: 6)
+        max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
         
     Returns:
         Dictionary with 'label' and optionally 'categories', 'is_noise', 'rationale'
@@ -371,10 +580,20 @@ def generate_label_from_keywords_openrouter(
         pos_cues = extract_pos_cues(keywords)
         pos_str = pos_cues if pos_cues else ""
         
+        # Format snippets if representative_docs provided
+        snippets_block = ""
+        if representative_docs:
+            snippets_block = "\n\n" + format_snippets(
+                representative_docs,
+                max_snippets=max_snippets,
+                max_chars=max_chars_per_snippet,
+            )
+        
         user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
             kw=kw_str,
             hints=hints_str,
-            pos=pos_str
+            pos=pos_str,
+            snippets=snippets_block
         )
         messages = [
             {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
@@ -493,6 +712,10 @@ def generate_labels_streaming(
     temperature: float = 0.3,
     limit: int | None = None,
     use_improved_prompts: bool = False,
+    topic_model: BERTopic | None = None,
+    topic_to_snippets: dict[int, list[str]] | None = None,
+    max_snippets: int = 6,
+    max_chars_per_snippet: int = 200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
@@ -509,12 +732,29 @@ def generate_labels_streaming(
         batch_size: Number of topics to process before logging progress
         temperature: Sampling temperature for generation
         limit: Maximum number of topics to process (None for all)
+        use_improved_prompts: If True, use BASE_LABELING_PROMPT and parse JSON response
+        topic_model: Optional BERTopic model for extracting representative docs (if topic_to_snippets not provided)
+        topic_to_snippets: Optional pre-extracted dict mapping topic_id to representative docs
+        max_snippets: Maximum number of snippets to include per topic (default: 6)
+        max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
         
     Returns:
         Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
     """
     json_path = output_path.with_suffix(".json")
     json_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Extract representative docs if topic_model provided and topic_to_snippets not provided
+    if topic_to_snippets is None and topic_model is not None:
+        LOGGER.info("Extracting representative documents for snippets...")
+        topic_to_snippets = extract_representative_docs_per_topic(topic_model)
+        LOGGER.info(
+            "Extracted snippets for %d topics",
+            len([tid for tid, docs in topic_to_snippets.items() if docs]),
+        )
+    elif topic_to_snippets is None:
+        topic_to_snippets = {}
+        LOGGER.info("No topic_model or topic_to_snippets provided, labels will use keywords only")
     
     topic_data: dict[int, dict[str, Any]] = {}
     batch_idx = 0
@@ -536,10 +776,18 @@ def generate_labels_streaming(
                 
                 # Telemetry: detect domains for this topic (one line)
                 domains = detect_domains(keywords)
-                LOGGER.info("topic %d | domains=%s | keywords=%s", 
-                           topic_id, 
-                           ",".join(domains) if domains else "None",
-                           ", ".join(keywords[:5]) + ("..." if len(keywords) > 5 else ""))
+                
+                # Get representative docs for this topic
+                rep_docs = topic_to_snippets.get(topic_id, []) if topic_to_snippets else []
+                snippet_count = len(rep_docs)
+                
+                LOGGER.info(
+                    "topic %d | domains=%s | keywords=%s | snippets=%d",
+                    topic_id,
+                    ",".join(domains) if domains else "None",
+                    ", ".join(keywords[:5]) + ("..." if len(keywords) > 5 else ""),
+                    snippet_count,
+                )
                 
                 # Generate label with timing
                 label_start = time.perf_counter()
@@ -550,6 +798,9 @@ def generate_labels_streaming(
                     max_new_tokens=max_new_tokens,
                     temperature=temperature,
                     use_improved_prompts=use_improved_prompts,
+                    representative_docs=rep_docs,
+                    max_snippets=max_snippets,
+                    max_chars_per_snippet=max_chars_per_snippet,
                 )
                 label_elapsed = time.perf_counter() - label_start
                 
@@ -623,6 +874,10 @@ def generate_all_labels(
     batch_size: int = 50,
     temperature: float = 0.3,
     use_improved_prompts: bool = False,
+    topic_model: BERTopic | None = None,
+    topic_to_snippets: dict[int, list[str]] | None = None,
+    max_snippets: int = 6,
+    max_chars_per_snippet: int = 200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.
@@ -637,10 +892,27 @@ def generate_all_labels(
         max_new_tokens: Maximum number of tokens to generate per label
         batch_size: Number of topics to process before logging progress
         temperature: Sampling temperature for generation
+        use_improved_prompts: If True, use BASE_LABELING_PROMPT and parse JSON response
+        topic_model: Optional BERTopic model for extracting representative docs (if topic_to_snippets not provided)
+        topic_to_snippets: Optional pre-extracted dict mapping topic_id to representative docs
+        max_snippets: Maximum number of snippets to include per topic (default: 6)
+        max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
         
     Returns:
         Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
     """
+    # Extract representative docs if topic_model provided and topic_to_snippets not provided
+    if topic_to_snippets is None and topic_model is not None:
+        LOGGER.info("Extracting representative documents for snippets...")
+        topic_to_snippets = extract_representative_docs_per_topic(topic_model)
+        LOGGER.info(
+            "Extracted snippets for %d topics",
+            len([tid for tid, docs in topic_to_snippets.items() if docs]),
+        )
+    elif topic_to_snippets is None:
+        topic_to_snippets = {}
+        LOGGER.info("No topic_model or topic_to_snippets provided, labels will use keywords only")
+    
     topic_data: dict[int, dict[str, Any]] = {}
     topic_items = list(pos_topics.items())
     total_topics = len(topic_items)
@@ -655,10 +927,18 @@ def generate_all_labels(
         for idx, (topic_id, keywords) in enumerate(topic_items, start=1):
             # Telemetry: detect domains for this topic (one line)
             domains = detect_domains(keywords)
-            LOGGER.info("topic %d | domains=%s | keywords=%s", 
-                       topic_id, 
-                       ",".join(domains) if domains else "None",
-                       ", ".join(keywords[:5]) + ("..." if len(keywords) > 5 else ""))
+            
+            # Get representative docs for this topic
+            rep_docs = topic_to_snippets.get(topic_id, []) if topic_to_snippets else []
+            snippet_count = len(rep_docs)
+            
+            LOGGER.info(
+                "topic %d | domains=%s | keywords=%s | snippets=%d",
+                topic_id,
+                ",".join(domains) if domains else "None",
+                ", ".join(keywords[:5]) + ("..." if len(keywords) > 5 else ""),
+                snippet_count,
+            )
             
             # Generate label with timing
             label_start = time.perf_counter()
@@ -669,6 +949,9 @@ def generate_all_labels(
                 max_new_tokens=max_new_tokens,
                 temperature=temperature,
                 use_improved_prompts=use_improved_prompts,
+                representative_docs=rep_docs,
+                max_snippets=max_snippets,
+                max_chars_per_snippet=max_chars_per_snippet,
             )
             label_elapsed = time.perf_counter() - label_start
             

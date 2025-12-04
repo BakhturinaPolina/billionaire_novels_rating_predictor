@@ -23,6 +23,7 @@ This module is designed for experiments with different LLM providers and models 
 - ✅ Same prompt structure as main module (Universal System/User prompts)
 - ✅ Same domain detection and adaptive hints
 - ✅ Same POS topic extraction workflow
+- ✅ **Representative document snippets** for improved label precision
 - ✅ Streaming and batch processing options
 - ✅ Automatic retry logic for API failures
 - ✅ Rate limit handling with delays
@@ -52,6 +53,49 @@ No additional dependencies beyond the main project requirements. The module uses
 - `tenacity` (for retry logic)
 
 Both should already be in your environment if you have the main project dependencies installed.
+
+## Snippets Feature
+
+This module includes an enhanced labeling approach that uses **representative document snippets** alongside keywords to generate more precise, scene-level labels.
+
+### What Are Snippets?
+
+Snippets are short excerpts (typically 6 sentences) from documents that best represent each topic. They provide the LLM with actual scene-level context, enabling it to:
+
+- Distinguish specific acts (e.g., "Blowjob in Car" vs "Erotic Intimacy")
+- Identify settings (e.g., "Kitchen Argument" vs "General Conflict")
+- Capture tone and style (e.g., "Rough Kissing" vs "Tender Kissing")
+- Avoid vague, euphemistic labels
+
+### How It Works
+
+1. **Extraction**: Representative documents are extracted from the BERTopic model using `get_representative_docs()` or `representative_docs_` attribute
+2. **Formatting**: Up to 6 snippets per topic are formatted as numbered quotes
+3. **Integration**: Snippets are included in the user prompt between POS cues and the label request
+4. **Fallback**: If snippets are unavailable, the system works with keywords only (backward compatible)
+
+### Default Parameters
+
+- **Max snippets per topic**: 6 (configurable via code)
+- **Max characters per snippet**: 200 (truncates at word boundaries)
+- **Token cost**: ~75 tokens per topic for snippets (~7.6% increase)
+
+### Benefits
+
+- **Precision**: Labels capture specific acts, settings, and tones
+- **Neutrality**: Explicit instructions prevent euphemisms
+- **Scene-level understanding**: Better than keyword-only associations
+- **Cost-effective**: Small token increase for significant quality improvement
+
+### Requirements
+
+- BERTopic model must have representative documents available
+- Automatically extracted when BERTopic model is loaded
+- Works with both streaming and batch processing modes
+
+For detailed information, see:
+- `prompts_with_snippets.md`: Prompt structure and examples
+- `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions
 
 ## Usage
 
@@ -83,6 +127,17 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
     --num-keywords 15
 ```
 
+### With Model Suffix (e.g., Noise Labels)
+
+To load a model that was saved with noise labels (from `topic_quality_eda.ipynb`):
+
+```bash
+python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+    --embedding-model paraphrase-MiniLM-L6-v2 \
+    --model-suffix "_with_noise_labels" \
+    --num-keywords 15
+```
+
 ### All Options
 
 ```bash
@@ -91,6 +146,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
     --pareto-rank 1 \
     --base-dir models/retrained \
     --use-native \
+    --model-suffix "_with_noise_labels" \
     --num-keywords 15 \
     --max-tokens 40 \
     --output-dir results/stage06_labeling_openrouter \
@@ -115,6 +171,7 @@ None (uses defaults for all parameters)
 - `--pareto-rank`: Pareto rank of the model to load (default: `1`)
 - `--base-dir`: Base directory containing retrained models (default: `models/retrained`)
 - `--use-native`: Load native safetensors instead of pickle wrapper
+- `--model-suffix`: Optional suffix to append to model filename/directory (e.g., `_with_noise_labels`) (default: empty)
 - `--num-keywords`: Number of top keywords per topic (default: `15`)
 - `--max-tokens`: Maximum tokens to generate per label (default: `40`)
 - `--output-dir`: Output directory for labels JSON (default: `results/stage06_labeling_openrouter`)
@@ -206,7 +263,9 @@ If the model name is invalid:
 
 - `generate_labels_openrouter.py`: Main labeling logic with OpenRouter API
 - `main_openrouter.py`: CLI entry point
-- `prompts.md`: Documentation of all prompt versions
+- `prompts.md`: Documentation of all prompt versions (without snippets)
+- `prompts_with_snippets.md`: Documentation of enhanced prompts with snippets
+- `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions for snippets feature
 - `README.md`: This file
 - `__init__.py`: Package initialization
 
@@ -225,4 +284,6 @@ Potential improvements:
 - Main module: `src/stage06_labeling/generate_labels.py`
 - Main CLI: `src/stage06_labeling/main.py`
 - Prompt documentation: `prompts.md`
+- Snippets-enhanced prompts: `prompts_with_snippets.md`
+- Snippets theoretical reasoning: `SNIPPETS_LOGIC.md`
 

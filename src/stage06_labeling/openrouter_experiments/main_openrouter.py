@@ -24,6 +24,7 @@ from src.stage06_labeling.generate_labels import (
 from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
     DEFAULT_OPENROUTER_API_KEY,
     DEFAULT_OPENROUTER_MODEL,
+    extract_representative_docs_per_topic,
     generate_all_labels,
     generate_labels_streaming,
     load_openrouter_client,
@@ -98,6 +99,13 @@ def parse_args() -> argparse.Namespace:
         "--use-native",
         action="store_true",
         help="Load native safetensors instead of pickle wrapper",
+    )
+    
+    parser.add_argument(
+        "--model-suffix",
+        type=str,
+        default="",
+        help="Optional suffix to append to model filename/directory (e.g., '_with_noise_labels')",
     )
     
     parser.add_argument(
@@ -240,6 +248,7 @@ def main() -> None:
         print(f"[LABELING_CMD]   Pareto rank: {args.pareto_rank}")
         print(f"[LABELING_CMD]   Base dir: {args.base_dir}")
         print(f"[LABELING_CMD]   Use native: {args.use_native}")
+        print(f"[LABELING_CMD]   Model suffix: {args.model_suffix or '(none)'}")
         print(f"[LABELING_CMD]   Num keywords: {args.num_keywords}")
         print(f"[LABELING_CMD]   Max tokens: {args.max_tokens}")
         print(f"[LABELING_CMD]   Output dir: {args.output_dir}")
@@ -260,6 +269,7 @@ def main() -> None:
             embedding_model=args.embedding_model,
             pareto_rank=args.pareto_rank,
             use_native=args.use_native,
+            model_suffix=args.model_suffix,
         )
         print(f"[LABELING_CMD] ✓ Loaded BERTopic model (use_native={args.use_native})")
         sys.stdout.flush()
@@ -341,6 +351,16 @@ def main() -> None:
         sys.stdout.flush()
         print()
         
+        # Step 3b: Extract representative documents for snippets
+        print("[LABELING_CMD] Step 3b: Extracting representative documents for snippets...")
+        sys.stdout.flush()
+        topic_to_snippets = extract_representative_docs_per_topic(topic_model)
+        snippets_count = len([tid for tid, docs in topic_to_snippets.items() if docs])
+        print(f"[LABELING_CMD] ✓ Extracted representative docs for {snippets_count} topics")
+        print(f"[LABELING_CMD]   Snippets will be included in prompts for better label precision")
+        sys.stdout.flush()
+        print()
+        
         # Step 4: Generate labels from topics (use streaming if JSON available for memory efficiency)
         # Create model-specific filename with romance-aware suffix
         model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
@@ -372,6 +392,8 @@ def main() -> None:
                 temperature=args.temperature,
                 limit=args.limit_topics,
                 use_improved_prompts=args.use_improved_prompts,
+                topic_model=topic_model,
+                topic_to_snippets=topic_to_snippets,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels (streaming mode)")
             print(f"[LABELING_CMD] ✓ Labels already saved to {labels_path.with_suffix('.json')}")
@@ -392,6 +414,8 @@ def main() -> None:
                 batch_size=args.batch_size,
                 temperature=args.temperature,
                 use_improved_prompts=args.use_improved_prompts,
+                topic_model=topic_model,
+                topic_to_snippets=topic_to_snippets,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels")
             sys.stdout.flush()
