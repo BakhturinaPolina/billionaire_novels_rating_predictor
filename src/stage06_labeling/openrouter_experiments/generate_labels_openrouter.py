@@ -132,6 +132,22 @@ OUTLIERS AND NOISE
 - If keywords are incoherent, choose the most concrete, frequent facet you see
   and describe it literally: "Random Small Talk", "Household Objects and Doors".
 
+UNCERTAINTY AND ABSTRACTION
+- If the topic is abstract or generic and you cannot infer a specific scene or act
+  from the snippets, choose a broad, literal label (e.g., "Relationship Feelings and Issues",
+  "General Life Problems", "Time References and Durations").
+- Do NOT invent specific scenarios like "First Time With Woman", "Car Repair",
+  "Dinner Date", "Wedding Proposal" unless those events are clearly present in the snippets
+  or in very explicit keywords.
+
+HARD CONSTRAINTS FOR KNOWN HALLUCINATION PATTERNS
+- Do NOT use "dinner date", "invitation", or "makeout" unless:
+  - snippets or keywords clearly mention asking/inviting, saying yes/no, or kissing.
+- Do NOT use "repair" unless keywords or snippets include mechanical or technical terms
+  like "fix", "engine", "mechanic", "repair", "tools".
+- Do NOT use "heartbreak" or "breakup" unless emotional pain in a relationship
+  is clearly described in the snippets.
+
 WORK / RESEARCH / META TOPICS
 - Distinguish between:
   - "Work & Career Tasks" (job, office, boss, meeting, deadline)
@@ -150,7 +166,59 @@ SEXUAL CONTENT PRECISENESS
 
 OUTPUT FORMAT
 - Return ONLY the label, as a short noun phrase of 2–6 words.
-- No explanations, no extra sentences, no lists."""
+- No explanations, no extra sentences, no lists.
+
+EXAMPLES (do NOT repeat these exact labels; just mimic the style)
+
+Example 0 (Promise & Deals):
+Topic keywords: means, idea, promise, work, help, better, true, deal, today, game
+Representative snippets:
+1) "You promised me you'd help, this isn't just a game to you."
+2) "If we make this deal today, it could really change things."
+Label: Promise and Deal Negotiation
+
+Example 3 (Meals):
+Topic keywords: dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry
+Representative snippets:
+1) "They grabbed sandwiches from the bakery and ate on the steps."
+2) "Breakfast was just coffee and a half-eaten croissant."
+Label: Everyday Meals And Food
+
+Example 4 (Abstract relationship feelings):
+Topic keywords: way, years, matter, things, able, relationship, place, thing, feelings, kind
+Representative snippets:
+1) "After all these years, she still couldn't name what they were."
+2) "It was the kind of relationship that never quite fit in one box."
+Label: Relationship Feelings And Issues
+
+Example 5 (Time passing in life/work):
+Topic keywords: week, years, job, fallen, days, times, months, able, things, different
+Representative snippets:
+1) "Weeks turned into months at the new job before she realized how different everything felt."
+2) "Over the years, the days blurred together into something she barely recognized."
+Label: Time Passing In Work And Life
+
+Example 21 (Car scene):
+Topic keywords: car, seat, door, parked, drive, window, highway, kiss, hand
+Representative snippets:
+1) "They sat in the parked car, his hand on her thigh as the windows fogged."
+2) "She leaned across the seat, kissing him while the engine idled quietly."
+Label: Makeout In Parked Car
+
+Example 23 (Refused invitation):
+Topic keywords: invite, invited, asked, yes, no, maybe, refused, party, drinks
+Representative snippets:
+1) "He invited her out for drinks, but she shook her head and said no."
+2) '"I appreciate it, but I can't," she replied, refusing the invitation.'
+Label: Refusing A Romantic Invitation
+
+Example 29 (Time references):
+Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longer, soon
+Representative snippets:
+1) "Minutes felt like hours as she stared at the clock."
+2) "Time passed slowly while he waited for her to call."
+Label: Time References And Durations
+"""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 

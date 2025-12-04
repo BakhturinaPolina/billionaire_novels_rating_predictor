@@ -31,29 +31,13 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
     load_openrouter_client,
 )
 
-# Free models to test
-FREE_MODELS = [
-    "mistralai/mistral-7b-instruct:free",
-    "venice/uncensored:free",
-    "tngtech/tng-r1t-chimera:free",
-    "mistralai/mistral-nemo:free",
-]
-
-# Successful free models (that produced good labels)
-SUCCESSFUL_FREE_MODELS = [
-    "mistralai/mistral-7b-instruct:free",
-    "venice/uncensored:free",
-]
-
-# Cheap models to test (not free, but low cost)
-CHEAP_MODELS = [
+# Models to compare: mistral-nemo and Grok (cheap but fast)
+# These are the two models that will benefit from the improved few-shot prompts
+# Note: Using paid mistral-nemo as free version may not be available
+ALL_MODELS_TO_COMPARE = [
     "mistralai/mistral-nemo",
-    "deepseek/deepseek-chat-v3-0324",
     "x-ai/grok-4.1-fast",
 ]
-
-# Combined list: successful free models + new cheap models
-ALL_MODELS_TO_COMPARE = SUCCESSFUL_FREE_MODELS + CHEAP_MODELS
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
 DEFAULT_NUM_KEYWORDS = 15
