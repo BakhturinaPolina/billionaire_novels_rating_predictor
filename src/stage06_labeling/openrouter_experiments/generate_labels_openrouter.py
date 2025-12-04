@@ -387,20 +387,29 @@ def extract_representative_docs_per_topic(
     LOGGER.info("Extracting representative documents for %d topics", len(topic_ids))
     
     # Try get_representative_docs() method first (newer BERTopic versions)
+    # According to official BERTopic docs: get_representative_docs(topic=None)
+    # Only accepts 'topic' parameter, returns all representative docs for that topic
     if hasattr(topic_model, "get_representative_docs"):
         try:
             for topic_id in topic_ids:
                 try:
-                    rep_docs = topic_model.get_representative_docs(
-                        topic=topic_id,
-                        nr_docs=max_docs_per_topic,
-                    )
+                    # Call with only topic parameter (official API)
+                    rep_docs = topic_model.get_representative_docs(topic=topic_id)
+                    
                     # Handle both list and dict return types
                     if isinstance(rep_docs, dict):
-                        # If dict, extract the list value
-                        rep_docs = list(rep_docs.values())[0] if rep_docs else []
+                        # If dict, extract the list value (usually {topic_id: [docs]})
+                        # Handle case where key might be different or multiple keys exist
+                        if topic_id in rep_docs:
+                            rep_docs = rep_docs[topic_id]
+                        elif len(rep_docs) == 1:
+                            # Single key, extract its value
+                            rep_docs = list(rep_docs.values())[0]
+                        else:
+                            # Multiple topics in dict, try to find matching one
+                            rep_docs = rep_docs.get(topic_id, [])
                     elif isinstance(rep_docs, list):
-                        # Already a list
+                        # Already a list - this is the expected format
                         pass
                     else:
                         LOGGER.warning(
@@ -409,6 +418,14 @@ def extract_representative_docs_per_topic(
                             type(rep_docs),
                         )
                         rep_docs = []
+                    
+                    # Ensure rep_docs is a list
+                    if not isinstance(rep_docs, list):
+                        rep_docs = [rep_docs] if rep_docs else []
+                    
+                    # Limit to max_docs_per_topic (BERTopic doesn't have limit parameter)
+                    if len(rep_docs) > max_docs_per_topic:
+                        rep_docs = rep_docs[:max_docs_per_topic]
                     
                     # Ensure all items are strings
                     rep_docs = [str(doc) for doc in rep_docs if doc]

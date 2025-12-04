@@ -153,10 +153,19 @@ def load_retrained_wrapper(
     base_dir: Path | str = DEFAULT_BASE_DIR,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
     pareto_rank: int = 1,
+    model_suffix: str = "",
 ) -> Tuple[RetrainableBERTopicModel, BERTopic]:
-    """Load the Stage 05 pickle wrapper and recover the BERTopic instance."""
+    """
+    Load the Stage 05 pickle wrapper and recover the BERTopic instance.
+    
+    Args:
+        base_dir: Base directory for models
+        embedding_model: Model name
+        pareto_rank: Model rank
+        model_suffix: Optional suffix to append to model filename (e.g., "_with_noise_labels")
+    """
     base_dir = Path(base_dir)
-    pickle_path = base_dir / embedding_model / f"model_{pareto_rank}.pkl"
+    pickle_path = base_dir / embedding_model / f"model_{pareto_rank}{model_suffix}.pkl"
 
     if not pickle_path.exists():
         raise FileNotFoundError(f"Pickle model not found: {pickle_path}")
@@ -197,10 +206,19 @@ def load_native_bertopic_model(
     base_dir: Path | str = DEFAULT_BASE_DIR,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
     pareto_rank: int = 1,
+    model_suffix: str = "",
 ) -> BERTopic:
-    """Load a retrained BERTopic safetensors directory."""
+    """
+    Load a retrained BERTopic safetensors directory.
+    
+    Args:
+        base_dir: Base directory for models
+        embedding_model: Model name
+        pareto_rank: Model rank
+        model_suffix: Optional suffix to append to model directory name (e.g., "_with_noise_labels")
+    """
     base_dir = Path(base_dir)
-    model_dir = base_dir / embedding_model / f"model_{pareto_rank}"
+    model_dir = base_dir / embedding_model / f"model_{pareto_rank}{model_suffix}"
 
     if not model_dir.exists():
         raise FileNotFoundError(

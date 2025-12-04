@@ -168,6 +168,7 @@ def load_bertopic_model(
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
     pareto_rank: int = 1,
     use_native: bool = False,
+    model_suffix: str = "",
 ) -> tuple[RetrainableBERTopicModel | None, BERTopic]:
     """
     Load the retrained BERTopic model from either pickle wrapper or native safetensors.
@@ -177,6 +178,7 @@ def load_bertopic_model(
         embedding_model: Model name
         pareto_rank: Model rank
         use_native: If True, load native safetensors; if False, load pickle wrapper
+        model_suffix: Optional suffix to append to model filename/directory (e.g., "_with_noise_labels")
         
     Returns:
         Tuple of (wrapper or None, BERTopic model)
@@ -186,6 +188,7 @@ def load_bertopic_model(
             base_dir=base_dir,
             embedding_model=embedding_model,
             pareto_rank=pareto_rank,
+            model_suffix=model_suffix,
         )
         return None, topic_model
     else:
@@ -193,6 +196,7 @@ def load_bertopic_model(
             base_dir=base_dir,
             embedding_model=embedding_model,
             pareto_rank=pareto_rank,
+            model_suffix=model_suffix,
         )
         return wrapper, topic_model
 
