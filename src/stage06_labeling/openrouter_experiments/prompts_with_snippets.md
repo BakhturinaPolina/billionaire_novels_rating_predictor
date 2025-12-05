@@ -8,39 +8,24 @@ The snippets-enhanced prompts provide the LLM with actual scene-level context fr
 
 ## System Prompt
 
-The system prompt includes a new "REPRESENTATIVE SNIPPETS" section that instructs the model on how to use snippets:
+The system prompt includes a "REPRESENTATIVE SNIPPETS" section that instructs the model on how to use snippets:
 
 ```
 REPRESENTATIVE SNIPPETS
-
 - You will be given several short snippets (usually 3–6 sentences) taken from documents in this topic.
-
 - These are more informative than the keyword list for fine distinctions:
-
   - whether kisses are rough or gentle,
-
   - whether rage is emotional vs physical,
-
   - whether a date is a picnic in a park vs dinner in a restaurant,
-
   - whether a sexual act is a blowjob, fingering, clitoral stimulation, etc.
-
 - When snippets and keywords disagree, trust the snippets.
-
 - Use the snippets as primary evidence for:
-
   - scene type (kitchen argument, car makeout, office meeting, research discussion),
-
   - emotional tone (angry, tender, playful, humiliated),
-
   - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation).
-
-- Do NOT euphemize clearly explicit sexual acts. Label them factually:
-
-  - "Blowjob in Car", "Clitoral Stimulation on Couch", "Breast Foreplay in Bed".
-
-- Keep wording neutral and non-romanticized; this is for scientific analysis, not for readers' enjoyment.
 ```
+
+For the complete system prompt, see `prompts.md`.
 
 ## User Prompt Template
 
@@ -51,7 +36,8 @@ Topic keywords (most important first):
 
 {kw}{hints}
 
-{pos}{snippets}
+{pos}
+{snippets}
 
 Remember:
 
@@ -168,7 +154,6 @@ Label:
 
 ## See Also
 
-- `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions
-- `prompts.md`: Original prompt documentation (without snippets)
-- `README.md`: Usage instructions
+- `prompts.md`: Complete prompt documentation including full system and user prompts
+- `generate_labels_openrouter.py`: Implementation of the prompt system
 
