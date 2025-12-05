@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-05T00:15:50.636952",
+    "models": [
+      "mistralai/mistral-nemo:free",
+      "x-ai/grok-4.1-fast"
+    ],
+    "total_topics": 30
+  },
+  "topics": {
+    "0": {
+      "topic_id": 0,
+      "keywords": [
+        "means",
+        "idea",
+        "promise",
+        "work",
+        "help",
+        "better",
+        "true",
+        "deal",
+        "today",
+        "game"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "means",
+        "x-ai/grok-4.1-fast": "Promise and Deal Negotiation"
+      }
+    },
+    "1": {
+      "topic_id": 1,
+      "keywords": [
+        "hips",
+        "tongue",
+        "breasts",
+        "mouth",
+        "body",
+        "arms",
+        "neck",
+        "thighs",
+        "nipples",
+        "hand"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "hips",
+        "x-ai/grok-4.1-fast": "Tongue Kissing and Body Groping"
+      }
+    },
+    "2": {
+      "topic_id": 2,
+      "keywords": [
+        "clit",
+        "pussy",
+        "tongue",
+        "hips",
+        "legs",
+        "mouth",
+        "neck",
+        "lip",
+        "lower",
+        "thighs"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "clit",
+        "x-ai/grok-4.1-fast": "Oral Clit Stimulation"
+      }
+    },
+    "3": {
+      "topic_id": 3,
+      "keywords": [
+        "dinner",
+        "food",
+        "lunch",
+        "breakfast",
+        "bakery",
+        "chicken",
+        "sandwich",
+        "meal",
+        "dessert",
+        "hungry"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "dinner",
+        "x-ai/grok-4.1-fast": "Dinner Invitations"
+      }
+    },
+    "4": {
+      "topic_id": 4,
+      "keywords": [
+        "way",
+        "years",
+        "matter",
+        "things",
+        "able",
+        "relationship",
+        "place",
+        "thing",
+        "feelings",
+        "kind"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "way",
+        "x-ai/grok-4.1-fast": "Never Seen Romantic Behaviors"
+      }
+    },
+    "5": {
+      "topic_id": 5,
+      "keywords": [
+        "week",
+        "years",
+        "job",
+        "fallen",
+        "days",
+        "times",
+        "months",
+        "able",
+        "things",
+        "different"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "week",
+        "x-ai/grok-4.1-fast": "Gone Back to Ex-fiancé"
+      }
+    },
+    "6": {
+      "topic_id": 6,
+      "keywords": [
+        "wine",
+        "sip",
+        "bottle",
+        "drunk",
+        "whiskey",
+        "waiter",
+        "scotch",
+        "alcohol",
+        "cup",
+        "drinks"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "wine",
+        "x-ai/grok-4.1-fast": "Wine Sipping At Table"
+      }
+    },
+    "7": {
+      "topic_id": 7,
+      "keywords": [
+        "problem",
+        "deal",
+        "idea",
+        "point",
+        "luck",
+        "choice",
+        "true",
+        "fault",
+        "necessary",
+        "need"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "problem",
+        "x-ai/grok-4.1-fast": "Denials of Fault and Need"
+      }
+    },
+    "8": {
+      "topic_id": 8,
+      "keywords": [
+        "wrong",
+        "thought",
+        "able",
+        "feelings",
+        "course",
+        "control",
+        "choice",
+        "things",
+        "deal",
+        "words"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "wrong",
+        "x-ai/grok-4.1-fast": "Doubtful Reluctance And Hesitation"
+      }
+    },
+    "9": {
+      "topic_id": 9,
+      "keywords": [
+        "married",
+        "wedding",
+        "marriage",
+        "divorce",
+        "divorced",
+        "ceremony",
+        "planner",
+        "arranged",
+        "honeymoon",
+        "planning"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "married",
+        "x-ai/grok-4.1-fast": "Marriage Status Revelations"
+      }
+    },
+    "10": {
+      "topic_id": 10,
+      "keywords": [
+        "door",
+        "doors",
+        "knock",
+        "hallway",
+        "stairs",
+        "elevators",
+        "floor",
+        "lock",
+        "button",
+        "lobby"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "door",
+        "x-ai/grok-4.1-fast": "Front Door Access"
+      }
+    },
+    "11": {
+      "topic_id": 11,
+      "keywords": [
+        "wine",
+        "kitchen",
+        "plate",
+        "sip",
+        "waitress",
+        "bottle",
+        "cup",
+        "mug",
+        "dinner",
+        "food"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "wine",
+        "x-ai/grok-4.1-fast": "Wine Handling and Sipping"
+      }
+    },
+    "12": {
+      "topic_id": 12,
+      "keywords": [
+        "kisses",
+        "tongue",
+        "mouth",
+        "neck",
+        "leans",
+        "lip",
+        "soft",
+        "lower",
+        "tender",
+        "forehead"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "kisses",
+        "x-ai/grok-4.1-fast": "Soft Kisses on Neck Lips"
+      }
+    },
+    "13": {
+      "topic_id": 13,
+      "keywords": [
+        "smile",
+        "laugh",
+        "laughs",
+        "grin",
+        "eyebrows",
+        "giggles",
+        "laughter",
+        "small",
+        "eyebrow",
+        "bright"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "smile",
+        "x-ai/grok-4.1-fast": "Mutual Joyful Smiles"
+      }
+    },
+    "14": {
+      "topic_id": 14,
+      "keywords": [
+        "smile",
+        "smiles",
+        "grin",
+        "grins",
+        "laughter",
+        "gleam",
+        "corners",
+        "crooked",
+        "genuine",
+        "mouth"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "smile",
+        "x-ai/grok-4.1-fast": "Smiles and Grins"
+      }
+    },
+    "15": {
+      "topic_id": 15,
+      "keywords": [
+        "clit",
+        "hips",
+        "pussy",
+        "legs",
+        "thighs",
+        "erection",
+        "waist",
+        "thigh",
+        "panties",
+        "hand"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "clit",
+        "x-ai/grok-4.1-fast": "Clitoral Stimulation"
+      }
+    },
+    "16": {
+      "topic_id": 16,
+      "keywords": [
+        "parents",
+        "older",
+        "fathers",
+        "children",
+        "kids",
+        "grandson",
+        "years",
+        "uncles",
+        "youngest",
+        "dads"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "parents",
+        "x-ai/grok-4.1-fast": "Parents and Fathers Discussions"
+      }
+    },
+    "19": {
+      "topic_id": 19,
+      "keywords": [
+        "stomach",
+        "chest",
+        "blood",
+        "veins",
+        "temples",
+        "spine",
+        "belly",
+        "adrenaline",
+        "heartbeat",
+        "tingle"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "stomach",
+        "x-ai/grok-4.1-fast": "Nervous Stomach and Pounding Heart"
+      }
+    },
+    "20": {
+      "topic_id": 20,
+      "keywords": [
+        "gaze",
+        "stare",
+        "stares",
+        "eye",
+        "features",
+        "glare",
+        "expression",
+        "brows",
+        "head",
+        "attention"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "gaze",
+        "x-ai/grok-4.1-fast": "Mutual Gaze Meetings"
+      }
+    },
+    "21": {
+      "topic_id": 21,
+      "keywords": [
+        "car",
+        "driver",
+        "parking",
+        "cars",
+        "driveway",
+        "suv",
+        "curb",
+        "cab",
+        "drive",
+        "vehicle"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "car",
+        "x-ai/grok-4.1-fast": "Car Parking and Driveways"
+      }
+    },
+    "22": {
+      "topic_id": 22,
+      "keywords": [
+        "control",
+        "thought",
+        "thing",
+        "prepared",
+        "choice",
+        "deal",
+        "wrong",
+        "problem",
+        "way",
+        "effort"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "control",
+        "x-ai/grok-4.1-fast": "Negations of Liking and Caring"
+      }
+    },
+    "23": {
+      "topic_id": 23,
+      "keywords": [
+        "board",
+        "mug",
+        "arm",
+        "chair",
+        "hand",
+        "lodge",
+        "table",
+        "tone",
+        "room",
+        "position"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "board",
+        "x-ai/grok-4.1-fast": "Lodge Room Conversations"
+      }
+    },
+    "24": {
+      "topic_id": 24,
+      "keywords": [
+        "rings",
+        "buzzes",
+        "pocket",
+        "screen",
+        "cellphone",
+        "nightstand",
+        "message",
+        "purse",
+        "phones",
+        "vibrates"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "rings",
+        "x-ai/grok-4.1-fast": "Phone Buzzing in Pocket"
+      }
+    },
+    "25": {
+      "topic_id": 25,
+      "keywords": [
+        "smile",
+        "laugh",
+        "laughter",
+        "grin",
+        "burst",
+        "forced",
+        "lip",
+        "loud",
+        "goofy",
+        "cheeks"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "smile",
+        "x-ai/grok-4.1-fast": "Smiles and Laughter"
+      }
+    },
+    "26": {
+      "topic_id": 26,
+      "keywords": [
+        "tonight",
+        "night",
+        "evening",
+        "nights",
+        "stand",
+        "nighttime",
+        "fun",
+        "different",
+        "best",
+        "middle"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "tonight",
+        "x-ai/grok-4.1-fast": "Suggesting Going Out Tonight"
+      }
+    },
+    "27": {
+      "topic_id": 27,
+      "keywords": [
+        "door",
+        "doors",
+        "car",
+        "stairs",
+        "purse",
+        "hall",
+        "button",
+        "elevators",
+        "lock",
+        "knob"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "door",
+        "x-ai/grok-4.1-fast": "Opening Doors and Car Doors"
+      }
+    },
+    "28": {
+      "topic_id": 28,
+      "keywords": [
+        "complication",
+        "choice",
+        "guacamole",
+        "mind",
+        "things",
+        "matter",
+        "material",
+        "question",
+        "fact",
+        "invitation"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "complication",
+        "x-ai/grok-4.1-fast": "Dismissive \"don't\" Statements"
+      }
+    },
+    "29": {
+      "topic_id": 29,
+      "keywords": [
+        "minutes",
+        "weeks",
+        "months",
+        "days",
+        "week",
+        "hours",
+        "years",
+        "month",
+        "seconds",
+        "hour"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "minutes",
+        "x-ai/grok-4.1-fast": "Time Durations in Minutes Hours"
+      }
+    },
+    "30": {
+      "topic_id": 30,
+      "keywords": [
+        "game",
+        "hockey",
+        "puck",
+        "players",
+        "games",
+        "player",
+        "teams",
+        "goalie",
+        "goal",
+        "baseball"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "game",
+        "x-ai/grok-4.1-fast": "Hockey Games and Players"
+      }
+    },
+    "31": {
+      "topic_id": 31,
+      "keywords": [
+        "clothes",
+        "outfit",
+        "wardrobe",
+        "clothing",
+        "outfits",
+        "tomorrow",
+        "selling",
+        "different",
+        "fashion",
+        "compatible"
+      ],
+      "labels": {
+        "mistralai/mistral-nemo:free": "clothes",
+        "x-ai/grok-4.1-fast": "Clothes Outfits and Wardrobe"
+      }
+    }
+  }
+}

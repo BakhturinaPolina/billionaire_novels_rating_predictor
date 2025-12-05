@@ -33,7 +33,7 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
 DEFAULT_NUM_KEYWORDS = 15
-DEFAULT_MAX_TOKENS = 16  # Only need 2–6 words
+DEFAULT_MAX_TOKENS = 100  # Need tokens for label (2–6 words, ~10 tokens) + scene summary (12–25 words, ~50 tokens) + formatting (~10 tokens) = ~70 tokens, using 100 for safety
 DEFAULT_BATCH_SIZE = 50
 DEFAULT_TEMPERATURE = 0.15  # Lower → less creativity, more deterministic
 
@@ -352,11 +352,17 @@ def main() -> None:
         print()
         
         # Step 3b: Extract representative documents for snippets
+        # Use fast get_representative_docs() method (pre-computed, typically 3-5 docs per topic)
         print("[LABELING_CMD] Step 3b: Extracting representative documents for snippets...")
         sys.stdout.flush()
-        topic_to_snippets = extract_representative_docs_per_topic(topic_model)
+        topic_to_snippets = extract_representative_docs_per_topic(
+            topic_model,
+            max_docs_per_topic=5,  # BERTopic typically provides 3-5 docs, cap at 5
+        )
         snippets_count = len([tid for tid, docs in topic_to_snippets.items() if docs])
+        avg_snippets = sum(len(docs) for docs in topic_to_snippets.values()) / max(snippets_count, 1)
         print(f"[LABELING_CMD] ✓ Extracted representative docs for {snippets_count} topics")
+        print(f"[LABELING_CMD]   Average snippets per topic: {avg_snippets:.1f}")
         print(f"[LABELING_CMD]   Snippets will be included in prompts for better label precision")
         sys.stdout.flush()
         print()

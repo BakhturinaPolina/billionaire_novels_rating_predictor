@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import logging
 import os
@@ -12,6 +13,7 @@ from pathlib import Path
 from typing import Any, Iterator
 
 import numpy as np
+import pandas as pd
 from bertopic import BERTopic
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
@@ -495,7 +497,7 @@ def extract_pos_cues(keywords: list[str]) -> str:
 
 def format_snippets(
     docs: list[str],
-    max_snippets: int = 15,
+    max_snippets: int = 5,
     max_chars: int = 1200,
 ) -> str:
     """
@@ -532,19 +534,55 @@ def format_snippets(
     return "Representative snippets (short excerpts for this topic):\n" + "\n".join(snippets)
 
 
+def _iter_documents_from_csv(csv_path: Path) -> Iterator[str]:
+    """
+    Stream documents from CSV file (column 3 contains sentences).
+    
+    Args:
+        csv_path: Path to CSV file
+        
+    Yields:
+        Document strings (normalized sentences)
+    """
+    with open(csv_path, "r", encoding="latin1", errors="ignore") as handle:
+        reader = csv.reader(
+            handle,
+            quotechar='"',
+            delimiter=",",
+            quoting=csv.QUOTE_ALL,
+            skipinitialspace=True,
+        )
+        headers = next(reader, None)  # Skip header
+        
+        for row in reader:
+            if len(row) < 4:
+                continue
+            
+            sentence = row[3].strip()
+            if not sentence:
+                continue
+            
+            # Normalize whitespace
+            sentence = re.sub(r"\s+", " ", sentence.replace("\n", " ")).strip()
+            if sentence:
+                yield sentence.lower()
+
+
 def extract_representative_docs_per_topic(
     topic_model: BERTopic,
-    max_docs_per_topic: int = 10,
+    max_docs_per_topic: int = 5,
 ) -> dict[int, list[str]]:
     """
     Extract representative documents for each topic from BERTopic model.
     
-    Tries get_representative_docs() method first, falls back to representative_docs_
-    attribute. Handles both dict and method return formats.
+    Uses BERTopic's built-in get_representative_docs() method which returns pre-computed
+    representative docs (typically 3-5 docs per topic). This is fast and doesn't require
+    loading documents from CSV or processing batches.
     
     Args:
         topic_model: BERTopic model instance
         max_docs_per_topic: Maximum number of representative docs to extract per topic
+                           (default: 5, typically BERTopic provides 3-5)
         
     Returns:
         Dictionary mapping topic_id to list of representative document strings
@@ -564,14 +602,16 @@ def extract_representative_docs_per_topic(
     
     LOGGER.info("Extracting representative documents for %d topics", len(topic_ids))
     
-    # Try get_representative_docs() method first (newer BERTopic versions)
-    # According to official BERTopic docs: get_representative_docs(topic=None)
-    # Only accepts 'topic' parameter, returns all representative docs for that topic
+    # Use BERTopic's built-in get_representative_docs() method (fast, pre-computed)
+    # This is much faster than CSV batch processing and provides 3-5 quality docs per topic
+    # NOTE: According to BERTopic docs, get_representative_docs(topic=None) does NOT accept
+    # parameters to specify the number of docs. The number is determined during training
+    # and stored in representative_docs_. We can only get what was pre-computed (typically 3-5 docs).
     if hasattr(topic_model, "get_representative_docs"):
         try:
             for topic_id in topic_ids:
                 try:
-                    # Call with only topic parameter (official API)
+                    # BERTopic API: get_representative_docs(topic=None) - no count parameter
                     rep_docs = topic_model.get_representative_docs(topic=topic_id)
                     
                     # Handle both list and dict return types
@@ -587,7 +627,7 @@ def extract_representative_docs_per_topic(
                             # Multiple topics in dict, try to find matching one
                             rep_docs = rep_docs.get(topic_id, [])
                     elif isinstance(rep_docs, list):
-                        # Already a list - this is the expected format
+                        # Expected format
                         pass
                     else:
                         LOGGER.warning(
@@ -597,17 +637,27 @@ def extract_representative_docs_per_topic(
                         )
                         rep_docs = []
                     
-                    # Ensure rep_docs is a list
+                    # Ensure list
                     if not isinstance(rep_docs, list):
                         rep_docs = [rep_docs] if rep_docs else []
                     
-                    # Limit to max_docs_per_topic (BERTopic doesn't have limit parameter)
+                    # Cap to max_docs_per_topic for safety
                     if len(rep_docs) > max_docs_per_topic:
                         rep_docs = rep_docs[:max_docs_per_topic]
                     
-                    # Ensure all items are strings
+                    # Normalize to strings
                     rep_docs = [str(doc) for doc in rep_docs if doc]
                     topic_to_docs[topic_id] = rep_docs
+                    
+                    # Log final count for first few topics to debug
+                    # Note: BERTopic only returns what was pre-computed during training (typically 3-5 docs)
+                    if topic_id < 5:
+                        LOGGER.info(
+                            "Topic %d: Got %d representative docs (BERTopic pre-computed; max_docs_per_topic=%d is for safety capping only)",
+                            topic_id,
+                            len(rep_docs),
+                            max_docs_per_topic,
+                        )
                     
                 except Exception as e:
                     LOGGER.warning(
@@ -771,8 +821,8 @@ def generate_label_from_keywords_openrouter(
     temperature: float = 0.3,
     use_improved_prompts: bool = False,
     representative_docs: list[str] | None = None,
-    max_snippets: int = 15,
-    max_chars_per_snippet: int = 1200,
+    max_snippets: int = 5,
+    max_chars_per_snippet: int = 400,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -826,14 +876,11 @@ def generate_label_from_keywords_openrouter(
         pos_str = pos_cues if pos_cues else ""
         
         # Format snippets if representative_docs provided
+        # Use snippets directly without centrality reranking for better performance
         snippets_block = ""
         if representative_docs:
-            central_docs = rerank_snippets_centrality(
-                representative_docs,
-                top_k=max_snippets,
-            )
             snippets_block = "\n\n" + format_snippets(
-                central_docs,
+                representative_docs,
                 max_snippets=max_snippets,
                 max_chars=max_chars_per_snippet,
             )
@@ -989,8 +1036,8 @@ def generate_labels_streaming(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 15,
-    max_chars_per_snippet: int = 1200,
+    max_snippets: int = 5,
+    max_chars_per_snippet: int = 400,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
@@ -1154,8 +1201,8 @@ def generate_all_labels(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 15,
-    max_chars_per_snippet: int = 1200,
+    max_snippets: int = 5,
+    max_chars_per_snippet: int = 400,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.

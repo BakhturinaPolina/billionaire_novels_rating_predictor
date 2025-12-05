@@ -32,6 +32,12 @@ logging.basicConfig(
 )
 
 # Universal prompt for topic labeling (works across any domain)
+# NOTE: This file uses a separate prompt system from the OpenRouter pipeline.
+# - This prompt expects single label output (not Label + Scene summary)
+# - The OpenRouter pipeline (generate_labels_openrouter.py) uses ROMANCE_AWARE_SYSTEM_PROMPT
+#   which requests dual output (Label + Scene summary) for romance-aware labeling
+# - No code changes needed here - this is a separate pipeline path for local Mistral-7B
+# - If dual output is desired for local pipeline in future, would need similar parsing updates
 UNIVERSAL_SYSTEM_PROMPT = """You are a topic-labeling assistant.
 
 Goal

@@ -1,0 +1,15 @@
+---
+alwaysApply: true
+---
+## Commit Cadence
+- After each meaningful change (e.g., added notebook cell with saved outputs, updated config, adjusted sampling policy), propose a commit.
+- Use small, focused commits; prefer Conventional Commits style if present.
+- Before committing, ask: "Do README, DATA_DICTIONARY.md, or configs also need updates?" If yes, suggest exact edits.
+
+## Branching
+- Use descriptive branches: `feat/explore-schemas`, `fix/review-language-detection`, `data/sampling-policy`.
+- Avoid working directly on `main` unless hotfixing.
+
+## Tools
+- Use Cursor's AI Commit Message to draft messages after staging; user confirms before commit.
+- Summarize diffs with `@Commit` or `@Branch` as context when proposing commits.
