@@ -405,7 +405,7 @@ def main() -> None:
             print(f"[LABELING_CMD]   Total topics to process: {len(pos_topics_dict)}")
             print(f"[LABELING_CMD]   Temperature: {args.temperature}")
             print(f"[LABELING_CMD]   Max tokens per label: {args.max_tokens}")
-            print(f"[LABELING_CMD]   Rate limit delay: 0.5s between API calls")
+            print(f"[LABELING_CMD]   Rate limit delay: 4.0s between API calls")
             sys.stdout.flush()
             topic_labels = generate_all_labels(
                 pos_topics=pos_topics_dict,

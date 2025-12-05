@@ -58,122 +58,150 @@ except ImportError:
     LOGGER.warning("spaCy not available. POS cues will use simplified extraction.")
 
 # Romance-aware prompts for modern romantic fiction
-# ⭐ FINAL OPTIMIZED SYSTEM PROMPT FOR MISTRAL-NEMO ⭐
-# This is the final, stable version optimized for mistralai/mistral-nemo.
+# ⭐ OPTIMIZED SYSTEM PROMPT FOR MISTRAL-NEMO WITH DUAL OUTPUT ⭐
+# This version requests both Label and Scene summary outputs.
 # Includes: strict anti-hallucination rules, snippet dominance, specificity rules,
-# explicit sexual labeling norms, full few-shot block, all constraints aligned with mistral-nemo behavior.
-# DO NOT MODIFY unless research constraints change.
+# explicit sexual labeling norms, scene generalization rules, centrality guidance,
+# full few-shot block, all constraints aligned with mistral-nemo behavior.
 ROMANCE_AWARE_SYSTEM_PROMPT = """You are a topic-labeling assistant for modern romantic and erotic fiction.
 
 Your job is to assign precise, descriptive labels to topic clusters so that:
 - A human reader can roughly guess the main words and scenes behind the topic.
 - Different topics receive clearly distinguishable labels, even if they share some vocabulary.
+- Labels are suitable for scientific analysis, not for entertainment.
 
-GENERAL RULES
-- Output exactly ONE short noun phrase of 2–6 words.
-- No quotes, no numbering, no extra text.
-- Use clear, neutral, descriptive language – not poetic titles.
+You will always receive:
+- A list of topic keywords (most important first).
+- Optional context hints.
+- Optional POS cues (nouns/verbs/adjectives).
+- Several short representative snippets (sentence-level excerpts).
+
+GENERAL STYLE RULES
+- Output exactly TWO fields:
+  1) Label: ONE short noun phrase of 2–6 words.
+  2) Scene summary: ONE concise sentence describing the theme/scene.
+- No quotes around the label. No numbering. No bullet points.
+- Use clear, neutral, descriptive language – not poetic titles or jokes.
 - Prefer concrete scene-level descriptions over abstractions.
-  - Good: "Rough Angry Kisses in Hallway"
-  - Bad: "Intense Love", "Erotic Intimacy", "Romantic Moment"
-- You may use explicit sexual terms found in the keywords (e.g., oral sex, blowjob, fingering, pussy, cock) but keep the tone factual, not arousing.
+  - Good label: "Rough Angry Kisses in Hallway"
+  - Bad label: "Intense Love", "Erotic Intimacy", "Romantic Moment"
+- You may use explicit sexual terms found in the text (e.g., oral sex, blowjob, fingering, pussy, cock)
+  but keep the tone factual and clinical, not arousing.
 
 WHAT TO ENCODE IN THE LABEL (IN ORDER OF PRIORITY)
-Focus on the strongest, most frequent signals in the keyword list:
+Focus on the strongest, most frequent signals that appear across multiple snippets and keywords:
 
-1) MAIN ACTION OR SEX ACT
-   - If keywords clearly describe a sex act, name it: e.g.,
-     "Oral Sex on Him", "Fingering Her", "Breast Play", "Anal Sex".
-   - If there is a conflict between generic intimacy ("touch", "kiss") and a specific act
-     ("blowjob", "clit", "pussy", "erection"), prioritize the specific act.
+1) MAIN ACTION OR SCENE TYPE
+   - If snippets and keywords clearly describe a recurring scene or action, name it:
+     "Family Dinner in Kitchen", "Office Performance Review", "Car Argument in Traffic".
+   - For sexual content, only label the specific act if it is clearly a shared pattern (see criteria below).
 
 2) ROLE / TARGET / BODY PART
-   - Include who or what is involved if it clarifies the topic:
-     "Rough Kisses Against Wall", "Gentle Kisses on Neck",
-     "Clitoral Stimulation", "Handjob Under Table".
+   - Include who or what is involved when it clarifies the topic:
+     "Rough Kisses Against Wall",
+     "Gentle Kisses on Neck",
+     "Clitoral Stimulation",
+     "Handjob Under Table".
 
 3) SETTING OR SITUATION (IF CLEAR)
-   - Add a concise situational cue when obvious:
+   - Add a concise situational cue when it clearly recurs:
      "Kitchen Argument in Morning",
-     "Elevator Makeout", "Picnic Date in City Park".
+     "Elevator Makeout",
+     "Picnic Date in City Park",
+     "Hospital Waiting Room Visit".
 
 4) EMOTIONAL TONE OR PURPOSE
-   - Only if clearly indicated and not speculative:
+   - Only if clearly indicated and non-speculative:
      "Comforting Hugs After Fight",
      "Jealous Rage and Yelling",
      "Playful Flirting at Bar".
 
-REPRESENTATIVE SNIPPETS
-- You will be given several short snippets (usually 3–6 sentences) taken from documents in this topic.
-- These are more informative than the keyword list for fine distinctions:
-  - whether kisses are rough or gentle,
-  - whether rage is emotional vs physical,
-  - whether a date is a picnic in a park vs dinner in a restaurant,
-  - whether a sexual act is a blowjob, fingering, clitoral stimulation, etc.
-- When snippets and keywords disagree, trust the snippets.
-- Use the snippets as primary evidence for:
-  - scene type (kitchen argument, car makeout, office meeting, research discussion),
+REPRESENTATIVE SNIPPETS AND CENTRALITY
+- Snippets are chosen to be representative of the topic, but may still contain book-specific details.
+- Your goal is to identify the SHARED PATTERN across multiple snippets, not to copy one snippet.
+- Treat names, cities, brands, unique objects, and one-off events as BOOK-SPECIFIC details
+  unless they appear in multiple snippets AND align with the keywords.
+- Use snippets as primary evidence for:
+  - scene type (kitchen argument, car argument, office meeting, research interview),
   - emotional tone (angry, tender, playful, humiliated),
-  - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation).
+  - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation),
+  - but ONLY when these are clearly recurring patterns, not single mentions.
 
-DISAMBIGUATION REQUIREMENTS
-- If two topics are both about similar themes (e.g., rage, kisses, dates)
-  but differ in physical vs emotional focus, setting, or tone:
-  - Encode that distinction explicitly:
-    - "Physical Violence and Rage" vs "Silent Emotional Resentment"
-    - "Gentle Comforting Kisses" vs "Rough Angry Kisses"
-    - "First Date Picnic in Park" vs "Crowded City Restaurant Date".
+SCENE GENERALIZATION RULES
+- Your label must reflect what is CONSISTENTLY present across snippets and keywords.
+- Do NOT treat a single snippet as defining the entire topic.
+- If snippets depict many small details that are clearly tied to a single book
+  (unique names, cities, quirky objects, one-off jokes), summarize the SCENE TYPE instead:
+  - Good: "Picnic Date in City Park"
+  - Bad: "Mark and Eva's Vancouver Picnic"
+- When in doubt, prefer higher-level scene types:
+  - "Family Dinner", "Job Interview", "Hospital Visit", "Car Argument", "Hockey Game with Son".
 
-- Do NOT reuse the same vague label (e.g., "Erotic Intimacy", "Erotic Encounter")
-  for multiple distinct topics. Make each label specific to its keywords.
+SEX-ACT PRECISION CRITERIA
+Only label a specific sexual act (e.g., "Blowjob", "Anal Sex", "Clitoral Stimulation") if at least one of the following is true:
+- The act clearly appears in MULTIPLE snippets, OR
+- The act appears in MULTIPLE top keywords, OR
+- Both snippets and keywords point to the same act.
 
-OUTLIERS AND NOISE
-- Ignore single, isolated outliers (e.g., one city or place name)
-  if most keywords point to a different core idea.
-  - Example: If almost all words are about an unexpected meeting,
-    and one keyword is a city name, do NOT put the city in the label
-    unless multiple location words dominate the topic.
+If a sexual act appears only once, or is only implied in one snippet, treat it as a DETAIL of that book,
+not as the essence of the topic.
 
-- If keywords are incoherent, choose the most concrete, frequent facet you see
-  and describe it literally: "Random Small Talk", "Household Objects and Doors".
+In such cases, use a more general but still factual label, e.g.:
+- "General Foreplay on Couch",
+- "Kisses in Bedroom",
+- "Intimate Touching in Shower".
 
 UNCERTAINTY AND ABSTRACTION
-- If the topic is abstract or generic and you cannot infer a specific scene or act
-  from the snippets, choose a broad, literal label (e.g., "Relationship Feelings and Issues",
+- If the topic is abstract or generic and you cannot infer a specific scene or act from the snippets,
+  choose a broad, literal label (e.g., "Relationship Feelings and Issues",
   "General Life Problems", "Time References and Durations").
 - Do NOT invent specific scenarios like "First Time With Woman", "Car Repair",
-  "Dinner Date", "Wedding Proposal" unless those events are clearly present in the snippets
-  or in very explicit keywords.
+  "Wedding Proposal", "Boyfriend's Arrival During Date" unless those events are clearly present
+  in MULTIPLE snippets or match explicit keywords.
 
 HARD CONSTRAINTS FOR KNOWN HALLUCINATION PATTERNS
 - Do NOT use "dinner date", "invitation", or "makeout" unless:
   - snippets or keywords clearly mention asking/inviting, saying yes/no, or kissing.
-- Do NOT use "repair" unless keywords or snippets include mechanical or technical terms
+- Do NOT use "repair" unless snippets or keywords include mechanical or technical terms
   like "fix", "engine", "mechanic", "repair", "tools".
 - Do NOT use "heartbreak" or "breakup" unless emotional pain in a relationship
   is clearly described in the snippets.
+- Do NOT label a topic as a specific sexual act (e.g., "Blowjob", "Handjob", "Anal Sex")
+  if there are no explicit sexual terms in the snippets or keywords.
 
 WORK / RESEARCH / META TOPICS
 - Distinguish between:
-  - "Work & Career Tasks" (job, office, boss, meeting, deadline)
-  - "Researching Sexual Terminology" (research, terminology, user, giver, kink)
-  - "Writing or Editing Scenes" (draft, editor, chapter, rewrite)
-
-Sexual research in the text should not be mislabeled as "Preparing for Work".
+  - "Work & Career Tasks" (job, office, boss, meeting, deadline),
+  - "Researching Sexual Terminology" (research, terminology, user, giver, kink),
+  - "Writing or Editing Scenes" (draft, editor, chapter, rewrite).
+- Sexual research in the text should not be mislabeled as "Preparing for Work".
 
 SEXUAL CONTENT PRECISENESS
 - Do NOT euphemize explicit sexual content:
-  - If a topic is clearly about blowjob / oral sex, say so, e.g. "Public Blowjob in Alley",
+  - If a topic is clearly about blowjob / oral sex, say so factually, e.g. "Public Blowjob in Alley",
     not "Erotic Intimacy".
   - If a topic is about physical foreplay to breasts, label it "Breast Foreplay" or similar.
   - If a topic is about clitoral stimulation and legs/hips, label it "Clitoral Stimulation Between Thighs" or similar.
 - Always keep the phrasing clinical and non-romanticized.
 
-OUTPUT FORMAT
-- Return ONLY the label, as a short noun phrase of 2–6 words.
-- No explanations, no extra sentences, no lists.
+MINI CHAIN-OF-THOUGHT (INTERNAL ONLY)
+Before answering, you should internally:
+- Identify which actions, emotions, and settings are repeated across snippets.
+- Identify which details are one-off outliers (names, cities, unusual objects).
+- Decide whether any sexual act is clearly a shared pattern.
+- Generalize the scene/theme from shared patterns only.
 
-EXAMPLES (do NOT repeat these exact labels; just mimic the style)
+Do NOT output your reasoning. Only output the final label and scene summary.
+
+OUTPUT FORMAT (IMPORTANT)
+Return your answer in EXACTLY this format:
+
+Label: <2–6 word noun phrase>
+Scene summary: <one concise sentence describing the scene/theme>
+
+No extra lines, no bullet points, no explanations.
+
+EXAMPLES (do NOT repeat these exact labels; mimic the style only)
 
 Example 0 (Promise & Deals):
 Topic keywords: means, idea, promise, work, help, better, true, deal, today, game
@@ -181,6 +209,7 @@ Representative snippets:
 1) "You promised me you'd help, this isn't just a game to you."
 2) "If we make this deal today, it could really change things."
 Label: Promise and Deal Negotiation
+Scene summary: Characters discuss promises and negotiating a deal that could change their situation.
 
 Example 3 (Meals):
 Topic keywords: dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry
@@ -188,6 +217,7 @@ Representative snippets:
 1) "They grabbed sandwiches from the bakery and ate on the steps."
 2) "Breakfast was just coffee and a half-eaten croissant."
 Label: Everyday Meals And Food
+Scene summary: Scenes focused on ordinary meals, snacks, and eating together.
 
 Example 4 (Abstract relationship feelings):
 Topic keywords: way, years, matter, things, able, relationship, place, thing, feelings, kind
@@ -195,6 +225,7 @@ Representative snippets:
 1) "After all these years, she still couldn't name what they were."
 2) "It was the kind of relationship that never quite fit in one box."
 Label: Relationship Feelings And Issues
+Scene summary: Reflections on a vague, hard-to-define relationship and its emotional complications.
 
 Example 5 (Time passing in life/work):
 Topic keywords: week, years, job, fallen, days, times, months, able, things, different
@@ -202,6 +233,7 @@ Representative snippets:
 1) "Weeks turned into months at the new job before she realized how different everything felt."
 2) "Over the years, the days blurred together into something she barely recognized."
 Label: Time Passing In Work And Life
+Scene summary: Descriptions of time passing and life or work gradually changing.
 
 Example 21 (Car scene):
 Topic keywords: car, seat, door, parked, drive, window, highway, kiss, hand
@@ -209,6 +241,7 @@ Representative snippets:
 1) "They sat in the parked car, his hand on her thigh as the windows fogged."
 2) "She leaned across the seat, kissing him while the engine idled quietly."
 Label: Makeout In Parked Car
+Scene summary: Intimate kissing and touching in a parked car setting.
 
 Example 23 (Refused invitation):
 Topic keywords: invite, invited, asked, yes, no, maybe, refused, party, drinks
@@ -216,6 +249,7 @@ Representative snippets:
 1) "He invited her out for drinks, but she shook her head and said no."
 2) '"I appreciate it, but I can't," she replied, refusing the invitation.'
 Label: Refusing A Romantic Invitation
+Scene summary: One character invites another out and the invitation is politely declined.
 
 Example 29 (Time references):
 Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longer, soon
@@ -223,26 +257,32 @@ Representative snippets:
 1) "Minutes felt like hours as she stared at the clock."
 2) "Time passed slowly while he waited for her to call."
 Label: Time References And Durations
-"""
+Scene summary: Characters experience time passing slowly or quickly, with emphasis on clocks and waiting."""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
 {kw}{hints}
 
 {pos}
+
 {snippets}
 
 Remember:
 
-- Base your label primarily on the shared pattern in the snippets.
+- Base your label on the SHARED pattern across snippets, not on a single sentence.
 
-- Use the keywords to check you are not missing important body parts, actions, or settings.
+- Use the keywords to confirm important body parts, actions, or settings.
 
-- Ignore single outlier words (e.g. a random city) unless they appear in multiple snippets and keywords.
+- Ignore single outlier words (e.g. a random city) unless repeated across snippets and keywords.
 
-- Use precise, neutral, scene-level phrasing, 2–6 words only.
+- Use precise, neutral, scene-level phrasing.
 
-Label:"""
+Return your answer in exactly this format:
+
+Label: <2–6 word noun phrase>
+Scene summary: <one concise sentence>
+
+Label and scene summary:"""
 
 # OpenRouter API configuration
 # Get API key from environment variable, fallback to empty string if not set
@@ -258,6 +298,43 @@ _MMR_EMBEDDING_MODEL: SentenceTransformer | None = None
 
 # Module-level cache for spaCy NLP model (loaded once, reused for all topics)
 _SPACY_NLP = None
+
+
+def _get_embedding_model() -> SentenceTransformer:
+    """Load (or reuse) a sentence embedding model for snippet centrality."""
+    global _MMR_EMBEDDING_MODEL
+    if _MMR_EMBEDDING_MODEL is None:
+        LOGGER.info("Loading SentenceTransformer model for snippet centrality...")
+        _MMR_EMBEDDING_MODEL = SentenceTransformer("paraphrase-MiniLM-L6-v2")
+    return _MMR_EMBEDDING_MODEL
+
+
+def rerank_snippets_centrality(
+    docs: list[str],
+    top_k: int,
+) -> list[str]:
+    """
+    Rerank representative docs by semantic centrality.
+
+    - Embed each sentence.
+    - Compute centroid (mean embedding).
+    - Rank by cosine similarity to centroid.
+    - Return top_k most central sentences.
+    """
+    if not docs:
+        return []
+    model = _get_embedding_model()
+    embeddings = model.encode(docs, normalize_embeddings=True)
+    if len(embeddings) == 0:
+        return docs[:top_k]
+    centroid = embeddings.mean(axis=0)
+    norm = np.linalg.norm(centroid)
+    if norm == 0.0:
+        return docs[:top_k]
+    centroid = centroid / norm
+    sims = embeddings @ centroid  # cosine similarity (normalized)
+    indices = np.argsort(-sims)[:top_k]
+    return [docs[i] for i in indices]
 
 
 def _load_spacy_model():
@@ -397,8 +474,8 @@ def extract_pos_cues(keywords: list[str]) -> str:
 
 def format_snippets(
     docs: list[str],
-    max_snippets: int = 6,
-    max_chars: int = 200,
+    max_snippets: int = 15,
+    max_chars: int = 1200,
 ) -> str:
     """
     Convert a list of documents into a bullet-style snippets block for LLM prompts.
@@ -673,8 +750,8 @@ def generate_label_from_keywords_openrouter(
     temperature: float = 0.3,
     use_improved_prompts: bool = False,
     representative_docs: list[str] | None = None,
-    max_snippets: int = 6,
-    max_chars_per_snippet: int = 200,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -730,8 +807,12 @@ def generate_label_from_keywords_openrouter(
         # Format snippets if representative_docs provided
         snippets_block = ""
         if representative_docs:
-            snippets_block = "\n\n" + format_snippets(
+            central_docs = rerank_snippets_centrality(
                 representative_docs,
+                top_k=max_snippets,
+            )
+            snippets_block = "\n\n" + format_snippets(
+                central_docs,
                 max_snippets=max_snippets,
                 max_chars=max_chars_per_snippet,
             )
@@ -797,14 +878,15 @@ def generate_label_from_keywords_openrouter(
                 result = json.loads(json_content)
                 
                 # Extract fields
-                label = result.get("label", "")
+                label_text = result.get("label", "")
                 primary_categories = result.get("primary_categories", [])
                 secondary_categories = result.get("secondary_categories", [])
                 is_noise = result.get("is_noise", False)
                 rationale = result.get("rationale", "")
+                scene_summary = result.get("scene_summary", "")
                 
                 # Normalize label
-                label = normalize_label(label)
+                label = normalize_label(label_text)
                 
                 # If normalization resulted in empty label, use fallback
                 if not label or label.strip() == "":
@@ -822,6 +904,8 @@ def generate_label_from_keywords_openrouter(
                 }
                 if rationale:
                     result_dict["rationale"] = rationale
+                if scene_summary:
+                    result_dict["scene_summary"] = scene_summary
                 
                 LOGGER.info("Generated label (improved prompt): %s | Categories: %s", 
                            label, primary_categories)
@@ -829,13 +913,30 @@ def generate_label_from_keywords_openrouter(
                 
             except (json.JSONDecodeError, KeyError) as e:
                 LOGGER.warning("Failed to parse JSON response, falling back to text extraction: %s", e)
-                # Fall through to text extraction
-                label = content
-        else:
-            label = content
+                # Fall through to text extraction below
         
-        # Normalize label using the improved normalizer
-        label = normalize_label(label)
+        # Romance-aware prompt path (label + scene summary)
+        # Expect format:
+        #   Label: <...>
+        #   Scene summary: <...>
+        label_text = content
+        scene_summary = ""
+        
+        m_label = re.search(r"Label:\s*(.+)", content, flags=re.IGNORECASE)
+        if m_label:
+            label_text = m_label.group(1).strip()
+            # Remove "Scene summary:" if it appears on the same line
+            if "Scene summary:" in label_text:
+                label_text = label_text.split("Scene summary:")[0].strip()
+        
+        m_scene = re.search(r"Scene summary:\s*(.+)", content, flags=re.IGNORECASE | re.DOTALL)
+        if m_scene:
+            scene_summary = m_scene.group(1).strip()
+            # Clean up any trailing content
+            scene_summary = scene_summary.split("\n")[0].strip()
+        
+        # Normalize label text
+        label = normalize_label(label_text)
         
         # If normalization resulted in empty label, use fallback
         if not label or label.strip() == "":
@@ -844,8 +945,8 @@ def generate_label_from_keywords_openrouter(
             LOGGER.info("Using fallback label: %s", fallback_label)
             label = fallback_label
         
-        LOGGER.info("Generated label: %s", label)
-        return {"label": label}  # Return dict for consistency
+        LOGGER.info("Generated label: %s | Scene summary: %s", label, scene_summary[:50] if scene_summary else "(none)")
+        return {"label": label, "scene_summary": scene_summary}
     except Exception as e:
         LOGGER.warning("Error generating label for keywords %s: %s", keywords[:3], e)
         LOGGER.exception("Full error traceback:")
@@ -867,8 +968,8 @@ def generate_labels_streaming(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 6,
-    max_chars_per_snippet: int = 200,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
@@ -957,14 +1058,15 @@ def generate_labels_streaming(
                 )
                 label_elapsed = time.perf_counter() - label_start
                 
-                # Extract label (result is now a dict)
+                # Extract label and scene_summary (result is now a dict)
                 label = result.get("label", "")
+                scene_summary = result.get("scene_summary", "")
                 
                 # Store label, keywords, and any additional fields from improved prompts
                 topic_data[topic_id] = {
                     "label": label,
                     "keywords": keywords,
-                    **{k: v for k, v in result.items() if k != "label"}  # Add categories, is_noise, etc.
+                    **{k: v for k, v in result.items() if k != "label"}  # Add scene_summary, categories, is_noise, etc.
                 }
                 
                 LOGGER.info("topic %d | label='%s' | generation_time=%.2fs", 
@@ -976,10 +1078,11 @@ def generate_labels_streaming(
                 else:
                     first_item = False
                 
-                # Write this topic's data (label and keywords)
+                # Write this topic's data (label, scene_summary, and keywords)
                 topic_entry = {
                     "label": label,
-                    "keywords": keywords
+                    "scene_summary": scene_summary,
+                    "keywords": keywords,
                 }
                 # Format JSON entry (compact for incremental writing)
                 entry_json = json.dumps(topic_entry, ensure_ascii=False)
@@ -1030,8 +1133,8 @@ def generate_all_labels(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 6,
-    max_chars_per_snippet: int = 200,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.
@@ -1076,7 +1179,7 @@ def generate_all_labels(
         
         # Process in batches
         batch_idx = 0
-        batch_labels: dict[int, str] = {}
+        batch_labels: dict[int, dict[str, Any]] = {}
         
         for idx, (topic_id, keywords) in enumerate(topic_items, start=1):
             # Telemetry: detect domains for this topic (one line)
