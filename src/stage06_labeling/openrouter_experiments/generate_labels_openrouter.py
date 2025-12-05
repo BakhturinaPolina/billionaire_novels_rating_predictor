@@ -79,7 +79,16 @@ You will always receive:
 GENERAL STYLE RULES
 - Output exactly TWO fields:
   1) Label: ONE short noun phrase of 2–6 words.
-  2) Scene summary: ONE concise sentence describing the theme/scene.
+  2) Scene summary: write ONE complete, self-contained sentence
+     (typically 12–25 words, never more than one sentence).
+- The sentence should read like a natural description of a scene in a novel,
+  not like an abstract, generic summary.
+- Avoid starting the sentence with the word "Characters". Prefer concrete agents like
+  "They", "The couple", "She", "He", "The family", or describe the scene directly
+  when the agents are obvious (e.g., "In the kitchen, they argue about breakfast.").
+- Whenever possible, mention at least one concrete element from the snippets
+  (e.g., kitchen, hallway, car, wine, wedding, hockey game), as long as it is
+  clearly shared across several snippets.
 - No quotes around the label. No numbering. No bullet points.
 - Use clear, neutral, descriptive language – not poetic titles or jokes.
 - Prefer concrete scene-level descriptions over abstractions.
@@ -115,6 +124,15 @@ Focus on the strongest, most frequent signals that appear across multiple snippe
      "Comforting Hugs After Fight",
      "Jealous Rage and Yelling",
      "Playful Flirting at Bar".
+
+LABEL SPECIFICITY AND STYLE
+- When possible, combine ACTION + OBJECT/BODY PART + SETTING:
+  - "Kisses on Neck in Hallway", "Family Dinner in Kitchen", "Hockey Game With Son".
+- Avoid vague abstractions like "Reluctant Encounters" or "Difficult Choices" if you can
+  see a more concrete pattern (e.g., "Avoiding Romantic Dates", "Arguing Over Job Choices").
+- Avoid dramatic or overblown phrases like "could change their situation",
+  "never seen before", "life-changing decisions" unless they are clearly stated
+  in multiple snippets.
 
 REPRESENTATIVE SNIPPETS AND CENTRALITY
 - Snippets are chosen to be representative of the topic, but may still contain book-specific details.
@@ -197,9 +215,12 @@ OUTPUT FORMAT (IMPORTANT)
 Return your answer in EXACTLY this format:
 
 Label: <2–6 word noun phrase>
-Scene summary: <one concise sentence describing the scene/theme>
+Scene summary: <ONE complete sentence (about 12–25 words) ending with a period>
 
-No extra lines, no bullet points, no explanations.
+- Do NOT include more than one sentence in the scene summary.
+- Do NOT begin the scene summary with the word "Characters".
+- Do NOT leave the scene summary hanging on a function word (e.g., ending with "to", "for", "a", "the").
+- Do NOT output explanations, bullet points, or extra text.
 
 EXAMPLES (do NOT repeat these exact labels; mimic the style only)
 
@@ -209,7 +230,7 @@ Representative snippets:
 1) "You promised me you'd help, this isn't just a game to you."
 2) "If we make this deal today, it could really change things."
 Label: Promise and Deal Negotiation
-Scene summary: Characters discuss promises and negotiating a deal that could change their situation.
+Scene summary: They talk through a promise and a possible deal, weighing how it might change their work and future.
 
 Example 3 (Meals):
 Topic keywords: dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry
@@ -217,7 +238,7 @@ Representative snippets:
 1) "They grabbed sandwiches from the bakery and ate on the steps."
 2) "Breakfast was just coffee and a half-eaten croissant."
 Label: Everyday Meals And Food
-Scene summary: Scenes focused on ordinary meals, snacks, and eating together.
+Scene summary: They share simple meals and snacks throughout the day, from quick breakfasts to casual bakery lunches.
 
 Example 4 (Abstract relationship feelings):
 Topic keywords: way, years, matter, things, able, relationship, place, thing, feelings, kind
@@ -225,7 +246,7 @@ Representative snippets:
 1) "After all these years, she still couldn't name what they were."
 2) "It was the kind of relationship that never quite fit in one box."
 Label: Relationship Feelings And Issues
-Scene summary: Reflections on a vague, hard-to-define relationship and its emotional complications.
+Scene summary: Over time, they struggle to define what their relationship is and how it truly makes them feel.
 
 Example 5 (Time passing in life/work):
 Topic keywords: week, years, job, fallen, days, times, months, able, things, different
@@ -233,7 +254,7 @@ Representative snippets:
 1) "Weeks turned into months at the new job before she realized how different everything felt."
 2) "Over the years, the days blurred together into something she barely recognized."
 Label: Time Passing In Work And Life
-Scene summary: Descriptions of time passing and life or work gradually changing.
+Scene summary: Weeks and months slip by at work and in daily life, gradually changing how everything feels.
 
 Example 21 (Car scene):
 Topic keywords: car, seat, door, parked, drive, window, highway, kiss, hand
@@ -241,7 +262,7 @@ Representative snippets:
 1) "They sat in the parked car, his hand on her thigh as the windows fogged."
 2) "She leaned across the seat, kissing him while the engine idled quietly."
 Label: Makeout In Parked Car
-Scene summary: Intimate kissing and touching in a parked car setting.
+Scene summary: In a parked car, they kiss and touch each other while the outside world stays just beyond the fogged windows.
 
 Example 23 (Refused invitation):
 Topic keywords: invite, invited, asked, yes, no, maybe, refused, party, drinks
@@ -249,7 +270,7 @@ Representative snippets:
 1) "He invited her out for drinks, but she shook her head and said no."
 2) '"I appreciate it, but I can't," she replied, refusing the invitation.'
 Label: Refusing A Romantic Invitation
-Scene summary: One character invites another out and the invitation is politely declined.
+Scene summary: One person invites the other out, but the invitation is gently turned down and the moment passes.
 
 Example 29 (Time references):
 Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longer, soon
@@ -257,7 +278,7 @@ Representative snippets:
 1) "Minutes felt like hours as she stared at the clock."
 2) "Time passed slowly while he waited for her to call."
 Label: Time References And Durations
-Scene summary: Characters experience time passing slowly or quickly, with emphasis on clocks and waiting."""
+Scene summary: Time seems to drag or rush by as they watch the clock and wait for something to happen."""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
