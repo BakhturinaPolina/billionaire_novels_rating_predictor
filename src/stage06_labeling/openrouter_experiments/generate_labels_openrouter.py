@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import csv
 import json
 import logging
 import os
@@ -13,7 +12,6 @@ from pathlib import Path
 from typing import Any, Iterator
 
 import numpy as np
-import pandas as pd
 from bertopic import BERTopic
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
@@ -88,9 +86,20 @@ GENERAL STYLE RULES
 - Avoid starting the sentence with the word "Characters". Prefer concrete agents like
   "They", "The couple", "She", "He", "The family", or describe the scene directly
   when the agents are obvious (e.g., "In the kitchen, they argue about breakfast.").
-- Whenever possible, mention at least one concrete element from the snippets
-  (e.g., kitchen, hallway, car, wine, wedding, hockey game), as long as it is
-  clearly shared across several snippets.
+- MANDATORY: Include at least ONE concrete detail from the snippets in your scene summary:
+  - A specific location (kitchen, hallway, car, bedroom, office)
+  - A specific object (wine bottle, door, phone, board game, hockey puck)
+  - A specific action (kissing on neck, sipping wine, knocking on door, playing game)
+  - A specific body part (if relevant: neck, clit, hips, mouth)
+- The detail must appear in MULTIPLE snippets (not just one).
+- Examples of good scene summaries with concrete details:
+  - "They knock on and open doors in the hallway, trying to gain access." (includes: hallway, doors, knocking)
+  - "They sip wine while waiting for their dinner in the kitchen." (includes: wine, kitchen, waiting)
+  - "He leans in, softly kissing her neck." (includes: neck, kissing, leaning)
+- Examples of bad scene summaries (too generic):
+  - "They observe each other's unexpected actions." (no concrete details)
+  - "They notice their phones buzzing or ringing at various times." (too vague - "various times" is not concrete)
+  - "They measure and experience time in distinct units." (completely abstract)
 - No quotes around the label. No numbering. No bullet points.
 - Use clear, neutral, descriptive language – not poetic titles or jokes.
 - Prefer concrete scene-level descriptions over abstractions.
@@ -127,6 +136,21 @@ Focus on the strongest, most frequent signals that appear across multiple snippe
      "Jealous Rage and Yelling",
      "Playful Flirting at Bar".
 
+DISTINGUISHING SIMILAR TOPICS
+- When keywords overlap significantly (e.g., both topics have "smile", "laugh", "grin"),
+  you MUST find distinguishing features in the snippets or keyword order:
+  - Compare the snippets: Are they in different settings? Different emotional contexts?
+  - Check keyword order: Which words appear first? (e.g., "bright smile" vs "forced laugh")
+  - Look for unique keywords: Does one topic have "eyebrows", "giggles" while the other has "burst", "goofy"?
+- If topics are truly identical, use the same label, but if snippets show different contexts,
+  create distinct labels:
+  - Good: "Playful Smiles With Eyebrow Raises" vs "Loud Bursting Laughter"
+  - Bad: "Playful Smiles and Laughter" for both
+- For sexual topics with similar keywords, distinguish by:
+  - Body part focus (e.g., "Clitoral Foreplay With Tongue" vs "Clitoral Foreplay With Hand")
+  - Setting (e.g., "Clitoral Foreplay in Bedroom" vs "Clitoral Foreplay in Shower")
+  - Intensity or technique (e.g., "Gentle Clitoral Stimulation" vs "Intense Clitoral Foreplay")
+
 LABEL SPECIFICITY AND STYLE
 - When possible, combine ACTION + OBJECT/BODY PART + SETTING:
   - "Kisses on Neck in Hallway", "Family Dinner in Kitchen", "Hockey Game With Son".
@@ -146,6 +170,20 @@ REPRESENTATIVE SNIPPETS AND CENTRALITY
   - emotional tone (angry, tender, playful, humiliated),
   - explicit sexual acts (e.g., blowjob, fingering, breast play, anal sex, clitoral stimulation),
   - but ONLY when these are clearly recurring patterns, not single mentions.
+
+ACTIVE SNIPPET ANALYSIS
+- Read each snippet carefully and extract concrete details that appear in MULTIPLE snippets:
+  - Specific locations (kitchen, hallway, car, bedroom, office, restaurant)
+  - Specific actions (kissing, arguing, drinking, driving, playing games)
+  - Specific objects (wine bottle, door, phone, board game, hockey puck)
+  - Specific body parts (neck, clit, hips, mouth, hands)
+  - Specific emotional states (angry, playful, reluctant, intense)
+- For the scene summary, you MUST include at least ONE concrete detail from the snippets
+  (location, object, or specific action) that appears in multiple snippets.
+- If snippets show a pattern (e.g., "kitchen" appears in 3 snippets, "wine" in 2),
+  include that detail in your scene summary (e.g., "They argue in the kitchen while wine sits on the table").
+- Do NOT write generic summaries like "They observe each other's actions" when snippets
+  contain specific details like "hallway", "door", "knock", "stairs" that appear multiple times.
 
 SCENE GENERALIZATION RULES
 - Your label must reflect what is CONSISTENTLY present across snippets and keywords.
@@ -172,9 +210,20 @@ In such cases, use a more general but still factual label, e.g.:
 - "Intimate Touching in Shower".
 
 UNCERTAINTY AND ABSTRACTION
-- If the topic is abstract or generic and you cannot infer a specific scene or act from the snippets,
-  choose a broad, literal label (e.g., "Relationship Feelings and Issues",
-  "General Life Problems", "Time References and Durations").
+- BEFORE defaulting to abstract labels, exhaustively search snippets for concrete patterns:
+  1. Scan all snippets for recurring locations (kitchen, car, office, bedroom, hallway)
+  2. Scan for recurring actions (arguing, deciding, refusing, inviting, waiting)
+  3. Scan for recurring objects (door, phone, wine, food, game, clock)
+  4. Scan for recurring emotional states (angry, reluctant, uncertain, playful)
+- If you find a concrete pattern in snippets (even if keywords are abstract),
+  use a concrete label:
+  - Instead of "Unusual Behavior Noticed" → "Observing Actions in Hallway" (if hallway appears in snippets)
+  - Instead of "Difficult Choices" → "Arguing Over Decisions in Kitchen" (if kitchen/arguing in snippets)
+  - Instead of "Time Units Passing" → "Waiting and Watching Clock" (if clock/waiting in snippets)
+- Only use abstract labels if snippets are truly generic and contain no recurring concrete details.
+- Abstract labels should still be specific:
+  - Good: "Relationship Feelings and Uncertainty" (mentions both feelings AND uncertainty)
+  - Bad: "Unusual Behavior Noticed" (too vague - what behavior? where?)
 - Do NOT invent specific scenarios like "First Time With Woman", "Car Repair",
   "Wedding Proposal", "Boyfriend's Arrival During Date" unless those events are clearly present
   in MULTIPLE snippets or match explicit keywords.
@@ -219,10 +268,17 @@ Return your answer in EXACTLY this format:
 Label: <2–6 word noun phrase>
 Scene summary: <ONE complete sentence (about 12–25 words) ending with a period>
 
+CRITICAL REQUIREMENTS:
+- The scene summary MUST be a complete, grammatically correct sentence.
+- The scene summary MUST end with a period (.).
+- The scene summary MUST include at least one concrete detail from the snippets.
+- The scene summary MUST be between 12-25 words (count carefully).
 - Do NOT include more than one sentence in the scene summary.
 - Do NOT begin the scene summary with the word "Characters".
 - Do NOT leave the scene summary hanging on a function word (e.g., ending with "to", "for", "a", "the").
 - Do NOT output explanations, bullet points, or extra text.
+- If your scene summary is too short (<12 words), add a concrete detail from the snippets.
+- If your scene summary is too long (>25 words), remove less important words while keeping concrete details.
 
 EXAMPLES (do NOT repeat these exact labels; mimic the style only)
 
@@ -293,12 +349,17 @@ ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 Remember:
 
 - Base your label on the SHARED pattern across snippets, not on a single sentence.
-
 - Use the keywords to confirm important body parts, actions, or settings.
-
 - Ignore single outlier words (e.g. a random city) unless repeated across snippets and keywords.
-
 - Use precise, neutral, scene-level phrasing.
+
+CRITICAL: Before writing your scene summary, identify:
+1. Which location appears in multiple snippets? (kitchen, hallway, car, bedroom, etc.)
+2. Which object appears in multiple snippets? (wine, door, phone, game, etc.)
+3. Which action appears in multiple snippets? (kissing, arguing, drinking, driving, etc.)
+4. Which body part appears in multiple snippets? (if relevant: neck, clit, hips, etc.)
+
+Then include at least ONE of these concrete details in your scene summary.
 
 Return your answer in exactly this format:
 
@@ -497,7 +558,7 @@ def extract_pos_cues(keywords: list[str]) -> str:
 
 def format_snippets(
     docs: list[str],
-    max_snippets: int = 5,
+    max_snippets: int = 15,
     max_chars: int = 1200,
 ) -> str:
     """
@@ -534,55 +595,19 @@ def format_snippets(
     return "Representative snippets (short excerpts for this topic):\n" + "\n".join(snippets)
 
 
-def _iter_documents_from_csv(csv_path: Path) -> Iterator[str]:
-    """
-    Stream documents from CSV file (column 3 contains sentences).
-    
-    Args:
-        csv_path: Path to CSV file
-        
-    Yields:
-        Document strings (normalized sentences)
-    """
-    with open(csv_path, "r", encoding="latin1", errors="ignore") as handle:
-        reader = csv.reader(
-            handle,
-            quotechar='"',
-            delimiter=",",
-            quoting=csv.QUOTE_ALL,
-            skipinitialspace=True,
-        )
-        headers = next(reader, None)  # Skip header
-        
-        for row in reader:
-            if len(row) < 4:
-                continue
-            
-            sentence = row[3].strip()
-            if not sentence:
-                continue
-            
-            # Normalize whitespace
-            sentence = re.sub(r"\s+", " ", sentence.replace("\n", " ")).strip()
-            if sentence:
-                yield sentence.lower()
-
-
 def extract_representative_docs_per_topic(
     topic_model: BERTopic,
-    max_docs_per_topic: int = 5,
+    max_docs_per_topic: int = 10,
 ) -> dict[int, list[str]]:
     """
     Extract representative documents for each topic from BERTopic model.
     
-    Uses BERTopic's built-in get_representative_docs() method which returns pre-computed
-    representative docs (typically 3-5 docs per topic). This is fast and doesn't require
-    loading documents from CSV or processing batches.
+    Tries get_representative_docs() method first, falls back to representative_docs_
+    attribute. Handles both dict and method return formats.
     
     Args:
         topic_model: BERTopic model instance
         max_docs_per_topic: Maximum number of representative docs to extract per topic
-                           (default: 5, typically BERTopic provides 3-5)
         
     Returns:
         Dictionary mapping topic_id to list of representative document strings
@@ -602,16 +627,14 @@ def extract_representative_docs_per_topic(
     
     LOGGER.info("Extracting representative documents for %d topics", len(topic_ids))
     
-    # Use BERTopic's built-in get_representative_docs() method (fast, pre-computed)
-    # This is much faster than CSV batch processing and provides 3-5 quality docs per topic
-    # NOTE: According to BERTopic docs, get_representative_docs(topic=None) does NOT accept
-    # parameters to specify the number of docs. The number is determined during training
-    # and stored in representative_docs_. We can only get what was pre-computed (typically 3-5 docs).
+    # Try get_representative_docs() method first (newer BERTopic versions)
+    # According to official BERTopic docs: get_representative_docs(topic=None)
+    # Only accepts 'topic' parameter, returns all representative docs for that topic
     if hasattr(topic_model, "get_representative_docs"):
         try:
             for topic_id in topic_ids:
                 try:
-                    # BERTopic API: get_representative_docs(topic=None) - no count parameter
+                    # Call with only topic parameter (official API)
                     rep_docs = topic_model.get_representative_docs(topic=topic_id)
                     
                     # Handle both list and dict return types
@@ -627,7 +650,7 @@ def extract_representative_docs_per_topic(
                             # Multiple topics in dict, try to find matching one
                             rep_docs = rep_docs.get(topic_id, [])
                     elif isinstance(rep_docs, list):
-                        # Expected format
+                        # Already a list - this is the expected format
                         pass
                     else:
                         LOGGER.warning(
@@ -637,27 +660,17 @@ def extract_representative_docs_per_topic(
                         )
                         rep_docs = []
                     
-                    # Ensure list
+                    # Ensure rep_docs is a list
                     if not isinstance(rep_docs, list):
                         rep_docs = [rep_docs] if rep_docs else []
                     
-                    # Cap to max_docs_per_topic for safety
+                    # Limit to max_docs_per_topic (BERTopic doesn't have limit parameter)
                     if len(rep_docs) > max_docs_per_topic:
                         rep_docs = rep_docs[:max_docs_per_topic]
                     
-                    # Normalize to strings
+                    # Ensure all items are strings
                     rep_docs = [str(doc) for doc in rep_docs if doc]
                     topic_to_docs[topic_id] = rep_docs
-                    
-                    # Log final count for first few topics to debug
-                    # Note: BERTopic only returns what was pre-computed during training (typically 3-5 docs)
-                    if topic_id < 5:
-                        LOGGER.info(
-                            "Topic %d: Got %d representative docs (BERTopic pre-computed; max_docs_per_topic=%d is for safety capping only)",
-                            topic_id,
-                            len(rep_docs),
-                            max_docs_per_topic,
-                        )
                     
                 except Exception as e:
                     LOGGER.warning(
@@ -821,8 +834,8 @@ def generate_label_from_keywords_openrouter(
     temperature: float = 0.3,
     use_improved_prompts: bool = False,
     representative_docs: list[str] | None = None,
-    max_snippets: int = 5,
-    max_chars_per_snippet: int = 400,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -876,11 +889,14 @@ def generate_label_from_keywords_openrouter(
         pos_str = pos_cues if pos_cues else ""
         
         # Format snippets if representative_docs provided
-        # Use snippets directly without centrality reranking for better performance
         snippets_block = ""
         if representative_docs:
-            snippets_block = "\n\n" + format_snippets(
+            central_docs = rerank_snippets_centrality(
                 representative_docs,
+                top_k=max_snippets,
+            )
+            snippets_block = "\n\n" + format_snippets(
+                central_docs,
                 max_snippets=max_snippets,
                 max_chars=max_chars_per_snippet,
             )
@@ -1036,8 +1052,8 @@ def generate_labels_streaming(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 5,
-    max_chars_per_snippet: int = 400,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
@@ -1201,8 +1217,8 @@ def generate_all_labels(
     use_improved_prompts: bool = False,
     topic_model: BERTopic | None = None,
     topic_to_snippets: dict[int, list[str]] | None = None,
-    max_snippets: int = 5,
-    max_chars_per_snippet: int = 400,
+    max_snippets: int = 15,
+    max_chars_per_snippet: int = 1200,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.
