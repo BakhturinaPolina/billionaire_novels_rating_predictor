@@ -31,12 +31,14 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
     load_openrouter_client,
 )
 
-# Models to compare: mistral-nemo and Grok (cheap but fast)
-# These are the two models that will benefit from the improved few-shot prompts
+# Models to compare: mistral-nemo (primary) and Grok (secondary reviewer)
+# Default comparison set: Nemo always first, Grok as optional secondary model for comparison.
+# Nemo is the default model for all single-run label generation.
+# Grok is included here only for cross-checking and comparison purposes.
 # Note: Using paid mistral-nemo as free version may not be available
 ALL_MODELS_TO_COMPARE = [
-    "mistralai/mistral-nemo",
-    "x-ai/grok-4.1-fast",
+    "mistralai/mistral-nemo",  # Primary model (default for all label generation)
+    "x-ai/grok-4.1-fast",       # Secondary reviewer (for comparison only)
 ]
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")

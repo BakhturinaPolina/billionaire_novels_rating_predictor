@@ -58,6 +58,11 @@ except ImportError:
     LOGGER.warning("spaCy not available. POS cues will use simplified extraction.")
 
 # Romance-aware prompts for modern romantic fiction
+# ⭐ FINAL OPTIMIZED SYSTEM PROMPT FOR MISTRAL-NEMO ⭐
+# This is the final, stable version optimized for mistralai/mistral-nemo.
+# Includes: strict anti-hallucination rules, snippet dominance, specificity rules,
+# explicit sexual labeling norms, full few-shot block, all constraints aligned with mistral-nemo behavior.
+# DO NOT MODIFY unless research constraints change.
 ROMANCE_AWARE_SYSTEM_PROMPT = """You are a topic-labeling assistant for modern romantic and erotic fiction.
 
 Your job is to assign precise, descriptive labels to topic clusters so that:
@@ -242,6 +247,9 @@ Label:"""
 # OpenRouter API configuration
 # Get API key from environment variable, fallback to empty string if not set
 DEFAULT_OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+# Default model: mistralai/mistral-nemo (optimized for romance-aware labeling)
+# This is the primary model for all label generation tasks.
+# For comparisons, use compare_models_openrouter.py which includes Grok as secondary reviewer.
 DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-nemo"
 DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 

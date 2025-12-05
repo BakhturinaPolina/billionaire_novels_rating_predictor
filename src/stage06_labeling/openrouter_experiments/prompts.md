@@ -1,10 +1,12 @@
 # Prompt Templates Documentation
 
-This document contains all versions of prompts used for topic labeling in the stage06_labeling module.
+This document describes the prompts used for topic labeling in the OpenRouter experiments module.
 
-## Version 1: Universal Prompt (from generate_labels.py)
+**Note:** This module uses **Romance-Aware prompts** (Version 3) with snippets support. The Universal prompts (Version 1) are used in the main `generate_labels.py` module for local LLM inference, not in OpenRouter experiments.
 
-This is the prompt currently used in `generate_labels.py` for local LLM inference. It produces a single short label (2-6 words).
+## Version 1: Universal Prompt (from generate_labels.py) - NOT USED IN OPENROUTER MODULE
+
+This prompt is used in `generate_labels.py` for local LLM inference. It is NOT used in the OpenRouter experiments module.
 
 ### System Prompt
 
@@ -72,9 +74,11 @@ Label:
 
 ---
 
-## Version 2: Enhanced 6-Component Prompt (from notebook)
+## Version 2: Enhanced 6-Component Prompt (ARCHIVED - NOT USED)
 
-This is the prompt template used in the archived notebook experiments. It produces 6 tab-separated components for more detailed topic analysis.
+**⚠️ This prompt version is archived and no longer used.** It was used in experimental notebook workflows but has been replaced by the Romance-Aware prompt (Version 3).
+
+This prompt template produces 6 tab-separated components for more detailed topic analysis.
 
 ### Full Prompt Template
 
@@ -166,9 +170,11 @@ The output is a single line with 6 tab-separated values:
 
 ---
 
-## Version 3: Romance-Aware Prompt
+## Version 3: Romance-Aware Prompt (CURRENTLY USED IN OPENROUTER MODULE)
 
-This is a romance-specific prompt designed for modern romantic fiction. It produces a single short label (2-6 words) with enhanced romance-relevant disambiguation rules.
+**✅ This is the current prompt used in the OpenRouter experiments module.**
+
+This romance-specific prompt is designed for modern romantic fiction. It produces a single short label (2-6 words) with enhanced romance-relevant disambiguation rules. It includes support for representative document snippets for improved precision.
 
 ### System Prompt
 
@@ -279,17 +285,19 @@ Label:
 | **Complexity** | Simple, concise | Detailed, structured | Romance-specific, detailed rules |
 | **Use Case** | Quick topic identification | Comprehensive topic analysis | Romance novel topic labeling |
 | **Domain Adaptation** | Uses adaptive hints | Fixed structure | Romance-specific disambiguation |
-| **Current Usage** | `generate_labels.py` (local LLM) | Notebook experiments (OpenRouter) | Available for romance-specific labeling |
+| **Current Usage** | `generate_labels.py` (local LLM) | **ARCHIVED** (notebook experiments) | **OpenRouter experiments module** |
 | **Integration** | Direct label string | Requires parsing tab-separated values | Direct label string |
-| **Special Features** | Generic domain hints | Multi-component analysis | Romance context, POS cues support |
+| **Special Features** | Generic domain hints | Multi-component analysis | Romance context, POS cues, snippets support |
 
 ---
 
 ## Notes
 
-- **Version 1** is currently used in the main `generate_labels.py` module for local LLM inference
-- **Version 2** was used in experimental notebook workflows with OpenRouter API
-- **Version 3** is a romance-specific prompt designed for modern romantic fiction with enhanced disambiguation rules and optional POS cues support
-- All versions can be adapted for use with OpenRouter API or local LLMs
-- The choice between versions depends on the desired level of detail in topic labels and domain specificity
+- **Version 1** is used in the main `generate_labels.py` module for local LLM inference (NOT in OpenRouter module)
+- **Version 2** is archived and no longer used (was used in experimental notebook workflows)
+- **Version 3 (Romance-Aware)** is the current prompt used in the OpenRouter experiments module
+  - Includes support for representative document snippets
+  - Uses POS cues for better disambiguation
+  - Optimized for modern romantic and erotic fiction
+- For detailed information about snippets support, see `prompts_with_snippets.md`
 

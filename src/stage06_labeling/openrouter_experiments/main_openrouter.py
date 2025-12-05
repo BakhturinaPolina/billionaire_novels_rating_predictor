@@ -145,7 +145,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-name",
         type=str,
-        default=DEFAULT_OPENROUTER_MODEL,
+        default=DEFAULT_OPENROUTER_MODEL,  # Default: mistralai/mistral-nemo (primary model)
         help=f"OpenRouter model name (default: {DEFAULT_OPENROUTER_MODEL})",
     )
     
