@@ -19,14 +19,14 @@ from src.stage06_labeling.generate_labels import (
     extract_pos_topics,
     load_bertopic_model,
 )
-from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
+from src.stage06_labeling.openrouter_experiments.core.generate_labels_openrouter import (
     DEFAULT_OPENROUTER_API_KEY,
     DEFAULT_OPENROUTER_MODEL,
     extract_representative_docs_per_topic,
     generate_all_labels,
     load_openrouter_client,
 )
-from src.stage06_labeling.openrouter_experiments.validate_label_quality import (
+from src.stage06_labeling.openrouter_experiments.tools.validate_label_quality import (
     validate_topic,
 )
 

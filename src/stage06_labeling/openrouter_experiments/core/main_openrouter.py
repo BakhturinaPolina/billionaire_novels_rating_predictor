@@ -1,4 +1,5 @@
-"""CLI entry point for generating topic labels from POS representation using OpenRouter API (mistralai/mistral-nemo)."""
+"""CLI entry point for generating topic labels from POS representation using OpenRouter API.
+Supports mistralai/mistral-nemo and google/gemini-2.5-flash (with reasoning)."""
 
 from __future__ import annotations
 
@@ -21,7 +22,7 @@ from src.stage06_labeling.generate_labels import (
     integrate_labels_to_bertopic,
     load_bertopic_model,
 )
-from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
+from src.stage06_labeling.openrouter_experiments.core.generate_labels_openrouter import (
     DEFAULT_OPENROUTER_API_KEY,
     DEFAULT_OPENROUTER_MODEL,
     extract_representative_docs_per_topic,
@@ -29,6 +30,7 @@ from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter impo
     generate_labels_streaming,
     load_openrouter_client,
     save_labels_openrouter,
+    test_openrouter_authentication,
 )
 
 DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
@@ -70,7 +72,7 @@ class Tee:
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="Generate topic labels from POS representation using OpenRouter API (mistralai/mistral-nemo).",
+        description="Generate topic labels from POS representation using OpenRouter API. Supports mistralai/mistral-nemo and google/gemini-2.5-flash (with reasoning).",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     
@@ -145,8 +147,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-name",
         type=str,
-        default=DEFAULT_OPENROUTER_MODEL,  # Default: mistralai/mistral-nemo (primary model)
-        help=f"OpenRouter model name (default: {DEFAULT_OPENROUTER_MODEL})",
+        # default=DEFAULT_OPENROUTER_MODEL,  # Commented: mistralai/mistral-nemo (primary model)
+        # For reasoning experiments, use: google/gemini-2.5-flash
+        default="google/gemini-2.5-flash",  # Changed for reasoning experiments
+        help=f"OpenRouter model name (default: google/gemini-2.5-flash for reasoning experiments, was {DEFAULT_OPENROUTER_MODEL})",
     )
     
     parser.add_argument(
@@ -190,6 +194,18 @@ def parse_args() -> argparse.Namespace:
         help="Use improved BASE_LABELING_PROMPT with JSON output (includes category information)",
     )
     
+    parser.add_argument(
+        "--reasoning-effort",
+        type=str,
+        choices=["none", "low", "medium", "high"],
+        default="none",
+        help=(
+            "Optional reasoning effort for supported models, passed via "
+            "OpenRouter extra_body['reasoning']['effort']. "
+            "Use 'none' to disable. Supported by models like google/gemini-2.5-flash."
+        ),
+    )
+    
     return parser.parse_args()
 
 
@@ -215,7 +231,8 @@ def main() -> None:
     log_file = f"stage06_labeling_openrouter_{timestamp}.log"
     logger = setup_logging(logs_dir, log_file=log_file)
     logger.info("=" * 80)
-    logger.info("Stage 06: POS Topic Labeling with OpenRouter API (mistralai/mistral-nemo)")
+    # logger.info("Stage 06: POS Topic Labeling with OpenRouter API (mistralai/mistral-nemo)")
+    logger.info("Stage 06: POS Topic Labeling with OpenRouter API")
     logger.info("=" * 80)
     
     # Set up Tee to capture all print output to log file
@@ -241,7 +258,8 @@ def main() -> None:
         logger.info(f"[LABELING_CMD] ========== Starting labeling command ==========")
         print("[LABELING_CMD] ========== Starting labeling command ==========")
         print("=" * 80)
-        print("Stage 06: POS Topic Labeling with OpenRouter API (mistralai/mistral-nemo)")
+        # print("Stage 06: POS Topic Labeling with OpenRouter API (mistralai/mistral-nemo)")
+        print("Stage 06: POS Topic Labeling with OpenRouter API")
         print("=" * 80)
         print(f"[LABELING_CMD] Arguments:")
         print(f"[LABELING_CMD]   Embedding model: {args.embedding_model}")
@@ -259,6 +277,7 @@ def main() -> None:
         print(f"[LABELING_CMD]   Topics JSON: {args.topics_json} (for inspection/comparison)")
         print(f"[LABELING_CMD]   Limit topics: {args.limit_topics}")
         print(f"[LABELING_CMD]   Use improved prompts: {args.use_improved_prompts}")
+        print(f"[LABELING_CMD]   Reasoning effort: {args.reasoning_effort}")
         print()
         
         # Step 1: Always load BERTopic model (primary source for topics and integration)
@@ -337,16 +356,37 @@ def main() -> None:
                 sys.stdout.flush()
         print()
         
-        # Step 3: Initialize OpenRouter client
+        # Step 3: Initialize OpenRouter API client
         print("[LABELING_CMD] Step 3: Initializing OpenRouter API client...")
         print(f"[LABELING_CMD]   Model: {args.model_name}")
         print(f"[LABELING_CMD]   Base URL: https://openrouter.ai/api/v1")
+        # Log API key status (masked for security)
+        api_key_display = f"{args.api_key[:10]}...{args.api_key[-4:]}" if len(args.api_key) > 14 else "***"
+        print(f"[LABELING_CMD]   API key: {api_key_display} ({'provided' if args.api_key else 'MISSING - using default'})")
         sys.stdout.flush()
+        if not args.api_key or args.api_key == "":
+            print("[LABELING_CMD] ⚠️  WARNING: No API key provided! Using default from environment or code.")
+            print("[LABELING_CMD]   Set OPENROUTER_API_KEY environment variable or use --api-key flag")
+            sys.stdout.flush()
         client, model_name = load_openrouter_client(
             api_key=args.api_key,
             model_name=args.model_name,
         )
         print(f"[LABELING_CMD] ✓ Initialized OpenRouter client for {model_name}")
+        sys.stdout.flush()
+        
+        # Test API authentication before proceeding
+        print("[LABELING_CMD] Testing API authentication...")
+        sys.stdout.flush()
+        auth_success = test_openrouter_authentication(client, model_name)
+        if not auth_success:
+            print("[LABELING_CMD] ✗ Authentication test FAILED")
+            print("[LABELING_CMD]   Cannot proceed with label generation")
+            print("[LABELING_CMD]   Please fix API key/account issues and try again")
+            sys.stdout.flush()
+            logger.error("[LABELING_CMD] Authentication test failed - aborting")
+            return
+        print(f"[LABELING_CMD] ✓ Authentication test passed")
         print(f"[LABELING_CMD]   Ready to generate labels via API")
         sys.stdout.flush()
         print()
@@ -368,11 +408,16 @@ def main() -> None:
         print()
         
         # Step 4: Generate labels from topics (use streaming if JSON available for memory efficiency)
-        # Create model-specific filename with romance-aware suffix and model name
+        # Create model-specific filename with romance-aware suffix, model name, and reasoning effort
         model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
         model_name_file = model_name.replace("/", "_").replace(":", "_")
-        labels_filename = f"labels_pos_openrouter_{model_name_file}_romance_aware_{model_name_safe}"
+        reasoning_suffix = f"_reasoning_{args.reasoning_effort}" if args.reasoning_effort != "none" else ""
+        limit_suffix = f"_limit{args.limit_topics}" if args.limit_topics else ""
+        labels_filename = f"labels_pos_openrouter_{model_name_file}_romance_aware_{model_name_safe}{reasoning_suffix}{limit_suffix}"
         labels_path = args.output_dir / labels_filename
+        # Debug: Log the full filename to verify it's not being truncated
+        logger.info(f"[LABELING_CMD] Generated filename: {labels_filename} (length: {len(labels_filename)})")
+        logger.info(f"[LABELING_CMD] Full path: {labels_path} (path length: {len(str(labels_path))})")
         
         # Use streaming mode if JSON file is provided (more memory-efficient)
         use_streaming = args.topics_json and args.topics_json.exists()
@@ -401,9 +446,11 @@ def main() -> None:
                 use_improved_prompts=args.use_improved_prompts,
                 topic_model=topic_model,
                 topic_to_snippets=topic_to_snippets,
+                reasoning_effort=args.reasoning_effort,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels (streaming mode)")
-            print(f"[LABELING_CMD] ✓ Labels already saved to {labels_path.with_suffix('.json')}")
+            json_display_path = str(labels_path.parent) + "/" + labels_path.name + ".json"
+            print(f"[LABELING_CMD] ✓ Labels already saved to {json_display_path}")
             sys.stdout.flush()
             print()
         else:
@@ -423,6 +470,7 @@ def main() -> None:
                 use_improved_prompts=args.use_improved_prompts,
                 topic_model=topic_model,
                 topic_to_snippets=topic_to_snippets,
+                reasoning_effort=args.reasoning_effort,
             )
             print(f"[LABELING_CMD] ✓ Generated {len(topic_labels)} labels")
             sys.stdout.flush()
@@ -435,7 +483,9 @@ def main() -> None:
                 topic_data=topic_labels,
                 output_path=labels_path,
             )
-            print(f"[LABELING_CMD] ✓ Saved labels to {labels_path.with_suffix('.json')}")
+            # Use manual string construction to avoid truncation in display
+            json_display_path = str(labels_path.parent) + "/" + labels_path.name + ".json"
+            print(f"[LABELING_CMD] ✓ Saved labels to {json_display_path}")
             sys.stdout.flush()
             print()
         
@@ -476,7 +526,8 @@ def main() -> None:
         # Extract labels count (topic_labels now contains dict with label and keywords)
         topics_count = len(topic_labels)
         print(f"[LABELING_CMD] Topics processed: {topics_count}")
-        print(f"[LABELING_CMD] Labels saved to: {labels_path.with_suffix('.json')}")
+        json_display_path = str(labels_path.parent) + "/" + labels_path.name + ".json"
+        print(f"[LABELING_CMD] Labels saved to: {json_display_path}")
         if not args.no_integrate:
             print("[LABELING_CMD] Labels integrated into BERTopic: Yes")
         else:

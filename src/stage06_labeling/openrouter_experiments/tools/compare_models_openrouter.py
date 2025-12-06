@@ -24,7 +24,7 @@ from src.stage06_labeling.generate_labels import (
     extract_pos_topics_from_json,
     load_bertopic_model,
 )
-from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
+from src.stage06_labeling.openrouter_experiments.core.generate_labels_openrouter import (
     DEFAULT_OPENROUTER_API_KEY,
     extract_representative_docs_per_topic,
     generate_labels_streaming,

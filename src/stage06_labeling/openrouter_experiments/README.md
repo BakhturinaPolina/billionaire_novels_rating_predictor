@@ -102,7 +102,7 @@ For detailed information, see:
 ### Basic Usage
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.core.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --pareto-rank 1 \
     --num-keywords 15 \
@@ -112,7 +112,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
 ### With Custom API Key
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.core.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --api-key YOUR_API_KEY_HERE \
     --model-name mistralai/mistral-nemo
@@ -121,7 +121,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
 ### With Topics JSON (Streaming Mode)
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.core.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
     --num-keywords 15
@@ -132,7 +132,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
 To load a model that was saved with noise labels (from `topic_quality_eda.ipynb`):
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.core.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --model-suffix "_with_noise_labels" \
     --num-keywords 15
@@ -141,7 +141,7 @@ python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
 ### All Options
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.core.main_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --pareto-rank 1 \
     --base-dir models/retrained \
@@ -259,9 +259,38 @@ If the model name is invalid:
 2. Verify model name spelling
 3. Try alternative model names
 
+## Folder Structure
+
+This module is organized into the following subdirectories:
+
+- **`core/`**: Core implementation files
+  - `generate_labels_openrouter.py`: Main labeling logic with OpenRouter API
+  - `main_openrouter.py`: CLI entry point for single model labeling
+
+- **`tools/`**: Utility scripts for specific tasks
+  - `compare_models_openrouter.py`: Multi-model comparison tool
+  - `validate_label_quality.py`: Quality validation script
+  - `inspect_random_topics.py`: Topic inspection utility
+
+- **`docs/`**: Documentation files
+  - `prompts.md`: Prompt documentation (without snippets)
+  - `prompts_with_snippets.md`: Enhanced prompts with snippets
+  - `SNIPPETS_LOGIC.md`: Theoretical reasoning for snippets feature
+  - `MODEL_SELECTION_RECOMMENDATION.md`: Model comparison analysis
+  - `COST_EVALUATION_REPORT.md`: Cost analysis documentation
+
+- **`evaluation/`**: Testing and evaluation scripts
+  - `test_hybrid_performance.py`: Performance testing for hybrid approach
+  - `eval_snippet_centrality.py`: Snippet centrality evaluation
+
+- **`archive/`**: Historical files documenting resolved issues
+  - `BERTOPIC_REVIEW.md`: Code review notes (resolved)
+  - `HYBRID_APPROACH_IMPLEMENTED.md`: Historical implementation notes
+  - `PERFORMANCE_REGRESSION_ANALYSIS.md`: Historical performance analysis
+
 ## Multi-Model Comparison
 
-A new script `compare_models_openrouter.py` allows you to test multiple free OpenRouter models side-by-side and generate comparison outputs for manual inspection.
+A new script `tools/compare_models_openrouter.py` allows you to test multiple free OpenRouter models side-by-side and generate comparison outputs for manual inspection.
 
 ### Free Models Available
 
@@ -279,7 +308,7 @@ You can specify custom models using the `--models` argument.
 Compare multiple models with default settings (30 topics per model):
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.compare_models_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.tools.compare_models_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
     --limit-topics 30
@@ -288,7 +317,7 @@ python -m src.stage06_labeling.openrouter_experiments.compare_models_openrouter 
 Compare specific models:
 
 ```bash
-python -m src.stage06_labeling.openrouter_experiments.compare_models_openrouter \
+python -m src.stage06_labeling.openrouter_experiments.tools.compare_models_openrouter \
     --embedding-model paraphrase-MiniLM-L6-v2 \
     --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json \
     --models mistralai/mistral-7b-instruct:free mistralai/mistral-nemo:free \
@@ -334,18 +363,17 @@ The comparison script generates:
 1. Run comparison with `--limit-topics 30` for initial testing
 2. Review CSV file to compare labels across models
 3. Identify which model produces best labels for your use case
-4. Run full labeling with the best model using `main_openrouter.py`
+4. Run full labeling with the best model using `core/main_openrouter.py`
 
 ## Files
 
-- `generate_labels_openrouter.py`: Main labeling logic with OpenRouter API
-- `main_openrouter.py`: CLI entry point for single model labeling
-- `compare_models_openrouter.py`: Multi-model comparison script
-- `prompts.md`: Documentation of all prompt versions (without snippets)
-- `prompts_with_snippets.md`: Documentation of enhanced prompts with snippets
-- `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions for snippets feature
-- `README.md`: This file
-- `__init__.py`: Package initialization
+See the [Folder Structure](#folder-structure) section above for a complete overview. Key files:
+
+- **Core**: `core/generate_labels_openrouter.py`, `core/main_openrouter.py`
+- **Tools**: `tools/compare_models_openrouter.py`, `tools/validate_label_quality.py`, `tools/inspect_random_topics.py`
+- **Documentation**: `docs/prompts.md`, `docs/prompts_with_snippets.md`, `docs/SNIPPETS_LOGIC.md`
+- **Evaluation**: `evaluation/test_hybrid_performance.py`, `evaluation/eval_snippet_centrality.py`
+- **Archive**: `archive/` contains historical documentation
 
 ## Future Enhancements
 
@@ -360,7 +388,7 @@ Potential improvements:
 
 - Main module: `src/stage06_labeling/generate_labels.py`
 - Main CLI: `src/stage06_labeling/main.py`
-- Prompt documentation: `prompts.md`
-- Snippets-enhanced prompts: `prompts_with_snippets.md`
-- Snippets theoretical reasoning: `SNIPPETS_LOGIC.md`
+- Prompt documentation: `docs/prompts.md`
+- Snippets-enhanced prompts: `docs/prompts_with_snippets.md`
+- Snippets theoretical reasoning: `docs/SNIPPETS_LOGIC.md`
 

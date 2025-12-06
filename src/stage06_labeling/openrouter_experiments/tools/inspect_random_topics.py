@@ -9,7 +9,7 @@ by showing:
 - Exact sentences from representative documents
 
 Usage:
-    python -m src.stage06_labeling.openrouter_experiments.inspect_random_topics \
+    python -m src.stage06_labeling.openrouter_experiments.tools.inspect_random_topics \
         --bertopic-model-path models/retrained/model_1_with_noise_labels \
         --labels-json results/stage06_labeling_openrouter/labels_pos_openrouter_mistralai_mistral-nemo_romance_aware_paraphrase-MiniLM-L6-v2.json \
         --num-topics 15 \
@@ -28,7 +28,7 @@ from src.stage06_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
 )
-from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
+from src.stage06_labeling.openrouter_experiments.core.generate_labels_openrouter import (
     extract_representative_docs_per_topic,
     rerank_snippets_centrality,
 )

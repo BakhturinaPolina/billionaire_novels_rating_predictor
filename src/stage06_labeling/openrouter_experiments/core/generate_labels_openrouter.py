@@ -657,7 +657,9 @@ DEFAULT_OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
 # Default model: mistralai/mistral-nemo (optimized for romance-aware labeling)
 # This is the primary model for all label generation tasks.
 # For comparisons, use compare_models_openrouter.py which includes Grok as secondary reviewer.
-DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-nemo"
+# For reasoning experiments, use: google/gemini-2.5-flash
+# DEFAULT_OPENROUTER_MODEL = "mistralai/mistral-nemo"  # Commented for reasoning experiments
+DEFAULT_OPENROUTER_MODEL = "google/gemini-2.5-flash"  # Changed for reasoning experiments
 DEFAULT_OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 # Module-level cache for MMR embedding model (loaded once, reused for all topics)
@@ -1116,6 +1118,12 @@ def load_openrouter_client(
         LOGGER.info("Initializing OpenRouter API client")
         LOGGER.info("Model: %s", model_name)
         LOGGER.info("Base URL: %s", base_url)
+        # Log API key status (masked for security)
+        if api_key:
+            api_key_display = f"{api_key[:10]}...{api_key[-4:]}" if len(api_key) > 14 else "***"
+            LOGGER.info("API key: %s (length: %d)", api_key_display, len(api_key))
+        else:
+            LOGGER.warning("API key is empty or None! Authentication may fail.")
         
         client = OpenAI(
             api_key=api_key,
@@ -1126,6 +1134,58 @@ def load_openrouter_client(
         LOGGER.info("✓ OpenRouter client initialized successfully")
     
     return client, model_name
+
+
+def test_openrouter_authentication(
+    client: OpenAI,
+    model_name: str,
+) -> bool:
+    """
+    Test OpenRouter API authentication with a simple test call.
+    
+    Args:
+        client: OpenRouter OpenAI client
+        model_name: Model name to test
+        
+    Returns:
+        True if authentication succeeds, False otherwise
+    """
+    try:
+        LOGGER.info("Testing OpenRouter API authentication...")
+        # Make a minimal test call (1 token request)
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "user", "content": "test"}
+            ],
+            max_tokens=1,
+        )
+        if response.choices and len(response.choices) > 0:
+            LOGGER.info("✓ API authentication test successful")
+            return True
+        else:
+            LOGGER.warning("API authentication test returned empty response")
+            return False
+    except Exception as e:
+        error_msg = str(e)
+        LOGGER.error("✗ API authentication test FAILED: %s", error_msg)
+        
+        if "401" in error_msg or "Unauthorized" in error_msg or "User not found" in error_msg:
+            LOGGER.error("AUTHENTICATION ERROR: API key is invalid, expired, or account doesn't exist")
+            LOGGER.error("Please verify:")
+            LOGGER.error("  1. API key is correct and active (check at https://openrouter.ai/keys)")
+            LOGGER.error("  2. Account has sufficient credits/billing enabled")
+            LOGGER.error("  3. Model '%s' is accessible with your account tier", model_name)
+        elif "403" in error_msg or "Forbidden" in error_msg:
+            LOGGER.error("ACCESS DENIED: Account may not have access to model '%s'", model_name)
+            LOGGER.error("Please check if your account tier allows access to this model")
+        elif "429" in error_msg or "rate limit" in error_msg.lower():
+            LOGGER.warning("Rate limit hit during test - but authentication may be OK")
+            return True  # Rate limit means auth worked
+        else:
+            LOGGER.error("Unexpected error during authentication test")
+        
+        return False
 
 
 # Generic bad labels to avoid
@@ -1334,6 +1394,7 @@ def generate_label_from_keywords_openrouter(
     max_snippets: int = 15,
     max_chars_per_snippet: int = 1200,
     existing_labels: set[str] | None = None,
+    reasoning_effort: str | None = None,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -1352,6 +1413,7 @@ def generate_label_from_keywords_openrouter(
         max_snippets: Maximum number of snippets to include in prompt (default: 6)
         max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
         existing_labels: Optional set of existing labels to avoid reusing (for romance-aware prompts)
+        reasoning_effort: Optional reasoning effort level ("low", "medium", "high") for supported models
         
     Returns:
         Dictionary with 'label' and optionally 'categories', 'is_noise', 'rationale'
@@ -1419,6 +1481,19 @@ def generate_label_from_keywords_openrouter(
             {"role": "user", "content": user_prompt},
         ]
     
+    # Build optional reasoning config for OpenRouter
+    extra_body: dict[str, Any] | None = None
+    if reasoning_effort and reasoning_effort.lower() not in ("none", "off"):
+        extra_body = {
+            "reasoning": {
+                "effort": reasoning_effort.lower(),
+                # We do NOT request the chain-of-thought text,
+                # we only let the model reason more internally.
+                "exclude": True,
+            }
+        }
+        LOGGER.info("Using reasoning effort: %s (exclude=True)", reasoning_effort.lower())
+    
     # Call OpenRouter API with timing
     try:
         api_start = time.perf_counter()
@@ -1431,6 +1506,7 @@ def generate_label_from_keywords_openrouter(
             presence_penalty=0.0,  # No presence penalty
             frequency_penalty=0.3,  # Frequency penalty to discourage repetitive patterns
             seed=42,  # Fixed seed for reproducibility
+            extra_body=extra_body,  # Pass reasoning config if provided
         )
         api_elapsed = time.perf_counter() - api_start
         
@@ -1523,11 +1599,21 @@ def generate_label_from_keywords_openrouter(
             if "Scene summary:" in label_text:
                 label_text = label_text.split("Scene summary:")[0].strip()
         
-        m_scene = re.search(r"Scene summary:\s*(.+)", content, flags=re.IGNORECASE | re.DOTALL)
+        m_scene = re.search(r"Scene summary:\s*(.+?)(?:\n\n|\nLabel:|$)", content, flags=re.IGNORECASE | re.DOTALL)
         if m_scene:
             scene_summary = m_scene.group(1).strip()
-            # Clean up any trailing content
-            scene_summary = scene_summary.split("\n")[0].strip()
+            # Clean up any trailing content - take first sentence/line but preserve full sentence
+            # Split on newlines but keep the full first line/sentence
+            lines = scene_summary.split("\n")
+            scene_summary = lines[0].strip()
+            # If the summary ends without proper punctuation and seems incomplete, log a warning
+            # This often happens when max_tokens cuts off the response
+            if scene_summary and not scene_summary.rstrip().endswith(('.', '!', '?')):
+                # Check if it looks like it was cut off mid-sentence
+                # If it ends with a comma, semicolon, colon, or lowercase letter without punctuation, it's likely incomplete
+                if scene_summary.rstrip().endswith((',', ';', ':')) or (len(scene_summary) > 10 and scene_summary[-1].islower() and not any(c in scene_summary[-5:] for c in '.!?')):
+                    LOGGER.warning("Scene summary appears truncated (likely due to max_tokens limit): '%s'", scene_summary[:80])
+                    LOGGER.warning("Consider increasing --max-tokens if summaries are consistently incomplete")
             # Clean scene summary to remove hallucinations (car repairs, family relations)
             scene_summary = clean_scene_summary(scene_summary, keywords)
         
@@ -1544,7 +1630,17 @@ def generate_label_from_keywords_openrouter(
         LOGGER.info("Generated label: %s | Scene summary: %s", label, scene_summary[:50] if scene_summary else "(none)")
         return {"label": label, "scene_summary": scene_summary}
     except Exception as e:
-        LOGGER.warning("Error generating label for keywords %s: %s", keywords[:3], e)
+        error_msg = str(e)
+        LOGGER.warning("Error generating label for keywords %s: %s", keywords[:3], error_msg)
+        
+        # Check for authentication errors specifically
+        if "401" in error_msg or "Unauthorized" in error_msg or "User not found" in error_msg:
+            LOGGER.error("AUTHENTICATION ERROR: API key may be invalid, expired, or account may not have access to model %s", model_name)
+            LOGGER.error("Please verify:")
+            LOGGER.error("  1. API key is correct and active")
+            LOGGER.error("  2. Account has sufficient credits/billing enabled")
+            LOGGER.error("  3. Model %s is accessible with your account tier", model_name)
+        
         LOGGER.exception("Full error traceback:")
         # Fallback: create a simple label from first few keywords
         fallback_label = f"{keywords[0]}" if keywords else "Topic"
@@ -1566,6 +1662,7 @@ def generate_labels_streaming(
     topic_to_snippets: dict[int, list[str]] | None = None,
     max_snippets: int = 15,
     max_chars_per_snippet: int = 1200,
+    reasoning_effort: str | None = None,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for topics in a streaming fashion and write incrementally to JSON.
@@ -1587,11 +1684,14 @@ def generate_labels_streaming(
         topic_to_snippets: Optional pre-extracted dict mapping topic_id to representative docs
         max_snippets: Maximum number of snippets to include per topic (default: 6)
         max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
+        reasoning_effort: Optional reasoning effort level ("low", "medium", "high") for supported models
         
     Returns:
         Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
     """
-    json_path = output_path.with_suffix(".json")
+    # Use manual string construction to avoid pathlib truncation issues with long filenames
+    json_path_str = str(output_path.parent) + "/" + output_path.name + ".json"
+    json_path = Path(json_path_str)
     json_path.parent.mkdir(parents=True, exist_ok=True)
     
     # Extract representative docs if topic_model provided and topic_to_snippets not provided
@@ -1653,6 +1753,7 @@ def generate_labels_streaming(
                     max_snippets=max_snippets,
                     max_chars_per_snippet=max_chars_per_snippet,
                     existing_labels=existing_labels if existing_labels else None,
+                    reasoning_effort=reasoning_effort,
                 )
                 label_elapsed = time.perf_counter() - label_start
                 
@@ -1737,6 +1838,7 @@ def generate_all_labels(
     topic_to_snippets: dict[int, list[str]] | None = None,
     max_snippets: int = 15,
     max_chars_per_snippet: int = 1200,
+    reasoning_effort: str | None = None,
 ) -> dict[int, dict[str, Any]]:
     """
     Generate labels for all topics from POS keywords in batches.
@@ -1756,6 +1858,7 @@ def generate_all_labels(
         topic_to_snippets: Optional pre-extracted dict mapping topic_id to representative docs
         max_snippets: Maximum number of snippets to include per topic (default: 6)
         max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
+        reasoning_effort: Optional reasoning effort level ("low", "medium", "high") for supported models
         
     Returns:
         Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
@@ -1813,6 +1916,7 @@ def generate_all_labels(
                 max_snippets=max_snippets,
                 max_chars_per_snippet=max_chars_per_snippet,
                 existing_labels=existing_labels if existing_labels else None,
+                reasoning_effort=reasoning_effort,
             )
             label_elapsed = time.perf_counter() - label_start
             
@@ -1878,7 +1982,10 @@ def save_labels_openrouter(
         topic_data: Dictionary mapping topic_id to dict with 'label' and 'keywords' keys
         output_path: Path to save JSON file (without extension)
     """
-    json_path = output_path.with_suffix(".json")
+    # Use manual string construction to avoid pathlib truncation issues with long filenames
+    # pathlib's with_suffix() and path joining can truncate in some cases
+    json_path_str = str(output_path.parent) + "/" + output_path.name + ".json"
+    json_path = Path(json_path_str)
     
     with stage_timer_local(f"Saving labels to JSON: {json_path.name}"):
         # Convert topic IDs to strings for JSON serialization

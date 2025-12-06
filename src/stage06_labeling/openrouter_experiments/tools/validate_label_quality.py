@@ -12,7 +12,7 @@ The script checks both keywords AND snippets (representative documents) to valid
 since the labeling process uses snippets as primary evidence.
 
 Usage:
-    python -m src.stage06_labeling.openrouter_experiments.validate_label_quality \
+    python -m src.stage06_labeling.openrouter_experiments.tools.validate_label_quality \
         --labels-json results/stage06_labeling_openrouter/labels_pos_openrouter_mistralai_mistral-nemo_romance_aware_paraphrase-MiniLM-L6-v2.json \
         --bertopic-model-path models/retrained/paraphrase-MiniLM-L6-v2/model_1_with_noise_labels.pkl \
         --output-csv results/stage06_labeling_openrouter/validation_report.csv
@@ -31,7 +31,7 @@ from src.stage06_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
 )
-from src.stage06_labeling.openrouter_experiments.generate_labels_openrouter import (
+from src.stage06_labeling.openrouter_experiments.core.generate_labels_openrouter import (
     extract_representative_docs_per_topic,
 )
 
