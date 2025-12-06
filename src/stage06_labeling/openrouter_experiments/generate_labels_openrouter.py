@@ -96,14 +96,19 @@ GENERAL STYLE RULES
   - Use "They" or "The couple" only when two or more people are clearly interacting.
   - You may also start with the setting or object instead of a pronoun
     (e.g., "In the kitchen, wine sits on the table as arguments begin.").
+- Strongly avoid starting the scene summary with "They".
+  - Only start with "They" if there is no clearer single subject or setting to foreground.
+  - Prefer "She", "He", "The couple", "The family", or setting/object-first starts
+    (e.g., "In the office, she watches the clock as the day drags on.").
 - Do NOT start every scene summary with "They". Across topics, use a mix of:
   - "She", "He", "The couple", "The family", or setting-first descriptions.
-- MANDATORY: Include at least ONE concrete detail from the snippets in your scene summary:
+- When representative snippets are provided and they show a repeated detail **that matches the keywords**, include at least ONE such concrete detail in your scene summary:
   - A specific location (kitchen, hallway, car, bedroom, office)
   - A specific object (wine bottle, door, phone, board game, hockey puck)
   - A specific action (kissing on neck, sipping wine, knocking on door, playing game)
   - A specific body part (if relevant: neck, clit, hips, mouth)
-- The detail must appear in MULTIPLE snippets (not just one).
+- Prefer details that appear in MULTIPLE snippets (not just one), and are supported by the top keywords.
+- If no concrete detail is clearly repeated across snippets, or no snippets are provided, focus on the clearest shared pattern from the keywords instead.
 - Examples of good scene summaries with concrete details:
   - "They knock on and open doors in the hallway, trying to gain access." (includes: hallway, doors, knocking)
   - "They sip wine while waiting for their dinner in the kitchen." (includes: wine, kitchen, waiting)
@@ -122,27 +127,63 @@ GENERAL STYLE RULES
 
 CRITICAL: SEXUAL WORDING GUARDRAIL (CHECK THIS FIRST)
 - This is a HARD CONSTRAINT that must be checked BEFORE generating any label or scene summary.
-- You MUST NOT use ANY sexualized wording (including "foreplay", "intimate", "arousal", "erotic", "sexual", 
-  "kinky", "charged", "tension", "passion", "desire", "lust") UNLESS explicit sexual terms appear in keywords/snippets.
+- Before using ANY sexualized wording in the label or scene summary
+  (e.g. "foreplay", "arousal", "erotic", "sexual", "kinky", "intimate encounter",
+   metaphors like "clenching center", "heat between her legs", "wetness between her thighs"):
+  1) Check whether the keywords or snippets contain clear sexual terms such as:
+     "sex", "fuck", "cock", "dick", "pussy", "clit", "clitoris", "nipples",
+     "breasts", "orgasm", "cum", "blowjob", "handjob", "fingering", "anal",
+     "thrusting", "penetration".
+  2) If NONE of these or similarly explicit terms appear:
+     - Do NOT use sexualized or euphemistic language.
+     - Describe the situation neutrally, e.g. "roommate's aggressive behavior",
+       "awkward conversation in the dorm", "the dog barks from the back seat".
 - Explicit sexual terms that ALLOW sexual wording:
   "sex", "fuck", "fucking", "cock", "dick", "pussy", "clit", "clitoris", "nipples", "breasts", "orgasm", 
   "cum", "come", "blowjob", "handjob", "fingering", "anal", "penetration", "pounding", "thrusting", 
   "erection", "hard", "wet", "moan", "groan", "pleasure".
 - If keywords/snippets contain ONLY neutral words like "board", "game", "table", "hand", "arm", "chair", 
-  "mug", "room", "position", "tone" → DO NOT use "foreplay", "intimate", or any sexual wording.
+  "mug", "room", "position", "tone", "freshman", "roommate", "shrine", "messages" → DO NOT use 
+  "foreplay", "intimate", or any sexual wording.
 - Examples of FORBIDDEN labels when no sexual terms are present:
   ❌ "Board Game Foreplay" (keywords: board, game, table, hand, arm → NO sexual terms)
   ❌ "Intimate Coffee Conversation" (keywords: coffee, cup, talk → NO sexual terms)
   ❌ "Charged Eye Contact" (keywords: eye, gaze, stare → NO sexual terms)
   ❌ "Erotic Tension in Kitchen" (keywords: kitchen, food, cooking → NO sexual terms)
+  ❌ "Freshman Roommate Encounter" with summary "revealing her hot, clenching center"
+    (keywords: freshman, roommate, shrine → NO sexual terms)
 - Examples of CORRECT labels for non-sexual topics:
   ✅ "Board Game Around Table" (keywords: board, game, table, hand, arm)
   ✅ "Coffee Conversation" (keywords: coffee, cup, talk)
   ✅ "Intense Eye Contact" (keywords: eye, gaze, stare) - "Intense" is OK, "Charged" is NOT
   ✅ "Kitchen Cooking Scene" (keywords: kitchen, food, cooking)
+  ✅ "Awkward Freshman Roommate Situation" (keywords: freshman, roommate, shrine → neutral)
 - If you see keywords like "board", "game", "table", "hand", "arm" → label MUST be neutral like 
   "Board Game Around Table" or "Playing Board Game", NEVER "Board Game Foreplay" or "Intimate Board Game".
 - This rule applies to BOTH the label AND the scene summary. Do NOT describe neutral activities as sexual.
+
+NON-SEXUAL BODY PARTS AND POSTURES
+- Neutral body parts or postures alone (e.g., "knees", "feet", "legs", "heels",
+  "arms", "hands", "cheeks", "shoulders") do NOT automatically imply sexual
+  content.
+- Do NOT introduce clearly sexual actions such as:
+  - guiding someone to their knees in a sexual way,
+  - licking or teasing someone's cheeks with the tongue,
+  - explicitly sexual touching or staging,
+  UNLESS:
+  1) explicit or strongly sexual words appear in the keywords (e.g., "kiss",
+     "kissing", "lick", "licking", "moan", "moaning", "naked", "nude",
+     "breasts", "nipples", "clit", "pussy", "cock"), OR
+  2) multiple snippets clearly describe a sexual act or context involving
+     those body parts.
+- When a topic's keywords are only neutral physical terms (knees, feet, cheeks,
+  wriggles, bounds, etc.) and there are no explicit sexual keywords:
+  - Interpret the topic as neutral physical movement or position
+    (e.g., "Kneeling On The Floor", "Cheeks Flushed", "Wriggling In Seat"),
+    NOT as inherently sexual or as foreplay.
+- If you are unsure whether a neutral body-part topic is sexual, choose the
+  safer, non-sexual interpretation and keep both the LABEL and scene summary
+  neutral.
 
 WHAT TO ENCODE IN THE LABEL (IN ORDER OF PRIORITY)
 Focus on the strongest, most frequent signals that appear across multiple snippets and keywords:
@@ -187,12 +228,41 @@ DISTINGUISHING SIMILAR TOPICS
 
 LABEL SPECIFICITY AND STYLE
 - When possible, combine ACTION + OBJECT/BODY PART + SETTING:
-  - "Kisses on Neck in Hallway", "Family Dinner in Kitchen", "Hockey Game With Son".
+  - "Kisses on Neck in Hallway", "Family Dinner in Kitchen", "Hockey Game In Arena".
 - Avoid vague abstractions like "Reluctant Encounters" or "Difficult Choices" if you can
   see a more concrete pattern (e.g., "Avoiding Romantic Dates", "Arguing Over Job Choices").
+- HARD CONSTRAINT: Do NOT use vague labels that do not indicate the scene type or subject.
+  - FORBIDDEN labels: "Never Seen Before", "Things That Matter", "Something Different", "Unusual Behavior"
+  - These labels tell the reader nothing about what the topic actually contains.
+  - Instead, name what is happening using concrete keywords:
+    - If keywords include "relationship", "feelings", "years" → "Unclear Relationship Feelings" or "Struggling To Define Relationship"
+    - If keywords include "way", "matter", "things" → "Relationship Feelings And Uncertainty" or "Uncertain Feelings About Relationship"
+    - Always include at least one concrete concept from the top keywords in the label.
+- Whenever possible, include at least one concrete concept from the top keywords
+  (e.g., "relationship", "wedding", "car", "invitation") in the label.
+- HARD CONSTRAINT: Do NOT use technical or textbook-like labels for time-related topics.
+  - FORBIDDEN labels: "Time Units Passing", "Time Measurement", "Duration Tracking", "Temporal Units"
+  - These sound like academic or technical terms, not natural scene descriptions.
+  - Instead, use natural, reader-friendly phrases that describe the experience:
+    - "Time Dragging By", "Waiting And Watching The Clock", "Passing Time", "Time Slips Away"
+    - "Hours Feel Like Minutes", "Days Blur Together", "Watching The Clock"
+  - The label should describe how time feels or is experienced, not how it is measured.
 - Avoid dramatic or overblown phrases like "could change their situation",
   "never seen before", "life-changing decisions" unless they are clearly stated
   in multiple snippets.
+
+"GAME" LABEL CONSTRAINTS
+- Only use the word "game" in the LABEL if the topic is literally about games or sports AND:
+  - at least one of the top keywords clearly reflects that ("game", "games",
+    "board", "cards", "hockey", "soccer", "match", "play", "player", "goalie").
+- Do NOT add "game" as a generic suffix in labels for sexual or physical topics
+  that are not clearly games (e.g., "Kneeling game", "Hair Tugging game",
+  "Cheek game"). These must instead be labeled by their actual action or focus,
+  such as:
+  - "Kneeling Position", "Hair Tugging During Kissing", "Cheek Touching".
+- Never use "game" metaphorically to describe power dynamics or sex unless
+  the keywords/snippets explicitly frame it as a game or roleplay (e.g., "sex game",
+  "roleplay game", "truth or dare").
 
 VOICE AND FLUENCY
 - Use natural novel-like phrasing, not stiff report-style language.
@@ -207,13 +277,46 @@ VOICE AND FLUENCY
   - Bad: "She uses her tongue to stimulate her partner's clit" (ambiguous and grammatically confusing).
 
 KEYWORD GROUNDING
-- The label must be clearly connected to the TOP 3–5 keywords:
-  - Ideally include one of them directly (e.g. "Wedding Planning and Arrangements"
-    when keywords include "wedding", "planning").
+- The LABEL must be clearly connected to the TOP 3–5 keywords:
+  - Ideally include one of them directly.
   - If you use a synonym instead, it must preserve the same meaning
-    (e.g., "car" → "vehicle" is allowed; "car" → "adventure" is not).
-- The scene summary must reference at least ONE of the top 5 keywords
-  (directly or as a very obvious synonym) in a concrete way.
+    (e.g., "car" → "vehicle", "invitation" → "invite").
+- If among the top 5 keywords there is a concrete noun like "invitation", "wedding",
+  "car", "hockey", "phone", "dog", or "family":
+  - Prefer labels that explicitly mention that noun or an obvious synonym.
+  - Example: with keywords "... invitation, complication ..." a label like
+    "Reluctant Response to Invitation" is better than generic "Reluctant Decisions".
+- HARD CONSTRAINT: If the top keywords contain specific sexual body parts (e.g. "breasts", "nipples",
+  "clit", "pussy") or actions ("licking", "sucking", "grinding") that appear across
+  multiple snippets, the LABEL MUST reflect that focus:
+  - If "breasts" or "nipples" are in the top 5 keywords → the label MUST mention "breast" or "nipple"
+  - If "clit" or "pussy" are in the top 5 keywords → the label MUST mention "clitoral" or "clit" or "pussy"
+  - FORBIDDEN: Using generic labels like "Intimate Kissing" or "Intimate Mouth Kisses" when specific body parts
+    like "breasts" or "nipples" are in the top keywords.
+  - Example: with keywords "tongue, breasts, nipples, mouth, thighs", a label such as
+    "Breast And Mouth Foreplay" or "Breast And Nipple Foreplay" is REQUIRED, NOT "Intimate Kissing" or "Intimate Mouth Kisses".
+- The SCENE SUMMARY must reference at least ONE of the top 5 keywords
+  (directly or via an obvious synonym) in a concrete way.
+- For sexual topics, the scene summary should also mention at least one of those body parts or acts explicitly
+  in a factual way when they appear in the top keywords.
+
+RARE OR QUIRKY KEYWORDS
+- Some topics may contain rare or quirky nouns in the top keywords
+  (e.g., "pickles", "popcorn", "granite", "mustards") that appear only once
+  or seem incidental.
+- Do NOT force these rare words into unnatural combined phrases that do not
+  make sense in plain English, such as:
+  - "engagement ring pickles", "tripping over rules and popcorn".
+- If a rare word appears only once and does not clearly define the main
+  pattern, treat it as background detail:
+  - You may omit it from the LABEL entirely.
+  - In the scene summary, you may mention it briefly as a simple noun
+    (e.g., "a bowl of popcorn on the table") OR omit it if it makes the
+    sentence awkward or confusing.
+- Only treat a rare or quirky noun as central to the topic if:
+  1) it appears in multiple snippets, AND
+  2) it clearly aligns with the main scene type (e.g., "popcorn" repeatedly
+     in movie-night snippets).
 
 REPRESENTATIVE SNIPPETS AND CENTRALITY
 - Snippets are chosen to be representative of the topic, but may still contain book-specific details.
@@ -228,17 +331,40 @@ REPRESENTATIVE SNIPPETS AND CENTRALITY
 
 ACTIVE SNIPPET ANALYSIS
 - Read each snippet carefully and extract concrete details that appear in MULTIPLE snippets:
-  - Specific locations (kitchen, hallway, car, bedroom, office, restaurant)
-  - Specific actions (kissing, arguing, drinking, driving, playing games)
-  - Specific objects (wine bottle, door, phone, board game, hockey puck)
-  - Specific body parts (neck, clit, hips, mouth, hands)
-  - Specific emotional states (angry, playful, reluctant, intense)
-- For the scene summary, you MUST include at least ONE concrete detail from the snippets
-  (location, object, or specific action) that appears in multiple snippets.
-- If snippets show a pattern (e.g., "kitchen" appears in 3 snippets, "wine" in 2),
+  - Locations (kitchen, hallway, car, bedroom, office)
+  - Actions (kissing, arguing, drinking, driving, playing games)
+  - Objects (wine bottle, door, phone, board game, hockey puck)
+  - Body parts (neck, clit, hips, mouth, hands)
+  - Emotional states (angry, reluctant, uncertain, playful)
+- When writing the LABEL:
+  - Use ONLY details that are supported by the keywords AND appear across multiple snippets.
+  - Do NOT anchor the label on a detail that appears in just one snippet.
+- When writing the SCENE SUMMARY:
+  - You may mention a vivid detail from a single snippet,
+  - BUT the overall scene type must match the pattern across snippets and keywords,
+    not just that one sentence.
+  - CRITICAL: Do NOT include specific locations (kitchen, hallway, couch, parking lot) or relationships (son, father, jokes)
+    in the scene summary UNLESS:
+    1) The location/relationship appears in the TOP KEYWORDS, AND
+    2) The location/relationship appears in MULTIPLE snippets.
+  - If a location appears in only one snippet and NOT in keywords, do NOT include it in the summary.
+  - Examples of FORBIDDEN summaries:
+    ❌ "They notice each other's unexpected actions in the hallway" (when "hallway" is not in keywords)
+    ❌ "She smiles and laughs genuinely at his jokes in the kitchen" (when "kitchen" and "jokes" are not in keywords)
+    ❌ "He stimulates her clit between her thighs while they sit on the couch" (when "couch" is not in keywords)
+    ❌ "They watch the game, the son cheering as his father, the goalie, blocks shots" (when "son" and "father" are not in keywords)
+  - Examples of CORRECT summaries:
+    ✅ "They notice each other's unexpected actions, struggling to understand their relationship" (no location, focuses on keywords)
+    ✅ "She smiles and laughs genuinely, the corners of her mouth crinkling" (uses "corners" and "mouth" from keywords)
+    ✅ "He stimulates her clit between her thighs with his hand" (uses keywords: clit, thighs, hand)
+    ✅ "They watch the hockey game as the goalie blocks shot after shot" (uses "game", "goalie" from keywords, no family terms)
+  - When such a repeated detail exists, you SHOULD include at least ONE concrete detail from the snippets
+    (location, object, or specific action) that appears in multiple snippets **and** is supported by the keywords.
+  - If no such repeated detail exists, do not force one; instead, describe the most robust shared pattern across snippets and keywords.
+- If snippets show a pattern (e.g., "kitchen" appears in 3 snippets AND "kitchen" is in keywords, "wine" in 2 AND "wine" is in keywords),
   include that detail in your scene summary (e.g., "They argue in the kitchen while wine sits on the table").
 - Do NOT write generic summaries like "They observe each other's actions" when snippets
-  contain specific details like "hallway", "door", "knock", "stairs" that appear multiple times.
+  contain specific details like "hallway", "door", "knock", "stairs" that appear multiple times AND are in keywords.
 
 SCENE GENERALIZATION RULES
 - Your label must reflect what is CONSISTENTLY present across snippets and keywords.
@@ -249,6 +375,20 @@ SCENE GENERALIZATION RULES
   - Bad: "Mark and Eva's Vancouver Picnic"
 - When in doubt, prefer higher-level scene types:
   - "Family Dinner", "Job Interview", "Hospital Visit", "Car Argument", "Hockey Game with Son".
+
+BOOK-SPECIFIC DETAILS AND NAMES
+- Treat character names, pet names, and other unique proper nouns as BOOK-SPECIFIC details.
+- Do NOT use character or pet names in the LABEL.
+- In the scene summary, use generic roles instead of names unless:
+  1) the name appears in the keywords, AND
+  2) the same name appears in multiple snippets, AND
+  3) the name is clearly central to the topic.
+- Prefer roles such as "her roommate", "his roommate", "the dog", "her friend", "her boss"
+  instead of "Paige", "Max", or other specific names.
+- If a vivid detail (e.g. a particular roommate, a specific barking dog, a shrine in the room)
+  appears in only a single snippet AND is not in the top keywords:
+  - You may mention it briefly in the scene summary,
+  - BUT you must NOT build the entire LABEL or main scene type around that one detail.
 
 SEX-ACT PRECISION CRITERIA
 Only label a specific sexual act (e.g., "Blowjob", "Anal Sex", "Clitoral Stimulation") if at least one of the following is true:
@@ -270,11 +410,11 @@ UNCERTAINTY AND ABSTRACTION
   2. Scan for recurring actions (arguing, deciding, refusing, inviting, waiting)
   3. Scan for recurring objects (door, phone, wine, food, game, clock)
   4. Scan for recurring emotional states (angry, reluctant, uncertain, playful)
-- If you find a concrete pattern in snippets (even if keywords are abstract),
-  use a concrete label:
-  - Instead of "Unusual Behavior Noticed" → "Observing Actions in Hallway" (if hallway appears in snippets)
-  - Instead of "Difficult Choices" → "Arguing Over Decisions in Kitchen" (if kitchen/arguing in snippets)
-  - Instead of "Time Units Passing" → "Waiting and Watching Clock" (if clock/waiting in snippets)
+- If you find a concrete pattern in snippets (and it is also reflected in keywords), use a concrete label:
+  - Instead of "Unusual Behavior Noticed" → "Observing Actions In Hallway" (only if "hallway" appears in multiple snippets AND in the top keywords)
+  - Instead of "Difficult Choices" → "Arguing Over Decisions in Kitchen" (only if "kitchen" and "arguing" appear in multiple snippets AND in the top keywords)
+  - Instead of "Time Units Passing" → "Waiting and Watching Clock" or "Time Dragging By" (only if "clock" and "waiting" appear in multiple snippets AND in the top keywords)
+  - NEVER use "Time Units Passing" - it sounds like a technical term. Always use natural phrases like "Time Dragging By", "Watching The Clock", "Hours Feel Like Minutes"
 - Only use abstract labels if snippets are truly generic and contain no recurring concrete details.
 - Abstract labels should still be specific:
   - Good: "Relationship Feelings and Uncertainty" (mentions both feelings AND uncertainty)
@@ -291,12 +431,24 @@ UNCERTAINTY AND ABSTRACTION
 HARD CONSTRAINTS FOR KNOWN HALLUCINATION PATTERNS
 - Do NOT use "dinner date", "invitation", or "makeout" unless:
   - snippets or keywords clearly mention asking/inviting, saying yes/no, or kissing.
-- Do NOT use "repair" unless snippets or keywords include mechanical or technical terms
-  like "fix", "engine", "mechanic", "repair", "tools".
+- Do NOT use "repair", "fix", "mechanic", "garage" or similar mechanical language
+  in either the label or scene summary UNLESS:
+  - at least one of these words (or a clear synonym) appears in the keywords OR
+  - they appear in multiple snippets and the topic clearly centers on mechanical work.
+- If the keywords only mention "car", "parking", "driveway", "vehicle", etc. without any
+  explicit repair words, treat it as being about driving, parking, standing by cars,
+  or talking near cars, NOT about car repair.
+- Examples of FORBIDDEN: "discussing car repairs" or "fix hers" when keywords only have "car", "parking", "curb", "driveway"
+- Example of CORRECT: "discussing car repairs" when keywords include "car", "repair", "engine", "fix"
 - Do NOT use "heartbreak" or "breakup" unless emotional pain in a relationship
   is clearly described in the snippets.
 - Do NOT label a topic as a specific sexual act (e.g., "Blowjob", "Handjob", "Anal Sex")
   if there are no explicit sexual terms in the snippets or keywords.
+- Do NOT include family relationships (son, father, mother, daughter) in labels or summaries UNLESS:
+  - the relationship term appears in the TOP KEYWORDS, AND
+  - the relationship appears in MULTIPLE snippets.
+  - Example: If keywords are "game", "hockey", "puck", "goalie" (no "son" or "father"),
+    label should be "Watching a Hockey Game Together", NOT "Hockey Game With Son".
 
 WORK / RESEARCH / META TOPICS
 - Distinguish between:
@@ -309,18 +461,34 @@ SEXUAL CONTENT PRECISENESS
 - Do NOT euphemize explicit sexual content:
   - If a topic is clearly about blowjob / oral sex, say so factually, e.g. "Public Blowjob in Alley",
     not "Erotic Intimacy".
-  - If a topic is about physical foreplay to breasts, label it "Breast Foreplay" or similar.
-  - If a topic is about clitoral stimulation and legs/hips, label it "Clitoral Stimulation Between Thighs" or similar.
-- Always keep the phrasing clinical and non-romanticized.
+  - If a topic is about physical foreplay to breasts, use labels such as
+    "Breast Foreplay", "Mouth On Breasts", or similar.
+  - If a topic is about clitoral stimulation and legs/hips, use labels like
+    "Clitoral Stimulation Between Thighs" or "Clitoral Foreplay With Tongue".
+- HARD CONSTRAINT: When sexual body parts (e.g. "breasts", "nipples", "clit", "pussy") appear among the top keywords
+  AND in multiple snippets, the label and scene summary MUST mention those body parts directly.
+  - If "breasts" or "nipples" are in top 5 keywords → label MUST include "breast" or "nipple", summary MUST mention them
+  - If "clit" or "pussy" are in top 5 keywords → label MUST include "clitoral" or "clit", summary MUST mention them
+  - FORBIDDEN: Generic phrases like "Intimate Kissing", "Intimate Mouth Kisses", "Physical Intimacy" when specific
+    body parts are clearly central to the topic (in top keywords).
+  - The scene summary must explicitly describe the body part interaction, e.g. "He kisses and licks her breasts"
+    not just "He kisses her" when breasts/nipples are in keywords.
+- Always keep the phrasing clinical and non-romanticized (descriptive, not arousing).
 
 SEXUAL WORDING GUARDRAIL (REINFORCEMENT)
 - This section reinforces the CRITICAL guardrail above. Read it again if you are unsure.
 - The words "foreplay", "intimate", "arousal", "erotic", "sexual", "kinky", "charged", "tension" 
   are FORBIDDEN unless explicit sexual terms (listed above) appear in keywords or snippets.
+- Do NOT use metaphorical sexual euphemisms like "clenching center", "heat pooling low",
+  "wetness between her thighs", "hot center", "aching need" unless explicit sexual terms
+  appear in keywords or snippets.
 - Common mistake: Seeing "hand", "touch", "arm", "close" and assuming it's sexual.
   These are NEUTRAL words that appear in many non-sexual contexts (board games, cooking, work).
 - Another common mistake: Seeing "board game" or "playing game" and adding "foreplay" or "intimate".
   Board games are NOT sexual activities. Use neutral labels like "Board Game Around Table".
+- Another common mistake: Taking a single explicit snippet and building the entire summary around it
+  with sexual euphemisms, even when keywords don't support sexual content.
+  Example: Keywords "freshman, roommate, shrine" → Do NOT write "revealing her hot, clenching center".
 - If keywords contain "board", "game", "table", "hand", "arm", "chair", "mug" → 
   Label MUST be "Board Game Around Table" or "Playing Board Game", NEVER "Board Game Foreplay".
 
@@ -406,7 +574,7 @@ Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longe
 Representative snippets:
 1) "Minutes felt like hours as she stared at the clock."
 2) "Time passed slowly while he waited for her to call."
-Label: Time References And Durations
+Label: Waiting And Watching Clock
 Scene summary: Time seems to drag or rush by as they watch the clock and wait for something to happen."""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
@@ -418,12 +586,34 @@ ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 {snippets}
 
 CRITICAL CHECK BEFORE LABELING:
+
+1. SEXUAL TERMS CHECK:
 - Scan the keywords above. Do they contain explicit sexual terms like "sex", "fuck", "cock", "pussy", 
   "clit", "nipples", "blowjob", "handjob", "fingering", "orgasm", "penetration"?
 - If NO explicit sexual terms are present, you MUST use neutral, non-sexual wording.
 - FORBIDDEN words when no sexual terms: "foreplay", "intimate", "arousal", "erotic", "charged", "tension".
 - Example: Keywords "board, game, table, hand, arm" → Label MUST be "Board Game Around Table", 
   NEVER "Board Game Foreplay" or "Intimate Board Game".
+
+2. SEXUAL PRECISION CHECK (if sexual terms ARE present):
+- If "breasts" or "nipples" are in the top 5 keywords → Label MUST include "breast" or "nipple"
+- If "clit" or "pussy" are in the top 5 keywords → Label MUST include "clitoral" or "clit" or "pussy"
+- FORBIDDEN: Generic labels like "Intimate Kissing" or "Intimate Mouth Kisses" when "breasts"/"nipples" are in top keywords
+- Example: Keywords "tongue, breasts, nipples, mouth, thighs" → Label MUST be "Breast And Mouth Foreplay" or "Breast And Nipple Foreplay", 
+  NEVER "Intimate Kissing" or "Intimate Mouth Kisses"
+
+3. VAGUENESS CHECK:
+- Does your label clearly indicate what the topic is about?
+- FORBIDDEN vague labels: "Never Seen Before", "Things That Matter", "Something Different", "Unusual Behavior"
+- If keywords include "relationship", "feelings", "years" → Use "Unclear Relationship Feelings" or "Struggling To Define Relationship"
+- If keywords include "way", "matter", "things" → Use "Relationship Feelings And Uncertainty" or "Uncertain Feelings About Relationship"
+- Always include at least one concrete keyword from the top 5 in your label.
+
+4. TECHNICAL/ROBOTIC CHECK (for time-related topics):
+- If keywords include "minutes", "hours", "days", "weeks", "months", "time", "clock" → 
+  FORBIDDEN: "Time Units Passing", "Time Measurement", "Duration Tracking", "Temporal Units"
+- Instead use natural phrases: "Time Dragging By", "Waiting And Watching Clock", "Hours Feel Like Minutes", "Watching The Clock"
+- The label should describe how time feels, not how it is measured.
 
 Remember:
 
@@ -432,6 +622,9 @@ Remember:
 - In that case, do NOT invent very specific locations or props that are not implied by the keywords
   (for example, do not randomly introduce "bedroom" or "couch" if they are not in the keywords or hints).
 - Base your label on the SHARED pattern across snippets, not on a single sentence.
+- Do NOT treat a single vivid sentence as the whole topic:
+  build both the label and the scene summary from what repeats
+  across snippets and top keywords, not from one extreme line.
 - Use the keywords to confirm important body parts, actions, or settings.
 - Ignore single outlier words (e.g. a random city) unless repeated across snippets and keywords.
 - Use precise, neutral, scene-level phrasing.
@@ -511,16 +704,38 @@ def rerank_snippets_centrality(
     return [docs[i] for i in indices]
 
 
-def _load_spacy_model():
-    """Load spaCy model for POS tagging (cached)."""
+def _load_spacy_model(enable_ner: bool = False):
+    """Load spaCy model for POS tagging or NER (cached).
+    
+    Note: If model was previously loaded without NER and NER is now requested,
+    the model will be reloaded with NER enabled. This means:
+    - First call (e.g., from extract_pos_cues) loads model without NER (faster for POS)
+    - Later call (e.g., from format_snippets with anonymize=True) reloads with NER
+    This is a reasonable trade-off for simplicity, but not "free" - the model loads twice.
+    
+    Args:
+        enable_ner: If True, enable NER component (needed for name anonymization)
+    """
     global _SPACY_NLP
     if _SPACY_NLP is None and SPACY_AVAILABLE:
         try:
-            _SPACY_NLP = spacy.load("en_core_web_sm", disable=["ner", "parser"])
-            LOGGER.info("Loaded spaCy model for POS tagging")
+            if enable_ner:
+                # Load with NER enabled for name anonymization
+                _SPACY_NLP = spacy.load("en_core_web_sm", disable=["parser"])
+            else:
+                # Load with NER disabled for POS tagging (faster)
+                _SPACY_NLP = spacy.load("en_core_web_sm", disable=["ner", "parser"])
+            LOGGER.info("Loaded spaCy model for %s", "NER and POS tagging" if enable_ner else "POS tagging")
         except OSError:
             LOGGER.warning("spaCy model 'en_core_web_sm' not found. Install with: python -m spacy download en_core_web_sm")
             return None
+    elif _SPACY_NLP is not None and enable_ner and "ner" not in _SPACY_NLP.pipe_names:
+        # Reload model with NER enabled if it was previously loaded without NER
+        try:
+            _SPACY_NLP = spacy.load("en_core_web_sm", disable=["parser"])
+            LOGGER.info("Reloaded spaCy model with NER enabled")
+        except Exception as e:
+            LOGGER.warning("Could not reload spaCy model with NER: %s", e)
     return _SPACY_NLP
 
 
@@ -646,21 +861,68 @@ def extract_pos_cues(keywords: list[str]) -> str:
     return ""
 
 
+def anonymize_names(text: str, nlp) -> str:
+    """
+    Anonymize person and pet names in text by replacing them with generic role tokens.
+    
+    Uses spaCy NER to detect PERSON entities and replaces them with "[NAME]".
+    This helps prevent the model from overfitting on specific character names in snippets.
+    
+    Args:
+        text: Input text string
+        nlp: spaCy language model (must have NER enabled)
+        
+    Returns:
+        Text with person/pet names replaced by generic tokens
+    """
+    if not text or not nlp:
+        return text
+    
+    try:
+        # Check if NER is enabled
+        if "ner" not in nlp.pipe_names:
+            LOGGER.debug("NER not enabled in spaCy model, skipping anonymization")
+            return text
+        
+        doc = nlp(text)
+        if not doc.ents:
+            return text
+        
+        result = text
+        # Process entities in reverse order to preserve character indices
+        # (process from end to start to avoid index shifting issues)
+        entities = sorted(doc.ents, key=lambda e: e.start_char, reverse=True)
+        
+        for ent in entities:
+            if ent.label_ in {"PERSON"}:
+                # Replace with generic token
+                # Could be fancier (e.g., detect role from context), but [NAME] is sufficient
+                result = result[:ent.start_char] + "[NAME]" + result[ent.end_char:]
+        
+        return result
+    except Exception as e:
+        LOGGER.warning("Error anonymizing names in text: %s", e)
+        return text  # Return original text on error
+
+
 def format_snippets(
     docs: list[str],
     max_snippets: int = 15,
     max_chars: int = 1200,
+    anonymize: bool = True,
 ) -> str:
     """
     Convert a list of documents into a bullet-style snippets block for LLM prompts.
     
     Formats representative document snippets as numbered quotes, with truncation
     for long sentences. Designed for sentence-level documents (each doc is a sentence).
+    Optionally anonymizes person/pet names to prevent overfitting on specific characters.
     
     Args:
         docs: List of document strings (sentences in this corpus)
-        max_snippets: Maximum number of snippets to include (default: 6)
-        max_chars: Maximum characters per snippet before truncation (default: 200)
+        max_snippets: Maximum number of snippets to include (default: 15)
+        max_chars: Maximum characters per snippet before truncation (default: 1200)
+        anonymize: If True, anonymize person/pet names using spaCy NER (default: True)
         
     Returns:
         Formatted string with numbered snippets, or empty string if no docs provided
@@ -668,10 +930,19 @@ def format_snippets(
     if not docs:
         return ""
     
+    # Load spaCy model for anonymization if requested
+    nlp = None
+    if anonymize and SPACY_AVAILABLE:
+        nlp = _load_spacy_model(enable_ner=True)
+    
     snippets = []
     for i, doc in enumerate(docs[:max_snippets], start=1):
         # Collapse whitespace
         s = " ".join(doc.split())
+        
+        # Anonymize names if requested and spaCy is available
+        if anonymize and nlp is not None:
+            s = anonymize_names(s, nlp)
         
         # Truncate at word boundary if too long
         if len(s) > max_chars:
@@ -866,11 +1137,85 @@ GENERIC_BAD_LABELS = {
 }
 
 
-def normalize_label(raw: str) -> str:
+def clean_scene_summary(summary: str, keywords: list[str]) -> str:
+    """Clean scene summary to remove hallucinations that violate constraints.
+    
+    Removes:
+    - Car repair mentions when repair keywords are not present
+    - Family relations (son/father/mother) when not in keywords
+    
+    Args:
+        summary: Raw scene summary string
+        keywords: List of topic keywords to check against
+        
+    Returns:
+        Cleaned scene summary
+    """
+    if not summary:
+        return summary
+    
+    summary_lower = summary.lower()
+    keywords_lower = [kw.lower() for kw in keywords]
+    
+    # Check for car repair hallucinations
+    repair_keywords = {"repair", "fix", "mechanic", "garage", "engine", "broken", "broken down"}
+    has_repair_keywords = any(kw in keywords_lower for kw in repair_keywords)
+    
+    if not has_repair_keywords:
+        # Remove car repair mentions
+        original_summary = summary
+        if "car repair" in summary_lower or "fix" in summary_lower:
+            # Replace common patterns
+            summary = re.sub(
+                r"discuss(?:ing)?\s+car\s+repairs?\s+(?:and\s+)?(?:other\s+)?topics?",
+                "discuss various topics",
+                summary,
+                flags=re.IGNORECASE,
+            )
+            summary = re.sub(
+                r"fix\s+(?:hers?|his|their|the)\s+car",
+                "their vehicles",
+                summary,
+                flags=re.IGNORECASE,
+            )
+            summary = re.sub(
+                r"car\s+repairs?",
+                "their cars",
+                summary,
+                flags=re.IGNORECASE,
+            )
+            if summary != original_summary:  # Only log if we made changes
+                LOGGER.info("Removed car repair hallucination from scene summary")
+    
+    # Check for family relation hallucinations
+    family_keywords = {"son", "father", "mother", "daughter", "dad", "mom", "parent", "parents"}
+    has_family_keywords = any(kw in keywords_lower for kw in family_keywords)
+    
+    if not has_family_keywords:
+        # Remove family relation mentions
+        family_patterns = [
+            (r"\bhis\s+son\b", "the player"),
+            (r"\bher\s+son\b", "the player"),
+            (r"\bthe\s+son\b", "the player"),
+            (r"\bhis\s+father\b", "the goalie"),
+            (r"\bher\s+father\b", "the goalie"),
+            (r"\bthe\s+father\b", "the goalie"),
+        ]
+        original_summary = summary
+        for pattern, replacement in family_patterns:
+            summary = re.sub(pattern, replacement, summary, flags=re.IGNORECASE)
+        if summary != original_summary:
+            LOGGER.info("Removed family relation hallucination from scene summary")
+    
+    return summary.strip()
+
+
+def normalize_label(raw: str, keywords: list[str] | None = None) -> str:
     """Normalize and clean a generated label.
     
     Args:
         raw: Raw label string from API response
+        keywords: Optional list of topic keywords to check for sexual wording violations
         
     Returns:
         Cleaned, normalized label
@@ -899,6 +1244,68 @@ def normalize_label(raw: str) -> str:
     def smart_tc(w: str) -> str:
         return w if w.lower() in {"and", "or", "in", "on", "of", "at", "to"} else w.capitalize()
     label = " ".join(smart_tc(w) for w in label.split())
+
+    # Code-level safety net: Fix forbidden technical labels
+    low = label.lower()
+    if low == "time units passing" or low == "time passing units":
+        label = "Waiting And Watching Clock"
+        LOGGER.info("Fixed forbidden technical label '%s' → 'Waiting And Watching Clock'", raw)
+    elif "units" in low and ("time" in low or "passing" in low):
+        # Catch variants like "Time Passing Units", "Time Units", etc.
+        label = re.sub(r"\bunits\b", "", label, flags=re.IGNORECASE)
+        label = re.sub(r"\s+", " ", label).strip()
+        if not label or len(label.split()) < 2:
+            label = "Waiting And Watching Clock"
+        LOGGER.info("Removed 'units' from technical time label: '%s' → '%s'", raw, label)
+    
+    # Code-level safety net: Remove sexual wording when no sexual keywords present
+    if keywords is not None:
+        keywords_lower = [kw.lower() for kw in keywords]
+        sexual_keywords = {
+            "sex", "fuck", "cock", "dick", "pussy", "clit", "clitoris", "nipples", "breasts",
+            "orgasm", "cum", "come", "blowjob", "handjob", "fingering", "anal", "penetration",
+            "pounding", "thrusting", "erection", "hard", "wet", "moan", "groan", "pleasure"
+        }
+        has_sexual_keywords = any(kw in keywords_lower for kw in sexual_keywords)
+        
+        if not has_sexual_keywords:
+            # Check for forbidden sexual wording in label
+            forbidden_sexual_words = ["foreplay", "intimate", "arousal", "erotic", "charged", "tension"]
+            label_lower = label.lower()
+            for word in forbidden_sexual_words:
+                if word in label_lower:
+                    # Replace with neutral alternative or remove
+                    if "foreplay" in label_lower:
+                        # If "game" is already in the label, just remove "foreplay"
+                        if "game" in label_lower:
+                            label = re.sub(r"\bforeplay\b", "", label, flags=re.IGNORECASE)
+                        else:
+                            label = re.sub(r"\bforeplay\b", "game", label, flags=re.IGNORECASE)
+                        label = re.sub(r"\s+", " ", label).strip()  # Clean up extra spaces
+                        LOGGER.info("Removed 'foreplay' from label (no sexual keywords): %s", raw)
+                    elif "intimate" in label_lower:
+                        label = re.sub(r"\bintimate\b", "", label, flags=re.IGNORECASE)
+                        label = re.sub(r"\s+", " ", label).strip()
+                        LOGGER.info("Removed 'intimate' from label (no sexual keywords): %s", raw)
+                    break  # Only fix the first match
+            
+            # Check for family relations when not in keywords
+            family_keywords = {"son", "father", "mother", "daughter", "dad", "mom", "parent", "parents"}
+            has_family_keywords = any(kw in keywords_lower for kw in family_keywords)
+            
+            if not has_family_keywords:
+                # Remove family relations from label
+                label_lower = label.lower()
+                if "son" in label_lower:
+                    label = re.sub(r"\bwith\s+son\b", "", label, flags=re.IGNORECASE)
+                    label = re.sub(r"\bson\b", "player", label, flags=re.IGNORECASE)
+                    label = re.sub(r"\s+", " ", label).strip()
+                    LOGGER.info("Removed 'son' from label (not in keywords): %s", raw)
+                elif "father" in label_lower or "dad" in label_lower:
+                    label = re.sub(r"\bwith\s+(?:father|dad)\b", "", label, flags=re.IGNORECASE)
+                    label = re.sub(r"\b(?:father|dad)\b", "goalie", label, flags=re.IGNORECASE)
+                    label = re.sub(r"\s+", " ", label).strip()
+                    LOGGER.info("Removed family relation from label (not in keywords): %s", raw)
 
     # Avoid super-generic labels you know are useless
     if label in GENERIC_BAD_LABELS:
@@ -1022,7 +1429,8 @@ def generate_label_from_keywords_openrouter(
             temperature=temperature,
             top_p=0.9,  # Allows more diverse token selection for natural phrasing
             presence_penalty=0.0,  # No presence penalty
-            frequency_penalty=0.2,  # Light frequency penalty to discourage repetitive patterns
+            frequency_penalty=0.3,  # Frequency penalty to discourage repetitive patterns
+            seed=42,  # Fixed seed for reproducibility
         )
         api_elapsed = time.perf_counter() - api_start
         
@@ -1070,7 +1478,7 @@ def generate_label_from_keywords_openrouter(
                 scene_summary = result.get("scene_summary", "")
                 
                 # Normalize label
-                label = normalize_label(label_text)
+                label = normalize_label(label_text, keywords=keywords)
                 
                 # If normalization resulted in empty label, use fallback
                 if not label or label.strip() == "":
@@ -1089,6 +1497,8 @@ def generate_label_from_keywords_openrouter(
                 if rationale:
                     result_dict["rationale"] = rationale
                 if scene_summary:
+                    # Clean scene summary to remove hallucinations
+                    scene_summary = clean_scene_summary(scene_summary, keywords)
                     result_dict["scene_summary"] = scene_summary
                 
                 LOGGER.info("Generated label (improved prompt): %s | Categories: %s", 
@@ -1118,9 +1528,11 @@ def generate_label_from_keywords_openrouter(
             scene_summary = m_scene.group(1).strip()
             # Clean up any trailing content
             scene_summary = scene_summary.split("\n")[0].strip()
+            # Clean scene summary to remove hallucinations (car repairs, family relations)
+            scene_summary = clean_scene_summary(scene_summary, keywords)
         
         # Normalize label text
-        label = normalize_label(label_text)
+        label = normalize_label(label_text, keywords=keywords)
         
         # If normalization resulted in empty label, use fallback
         if not label or label.strip() == "":
