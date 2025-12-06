@@ -83,9 +83,21 @@ GENERAL STYLE RULES
      (typically 12–25 words, never more than one sentence).
 - The sentence should read like a natural description of a scene in a novel,
   not like an abstract, generic summary.
-- Avoid starting the sentence with the word "Characters". Prefer concrete agents like
-  "They", "The couple", "She", "He", "The family", or describe the scene directly
-  when the agents are obvious (e.g., "In the kitchen, they argue about breakfast.").
+- Avoid starting the sentence with the word "Characters".
+- CORPUS CONTEXT: All relationships in this corpus are heterosexual (man/woman).
+  When describing sexual or romantic interactions, use clear gender-specific pronouns:
+  - "He" refers to the male character, "She" refers to the female character.
+  - Examples: "He kisses her neck", "She touches his chest", "He stimulates her clit".
+  - Avoid ambiguous phrasing like "She uses her tongue to stimulate her partner's clit"
+    (unclear who is doing what). Instead: "He uses his tongue to stimulate her clit" or
+    "She feels his tongue on her clit".
+- VARY how you refer to people:
+  - Use "She" or "He" when the snippets clearly focus on a single person.
+  - Use "They" or "The couple" only when two or more people are clearly interacting.
+  - You may also start with the setting or object instead of a pronoun
+    (e.g., "In the kitchen, wine sits on the table as arguments begin.").
+- Do NOT start every scene summary with "They". Across topics, use a mix of:
+  - "She", "He", "The couple", "The family", or setting-first descriptions.
 - MANDATORY: Include at least ONE concrete detail from the snippets in your scene summary:
   - A specific location (kitchen, hallway, car, bedroom, office)
   - A specific object (wine bottle, door, phone, board game, hockey puck)
@@ -107,6 +119,30 @@ GENERAL STYLE RULES
   - Bad label: "Intense Love", "Erotic Intimacy", "Romantic Moment"
 - You may use explicit sexual terms found in the text (e.g., oral sex, blowjob, fingering, pussy, cock)
   but keep the tone factual and clinical, not arousing.
+
+CRITICAL: SEXUAL WORDING GUARDRAIL (CHECK THIS FIRST)
+- This is a HARD CONSTRAINT that must be checked BEFORE generating any label or scene summary.
+- You MUST NOT use ANY sexualized wording (including "foreplay", "intimate", "arousal", "erotic", "sexual", 
+  "kinky", "charged", "tension", "passion", "desire", "lust") UNLESS explicit sexual terms appear in keywords/snippets.
+- Explicit sexual terms that ALLOW sexual wording:
+  "sex", "fuck", "fucking", "cock", "dick", "pussy", "clit", "clitoris", "nipples", "breasts", "orgasm", 
+  "cum", "come", "blowjob", "handjob", "fingering", "anal", "penetration", "pounding", "thrusting", 
+  "erection", "hard", "wet", "moan", "groan", "pleasure".
+- If keywords/snippets contain ONLY neutral words like "board", "game", "table", "hand", "arm", "chair", 
+  "mug", "room", "position", "tone" → DO NOT use "foreplay", "intimate", or any sexual wording.
+- Examples of FORBIDDEN labels when no sexual terms are present:
+  ❌ "Board Game Foreplay" (keywords: board, game, table, hand, arm → NO sexual terms)
+  ❌ "Intimate Coffee Conversation" (keywords: coffee, cup, talk → NO sexual terms)
+  ❌ "Charged Eye Contact" (keywords: eye, gaze, stare → NO sexual terms)
+  ❌ "Erotic Tension in Kitchen" (keywords: kitchen, food, cooking → NO sexual terms)
+- Examples of CORRECT labels for non-sexual topics:
+  ✅ "Board Game Around Table" (keywords: board, game, table, hand, arm)
+  ✅ "Coffee Conversation" (keywords: coffee, cup, talk)
+  ✅ "Intense Eye Contact" (keywords: eye, gaze, stare) - "Intense" is OK, "Charged" is NOT
+  ✅ "Kitchen Cooking Scene" (keywords: kitchen, food, cooking)
+- If you see keywords like "board", "game", "table", "hand", "arm" → label MUST be neutral like 
+  "Board Game Around Table" or "Playing Board Game", NEVER "Board Game Foreplay" or "Intimate Board Game".
+- This rule applies to BOTH the label AND the scene summary. Do NOT describe neutral activities as sexual.
 
 WHAT TO ENCODE IN THE LABEL (IN ORDER OF PRIORITY)
 Focus on the strongest, most frequent signals that appear across multiple snippets and keywords:
@@ -137,15 +173,13 @@ Focus on the strongest, most frequent signals that appear across multiple snippe
      "Playful Flirting at Bar".
 
 DISTINGUISHING SIMILAR TOPICS
-- When keywords overlap significantly (e.g., both topics have "smile", "laugh", "grin"),
-  you MUST find distinguishing features in the snippets or keyword order:
-  - Compare the snippets: Are they in different settings? Different emotional contexts?
-  - Check keyword order: Which words appear first? (e.g., "bright smile" vs "forced laugh")
-  - Look for unique keywords: Does one topic have "eyebrows", "giggles" while the other has "burst", "goofy"?
-- If topics are truly identical, use the same label, but if snippets show different contexts,
-  create distinct labels:
-  - Good: "Playful Smiles With Eyebrow Raises" vs "Loud Bursting Laughter"
-  - Bad: "Playful Smiles and Laughter" for both
+- Some topics may use very similar vocabulary (e.g. "smile", "laugh", "grin").
+- For each single topic, make the label as specific as possible by:
+  - Including any distinctive adjective (e.g. "forced", "goofy", "bright", "genuine").
+  - Including any distinctive setting or object (e.g. "on the couch", "at the bar", "on the ice").
+- If the main words are smiles and laughter:
+  - Prefer labels like "Bright Playful Smiles" or "Loud Goofy Laughter"
+    instead of repeating the generic "Playful Smiles and Laughter".
 - For sexual topics with similar keywords, distinguish by:
   - Body part focus (e.g., "Clitoral Foreplay With Tongue" vs "Clitoral Foreplay With Hand")
   - Setting (e.g., "Clitoral Foreplay in Bedroom" vs "Clitoral Foreplay in Shower")
@@ -159,6 +193,27 @@ LABEL SPECIFICITY AND STYLE
 - Avoid dramatic or overblown phrases like "could change their situation",
   "never seen before", "life-changing decisions" unless they are clearly stated
   in multiple snippets.
+
+VOICE AND FLUENCY
+- Use natural novel-like phrasing, not stiff report-style language.
+  - Prefer "She leans in and kisses his neck" over "They engage in physical intimacy."
+- Use active voice by default.
+- Avoid repeating the same sentence template across topics
+  (such as always starting with "[They] [verb] ...").
+- It is fine to vary sentence rhythm slightly as long as the sentence stays clear and concise.
+- For sexual scenes, use clear gender-specific pronouns based on the heterosexual context:
+  - "He" = male character, "She" = female character.
+  - Good: "He uses his tongue to stimulate her clit between her thighs."
+  - Bad: "She uses her tongue to stimulate her partner's clit" (ambiguous and grammatically confusing).
+
+KEYWORD GROUNDING
+- The label must be clearly connected to the TOP 3–5 keywords:
+  - Ideally include one of them directly (e.g. "Wedding Planning and Arrangements"
+    when keywords include "wedding", "planning").
+  - If you use a synonym instead, it must preserve the same meaning
+    (e.g., "car" → "vehicle" is allowed; "car" → "adventure" is not).
+- The scene summary must reference at least ONE of the top 5 keywords
+  (directly or as a very obvious synonym) in a concrete way.
 
 REPRESENTATIVE SNIPPETS AND CENTRALITY
 - Snippets are chosen to be representative of the topic, but may still contain book-specific details.
@@ -227,6 +282,11 @@ UNCERTAINTY AND ABSTRACTION
 - Do NOT invent specific scenarios like "First Time With Woman", "Car Repair",
   "Wedding Proposal", "Boyfriend's Arrival During Date" unless those events are clearly present
   in MULTIPLE snippets or match explicit keywords.
+- Do NOT describe a scene as "sexual tension", "charged", or "flirtation"
+  unless both:
+  1) at least one keyword or snippet clearly indicates romantic/sexual interest
+     (e.g. "flirt", "crush", "turned on", "couldn't stop staring"), AND
+  2) the rest of the evidence supports that interpretation.
 
 HARD CONSTRAINTS FOR KNOWN HALLUCINATION PATTERNS
 - Do NOT use "dinner date", "invitation", or "makeout" unless:
@@ -252,6 +312,17 @@ SEXUAL CONTENT PRECISENESS
   - If a topic is about physical foreplay to breasts, label it "Breast Foreplay" or similar.
   - If a topic is about clitoral stimulation and legs/hips, label it "Clitoral Stimulation Between Thighs" or similar.
 - Always keep the phrasing clinical and non-romanticized.
+
+SEXUAL WORDING GUARDRAIL (REINFORCEMENT)
+- This section reinforces the CRITICAL guardrail above. Read it again if you are unsure.
+- The words "foreplay", "intimate", "arousal", "erotic", "sexual", "kinky", "charged", "tension" 
+  are FORBIDDEN unless explicit sexual terms (listed above) appear in keywords or snippets.
+- Common mistake: Seeing "hand", "touch", "arm", "close" and assuming it's sexual.
+  These are NEUTRAL words that appear in many non-sexual contexts (board games, cooking, work).
+- Another common mistake: Seeing "board game" or "playing game" and adding "foreplay" or "intimate".
+  Board games are NOT sexual activities. Use neutral labels like "Board Game Around Table".
+- If keywords contain "board", "game", "table", "hand", "arm", "chair", "mug" → 
+  Label MUST be "Board Game Around Table" or "Playing Board Game", NEVER "Board Game Foreplay".
 
 MINI CHAIN-OF-THOUGHT (INTERNAL ONLY)
 Before answering, you should internally:
@@ -346,12 +417,29 @@ ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
 {snippets}
 
+CRITICAL CHECK BEFORE LABELING:
+- Scan the keywords above. Do they contain explicit sexual terms like "sex", "fuck", "cock", "pussy", 
+  "clit", "nipples", "blowjob", "handjob", "fingering", "orgasm", "penetration"?
+- If NO explicit sexual terms are present, you MUST use neutral, non-sexual wording.
+- FORBIDDEN words when no sexual terms: "foreplay", "intimate", "arousal", "erotic", "charged", "tension".
+- Example: Keywords "board, game, table, hand, arm" → Label MUST be "Board Game Around Table", 
+  NEVER "Board Game Foreplay" or "Intimate Board Game".
+
 Remember:
 
+- If NO representative snippets are shown above, you MUST base both the label and the scene summary
+  directly on the keywords and context hints.
+- In that case, do NOT invent very specific locations or props that are not implied by the keywords
+  (for example, do not randomly introduce "bedroom" or "couch" if they are not in the keywords or hints).
 - Base your label on the SHARED pattern across snippets, not on a single sentence.
 - Use the keywords to confirm important body parts, actions, or settings.
 - Ignore single outlier words (e.g. a random city) unless repeated across snippets and keywords.
 - Use precise, neutral, scene-level phrasing.
+- Choose a subject that matches the evidence:
+  - Use singular subjects ("She", "He", "The protagonist") when the focus is one person.
+  - Use plural subjects ("They", "The couple", "The friends") only when multiple people clearly interact.
+- Remember: All relationships are heterosexual (man/woman). Use "He" for male characters and "She" for female characters.
+  For sexual interactions, be clear about who is doing what: "He [action] her [body part]" or "She [action] his [body part]".
 
 CRITICAL: Before writing your scene summary, identify:
 1. Which location appears in multiple snippets? (kitchen, hallway, car, bedroom, etc.)
@@ -360,6 +448,8 @@ CRITICAL: Before writing your scene summary, identify:
 4. Which body part appears in multiple snippets? (if relevant: neck, clit, hips, etc.)
 
 Then include at least ONE of these concrete details in your scene summary.
+
+{existing_labels}
 
 Return your answer in exactly this format:
 
@@ -836,6 +926,7 @@ def generate_label_from_keywords_openrouter(
     representative_docs: list[str] | None = None,
     max_snippets: int = 15,
     max_chars_per_snippet: int = 1200,
+    existing_labels: set[str] | None = None,
 ) -> dict[str, Any]:
     """
     Generate a topic label from keywords using OpenRouter API.
@@ -853,6 +944,7 @@ def generate_label_from_keywords_openrouter(
         representative_docs: Optional list of representative document strings (snippets)
         max_snippets: Maximum number of snippets to include in prompt (default: 6)
         max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
+        existing_labels: Optional set of existing labels to avoid reusing (for romance-aware prompts)
         
     Returns:
         Dictionary with 'label' and optionally 'categories', 'is_noise', 'rationale'
@@ -901,11 +993,19 @@ def generate_label_from_keywords_openrouter(
                 max_chars=max_chars_per_snippet,
             )
         
+        # Format existing labels for prompt
+        existing_labels_str = ""
+        if existing_labels:
+            existing_labels_str = "\n\nExisting labels in this dataset (avoid reusing them exactly):\n" + ", ".join(sorted(existing_labels))
+        else:
+            existing_labels_str = ""
+        
         user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
             kw=kw_str,
             hints=hints_str,
             pos=pos_str,
-            snippets=snippets_block
+            snippets=snippets_block,
+            existing_labels=existing_labels_str
         )
         messages = [
             {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
@@ -920,9 +1020,9 @@ def generate_label_from_keywords_openrouter(
             messages=messages,
             max_tokens=max_new_tokens,
             temperature=temperature,
-            top_p=0.7,  # Slightly limits randomness
-            presence_penalty=0,  # Leave penalties neutral
-            frequency_penalty=0,
+            top_p=0.9,  # Allows more diverse token selection for natural phrasing
+            presence_penalty=0.0,  # No presence penalty
+            frequency_penalty=0.2,  # Light frequency penalty to discourage repetitive patterns
         )
         api_elapsed = time.perf_counter() - api_start
         
@@ -1097,6 +1197,7 @@ def generate_labels_streaming(
     topic_data: dict[int, dict[str, Any]] = {}
     batch_idx = 0
     processed_count = 0
+    existing_labels: set[str] = set()  # Track existing labels to avoid duplicates
     
     with stage_timer_local("Generating labels (streaming)"):
         # Open JSON file for incremental writing
@@ -1139,12 +1240,17 @@ def generate_labels_streaming(
                     representative_docs=rep_docs,
                     max_snippets=max_snippets,
                     max_chars_per_snippet=max_chars_per_snippet,
+                    existing_labels=existing_labels if existing_labels else None,
                 )
                 label_elapsed = time.perf_counter() - label_start
                 
                 # Extract label and scene_summary (result is now a dict)
                 label = result.get("label", "")
                 scene_summary = result.get("scene_summary", "")
+                
+                # Add label to existing_labels set for future topics
+                if label:
+                    existing_labels.add(label)
                 
                 # Store label, keywords, and any additional fields from improved prompts
                 topic_data[topic_id] = {
@@ -1257,6 +1363,7 @@ def generate_all_labels(
     topic_data: dict[int, dict[str, Any]] = {}
     topic_items = list(pos_topics.items())
     total_topics = len(topic_items)
+    existing_labels: set[str] = set()  # Track existing labels to avoid duplicates
     
     with stage_timer_local("Generating labels for all topics"):
         LOGGER.info("Generating labels for %d topics (batch_size=%d)", total_topics, batch_size)
@@ -1293,11 +1400,16 @@ def generate_all_labels(
                 representative_docs=rep_docs,
                 max_snippets=max_snippets,
                 max_chars_per_snippet=max_chars_per_snippet,
+                existing_labels=existing_labels if existing_labels else None,
             )
             label_elapsed = time.perf_counter() - label_start
             
             # Extract label (result is now a dict)
             label = result.get("label", "")
+            
+            # Add label to existing_labels set for future topics
+            if label:
+                existing_labels.add(label)
             
             # Store label, keywords, and any additional fields from improved prompts
             batch_labels[topic_id] = {

@@ -35,7 +35,7 @@ DEFAULT_OUTPUT_DIR = Path("results/stage06_labeling_openrouter")
 DEFAULT_NUM_KEYWORDS = 15
 DEFAULT_MAX_TOKENS = 100  # Need tokens for label (2–6 words, ~10 tokens) + scene summary (12–25 words, ~50 tokens) + formatting (~10 tokens) = ~70 tokens, using 100 for safety
 DEFAULT_BATCH_SIZE = 50
-DEFAULT_TEMPERATURE = 0.15  # Lower → less creativity, more deterministic
+DEFAULT_TEMPERATURE = 0.35  # Balanced for natural phrasing variation without excessive randomness
 
 
 class Tee:
