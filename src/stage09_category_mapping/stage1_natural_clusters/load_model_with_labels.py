@@ -342,14 +342,16 @@ def main():
             logger.info("Force reload requested, will reload labels from JSON")
         else:
             logger.info("Labels already integrated. Use --force-reload-labels to override.")
-            logger.info("\n" + "=" * 80)
-            logger.info("Summary")
-            logger.info("=" * 80)
-            logger.info(f"Model loaded: ✓")
-            logger.info(f"Topic count: {verification['actual_count']} (expected {verification['expected_count']})")
-            logger.info(f"Custom labels: ✓ ({verification['custom_labels_count']} labels)")
-            logger.info("\nModel is ready for Stage 1 analysis!")
-            return
+            # Don't return early if --save-model is requested
+            if not args.save_model:
+                logger.info("\n" + "=" * 80)
+                logger.info("Summary")
+                logger.info("=" * 80)
+                logger.info(f"Model loaded: ✓")
+                logger.info(f"Topic count: {verification['actual_count']} (expected {verification['expected_count']})")
+                logger.info(f"Custom labels: ✓ ({verification['custom_labels_count']} labels)")
+                logger.info("\nModel is ready for Stage 1 analysis!")
+                return
     
     # Load and attach labels
     if not verification["has_custom_labels"] or args.force_reload_labels:
