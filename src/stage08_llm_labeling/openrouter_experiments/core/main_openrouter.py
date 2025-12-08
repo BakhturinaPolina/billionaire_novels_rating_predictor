@@ -107,7 +107,14 @@ def parse_args() -> argparse.Namespace:
         "--model-suffix",
         type=str,
         default="_with_noise_labels",
-        help="Optional suffix to append to model filename/directory (default: '_with_noise_labels' to use model with noise labels)",
+        help="Optional suffix to append to model filename/directory (default: '_with_noise_labels')",
+    )
+    
+    parser.add_argument(
+        "--model-stage",
+        type=str,
+        default="stage07_topic_quality",
+        help="Stage subfolder to load model from (default: 'stage07_topic_quality' to use model from stage07)",
     )
     
     parser.add_argument(
@@ -191,7 +198,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--use-improved-prompts",
         action="store_true",
-        help="Use improved BASE_LABELING_PROMPT with JSON output (includes category information)",
+        help="Use romance-aware prompt with JSON output (includes label, scene_summary, categories, is_noise, rationale)",
     )
     
     parser.add_argument(
@@ -267,6 +274,7 @@ def main() -> None:
         print(f"[LABELING_CMD]   Base dir: {args.base_dir}")
         print(f"[LABELING_CMD]   Use native: {args.use_native}")
         print(f"[LABELING_CMD]   Model suffix: {args.model_suffix or '(none)'}")
+        print(f"[LABELING_CMD]   Model stage: {args.model_stage or '(none)'}")
         print(f"[LABELING_CMD]   Num keywords: {args.num_keywords}")
         print(f"[LABELING_CMD]   Max tokens: {args.max_tokens}")
         print(f"[LABELING_CMD]   Output dir: {args.output_dir}")
@@ -289,6 +297,7 @@ def main() -> None:
             pareto_rank=args.pareto_rank,
             use_native=args.use_native,
             model_suffix=args.model_suffix,
+            stage_subfolder=args.model_stage,
         )
         print(f"[LABELING_CMD] ✓ Loaded BERTopic model (use_native={args.use_native})")
         sys.stdout.flush()
@@ -506,6 +515,47 @@ def main() -> None:
                 print("[LABELING_CMD] ✓ Labels integrated into BERTopic model")
                 print("[LABELING_CMD]   (Labels will appear in BERTopic visualizations)")
                 sys.stdout.flush()
+                
+                # Save model with LLM labels to stage08 subfolder (both formats)
+                print("[LABELING_CMD] Step 7: Saving model with LLM labels to stage08_llm_labeling subfolder...")
+                sys.stdout.flush()
+                try:
+                    import pickle
+                    import shutil
+                    from src.stage06_topic_exploration.explore_retrained_model import backup_existing_file, stage_timer
+                    
+                    # Create stage subfolder path
+                    stage_subfolder = Path(args.base_dir) / args.embedding_model / "stage08_llm_labeling"
+                    stage_subfolder.mkdir(parents=True, exist_ok=True)
+                    
+                    # 1. Save as native BERTopic model (directory format)
+                    native_model_dir = stage_subfolder / f"model_{args.pareto_rank}_with_llm_labels"
+                    if native_model_dir.exists() and native_model_dir.is_dir():
+                        shutil.rmtree(native_model_dir)
+                    
+                    with stage_timer(f"Saving native BERTopic model with LLM labels to {native_model_dir}"):
+                        topic_model.save(str(native_model_dir))
+                        logger.info("Saved native BERTopic model with LLM labels to %s", native_model_dir)
+                    
+                    # 2. Save as wrapper pickle (file format) - only if wrapper was loaded
+                    if wrapper is not None:
+                        wrapper_pickle_path = stage_subfolder / f"model_{args.pareto_rank}_with_llm_labels.pkl"
+                        backup_existing_file(wrapper_pickle_path)
+                        
+                        with stage_timer(f"Saving wrapper with LLM labels to {wrapper_pickle_path.name}"):
+                            with open(wrapper_pickle_path, "wb") as f:
+                                pickle.dump(wrapper, f)
+                            logger.info("Saved wrapper with LLM labels to %s", wrapper_pickle_path)
+                    else:
+                        logger.info("Wrapper not available (loaded native model), skipping wrapper save")
+                    
+                    print(f"[LABELING_CMD] ✓ Saved model to {stage_subfolder}")
+                    sys.stdout.flush()
+                except Exception as e:
+                    print(f"[LABELING_CMD] ⚠️  Warning: Could not save model: {e}")
+                    print("[LABELING_CMD]   Labels are integrated but model was not saved")
+                    sys.stdout.flush()
+                    logger.warning(f"[LABELING_CMD] Failed to save model: {e}")
             except Exception as e:
                 print(f"[LABELING_CMD] ✗ Error: Could not integrate labels: {e}")
                 print("[LABELING_CMD]   Labels are saved to JSON file but NOT in model")

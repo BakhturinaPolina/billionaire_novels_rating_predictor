@@ -41,13 +41,14 @@ This ensures methodological rigor: the unmatched 10% of sentences helped shape t
 ## Inputs Required
 
 1. **Trained BERTopic Model**
-   - Path: `models/retrained/paraphrase-MiniLM-L6-v2/model_1_with_noise_labels/`
-   - Format: Native BERTopic safetensors directory
+   - Path: `models/retrained/paraphrase-MiniLM-L6-v2/stage08_llm_labeling/model_1_with_llm_labels/`
+   - Format: Native BERTopic safetensors directory (or pickle wrapper)
    - Topic count: **368 topics** (excluding outlier topic -1)
-   - Labels: LLM-generated labels from openrouter_experiments (without category prefixes)
-   - **Important**: Use model from openrouter_experiments/core, NOT model_1_with_categories (which has category prefixes embedded)
+   - Labels: LLM-generated labels from Stage 08 (without category prefixes)
+   - **Model Versioning**: Models are loaded from `stage08_llm_labeling/` subfolder
    - See `docs/MODEL_VERSIONING.md` for detailed model version information
    - **Verified**: Model loads successfully with labels accessible via `custom_labels_` and `get_topic_info()`
+   - **Optional**: Use `--save-model` to save model with categories to `stage09_category_mapping/` subfolder
 
 2. **Sentence-Level DataFrame**
    - Source: `data/processed/chapters.csv`
@@ -80,11 +81,13 @@ This ensures methodological rigor: the unmatched 10% of sentences helped shape t
    - **Note**: Author/Title format differs from chapters.csv - requires fuzzy matching
 
 4. **LLM Labels/Descriptions**
-   - Location: `results/stage08_llm_labeling/labels_pos_openrouter_mistralai_mistral-nemo_romance_aware_paraphrase-MiniLM-L6-v2_reasoning_high.json`
-   - Structure: `{topic_id: {label, keywords, scene_summary}}`
-   - Total topics: 361
+   - Location: `results/stage08_llm_labeling/labels_pos_openrouter_<model_name>_romance_aware_<embedding_model>.json`
+   - Structure (with `--use-improved-prompts`): `{topic_id: {label, keywords, scene_summary, primary_categories, secondary_categories, is_noise, rationale}}`
+   - Structure (without flag): `{topic_id: {label, keywords, scene_summary}}`
+   - Total topics: 361-368 (varies by model version)
    - Also stored in model's `topics.json` under `topic_labels` key
-   - Integration: Labels are already integrated into `model_1_with_noise_labels` via `custom_labels_` attribute (from openrouter_experiments)
+   - Integration: Labels are already integrated into `model_1_with_llm_labels` via `custom_labels_` attribute (from openrouter_experiments)
+   - Note: Only the `label` field is used for topic assignment; other fields (scene_summary, categories, etc.) are available for analysis
 
 ## Implementation Steps
 
@@ -154,24 +157,37 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.prepare_sentence_
 
 **Usage**:
 ```bash
+# Basic usage (verify model and labels)
 python -m src.stage09_category_mapping.stage1_natural_clusters.load_model_with_labels \
-    --labels-json results/stage08_llm_labeling/labels_pos_openrouter_mistralai_mistral-nemo_romance_aware_paraphrase-MiniLM-L6-v2_reasoning_high.json \
-    --expected-topics 368 \
-    --model-suffix _with_noise_labels
+    --model-suffix _with_llm_labels \
+    --model-stage stage08_llm_labeling \
+    --expected-topics 368
+
+# Save model with labels to stage09_category_mapping subfolder
+python -m src.stage09_category_mapping.stage1_natural_clusters.load_model_with_labels \
+    --model-suffix _with_llm_labels \
+    --model-stage stage08_llm_labeling \
+    --save-model
+# Models are automatically saved to:
+# - models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories/ (BERTopic format)
+# - models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories.pkl (pickle format, if wrapper available)
 ```
 
 **Tasks**:
-1. Load BERTopic model from `model_1_with_noise_labels` (native format - model from openrouter_experiments)
+1. Load BERTopic model from `stage08_llm_labeling/model_1_with_llm_labels` (tries wrapper first, falls back to native format)
 2. Check if LLM labels are already integrated (via `custom_labels_` attribute)
 3. If not, load labels from JSON file and attach them using `set_topic_labels()`
 4. Verify model has expected number of topics (368, excluding outlier -1)
-5. Log verification results and model state
+5. Optionally save model with categories to `stage09_category_mapping/` subfolder (if `--save-model` is used)
+6. Log verification results and model state
 
 **Key Features**:
-- Uses helper function `load_native_bertopic_model()` for consistent loading
+- Uses helper function `load_native_bertopic_model()` or `load_retrained_wrapper()` for consistent loading
+- Loads from stage subfolders (default: `stage08_llm_labeling/`)
 - Handles multiple JSON label formats (nested dict with `label` key or flat dict)
 - Detects if labels are already integrated (avoids redundant loading)
 - `--force-reload-labels` flag to override existing labels
+- `--save-model` flag to save model with categories to `stage09_category_mapping/` subfolder (both formats)
 - Comprehensive logging and verification
 - Verifies labels accessible via both `custom_labels_` and `get_topic_info()`
 

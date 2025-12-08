@@ -116,8 +116,9 @@ SEXUAL CONTENT PRECISENESS
 - Always keep the phrasing clinical and non-romanticized.
 
 OUTPUT FORMAT
-- Return ONLY the label, as a short noun phrase of 2–6 words.
-- No explanations, no extra sentences, no lists.
+- Return your answer as a single JSON object, with no extra text before or after it.
+- Use EXACTLY these keys: "label", "scene_summary", "primary_categories", "secondary_categories", "is_noise", "rationale".
+- Output MUST be valid JSON (no markdown code fences, no extra text).
 
 EXAMPLES (do NOT repeat these exact labels; just mimic the style)
 
@@ -126,49 +127,98 @@ Topic keywords: means, idea, promise, work, help, better, true, deal, today, gam
 Representative snippets:
 1) "You promised me you'd help, this isn't just a game to you."
 2) "If we make this deal today, it could really change things."
-Label: Promise and Deal Negotiation
+{
+  "label": "Promise and Deal Negotiation",
+  "scene_summary": "They talk through a promise and a possible deal, weighing how it might change their work and future.",
+  "primary_categories": ["work_life", "romance_core"],
+  "secondary_categories": ["activity:negotiation", "emotion:uncertainty"],
+  "is_noise": false,
+  "rationale": "Keywords show promise, deal, and work themes. Snippets confirm discussions about commitments and potential changes."
+}
 
 Example 3 (Meals):
 Topic keywords: dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry
 Representative snippets:
 1) "They grabbed sandwiches from the bakery and ate on the steps."
 2) "Breakfast was just coffee and a half-eaten croissant."
-Label: Everyday Meals And Food
+{
+  "label": "Everyday Meals And Food",
+  "scene_summary": "They share simple meals and snacks throughout the day, from quick breakfasts to casual bakery lunches.",
+  "primary_categories": ["daily_routine"],
+  "secondary_categories": ["activity:eating", "setting:casual"],
+  "is_noise": false,
+  "rationale": "Keywords consistently reference meals and food. Snippets show casual eating scenes across different times of day."
+}
 
 Example 4 (Abstract relationship feelings):
 Topic keywords: way, years, matter, things, able, relationship, place, thing, feelings, kind
 Representative snippets:
 1) "After all these years, she still couldn't name what they were."
 2) "It was the kind of relationship that never quite fit in one box."
-Label: Relationship Feelings And Issues
+{
+  "label": "Relationship Feelings And Issues",
+  "scene_summary": "Over time, they struggle to define what their relationship is and how it truly makes them feel.",
+  "primary_categories": ["romance_core"],
+  "secondary_categories": ["emotion:uncertainty", "stage:undefined"],
+  "is_noise": false,
+  "rationale": "Keywords focus on relationship, feelings, and uncertainty. Snippets confirm ongoing struggle to define the relationship."
+}
 
 Example 5 (Time passing in life/work):
 Topic keywords: week, years, job, fallen, days, times, months, able, things, different
 Representative snippets:
 1) "Weeks turned into months at the new job before she realized how different everything felt."
 2) "Over the years, the days blurred together into something she barely recognized."
-Label: Time Passing In Work And Life
+{
+  "label": "Time Passing In Work And Life",
+  "scene_summary": "Weeks and months slip by at work and in daily life, gradually changing how everything feels.",
+  "primary_categories": ["work_life", "daily_routine"],
+  "secondary_categories": ["temporal:passing", "emotion:change"],
+  "is_noise": false,
+  "rationale": "Keywords emphasize time units and work context. Snippets show temporal passage and gradual change in work/life."
+}
 
 Example 21 (Car scene):
 Topic keywords: car, seat, door, parked, drive, window, highway, kiss, hand
 Representative snippets:
 1) "They sat in the parked car, his hand on her thigh as the windows fogged."
 2) "She leaned across the seat, kissing him while the engine idled quietly."
-Label: Makeout In Parked Car
+{
+  "label": "Makeout In Parked Car",
+  "scene_summary": "In a parked car, they kiss and touch each other while the outside world stays just beyond the fogged windows.",
+  "primary_categories": ["romance_core", "sexual_content"],
+  "secondary_categories": ["setting:car", "activity:kissing"],
+  "is_noise": false,
+  "rationale": "Keywords indicate car setting and physical intimacy. Snippets clearly show makeout scene in parked car with fogged windows."
+}
 
 Example 23 (Refused invitation):
 Topic keywords: invite, invited, asked, yes, no, maybe, refused, party, drinks
 Representative snippets:
 1) "He invited her out for drinks, but she shook her head and said no."
 2) '"I appreciate it, but I can't," she replied, refusing the invitation.'
-Label: Refusing A Romantic Invitation
+{
+  "label": "Refusing A Romantic Invitation",
+  "scene_summary": "One person invites the other out, but the invitation is gently turned down and the moment passes.",
+  "primary_categories": ["romance_core", "dating_ritual"],
+  "secondary_categories": ["activity:invitation", "emotion:reluctance"],
+  "is_noise": false,
+  "rationale": "Keywords show invitation and refusal patterns. Snippets confirm polite but clear rejection of romantic invitation."
+}
 
 Example 29 (Time references):
 Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longer, soon
 Representative snippets:
 1) "Minutes felt like hours as she stared at the clock."
 2) "Time passed slowly while he waited for her to call."
-Label: Time References And Durations
+{
+  "label": "Waiting And Watching Clock",
+  "scene_summary": "Time seems to drag or rush by as they watch the clock and wait for something to happen.",
+  "primary_categories": ["daily_routine"],
+  "secondary_categories": ["temporal:waiting", "emotion:anticipation"],
+  "is_noise": false,
+  "rationale": "Keywords focus on time units and waiting. Snippets show subjective time distortion while waiting for events."
+}
 ```
 
 ### User Prompt Template
@@ -242,7 +292,17 @@ Remember:
 Label:
 ```
 
-**Expected output:** "Makeout In Parked Car"
+**Expected output:**
+```json
+{
+  "label": "Makeout In Parked Car",
+  "scene_summary": "In a parked car, they kiss and touch each other while the outside world stays just beyond the fogged windows.",
+  "primary_categories": ["romance_core", "sexual_content"],
+  "secondary_categories": ["setting:car", "activity:kissing"],
+  "is_noise": false,
+  "rationale": "Keywords indicate car setting and physical intimacy. Snippets clearly show makeout scene in parked car with fogged windows."
+}
+```
 
 ## Implementation Details
 

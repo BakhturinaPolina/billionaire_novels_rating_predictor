@@ -1,15 +1,19 @@
 """Load BERTopic model and attach LLM labels for Stage 1 natural clusters analysis.
 
 This script:
-1. Loads the BERTopic model from model_1_with_noise_labels (from openrouter_experiments/core)
+1. Loads the BERTopic model from model_1_with_llm_labels (from stage08_llm_labeling)
 2. Checks if LLM labels are already integrated (via custom_labels_ attribute)
 3. If not, loads labels from JSON file and attaches them
 4. Verifies model has expected number of topics
 5. Logs verification results
 
-Note: According to MODEL_VERSIONING.md, model_1_with_noise_labels should already have
+Note: According to MODEL_VERSIONING.md, model_1_with_llm_labels should already have
 labels integrated and persisted. This script primarily verifies
 the model state, but can reload labels if needed (e.g., with --force-reload-labels).
+
+The JSON file may contain full structured data (label, scene_summary, primary_categories,
+secondary_categories, is_noise, rationale) when using --use-improved-prompts, but only
+the label field is extracted for topic assignment.
 """
 
 from __future__ import annotations
@@ -17,6 +21,8 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import pickle
+import shutil
 import time
 from datetime import datetime
 from pathlib import Path
@@ -29,11 +35,20 @@ from src.stage06_topic_exploration.explore_retrained_model import (
     DEFAULT_BASE_DIR,
     DEFAULT_EMBEDDING_MODEL,
     load_native_bertopic_model,
+    load_retrained_wrapper,
+    backup_existing_file,
+    stage_timer,
 )
 
 
 def load_labels_from_json(json_path: Path, logger: Optional[logging.Logger] = None) -> dict[int, str]:
     """Load topic labels from JSON file.
+    
+    Supports multiple JSON structures:
+    - Structure 1: {topic_id: {label, keywords, scene_summary, primary_categories, secondary_categories, is_noise, rationale}}
+      (Full JSON from --use-improved-prompts, extracts only label field)
+    - Structure 2: {topic_id: "label"} (simple string format)
+    - Structure 3: {topic_id: {label: "..."}} (nested dict with label key)
     
     Args:
         json_path: Path to labels JSON file
@@ -56,7 +71,8 @@ def load_labels_from_json(json_path: Path, logger: Optional[logging.Logger] = No
     # Handle different JSON structures
     labels: dict[int, str] = {}
     
-    # Structure 1: {topic_id: {label, keywords, scene_summary}}
+    # Structure 1: {topic_id: {label, keywords, scene_summary, primary_categories, secondary_categories, is_noise, rationale}}
+    # (Full JSON structure from --use-improved-prompts, but we only extract the label field)
     if isinstance(data.get("0"), dict) and "label" in data.get("0", {}):
         for topic_id_str, topic_data in data.items():
             if isinstance(topic_data, dict) and "label" in topic_data:
@@ -195,8 +211,15 @@ def main():
     parser.add_argument(
         "--model-suffix",
         type=str,
-        default="_with_noise_labels",
-        help="Model suffix (default: _with_noise_labels - model from openrouter_experiments without category prefixes)",
+        default="_with_llm_labels",
+        help="Model suffix (default: _with_llm_labels - model from stage08_llm_labeling)",
+    )
+    
+    parser.add_argument(
+        "--model-stage",
+        type=str,
+        default="stage08_llm_labeling",
+        help="Stage subfolder to load model from (default: 'stage08_llm_labeling' to use model from stage08)",
     )
     parser.add_argument(
         "--labels-json",
@@ -225,6 +248,11 @@ def main():
         default=Path("results/stage09_category_mapping/stage1_natural_clusters"),
         help="Output directory for logs and reports",
     )
+    parser.add_argument(
+        "--save-model",
+        action="store_true",
+        help="Save model with labels to stage09_category_mapping subfolder (both formats)",
+    )
     
     args = parser.parse_args()
     
@@ -246,6 +274,8 @@ def main():
     logger.info(f"Model base directory: {args.base_dir}")
     logger.info(f"Embedding model: {args.embedding_model}")
     logger.info(f"Model suffix: {args.model_suffix}")
+    logger.info(f"Model stage: {args.model_stage}")
+    logger.info(f"Save model: {args.save_model}")
     logger.info(f"Labels JSON: {args.labels_json}")
     logger.info(f"Expected topics: {args.expected_topics}")
     
@@ -255,6 +285,7 @@ def main():
     logger.info("=" * 80)
     
     load_start_time = time.time()
+    wrapper = None
     
     try:
         if args.model_path:
@@ -263,13 +294,27 @@ def main():
                 raise FileNotFoundError(f"Model path does not exist: {args.model_path}")
             topic_model = BERTopic.load(str(args.model_path))
         else:
-            logger.info(f"Loading model using helper function (suffix: {args.model_suffix})")
-            topic_model = load_native_bertopic_model(
-                base_dir=args.base_dir,
-                embedding_model=args.embedding_model,
-                pareto_rank=1,
-                model_suffix=args.model_suffix,
-            )
+            logger.info(f"Loading model using helper function (suffix: {args.model_suffix}, stage: {args.model_stage})")
+            # Try to load wrapper first (for saving both formats later)
+            try:
+                wrapper, topic_model = load_retrained_wrapper(
+                    base_dir=args.base_dir,
+                    embedding_model=args.embedding_model,
+                    pareto_rank=1,
+                    model_suffix=args.model_suffix,
+                    stage_subfolder=args.model_stage,
+                )
+                logger.info("✓ Loaded wrapper (will be able to save both formats)")
+            except FileNotFoundError:
+                # Fallback to native format if wrapper not available
+                logger.info("Wrapper not found, loading native format only")
+                topic_model = load_native_bertopic_model(
+                    base_dir=args.base_dir,
+                    embedding_model=args.embedding_model,
+                    pareto_rank=1,
+                    model_suffix=args.model_suffix,
+                    stage_subfolder=args.model_stage,
+                )
         
         load_elapsed = time.time() - load_start_time
         logger.info(f"✓ Model loaded successfully in {load_elapsed:.1f} seconds")
@@ -329,6 +374,44 @@ def main():
         except Exception as e:
             logger.error(f"✗ Failed to load/attach labels: {e}")
             logger.error(f"  Labels JSON: {args.labels_json}")
+            raise
+    
+    # Save model with labels to stage09 subfolder (if requested)
+    if args.save_model:
+        logger.info("\n" + "=" * 80)
+        logger.info("Step 5: Saving Model with Labels")
+        logger.info("=" * 80)
+        
+        try:
+            # Create stage subfolder path
+            stage_subfolder = args.base_dir / args.embedding_model / "stage09_category_mapping"
+            stage_subfolder.mkdir(parents=True, exist_ok=True)
+            
+            # 1. Save as native BERTopic model (directory format)
+            native_model_dir = stage_subfolder / f"model_1_with_categories"
+            if native_model_dir.exists() and native_model_dir.is_dir():
+                shutil.rmtree(native_model_dir)
+            
+            with stage_timer(f"Saving native BERTopic model with categories to {native_model_dir}"):
+                topic_model.save(str(native_model_dir))
+                logger.info("Saved native BERTopic model with categories to %s", native_model_dir)
+            
+            # 2. Save as wrapper pickle (file format) - only if wrapper was loaded
+            if wrapper is not None:
+                wrapper_pickle_path = stage_subfolder / "model_1_with_categories.pkl"
+                backup_existing_file(wrapper_pickle_path)
+                
+                with stage_timer(f"Saving wrapper with categories to {wrapper_pickle_path.name}"):
+                    with open(wrapper_pickle_path, "wb") as f:
+                        pickle.dump(wrapper, f)
+                    logger.info("Saved wrapper with categories to %s", wrapper_pickle_path)
+            else:
+                logger.info("Note: Only native BERTopic format saved (no wrapper available)")
+            
+            logger.info(f"✓ Saved model to {stage_subfolder}")
+        except Exception as e:
+            logger.error(f"✗ Failed to save model: {e}")
+            logger.error("  Model has labels but was not saved")
             raise
     
     # Final summary

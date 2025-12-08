@@ -499,25 +499,70 @@ Before answering, you should internally:
 - Decide whether any sexual act is clearly a shared pattern.
 - Generalize the scene/theme from shared patterns only.
 
-Do NOT output your reasoning. Only output the final label and scene summary.
+Do NOT output your reasoning. Only output the final JSON object.
 
 OUTPUT FORMAT (IMPORTANT)
-Return your answer in EXACTLY this format:
+Return your answer as a single JSON object, with no extra text before or after it.
 
-Label: <2–6 word noun phrase>
-Scene summary: <ONE complete sentence (about 12–25 words) ending with a period>
+Use EXACTLY these keys and types:
 
-CRITICAL REQUIREMENTS:
-- The scene summary MUST be a complete, grammatically correct sentence.
-- The scene summary MUST end with a period (.).
-- The scene summary MUST include at least one concrete detail from the snippets.
-- The scene summary MUST be between 12-25 words (count carefully).
-- Do NOT include more than one sentence in the scene summary.
-- Do NOT begin the scene summary with the word "Characters".
-- Do NOT leave the scene summary hanging on a function word (e.g., ending with "to", "for", "a", "the").
-- Do NOT output explanations, bullet points, or extra text.
-- If your scene summary is too short (<12 words), add a concrete detail from the snippets.
-- If your scene summary is too long (>25 words), remove less important words while keeping concrete details.
+{
+  "label": "Short Noun Phrase Here",
+  "scene_summary": "One complete sentence (12–25 words) describing the typical scene.",
+  "primary_categories": [
+    "romance_core",
+    "sexual_content"
+  ],
+  "secondary_categories": [
+    "setting:car",
+    "activity:kissing"
+  ],
+  "is_noise": false,
+  "rationale": "1–3 short sentences explaining how the keywords and snippets support this label and these categories."
+}
+
+DETAILED RULES:
+
+- "label":  
+  - ONE short noun phrase, 2–6 words.  
+  - Capitalize main words (e.g. "Makeout In Parked Car").  
+  - Must reflect the dominant pattern across snippets and keywords, not one rare outlier.
+
+- "scene_summary":  
+  - Exactly ONE complete sentence (12–25 words).  
+  - Describe a *typical* scene implied by the topic (actions, setting, emotional tone).  
+  - Include at least one concrete detail from the snippets.  
+  - Do NOT start with "Characters".  
+  - Must end with a period.
+
+- "primary_categories":  
+  - 1–3 high-level, coarse-grained tags (strings) describing the core function of the topic.  
+  - Example tags: "romance_core", "sexual_content", "work_life", "family_dynamics",
+    "friendship", "daily_routine", "conflict_argument", "dating_ritual".
+
+- "secondary_categories":  
+  - 0–5 more specific tags capturing setting, activity, or sub-aspects.  
+  - Use a simple "dimension:value" pattern when helpful, e.g. "setting:car",
+    "setting:kitchen", "activity:kissing", "activity:board_game",
+    "emotion:awkwardness", "stage:first_date".
+
+- "is_noise":  
+  - false if the topic clearly expresses a coherent, interpretable pattern.  
+  - true only if the topic is clearly a technical artefact or meaningless bag of words.
+
+- "rationale":  
+  - 1–3 short sentences in plain text.  
+  - Explain how the *keywords* and *snippets* support the label, categories, and
+    whether it is noise.  
+  - This is for researchers and will NOT be used as a label.
+
+CRITICAL CONSTRAINTS:
+
+- Output MUST be valid JSON.  
+- Do NOT wrap the JSON in markdown code fences.  
+- Do NOT add any text before or after the JSON.  
+- All string values must use double quotes.  
+- Do NOT include comments in the JSON.
 
 EXAMPLES (do NOT repeat these exact labels; mimic the style only)
 
@@ -526,56 +571,98 @@ Topic keywords: means, idea, promise, work, help, better, true, deal, today, gam
 Representative snippets:
 1) "You promised me you'd help, this isn't just a game to you."
 2) "If we make this deal today, it could really change things."
-Label: Promise and Deal Negotiation
-Scene summary: They talk through a promise and a possible deal, weighing how it might change their work and future.
+{
+  "label": "Promise and Deal Negotiation",
+  "scene_summary": "They talk through a promise and a possible deal, weighing how it might change their work and future.",
+  "primary_categories": ["work_life", "romance_core"],
+  "secondary_categories": ["activity:negotiation", "emotion:uncertainty"],
+  "is_noise": false,
+  "rationale": "Keywords show promise, deal, and work themes. Snippets confirm discussions about commitments and potential changes."
+}
 
 Example 3 (Meals):
 Topic keywords: dinner, food, lunch, breakfast, bakery, chicken, sandwich, meal, dessert, hungry
 Representative snippets:
 1) "They grabbed sandwiches from the bakery and ate on the steps."
 2) "Breakfast was just coffee and a half-eaten croissant."
-Label: Everyday Meals And Food
-Scene summary: They share simple meals and snacks throughout the day, from quick breakfasts to casual bakery lunches.
+{
+  "label": "Everyday Meals And Food",
+  "scene_summary": "They share simple meals and snacks throughout the day, from quick breakfasts to casual bakery lunches.",
+  "primary_categories": ["daily_routine"],
+  "secondary_categories": ["activity:eating", "setting:casual"],
+  "is_noise": false,
+  "rationale": "Keywords consistently reference meals and food. Snippets show casual eating scenes across different times of day."
+}
 
 Example 4 (Abstract relationship feelings):
 Topic keywords: way, years, matter, things, able, relationship, place, thing, feelings, kind
 Representative snippets:
 1) "After all these years, she still couldn't name what they were."
 2) "It was the kind of relationship that never quite fit in one box."
-Label: Relationship Feelings And Issues
-Scene summary: Over time, they struggle to define what their relationship is and how it truly makes them feel.
+{
+  "label": "Relationship Feelings And Issues",
+  "scene_summary": "Over time, they struggle to define what their relationship is and how it truly makes them feel.",
+  "primary_categories": ["romance_core"],
+  "secondary_categories": ["emotion:uncertainty", "stage:undefined"],
+  "is_noise": false,
+  "rationale": "Keywords focus on relationship, feelings, and uncertainty. Snippets confirm ongoing struggle to define the relationship."
+}
 
 Example 5 (Time passing in life/work):
 Topic keywords: week, years, job, fallen, days, times, months, able, things, different
 Representative snippets:
 1) "Weeks turned into months at the new job before she realized how different everything felt."
 2) "Over the years, the days blurred together into something she barely recognized."
-Label: Time Passing In Work And Life
-Scene summary: Weeks and months slip by at work and in daily life, gradually changing how everything feels.
+{
+  "label": "Time Passing In Work And Life",
+  "scene_summary": "Weeks and months slip by at work and in daily life, gradually changing how everything feels.",
+  "primary_categories": ["work_life", "daily_routine"],
+  "secondary_categories": ["temporal:passing", "emotion:change"],
+  "is_noise": false,
+  "rationale": "Keywords emphasize time units and work context. Snippets show temporal passage and gradual change in work/life."
+}
 
 Example 21 (Car scene):
 Topic keywords: car, seat, door, parked, drive, window, highway, kiss, hand
 Representative snippets:
 1) "They sat in the parked car, his hand on her thigh as the windows fogged."
 2) "She leaned across the seat, kissing him while the engine idled quietly."
-Label: Makeout In Parked Car
-Scene summary: In a parked car, they kiss and touch each other while the outside world stays just beyond the fogged windows.
+{
+  "label": "Makeout In Parked Car",
+  "scene_summary": "In a parked car, they kiss and touch each other while the outside world stays just beyond the fogged windows.",
+  "primary_categories": ["romance_core", "sexual_content"],
+  "secondary_categories": ["setting:car", "activity:kissing"],
+  "is_noise": false,
+  "rationale": "Keywords indicate car setting and physical intimacy. Snippets clearly show makeout scene in parked car with fogged windows."
+}
 
 Example 23 (Refused invitation):
 Topic keywords: invite, invited, asked, yes, no, maybe, refused, party, drinks
 Representative snippets:
 1) "He invited her out for drinks, but she shook her head and said no."
 2) '"I appreciate it, but I can't," she replied, refusing the invitation.'
-Label: Refusing A Romantic Invitation
-Scene summary: One person invites the other out, but the invitation is gently turned down and the moment passes.
+{
+  "label": "Refusing A Romantic Invitation",
+  "scene_summary": "One person invites the other out, but the invitation is gently turned down and the moment passes.",
+  "primary_categories": ["romance_core", "dating_ritual"],
+  "secondary_categories": ["activity:invitation", "emotion:reluctance"],
+  "is_noise": false,
+  "rationale": "Keywords show invitation and refusal patterns. Snippets confirm polite but clear rejection of romantic invitation."
+}
 
 Example 29 (Time references):
 Topic keywords: minutes, hours, seconds, clock, later, time, passed, wait, longer, soon
 Representative snippets:
 1) "Minutes felt like hours as she stared at the clock."
 2) "Time passed slowly while he waited for her to call."
-Label: Waiting And Watching Clock
-Scene summary: Time seems to drag or rush by as they watch the clock and wait for something to happen."""
+{
+  "label": "Waiting And Watching Clock",
+  "scene_summary": "Time seems to drag or rush by as they watch the clock and wait for something to happen.",
+  "primary_categories": ["daily_routine"],
+  "secondary_categories": ["temporal:waiting", "emotion:anticipation"],
+  "is_noise": false,
+  "rationale": "Keywords focus on time units and waiting. Snippets show subjective time distortion while waiting for events."
+}"""
 
 ROMANCE_AWARE_USER_PROMPT = """Topic keywords (most important first):
 
@@ -644,12 +731,8 @@ Then include at least ONE of these concrete details in your scene summary.
 
 {existing_labels}
 
-Return your answer in exactly this format:
-
-Label: <2–6 word noun phrase>
-Scene summary: <one concise sentence>
-
-Label and scene summary:"""
+Now produce your final answer as a single JSON object in the exact format described
+in the system instructions (no extra text, no markdown code fences, valid JSON only)."""
 
 # OpenRouter API configuration
 # Get API key from environment variable, fallback to empty string if not set
@@ -1408,16 +1491,17 @@ def generate_label_from_keywords_openrouter(
         mmr_diversity: Diversity parameter for MMR (0.0-1.0)
         mmr_top_k: Maximum keywords to use after MMR reranking (None for all)
         temperature: Sampling temperature for generation
-        use_improved_prompts: If True, use BASE_LABELING_PROMPT and parse JSON response
+        use_improved_prompts: If True, use romance-aware prompt with JSON output (includes label, scene_summary, categories, is_noise, rationale)
         representative_docs: Optional list of representative document strings (snippets)
-        max_snippets: Maximum number of snippets to include in prompt (default: 6)
-        max_chars_per_snippet: Maximum characters per snippet before truncation (default: 200)
+        max_snippets: Maximum number of snippets to include in prompt (default: 15)
+        max_chars_per_snippet: Maximum characters per snippet before truncation (default: 1200)
         existing_labels: Optional set of existing labels to avoid reusing (for romance-aware prompts)
         reasoning_effort: Optional reasoning effort level ("low", "medium", "high") for supported models
         
     Returns:
-        Dictionary with 'label' and optionally 'categories', 'is_noise', 'rationale'
-        If use_improved_prompts is False, returns dict with just 'label' (backward compatible)
+        Dictionary with 'label' and optionally 'scene_summary', 'primary_categories', 'secondary_categories', 'is_noise', 'rationale'
+        If use_improved_prompts is True, returns full JSON structure with all fields
+        If use_improved_prompts is False, returns dict with 'label' and 'scene_summary' (backward compatible)
     """
     # Apply MMR reranking for diversity if requested
     if use_mmr_reranking and len(keywords) > 1:
@@ -1429,17 +1513,51 @@ def generate_label_from_keywords_openrouter(
         )
     
     # Choose prompt type
-    if use_improved_prompts and PROMPTS_AVAILABLE:
-        # Use improved prompt with JSON output
+    if use_improved_prompts:
+        # Romance-aware JSON prompt (reuse JSON parsing pipeline)
         kw_str = ", ".join(keywords)
-        user_prompt = f"Topic keywords: {kw_str}\n\nLabel:"
+        domains = detect_domains(keywords)
+        hints = make_context_hints(domains)  # Already includes "Context hints:" prefix
+        hints_str = hints if hints else ""
+        
+        # Extract POS cues for romance-aware labeling
+        pos_cues = extract_pos_cues(keywords)
+        pos_str = pos_cues if pos_cues else ""
+        
+        # Format snippets if representative_docs provided
+        snippets_block = ""
+        if representative_docs:
+            central_docs = rerank_snippets_centrality(
+                representative_docs,
+                top_k=max_snippets,
+            )
+            snippets_block = "\n\n" + format_snippets(
+                central_docs,
+                max_snippets=max_snippets,
+                max_chars=max_chars_per_snippet,
+            )
+        
+        # Format existing labels for prompt
+        existing_labels_str = ""
+        if existing_labels:
+            existing_labels_str = "\n\nExisting labels in this dataset (avoid reusing them exactly):\n" + ", ".join(sorted(existing_labels))
+        else:
+            existing_labels_str = ""
+        
+        user_prompt = ROMANCE_AWARE_USER_PROMPT.format(
+            kw=kw_str,
+            hints=hints_str,
+            pos=pos_str,
+            snippets=snippets_block,
+            existing_labels=existing_labels_str
+        )
         messages = [
-            {"role": "system", "content": BASE_LABELING_PROMPT},
+            {"role": "system", "content": ROMANCE_AWARE_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ]
-        max_new_tokens = max(max_new_tokens, 200)  # Need more tokens for JSON
+        max_new_tokens = max(max_new_tokens, 220)  # More room for JSON
     else:
-        # Use original romance-aware prompt
+        # Legacy text-only romance-aware prompt (backward compatibility)
         kw_str = ", ".join(keywords)
         domains = detect_domains(keywords)
         hints = make_context_hints(domains)  # Already includes "Context hints:" prefix
@@ -1533,8 +1651,8 @@ def generate_label_from_keywords_openrouter(
         LOGGER.debug("Raw API response: %s", content[:200] if len(content) > 200 else content)
         
         # Parse response based on prompt type
-        if use_improved_prompts and PROMPTS_AVAILABLE:
-            # Try to parse JSON response
+        if use_improved_prompts:
+            # Try to parse JSON response (romance-aware prompt with JSON output)
             try:
                 # Extract JSON from response (might have markdown code blocks)
                 json_content = content
@@ -1558,7 +1676,7 @@ def generate_label_from_keywords_openrouter(
                 
                 # If normalization resulted in empty label, use fallback
                 if not label or label.strip() == "":
-                    LOGGER.warning("Normalized label is empty (improved prompt), using fallback for keywords: %s", keywords[:3])
+                    LOGGER.warning("Normalized label is empty (JSON prompt), using fallback for keywords: %s", keywords[:3])
                     fallback_label = f"{keywords[0]}" if keywords else "Topic"
                     LOGGER.info("Using fallback label: %s", fallback_label)
                     label = fallback_label
@@ -1577,7 +1695,7 @@ def generate_label_from_keywords_openrouter(
                     scene_summary = clean_scene_summary(scene_summary, keywords)
                     result_dict["scene_summary"] = scene_summary
                 
-                LOGGER.info("Generated label (improved prompt): %s | Categories: %s", 
+                LOGGER.info("Generated label (JSON prompt): %s | Categories: %s", 
                            label, primary_categories)
                 return result_dict
                 

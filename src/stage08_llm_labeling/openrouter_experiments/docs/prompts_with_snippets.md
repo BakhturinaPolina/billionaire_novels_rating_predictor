@@ -97,7 +97,7 @@ Topic keywords: mouth, tongue, suck, lips, head, hair
 POS cues: Nouns→mouth, tongue, lips, head, hair; Verbs→suck.
 ```
 
-**Output:** "Erotic Intimacy" or "Oral Intimacy"
+**Output:** Generic label like "Erotic Intimacy" or "Oral Intimacy" (without JSON structure)
 
 ### After (Keywords + Snippets)
 
@@ -136,7 +136,17 @@ Remember:
 Label:
 ```
 
-**Output:** "Blowjob in Bed" or "Oral Sex Scene"
+**Output:**
+```json
+{
+  "label": "Blowjob in Bed",
+  "scene_summary": "She kneels between his thighs, taking him into her mouth as he grips the sheets and groans.",
+  "primary_categories": ["sexual_content"],
+  "secondary_categories": ["activity:oral_sex", "setting:bedroom"],
+  "is_noise": false,
+  "rationale": "Keywords show mouth, tongue, and sucking actions. Snippets clearly depict oral sex scene with kneeling position and head movement."
+}
+```
 
 ## Benefits
 

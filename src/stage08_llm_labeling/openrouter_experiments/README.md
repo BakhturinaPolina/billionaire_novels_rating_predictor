@@ -97,6 +97,19 @@ For detailed information, see:
 - `prompts_with_snippets.md`: Prompt structure and examples
 - `SNIPPETS_LOGIC.md`: Theoretical reasoning and design decisions
 
+## JSON Output Format
+
+When using `--use-improved-prompts`, the romance-aware prompt produces structured JSON output with the following fields:
+
+- **`label`**: Short noun phrase (2-6 words) describing the topic
+- **`scene_summary`**: One complete sentence (12-25 words) describing a typical scene
+- **`primary_categories`**: 1-3 high-level tags (e.g., "romance_core", "sexual_content", "work_life")
+- **`secondary_categories`**: 0-5 specific tags with dimension:value format (e.g., "setting:car", "activity:kissing")
+- **`is_noise`**: Boolean indicating if the topic is a technical artifact or meaningless
+- **`rationale`**: 1-3 sentences explaining how keywords and snippets support the label
+
+The JSON parsing pipeline automatically extracts all these fields and includes them in the output JSON file. This provides richer metadata for downstream analysis while maintaining backward compatibility with the label-only format.
+
 ## Usage
 
 ### Basic Usage
