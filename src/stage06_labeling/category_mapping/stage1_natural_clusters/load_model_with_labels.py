@@ -1,14 +1,14 @@
 """Load BERTopic model and attach LLM labels for Stage 1 natural clusters analysis.
 
 This script:
-1. Loads the BERTopic model from model_1_with_categories
+1. Loads the BERTopic model from model_1_with_noise_labels (from openrouter_experiments/core)
 2. Checks if LLM labels are already integrated (via custom_labels_ attribute)
 3. If not, loads labels from JSON file and attaches them
-4. Verifies model has expected number of topics (361)
+4. Verifies model has expected number of topics
 5. Logs verification results
 
-Note: According to MODEL_VERSIONING.md, model_1_with_categories should already have
-labels integrated and persisted in topics.json. This script primarily verifies
+Note: According to MODEL_VERSIONING.md, model_1_with_noise_labels should already have
+labels integrated and persisted. This script primarily verifies
 the model state, but can reload labels if needed (e.g., with --force-reload-labels).
 """
 
@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
@@ -177,7 +178,7 @@ def main():
         "--model-path",
         type=Path,
         default=None,
-        help="Path to BERTopic model directory (default: uses model_1_with_categories)",
+        help="Path to BERTopic model directory (default: uses model_1_with_noise_labels)",
     )
     parser.add_argument(
         "--base-dir",
@@ -194,8 +195,8 @@ def main():
     parser.add_argument(
         "--model-suffix",
         type=str,
-        default="_with_categories",
-        help="Model suffix (default: _with_categories)",
+        default="_with_noise_labels",
+        help="Model suffix (default: _with_noise_labels - model from openrouter_experiments without category prefixes)",
     )
     parser.add_argument(
         "--labels-json",
@@ -209,8 +210,9 @@ def main():
     parser.add_argument(
         "--expected-topics",
         type=int,
-        default=361,
-        help="Expected number of topics (default: 361)",
+        default=368,
+        help="Expected number of topics excluding outlier -1 (default: 368, "
+             "based on model_1_with_noise_labels). Use 361 for older models.",
     )
     parser.add_argument(
         "--force-reload-labels",
@@ -237,7 +239,7 @@ def main():
     logger.info("=" * 80)
     logger.info("Stage 1 Natural Clusters: Load Model with Labels")
     logger.info("=" * 80)
-    logger.info("NOTE: model_1_with_categories should already have labels integrated")
+    logger.info("NOTE: model_1_with_noise_labels (from openrouter_experiments) should already have labels integrated")
     logger.info("      (stored in custom_labels_ and persisted in topics.json)")
     logger.info("      This script verifies the model state.")
     logger.info("=" * 80)
@@ -252,19 +254,29 @@ def main():
     logger.info("Step 1: Loading BERTopic Model")
     logger.info("=" * 80)
     
-    if args.model_path:
-        logger.info(f"Loading model from explicit path: {args.model_path}")
-        topic_model = BERTopic.load(args.model_path)
-    else:
-        logger.info(f"Loading model using helper function (suffix: {args.model_suffix})")
-        topic_model = load_native_bertopic_model(
-            base_dir=args.base_dir,
-            embedding_model=args.embedding_model,
-            pareto_rank=1,
-            model_suffix=args.model_suffix,
-        )
+    load_start_time = time.time()
     
-    logger.info("✓ Model loaded successfully")
+    try:
+        if args.model_path:
+            logger.info(f"Loading model from explicit path: {args.model_path}")
+            if not args.model_path.exists():
+                raise FileNotFoundError(f"Model path does not exist: {args.model_path}")
+            topic_model = BERTopic.load(str(args.model_path))
+        else:
+            logger.info(f"Loading model using helper function (suffix: {args.model_suffix})")
+            topic_model = load_native_bertopic_model(
+                base_dir=args.base_dir,
+                embedding_model=args.embedding_model,
+                pareto_rank=1,
+                model_suffix=args.model_suffix,
+            )
+        
+        load_elapsed = time.time() - load_start_time
+        logger.info(f"✓ Model loaded successfully in {load_elapsed:.1f} seconds")
+    except Exception as e:
+        logger.error(f"✗ Failed to load model: {e}")
+        logger.error(f"  Model path: {args.model_path if args.model_path else 'using helper function'}")
+        raise
     
     # Verify model topics
     logger.info("\n" + "=" * 80)
@@ -300,11 +312,24 @@ def main():
         logger.info("Step 4: Loading and Attaching Labels")
         logger.info("=" * 80)
         
-        labels = load_labels_from_json(args.labels_json, logger=logger)
-        attach_labels_to_model(topic_model, labels, logger=logger)
-        
-        # Re-verify after attaching
-        verification = verify_model_topics(topic_model, expected_count=args.expected_topics, logger=logger)
+        try:
+            labels = load_labels_from_json(args.labels_json, logger=logger)
+            
+            # Verify label count matches topic count
+            if len(labels) != verification["actual_count"]:
+                logger.warning(
+                    f"Label count ({len(labels)}) doesn't match topic count "
+                    f"({verification['actual_count']}). Some topics may not have labels."
+                )
+            
+            attach_labels_to_model(topic_model, labels, logger=logger)
+            
+            # Re-verify after attaching
+            verification = verify_model_topics(topic_model, expected_count=args.expected_topics, logger=logger)
+        except Exception as e:
+            logger.error(f"✗ Failed to load/attach labels: {e}")
+            logger.error(f"  Labels JSON: {args.labels_json}")
+            raise
     
     # Final summary
     logger.info("\n" + "=" * 80)
