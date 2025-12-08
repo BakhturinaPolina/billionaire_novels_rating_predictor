@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import pickle
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -131,9 +132,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--save-model-with-labels",
-        type=Path,
-        default=None,
-        help="If --apply-labels is used, optionally save the model with labels to this path",
+        action="store_true",
+        help="If --apply-labels is used, save the model with labels to stage07_topic_quality subfolder",
     )
     return parser.parse_args()
 
@@ -141,7 +141,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Entrypoint for topic quality analysis and noisy topic detection."""
     args = parse_args()
-    logger.info("=== Stage 06 EDA: Topic Quality Analysis ===")
+    logger.info("=== Stage 07: Topic Quality Analysis ===")
     logger.info("Configuration: %s", vars(args))
 
     # Create output directory
@@ -290,18 +290,51 @@ def main() -> None:
             labels_dict.update(noise_labels)
 
             topic_model.set_topic_labels(labels_dict)
+            
+            # Explicitly update wrapper's reference to ensure it has the modified model
+            if wrapper is not None:
+                wrapper.trained_topic_model = topic_model
+                logger.info("Updated wrapper.trained_topic_model reference")
+            
             logger.info(
                 "Updated labels for %d topics (noise candidates + existing)",
                 len(labels_dict),
             )
 
-        # Optionally save model with labels
+        # Save model with labels to stage subfolder (both formats)
         if args.save_model_with_labels:
-            save_path = Path(args.save_model_with_labels)
-            save_path.parent.mkdir(parents=True, exist_ok=True)
-            with stage_timer(f"Saving BERTopic model with noise labels to {save_path}"):
-                topic_model.save(str(save_path))
-                logger.info("Saved model with noise labels to %s", save_path)
+            # Create stage subfolder path
+            stage_subfolder = args.base_dir / args.embedding_model / "stage07_topic_quality"
+            stage_subfolder.mkdir(parents=True, exist_ok=True)
+            
+            # 1. Save as native BERTopic model (directory format)
+            native_model_dir = stage_subfolder / f"model_{args.pareto_rank}_with_noise_labels"
+            if native_model_dir.exists() and native_model_dir.is_dir():
+                shutil.rmtree(native_model_dir)
+            
+            try:
+                with stage_timer(f"Saving native BERTopic model with noise labels to {native_model_dir}"):
+                    topic_model.save(str(native_model_dir))
+                    logger.info("✓ Saved native BERTopic model with noise labels to %s", native_model_dir)
+            except Exception as e:
+                logger.error("✗ Failed to save native BERTopic model: %s", e, exc_info=True)
+                raise
+            
+            # 2. Save as wrapper pickle (file format) - only if wrapper was loaded
+            if wrapper is not None:
+                wrapper_pickle_path = stage_subfolder / f"model_{args.pareto_rank}_with_noise_labels.pkl"
+                backup_existing_file(wrapper_pickle_path)
+                
+                try:
+                    with stage_timer(f"Saving wrapper with noise labels to {wrapper_pickle_path.name}"):
+                        with open(wrapper_pickle_path, "wb") as f:
+                            pickle.dump(wrapper, f)
+                        logger.info("✓ Saved wrapper with noise labels to %s", wrapper_pickle_path)
+                except Exception as e:
+                    logger.error("✗ Failed to save wrapper pickle: %s", e, exc_info=True)
+                    raise
+            else:
+                logger.info("Wrapper not available (loaded native model), skipping wrapper save")
 
 
 if __name__ == "__main__":
