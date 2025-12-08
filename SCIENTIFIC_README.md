@@ -193,7 +193,7 @@ To generate human-readable labels for topics, we employ two approaches:
 - **Model**: `mistralai/mistral-nemo` via OpenRouter API
 - **Advantages**: No local GPU required, faster iteration, cloud-based inference
 - **Workflow**: Same prompt structure and domain detection as local inference
-- See `src/stage06_labeling/openrouter_experiments/` for details
+- See `src/stage08_llm_labeling/openrouter_experiments/` for details
 
 **2. Local Mistral-7B-Instruct**
 - **Model**: Mistral-7B-Instruct-v0.2 (Jiang et al., 2023) with 4-bit quantization
@@ -276,7 +276,7 @@ The category mapping directly operationalizes all research hypotheses:
 - **`book_category_props.csv`** (optional): Book-level category proportions
 - **`indices_book.csv`** (optional): All derived indices per book (Love-over-Sex, HEA Index, etc.)
 
-See `src/stage06_labeling/category_mapping/README.md` for detailed documentation.
+See `src/stage09_category_mapping/README.md` for detailed documentation.
 
 ### Thematic Mapping: Topic → Category
 

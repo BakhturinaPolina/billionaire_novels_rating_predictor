@@ -41,12 +41,13 @@ romantic_novels_project_code/
 │   ├── stage01_ingestion/        # Data loading (Goodreads, BookNLP)
 │   ├── stage02_preprocessing/    # Text cleaning, tokenization
 │   ├── stage03_modeling/         # BERTopic training & optimization
-│   ├── stage04_experiments/      # Hyperparameter optimization
-│   ├── stage05_selection/        # Pareto-efficient model selection
+│   ├── stage04_selection/        # Pareto-efficient model selection
 │   ├── stage05_retraining/       # Retrain top models
-│   ├── stage06_exploration/      # Topic exploration & evaluation
-│   ├── stage06_labeling/         # Topic labeling and composite building
-│   └── stage07_analysis/         # Statistical analysis & visualization
+│   ├── stage06_topic_exploration/ # Topic exploration & evaluation
+│   ├── stage07_topic_quality/    # Topic quality analysis & noise detection
+│   ├── stage08_llm_labeling/     # Topic labeling with LLM
+│   ├── stage09_category_mapping/ # Category mapping & theory alignment
+│   └── stage10_correlation_analysis/ # Statistical analysis & visualization
 ├── configs/                      # YAML configuration files
 ├── notebooks/                    # Jupyter notebooks by stage
 ├── data/                         # Data directories (see Data section)
@@ -105,7 +106,7 @@ python -m src.common.check_gpu_setup
 # Using Makefile
 make stage01  # Data ingestion
 make stage03  # Model training
-make stage07  # Analysis
+make stage10  # Correlation analysis
 
 # Or directly with Python
 python -m src.stage03_modeling.main train --config configs/bertopic.yaml
@@ -134,43 +135,44 @@ python -m src.stage03_modeling.main train --config configs/bertopic.yaml
 # Retrain specific models
 python -m src.stage03_modeling.main retrain --dataset_csv data/processed/chapters.csv --out_dir models/
 
-# Stage 04: Experiments (Hyperparameter Optimization)
-python -m src.stage04_experiments.main --config configs/octis.yaml
-
-# Stage 05: Selection (Pareto Analysis)
-python -m src.stage05_selection.main --config configs/selection.yaml
+# Stage 04: Selection (Pareto Analysis)
+python -m src.stage04_selection.main analyze --config configs/selection.yaml
 
 # Stage 05: Retraining (Retrain Top Models)
 python -m src.stage05_retraining.main retrain --top_n 4
 
 # Stage 06: Topic Exploration (Evaluate Retrained Models)
-python -m src.stage06_exploration.explore_retrained_model \
+python -m src.stage06_topic_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
   --save-topics \
-  --output-dir results/stage06_exploration
+  --output-dir results/stage06_topic_exploration
 
-# Stage 06: Labeling (Two-Step Process)
+# Stage 07: Topic Quality Analysis (Noisy Topic Detection)
+python -m src.stage07_topic_quality.main \
+  --embedding-model paraphrase-MiniLM-L6-v2 \
+  --pareto-rank 1 \
+  --output-dir results/stage07_topic_quality
+
+# Stage 08: LLM Labeling (Two-Step Process)
 
 # Step 1: Generate Topic Labels with OpenRouter API
-python -m src.stage06_labeling.openrouter_experiments.main_openrouter \
+python -m src.stage08_llm_labeling.openrouter_experiments.core.main_openrouter \
   --embedding-model paraphrase-MiniLM-L6-v2 \
   --pareto-rank 1 \
-  --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+  --topics-json results/stage06_topic_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
 
 # Step 2: Map Labels to Theory-Aligned Categories
-python -m src.stage06_labeling.category_mapping.main_category_mapping \
-  --labels results/stage06_labeling_openrouter/labels_pos_openrouter_romance_aware_paraphrase-MiniLM-L6-v2.json \
-  --outdir results/stage06_labeling/category_mapping
+python -m src.stage09_category_mapping.stage1_natural_clusters.prepare_sentence_dataframe \
+  --chapters data/processed/chapters.csv \
+  --goodreads data/processed/goodreads.csv \
+  --output data/processed/sentence_df_with_ratings.parquet
 
-# Alternative: Generate Labels with Local Mistral-7B-Instruct
-python -m src.stage06_labeling.main \
-  --embedding-model paraphrase-MiniLM-L6-v2 \
-  --pareto-rank 1 \
-  --topics-json results/stage06_exploration/topics_all_representations_paraphrase-MiniLM-L6-v2.json
+# Stage 09: Category Mapping
+# See src/stage09_category_mapping/README.md for detailed usage
 
-# Stage 07: Analysis
-python -m src.stage07_analysis.main --config configs/scoring.yaml
+# Stage 10: Correlation Analysis
+python -m src.stage10_correlation_analysis.main --config configs/scoring.yaml
 ```
 
 ### Configuration
@@ -220,32 +222,27 @@ Text cleaning, tokenization, lemmatization, and custom stoplist building.
 ### Stage 03: Modeling
 BERTopic model training with various embedding models. Supports retraining from topic tables with coherence priority.
 
-### Stage 04: Experiments
-Bayesian hyperparameter optimization using OCTIS. Optimizes BERTopic parameters across multiple embedding models.
+### Stage 04: Selection
+Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Selects optimal models based on coherence and diversity metrics.
 
-### Stage 05: Selection
-Pareto efficiency analysis with constraint enforcement (minimum 200 topics). Selects optimal models based on coherence and diversity metrics. Also handles retraining of top models.
+### Stage 05: Retraining
+Retrains top-performing models from Stage 04 using their specific hyperparameters.
 
-### Stage 06: Topic Exploration & Labeling
-**Topic Exploration**: Interactive tooling for inspecting retrained BERTopic models. Loads models (pickle wrapper or native safetensors), attaches multiple representations (Main, KeyBERT, POS, MMR), computes coherence (c_v) and diversity metrics, and extracts all topics with all representations for close reading evaluation.
+### Stage 06: Topic Exploration
+Interactive tooling for inspecting retrained BERTopic models. Loads models (pickle wrapper or native safetensors), attaches multiple representations (Main, KeyBERT, POS, MMR), computes coherence (c_v) and diversity metrics, and extracts all topics with all representations for close reading evaluation.
 
-**Topic Quality EDA & Noisy Topic Detection**: Before proceeding with LLM-generated topic labeling, we perform exploratory data analysis to identify candidate noisy topics. The analysis (`notebooks/06_labeling/topic_quality_eda.ipynb`) computes:
-- Topic size statistics (document counts per topic)
-- POS representation statistics (number of POS-filtered words per topic)
-- Per-topic POS coherence (c_v coherence computed on POS-filtered keywords)
-- Flags candidate noisy topics based on thresholds (e.g., few POS words < 3, low coherence < 0.0)
+### Stage 07: Topic Quality Analysis
+Exploratory data analysis to identify candidate noisy topics before LLM labeling. Computes topic size statistics, POS representation statistics, and per-topic POS coherence. Flags candidate noisy topics based on configurable thresholds. See `src/stage07_topic_quality/` for details.
 
-Noisy topics are labeled in both the wrapper pickle and native BERTopic model formats for manual inspection and downstream filtering. This ensures that LLM labeling focuses on high-quality, interpretable topics.
+### Stage 08: LLM Labeling
+Automated generation of human-readable topic labels using either:
+- **OpenRouter API** (recommended): Cloud-based labeling with `mistralai/mistral-nemo` via OpenRouter API. No local GPU required. See `src/stage08_llm_labeling/openrouter_experiments/`.
+- **Local Mistral-7B-Instruct**: Local inference with 4-bit quantization. Extracts POS representation keywords, applies MMR reranking for diversity, and integrates labels back into BERTopic models.
 
-**Topic Labeling (Two-Step Process)**:
-1. **Label Generation**: Automated generation of human-readable topic labels using either:
-   - **OpenRouter API** (recommended): Cloud-based labeling with `mistralai/mistral-nemo` via OpenRouter API. No local GPU required. See `src/stage06_labeling/openrouter_experiments/`.
-   - **Local Mistral-7B-Instruct**: Local inference with 4-bit quantization. Extracts POS representation keywords, applies MMR reranking for diversity, and integrates labels back into BERTopic models.
-2. **Category Mapping**: Deterministic mapping from topic labels to theory-aligned categories (A-P, Q, R, S). Uses regex-based inference to operationalize theoretical constructs (Radway, Propp functions, Ogas & Gaddam). Generates `topic_to_category_probs.json` and optional book-level aggregates with derived indices. See `src/stage06_labeling/category_mapping/`.
+### Stage 09: Category Mapping
+Deterministic mapping from topic labels to theory-aligned categories (A-P, Q, R, S). Uses regex-based inference to operationalize theoretical constructs (Radway, Propp functions, Ogas & Gaddam). Generates `topic_to_category_probs.json` and optional book-level aggregates with derived indices. See `src/stage09_category_mapping/` for details.
 
-**Composite Building**: Semi-supervised composite building to create Appreciation Pattern (AP) composites from topic groups.
-
-### Stage 07: Analysis
+### Stage 10: Correlation Analysis
 Goodreads scoring/stratification, statistical analysis, and FDR correction. Generates visualizations and statistical reports.
 
 ## Contributing
