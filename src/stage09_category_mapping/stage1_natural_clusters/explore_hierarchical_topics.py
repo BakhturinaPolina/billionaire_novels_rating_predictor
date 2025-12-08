@@ -104,6 +104,7 @@ def load_model(
     base_dir: Path,
     embedding_model: str,
     model_suffix: str,
+    stage_subfolder: str | None = None,
     logger: Optional[logging.Logger] = None,
 ) -> BERTopic:
     """Load BERTopic model.
@@ -111,7 +112,8 @@ def load_model(
     Args:
         base_dir: Base directory for models
         embedding_model: Embedding model name
-        model_suffix: Model suffix (e.g., "_with_noise_labels")
+        model_suffix: Model suffix (e.g., "_with_llm_labels")
+        stage_subfolder: Optional stage subfolder (e.g., "stage08_llm_labeling")
         logger: Logger instance
         
     Returns:
@@ -120,13 +122,14 @@ def load_model(
     if logger is None:
         logger = logging.getLogger(__name__)
     
-    logger.info(f"Loading BERTopic model (suffix: {model_suffix})...")
+    logger.info(f"Loading BERTopic model (suffix: {model_suffix}, stage: {stage_subfolder or 'base'})...")
     
     topic_model = load_native_bertopic_model(
         base_dir=base_dir,
         embedding_model=embedding_model,
         pareto_rank=1,
         model_suffix=model_suffix,
+        stage_subfolder=stage_subfolder,
     )
     
     # Log model info
@@ -496,8 +499,14 @@ def main():
     parser.add_argument(
         "--model-suffix",
         type=str,
-        default="_with_noise_labels",
-        help="Model suffix (default: _with_noise_labels - model from openrouter_experiments without category prefixes)",
+        default="_with_llm_labels",
+        help="Model suffix (default: _with_llm_labels - model from stage08_llm_labeling)",
+    )
+    parser.add_argument(
+        "--model-stage",
+        type=str,
+        default="stage08_llm_labeling",
+        help="Stage subfolder to load model from (default: 'stage08_llm_labeling' to use model from stage08)",
     )
     parser.add_argument(
         "--output-dir",
@@ -559,6 +568,7 @@ def main():
         base_dir=args.base_dir,
         embedding_model=args.embedding_model,
         model_suffix=args.model_suffix,
+        stage_subfolder=args.model_stage,
         logger=logger,
     )
     
