@@ -1,7 +1,25 @@
 """Compare multiple OpenRouter models for topic labeling.
 
-This script runs labeling with multiple free models and generates a comparison output
-for manual inspection.
+This script runs labeling with multiple literary/roleplay models and generates a comparison
+output for manual inspection.
+
+Why roleplay/story models excel at literary tasks:
+Models fine-tuned for roleplay and story-writing are often excellent at literary analysis
+because they've been trained extensively on fiction, dialogue, and narrative coherence,
+not just "helpful assistant" style. They understand plot/scene patterns, genre tropes,
+character roles, and fine-grained scene distinctions.
+
+The key is selecting models that still obey instructions and JSON formatting.
+
+Default models compared:
+- mistralai/Mistral-Nemo-Instruct-2407: Baseline instruct model
+- thedrummer/rocinante-12b: Literary/RP model designed for engaging storytelling and rich prose
+- thedrummer/cydonia-24b-v4.1: 24B model
+- thedrummer/anubis-70b-v1.1: 70B model
+- thedrummer/skyfall-36b-v2: 36B model
+- thedrummer/unslopnemo-12b: 12B model
+
+See MODEL_AND_PROMPT_REASONING.md for detailed model information.
 """
 
 from __future__ import annotations
@@ -31,14 +49,39 @@ from src.stage08_llm_labeling.openrouter_experiments.core.generate_labels_openro
     load_openrouter_client,
 )
 
-# Models to compare: mistral-nemo (primary) and Grok (secondary reviewer)
-# Default comparison set: Nemo always first, Grok as optional secondary model for comparison.
-# Nemo is the default model for all single-run label generation.
-# Grok is included here only for cross-checking and comparison purposes.
-# Note: Using paid mistral-nemo as free version may not be available
+# Models to compare for literary / genre-aware labelling.
+# All of these are accessed via OpenRouter, using a single API key.
+#
+# Why roleplay/story models excel at literary tasks:
+# Models fine-tuned for roleplay and story-writing are often excellent at literary analysis
+# because they've been trained extensively on fiction, dialogue, and narrative coherence,
+# not just "helpful assistant" style. They understand:
+# - Plot/scene patterns and narrative structure
+# - Genre tropes and thematic coherence
+# - Character roles and relationship dynamics
+# - Scene-level distinctions (e.g., "Rough Angry Kisses" vs "Gentle Comforting Kisses")
+#
+# The key is selecting models that still obey instructions and JSON formatting,
+# not just "sexy gremlin RP" models that ignore constraints.
 ALL_MODELS_TO_COMPARE = [
-    "mistralai/mistral-nemo",  # Primary model (default for all label generation)
-    "x-ai/grok-4.1-fast",       # Secondary reviewer (for comparison only)
+    # Mistral Nemo: Baseline instruct model
+    # Model: mistralai/Mistral-Nemo-Instruct-2407 (OpenRouter ID)
+    "mistralai/Mistral-Nemo-Instruct-2407",
+    # Rocinante: Literary/RP model designed for engaging storytelling and rich prose
+    # Model: thedrummer/rocinante-12b (OpenRouter ID)
+    "thedrummer/rocinante-12b",
+    # Cydonia: 24B model
+    # Model: thedrummer/cydonia-24b-v4.1 (OpenRouter ID)
+    "thedrummer/cydonia-24b-v4.1",
+    # Anubis: 70B model
+    # Model: thedrummer/anubis-70b-v1.1 (OpenRouter ID)
+    "thedrummer/anubis-70b-v1.1",
+    # Skyfall: 36B model
+    # Model: thedrummer/skyfall-36b-v2 (OpenRouter ID)
+    "thedrummer/skyfall-36b-v2",
+    # Unslopnemo: 12B model
+    # Model: thedrummer/unslopnemo-12b (OpenRouter ID)
+    "thedrummer/unslopnemo-12b",
 ]
 
 DEFAULT_OUTPUT_DIR = Path("results/stage08_llm_labeling")
@@ -91,6 +134,13 @@ def parse_args() -> argparse.Namespace:
     )
     
     parser.add_argument(
+        "--model-stage",
+        type=str,
+        default="stage07_topic_quality",
+        help="Stage subfolder to load model from (default: 'stage07_topic_quality' to use model from stage07)",
+    )
+    
+    parser.add_argument(
         "--num-keywords",
         type=int,
         default=DEFAULT_NUM_KEYWORDS,
@@ -114,7 +164,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--api-key",
         type=str,
-        default=DEFAULT_OPENROUTER_API_KEY,
+        default="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",
         help="OpenRouter API key",
     )
     
@@ -138,6 +188,12 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=DEFAULT_BATCH_SIZE,
         help="Number of topics per progress log",
+    )
+    
+    parser.add_argument(
+        "--use-improved-prompts",
+        action="store_true",
+        help="Use JSON romance-aware prompts and structured JSON parsing for labels",
     )
     
     parser.add_argument(
@@ -217,11 +273,30 @@ def generate_comparison_json(
     output_path: Path,
 ) -> None:
     """Generate JSON comparison file with structured format."""
+    # Model descriptions for metadata
+    model_descriptions = {
+        "mistralai/Mistral-Nemo-Instruct-2407": "Baseline Nemo Instruct model",
+        "thedrummer/rocinante-12b": "Rocinante: Literary/RP model designed for engaging storytelling and rich prose",
+        "thedrummer/cydonia-24b-v4.1": "Cydonia: 24B model",
+        "thedrummer/anubis-70b-v1.1": "Anubis: 70B model",
+        "thedrummer/skyfall-36b-v2": "Skyfall: 36B model",
+        "thedrummer/unslopnemo-12b": "Unslopnemo: 12B model",
+    }
+    
     comparison_data = {
         "metadata": {
             "generated_at": datetime.now().isoformat(),
             "models": list(all_results.keys()),
+            "model_descriptions": {
+                model: model_descriptions.get(model, "Custom model")
+                for model in all_results.keys()
+            },
             "total_topics": len(set().union(*[r.keys() for r in all_results.values()])),
+            "note": (
+                "Roleplay/story models excel at literary tasks because they're trained on "
+                "fiction, dialogue, and narrative coherence. They understand scene patterns, "
+                "genre tropes, and fine-grained distinctions better than general-purpose models."
+            ),
         },
         "topics": {},
     }
@@ -236,7 +311,7 @@ def generate_comparison_json(
         topic_data = {
             "topic_id": topic_id,
             "keywords": [],
-            "labels": {},
+            "models": {},  # Changed from "labels" to "models" to store full model results
         }
         
         # Get keywords from first model
@@ -245,10 +320,19 @@ def generate_comparison_json(
                 topic_data["keywords"] = model_results[topic_id].get("keywords", [])
                 break
         
-        # Get labels from all models
+        # Get full model results (label, scene_summary, categories, is_noise, rationale, etc.)
         for model_name, model_results in all_results.items():
             if topic_id in model_results:
-                topic_data["labels"][model_name] = model_results[topic_id].get("label", "")
+                model_data = model_results[topic_id]
+                # Store all fields from model result (label, scene_summary, categories, etc.)
+                topic_data["models"][model_name] = {
+                    "label": model_data.get("label", ""),
+                    "scene_summary": model_data.get("scene_summary", ""),
+                    "primary_categories": model_data.get("primary_categories", []),
+                    "secondary_categories": model_data.get("secondary_categories", []),
+                    "is_noise": model_data.get("is_noise", False),
+                    "rationale": model_data.get("rationale", ""),
+                }
         
         comparison_data["topics"][str(topic_id)] = topic_data
     
@@ -296,8 +380,27 @@ def main() -> None:
     print("Multi-Model Comparison: OpenRouter Models")
     print("=" * 80)
     print(f"Models to compare: {len(args.models)}")
+    print()
+    
+    # Model descriptions for user reference
+    model_descriptions = {
+        "mistralai/Mistral-Nemo-Instruct-2407": "Baseline Nemo Instruct model",
+        "thedrummer/rocinante-12b": "Rocinante: Literary/RP model designed for engaging storytelling and rich prose",
+        "thedrummer/cydonia-24b-v4.1": "Cydonia: 24B model",
+        "thedrummer/anubis-70b-v1.1": "Anubis: 70B model",
+        "thedrummer/skyfall-36b-v2": "Skyfall: 36B model",
+        "thedrummer/unslopnemo-12b": "Unslopnemo: 12B model",
+    }
+    
     for i, model in enumerate(args.models, 1):
+        description = model_descriptions.get(model, "Custom model")
         print(f"  {i}. {model}")
+        print(f"     → {description}")
+    print()
+    print("Note: Roleplay/story models excel at literary tasks because they're trained on")
+    print("      fiction, dialogue, and narrative coherence. They understand scene patterns,")
+    print("      genre tropes, and fine-grained distinctions better than general-purpose models.")
+    print()
     print(f"Topics per model: {args.limit_topics}")
     print(f"Output directory: {args.output_dir}")
     print()
@@ -310,6 +413,7 @@ def main() -> None:
         pareto_rank=args.pareto_rank,
         use_native=args.use_native,
         model_suffix=args.model_suffix,
+        stage_subfolder=args.model_stage,
     )
     print(f"✓ Loaded BERTopic model")
     print()
@@ -339,15 +443,6 @@ def main() -> None:
     print(f"✓ Extracted snippets for {len([tid for tid, docs in topic_to_snippets.items() if docs])} topics")
     print()
     
-    # Step 4: Initialize OpenRouter client (reused for all models)
-    print("Step 4: Initializing OpenRouter client...")
-    client, _ = load_openrouter_client(
-        api_key=args.api_key,
-        model_name=args.models[0],  # Just for initialization
-    )
-    print("✓ OpenRouter client initialized")
-    print()
-    
     # Step 5: Generate labels for each model
     all_results: dict[str, dict[int, dict[str, Any]]] = {}
     model_name_safe = args.embedding_model.replace("/", "_").replace("\\", "_")
@@ -357,12 +452,21 @@ def main() -> None:
         print(f"Processing Model {model_idx}/{len(args.models)}: {model_name}")
         print("=" * 80)
         
+        # Initialize OpenRouter client for THIS specific model (fresh client per model)
+        print(f"Initializing OpenRouter client for {model_name}...")
+        client, _ = load_openrouter_client(
+            api_key=args.api_key,
+            model_name=model_name,
+        )
+        print(f"✓ OpenRouter client initialized for {model_name}")
+        print()
+        
         # Create model-specific output path
         model_name_file = model_name.replace("/", "_").replace(":", "_")
         labels_filename = f"labels_pos_openrouter_{model_name_file}_{model_name_safe}"
         labels_path = args.output_dir / labels_filename
         
-        # Recreate iterator for this model
+        # Recreate iterator for this model (fresh iterator per model)
         if args.topics_json and args.topics_json.exists():
             pos_topics_iter = extract_pos_topics_from_json(
                 json_path=args.topics_json,
@@ -371,7 +475,7 @@ def main() -> None:
         else:
             pos_topics_iter = iter(pos_topics_dict.items())
         
-        # Generate labels (using romance-aware prompts with snippets by default)
+        # Generate labels (using romance-aware prompts with snippets if --use-improved-prompts is set)
         print(f"Generating labels (limit: {args.limit_topics} topics)...")
         topic_labels = generate_labels_streaming(
             pos_topics_iter=pos_topics_iter,
@@ -382,7 +486,7 @@ def main() -> None:
             batch_size=args.batch_size,
             temperature=args.temperature,
             limit=args.limit_topics,
-            use_improved_prompts=False,  # Use romance-aware prompts (default)
+            use_improved_prompts=args.use_improved_prompts,
             topic_model=topic_model,
             topic_to_snippets=topic_to_snippets,
         )
