@@ -287,11 +287,20 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.assign_topics_to_
 
 **Usage**:
 ```bash
+# Basic usage (excludes noise topics by default)
 python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchical_topics \
     --input data/processed/sentence_df_with_topics.parquet \
     --output-dir results/stage09_category_mapping/stage1_natural_clusters \
-    --model-suffix _with_noise_labels \
+    --model-suffix _with_llm_labels_disambiguated \
+    --model-stage stage09_category_mapping \
     --save-tree  # optional: save text tree to file
+
+# Include noise topics (if needed for comparison)
+python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchical_topics \
+    --input data/processed/sentence_df_with_topics.parquet \
+    --model-suffix _with_llm_labels_disambiguated \
+    --model-stage stage09_category_mapping \
+    --include-noise
 ```
 
 **Tasks**:
@@ -304,51 +313,68 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchi
 
 2. Load the BERTopic model (trained on all 105 books):
    ```python
-   topic_model = load_native_bertopic_model(
-       base_dir="models/retrained",
-       embedding_model="paraphrase-MiniLM-L6-v2",
-       pareto_rank=1,
-       model_suffix="_with_categories"
-   )
+   topic_model = BERTopic.load("models/retrained/.../model_1_with_llm_labels_disambiguated")
    ```
 
-3. Build hierarchical structure on matched docs:
+3. Identify and exclude noise topics (default behavior):
+   - Automatically detects topics labeled with `[NOISE_CANDIDATE:` or `[NOISE:` prefixes
+   - Filters out noise topics from hierarchy construction
+   - Logs which topics were excluded and how many sentences were affected
+
+4. Build hierarchical structure on matched docs (excluding noise):
    ```python
-   hierarchical_topics = topic_model.hierarchical_topics(docs)
-   # Uses only matched sentences for hierarchy construction
+   hierarchical_topics = topic_model.hierarchical_topics(valid_docs)
+   # Uses only matched sentences, excluding noise topics
    ```
 
-4. Visualize dendrogram:
+5. Visualize dendrograms (two versions):
+   - **Version a) Labels + ID**: Uses LLM labels with topic IDs (e.g., "Bedroom Intimacy (T75)")
+   - **Version b) Topic words + ID**: Uses top 3 topic words with topic IDs (e.g., "bedroom_intimacy_kiss (T75)")
    ```python
-   fig = topic_model.visualize_hierarchy(
+   # Labels version
+   fig_labels = topic_model.visualize_hierarchy(
        hierarchical_topics=hierarchical_topics,
-       custom_labels=True  # uses LLM labels if set
+       custom_labels=True
    )
-   fig.write_html("hierarchy_dendrogram.html")
+   
+   # Words version
+   fig_words = topic_model.visualize_hierarchy(
+       hierarchical_topics=hierarchical_topics,
+       custom_labels=True  # uses topic words labels
+   )
    ```
 
-5. Print text tree for inspection:
+6. Print text tree for inspection:
    ```python
    tree = topic_model.get_topic_tree(hierarchical_topics)
    print(tree)
    ```
 
-6. Analyze hierarchy to suggest target number of meta-topics:
+7. Analyze hierarchy to suggest target number of meta-topics:
    - Calculates distance percentiles
    - Provides recommendations (40-80 topics)
    - Suggests looking for natural breakpoints in dendrogram
 
 **Key Features**:
-- Uses helper function `load_native_bertopic_model()` for consistent loading
+- **Noise exclusion**: Automatically identifies and excludes noise topics (labeled with `[NOISE_CANDIDATE:` or `[NOISE:` prefixes)
+- **Two dendrogram versions**: Creates both label-based and word-based visualizations for comparison
+- **Topic ID disambiguation**: All labels include topic IDs to prevent confusion from duplicate labels
+- Uses helper function for consistent model loading from stage subfolders
 - Builds hierarchy using only matched sentences (ensures consistency with analysis)
-- Generates interactive HTML dendrogram visualization
+- Generates interactive HTML dendrogram visualizations
 - Prints text tree representation for inspection
 - Analyzes hierarchy structure to guide meta-topic selection
 - Optional text tree file output (with `--save-tree` flag)
 - Comprehensive logging and verification
 
+**Command-Line Options**:
+- `--include-noise`: Include noise topics in hierarchy (default: exclude them)
+- `--save-tree`: Save text tree to file in addition to logging
+- `--model-stage`: Stage subfolder to load model from (default: `stage08_llm_labeling`)
+
 **Output**: 
-- HTML dendrogram: `results/.../visualizations/hierarchy_dendrogram_{timestamp}.html`
+- HTML dendrogram (labels): `results/.../visualizations/hierarchy_dendrogram_labels_{timestamp}.html`
+- HTML dendrogram (words): `results/.../visualizations/hierarchy_dendrogram_words_{timestamp}.html`
 - Text tree (optional): `results/.../hierarchy_tree_{timestamp}.txt`
 - Log file with analysis and recommendations
 

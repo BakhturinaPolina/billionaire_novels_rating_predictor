@@ -124,13 +124,17 @@ def load_model(
     
     logger.info(f"Loading BERTopic model (suffix: {model_suffix}, stage: {stage_subfolder or 'base'})...")
     
-    topic_model = load_native_bertopic_model(
-        base_dir=base_dir,
-        embedding_model=embedding_model,
-        pareto_rank=1,
-        model_suffix=model_suffix,
-        stage_subfolder=stage_subfolder,
-    )
+    # Construct model path with optional stage subfolder
+    if stage_subfolder:
+        model_dir = base_dir / embedding_model / stage_subfolder / f"model_1{model_suffix}"
+    else:
+        model_dir = base_dir / embedding_model / f"model_1{model_suffix}"
+    
+    if not model_dir.exists():
+        raise FileNotFoundError(f"Model directory not found: {model_dir}")
+    
+    logger.info(f"Loading model from: {model_dir}")
+    topic_model = BERTopic.load(str(model_dir))
     
     # Log model info
     if hasattr(topic_model, "topic_representations_"):
@@ -146,10 +150,74 @@ def load_model(
     return topic_model
 
 
+def identify_noise_topics(
+    topic_model: BERTopic,
+    logger: Optional[logging.Logger] = None,
+) -> set[int]:
+    """Identify noise topics from model labels.
+    
+    Noise topics are identified by:
+    1. Labels starting with [NOISE_CANDIDATE: or [NOISE:
+    2. LLM labels with is_noise=True (if available in structured format)
+    
+    Args:
+        topic_model: Loaded BERTopic model
+        logger: Logger instance
+        
+    Returns:
+        Set of topic IDs that are noise topics
+    """
+    if logger is None:
+        logger = logging.getLogger(__name__)
+    
+    noise_topics = set()
+    
+    try:
+        # Get topic info to check labels
+        info = topic_model.get_topic_info()
+        
+        # Check for custom labels column
+        label_cols = [c for c in info.columns if c.lower().startswith("custom")]
+        if label_cols:
+            label_col = label_cols[0]
+            for _, row in info.iterrows():
+                topic_id = int(row["Topic"])
+                if topic_id == -1:  # Skip outlier
+                    continue
+                
+                label = row[label_col]
+                if pd.notna(label):
+                    label_str = str(label)
+                    # Check for noise prefixes
+                    if label_str.startswith("[NOISE_CANDIDATE:") or label_str.startswith("[NOISE:"):
+                        noise_topics.add(topic_id)
+        
+        # Also check custom_labels_ attribute if available
+        if hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
+            if isinstance(topic_model.custom_labels_, dict):
+                for topic_id, label in topic_model.custom_labels_.items():
+                    if topic_id == -1:
+                        continue
+                    if isinstance(label, str):
+                        if label.startswith("[NOISE_CANDIDATE:") or label.startswith("[NOISE:"):
+                            noise_topics.add(topic_id)
+    
+    except Exception as e:
+        logger.warning(f"Could not identify noise topics: {e}")
+    
+    if noise_topics:
+        logger.info(f"  Identified {len(noise_topics)} noise topics to exclude: {sorted(noise_topics)}")
+    else:
+        logger.info("  No noise topics identified in labels")
+    
+    return noise_topics
+
+
 def build_hierarchical_topics(
     topic_model: BERTopic,
     docs: list[str],
     topics: list[int],
+    exclude_noise: bool = True,
     logger: Optional[logging.Logger] = None,
 ) -> pd.DataFrame:
     """Build hierarchical structure on matched docs.
@@ -158,6 +226,7 @@ def build_hierarchical_topics(
         topic_model: Loaded BERTopic model
         docs: List of sentence strings (matched only)
         topics: List of topic assignments for the matched docs
+        exclude_noise: If True, exclude topics labeled as noise
         logger: Logger instance
         
     Returns:
@@ -177,13 +246,22 @@ def build_hierarchical_topics(
     
     logger.info("  This may take several minutes...")
     
-    # Filter out outlier topics (-1) and ensure all topic IDs are valid
+    # Identify noise topics if exclusion is requested
+    noise_topics = set()
+    if exclude_noise:
+        noise_topics = identify_noise_topics(topic_model, logger=logger)
+    
+    # Filter out outlier topics (-1) and noise topics
     # hierarchical_topics() requires valid topic IDs that exist in the model
-    valid_mask = [t != -1 for t in topics]
+    valid_mask = [(t != -1) and (t not in noise_topics) for t in topics]
     valid_docs = [doc for doc, valid in zip(docs, valid_mask) if valid]
     valid_topics = [t for t, valid in zip(topics, valid_mask) if valid]
     
-    logger.info(f"  Filtered to {len(valid_docs):,} non-outlier sentences")
+    excluded_count = sum(1 for t in topics if t in noise_topics)
+    if exclude_noise and excluded_count > 0:
+        logger.info(f"  Excluded {excluded_count:,} sentences from {len(noise_topics)} noise topics")
+    
+    logger.info(f"  Filtered to {len(valid_docs):,} non-outlier, non-noise sentences")
     logger.info(f"  Unique topics in filtered data: {len(set(valid_topics))}")
     
     if len(valid_docs) == 0:
@@ -193,7 +271,7 @@ def build_hierarchical_topics(
     # This helps diagnose potential mismatches
     unique_topics_in_data = set(valid_topics)
     if hasattr(topic_model, "topic_representations_"):
-        model_topic_ids = set(topic_model.topic_representations_.keys()) - {-1}
+        model_topic_ids = set(topic_model.topic_representations_.keys()) - {-1} - noise_topics
         missing_in_data = model_topic_ids - unique_topics_in_data
         if missing_in_data:
             logger.info(f"  Topics in model but not in data: {len(missing_in_data)} topics")
@@ -222,7 +300,7 @@ def build_hierarchical_topics(
             
             # Check if we need to filter
             if hasattr(topic_model, "topic_representations_"):
-                model_topic_ids = sorted([tid for tid in topic_model.topic_representations_.keys() if tid != -1])
+                model_topic_ids = sorted([tid for tid in topic_model.topic_representations_.keys() if tid != -1 and tid not in noise_topics])
                 if set(topics_in_data_sorted) != set(model_topic_ids):
                     logger.info(f"  Filtering c_tf_idf_ from {len(model_topic_ids)} to {len(topics_in_data_sorted)} topics")
                     
@@ -328,10 +406,50 @@ def build_hierarchical_topics(
             topic_model.topic_representations_ = original_topic_representations
 
 
+def get_topic_words_labels(
+    topic_model: BERTopic,
+    num_words: int = 3,
+    logger: Optional[logging.Logger] = None,
+) -> dict[int, str]:
+    """Get topic words labels formatted as "word1_word2_word3 (T{id})".
+    
+    Args:
+        topic_model: Loaded BERTopic model
+        num_words: Number of top words to include
+        logger: Logger instance
+        
+    Returns:
+        Dictionary mapping topic_id to formatted label
+    """
+    if logger is None:
+        logger = logging.getLogger(__name__)
+    
+    labels = {}
+    
+    if not hasattr(topic_model, "topic_representations_"):
+        logger.warning("Model does not have topic_representations_ attribute")
+        return labels
+    
+    for topic_id, words_list in topic_model.topic_representations_.items():
+        if topic_id == -1:  # Skip outlier topic
+            continue
+        
+        # Extract top words (words_list is list of (word, score) tuples)
+        if isinstance(words_list, list) and len(words_list) > 0:
+            top_words = [word for word, _ in words_list[:num_words]]
+            words_str = "_".join(top_words)
+            labels[topic_id] = f"{words_str} (T{topic_id})"
+        else:
+            labels[topic_id] = f"Topic_{topic_id} (T{topic_id})"
+    
+    return labels
+
+
 def visualize_dendrogram(
     topic_model: BERTopic,
     hierarchical_topics: pd.DataFrame,
     output_path: Path,
+    use_labels: bool = True,
     logger: Optional[logging.Logger] = None,
 ) -> None:
     """Visualize hierarchical dendrogram.
@@ -340,18 +458,62 @@ def visualize_dendrogram(
         topic_model: Loaded BERTopic model
         hierarchical_topics: Hierarchical topics structure
         output_path: Path to save HTML visualization
+        use_labels: If True, use custom labels; if False, use topic words
         logger: Logger instance
     """
     if logger is None:
         logger = logging.getLogger(__name__)
     
-    logger.info("Creating hierarchical dendrogram visualization...")
+    label_type = "labels" if use_labels else "topic words"
+    logger.info(f"Creating hierarchical dendrogram visualization with {label_type}...")
+    
+    # Save original custom labels by getting them from get_topic_info()
+    original_labels = None
+    try:
+        info = topic_model.get_topic_info()
+        label_cols = [c for c in info.columns if c.lower().startswith("custom")]
+        if label_cols:
+            label_col = label_cols[0]
+            original_labels = dict(zip(info["Topic"], info[label_col]))
+        elif hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
+            # Fallback to custom_labels_ if it's a dict
+            if isinstance(topic_model.custom_labels_, dict):
+                original_labels = topic_model.custom_labels_.copy()
+    except Exception as e:
+        logger.debug(f"Could not get original labels: {e}")
     
     try:
-        fig = topic_model.visualize_hierarchy(
-            hierarchical_topics=hierarchical_topics,
-            custom_labels=True,  # uses LLM labels if set
-        )
+        if use_labels:
+            # Use custom labels with IDs (they should already have IDs from disambiguation)
+            # But ensure all topics have labels with IDs
+            if original_labels:
+                # Check if labels already have IDs, if not add them
+                labels_with_ids = {}
+                for topic_id, label in original_labels.items():
+                    if topic_id == -1 or pd.isna(label):
+                        continue
+                    label_str = str(label)
+                    if f"(T{topic_id})" not in label_str:
+                        labels_with_ids[topic_id] = f"{label_str} (T{topic_id})"
+                    else:
+                        labels_with_ids[topic_id] = label_str
+                
+                # Temporarily set labels with IDs
+                topic_model.set_topic_labels(labels_with_ids)
+            
+            fig = topic_model.visualize_hierarchy(
+                hierarchical_topics=hierarchical_topics,
+                custom_labels=True,
+            )
+        else:
+            # Use topic words with IDs
+            words_labels = get_topic_words_labels(topic_model, num_words=3, logger=logger)
+            topic_model.set_topic_labels(words_labels)
+            
+            fig = topic_model.visualize_hierarchy(
+                hierarchical_topics=hierarchical_topics,
+                custom_labels=True,
+            )
         
         output_path.parent.mkdir(parents=True, exist_ok=True)
         fig.write_html(str(output_path))
@@ -361,6 +523,10 @@ def visualize_dendrogram(
     except Exception as e:
         logger.error(f"Failed to create dendrogram visualization: {e}")
         raise
+    finally:
+        # Restore original labels
+        if original_labels is not None:
+            topic_model.set_topic_labels(original_labels)
 
 
 def print_topic_tree(
@@ -519,6 +685,11 @@ def main():
         action="store_true",
         help="Save text tree to file (in addition to logging)",
     )
+    parser.add_argument(
+        "--include-noise",
+        action="store_true",
+        help="Include noise topics in hierarchy (default: exclude noise topics)",
+    )
     
     args = parser.parse_args()
     
@@ -577,16 +748,30 @@ def main():
     logger.info("Step 4: Building Hierarchical Topics Structure")
     logger.info("=" * 80)
     
-    hierarchical_topics = build_hierarchical_topics(topic_model, docs, topics, logger=logger)
+    hierarchical_topics = build_hierarchical_topics(
+        topic_model, docs, topics, exclude_noise=not args.include_noise, logger=logger
+    )
     
-    # Step 5: Visualize dendrogram
+    # Step 5: Visualize dendrograms (two versions)
     logger.info("\n" + "=" * 80)
-    logger.info("Step 5: Creating Dendrogram Visualization")
+    logger.info("Step 5: Creating Dendrogram Visualizations")
     logger.info("=" * 80)
     
     viz_dir = args.output_dir / "visualizations"
-    dendrogram_path = viz_dir / f"hierarchy_dendrogram_{timestamp}.html"
-    visualize_dendrogram(topic_model, hierarchical_topics, dendrogram_path, logger=logger)
+    
+    # Version a) Labels + ID
+    dendrogram_labels_path = viz_dir / f"hierarchy_dendrogram_labels_{timestamp}.html"
+    visualize_dendrogram(
+        topic_model, hierarchical_topics, dendrogram_labels_path, 
+        use_labels=True, logger=logger
+    )
+    
+    # Version b) Topic words + ID
+    dendrogram_words_path = viz_dir / f"hierarchy_dendrogram_words_{timestamp}.html"
+    visualize_dendrogram(
+        topic_model, hierarchical_topics, dendrogram_words_path,
+        use_labels=False, logger=logger
+    )
     
     # Step 6: Print text tree
     logger.info("\n" + "=" * 80)
@@ -619,7 +804,8 @@ def main():
     logger.info(f"Books: {df['book_id'].nunique()}")
     logger.info(f"Unique topics: {df['topic'].nunique()}")
     logger.info(f"Hierarchical links: {len(hierarchical_topics)}")
-    logger.info(f"Dendrogram: {dendrogram_path}")
+    logger.info(f"Dendrogram (labels): {dendrogram_labels_path}")
+    logger.info(f"Dendrogram (words): {dendrogram_words_path}")
     if args.save_tree:
         logger.info(f"Text tree: {tree_path}")
     logger.info(f"Log file: {log_dir / log_file}")
