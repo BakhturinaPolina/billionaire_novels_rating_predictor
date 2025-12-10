@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import pickle
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -134,7 +135,32 @@ def load_model(
         raise FileNotFoundError(f"Model directory not found: {model_dir}")
     
     logger.info(f"Loading model from: {model_dir}")
-    topic_model = BERTopic.load(str(model_dir))
+    
+    # Try loading from directory first, then fall back to .pkl file if needed
+    try:
+        topic_model = BERTopic.load(str(model_dir))
+    except (KeyError, pickle.UnpicklingError, Exception) as e:
+        logger.warning(f"Failed to load from directory ({e}), trying .pkl file...")
+        # Try .pkl file in the same directory
+        pkl_path = model_dir.parent / f"model_1{model_suffix}.pkl"
+        if pkl_path.exists():
+            logger.info(f"Loading from .pkl file: {pkl_path}")
+            loaded_obj = pickle.load(open(pkl_path, "rb"))
+            
+            # Check if it's a RetrainableBERTopicModel wrapper
+            if hasattr(loaded_obj, "trained_topic_model") and loaded_obj.trained_topic_model is not None:
+                logger.info("  Extracted BERTopic model from RetrainableBERTopicModel wrapper")
+                topic_model = loaded_obj.trained_topic_model
+            elif isinstance(loaded_obj, BERTopic):
+                topic_model = loaded_obj
+            else:
+                # Try BERTopic.load() as fallback
+                topic_model = BERTopic.load(str(pkl_path))
+        else:
+            raise FileNotFoundError(
+                f"Could not load model from directory or .pkl file. "
+                f"Tried: {model_dir} and {pkl_path}"
+            ) from e
     
     # Log model info
     if hasattr(topic_model, "topic_representations_"):
@@ -154,11 +180,12 @@ def identify_noise_topics(
     topic_model: BERTopic,
     logger: Optional[logging.Logger] = None,
 ) -> set[int]:
-    """Identify noise topics from model labels.
+    """Identify noise topics from model labels and word patterns.
     
     Noise topics are identified by:
     1. Labels starting with [NOISE_CANDIDATE: or [NOISE:
     2. LLM labels with is_noise=True (if available in structured format)
+    3. Word patterns indicating noise (contractions, common stopwords, etc.)
     
     Args:
         topic_model: Loaded BERTopic model
@@ -172,25 +199,41 @@ def identify_noise_topics(
     
     noise_topics = set()
     
+    # Common contractions and noise indicators
+    noise_indicators = {
+        # Contractions
+        "didn", "wasn", "couldn", "doesn", "hadn", "wouldn", "isn", "aren", "won",
+        "didna", "wasna", "couldna", "doesna", "hadna", "wouldna", "isna", "aren",
+        # Common stopwords that dominate noise topics
+        "therea", "youa", "hea", "shea", "wea", "theya", "ia", "ita",
+        # Generic words
+        "matter", "sense", "true", "thing", "things", "stuff",
+    }
+    
     try:
-        # Get topic info to check labels
-        info = topic_model.get_topic_info()
-        
-        # Check for custom labels column
-        label_cols = [c for c in info.columns if c.lower().startswith("custom")]
-        if label_cols:
-            label_col = label_cols[0]
-            for _, row in info.iterrows():
-                topic_id = int(row["Topic"])
-                if topic_id == -1:  # Skip outlier
-                    continue
-                
-                label = row[label_col]
-                if pd.notna(label):
-                    label_str = str(label)
-                    # Check for noise prefixes
-                    if label_str.startswith("[NOISE_CANDIDATE:") or label_str.startswith("[NOISE:"):
-                        noise_topics.add(topic_id)
+        # Method 1: Check labels for noise prefixes
+        # Try get_topic_info() first, but handle models that don't have it
+        try:
+            info = topic_model.get_topic_info()
+            
+            # Check for custom labels column
+            label_cols = [c for c in info.columns if c.lower().startswith("custom")]
+            if label_cols:
+                label_col = label_cols[0]
+                for _, row in info.iterrows():
+                    topic_id = int(row["Topic"])
+                    if topic_id == -1:  # Skip outlier
+                        continue
+                    
+                    label = row[label_col]
+                    if pd.notna(label):
+                        label_str = str(label)
+                        # Check for noise prefixes
+                        if label_str.startswith("[NOISE_CANDIDATE:") or label_str.startswith("[NOISE:"):
+                            noise_topics.add(topic_id)
+        except (AttributeError, TypeError):
+            # Model doesn't have get_topic_info(), skip this method
+            pass
         
         # Also check custom_labels_ attribute if available
         if hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
@@ -201,14 +244,75 @@ def identify_noise_topics(
                     if isinstance(label, str):
                         if label.startswith("[NOISE_CANDIDATE:") or label.startswith("[NOISE:"):
                             noise_topics.add(topic_id)
+        
+        # Method 2: Check topic word representations for noise patterns
+        if hasattr(topic_model, "topic_representations_"):
+            for topic_id, words_list in topic_model.topic_representations_.items():
+                if topic_id == -1:  # Skip outlier
+                    continue
+                
+                if topic_id in noise_topics:  # Already identified
+                    continue
+                
+                if not isinstance(words_list, list) or len(words_list) == 0:
+                    continue
+                
+                # Get top words (first 5-10 words are most important)
+                top_words = [word.lower().strip() for word, _ in words_list[:10]]
+                
+                # Filter out empty strings and very short words
+                top_words = [w for w in top_words if len(w) > 1]
+                
+                # Check for empty or minimal content
+                if len(top_words) == 0 or all(len(w) <= 2 for w in top_words[:3]):
+                    noise_topics.add(topic_id)
+                    logger.debug(
+                        f"  Topic {topic_id} identified as noise: empty or minimal content"
+                    )
+                    continue
+                
+                # Check for topics with mostly underscores or special characters
+                if any(all(c in "_" for c in w) for w in top_words[:3]):
+                    noise_topics.add(topic_id)
+                    logger.debug(
+                        f"  Topic {topic_id} identified as noise: contains mostly underscores"
+                    )
+                    continue
+                
+                # Count how many top words are noise indicators
+                noise_word_count = sum(1 for word in top_words if word in noise_indicators)
+                
+                # If majority of top words are noise indicators, mark as noise
+                if noise_word_count >= 3:  # At least 3 out of top 10 words are noise
+                    noise_topics.add(topic_id)
+                    logger.debug(
+                        f"  Topic {topic_id} identified as noise by word pattern: "
+                        f"{noise_word_count}/{len(top_words)} top words are noise indicators"
+                    )
+                # Also check if topic name/representation is dominated by contractions
+                elif len(top_words) >= 3:
+                    # Check if first 3 words are all contractions
+                    if all(word in noise_indicators for word in top_words[:3]):
+                        noise_topics.add(topic_id)
+                        logger.debug(
+                            f"  Topic {topic_id} identified as noise: first 3 words are all noise indicators"
+                        )
     
     except Exception as e:
         logger.warning(f"Could not identify noise topics: {e}")
     
     if noise_topics:
         logger.info(f"  Identified {len(noise_topics)} noise topics to exclude: {sorted(noise_topics)}")
+        # Log some examples
+        if hasattr(topic_model, "topic_representations_"):
+            examples = sorted(noise_topics)[:5]
+            logger.info("  Example noise topics:")
+            for tid in examples:
+                if tid in topic_model.topic_representations_:
+                    words = [w for w, _ in topic_model.topic_representations_[tid][:5]]
+                    logger.info(f"    Topic {tid}: {', '.join(words)}")
     else:
-        logger.info("  No noise topics identified in labels")
+        logger.info("  No noise topics identified")
     
     return noise_topics
 
@@ -450,6 +554,7 @@ def visualize_dendrogram(
     hierarchical_topics: pd.DataFrame,
     output_path: Path,
     use_labels: bool = True,
+    exclude_noise: bool = True,
     logger: Optional[logging.Logger] = None,
 ) -> None:
     """Visualize hierarchical dendrogram.
@@ -459,6 +564,7 @@ def visualize_dendrogram(
         hierarchical_topics: Hierarchical topics structure
         output_path: Path to save HTML visualization
         use_labels: If True, use custom labels; if False, use topic words
+        exclude_noise: If True, exclude noise topics from visualization
         logger: Logger instance
     """
     if logger is None:
@@ -466,6 +572,13 @@ def visualize_dendrogram(
     
     label_type = "labels" if use_labels else "topic words"
     logger.info(f"Creating hierarchical dendrogram visualization with {label_type}...")
+    
+    # Identify noise topics to exclude from visualization
+    noise_topics = set()
+    if exclude_noise:
+        noise_topics = identify_noise_topics(topic_model, logger=logger)
+        if noise_topics:
+            logger.info(f"  Excluding {len(noise_topics)} noise topics from visualization")
     
     # Save original custom labels by getting them from get_topic_info()
     original_labels = None
@@ -488,17 +601,24 @@ def visualize_dendrogram(
             # But ensure all topics have labels with IDs
             if original_labels:
                 # Check if labels already have IDs, if not add them
+                # Also filter out noise topics
                 labels_with_ids = {}
                 for topic_id, label in original_labels.items():
                     if topic_id == -1 or pd.isna(label):
                         continue
+                    # Skip noise topics
+                    if topic_id in noise_topics:
+                        continue
                     label_str = str(label)
+                    # Also skip if label starts with [NOISE: (double-check)
+                    if label_str.startswith("[NOISE_CANDIDATE:") or label_str.startswith("[NOISE:"):
+                        continue
                     if f"(T{topic_id})" not in label_str:
                         labels_with_ids[topic_id] = f"{label_str} (T{topic_id})"
                     else:
                         labels_with_ids[topic_id] = label_str
                 
-                # Temporarily set labels with IDs
+                # Temporarily set labels with IDs (excluding noise)
                 topic_model.set_topic_labels(labels_with_ids)
             
             fig = topic_model.visualize_hierarchy(
@@ -506,9 +626,14 @@ def visualize_dendrogram(
                 custom_labels=True,
             )
         else:
-            # Use topic words with IDs
+            # Use topic words with IDs, but exclude noise topics
             words_labels = get_topic_words_labels(topic_model, num_words=3, logger=logger)
-            topic_model.set_topic_labels(words_labels)
+            # Filter out noise topics
+            words_labels_filtered = {
+                tid: label for tid, label in words_labels.items()
+                if tid not in noise_topics
+            }
+            topic_model.set_topic_labels(words_labels_filtered)
             
             fig = topic_model.visualize_hierarchy(
                 hierarchical_topics=hierarchical_topics,
@@ -763,14 +888,14 @@ def main():
     dendrogram_labels_path = viz_dir / f"hierarchy_dendrogram_labels_{timestamp}.html"
     visualize_dendrogram(
         topic_model, hierarchical_topics, dendrogram_labels_path, 
-        use_labels=True, logger=logger
+        use_labels=True, exclude_noise=not args.include_noise, logger=logger
     )
     
     # Version b) Topic words + ID
     dendrogram_words_path = viz_dir / f"hierarchy_dendrogram_words_{timestamp}.html"
     visualize_dendrogram(
         topic_model, hierarchical_topics, dendrogram_words_path,
-        use_labels=False, logger=logger
+        use_labels=False, exclude_noise=not args.include_noise, logger=logger
     )
     
     # Step 6: Print text tree
