@@ -154,10 +154,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model-name",
         type=str,
-        # default=DEFAULT_OPENROUTER_MODEL,  # Commented: mistralai/mistral-nemo (primary model)
-        # For reasoning experiments, use: google/gemini-2.5-flash
-        default="google/gemini-2.5-flash",  # Changed for reasoning experiments
-        help=f"OpenRouter model name (default: google/gemini-2.5-flash for reasoning experiments, was {DEFAULT_OPENROUTER_MODEL})",
+        default=DEFAULT_OPENROUTER_MODEL,
+        help=(
+            "OpenRouter model name. "
+            "Default: mistralai/Mistral-Nemo-Instruct-2407 "
+            "(set via DEFAULT_OPENROUTER_MODEL in generate_labels_openrouter.py)."
+        ),
     )
     
     parser.add_argument(
@@ -528,8 +530,12 @@ def main() -> None:
                     stage_subfolder = Path(args.base_dir) / args.embedding_model / "stage08_llm_labeling"
                     stage_subfolder.mkdir(parents=True, exist_ok=True)
                     
+                    # Include model name in save path to avoid overwriting different LLM models
+                    model_name_safe = model_name.replace("/", "_").replace(":", "_")
+                    model_suffix = f"_with_llm_labels_{model_name_safe}"
+                    
                     # 1. Save as native BERTopic model (directory format)
-                    native_model_dir = stage_subfolder / f"model_{args.pareto_rank}_with_llm_labels"
+                    native_model_dir = stage_subfolder / f"model_{args.pareto_rank}{model_suffix}"
                     if native_model_dir.exists() and native_model_dir.is_dir():
                         shutil.rmtree(native_model_dir)
                     
@@ -539,7 +545,7 @@ def main() -> None:
                     
                     # 2. Save as wrapper pickle (file format) - only if wrapper was loaded
                     if wrapper is not None:
-                        wrapper_pickle_path = stage_subfolder / f"model_{args.pareto_rank}_with_llm_labels.pkl"
+                        wrapper_pickle_path = stage_subfolder / f"model_{args.pareto_rank}{model_suffix}.pkl"
                         backup_existing_file(wrapper_pickle_path)
                         
                         with stage_timer(f"Saving wrapper with LLM labels to {wrapper_pickle_path.name}"):
