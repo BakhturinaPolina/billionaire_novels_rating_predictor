@@ -164,8 +164,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--api-key",
         type=str,
-        default="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",
-        help="OpenRouter API key",
+        default=DEFAULT_OPENROUTER_API_KEY,
+        help="OpenRouter API key (default: from OPENROUTER_API_KEY environment variable)",
     )
     
     parser.add_argument(
