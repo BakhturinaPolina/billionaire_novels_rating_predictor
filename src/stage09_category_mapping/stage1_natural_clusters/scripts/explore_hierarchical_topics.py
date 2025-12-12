@@ -21,6 +21,7 @@ from __future__ import annotations
 import argparse
 import logging
 import pickle
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -317,24 +318,34 @@ def identify_noise_topics(
     return noise_topics
 
 
-def build_hierarchical_topics(
+@contextmanager
+def build_hierarchical_topics_context(
     topic_model: BERTopic,
     docs: list[str],
     topics: list[int],
     exclude_noise: bool = True,
     logger: Optional[logging.Logger] = None,
-) -> pd.DataFrame:
-    """Build hierarchical structure on matched docs.
+):
+    """Context manager that builds hierarchical structure and keeps model state active.
+    
+    This context manager:
+    1. Filters out noise topics and outliers
+    2. Subsets/remaps the model's c_tf_idf_ and topic_representations_ to match filtered data
+    3. Builds hierarchical_topics DataFrame
+    4. Yields the hierarchical_topics DataFrame while keeping model state modified
+    5. Restores original model state when exiting
     
     Args:
-        topic_model: Loaded BERTopic model
+        topic_model: Loaded BERTopic model (will be temporarily modified)
         docs: List of sentence strings (matched only)
         topics: List of topic assignments for the matched docs
         exclude_noise: If True, exclude topics labeled as noise
         logger: Logger instance
         
-    Returns:
-        Hierarchical topics DataFrame
+    Yields:
+        Tuple of (hierarchical_topics DataFrame, valid_topics list, old_to_new_topic dict or None)
+        The model state remains modified (subsetted) while in context.
+        old_to_new_topic maps original topic IDs to remapped IDs (None if no remapping occurred).
     """
     if logger is None:
         logger = logging.getLogger(__name__)
@@ -359,21 +370,21 @@ def build_hierarchical_topics(
     # hierarchical_topics() requires valid topic IDs that exist in the model
     valid_mask = [(t != -1) and (t not in noise_topics) for t in topics]
     valid_docs = [doc for doc, valid in zip(docs, valid_mask) if valid]
-    valid_topics = [t for t, valid in zip(topics, valid_mask) if valid]
+    valid_topics_original = [t for t, valid in zip(topics, valid_mask) if valid]
     
     excluded_count = sum(1 for t in topics if t in noise_topics)
     if exclude_noise and excluded_count > 0:
         logger.info(f"  Excluded {excluded_count:,} sentences from {len(noise_topics)} noise topics")
     
     logger.info(f"  Filtered to {len(valid_docs):,} non-outlier, non-noise sentences")
-    logger.info(f"  Unique topics in filtered data: {len(set(valid_topics))}")
+    logger.info(f"  Unique topics in filtered data: {len(set(valid_topics_original))}")
     
     if len(valid_docs) == 0:
         raise ValueError("No valid (non-outlier) topics found in the data")
     
     # Check which topics from the model are present in our data
     # This helps diagnose potential mismatches
-    unique_topics_in_data = set(valid_topics)
+    unique_topics_in_data = set(valid_topics_original)
     if hasattr(topic_model, "topic_representations_"):
         model_topic_ids = set(topic_model.topic_representations_.keys()) - {-1} - noise_topics
         missing_in_data = model_topic_ids - unique_topics_in_data
@@ -385,19 +396,26 @@ def build_hierarchical_topics(
             )
             logger.info("  Attempting workaround: filtering c_tf_idf_ to match documents...")
     
-    # Temporarily set the model's topics_ to match our matched documents
-    # This is necessary because hierarchical_topics() uses self.topics_ internally
+    # Save original state for restoration
     original_topics = topic_model.topics_ if hasattr(topic_model, "topics_") else None
     original_c_tf_idf = None
     original_topic_representations = None
+    original_custom_labels = None
+    old_to_new_topic = None  # Will be set if remapping occurs - maps old_id -> new_id
+    
+    # Save original custom_labels_ if it exists
+    if hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
+        if isinstance(topic_model.custom_labels_, dict):
+            original_custom_labels = topic_model.custom_labels_.copy()
     
     try:
         # Set topics to match our matched documents (only non-outlier topics)
-        topic_model.topics_ = valid_topics
+        topic_model.topics_ = valid_topics_original
         
         # Workaround for BERTopic bug: hierarchical_topics() fails when some topics
         # in c_tf_idf_ don't appear in documents. We need to filter c_tf_idf_ to only
         # include topics present in our documents.
+        valid_topics = valid_topics_original  # Will be remapped if needed
         if hasattr(topic_model, "c_tf_idf_") and topic_model.c_tf_idf_ is not None:
             # Get sorted list of topics present in data (excluding -1)
             topics_in_data_sorted = sorted(unique_topics_in_data)
@@ -441,7 +459,7 @@ def build_hierarchical_topics(
                         old_to_new_topic[old_topic_id] = new_topic_id
                     
                     # Remap valid_topics to use new topic IDs (row indices)
-                    valid_topics = [old_to_new_topic.get(tid, tid) for tid in valid_topics]
+                    valid_topics = [old_to_new_topic.get(tid, tid) for tid in valid_topics_original]
                     
                     # Filter and remap topic_representations_ to match new row indices
                     if hasattr(topic_model, "topic_representations_"):
@@ -455,6 +473,18 @@ def build_hierarchical_topics(
                                 new_topic_id = old_to_new_topic[old_topic_id]
                                 filtered_representations[new_topic_id] = topic_model.topic_representations_[old_topic_id]
                         topic_model.topic_representations_ = filtered_representations
+                    
+                    # Also remap custom_labels_ if it exists
+                    if hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
+                        if isinstance(topic_model.custom_labels_, dict):
+                            remapped_labels = {}
+                            if -1 in topic_model.custom_labels_:
+                                remapped_labels[-1] = topic_model.custom_labels_[-1]
+                            for old_topic_id in topics_in_data_sorted:
+                                if old_topic_id in topic_model.custom_labels_:
+                                    new_topic_id = old_to_new_topic[old_topic_id]
+                                    remapped_labels[new_topic_id] = topic_model.custom_labels_[old_topic_id]
+                            topic_model.custom_labels_ = remapped_labels
                     
                     # Update _outliers attribute if it exists (should be 1, meaning skip row 0)
                     # Note: _outliers is a read-only property, so we can't set it directly
@@ -475,6 +505,9 @@ def build_hierarchical_topics(
                     topic_model.topics_ = valid_topics
         
         # Build hierarchical structure (returns DataFrame)
+        # Note: hierarchical_topics() is called AFTER remapping, so the DataFrame should
+        # already have remapped topic IDs. Parent IDs (>= num_topics) are synthetic and
+        # don't need remapping.
         hierarchical_topics = topic_model.hierarchical_topics(valid_docs)
         
         logger.info(f"✓ Hierarchical structure built")
@@ -491,8 +524,67 @@ def build_hierarchical_topics(
             else:
                 logger.warning("No 'Distance' column found in hierarchical_topics; "
                                "skipping distance statistics.")
+            
+            # Workaround: visualize_hierarchy() builds all_topics from self.topics_, but
+            # hierarchical_topics DataFrame contains parent IDs (>= num_topics) that aren't
+            # in self.topics_. We need to add parent IDs to self.topics_ temporarily so
+            # visualize_hierarchy() can find them.
+            if "Child_Left_ID" in hierarchical_topics.columns and "Child_Right_ID" in hierarchical_topics.columns:
+                all_ids_in_df = set(
+                    [int(x) for x in hierarchical_topics["Child_Left_ID"].tolist()] +
+                    [int(x) for x in hierarchical_topics["Child_Right_ID"].tolist()]
+                )
+                if "Parent_ID" in hierarchical_topics.columns:
+                    all_ids_in_df.update([int(x) for x in hierarchical_topics["Parent_ID"].tolist()])
+                
+                num_topics = len(set(valid_topics))
+                parent_ids = [tid for tid in all_ids_in_df if tid >= num_topics]
+                
+                if parent_ids:
+                    # Save state before modifying (if not already saved)
+                    if original_topic_representations is None and hasattr(topic_model, "topic_representations_"):
+                        original_topic_representations = topic_model.topic_representations_.copy()
+                    if original_c_tf_idf is None and hasattr(topic_model, "c_tf_idf_") and topic_model.c_tf_idf_ is not None:
+                        original_c_tf_idf = topic_model.c_tf_idf_
+                    
+                    # Add parent IDs to self.topics_ so visualize_hierarchy() can find them
+                    # Parent IDs are synthetic and don't need document assignments
+                    extended_topics = list(valid_topics) + parent_ids
+                    topic_model.topics_ = extended_topics
+                    
+                    # Also add placeholder entries to topic_representations_ for parent IDs
+                    # visualize_hierarchy() may use topic_representations_.keys() to build all_topics
+                    if hasattr(topic_model, "topic_representations_"):
+                        for parent_id in parent_ids:
+                            if parent_id not in topic_model.topic_representations_:
+                                # Add placeholder representation for parent ID
+                                topic_model.topic_representations_[parent_id] = [("parent", 0.0)]
+                    
+                    # Add placeholder rows to c_tf_idf_ for parent IDs
+                    # visualize_hierarchy() needs to access c_tf_idf_[parent_id] for embeddings
+                    if hasattr(topic_model, "c_tf_idf_") and topic_model.c_tf_idf_ is not None:
+                        from scipy.sparse import vstack, csr_matrix
+                        import numpy as np
+                        
+                        # Get the shape of c_tf_idf_ (num_rows, vocab_size)
+                        num_rows, vocab_size = topic_model.c_tf_idf_.shape
+                        max_parent_id = max(parent_ids)
+                        
+                        # Create placeholder rows (zeros) for parent IDs
+                        # c_tf_idf_ has row 0 for outlier (-1), rows 1+ for topics 0, 1, 2, ...
+                        # Parent IDs start at num_topics, so we need rows at indices (parent_id + 1)
+                        # But we need to add rows up to max_parent_id
+                        num_rows_needed = max_parent_id + 1 - num_rows
+                        if num_rows_needed > 0:
+                            # Create zero rows for parent IDs
+                            zero_rows = csr_matrix((num_rows_needed, vocab_size), dtype=topic_model.c_tf_idf_.dtype)
+                            topic_model.c_tf_idf_ = vstack([topic_model.c_tf_idf_, zero_rows])
+                            logger.debug(f"  Added {num_rows_needed} placeholder rows to c_tf_idf_ for parent IDs")
+                    
+                    logger.debug(f"  Added {len(parent_ids)} parent topic IDs to model.topics_ and topic_representations_ for visualization")
         
-        return hierarchical_topics
+        # Yield hierarchical_topics, valid_topics, and old_to_new_topic mapping while model state is modified
+        yield hierarchical_topics, valid_topics, old_to_new_topic
     
     finally:
         # Restore original state
@@ -508,6 +600,10 @@ def build_hierarchical_topics(
             topic_model.c_tf_idf_ = original_c_tf_idf
         if original_topic_representations is not None:
             topic_model.topic_representations_ = original_topic_representations
+        if original_custom_labels is not None:
+            topic_model.custom_labels_ = original_custom_labels
+        
+        logger.info("  ✓ Model state restored to original")
 
 
 def get_topic_words_labels(
@@ -517,34 +613,56 @@ def get_topic_words_labels(
 ) -> dict[int, str]:
     """Get topic words labels formatted as "word1_word2_word3 (T{id})".
     
+    This function ensures ALL topics in the model are covered by building labels
+    from sorted(set(topic_model.topics_)) rather than just topic_representations_.keys().
+    
     Args:
-        topic_model: Loaded BERTopic model
+        topic_model: Loaded BERTopic model (may be subsetted)
         num_words: Number of top words to include
         logger: Logger instance
         
     Returns:
-        Dictionary mapping topic_id to formatted label
+        Dictionary mapping topic_id to formatted label (covers all topics in model)
     """
     if logger is None:
         logger = logging.getLogger(__name__)
     
     labels = {}
     
+    # Get all unique topics from the model (excluding outlier -1)
+    if hasattr(topic_model, "topics_") and topic_model.topics_ is not None:
+        unique_topics = sorted(set(topic_id for topic_id in topic_model.topics_ if topic_id != -1))
+    else:
+        # Fallback to topic_representations_ if topics_ is not available
+        if hasattr(topic_model, "topic_representations_"):
+            unique_topics = sorted([tid for tid in topic_model.topic_representations_.keys() if tid != -1])
+        else:
+            logger.warning("Model does not have topics_ or topic_representations_ attribute")
+            return labels
+    
     if not hasattr(topic_model, "topic_representations_"):
         logger.warning("Model does not have topic_representations_ attribute")
+        # Still create labels for all topics, just with generic names
+        for topic_id in unique_topics:
+            labels[topic_id] = f"Topic_{topic_id} (T{topic_id})"
         return labels
     
-    for topic_id, words_list in topic_model.topic_representations_.items():
-        if topic_id == -1:  # Skip outlier topic
-            continue
-        
-        # Extract top words (words_list is list of (word, score) tuples)
-        if isinstance(words_list, list) and len(words_list) > 0:
-            top_words = [word for word, _ in words_list[:num_words]]
-            words_str = "_".join(top_words)
-            labels[topic_id] = f"{words_str} (T{topic_id})"
+    # Build labels for all topics
+    for topic_id in unique_topics:
+        if topic_id in topic_model.topic_representations_:
+            words_list = topic_model.topic_representations_[topic_id]
+            # Extract top words (words_list is list of (word, score) tuples)
+            if isinstance(words_list, list) and len(words_list) > 0:
+                top_words = [word for word, _ in words_list[:num_words]]
+                words_str = "_".join(top_words)
+                labels[topic_id] = f"{words_str} (T{topic_id})"
+            else:
+                labels[topic_id] = f"Topic_{topic_id} (T{topic_id})"
         else:
+            # Topic exists in topics_ but not in representations_ (shouldn't happen, but handle it)
             labels[topic_id] = f"Topic_{topic_id} (T{topic_id})"
+    
+    logger.debug(f"Generated word labels for {len(labels)} topics")
     
     return labels
 
@@ -554,17 +672,22 @@ def visualize_dendrogram(
     hierarchical_topics: pd.DataFrame,
     output_path: Path,
     use_labels: bool = True,
-    exclude_noise: bool = True,
+    num_actual_topics: Optional[int] = None,
+    old_to_new_topic: Optional[dict[int, int]] = None,
     logger: Optional[logging.Logger] = None,
 ) -> None:
     """Visualize hierarchical dendrogram.
     
+    Note: This function assumes the model has already been subsetted (noise topics removed)
+    by the context manager. The model state should already exclude noise topics.
+    
     Args:
-        topic_model: Loaded BERTopic model
-        hierarchical_topics: Hierarchical topics structure
+        topic_model: Loaded BERTopic model (should be subsetted, noise already excluded)
+        hierarchical_topics: Hierarchical topics structure (uses remapped topic IDs)
         output_path: Path to save HTML visualization
         use_labels: If True, use custom labels; if False, use topic words
-        exclude_noise: If True, exclude noise topics from visualization
+        num_actual_topics: Number of actual topics (excluding parent IDs)
+        old_to_new_topic: Optional mapping from original topic IDs to remapped IDs
         logger: Logger instance
     """
     if logger is None:
@@ -573,44 +696,37 @@ def visualize_dendrogram(
     label_type = "labels" if use_labels else "topic words"
     logger.info(f"Creating hierarchical dendrogram visualization with {label_type}...")
     
-    # Identify noise topics to exclude from visualization
-    noise_topics = set()
-    if exclude_noise:
-        noise_topics = identify_noise_topics(topic_model, logger=logger)
-        if noise_topics:
-            logger.info(f"  Excluding {len(noise_topics)} noise topics from visualization")
-    
-    # Save original custom labels by getting them from get_topic_info()
+    # Get current labels from the model (already remapped if remapping occurred)
+    # Since we're inside the context manager, custom_labels_ uses remapped topic IDs
+    # which match the hierarchical_topics DataFrame
     original_labels = None
     try:
-        info = topic_model.get_topic_info()
-        label_cols = [c for c in info.columns if c.lower().startswith("custom")]
-        if label_cols:
-            label_col = label_cols[0]
-            original_labels = dict(zip(info["Topic"], info[label_col]))
-        elif hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
-            # Fallback to custom_labels_ if it's a dict
+        # Prefer custom_labels_ directly since it's already remapped to match the hierarchy
+        if hasattr(topic_model, "custom_labels_") and topic_model.custom_labels_:
             if isinstance(topic_model.custom_labels_, dict):
                 original_labels = topic_model.custom_labels_.copy()
+        else:
+            # Fallback to get_topic_info() if custom_labels_ not available
+            info = topic_model.get_topic_info()
+            label_cols = [c for c in info.columns if c.lower().startswith("custom")]
+            if label_cols:
+                label_col = label_cols[0]
+                original_labels = dict(zip(info["Topic"], info[label_col]))
     except Exception as e:
         logger.debug(f"Could not get original labels: {e}")
     
     try:
         if use_labels:
             # Use custom labels with IDs (they should already have IDs from disambiguation)
-            # But ensure all topics have labels with IDs
+            # Since model is already subsetted, all topics in custom_labels_ are valid
             if original_labels:
-                # Check if labels already have IDs, if not add them
-                # Also filter out noise topics
+                # Ensure all labels have IDs
                 labels_with_ids = {}
                 for topic_id, label in original_labels.items():
                     if topic_id == -1 or pd.isna(label):
                         continue
-                    # Skip noise topics
-                    if topic_id in noise_topics:
-                        continue
                     label_str = str(label)
-                    # Also skip if label starts with [NOISE: (double-check)
+                    # Skip if label starts with [NOISE: (shouldn't happen if subsetted correctly, but double-check)
                     if label_str.startswith("[NOISE_CANDIDATE:") or label_str.startswith("[NOISE:"):
                         continue
                     if f"(T{topic_id})" not in label_str:
@@ -618,7 +734,24 @@ def visualize_dendrogram(
                     else:
                         labels_with_ids[topic_id] = label_str
                 
-                # Temporarily set labels with IDs (excluding noise)
+                # Add placeholder labels for parent topic IDs (synthetic IDs >= num_topics)
+                # These are needed because we added parent IDs to self.topics_ for visualize_hierarchy()
+                if hasattr(topic_model, "topics_") and topic_model.topics_ is not None:
+                    # Use provided num_actual_topics if available, otherwise calculate from topics_
+                    if num_actual_topics is None:
+                        # Calculate num_topics from topics_ by excluding very large IDs (parent IDs)
+                        num_topics = len(set([t for t in topic_model.topics_ if t < 1000]))
+                    else:
+                        num_topics = num_actual_topics
+                    for topic_id in set(topic_model.topics_):
+                        if topic_id >= num_topics and topic_id not in labels_with_ids:
+                            # Parent IDs are synthetic, use a generic label
+                            labels_with_ids[topic_id] = f"Parent_Topic_{topic_id} (T{topic_id})"
+                
+                # Save extended labels for restoration
+                current_labels = labels_with_ids.copy()
+                
+                # Set labels with IDs (all topics in model are already non-noise)
                 topic_model.set_topic_labels(labels_with_ids)
             
             fig = topic_model.visualize_hierarchy(
@@ -626,14 +759,28 @@ def visualize_dendrogram(
                 custom_labels=True,
             )
         else:
-            # Use topic words with IDs, but exclude noise topics
+            # Use topic words with IDs
+            # get_topic_words_labels() now covers all topics in the model
             words_labels = get_topic_words_labels(topic_model, num_words=3, logger=logger)
-            # Filter out noise topics
-            words_labels_filtered = {
-                tid: label for tid, label in words_labels.items()
-                if tid not in noise_topics
-            }
-            topic_model.set_topic_labels(words_labels_filtered)
+            
+            # Add placeholder labels for parent topic IDs (synthetic IDs >= num_topics)
+            # These are needed because we added parent IDs to self.topics_ for visualize_hierarchy()
+            if hasattr(topic_model, "topics_") and topic_model.topics_ is not None:
+                # Use provided num_actual_topics if available, otherwise calculate from topics_
+                if num_actual_topics is None:
+                    # Calculate num_topics from topics_ by excluding very large IDs (parent IDs)
+                    num_topics = len(set([t for t in topic_model.topics_ if t < 1000]))
+                else:
+                    num_topics = num_actual_topics
+                for topic_id in set(topic_model.topics_):
+                    if topic_id >= num_topics and topic_id not in words_labels:
+                        # Parent IDs are synthetic, use a generic label
+                        words_labels[topic_id] = f"Parent_Topic_{topic_id} (T{topic_id})"
+            
+            # Save extended labels for restoration
+            current_labels = words_labels.copy()
+            
+            topic_model.set_topic_labels(words_labels)
             
             fig = topic_model.visualize_hierarchy(
                 hierarchical_topics=hierarchical_topics,
@@ -649,7 +796,10 @@ def visualize_dendrogram(
         logger.error(f"Failed to create dendrogram visualization: {e}")
         raise
     finally:
-        # Restore original labels
+        # Restore original labels to avoid label leakage between "labels" and "words" dendrograms
+        # Note: We're still in the context manager, so self.topics_ still has parent IDs.
+        # We restore original_labels to clean up. When the context manager exits, it will restore
+        # self.topics_ and custom_labels_ to their original state anyway.
         if original_labels is not None:
             topic_model.set_topic_labels(original_labels)
 
@@ -660,6 +810,11 @@ def print_topic_tree(
     logger: Optional[logging.Logger] = None,
 ) -> str:
     """Print text tree for inspection.
+    
+    Note: get_topic_tree() uses the Child_Left_Name/Child_Right_Name columns from
+    the hierarchical_topics DataFrame, not custom_labels_. To use LLM labels in the
+    tree, you would need to rewrite those columns in the DataFrame before calling
+    get_topic_tree().
     
     Args:
         topic_model: Loaded BERTopic model
@@ -868,60 +1023,78 @@ def main():
         logger=logger,
     )
     
-    # Step 4: Build hierarchical structure
+    # Step 4: Build hierarchical structure and keep model state active for visualization/tree
     logger.info("\n" + "=" * 80)
     logger.info("Step 4: Building Hierarchical Topics Structure")
     logger.info("=" * 80)
     
-    hierarchical_topics = build_hierarchical_topics(
+    # Initialize variables for summary
+    hierarchical_topics = None
+    tree = None
+    tree_path = None
+    dendrogram_labels_path = None
+    dendrogram_words_path = None
+    
+    # Use context manager to keep subsetted model state active for all visualization steps
+    with build_hierarchical_topics_context(
         topic_model, docs, topics, exclude_noise=not args.include_noise, logger=logger
-    )
-    
-    # Step 5: Visualize dendrograms (two versions)
-    logger.info("\n" + "=" * 80)
-    logger.info("Step 5: Creating Dendrogram Visualizations")
-    logger.info("=" * 80)
-    
-    viz_dir = args.output_dir / "visualizations"
-    
-    # Version a) Labels + ID
-    dendrogram_labels_path = viz_dir / f"hierarchy_dendrogram_labels_{timestamp}.html"
-    visualize_dendrogram(
-        topic_model, hierarchical_topics, dendrogram_labels_path, 
-        use_labels=True, exclude_noise=not args.include_noise, logger=logger
-    )
-    
-    # Version b) Topic words + ID
-    dendrogram_words_path = viz_dir / f"hierarchy_dendrogram_words_{timestamp}.html"
-    visualize_dendrogram(
-        topic_model, hierarchical_topics, dendrogram_words_path,
-        use_labels=False, exclude_noise=not args.include_noise, logger=logger
-    )
-    
-    # Step 6: Print text tree
-    logger.info("\n" + "=" * 80)
-    logger.info("Step 6: Generating Text Tree")
-    logger.info("=" * 80)
-    
-    tree = print_topic_tree(topic_model, hierarchical_topics, logger=logger)
-    
-    # Step 7: Save tree to file (if requested)
-    if args.save_tree:
+    ) as (hierarchical_topics, valid_topics, old_to_new_topic):
+        
+        # Step 5: Visualize dendrograms (two versions)
+        # These run while model state is subsetted (noise topics already excluded)
+        # IMPORTANT: All visualization must happen INSIDE the context manager so topic IDs match
         logger.info("\n" + "=" * 80)
-        logger.info("Step 7: Saving Text Tree to File")
+        logger.info("Step 5: Creating Dendrogram Visualizations")
         logger.info("=" * 80)
         
-        tree_path = args.output_dir / f"hierarchy_tree_{timestamp}.txt"
-        save_tree_to_file(tree, tree_path, logger=logger)
+        viz_dir = args.output_dir / "visualizations"
+        
+        # Version a) Labels + ID
+        dendrogram_labels_path = viz_dir / f"hierarchy_dendrogram_labels_{timestamp}.html"
+        num_actual_topics = len(set(valid_topics))  # Number of actual topics (excluding parent IDs)
+        visualize_dendrogram(
+            topic_model, hierarchical_topics, dendrogram_labels_path, 
+            use_labels=True, num_actual_topics=num_actual_topics, 
+            old_to_new_topic=old_to_new_topic, logger=logger
+        )
+        
+        # Version b) Topic words + ID
+        dendrogram_words_path = viz_dir / f"hierarchy_dendrogram_words_{timestamp}.html"
+        visualize_dendrogram(
+            topic_model, hierarchical_topics, dendrogram_words_path,
+            use_labels=False, num_actual_topics=num_actual_topics,
+            old_to_new_topic=old_to_new_topic, logger=logger
+        )
+        
+        # Step 6: Print text tree
+        # This also runs while model state is subsetted (remapped topic IDs)
+        logger.info("\n" + "=" * 80)
+        logger.info("Step 6: Generating Text Tree")
+        logger.info("=" * 80)
+        
+        tree = print_topic_tree(topic_model, hierarchical_topics, logger=logger)
+        
+        # Step 7: Save tree to file (if requested)
+        if args.save_tree:
+            logger.info("\n" + "=" * 80)
+            logger.info("Step 7: Saving Text Tree to File")
+            logger.info("=" * 80)
+            
+            tree_path = args.output_dir / f"hierarchy_tree_{timestamp}.txt"
+            save_tree_to_file(tree, tree_path, logger=logger)
+        
+        # Step 8: Analyze hierarchy for meta-topic selection
+        logger.info("\n" + "=" * 80)
+        logger.info("Step 8: Analyzing Hierarchy for Meta-Topic Selection")
+        logger.info("=" * 80)
+        
+        analyze_hierarchy_for_meta_topics(hierarchical_topics, logger=logger)
     
-    # Step 8: Analyze hierarchy for meta-topic selection
-    logger.info("\n" + "=" * 80)
-    logger.info("Step 8: Analyzing Hierarchy for Meta-Topic Selection")
-    logger.info("=" * 80)
+    # Model state is now restored to original (outside context manager)
+    # All visualization and tree generation happened INSIDE the context manager
+    # to ensure topic IDs in hierarchical_topics DataFrame match the remapped model state
     
-    analyze_hierarchy_for_meta_topics(hierarchical_topics, logger=logger)
-    
-    # Final summary
+    # Final summary (hierarchical_topics, tree, tree_path, dendrogram paths are from context)
     logger.info("\n" + "=" * 80)
     logger.info("Summary")
     logger.info("=" * 80)
@@ -931,7 +1104,7 @@ def main():
     logger.info(f"Hierarchical links: {len(hierarchical_topics)}")
     logger.info(f"Dendrogram (labels): {dendrogram_labels_path}")
     logger.info(f"Dendrogram (words): {dendrogram_words_path}")
-    if args.save_tree:
+    if args.save_tree and tree_path is not None:
         logger.info(f"Text tree: {tree_path}")
     logger.info(f"Log file: {log_dir / log_file}")
     logger.info("\n✓ Hierarchical exploration complete!")
