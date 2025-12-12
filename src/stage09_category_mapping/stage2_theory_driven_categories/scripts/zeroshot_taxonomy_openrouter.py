@@ -351,6 +351,7 @@ Return exactly these keys and types:
   "secondary_category_id": "5.1",
   "other_plausible_ids": ["3.2", "6.4"],
   "is_noise": false,
+  "confidence": "medium",
   "rationale": "1–3 short sentences explaining why these IDs fit this topic."
 }}
 
@@ -408,7 +409,19 @@ FIELD RULES
 
 - If false, main_category_id MUST NOT be "noise".
 
-6) "rationale"
+6) "confidence"
+
+- REQUIRED.
+
+- One of: "low", "medium", "high".
+
+- "high" = strong, unambiguous match to one taxonomy node.
+
+- "medium" = reasonably clear, a couple of plausible alternatives.
+
+- "low" = noisy or ambiguous topic, mapping is uncertain.
+
+7) "rationale"
 
 - 1–3 short sentences.
 
@@ -679,6 +692,19 @@ def classify_topic_to_taxonomy_openrouter(
         ):
             filtered_other.append(cid)
     result["other_plausible_ids"] = filtered_other
+
+    # Normalize confidence
+    confidence = result.get("confidence", None)
+    valid_conf = {"low", "medium", "high"}
+    if not isinstance(confidence, str) or confidence.lower() not in valid_conf:
+        # Simple heuristic: if we had to fall back or fix IDs, treat as low confidence
+        if is_noise:
+            confidence = "medium"
+        else:
+            confidence = "low"
+    else:
+        confidence = confidence.lower()
+    result["confidence"] = confidence
 
     LOGGER.info(
         "Topic %d → main=%s, secondary=%s, noise=%s",

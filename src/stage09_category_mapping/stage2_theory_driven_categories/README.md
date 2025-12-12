@@ -153,6 +153,7 @@ The output JSON maps each topic to taxonomy classification:
 - `secondary_category_id`: Optional second taxonomy ID (null if not applicable)
 - `other_plausible_ids`: Optional list (0-3 items) of other plausible taxonomy IDs
 - `is_noise`: Boolean (if true, `main_category_id` must be "noise")
+- `confidence`: Required confidence level ("low", "medium", "high")
 - `rationale`: 1-3 sentences explaining the classification
 
 ## Integration with Stage 1
@@ -190,14 +191,71 @@ After running Stage 1 (natural clusters), you can:
 - **Fallback assignments**: Provides fallback taxonomy assignments based on previous categories if classification fails
 - **Logging**: Comprehensive logging for mismatched topic IDs or invalid taxonomy assignments
 
+## Analysis Helpers
+
+After taxonomy classification, use these helper modules for downstream analysis:
+
+### 1. Book-Level Category Proportions
+
+**Module**: `scripts/aggregate_taxonomy_by_book.py`
+
+Aggregates sentence-level topic assignments to book-level category proportions.
+
+```bash
+python -m src.stage09_category_mapping.stage2_theory_driven_categories.scripts.aggregate_taxonomy_by_book \
+  --sentences results/stage06_topic_exploration/sentence_df_with_topics.parquet \
+  --taxonomy-mapping results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_mistral_nemo.json \
+  --output results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet \
+  --min-sentences-per-book 50
+```
+
+**Output**: Parquet file with columns:
+- `book_id`, `rating_class`, `main_category_id`
+- `n_sentences`, `total_sentences`, `prop` (proportion)
+
+### 2. Statistical Analysis
+
+**Module**: `scripts/stats_helpers.py`
+
+Kruskal-Wallis tests for category prevalence differences across rating classes.
+
+```python
+from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import kruskal_by_rating
+import pandas as pd
+
+book_cat = pd.read_parquet("book_category_proportions.parquet")
+kw_results = kruskal_by_rating(book_cat)
+kw_results.sort_values("p_value").head(15)  # See which categories differ most
+```
+
+**Output**: DataFrame with `category_id`, `groups`, `n_books_per_group`, `H_statistic`, `p_value`
+
+### 3. Visualization
+
+**Module**: `scripts/visualization_helpers.py`
+
+Box plots with jitter for category prevalence across rating classes.
+
+```python
+from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.visualization_helpers import plot_category_prevalence
+import pandas as pd
+
+book_cat = pd.read_parquet("book_category_proportions.parquet")
+
+# Plot relationship conflict (4.4)
+plot_category_prevalence(book_cat, "4.4")
+
+# Plot explicit sex (2.3)
+plot_category_prevalence(book_cat, "2.3")
+```
+
 ## Next Steps
 
-After taxonomy classification:
+After taxonomy classification and analysis:
 
-1. **Aggregate per book**: Compute taxonomy category proportions per book
-2. **Statistical analysis**: Test category differences across rating classes (similar to Stage 1)
-3. **Visualization**: Create visualizations of category prevalence by quality
-4. **Compare with Stage 1**: See how theory-driven categories compare to natural clusters
+1. **Interpret results**: Use statistical tests and visualizations to understand category differences
+2. **Compare with Stage 1**: See how theory-driven categories compare to natural clusters
+3. **Refine taxonomy**: Use confidence scores and manual review to improve mappings
 
 ## Dependencies
 
