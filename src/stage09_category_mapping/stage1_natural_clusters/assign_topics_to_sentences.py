@@ -100,6 +100,7 @@ def load_model(
     embedding_model: str,
     model_suffix: str,
     stage_subfolder: str | None = None,
+    model_path: Path | None = None,
     logger: Optional[logging.Logger] = None,
 ) -> BERTopic:
     """Load BERTopic model.
@@ -109,6 +110,7 @@ def load_model(
         embedding_model: Embedding model name
         model_suffix: Model suffix (e.g., "_with_llm_labels")
         stage_subfolder: Optional stage subfolder (e.g., "stage08_llm_labeling")
+        model_path: Optional explicit path to model file
         logger: Logger instance
         
     Returns:
@@ -117,15 +119,35 @@ def load_model(
     if logger is None:
         logger = logging.getLogger(__name__)
     
-    logger.info(f"Loading BERTopic model (suffix: {model_suffix}, stage: {stage_subfolder or 'base'})...")
-    
-    topic_model = load_native_bertopic_model(
-        base_dir=base_dir,
-        embedding_model=embedding_model,
-        pareto_rank=1,
-        model_suffix=model_suffix,
-        stage_subfolder=stage_subfolder,
-    )
+    if model_path:
+        logger.info(f"Loading BERTopic model from explicit path: {model_path}")
+        if not model_path.exists():
+            raise FileNotFoundError(f"Model path does not exist: {model_path}")
+        # Try loading as pickle first (might be a wrapper)
+        if model_path.suffix == ".pkl":
+            import pickle
+            loaded_obj = pickle.load(open(model_path, "rb"))
+            # Check if it's a RetrainableBERTopicModel wrapper
+            if hasattr(loaded_obj, "trained_topic_model") and loaded_obj.trained_topic_model is not None:
+                logger.info("  Extracted BERTopic model from RetrainableBERTopicModel wrapper")
+                topic_model = loaded_obj.trained_topic_model
+            elif isinstance(loaded_obj, BERTopic):
+                topic_model = loaded_obj
+            else:
+                # Try BERTopic.load() as fallback
+                topic_model = BERTopic.load(str(model_path))
+        else:
+            topic_model = BERTopic.load(str(model_path))
+    else:
+        logger.info(f"Loading BERTopic model (suffix: {model_suffix}, stage: {stage_subfolder or 'base'})...")
+        
+        topic_model = load_native_bertopic_model(
+            base_dir=base_dir,
+            embedding_model=embedding_model,
+            pareto_rank=1,
+            model_suffix=model_suffix,
+            stage_subfolder=stage_subfolder,
+        )
     
     # Log model info
     if hasattr(topic_model, "topic_representations_"):
@@ -357,6 +379,12 @@ def main():
         help="Stage subfolder to load model from (default: 'stage08_llm_labeling' to use model from stage08)",
     )
     parser.add_argument(
+        "--model-path",
+        type=Path,
+        default=None,
+        help="Explicit path to model file (overrides model-suffix and model-stage)",
+    )
+    parser.add_argument(
         "--include-probs",
         action="store_true",
         help="Include topic probabilities in output (slower, uses more memory)",
@@ -423,6 +451,7 @@ def main():
         embedding_model=args.embedding_model,
         model_suffix=args.model_suffix,
         stage_subfolder=args.model_stage,
+        model_path=args.model_path,
         logger=logger,
     )
     

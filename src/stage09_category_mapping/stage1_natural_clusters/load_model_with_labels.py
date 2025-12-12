@@ -93,6 +93,46 @@ def load_labels_from_json(json_path: Path, logger: Optional[logging.Logger] = No
     return labels
 
 
+def load_full_metadata_from_json(json_path: Path, logger: Optional[logging.Logger] = None) -> dict[int, dict[str, Any]]:
+    """Load full topic metadata from JSON file.
+    
+    Loads the complete JSON structure including label, keywords, categories, etc.
+    
+    Args:
+        json_path: Path to labels JSON file
+        logger: Logger instance
+        
+    Returns:
+        Dictionary mapping topic_id to full metadata dict
+    """
+    if logger is None:
+        logger = logging.getLogger(__name__)
+    
+    logger.info(f"Loading full metadata from JSON: {json_path}")
+    
+    if not json_path.exists():
+        raise FileNotFoundError(f"Labels JSON file not found: {json_path}")
+    
+    with open(json_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    
+    # Convert string keys to int and preserve full structure
+    metadata: dict[int, dict[str, Any]] = {}
+    
+    for topic_id_str, topic_data in data.items():
+        topic_id = int(topic_id_str)
+        
+        if isinstance(topic_data, dict):
+            # Full structure with all fields
+            metadata[topic_id] = topic_data.copy()
+        elif isinstance(topic_data, str):
+            # Simple label-only format, convert to dict
+            metadata[topic_id] = {"label": topic_data}
+    
+    logger.info(f"Loaded full metadata for {len(metadata)} topics from JSON")
+    return metadata
+
+
 def verify_model_topics(
     topic_model: BERTopic, 
     expected_count: int = 361,
@@ -185,6 +225,41 @@ def attach_labels_to_model(
         logger.warning("⚠ Labels may not have been attached correctly")
 
 
+def attach_metadata_to_model(
+    topic_model: BERTopic,
+    metadata: dict[int, dict[str, Any]],
+    logger: Optional[logging.Logger] = None,
+) -> None:
+    """Attach full metadata to BERTopic model as custom attribute.
+    
+    Stores the full JSON structure (keywords, categories, etc.) in topic_metadata_
+    attribute for easier access during analysis.
+    
+    Args:
+        topic_model: BERTopic model instance
+        metadata: Dictionary mapping topic_id to full metadata dict
+        logger: Logger instance
+    """
+    if logger is None:
+        logger = logging.getLogger(__name__)
+    
+    logger.info(f"Attaching full metadata for {len(metadata)} topics to model...")
+    
+    # Store as custom attribute (BERTopic allows custom attributes)
+    topic_model.topic_metadata_ = metadata
+    
+    # Verify metadata was attached
+    if hasattr(topic_model, "topic_metadata_") and topic_model.topic_metadata_:
+        logger.info(f"✓ Metadata attached successfully: {len(topic_model.topic_metadata_)} topics")
+        
+        # Log sample of what's stored
+        sample_topic = list(metadata.keys())[0]
+        sample_data = metadata[sample_topic]
+        logger.info(f"  Sample metadata keys for topic {sample_topic}: {list(sample_data.keys())}")
+    else:
+        logger.warning("⚠ Metadata may not have been attached correctly")
+
+
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
@@ -226,7 +301,7 @@ def main():
         type=Path,
         default=Path(
             "results/stage08_llm_labeling/"
-            "labels_pos_openrouter_mistralai_mistral-nemo_romance_aware_paraphrase-MiniLM-L6-v2_reasoning_high.json"
+            "labels_pos_openrouter_mistralai_Mistral-Nemo-Instruct-2407_romance_aware_paraphrase-MiniLM-L6-v2.json"
         ),
         help="Path to labels JSON file",
     )
@@ -252,6 +327,17 @@ def main():
         "--save-model",
         action="store_true",
         help="Save model with labels to stage09_category_mapping subfolder (both formats)",
+    )
+    parser.add_argument(
+        "--save-stage",
+        type=str,
+        default=None,
+        help="Override stage subfolder for saving (default: uses stage09_category_mapping or stage08_llm_labeling if --attach-metadata)",
+    )
+    parser.add_argument(
+        "--attach-metadata",
+        action="store_true",
+        help="Also load and attach full metadata (keywords, categories, etc.) from JSON file",
     )
     
     args = parser.parse_args()
@@ -292,7 +378,25 @@ def main():
             logger.info(f"Loading model from explicit path: {args.model_path}")
             if not args.model_path.exists():
                 raise FileNotFoundError(f"Model path does not exist: {args.model_path}")
-            topic_model = BERTopic.load(str(args.model_path))
+            # Try loading as pickle first (might be a wrapper)
+            if args.model_path.suffix == ".pkl":
+                import pickle
+                loaded_obj = pickle.load(open(args.model_path, "rb"))
+                # Check if it's a RetrainableBERTopicModel wrapper
+                if hasattr(loaded_obj, "trained_topic_model") and loaded_obj.trained_topic_model is not None:
+                    logger.info("  Extracted BERTopic model from RetrainableBERTopicModel wrapper")
+                    wrapper = loaded_obj
+                    topic_model = loaded_obj.trained_topic_model
+                elif isinstance(loaded_obj, BERTopic):
+                    topic_model = loaded_obj
+                    wrapper = None
+                else:
+                    # Try BERTopic.load() as fallback
+                    topic_model = BERTopic.load(str(args.model_path))
+                    wrapper = None
+            else:
+                topic_model = BERTopic.load(str(args.model_path))
+                wrapper = None
         else:
             logger.info(f"Loading model using helper function (suffix: {args.model_suffix}, stage: {args.model_stage})")
             # Try to load wrapper first (for saving both formats later)
@@ -332,24 +436,36 @@ def main():
     
     # Check if labels are already integrated
     logger.info("\n" + "=" * 80)
-    logger.info("Step 3: Checking for Existing Labels")
+    logger.info("Step 3: Checking for Existing Labels and Metadata")
     logger.info("=" * 80)
+    
+    has_metadata = hasattr(topic_model, "topic_metadata_") and topic_model.topic_metadata_
     
     if verification["has_custom_labels"]:
         logger.info(f"✓ Model already has custom_labels_ with {verification['custom_labels_count']} labels")
         
+        if has_metadata:
+            logger.info(f"✓ Model already has topic_metadata_ with {len(topic_model.topic_metadata_)} topics")
+            logger.info("  Full metadata is available (keywords, categories, etc.)")
+        else:
+            logger.info("  Full metadata not found - use --attach-metadata to load from JSON")
+        
         if args.force_reload_labels:
             logger.info("Force reload requested, will reload labels from JSON")
+        elif args.attach_metadata and not has_metadata:
+            logger.info("Metadata attachment requested, will load from JSON")
         else:
             logger.info("Labels already integrated. Use --force-reload-labels to override.")
-            # Don't return early if --save-model is requested
-            if not args.save_model:
+            # Don't return early if --save-model is requested or if we need to attach metadata
+            if not args.save_model and not (args.attach_metadata and not has_metadata):
                 logger.info("\n" + "=" * 80)
                 logger.info("Summary")
                 logger.info("=" * 80)
                 logger.info(f"Model loaded: ✓")
                 logger.info(f"Topic count: {verification['actual_count']} (expected {verification['expected_count']})")
                 logger.info(f"Custom labels: ✓ ({verification['custom_labels_count']} labels)")
+                if has_metadata:
+                    logger.info(f"Full metadata: ✓ ({len(topic_model.topic_metadata_)} topics)")
                 logger.info("\nModel is ready for Stage 1 analysis!")
                 return
     
@@ -378,39 +494,90 @@ def main():
             logger.error(f"  Labels JSON: {args.labels_json}")
             raise
     
-    # Save model with labels to stage09 subfolder (if requested)
-    if args.save_model:
+    # Optionally attach full metadata
+    if args.attach_metadata:
         logger.info("\n" + "=" * 80)
-        logger.info("Step 5: Saving Model with Labels")
+        logger.info("Step 4b: Loading and Attaching Full Metadata")
         logger.info("=" * 80)
         
         try:
-            # Create stage subfolder path
-            stage_subfolder = args.base_dir / args.embedding_model / "stage09_category_mapping"
+            metadata = load_full_metadata_from_json(args.labels_json, logger=logger)
+            attach_metadata_to_model(topic_model, metadata, logger=logger)
+            
+            # Update wrapper's trained_topic_model if wrapper exists
+            if wrapper is not None and hasattr(wrapper, "trained_topic_model"):
+                wrapper.trained_topic_model = topic_model
+                logger.info("Updated wrapper's trained_topic_model with metadata")
+        except Exception as e:
+            logger.error(f"✗ Failed to load/attach metadata: {e}")
+            logger.error(f"  Labels JSON: {args.labels_json}")
+            raise
+    
+    # Save model with labels to stage09 subfolder (if requested)
+    if args.save_model:
+        logger.info("\n" + "=" * 80)
+        logger.info("Step 5: Saving Model with Labels and Metadata")
+        logger.info("=" * 80)
+        
+        try:
+            # Determine save location
+            if args.save_stage:
+                # Use explicitly specified stage
+                stage_subfolder = args.base_dir / args.embedding_model / args.save_stage
+            elif args.attach_metadata:
+                # If metadata is attached, save to new subfolder in stage08_llm_labeling
+                stage_subfolder = args.base_dir / args.embedding_model / "stage08_llm_labeling" / "with_metadata"
+            else:
+                # Default: save to stage09_category_mapping
+                stage_subfolder = args.base_dir / args.embedding_model / "stage09_category_mapping"
+            
             stage_subfolder.mkdir(parents=True, exist_ok=True)
+            logger.info(f"Saving to: {stage_subfolder}")
+            
+            # Determine model suffix based on what's being saved
+            if args.attach_metadata and hasattr(topic_model, "topic_metadata_"):
+                model_suffix = "_with_llm_labels_and_metadata"
+            else:
+                model_suffix = "_with_categories"
             
             # 1. Save as native BERTopic model (directory format)
-            native_model_dir = stage_subfolder / f"model_1_with_categories"
+            native_model_dir = stage_subfolder / f"model_1{model_suffix}"
             if native_model_dir.exists() and native_model_dir.is_dir():
                 shutil.rmtree(native_model_dir)
             
-            with stage_timer(f"Saving native BERTopic model with categories to {native_model_dir}"):
+            with stage_timer(f"Saving native BERTopic model to {native_model_dir}"):
                 topic_model.save(str(native_model_dir))
-                logger.info("Saved native BERTopic model with categories to %s", native_model_dir)
+                logger.info("Saved native BERTopic model to %s", native_model_dir)
             
             # 2. Save as wrapper pickle (file format) - only if wrapper was loaded
             if wrapper is not None:
-                wrapper_pickle_path = stage_subfolder / "model_1_with_categories.pkl"
+                wrapper_pickle_path = stage_subfolder / f"model_1{model_suffix}.pkl"
                 backup_existing_file(wrapper_pickle_path)
                 
-                with stage_timer(f"Saving wrapper with categories to {wrapper_pickle_path.name}"):
+                with stage_timer(f"Saving wrapper to {wrapper_pickle_path.name}"):
                     with open(wrapper_pickle_path, "wb") as f:
                         pickle.dump(wrapper, f)
-                    logger.info("Saved wrapper with categories to %s", wrapper_pickle_path)
+                    logger.info("Saved wrapper to %s", wrapper_pickle_path)
             else:
-                logger.info("Note: Only native BERTopic format saved (no wrapper available)")
+                # If no wrapper, create a minimal wrapper with just the topic model
+                logger.info("No wrapper available, creating minimal wrapper for pickle save...")
+                wrapper_pickle_path = stage_subfolder / f"model_1{model_suffix}.pkl"
+                backup_existing_file(wrapper_pickle_path)
+                
+                # Create a simple wrapper class to preserve the model
+                class MinimalWrapper:
+                    def __init__(self, topic_model):
+                        self.trained_topic_model = topic_model
+                
+                minimal_wrapper = MinimalWrapper(topic_model)
+                with stage_timer(f"Saving minimal wrapper to {wrapper_pickle_path.name}"):
+                    with open(wrapper_pickle_path, "wb") as f:
+                        pickle.dump(minimal_wrapper, f)
+                    logger.info("Saved minimal wrapper to %s", wrapper_pickle_path)
             
             logger.info(f"✓ Saved model to {stage_subfolder}")
+            logger.info(f"  Native format: {native_model_dir}")
+            logger.info(f"  Pickle format: {wrapper_pickle_path}")
         except Exception as e:
             logger.error(f"✗ Failed to save model: {e}")
             logger.error("  Model has labels but was not saved")
@@ -426,6 +593,13 @@ def main():
         logger.info(f"Custom labels: ✓ ({verification['custom_labels_count']} labels)")
     else:
         logger.warning("Custom labels: ✗ (not found)")
+    
+    # Check for metadata
+    if hasattr(topic_model, "topic_metadata_") and topic_model.topic_metadata_:
+        logger.info(f"Full metadata: ✓ ({len(topic_model.topic_metadata_)} topics)")
+        logger.info("  Metadata includes: keywords, categories, scene_summary, rationale, etc.")
+    else:
+        logger.info("Full metadata: ✗ (not attached - use --attach-metadata to load from JSON)")
     
     logger.info("\nModel is ready for Stage 1 analysis!")
     logger.info("\nNext step: Run assign_topics_to_sentences.py to assign topics to matched sentences")
