@@ -1,5 +1,24 @@
 # Stage 1: Natural Clusters (Hierarchical Topics)
 
+## Folder Structure
+
+This folder is organized into the following subdirectories:
+
+- **`scripts/`** - All Python scripts for data processing and analysis
+  - `prepare_sentence_dataframe.py` - Step 1: Prepare sentence-level dataframe
+  - `load_model_with_labels.py` - Step 2: Load BERTopic model and attach LLM labels
+  - `assign_topics_to_sentences.py` - Step 3: Assign topics to sentences
+  - `explore_hierarchical_topics.py` - Step 4: Explore natural hierarchy
+  - `check_duplicate_labels.py` - Utility: Check for duplicate labels
+
+- **`docs/`** - Documentation and reports
+  - `DUPLICATE_LABELS_REPORT.md` - Report on duplicate labels detection
+  - `METADATA_ATTACHMENT.md` - Documentation about metadata attachment
+  - `PROBABILITIES_DECISION.md` - Decision document about probabilities
+  - `INITIAL_STEP_REPORT.md` - Initial step report
+
+- **`README.md`** - This file (main documentation)
+
 ## Overview
 
 **Goal**: Discover data-driven topic groupings without theoretical priors by using BERTopic's hierarchical topics feature. Identify which natural meta-topics are associated with book quality (bad/mid/good ratings).
@@ -17,12 +36,12 @@
   - Labels verified and accessible
   
 - ✅ **Step 3**: Assign Topics to Sentences - **Complete**
-  - Script created: `assign_topics_to_sentences.py`
+  - Script created: `scripts/assign_topics_to_sentences.py`
   - Performs inference only (no retraining)
   - Transforms matched sentences using trained model
   
 - ✅ **Step 4**: Explore Natural Hierarchy - **Complete**
-  - Script created: `explore_hierarchical_topics.py`
+  - Script created: `scripts/explore_hierarchical_topics.py`
   - Builds hierarchical structure on matched docs only
   - Generates dendrogram visualization and text tree
   
@@ -93,13 +112,13 @@ This ensures methodological rigor: the unmatched 10% of sentences helped shape t
 
 ### Step 1: Prepare Sentence-Level DataFrame
 
-**File**: `prepare_sentence_dataframe.py`
+**File**: `scripts/prepare_sentence_dataframe.py`
 
 **Status**: ✅ **Implemented**
 
 **Usage**:
 ```bash
-python -m src.stage09_category_mapping.stage1_natural_clusters.prepare_sentence_dataframe \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.prepare_sentence_dataframe \
     --chapters data/processed/chapters.csv \
     --goodreads data/processed/goodreads.csv \
     --output data/processed/sentence_df_with_ratings.parquet \
@@ -151,20 +170,20 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.prepare_sentence_
 
 ### Step 2: Load BERTopic Model and Attach LLM Labels
 
-**File**: `load_model_with_labels.py`
+**File**: `scripts/load_model_with_labels.py`
 
 **Status**: ✅ **Implemented and Tested**
 
 **Usage**:
 ```bash
 # Basic usage (verify model and labels)
-python -m src.stage09_category_mapping.stage1_natural_clusters.load_model_with_labels \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.load_model_with_labels \
     --model-suffix _with_llm_labels \
     --model-stage stage08_llm_labeling \
     --expected-topics 368
 
 # Save model with labels to stage09_category_mapping subfolder
-python -m src.stage09_category_mapping.stage1_natural_clusters.load_model_with_labels \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.load_model_with_labels \
     --model-suffix _with_llm_labels \
     --model-stage stage08_llm_labeling \
     --save-model
@@ -207,13 +226,13 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.load_model_with_l
 
 ### Step 3: Ensure Topics for All Sentences (Matched Only)
 
-**File**: `assign_topics_to_sentences.py`
+**File**: `scripts/assign_topics_to_sentences.py`
 
 **Status**: ✅ **Implemented**
 
 **Usage**:
 ```bash
-python -m src.stage09_category_mapping.stage1_natural_clusters.assign_topics_to_sentences \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.assign_topics_to_sentences \
     --input data/processed/sentence_df_with_ratings.parquet \
     --output data/processed/sentence_df_with_topics.parquet \
     --model-suffix _with_noise_labels \
@@ -267,7 +286,7 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.assign_topics_to_
 - Columns: All original columns plus `topic` (and optionally `topic_prob`)
 - Log file with assignment statistics
 
-**Decision: Including Probabilities**: See `PROBABILITIES_DECISION.md` for detailed rationale on why we chose to include topic probabilities (`--include-probs`). This enables soft book-level topic distributions and more stable statistical comparisons.
+**Decision: Including Probabilities**: See `docs/PROBABILITIES_DECISION.md` for detailed rationale on why we chose to include topic probabilities (`--include-probs`). This enables soft book-level topic distributions and more stable statistical comparisons.
 
 **Test Results** (Dec 7, 2025):
 - ✅ Successfully assigned topics to 612,692 sentences from 92 books
@@ -281,14 +300,14 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.assign_topics_to_
 
 ### Step 4: Explore Natural Hierarchy (Matched Docs Only)
 
-**File**: `explore_hierarchical_topics.py`
+**File**: `scripts/explore_hierarchical_topics.py`
 
 **Status**: ✅ **Implemented**
 
 **Usage**:
 ```bash
 # Basic usage (excludes noise topics by default)
-python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchical_topics \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.explore_hierarchical_topics \
     --input data/processed/sentence_df_with_topics.parquet \
     --output-dir results/stage09_category_mapping/stage1_natural_clusters \
     --model-suffix _with_llm_labels_disambiguated \
@@ -296,7 +315,7 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchi
     --save-tree  # optional: save text tree to file
 
 # Include noise topics (if needed for comparison)
-python -m src.stage09_category_mapping.stage1_natural_clusters.explore_hierarchical_topics \
+python -m src.stage09_category_mapping.stage1_natural_clusters.scripts.explore_hierarchical_topics \
     --input data/processed/sentence_df_with_topics.parquet \
     --model-suffix _with_llm_labels_disambiguated \
     --model-stage stage09_category_mapping \
