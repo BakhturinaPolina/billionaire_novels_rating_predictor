@@ -51,18 +51,19 @@ Before starting, ensure you have:
 ---
 
 ### Stage 3: Radway Narrative Functions
-**Goal**: Map sentences/topics to Radway's 13 narrative functions to analyze story structure.
+**Goal**: Map BERTopic topics to Radway's 13 narrative functions to analyze story structure.
 
-**Method**: Zero-shot classification to Radway functions, combined with topics-over-time analysis to track narrative progression.
+**Method**: Zero-shot classification to Radway functions using Mistral-Nemo via OpenRouter. Uses taxonomy JSON from Stage 2 as single source of truth and merges Radway mappings back into the taxonomy structure.
 
 **Key Tools**:
-- Zero-shot classification (Radway's 13 functions)
-- Topics over time (using chapter/position as "time")
-- Narrative phase analysis (beginning/middle/end)
+- Zero-shot topic classification (Radway's 13 functions: R1-R13)
+- Taxonomy JSON integration (reuses Stage 2 mappings)
+- Optional representative document snippets
+- Model attachment for BERTopic integration
 
-**Output**: Per-sentence Radway function labels, narrative progression plots, quality comparisons.
+**Output**: Merged JSON with taxonomy + Radway function mappings, optional BERTopic model with Radway attachments.
 
-**Status**: 📋 Planned - See `stage3_radway_functions/README.md`
+**Status**: ✅ **Implemented** - See `stage3_radway_functions/README.md`
 
 ---
 
@@ -83,7 +84,7 @@ If Stage 1 naturally produces interpretable clusters that align with your resear
 | Feature | Stage 1 | Stage 2 | Stage 3 |
 |---------|---------|---------|---------|
 | **Hierarchical Topics** | ✅ Core | 🔶 Helpful | 🔶 Optional |
-| **Topics Over Time** | ❌ Not needed | ❌ Not needed | ✅ Core |
+| **Topics Over Time** | ❌ Not needed | ❌ Not needed | 🔶 Optional (future) |
 | **Semi-Supervised** | ❌ Not needed | 🔶 Optional | 🔶 Optional |
 | **Guided Topics** | ❌ Not appropriate | 🔶 Optional | ❌ Less ideal |
 | **Zero-Shot** | ❌ Not needed | ✅ Excellent | ✅ Excellent |
@@ -100,8 +101,10 @@ category_mapping/
 │   ├── README.md (short plan)
 │   └── [code files to be created]
 └── stage3_radway_functions/
-    ├── README.md (short plan)
-    └── [code files to be created]
+    ├── README.md
+    └── scripts/
+        ├── zeroshot_radway_openrouter.py (main classification module)
+        └── update_model_with_radway.py (model attachment script)
 ```
 
 ## Next Steps
