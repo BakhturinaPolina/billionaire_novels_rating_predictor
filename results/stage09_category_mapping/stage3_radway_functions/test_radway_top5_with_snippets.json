@@ -1,0 +1,150 @@
+{
+  "0": {
+    "topic_id": 0,
+    "main_category_id": "4.4",
+    "secondary_category_id": "6.1",
+    "other_plausible_ids": [
+      "3.3"
+    ],
+    "is_noise": false,
+    "rationale": "The topic revolves around the main couple negotiating terms and expectations for their relationship, indicating a conflict or strain in their dynamic (4.4). The keywords 'deal', 'work', and 'promise' suggest a power dynamic or negotiation, tying it to the hero's elite work and business world (6.1). The ambivalence in their discussion also hints at internal conflict (3.3).",
+    "radway_functions": {
+      "topic_id": 0,
+      "radway_main_id": "R7",
+      "radway_secondary_id": null,
+      "radway_other_plausible_ids": [],
+      "radway_phase": "I",
+      "radway_is_none": false,
+      "radway_confidence": "low",
+      "radway_rationale": "The topic's main category 'Conflict, Distance & Breakup Threats' suggests a separation between the hero and heroine, fitting R7. However, the lack of specific keywords or scene summary makes this a low confidence match.",
+      "radway_main_name": "Hero and heroine are physically or emotionally separated",
+      "radway_phase_name": "Initial Conflict & Isolation"
+    }
+  },
+  "1": {
+    "topic_id": 1,
+    "main_category_id": "2.2",
+    "secondary_category_id": null,
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The high-weight keywords like 'hips', 'tongue', 'breasts', 'nipples', and 'mouth' indicate explicit physical affection. The label 'Intimate Breast And Nipple Kissing' and the scene summary confirm this. The primary category 'sexual_content' also supports this choice.",
+    "radway_functions": {
+      "topic_id": 1,
+      "radway_main_id": "none",
+      "radway_secondary_id": null,
+      "radway_other_plausible_ids": [],
+      "radway_phase": "NA",
+      "radway_is_none": true,
+      "radway_confidence": "high",
+      "radway_rationale": "This topic has no keywords, label, or scene summary, and it's not assigned to any primary or secondary categories in Stage 1. Its Stage 2 taxonomy is not related to the main couple's relationship trajectory, so it does not primarily realise any of Radway's functions.",
+      "radway_main_name": "None of the above",
+      "radway_phase_name": "Not a narrative function"
+    }
+  },
+  "2": {
+    "topic_id": 2,
+    "main_category_id": "2.3",
+    "secondary_category_id": null,
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The topic keywords and scene summary explicitly describe sexual acts, specifically clitoral stimulation, which falls under 'Explicit Sexual Acts' (2.3).",
+    "radway_functions": {
+      "topic_id": 2,
+      "radway_main_id": "R12",
+      "radway_secondary_id": null,
+      "radway_other_plausible_ids": [],
+      "radway_phase": "III",
+      "radway_is_none": false,
+      "radway_confidence": "high",
+      "radway_rationale": "This topic's main category, 'Explicit Sexual Acts', directly corresponds to Radway's R12, as it involves the heroine responding sexually and emotionally to the hero, marking the commitment and restoration phase of the romance narrative.",
+      "radway_main_name": "Heroine responds sexually and emotionally",
+      "radway_phase_name": "Commitment & Restoration"
+    }
+  },
+  "3": {
+    "topic_id": 3,
+    "main_category_id": "5.2",
+    "secondary_category_id": "6.4",
+    "other_plausible_ids": [
+      "4.2"
+    ],
+    "is_noise": false,
+    "rationale": "The topic revolves around social interactions and shared meals, fitting 'Friends & Social Circles' (5.2). Additionally, the invitation could involve financial considerations, linking to 'Money, Housing & Economic Security' (6.4). The topic also hints at relationship bonding (4.2).",
+    "radway_functions": {
+      "topic_id": 3,
+      "radway_main_id": "none",
+      "radway_secondary_id": null,
+      "radway_other_plausible_ids": [],
+      "radway_phase": "NA",
+      "radway_is_none": true,
+      "radway_confidence": "high",
+      "radway_rationale": "This topic has no keywords, no label or scene summary, and its Stage 1 categories are empty. Its Stage 2 taxonomy groups are not directly related to the main couple's relationship trajectory, focusing instead on social circles and economic security. Therefore, it does not primarily realise any of Radway's functions in the heroine–hero narrative arc.",
+      "radway_main_name": "None of the above",
+      "radway_phase_name": "Not a narrative function"
+    }
+  },
+  "4": {
+    "topic_id": 4,
+    "main_category_id": "3.3",
+    "secondary_category_id": "4.2",
+    "other_plausible_ids": [
+      "3.2"
+    ],
+    "is_noise": false,
+    "rationale": "The topic revolves around internal conflict and confusion about a relationship ('feelings', 'relationship', 'kind'), which fits 'Ambivalence & Internal Conflict' (3.3). Additionally, it involves a conversation about the relationship, fitting 'Bonding, Everyday Intimacy & Growth' (4.2). The topic also hints at negative emotions (e.g., 'confusion'), making 'Negative Emotions & Distress' (3.2) a plausible secondary fit.",
+    "radway_functions": {
+      "topic_id": 4,
+      "radway_main_id": "R3",
+      "radway_secondary_id": null,
+      "radway_other_plausible_ids": [],
+      "radway_phase": "I",
+      "radway_is_none": false,
+      "radway_confidence": "medium",
+      "radway_rationale": "This topic centres around the hero's ambiguous behaviour, which is a common narrative function in Phase I of romance novels. The hero's mixed signals create confusion and tension, often leading to misunderstandings between the hero and heroine.",
+      "radway_main_name": "Hero responds ambiguously to heroine",
+      "radway_phase_name": "Initial Conflict & Isolation"
+    }
+  },
+  "5": {
+    "topic_id": 5,
+    "main_category_id": "3.2",
+    "secondary_category_id": "4.4",
+    "other_plausible_ids": [
+      "5.1"
+    ],
+    "is_noise": false,
+    "rationale": "The topic revolves around the protagonist's internal struggle and negative emotions ('reflects', 'wondering', 'lost her way'), indicating 'Negative Emotions & Distress' (3.2). The context of a long-term relationship suggests 'Conflict, Distance & Breakup Threats' (4.4). The mention of 'years together' also hints at 'Family & Kinship' (5.1) as a plausible secondary dimension."
+  },
+  "6": {
+    "topic_id": 6,
+    "main_category_id": "8.2",
+    "secondary_category_id": null,
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The topic keywords and scene summary revolve around a social setting with the couple drinking wine at a table, which fits best under 'Public & Leisure Spaces'."
+  },
+  "7": {
+    "topic_id": 7,
+    "main_category_id": "4.3",
+    "secondary_category_id": "3.3",
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The topic revolves around the couple's struggle to define their relationship ('deal', 'choice', 'necessary', 'need'), indicating a misunderstanding or secret ('problem', 'fault'), which falls under 'Secrets, Misunderstandings & Hidden Information' (4.3). The internal conflict and mixed feelings ('true', 'point') suggest 'Ambivalence & Internal Conflict' (3.3)."
+  },
+  "8": {
+    "topic_id": 8,
+    "main_category_id": "3.2",
+    "secondary_category_id": null,
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The keywords 'feelings', 'thought', 'choice', and 'words' indicate internal emotional turmoil, fitting 'Negative Emotions & Distress'. The label 'Unclear Relationship Feelings' and primary category 'romance_core' further support this."
+  },
+  "9": {
+    "topic_id": 9,
+    "main_category_id": "5.3",
+    "secondary_category_id": "4.1",
+    "other_plausible_ids": [],
+    "is_noise": false,
+    "rationale": "The topic revolves around planning a wedding ceremony, which is a social event and a significant step in the relationship trajectory of the main couple."
+  }
+}

@@ -175,6 +175,7 @@ def load_bertopic_model(
     pareto_rank: int = 1,
     use_native: bool = False,
     model_suffix: str = "",
+    stage_subfolder: str | None = None,
 ) -> tuple[RetrainableBERTopicModel | None, BERTopic]:
     """
     Load the retrained BERTopic model from either pickle wrapper or native safetensors.
@@ -185,10 +186,20 @@ def load_bertopic_model(
         pareto_rank: Model rank
         use_native: If True, load native safetensors; if False, load pickle wrapper
         model_suffix: Optional suffix to append to model filename/directory (e.g., "_with_noise_labels")
+        stage_subfolder: Optional stage subfolder (e.g., "stage07_topic_quality") to load model from
         
     Returns:
         Tuple of (wrapper or None, BERTopic model)
     """
+    # Adjust base_dir to include stage subfolder if specified
+    # When stage_subfolder is provided, the path structure is:
+    # base_dir/embedding_model/stage_subfolder/model_file
+    # So we need to pass base_dir/embedding_model/stage_subfolder as base_dir
+    # and empty string as embedding_model to avoid duplication
+    if stage_subfolder:
+        base_dir = Path(base_dir) / embedding_model / stage_subfolder
+        embedding_model = "."  # Use "." to avoid path duplication (Path("a") / "." = Path("a"))
+    
     if use_native:
         topic_model = load_native_bertopic_model(
             base_dir=base_dir,
@@ -1024,13 +1035,20 @@ def compare_topics_sources(
 def integrate_labels_to_bertopic(
     topic_model: BERTopic,
     topic_labels: dict[int, str],
+    topic_metadata: dict[int, dict[str, Any]] | None = None,
 ) -> None:
     """
     Integrate generated labels back into BERTopic model.
     
+    Optionally also stores full metadata (keywords, categories, etc.) as a custom attribute
+    for easier access during analysis.
+    
     Args:
         topic_model: BERTopic model instance
         topic_labels: Dictionary mapping topic_id to label
+        topic_metadata: Optional dictionary mapping topic_id to full metadata dict
+                       (includes label, keywords, primary_categories, secondary_categories,
+                        is_noise, rationale, scene_summary, etc.)
     """
     with stage_timer_local("Integrating labels into BERTopic"):
         try:
@@ -1041,6 +1059,14 @@ def integrate_labels_to_bertopic(
                 "Successfully integrated %d labels into BERTopic model",
                 len(topic_labels),
             )
+            
+            # Store full metadata as custom attribute if provided
+            if topic_metadata is not None:
+                topic_model.topic_metadata_ = topic_metadata
+                LOGGER.info(
+                    "Stored full metadata for %d topics in topic_metadata_ attribute",
+                    len(topic_metadata),
+                )
         except Exception as e:
             LOGGER.error("Error integrating labels into BERTopic: %s", e)
             raise

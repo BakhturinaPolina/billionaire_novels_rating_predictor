@@ -1,0 +1,72 @@
+{
+  "stage08_models": [
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage08_llm_labeling/model_1_with_llm_labels.pkl",
+      "file_size_mb": 4795.2353801727295,
+      "num_topics": 368,
+      "has_labels": true,
+      "num_labels": 369,
+      "has_taxonomy_metadata": false,
+      "num_taxonomy_mappings": 0,
+      "model_name": "model_1_with_llm_labels.pkl"
+    },
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage08_llm_labeling/model_1_with_llm_labels_thedrummer_cydonia-24b-v4.1.pkl",
+      "file_size_mb": 4795.236241340637,
+      "num_topics": 368,
+      "has_labels": true,
+      "num_labels": 369,
+      "has_taxonomy_metadata": false,
+      "num_taxonomy_mappings": 0,
+      "model_name": "model_1_with_llm_labels_thedrummer_cydonia-24b-v4.1.pkl"
+    }
+  ],
+  "stage09_models": [
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_llm_labels_and_metadata_disambiguated.pkl",
+      "file_size_mb": 4795.726324081421,
+      "num_topics": 368,
+      "has_labels": true,
+      "num_labels": 369,
+      "has_taxonomy_metadata": true,
+      "num_taxonomy_mappings": 361,
+      "model_name": "model_1_with_llm_labels_and_metadata_disambiguated.pkl"
+    },
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_llm_labels_disambiguated.pkl",
+      "file_size_mb": 4795.38102722168,
+      "num_topics": 368,
+      "has_labels": true,
+      "num_labels": 369,
+      "has_taxonomy_metadata": false,
+      "num_taxonomy_mappings": 0,
+      "model_name": "model_1_with_llm_labels_disambiguated.pkl"
+    },
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories.pkl",
+      "file_size_mb": 4795.378870010376,
+      "num_topics": 368,
+      "has_labels": true,
+      "num_labels": 369,
+      "has_taxonomy_metadata": false,
+      "num_taxonomy_mappings": 0,
+      "model_name": "model_1_with_categories.pkl"
+    }
+  ],
+  "taxonomy_json_files": [
+    {
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_test_top10.json",
+      "name": "taxonomy_mappings_test_top10.json",
+      "num_topics": 10
+    }
+  ],
+  "recommendations": [
+    {
+      "stage": "stage09_category_mapping",
+      "model": "model_1_with_llm_labels_and_metadata_disambiguated.pkl",
+      "path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_llm_labels_and_metadata_disambiguated.pkl",
+      "reason": "Has taxonomy metadata embedded in model"
+    }
+  ],
+  "warnings": []
+}

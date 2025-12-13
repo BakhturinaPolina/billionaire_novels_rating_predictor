@@ -510,9 +510,11 @@ def main() -> None:
                     topic_id: data["label"] 
                     for topic_id, data in topic_labels.items()
                 }
+                # Also pass full metadata (includes keywords, categories, etc.)
                 integrate_labels_to_bertopic(
                     topic_model=topic_model,
                     topic_labels=labels_only,
+                    topic_metadata=topic_labels,  # Full metadata dict
                 )
                 print("[LABELING_CMD] ✓ Labels integrated into BERTopic model")
                 print("[LABELING_CMD]   (Labels will appear in BERTopic visualizations)")
