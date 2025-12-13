@@ -39,7 +39,7 @@ from __future__ import annotations
 
 import json
 import logging
-import os
+import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -294,9 +294,141 @@ def _taxonomy_block_for_prompt() -> str:
 
 TAXONOMY_TEXT_BLOCK = _taxonomy_block_for_prompt()
 
+# Map from taxonomy id → full node info for quick lookup
+TAXONOMY_BY_ID: Dict[str, Dict[str, str]] = {
+    node["id"]: node for node in TAXONOMY_NODES
+}
+
+VALID_TAXONOMY_IDS = set(TAXONOMY_BY_ID.keys())
+
+
+def enrich_with_category_names(result: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Add human-readable names and groups for the chosen taxonomy ids
+    to the result JSON, for better readability and downstream analysis.
+
+    Adds:
+      - main_category_name
+      - main_category_group
+      - secondary_category_name
+      - secondary_category_group
+      - other_plausible_categories: list[{id, name, group}]
+    """
+    def _info(cid: Optional[str]) -> tuple[Optional[str], Optional[str]]:
+        if cid is None:
+            return None, None
+        node = TAXONOMY_BY_ID.get(cid)
+        if not node:
+            return None, None
+        return node.get("name"), node.get("group")
+
+    main_id = result.get("main_category_id")
+    sec_id = result.get("secondary_category_id")
+
+    main_name, main_group = _info(main_id)
+    sec_name, sec_group = _info(sec_id)
+
+    result["main_category_name"] = main_name
+    result["main_category_group"] = main_group
+    result["secondary_category_name"] = sec_name
+    result["secondary_category_group"] = sec_group
+
+    # Expand other_plausible_ids into rich objects, but keep ids for backwards compatibility
+    other_ids = result.get("other_plausible_ids", [])
+    if not isinstance(other_ids, list):
+        other_ids = []
+
+    other_categories = []
+    for cid in other_ids:
+        if not isinstance(cid, str):
+            continue
+        node = TAXONOMY_BY_ID.get(cid)
+        if not node:
+            continue
+        other_categories.append(
+            {
+                "id": cid,
+                "name": node.get("name"),
+                "group": node.get("group"),
+            }
+        )
+
+    result["other_plausible_categories"] = other_categories
+    return result
+
 
 # ---------------------------------------------------------------------------
-# 2. System + user prompts for zero-shot taxonomy mapping
+# 2. Domain heuristics for romance-specific corrections
+# ---------------------------------------------------------------------------
+
+EXPLICIT_EROGENOUS_TERMS = {
+    "breast", "breasts", "boob", "boobs",
+    "nipple", "nipples",
+    "clit", "clitoris",
+    "pussy", "cunt",
+    "cock", "dick", "penis",
+}
+
+VIOLENCE_TERMS = {
+    "punch", "punches", "hit", "hits", "kick", "kicks",
+    "gun", "guns", "knife", "stab", "stabbed",
+    "blood", "bleeding", "fight", "fighting",
+    "attack", "attacked", "assault",
+}
+
+
+def apply_domain_heuristics(
+    result: Dict[str, Any],
+    topic_metadata: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Post-hoc domain-specific fixes for common borderline cases.
+    Operates in-place on result and returns it.
+    """
+    main_id = result.get("main_category_id")
+    secondary_id = result.get("secondary_category_id")
+    primary_cats = topic_metadata.get("primary_categories", []) or []
+    keywords = [str(k).lower() for k in topic_metadata.get("keywords", []) or []]
+
+    # 1) If sexual_content + explicit erogenous terms, prefer 2.3 over 2.2
+    if (
+        "sexual_content" in primary_cats
+        and main_id == "2.2"
+        and any(term in kw for kw in keywords for term in EXPLICIT_EROGENOUS_TERMS)
+    ):
+        if secondary_id == "2.3":
+            secondary_id = None
+        result["secondary_category_id"] = secondary_id
+        result["main_category_id"] = "2.3"
+        main_id = "2.3"  # keep in sync
+
+    # 2) If work_or_school primary but mapped somewhere vague, nudge to 6.x
+    if (
+        "work_or_school" in primary_cats
+        and (main_id not in {"6.1", "6.2", "6.3", "6.4", "6.5"} and main_id != "noise")
+    ):
+        # only override if clearly not relationship-only
+        result["secondary_category_id"] = main_id
+        result["main_category_id"] = "6.1"  # generic work anchor
+        main_id = "6.1"  # keep in sync
+
+    # 3) Violence heuristic: only if NOT a sexual_content topic
+    # Prevents "intense foreplay with blood/veins/heart racing" from being hijacked into violence
+    if (
+        "sexual_content" not in primary_cats
+        and any(v in kw for kw in keywords for v in VIOLENCE_TERMS)
+    ):
+        if main_id != "7.2":
+            # if main is non-7.x, demote it to secondary
+            if main_id not in {"noise", "7.1", "7.3"}:
+                result["secondary_category_id"] = main_id
+            result["main_category_id"] = "7.2"
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# 3. System + user prompts for zero-shot taxonomy mapping
 #    Optimized for Mistral-Nemo, JSON-only output, similar style to Stage 08.
 # ---------------------------------------------------------------------------
 
@@ -505,7 +637,7 @@ Do NOT include explanations outside the JSON.
 
 
 # ---------------------------------------------------------------------------
-# 3. Core function: classify a single topic into the taxonomy
+# 4. Core function: classify a single topic into the taxonomy
 # ---------------------------------------------------------------------------
 
 def classify_topic_to_taxonomy_openrouter(
@@ -554,8 +686,18 @@ def classify_topic_to_taxonomy_openrouter(
     Returns
     -------
     Dict with keys:
-        "topic_id", "main_category_id", "secondary_category_id",
-        "other_plausible_ids", "is_noise", "rationale"
+        "topic_id",
+        "main_category_id",
+        "secondary_category_id",
+        "other_plausible_ids",
+        "is_noise",
+        "confidence",
+        "rationale",
+        "main_category_name",
+        "main_category_group",
+        "secondary_category_name",
+        "secondary_category_group",
+        "other_plausible_categories" (list of {id, name, group})
     """
     keywords = topic_metadata.get("keywords", [])
     label = topic_metadata.get("label", "")
@@ -619,9 +761,17 @@ def classify_topic_to_taxonomy_openrouter(
     # Extract JSON (strip optional code fences defensively)
     json_content = content
     if "```json" in json_content:
-        json_content = json_content.split("```json")[1].split("```")[0].strip()
+        json_content = json_content.split("```json", 1)[1].split("```", 1)[0].strip()
     elif "```" in json_content:
-        json_content = json_content.split("```")[1].split("```")[0].strip()
+        # Any fenced code block
+        json_content = json_content.split("```", 1)[1].split("```", 1)[0].strip()
+
+    # Fallback: try to grab the first {...} span
+    if not json_content.strip().startswith("{"):
+        first_brace = json_content.find("{")
+        last_brace = json_content.rfind("}")
+        if first_brace != -1 and last_brace != -1 and last_brace > first_brace:
+            json_content = json_content[first_brace : last_brace + 1]
 
     try:
         result = json.loads(json_content)
@@ -644,15 +794,13 @@ def classify_topic_to_taxonomy_openrouter(
     sec_id = result.get("secondary_category_id", None)
     is_noise = bool(result.get("is_noise", False))
 
-    valid_ids = {node["id"] for node in TAXONOMY_NODES}
-
     # If model says noise, enforce noise semantics
     if is_noise:
         result["main_category_id"] = "noise"
         result["secondary_category_id"] = None
     else:
         # Fix missing or invalid main_category_id
-        if not main_id or main_id not in valid_ids or main_id == "noise":
+        if not main_id or main_id not in VALID_TAXONOMY_IDS or main_id == "noise":
             # If previous stage already marked this topic as noise, keep it noise
             if prev_is_noise:
                 result["main_category_id"] = "noise"
@@ -676,7 +824,7 @@ def classify_topic_to_taxonomy_openrouter(
                 result["is_noise"] = False
 
         # Validate secondary ID
-        if sec_id is not None and sec_id not in valid_ids:
+        if sec_id is not None and sec_id not in VALID_TAXONOMY_IDS:
             result["secondary_category_id"] = None
 
     # Normalize other_plausible_ids
@@ -687,7 +835,7 @@ def classify_topic_to_taxonomy_openrouter(
     for cid in other_ids:
         if (
             isinstance(cid, str)
-            and cid in valid_ids
+            and cid in VALID_TAXONOMY_IDS
             and cid not in {result["main_category_id"], result.get("secondary_category_id")}
         ):
             filtered_other.append(cid)
@@ -706,19 +854,28 @@ def classify_topic_to_taxonomy_openrouter(
         confidence = confidence.lower()
     result["confidence"] = confidence
 
+    # Apply domain-specific adjustments
+    result = apply_domain_heuristics(result, topic_metadata)
+
+    # Add human-readable names/groups for the chosen taxonomy ids
+    result = enrich_with_category_names(result)
+
     LOGGER.info(
-        "Topic %d → main=%s, secondary=%s, noise=%s",
+        "Topic %d → main=%s (%s), secondary=%s (%s), noise=%s, confidence=%s",
         topic_id,
         result.get("main_category_id"),
+        result.get("main_category_name"),
         result.get("secondary_category_id"),
+        result.get("secondary_category_name"),
         result.get("is_noise"),
+        result.get("confidence"),
     )
 
     return result
 
 
 # ---------------------------------------------------------------------------
-# 4. Batch mapping utility: map all topics from a labels JSON file
+# 5. Batch mapping utility: map all topics from a labels JSON file
 # ---------------------------------------------------------------------------
 
 def load_topic_metadata(labels_json_path: Path) -> Dict[int, Dict[str, Any]]:
@@ -948,6 +1105,112 @@ def map_all_topics_to_taxonomy(
     return taxonomy_map
 
 
+def update_model_with_taxonomy_mappings(
+    *,
+    taxonomy_json_path: Path,
+    base_dir: Path = DEFAULT_BASE_DIR,
+    embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+    model_suffix: str = "_with_llm_labels",
+    source_stage_subfolder: str = "stage08_llm_labeling",
+    target_stage_subfolder: str = "stage09_category_mapping",
+    target_model_suffix: str = "_with_taxonomy_mappings",
+) -> Path:
+    """
+    Load BERTopic model, attach taxonomy mappings, and save to new location.
+    
+    Parameters
+    ----------
+    taxonomy_json_path:
+        Path to taxonomy mappings JSON file.
+    base_dir:
+        Base directory for models.
+    embedding_model:
+        Embedding model name.
+    model_suffix:
+        Suffix of source model to load.
+    source_stage_subfolder:
+        Stage subfolder where source model is located.
+    target_stage_subfolder:
+        Stage subfolder where updated model will be saved.
+    target_model_suffix:
+        Suffix for the updated model.
+        
+    Returns
+    -------
+    Path to the saved model directory.
+    """
+    LOGGER.info("Loading taxonomy mappings from %s", taxonomy_json_path)
+    with open(taxonomy_json_path, "r", encoding="utf-8") as f:
+        taxonomy_data = json.load(f)
+    
+    # Convert string keys to int
+    taxonomy_map: Dict[int, Dict[str, Any]] = {}
+    for k, v in taxonomy_data.items():
+        try:
+            tid = int(k)
+            taxonomy_map[tid] = v
+        except ValueError:
+            continue
+    
+    LOGGER.info("Loaded taxonomy mappings for %d topics", len(taxonomy_map))
+    
+    # Load source model
+    LOGGER.info("Loading source BERTopic model...")
+    LOGGER.info("  Base dir: %s", base_dir)
+    LOGGER.info("  Embedding model: %s", embedding_model)
+    LOGGER.info("  Model suffix: %s", model_suffix)
+    LOGGER.info("  Stage subfolder: %s", source_stage_subfolder)
+    
+    topic_model = load_native_bertopic_model(
+        base_dir=base_dir,
+        embedding_model=embedding_model,
+        pareto_rank=1,
+        model_suffix=model_suffix,
+        stage_subfolder=source_stage_subfolder,
+    )
+    
+    LOGGER.info("✓ Source model loaded successfully")
+    
+    # Attach taxonomy mappings to model
+    LOGGER.info("Attaching taxonomy mappings to model...")
+    topic_model.topic_taxonomy_ = taxonomy_map
+    LOGGER.info("✓ Taxonomy mappings attached to model.topic_taxonomy_")
+    
+    # Verify attachment
+    if hasattr(topic_model, "topic_taxonomy_") and topic_model.topic_taxonomy_:
+        LOGGER.info(
+            "✓ Verified: taxonomy mappings attached for %d topics",
+            len(topic_model.topic_taxonomy_)
+        )
+        # Log sample
+        sample_topic = list(taxonomy_map.keys())[0]
+        sample_data = taxonomy_map[sample_topic]
+        LOGGER.info(
+            "  Sample taxonomy keys for topic %d: %s",
+            sample_topic,
+            list(sample_data.keys())[:10],  # First 10 keys
+        )
+    else:
+        LOGGER.warning("⚠ Taxonomy mappings may not have been attached correctly")
+    
+    # Save model to target location
+    target_dir = base_dir / embedding_model / target_stage_subfolder
+    target_dir.mkdir(parents=True, exist_ok=True)
+    
+    model_dir = target_dir / f"model_1{target_model_suffix}"
+    
+    # Remove existing directory if it exists
+    if model_dir.exists() and model_dir.is_dir():
+        LOGGER.info("Removing existing model directory: %s", model_dir)
+        shutil.rmtree(model_dir)
+    
+    LOGGER.info("Saving updated model to %s", model_dir)
+    topic_model.save(str(model_dir))
+    LOGGER.info("✓ Model saved successfully to %s", model_dir)
+    
+    return model_dir
+
+
 if __name__ == "__main__":
     import argparse
 
@@ -1037,8 +1300,54 @@ if __name__ == "__main__":
         action="store_true",
         help="Include original metadata from labels JSON (keywords, label, categories, scene_summary, label_rationale) in output. Useful for manual evaluation of first N topics.",
     )
+    parser.add_argument(
+        "--log-level",
+        type=str,
+        default="INFO",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR"],
+        help="Logging verbosity.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Do not call the API, just print the first user prompt and exit.",
+    )
+    parser.add_argument(
+        "--save-model",
+        action="store_true",
+        help="After taxonomy mapping, update and save the BERTopic model with taxonomy mappings.",
+    )
+    parser.add_argument(
+        "--target-model-suffix",
+        type=str,
+        default="_with_taxonomy_mappings",
+        help="Suffix for the saved model (default: _with_taxonomy_mappings).",
+    )
 
     args = parser.parse_args()
+
+    # Set log level
+    logging.getLogger().setLevel(args.log_level)
+
+    # Handle dry-run mode
+    if args.dry_run:
+        meta = load_topic_metadata(args.labels_json)
+        first_tid = sorted(meta.keys())[0]
+        tm = meta[first_tid]
+        user_prompt = TAXONOMY_ZEROSHOT_USER_PROMPT.format(
+            topic_id=first_tid,
+            keywords=", ".join(tm.get("keywords", [])),
+            label=tm.get("label", "(no label)"),
+            scene_summary=tm.get("scene_summary", "(no scene summary)"),
+            primary_categories=", ".join(tm.get("primary_categories", [])),
+            secondary_categories=", ".join(tm.get("secondary_categories", [])),
+            snippets="(none)",
+        )
+        print("=== SYSTEM PROMPT ===")
+        print(TAXONOMY_ZEROSHOT_SYSTEM_PROMPT)
+        print("\n=== USER PROMPT (topic", first_tid, ") ===")
+        print(user_prompt)
+        raise SystemExit(0)
 
     client, _ = load_openrouter_client(
         api_key=args.api_key or "",
@@ -1061,4 +1370,20 @@ if __name__ == "__main__":
         limit_topics=args.limit_topics,
         include_source_metadata=args.include_source_metadata,
     )
+    
+    # Update and save model if requested
+    if args.save_model:
+        LOGGER.info("\n" + "=" * 80)
+        LOGGER.info("Updating BERTopic model with taxonomy mappings")
+        LOGGER.info("=" * 80)
+        model_path = update_model_with_taxonomy_mappings(
+            taxonomy_json_path=args.output_json,
+            base_dir=args.base_dir,
+            embedding_model=args.embedding_model,
+            model_suffix=args.model_suffix,
+            source_stage_subfolder=args.model_stage,
+            target_stage_subfolder="stage09_category_mapping",
+            target_model_suffix=args.target_model_suffix,
+        )
+        LOGGER.info("✓ Model update complete. Saved to: %s", model_path)
 
