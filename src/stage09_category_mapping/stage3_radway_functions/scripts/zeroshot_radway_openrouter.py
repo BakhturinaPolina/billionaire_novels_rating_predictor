@@ -288,20 +288,37 @@ INTERPRETATION HINTS
 - Functions R11–R13 belong to Phase III (commitment, restoration, HEA).
 
 - Topics whose Stage 2 taxonomy group is "Relationship Trajectory (Main Couple)"
-  and which centre on conflict, misunderstanding, or distance are strong
-  candidates for R1–R7.
+  OR whose primary_categories include "romance_core" are almost always
+  part of the heroine–hero arc. **For these topics, you MUST choose one
+  of R1–R13 as radway_main_id. Do NOT use "none" for them unless the
+  topic clearly focuses only on minor characters.**
 
 - Topics whose taxonomy group is "Relationship Trajectory (Main Couple)" and
-  express tenderness, comfort, apology, or reinterpretation are candidates for
-  R8–R10.
+  centre on conflict, misunderstanding, hurt feelings, or emotional distance
+  are strong candidates for R1–R7.
+
+- Topics whose taxonomy group is "Relationship Trajectory (Main Couple)" and
+  express tenderness, comfort, apology, emotional safety, or reinterpretation
+  (e.g. late-night conversations about feelings, weekends discussing problems)
+  are candidates for R8–R10.
 
 - Topics whose taxonomy group is "Relationship Trajectory (Main Couple)" OR
   "Sexuality, Attraction & Intimacy" and involve explicit commitments,
-  reconciliations, or union scenes are candidates for R11–R13.
+  reconciliations, proposals, weddings, or union scenes are candidates for
+  R11–R13.
 
-- Many topics about work, money, social worlds, or background settings will be
-  better labelled as "none" unless they clearly participate in one of the
-  narrative functions above.
+- Topics whose main taxonomy group is "Sexuality, Attraction & Intimacy":
+  - If the focus is early attraction or the heroine feeling objectified,
+    especially before commitment, R4 is often appropriate.
+  - If the focus is explicit sexual and emotional union, especially after
+    commitment, R12 is often appropriate.
+
+- Topics whose main taxonomy group is "Emotions, Cognition & Inner Life" AND
+  whose primary_categories include "relationship_conflict" can also realise
+  R1–R7 (e.g., shame, self-blame, vulnerability, or emotional withdrawal).
+
+- Topics mainly about work, money, social worlds, settings, or objects
+  (without a strong heroine–hero dynamic) are the best candidates for "none".
 
 OUTPUT CONSTRAINTS
 
@@ -371,6 +388,14 @@ FIELD RULES
 - REQUIRED boolean.
 
 - true iff radway_main_id == "none".
+
+- "none" is a LAST RESORT label:
+  - Use it only when the topic is clearly about background context
+    (work, wealth, spaces, side characters, general atmosphere)
+    and NOT about the heroine–hero relationship.
+  - If the topic is tagged as romance_core or belongs to the
+    "Relationship Trajectory (Main Couple)" or "Sexuality, Attraction & Intimacy"
+    taxonomy groups, you should almost NEVER use "none".
 
 - If true, radway_secondary_id MUST be null and radway_other_plausible_ids MUST be [].
 
@@ -954,6 +979,111 @@ def load_bertopic_model_for_snippets(
 
 
 # ---------------------------------------------------------------------------
+# 5.5. Fallback heuristic: fix obviously-wrong "none" decisions
+# ---------------------------------------------------------------------------
+
+def apply_radway_fallback_heuristics(
+    radway_result: Dict[str, Any],
+    topic_entry: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Post-hoc fix for cases where the model chose radway_main_id == "none"
+    even though the topic is clearly part of the heroine–hero trajectory.
+
+    Heuristics are conservative and only trigger when:
+    - taxonomy_main_group is clearly romance-relevant, and
+    - the topic is tagged as romance_core or sexual_content-like,
+    - AND radway_main_id == "none".
+    """
+    main_id = radway_result.get("radway_main_id")
+    if main_id != "none":
+        return radway_result  # nothing to fix
+
+    # Extract taxonomy info
+    # Try direct field first, then lookup from TAXONOMY_BY_ID
+    tax_id = topic_entry.get("main_category_id")
+    tax_group = topic_entry.get("main_category_group", "")
+    if not tax_group and tax_id:
+        tax_node = TAXONOMY_BY_ID.get(tax_id, {})
+        tax_group = tax_node.get("group", "")
+    tax_id_str = str(tax_id) if tax_id else ""
+    
+    # Extract primary_categories (handle both list and string formats)
+    source_metadata = topic_entry.get("source_metadata", {})
+    prim = source_metadata.get("primary_categories", topic_entry.get("primary_categories", []))
+    
+    # Normalize to list
+    if isinstance(prim, str):
+        prim_list = [p.strip() for p in prim.split(",") if p.strip()]
+    elif isinstance(prim, list):
+        prim_list = [str(p).strip() for p in prim if p]
+    else:
+        prim_list = []
+
+    def has_primary(tag: str) -> bool:
+        return any(tag == p for p in prim_list)
+
+    # Only intervene for romance-relevant topics
+    romance_group = tax_group in {
+        "Relationship Trajectory (Main Couple)",
+        "Sexuality, Attraction & Intimacy",
+    }
+    romance_tag = has_primary("romance_core") or has_primary("sexual_content")
+
+    if not (romance_group or romance_tag):
+        return radway_result
+
+    # Default mapping: choose a plausible Radway ID based on conflict/affection/sex
+    fallback_id = None
+
+    # 1) Conflict-heavy romantic topics → Phase I antagonism
+    if has_primary("relationship_conflict") or tax_id_str in {"4.3", "4.4"}:
+        fallback_id = "R2"  # heroine reacts antagonistically
+
+    # 2) Sexual topics
+    elif tax_group == "Sexuality, Attraction & Intimacy":
+        # If taxonomy / label distinguish, you can refine this,
+        # but as a simple rule:
+        if tax_id_str == "2.3":
+            fallback_id = "R12"  # heroine responds sexually & emotionally
+        elif tax_id_str in {"2.1", "2.2"}:
+            fallback_id = "R4"   # heroine interprets behaviour as sexual interest
+
+    # 3) Generic but positive bonding topics → warm response
+    elif tax_group == "Relationship Trajectory (Main Couple)":
+        fallback_id = "R9"  # heroine responds warmly to hero's tenderness
+
+    # If we found a fallback, override main_id and re-derive phase/name
+    if fallback_id and fallback_id in RADWAY_BY_ID:
+        fn_info = RADWAY_BY_ID[fallback_id]
+        radway_result["radway_main_id"] = fallback_id
+        radway_result["radway_is_none"] = False
+        radway_result["radway_secondary_id"] = radway_result.get("radway_secondary_id")
+        radway_result["radway_other_plausible_ids"] = radway_result.get(
+            "radway_other_plausible_ids", []
+        )
+        radway_result["radway_phase"] = fn_info["phase"]
+        radway_result["radway_main_name"] = fn_info["name"]
+        radway_result["radway_phase_name"] = fn_info["phase_name"]
+
+        # Mark as low confidence if not already lower
+        conf = radway_result.get("radway_confidence", "low").lower()
+        if conf not in {"low", "medium", "high"}:
+            conf = "low"
+        radway_result["radway_confidence"] = "low" if conf == "medium" or conf == "high" else conf
+
+        # NEW: replace, don't append, the rationale
+        radway_result["radway_rationale"] = (
+            f"Heuristic fallback: original classification was 'none', but taxonomy and "
+            f"primary_categories indicate a romance-core topic in group "
+            f"'{tax_group}'. "
+            f"Reassigned to {fallback_id} ({fn_info['name']})."
+        )
+
+    return radway_result
+
+
+# ---------------------------------------------------------------------------
 # 6. Batch mapping: map all topics to Radway functions
 # ---------------------------------------------------------------------------
 
@@ -1068,6 +1198,9 @@ def map_all_topics_to_radway(
             max_snippets=8,
             max_chars_per_snippet=400,
         )
+
+        # NEW: fix some overcautious "none" outputs
+        result = apply_radway_fallback_heuristics(result, topic_entry)
 
         radway_results[tid] = result
 
