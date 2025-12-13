@@ -35,11 +35,19 @@ Additionally, topics that don't fit any function are classified as **"none"**.
 
 ### Architecture
 
-The implementation uses the **taxonomy JSON from Stage 2 as the single source of truth**, which already contains:
+The implementation uses **taxonomy + source metadata as the single source of truth**, which can be loaded from:
+1. **JSON file** (e.g., `taxonomy_mappings_*.json` from Stage 2)
+2. **BERTopic model** (recommended: `model_1_with_llm_labels_and_metadata_disambiguated.pkl`)
+
+Models can store taxonomy in either:
+- `topic_taxonomy_` attribute (e.g., `model_1_with_taxonomy_mappings`) - taxonomy stored separately
+- `topic_metadata_` attribute (e.g., `model_1_with_llm_labels_and_metadata_disambiguated.pkl`) - taxonomy merged with source metadata
+
+The code automatically detects and merges both sources. Recommended models:
 - Taxonomy mappings (main_category_id, secondary_category_id, etc.)
 - Source metadata (label, keywords, scene_summary, primary/secondary categories)
 
-The Radway function mappings are merged back into the taxonomy JSON under a `"radway_functions"` key, preserving all existing fields.
+The Radway function mappings are merged back into the taxonomy data under a `"radway_functions"` key, preserving all existing fields.
 
 ### Zero-Shot Classification Approach
 
@@ -67,7 +75,27 @@ The Radway function mappings are merged back into the taxonomy JSON under a `"ra
 
 ### Main Script: `zeroshot_radway_openrouter.py`
 
-Classify all topics to Radway functions:
+Classify all topics to Radway functions. Supports loading taxonomy + source metadata from either:
+1. **JSON file** (e.g., `taxonomy_mappings_*.json`)
+2. **BERTopic model** (recommended: `model_1_with_llm_labels_and_metadata_disambiguated.pkl`)
+
+#### Using Recommended Model (Recommended)
+
+Load directly from the recommended model with embedded taxonomy metadata:
+
+```bash
+python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_radway_openrouter.py \
+    --taxonomy-json models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_taxonomy_mappings \
+    --output-json path/to/taxonomy_with_radway.json \
+    --model-name mistralai/Mistral-Nemo-Instruct-2407 \
+    --temperature 0.25 \
+    --max-tokens 220 \
+    --limit-topics 10  # Optional: for testing
+```
+
+#### Using JSON File (Alternative)
+
+If you have a taxonomy mappings JSON file:
 
 ```bash
 python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_radway_openrouter.py \
@@ -80,7 +108,10 @@ python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_rad
 ```
 
 **Key Arguments**:
-- `--taxonomy-json`: Path to Stage 2 taxonomy mappings JSON (required)
+- `--taxonomy-json`: Path to Stage 2 taxonomy mappings JSON file OR BERTopic model with embedded taxonomy metadata (required)
+  - If JSON: loads from file (e.g., `taxonomy_mappings_*.json`)
+  - If model (.pkl or directory): loads from model's `topic_metadata_` attribute (recommended)
+  - Recommended models: `model_1_with_taxonomy_mappings` or `model_1_with_llm_labels_and_metadata_disambiguated.pkl`
 - `--output-json`: Path to save merged JSON (required)
 - `--model-name`: OpenRouter model (default: `mistralai/Mistral-Nemo-Instruct-2407`)
 - `--api-key`: OpenRouter API key (optional, uses env var if not provided)
@@ -100,6 +131,10 @@ python src/stage09_category_mapping/stage3_radway_functions/scripts/update_model
     --source-model-suffix _with_taxonomy_mappings \
     --target-model-suffix _with_radway_mappings
 ```
+
+**Note**: The default source model is `_with_taxonomy_mappings`. The code supports both:
+- `_with_taxonomy_mappings`: Taxonomy in `topic_taxonomy_`, source metadata in `topic_metadata_` (if available)
+- `_with_llm_labels_and_metadata_disambiguated`: Taxonomy merged into `topic_metadata_` (see MODEL_COMPARISON_REPORT.md)
 
 ## Output Format
 

@@ -47,7 +47,7 @@ if __name__ == "__main__":
         "--source-model-suffix",
         type=str,
         default="_with_taxonomy_mappings",
-        help="Suffix of source model to load.",
+        help="Suffix of source model to load (default: _with_taxonomy_mappings, can also use _with_llm_labels_and_metadata_disambiguated).",
     )
 
     parser.add_argument(

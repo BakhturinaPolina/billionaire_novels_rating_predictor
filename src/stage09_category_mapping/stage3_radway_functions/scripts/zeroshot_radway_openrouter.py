@@ -466,10 +466,10 @@ Do NOT include explanations outside the JSON.
 
 
 # ---------------------------------------------------------------------------
-# 3. Helper: Load taxonomy JSON as source of truth
+# 3. Helper: Load taxonomy + source metadata (from JSON or model)
 # ---------------------------------------------------------------------------
 
-def load_topics_with_taxonomy(taxonomy_json_path: Path) -> Dict[int, Dict[str, Any]]:
+def load_topics_with_taxonomy_from_json(taxonomy_json_path: Path) -> Dict[int, Dict[str, Any]]:
     """
     Load Stage 2 taxonomy JSON (like taxonomy_mappings_*.json)
     and keep the full structure for each topic.
@@ -499,6 +499,120 @@ def load_topics_with_taxonomy(taxonomy_json_path: Path) -> Dict[int, Dict[str, A
         topics[tid] = v
 
     return topics
+
+
+def load_topics_with_taxonomy_from_model(model_path: Path) -> Dict[int, Dict[str, Any]]:
+    """
+    Load taxonomy + source metadata from BERTopic model's topic_metadata_ attribute.
+    
+    This follows the recommendation from MODEL_COMPARISON_REPORT.md to use
+    models with embedded taxonomy metadata (e.g., model_1_with_llm_labels_and_metadata_disambiguated.pkl).
+    
+    The model's topic_metadata_ should contain both:
+    - Taxonomy mappings (main_category_id, secondary_category_id, etc.)
+    - Source metadata (label, keywords, scene_summary, primary/secondary categories)
+    
+    Parameters
+    ----------
+    model_path:
+        Path to BERTopic model (.pkl file or directory).
+    
+    Returns
+    -------
+    Dict[int, Dict[str, Any]] mapping topic_id → full topic object with all fields.
+    
+    Raises
+    ------
+    ValueError:
+        If model doesn't have topic_metadata_ attribute or it's empty.
+    """
+    import pickle
+    
+    # Load model (handle both pickle wrapper and native format)
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model path does not exist: {model_path}")
+    
+    if model_path.suffix == ".pkl":
+        with open(model_path, "rb") as f:
+            loaded_obj = pickle.load(f)
+        
+        # Check if it's a RetrainableBERTopicModel wrapper
+        if hasattr(loaded_obj, "trained_topic_model") and loaded_obj.trained_topic_model is not None:
+            model = loaded_obj.trained_topic_model
+        elif isinstance(loaded_obj, BERTopic):
+            model = loaded_obj
+        else:
+            model = BERTopic.load(str(model_path))
+    else:
+        model = BERTopic.load(str(model_path))
+    
+    # Extract taxonomy + source metadata
+    # Models can have taxonomy in either topic_metadata_ (merged) or topic_taxonomy_ (separate)
+    # We need to merge both sources if available
+    
+    has_metadata = hasattr(model, "topic_metadata_") and model.topic_metadata_
+    has_taxonomy = hasattr(model, "topic_taxonomy_") and model.topic_taxonomy_
+    
+    if not has_metadata and not has_taxonomy:
+        raise ValueError(
+            f"Model at {model_path} does not have topic_metadata_ or topic_taxonomy_ attributes. "
+            "Use a model with embedded taxonomy mappings (e.g., model_1_with_taxonomy_mappings or "
+            "model_1_with_llm_labels_and_metadata_disambiguated.pkl)"
+        )
+    
+    # Start with topic_metadata_ if available (may already have taxonomy merged)
+    if has_metadata:
+        metadata = model.topic_metadata_
+    else:
+        metadata = {}
+    
+    # Merge taxonomy from topic_taxonomy_ if it exists separately
+    if has_taxonomy:
+        taxonomy = model.topic_taxonomy_
+        LOGGER.info("Found taxonomy in topic_taxonomy_ attribute, merging with topic_metadata_")
+        for tid, tax_data in taxonomy.items():
+            tid_int = int(tid) if isinstance(tid, str) else tid
+            if tid_int not in metadata:
+                metadata[tid_int] = {}
+            # Merge taxonomy fields into metadata
+            metadata[tid_int].update(tax_data)
+    
+    # Convert to dict with int keys
+    topics: Dict[int, Dict[str, Any]] = {}
+    for topic_id, topic_data in metadata.items():
+        # Handle both int and str keys
+        tid = int(topic_id) if isinstance(topic_id, str) else topic_id
+        topics[tid] = dict(topic_data)  # Make a copy
+    
+    LOGGER.info("Loaded taxonomy + source metadata for %d topics from model", len(topics))
+    return topics
+
+
+def load_topics_with_taxonomy(input_path: Path) -> Dict[int, Dict[str, Any]]:
+    """
+    Load taxonomy + source metadata from JSON file or BERTopic model.
+    
+    Automatically detects the source type:
+    - If path ends with .json, loads from JSON file
+    - If path ends with .pkl or is a directory, loads from model's topic_metadata_
+    
+    This is the single source of truth that contains:
+    - Taxonomy mappings (main_category_id, secondary_category_id, etc.)
+    - Source metadata (label, keywords, scene_summary, primary/secondary categories)
+    
+    Parameters
+    ----------
+    input_path:
+        Path to taxonomy mappings JSON file or BERTopic model.
+    
+    Returns
+    -------
+    Dict[int, Dict[str, Any]] mapping topic_id → full topic object with all fields.
+    """
+    if input_path.suffix == ".json":
+        return load_topics_with_taxonomy_from_json(input_path)
+    else:
+        return load_topics_with_taxonomy_from_model(input_path)
 
 
 def _format_taxonomy_for_prompt(topic_entry: Dict[str, Any]) -> Dict[str, str]:
@@ -779,7 +893,7 @@ def load_bertopic_model_for_snippets(
     embedding_model:
         Embedding model name (default: paraphrase-MiniLM-L6-v2).
     model_suffix:
-        Model suffix (default: "_with_taxonomy_mappings").
+        Model suffix (default: "_with_taxonomy_mappings" - can also use "_with_llm_labels_and_metadata_disambiguated").
     stage_subfolder:
         Optional stage subfolder (default: "stage09_category_mapping").
     max_docs_per_topic:
@@ -796,12 +910,17 @@ def load_bertopic_model_for_snippets(
         LOGGER.info("  Model suffix: %s", model_suffix)
         LOGGER.info("  Stage subfolder: %s", stage_subfolder)
 
+        # Construct path with stage subfolder
+        if stage_subfolder:
+            source_base_dir = base_dir / embedding_model / stage_subfolder
+        else:
+            source_base_dir = base_dir / embedding_model
+
         topic_model = load_native_bertopic_model(
-            base_dir=base_dir,
-            embedding_model=embedding_model,
+            base_dir=source_base_dir,
+            embedding_model=".",  # Use "." to avoid path duplication
             pareto_rank=1,
             model_suffix=model_suffix,
-            stage_subfolder=stage_subfolder,
         )
 
         LOGGER.info("✓ BERTopic model loaded successfully")
@@ -863,7 +982,10 @@ def map_all_topics_to_radway(
     Parameters
     ----------
     taxonomy_json_path:
-        Path to Stage 2 taxonomy mappings JSON (single source of truth).
+        Path to Stage 2 taxonomy mappings JSON file OR BERTopic model with embedded taxonomy metadata.
+        If JSON: loads from file (e.g., taxonomy_mappings_*.json).
+        If model (.pkl or directory): loads from model's topic_metadata_ attribute (recommended).
+        The recommended model is: model_1_with_llm_labels_and_metadata_disambiguated.pkl
     output_path:
         Path to write merged JSON (taxonomy + Radway mappings).
     client:
@@ -896,12 +1018,13 @@ def map_all_topics_to_radway(
             model_name=model_name,
         )
 
-    # Load taxonomy JSON (single source of truth)
+    # Load taxonomy + source metadata (from JSON or model)
     topics = load_topics_with_taxonomy(taxonomy_json_path)
     topic_ids = sorted(topics.keys())
     total = len(topic_ids)
 
-    LOGGER.info("Loaded taxonomy JSON for %d topics from %s", total, taxonomy_json_path)
+    input_type = "model" if taxonomy_json_path.suffix != ".json" else "JSON"
+    LOGGER.info("Loaded taxonomy + source metadata for %d topics from %s (%s)", total, taxonomy_json_path, input_type)
 
     if limit_topics is not None and limit_topics > 0:
         topic_ids = topic_ids[:limit_topics]
@@ -956,10 +1079,17 @@ def map_all_topics_to_radway(
                 idx / total * 100.0,
             )
 
-    # Merge Radway results into taxonomy JSON
-    # Load original JSON again to preserve exact structure
-    with open(taxonomy_json_path, "r", encoding="utf-8") as f:
-        merged_data = json.load(f)
+    # Merge Radway results into taxonomy data
+    # Reload original data to preserve exact structure
+    if taxonomy_json_path.suffix == ".json":
+        # Load from JSON
+        with open(taxonomy_json_path, "r", encoding="utf-8") as f:
+            merged_data = json.load(f)
+    else:
+        # Load from model again (to get fresh copy)
+        merged_data_raw = load_topics_with_taxonomy_from_model(taxonomy_json_path)
+        # Convert to string-keyed dict for JSON serialization
+        merged_data = {str(k): v for k, v in merged_data_raw.items()}
 
     # Add radway_functions to each topic
     for tid, radway_obj in radway_results.items():
@@ -967,7 +1097,7 @@ def map_all_topics_to_radway(
         if key in merged_data:
             merged_data[key]["radway_functions"] = radway_obj
         else:
-            LOGGER.warning("Topic %d in Radway results but not in taxonomy JSON", tid)
+            LOGGER.warning("Topic %d in Radway results but not in taxonomy data", tid)
 
     # Save merged JSON
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1009,7 +1139,7 @@ def update_model_with_radway_mappings(
     embedding_model:
         Embedding model name.
     model_suffix:
-        Suffix of source model to load.
+        Suffix of source model to load (default: "_with_taxonomy_mappings" - can also use "_with_llm_labels_and_metadata_disambiguated").
     source_stage_subfolder:
         Stage subfolder where source model is located.
     target_stage_subfolder:
@@ -1060,13 +1190,13 @@ def update_model_with_radway_mappings(
     topic_model.topic_radway_ = radway_map
     LOGGER.info("✓ Radway mappings attached to model.topic_radway_")
 
-    # Also merge into topic_metadata_ if it exists
+    # Also merge into topic_metadata_ if it exists (recommended approach)
     if hasattr(topic_model, "topic_metadata_") and topic_model.topic_metadata_:
         LOGGER.info("Merging Radway mappings into topic_metadata_...")
         for tid, radway_data in radway_map.items():
             if tid in topic_model.topic_metadata_:
                 topic_model.topic_metadata_[tid]["radway_functions"] = radway_data
-        LOGGER.info("✓ Radway mappings merged into topic_metadata_")
+        LOGGER.info("✓ Radway mappings merged into topic_metadata_ for %d topics", len(radway_map))
 
     # Verify attachment
     if hasattr(topic_model, "topic_radway_") and topic_model.topic_radway_:
@@ -1119,7 +1249,12 @@ if __name__ == "__main__":
         "--taxonomy-json",
         type=Path,
         required=True,
-        help="Path to Stage 2 taxonomy mappings JSON (single source of truth).",
+        help=(
+            "Path to Stage 2 taxonomy mappings JSON file OR BERTopic model with embedded taxonomy metadata. "
+            "If JSON: loads from file (e.g., taxonomy_mappings_*.json). "
+            "If model (.pkl or directory): loads from model's topic_metadata_ attribute (recommended). "
+            "Recommended model: model_1_with_llm_labels_and_metadata_disambiguated.pkl"
+        ),
     )
 
     parser.add_argument(
