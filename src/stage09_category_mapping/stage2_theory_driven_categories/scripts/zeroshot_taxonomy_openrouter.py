@@ -1161,12 +1161,14 @@ def update_model_with_taxonomy_mappings(
     LOGGER.info("  Model suffix: %s", model_suffix)
     LOGGER.info("  Stage subfolder: %s", source_stage_subfolder)
     
+    # Construct path with stage subfolder
+    source_base_dir = base_dir / embedding_model / source_stage_subfolder
+    
     topic_model = load_native_bertopic_model(
-        base_dir=base_dir,
-        embedding_model=embedding_model,
+        base_dir=source_base_dir,
+        embedding_model=".",  # Use "." to avoid path duplication
         pareto_rank=1,
         model_suffix=model_suffix,
-        stage_subfolder=source_stage_subfolder,
     )
     
     LOGGER.info("✓ Source model loaded successfully")
