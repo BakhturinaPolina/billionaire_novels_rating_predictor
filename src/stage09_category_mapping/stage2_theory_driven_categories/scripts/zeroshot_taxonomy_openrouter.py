@@ -829,6 +829,7 @@ def map_all_topics_to_taxonomy(
     stage_subfolder: Optional[str] = "stage08_llm_labeling",
     max_docs_per_topic: int = 10,
     limit_topics: Optional[int] = None,
+    include_source_metadata: bool = False,
 ) -> Dict[int, Dict[str, Any]]:
     """
     Run zero-shot taxonomy mapping for all topics that have LLM labels.
@@ -856,6 +857,9 @@ def map_all_topics_to_taxonomy(
         Parameters for loading BERTopic model (used if load_model_for_snippets=True).
     max_docs_per_topic:
         Maximum number of representative docs to extract per topic.
+    include_source_metadata:
+        If True, include original metadata from labels JSON (keywords, label, primary_categories,
+        secondary_categories, scene_summary, label_rationale) in the output for manual evaluation.
 
     Returns
     -------
@@ -913,6 +917,18 @@ def map_all_topics_to_taxonomy(
             max_new_tokens=max_new_tokens,
             representative_docs=snippets,
         )
+        
+        # Optionally include source metadata from labels JSON for manual evaluation
+        if include_source_metadata:
+            result["source_metadata"] = {
+                "label": tm.get("label", ""),
+                "keywords": tm.get("keywords", []),
+                "primary_categories": tm.get("primary_categories", []),
+                "secondary_categories": tm.get("secondary_categories", []),
+                "scene_summary": tm.get("scene_summary", ""),
+                "label_rationale": tm.get("rationale", ""),  # Original rationale from labeling stage
+            }
+        
         taxonomy_map[tid] = result
 
         if idx % 10 == 0 or idx == total:
@@ -1016,6 +1032,11 @@ if __name__ == "__main__":
         default=None,
         help="Limit processing to first N topics (for testing, default: process all).",
     )
+    parser.add_argument(
+        "--include-source-metadata",
+        action="store_true",
+        help="Include original metadata from labels JSON (keywords, label, categories, scene_summary, label_rationale) in output. Useful for manual evaluation of first N topics.",
+    )
 
     args = parser.parse_args()
 
@@ -1038,5 +1059,6 @@ if __name__ == "__main__":
         stage_subfolder=args.model_stage,
         max_docs_per_topic=args.max_docs_per_topic,
         limit_topics=args.limit_topics,
+        include_source_metadata=args.include_source_metadata,
     )
 

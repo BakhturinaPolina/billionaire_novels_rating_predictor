@@ -3,16 +3,22 @@
 This module loads taxonomy mappings (from zeroshot_taxonomy_openrouter) and
 sentence-level topic assignments, then computes per-book proportions of
 each taxonomy category.
+
+Supports loading taxonomy mappings from:
+1. JSON file (taxonomy_mappings_*.json)
+2. BERTopic model's embedded topic_metadata_ attribute (recommended)
 """
 
 import json
+import pickle
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Optional
 
 import pandas as pd
+from bertopic import BERTopic
 
 
-def load_taxonomy_mapping(path: Path) -> pd.DataFrame:
+def load_taxonomy_mapping_from_json(path: Path) -> pd.DataFrame:
     """
     Load taxonomy_mappings_*.json and return a small DataFrame
     with topic → main/secondary category ids.
@@ -44,6 +50,97 @@ def load_taxonomy_mapping(path: Path) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def load_taxonomy_mapping_from_model(model_path: Path) -> pd.DataFrame:
+    """
+    Load taxonomy mappings from BERTopic model's topic_metadata_ attribute.
+    
+    This follows the recommendation from MODEL_COMPARISON_REPORT.md to use
+    models with embedded taxonomy metadata (e.g., model_1_with_llm_labels_and_metadata_disambiguated.pkl).
+
+    Parameters
+    ----------
+    model_path:
+        Path to BERTopic model (.pkl file or directory).
+
+    Returns
+    -------
+    DataFrame with columns: topic, main_category_id, secondary_category_id,
+    confidence, is_noise.
+    
+    Raises
+    ------
+    ValueError:
+        If model doesn't have topic_metadata_ attribute or it's empty.
+    """
+    # Load model (handle both pickle wrapper and native format)
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model path does not exist: {model_path}")
+    
+    if model_path.suffix == ".pkl":
+        with open(model_path, "rb") as f:
+            loaded_obj = pickle.load(f)
+        
+        # Check if it's a RetrainableBERTopicModel wrapper
+        if hasattr(loaded_obj, "trained_topic_model") and loaded_obj.trained_topic_model is not None:
+            model = loaded_obj.trained_topic_model
+        elif isinstance(loaded_obj, BERTopic):
+            model = loaded_obj
+        else:
+            model = BERTopic.load(str(model_path))
+    else:
+        model = BERTopic.load(str(model_path))
+    
+    # Extract taxonomy metadata
+    if not hasattr(model, "topic_metadata_") or not model.topic_metadata_:
+        raise ValueError(
+            f"Model at {model_path} does not have topic_metadata_ attribute. "
+            "Use a model with embedded taxonomy mappings (e.g., model_1_with_llm_labels_and_metadata_disambiguated.pkl)"
+        )
+    
+    metadata = model.topic_metadata_
+    
+    rows = []
+    for topic_id, topic_data in metadata.items():
+        # Handle both int and str keys
+        tid = int(topic_id) if isinstance(topic_id, str) else topic_id
+        
+        rows.append(
+            {
+                "topic": tid,
+                "main_category_id": topic_data.get("main_category_id"),
+                "secondary_category_id": topic_data.get("secondary_category_id"),
+                "confidence": topic_data.get("confidence", None),
+                "is_noise": bool(topic_data.get("is_noise", False)),
+            }
+        )
+    
+    return pd.DataFrame(rows)
+
+
+def load_taxonomy_mapping(path: Path) -> pd.DataFrame:
+    """
+    Load taxonomy mappings from JSON file or BERTopic model.
+    
+    Automatically detects the source type:
+    - If path ends with .json, loads from JSON file
+    - If path ends with .pkl or is a directory, loads from model's topic_metadata_
+
+    Parameters
+    ----------
+    path:
+        Path to taxonomy mappings JSON file or BERTopic model.
+
+    Returns
+    -------
+    DataFrame with columns: topic, main_category_id, secondary_category_id,
+    confidence, is_noise.
+    """
+    if path.suffix == ".json":
+        return load_taxonomy_mapping_from_json(path)
+    else:
+        return load_taxonomy_mapping_from_model(path)
+
+
 def build_book_category_proportions(
     sentence_df_path: Path,
     taxonomy_mapping_path: Path,
@@ -61,7 +158,7 @@ def build_book_category_proportions(
         - 'rating_class' (or similar)
         - 'topic' (BERTopic topic id)
     taxonomy_mapping_path:
-        Path to taxonomy_mappings_*.json from Stage 2.
+        Path to taxonomy_mappings_*.json from Stage 2, or BERTopic model with embedded taxonomy metadata (e.g., model_1_with_llm_labels_and_metadata_disambiguated.pkl).
     min_sentences_per_book:
         Minimum number of sentences per book to include in analysis.
 
@@ -122,7 +219,7 @@ if __name__ == "__main__":
         "--taxonomy-mapping",
         type=Path,
         required=True,
-        help="Path to taxonomy_mappings_*.json from Stage 2",
+        help="Path to taxonomy_mappings_*.json from Stage 2, or BERTopic model with embedded taxonomy metadata (e.g., model_1_with_llm_labels_and_metadata_disambiguated.pkl)",
     )
     parser.add_argument(
         "--output",
