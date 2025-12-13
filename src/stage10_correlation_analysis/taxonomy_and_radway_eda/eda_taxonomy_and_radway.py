@@ -1,10 +1,14 @@
-"""Exploratory Data Analysis (EDA) for BERTopic model with Radway mappings.
+"""Exploratory Data Analysis (EDA) for BERTopic model with Taxonomy and Radway mappings.
 
-This script provides comprehensive EDA for the final model with:
-- Taxonomy mappings (Stage 2)
-- Radway narrative function mappings (Stage 3)
+This script provides comprehensive EDA for the final model combining:
+- Taxonomy mappings (Stage 2: Theory-Driven Categories)
+- Radway narrative function mappings (Stage 3: Narrative Functions)
 - Topic representations and labels
 - Statistical summaries and visualizations
+- Cross-tabulations between taxonomy categories and Radway functions
+
+Located in Stage 10 (Correlation Analysis) as it analyzes relationships between
+both Stage 2 and Stage 3 classification systems.
 """
 
 from __future__ import annotations
@@ -382,7 +386,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="EDA for BERTopic model with Radway mappings"
+        description="EDA for BERTopic model with Taxonomy (Stage 2) and Radway (Stage 3) mappings"
     )
     parser.add_argument(
         "--output-dir",
