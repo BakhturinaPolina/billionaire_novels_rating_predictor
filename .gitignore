@@ -58,3 +58,7 @@ archive/
 *.book.html
 **/embeddings_cache/
 **/booknlp_outputs/
+
+# Exclude large dataset files from EDA
+results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.csv
+results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.parquet
