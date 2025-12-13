@@ -30,11 +30,11 @@ Before starting, ensure you have:
 
 **Output**: Meta-topics with statistical significance for quality differences.
 
-**Status**: ⚠️ **Next to implement** - Detailed plan in `stage1_natural_clusters/README.md`
+**Status**: Detailed plan in `stage1_natural_clusters/README.md`
 
 ---
 
-### Stage 2: Theory-Driven Categories (Luxury/Emotion/Erotica)
+### Stage 2: Theory-Driven Categories 
 **Goal**: Map topics to predefined theoretical categories (luxury lifestyle, emotional depth, erotic content).
 
 **Method**: Use zero-shot classification to map existing topics to theory categories. If results are unsatisfactory, optionally retrain with semi-supervised or guided BERTopic.
@@ -46,7 +46,7 @@ Before starting, ensure you have:
 
 **Output**: Topic-to-category mappings with confidence scores.
 
-**Status**: 📋 Planned - See `stage2_theory_driven_categories/README.md`
+**Status**: See `stage2_theory_driven_categories/README.md`
 
 ---
 

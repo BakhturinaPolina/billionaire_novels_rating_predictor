@@ -31,14 +31,10 @@ row_sum = topic_probs.sum(axis=1)
 topic_probs_normalized = topic_probs.div(row_sum.replace(0, np.nan), axis=0)
 ```
 
-### Index Computation
+### Theory_Driven_Categories
 
-Computes all derived indices (see [docs/INDICES.md](../../docs/INDICES.md)):
-- Love-over-Sex Index
-- HEA Index
-- Explicitness Ratio
-- Luxury Saturation
-- And 6 more indices
+Computes all derived Categories (see /home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/src/stage09_category_mapping/stage2_theory_driven_categories/README.md):
+
 
 ### Statistical Tests
 

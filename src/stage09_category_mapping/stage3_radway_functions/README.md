@@ -34,7 +34,7 @@
    - Bin into beginning/middle/end (or more granular)
    - Compare patterns for bad/mid/good books
 
-3. **Optional**: Aggregate at topic level
+3. **Aggregate at topic level**
    - Which BERTopic topics map to which Radway functions?
    - Use for cross-validation with topic-based analysis
 
@@ -66,8 +66,6 @@ import plotly.graph_objects as go
 
 ## Key Research Questions
 
-- Do good books show earlier emotional processing?
-- Is explicit sex front-loaded in lower-rated books?
 - Do good books follow Radway's structure more closely?
 - How does narrative arc differ by quality?
 
