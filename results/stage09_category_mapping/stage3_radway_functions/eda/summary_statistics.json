@@ -1,0 +1,12 @@
+{
+  "total_topics": 368,
+  "topics_with_labels": 368,
+  "topics_with_taxonomy": 361,
+  "topics_with_radway": 361,
+  "topics_with_radway_function": 246,
+  "topics_with_radway_none": 122,
+  "unique_taxonomy_categories": 30,
+  "unique_taxonomy_groups": 9,
+  "unique_radway_functions": 13,
+  "unique_radway_phases": 4
+}
