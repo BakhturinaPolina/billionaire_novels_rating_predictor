@@ -1,0 +1,29 @@
+category_id,groups,n_books_per_group,H_statistic,p_value,category_name,category_group,significant
+3.4,"['bad', 'good', 'mid']","[29, 28, 32]",8.070951412335546,0.01767726892685357,"Beliefs, Values & Moral Reflection","Emotions, Cognition & Inner Life",True
+2.3,"['bad', 'good', 'mid']","[30, 30, 32]",5.953705002337529,0.05095295611022253,Explicit Sexual Acts,"Sexuality, Attraction & Intimacy",False
+5.3,"['bad', 'good', 'mid']","[28, 29, 32]",5.824230180254972,0.054360630556375134,"Community, Norms & Social Events",Social World Outside Couple,False
+4.5,"['bad', 'good', 'mid']","[30, 30, 32]",4.5326320710612436,0.10369348040095426,"Reconciliation, Commitments & HEA",Relationship Trajectory (Main Couple),False
+4.2,"['bad', 'good', 'mid']","[30, 30, 32]",4.466757246376801,0.10716574512133274,"Bonding, Everyday Intimacy & Growth",Relationship Trajectory (Main Couple),False
+1.1,"['bad', 'good', 'mid']","[25, 26, 32]",4.031233284787504,0.13323821769547034,Body Parts & Physical Reactions,Embodied & Sensory Experience,False
+6.5,"['bad', 'good', 'mid']","[18, 20, 23]",3.9400133354792786,0.1394559263561428,"Law, Medicine, Education & Formal Institutions","Work, Wealth, Status & Institutions",False
+5.2,"['bad', 'good', 'mid']","[30, 30, 32]",3.773910121552092,0.1515325143669423,Friends & Social Circles,Social World Outside Couple,False
+4.4,"['bad', 'good', 'mid']","[30, 30, 32]",3.376624590930305,0.1848312013660777,"Conflict, Distance & Breakup Threats",Relationship Trajectory (Main Couple),False
+8.3,"['bad', 'good', 'mid']","[26, 29, 30]",2.0286286363289605,0.362651007808737,"Objects, Technology & Everyday Artefacts","Spaces, Time, Activities & Objects",False
+6.2,"['bad', 'good', 'mid']","[26, 28, 30]",1.9323831070890378,0.38052950820984,Heroine's Work & Professional Identity,"Work, Wealth, Status & Institutions",False
+2.2,"['bad', 'good', 'mid']","[30, 30, 32]",1.888963884992961,0.3888809814365383,Kissing & Non-Explicit Affection,"Sexuality, Attraction & Intimacy",False
+3.3,"['bad', 'good', 'mid']","[29, 29, 32]",1.807978085133243,0.4049510665265278,Ambivalence & Internal Conflict,"Emotions, Cognition & Inner Life",False
+6.3,"['bad', 'good', 'mid']","[28, 29, 32]",1.7072406413165595,0.42587035046808963,Shared Workplaces & Professional Interaction,"Work, Wealth, Status & Institutions",False
+8.2,"['bad', 'good', 'mid']","[30, 30, 32]",1.634022907900885,0.44174987358525497,Public & Leisure Spaces,"Spaces, Time, Activities & Objects",False
+3.2,"['bad', 'good', 'mid']","[30, 30, 32]",1.6239334969612287,0.44398400211098754,Negative Emotions & Distress,"Emotions, Cognition & Inner Life",False
+noise,"['bad', 'good', 'mid']","[21, 20, 25]",1.032178070685518,0.596850249542041,Noise / Technical / Paratext,Special,False
+6.1,"['bad', 'good', 'mid']","[30, 30, 32]",1.0242052360916318,0.5992342924382472,Hero's Elite Work & Business World,"Work, Wealth, Status & Institutions",False
+3.1,"['bad', 'good', 'mid']","[29, 30, 32]",0.9072651860882956,0.6353161099291476,Positive Emotions & Security,"Emotions, Cognition & Inner Life",False
+7.2,"['bad', 'good', 'mid']","[30, 30, 32]",0.878608578775129,0.6444846399533175,"Violence, Threats & Coercion","Conflict, Risk & Harm",False
+1.5,"['bad', 'good', 'mid']","[17, 23, 25]",0.8377557926217558,0.6577845082795679,Exercise & Physical Activity,Embodied & Sensory Experience,False
+7.1,"['bad', 'good', 'mid']","[15, 21, 21]",0.8344309048483183,0.6588789475840409,Interpersonal Non-Romantic Conflict,"Conflict, Risk & Harm",False
+2.1,"['bad', 'good', 'mid']","[30, 30, 32]",0.7979634174848229,0.6710029747294513,Attraction & Sexual Tension,"Sexuality, Attraction & Intimacy",False
+8.1,"['bad', 'good', 'mid']","[30, 30, 32]",0.5947639083684066,0.7427602577864445,Domestic Spaces & Routines,"Spaces, Time, Activities & Objects",False
+5.1,"['bad', 'good', 'mid']","[29, 30, 32]",0.3334739567029601,0.846422209426714,Family & Kinship,Social World Outside Couple,False
+8.4,"['bad', 'good', 'mid']","[22, 25, 29]",0.16619309744865518,0.9202622927803876,"Time, Seasons & Temporal Framing","Spaces, Time, Activities & Objects",False
+6.4,"['bad', 'good', 'mid']","[30, 30, 32]",0.09812704534829209,0.9521206465279217,"Money, Housing & Economic Security","Work, Wealth, Status & Institutions",False
+4.3,"['bad', 'good', 'mid']","[30, 30, 32]",0.08828599813000437,0.9568171237356593,"Secrets, Misunderstandings & Hidden Information",Relationship Trajectory (Main Couple),False
