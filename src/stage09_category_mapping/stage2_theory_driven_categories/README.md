@@ -217,10 +217,15 @@ python -m src.stage09_category_mapping.stage2_theory_driven_categories.scripts.a
 
 **Module**: `scripts/stats_helpers.py`
 
-Kruskal-Wallis tests for category prevalence differences across rating classes.
+Enhanced statistical analysis with Kruskal-Wallis tests, effect sizes, and post-hoc pairwise comparisons.
+
+**Main Function**: `kruskal_by_rating()`
 
 ```python
-from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import kruskal_by_rating
+from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import (
+    kruskal_by_rating,
+    pairwise_comparisons
+)
 import pandas as pd
 
 book_cat = pd.read_parquet("book_category_proportions.parquet")
@@ -228,34 +233,151 @@ kw_results = kruskal_by_rating(book_cat)
 kw_results.sort_values("p_value").head(15)  # See which categories differ most
 ```
 
-**Output**: DataFrame with `category_id`, `groups`, `n_books_per_group`, `H_statistic`, `p_value`
+**Output**: DataFrame with:
+- `category_id`, `groups`, `n_books_per_group`
+- `H_statistic`, `p_value`
+- `eta_squared` (effect size: < 0.01 = negligible, 0.01-0.06 = small, 0.06-0.14 = medium, > 0.14 = large)
+- `total_n` (total sample size)
+- `significant` (boolean)
+
+**Post-hoc Pairwise Comparisons**: `pairwise_comparisons()`
+
+For significant categories, identify which specific rating classes differ:
+
+```python
+# Get pairwise comparisons for a significant category
+pairwise_res = pairwise_comparisons(book_cat, "5.3", alpha=0.05)
+# Returns DataFrame with group1, group2, U_statistic, p_value, p_value_corrected, 
+# significant, median_diff
+```
+
+**Complete Analysis Script**: `scripts/analyze_category_differences.py`
+
+Run comprehensive analysis with all visualizations:
+
+```bash
+python -m src.stage09_category_mapping.stage2_theory_driven_categories.scripts.analyze_category_differences \
+  --book-cat results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet \
+  --output-dir results/stage09_category_mapping/stage2_theory_driven_categories/analysis \
+  --top-n 10 \
+  --alpha 0.05 \
+  --taxonomy-json results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_openrouter_mistralai_Mistral-Nemo-Instruct-2407_paraphrase-MiniLM-L6-v2.json
+```
+
+This generates:
+- Statistical results CSV with effect sizes
+- Overview plots (volcano plot, effect size bars, p-value heatmap)
+- Individual category plots (enhanced violin plots)
+- Pairwise comparison plots for significant categories
 
 ### 3. Visualization
 
 **Module**: `scripts/visualization_helpers.py`
 
-Box plots with jitter for category prevalence across rating classes.
+Comprehensive visualization suite with multiple plot types for statistical analysis.
+
+**Individual Category Plots**: `plot_category_prevalence()`
+
+Enhanced violin plots (or box plots) showing full distribution shapes:
 
 ```python
-from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.visualization_helpers import plot_category_prevalence
+from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.visualization_helpers import (
+    plot_category_prevalence,
+    plot_volcano,
+    plot_effect_size_bars,
+    plot_pairwise_comparisons,
+    plot_pvalue_heatmap
+)
 import pandas as pd
 
 book_cat = pd.read_parquet("book_category_proportions.parquet")
 
-# Plot relationship conflict (4.4)
-plot_category_prevalence(book_cat, "4.4")
+# Enhanced violin plot (default) - shows full distribution shape
+plot_category_prevalence(book_cat, "4.4", plot_type="violin")
 
-# Plot explicit sex (2.3)
-plot_category_prevalence(book_cat, "2.3")
+# Traditional box plot
+plot_category_prevalence(book_cat, "2.3", plot_type="box")
+
+# Both combined
+plot_category_prevalence(book_cat, "5.3", plot_type="both")
 ```
+
+**Overview Plots**:
+
+```python
+# Load statistical results
+kw_results = pd.read_csv("kruskal_wallis_results.csv")
+
+# Volcano plot: significance vs effect size
+fig, ax = plot_volcano(kw_results, alpha=0.05, effect_threshold=0.01)
+
+# Effect size bar chart: top categories by effect size
+fig, ax = plot_effect_size_bars(kw_results, top_n=15, alpha=0.05)
+
+# P-value heatmap: all categories overview
+fig, ax = plot_pvalue_heatmap(kw_results, group_by="category_group")
+```
+
+**Post-hoc Pairwise Comparisons**:
+
+```python
+from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import pairwise_comparisons
+
+# Get pairwise results
+pairwise_res = pairwise_comparisons(book_cat, "5.3", alpha=0.05)
+
+# Visualize which groups differ
+fig, ax = plot_pairwise_comparisons(
+    pairwise_res, 
+    category_id="5.3",
+    category_name="Community, Norms & Social Events"
+)
+```
+
+**Available Plot Types**:
+- **Volcano Plot**: Identifies categories that are both significant AND have large effects
+- **Effect Size Bars**: Ranks categories by practical significance (effect size)
+- **P-value Heatmap**: Quick overview of all categories with color-coded significance
+- **Violin Plots**: Better visualization of distribution shapes than box plots
+- **Pairwise Comparisons**: Shows which specific rating classes differ for significant categories
+
+**Documentation**: See `scripts/VISUALIZATION_EXAMPLES.md` for detailed usage guide and interpretation examples.
+
+## Statistical Analysis Results
+
+**Key Findings** (from `STATISTICAL_ANALYSIS_REPORT.md`):
+
+- **3 categories** show statistically significant differences (p < 0.05) across rating classes:
+  1. **5.3: Community, Norms & Social Events** (p = 0.029, η² = 0.070 - **medium effect**)
+  2. **6.2: Heroine's Work & Professional Identity** (p = 0.047, η² = 0.057 - small-medium effect)
+  3. **3.4: Beliefs, Values & Moral Reflection** (p = 0.048, η² = 0.048 - small effect)
+
+- **24 out of 27 categories** show no significant differences, indicating thematic content is largely consistent across rating classes
+
+- **Effect sizes** help distinguish statistical significance from practical significance
+
+**Visualization Outputs** (in `analysis/figures/`):
+- `volcano_plot.png` - Overview of significance vs effect size
+- `effect_size_bars.png` - Top categories by effect size
+- `pvalue_heatmap.png` - All categories at a glance
+- `category_*_prevalence.png` - Enhanced violin plots for individual categories
+- `category_*_pairwise.png` - Post-hoc comparisons for significant categories
+
+**Documentation**:
+- `STATISTICAL_ANALYSIS_REPORT.md` - Complete analysis report with effect sizes and interpretations
+- `scripts/VISUALIZATION_EXAMPLES.md` - Usage guide and interpretation examples
+- `scripts/IMPROVEMENTS_SUMMARY.md` - Summary of visualization enhancements
+- `scripts/VISUALIZATION_IMPROVEMENTS.md` - Technical overview of improvements
 
 ## Next Steps
 
 After taxonomy classification and analysis:
 
-1. **Interpret results**: Use statistical tests and visualizations to understand category differences
-2. **Compare with Stage 1**: See how theory-driven categories compare to natural clusters
-3. **Refine taxonomy**: Use confidence scores and manual review to improve mappings
+1. **Interpret results**: Use statistical tests, effect sizes, and visualizations to understand category differences
+2. **Review pairwise comparisons**: For significant categories, examine which specific rating classes differ
+3. **Compare with Stage 1**: See how theory-driven categories compare to natural clusters
+4. **Refine taxonomy**: Use confidence scores and manual review to improve mappings
+5. **Investigate effect sizes**: Focus on categories with large effects, even if not statistically significant (may be underpowered)
 
 ## Dependencies
 
