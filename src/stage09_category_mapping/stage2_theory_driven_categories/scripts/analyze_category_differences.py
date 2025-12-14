@@ -21,9 +21,14 @@ from typing import Dict
 
 from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import (
     kruskal_by_rating,
+    pairwise_comparisons,
 )
 from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.visualization_helpers import (
     plot_category_prevalence,
+    plot_volcano,
+    plot_effect_size_bars,
+    plot_pairwise_comparisons,
+    plot_pvalue_heatmap,
 )
 
 
@@ -92,7 +97,7 @@ if __name__ == "__main__":
         "--taxonomy-json",
         type=Path,
         default=Path(
-            "results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_all.json"
+            "results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_openrouter_mistralai_Mistral-Nemo-Instruct-2407_paraphrase-MiniLM-L6-v2.json"
         ),
         help="Path to taxonomy_mappings_*.json for category names",
     )
@@ -173,14 +178,46 @@ if __name__ == "__main__":
     kw_results.to_csv(stats_output, index=False)
     print(f"\nSaved statistical results to: {stats_output}")
 
-    # Create visualizations for top categories
+    # Create visualizations
     print("\n" + "=" * 80)
-    print(f"Creating visualizations for top {args.top_n} categories...")
+    print("Creating visualizations...")
     print("=" * 80)
 
     figs_dir = args.output_dir / "figures"
     figs_dir.mkdir(parents=True, exist_ok=True)
 
+    # 1. Overview plots
+    print("\n1. Creating overview plots...")
+    
+    # Volcano plot
+    try:
+        print("   Creating volcano plot...")
+        fig, ax = plot_volcano(kw_results, alpha=args.alpha)
+        fig.savefig(figs_dir / "volcano_plot.png", dpi=150, bbox_inches="tight")
+        plt.close(fig)
+    except Exception as e:
+        print(f"   Warning: Failed to create volcano plot: {e}")
+    
+    # Effect size bar chart
+    try:
+        print("   Creating effect size bar chart...")
+        fig, ax = plot_effect_size_bars(kw_results, top_n=min(20, len(kw_results)), alpha=args.alpha)
+        fig.savefig(figs_dir / "effect_size_bars.png", dpi=150, bbox_inches="tight")
+        plt.close(fig)
+    except Exception as e:
+        print(f"   Warning: Failed to create effect size chart: {e}")
+    
+    # P-value heatmap
+    try:
+        print("   Creating p-value heatmap...")
+        fig, ax = plot_pvalue_heatmap(kw_results)
+        fig.savefig(figs_dir / "pvalue_heatmap.png", dpi=150, bbox_inches="tight")
+        plt.close(fig)
+    except Exception as e:
+        print(f"   Warning: Failed to create p-value heatmap: {e}")
+
+    # 2. Individual category plots (enhanced with violin plots)
+    print(f"\n2. Creating individual category plots (top {args.top_n})...")
     top_categories_df = kw_results.head(args.top_n)
     top_categories = top_categories_df["category_id"].tolist()
 
@@ -188,16 +225,39 @@ if __name__ == "__main__":
         cat_id = row["category_id"]
         cat_name = row["category_name"]
         try:
-            print(f"  [{i}/{len(top_categories)}] Plotting {cat_id}: {cat_name}...")
-            fig, ax = plot_category_prevalence(book_cat, cat_id)
-            # Update title to include category name
-            ax.set_title(f"{cat_id}: {cat_name}\nPrevalence by rating class")
-            fig.savefig(figs_dir / f"category_{cat_id}_prevalence.png", dpi=150)
+            print(f"   [{i}/{len(top_categories)}] Plotting {cat_id}: {cat_name}...")
+            # Use violin plot for better distribution visualization
+            fig, ax = plot_category_prevalence(book_cat, cat_id, plot_type="violin")
+            # Update title to include category name and p-value
+            p_val = row["p_value"]
+            sig_marker = "***" if p_val < 0.001 else "**" if p_val < 0.01 else "*" if p_val < args.alpha else ""
+            ax.set_title(f"{cat_id}: {cat_name} {sig_marker}\nPrevalence by rating class (p={p_val:.4f})")
+            fig.savefig(figs_dir / f"category_{cat_id}_prevalence.png", dpi=150, bbox_inches="tight")
             plt.close(fig)
         except Exception as e:
-            print(f"    Warning: Failed to plot category {cat_id} ({cat_name}): {e}")
+            print(f"     Warning: Failed to plot category {cat_id} ({cat_name}): {e}")
 
-    print(f"\nSaved {len(top_categories)} visualizations to: {figs_dir}")
+    # 3. Post-hoc pairwise comparisons for significant categories
+    print(f"\n3. Creating pairwise comparison plots for significant categories...")
+    sig_categories = kw_results[kw_results["significant"]]
+    
+    if len(sig_categories) > 0:
+        for i, (_, row) in enumerate(sig_categories.iterrows(), 1):
+            cat_id = row["category_id"]
+            cat_name = row["category_name"]
+            try:
+                print(f"   [{i}/{len(sig_categories)}] Pairwise comparisons for {cat_id}: {cat_name}...")
+                pairwise_res = pairwise_comparisons(book_cat, cat_id, alpha=args.alpha)
+                if not pairwise_res.empty:
+                    fig, ax = plot_pairwise_comparisons(pairwise_res, cat_id, cat_name)
+                    fig.savefig(figs_dir / f"category_{cat_id}_pairwise.png", dpi=150, bbox_inches="tight")
+                    plt.close(fig)
+            except Exception as e:
+                print(f"     Warning: Failed to create pairwise plot for {cat_id}: {e}")
+    else:
+        print("   No significant categories found for pairwise comparisons.")
+
+    print(f"\nSaved all visualizations to: {figs_dir}")
 
     # Summary
     print("\n" + "=" * 80)
