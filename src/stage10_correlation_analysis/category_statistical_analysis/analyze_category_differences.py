@@ -19,11 +19,11 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Dict
 
-from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.stats_helpers import (
+from src.stage10_correlation_analysis.category_statistical_analysis.stats_helpers import (
     kruskal_by_rating,
     pairwise_comparisons,
 )
-from src.stage09_category_mapping.stage2_theory_driven_categories.scripts.visualization_helpers import (
+from src.stage10_correlation_analysis.category_statistical_analysis.visualization_helpers import (
     plot_category_prevalence,
     plot_volcano,
     plot_effect_size_bars,
@@ -77,7 +77,7 @@ if __name__ == "__main__":
         "--output-dir",
         type=Path,
         default=Path(
-            "results/stage09_category_mapping/stage2_theory_driven_categories/analysis"
+            "results/stage10_correlation_analysis/category_statistical_analysis"
         ),
         help="Directory to save analysis results",
     )
@@ -193,7 +193,7 @@ if __name__ == "__main__":
     try:
         print("   Creating volcano plot...")
         fig, ax = plot_volcano(kw_results, alpha=args.alpha)
-        fig.savefig(figs_dir / "volcano_plot.png", dpi=150, bbox_inches="tight")
+        fig.savefig(figs_dir / "volcano_plot.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
         plt.close(fig)
     except Exception as e:
         print(f"   Warning: Failed to create volcano plot: {e}")
@@ -202,7 +202,7 @@ if __name__ == "__main__":
     try:
         print("   Creating effect size bar chart...")
         fig, ax = plot_effect_size_bars(kw_results, top_n=min(20, len(kw_results)), alpha=args.alpha)
-        fig.savefig(figs_dir / "effect_size_bars.png", dpi=150, bbox_inches="tight")
+        fig.savefig(figs_dir / "effect_size_bars.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
         plt.close(fig)
     except Exception as e:
         print(f"   Warning: Failed to create effect size chart: {e}")
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     try:
         print("   Creating p-value heatmap...")
         fig, ax = plot_pvalue_heatmap(kw_results)
-        fig.savefig(figs_dir / "pvalue_heatmap.png", dpi=150, bbox_inches="tight")
+        fig.savefig(figs_dir / "pvalue_heatmap.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
         plt.close(fig)
     except Exception as e:
         print(f"   Warning: Failed to create p-value heatmap: {e}")
@@ -227,12 +227,14 @@ if __name__ == "__main__":
         try:
             print(f"   [{i}/{len(top_categories)}] Plotting {cat_id}: {cat_name}...")
             # Use violin plot for better distribution visualization
-            fig, ax = plot_category_prevalence(book_cat, cat_id, plot_type="violin")
-            # Update title to include category name and p-value
             p_val = row["p_value"]
             sig_marker = "***" if p_val < 0.001 else "**" if p_val < 0.01 else "*" if p_val < args.alpha else ""
-            ax.set_title(f"{cat_id}: {cat_name} {sig_marker}\nPrevalence by rating class (p={p_val:.4f})")
-            fig.savefig(figs_dir / f"category_{cat_id}_prevalence.png", dpi=150, bbox_inches="tight")
+            # Create full title with significance marker
+            full_title = f"{cat_id}: {cat_name} {sig_marker}\nPrevalence by rating class (p={p_val:.4f})"
+            fig, ax = plot_category_prevalence(book_cat, cat_id, plot_type="violin", category_name=cat_name)
+            # Update title to include p-value and significance marker
+            ax.set_title(full_title, fontsize=12, fontweight="bold", pad=10)
+            fig.savefig(figs_dir / f"category_{cat_id}_prevalence.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
             plt.close(fig)
         except Exception as e:
             print(f"     Warning: Failed to plot category {cat_id} ({cat_name}): {e}")
@@ -250,7 +252,7 @@ if __name__ == "__main__":
                 pairwise_res = pairwise_comparisons(book_cat, cat_id, alpha=args.alpha)
                 if not pairwise_res.empty:
                     fig, ax = plot_pairwise_comparisons(pairwise_res, cat_id, cat_name)
-                    fig.savefig(figs_dir / f"category_{cat_id}_pairwise.png", dpi=150, bbox_inches="tight")
+                    fig.savefig(figs_dir / f"category_{cat_id}_pairwise.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
                     plt.close(fig)
             except Exception as e:
                 print(f"     Warning: Failed to create pairwise plot for {cat_id}: {e}")
