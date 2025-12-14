@@ -1,0 +1,673 @@
+.
+├─didn_smile_wasn_doesn_laugh
+│    ├─didn_wasn_couldn_hadn_wouldn
+│    │    ├─listen_replies_heard_listening_hear
+│    │    │    ├─listen_replies_heard_listening_hear
+│    │    │    │    ├─■──listen_asked_listening_demanded_replied ── Topic: 99
+│    │    │    │    └─replies_asked_replying_answered_says
+│    │    │    │         ├─■──asked_asks_doing_replied_whata ── Topic: 127
+│    │    │    │         └─■──asks_asked_replies_whata_doing ── Topic: 69
+│    │    │    └─■──doing_demanded_asked_going_shrug ── Topic: 231
+│    │    └─didn_wasn_couldn_hadn_wouldn
+│    │         ├─parents_didn_wasn_seen_felt
+│    │         │    ├─parents_didn_wasn_seen_felt
+│    │         │    │    ├─parents_kids_children_families_parenting
+│    │         │    │    │    ├─■──parents_apologies_died_sister_ex ── Topic: 84
+│    │         │    │    │    └─■──parents_children_kids_families_familya ── Topic: 73
+│    │         │    │    └─didn_seen_wasn_parents_felt
+│    │         │    │         ├─didn_seen_wasn_felt_parents
+│    │         │    │         │    ├─didn_seen_wasn_felt_parents
+│    │         │    │         │    │    ├─■──mothera_moma_stepmother_died_mamaa ── Topic: 39
+│    │         │    │         │    │    └─didn_seen_wasn_felt_parents
+│    │         │    │         │    │         ├─didn_seen_felt_parents_wasn
+│    │         │    │         │    │         │    ├─■──loves_doesna_needs_says_miaa ── Topic: 35
+│    │         │    │         │    │         │    └─didn_seen_felt_parents_wasn
+│    │         │    │         │    │         │         ├─seen_felt_wanted_experienced_mind
+│    │         │    │         │    │         │         │    ├─■──seen_felt_ia_wanted_hea ── Topic: 4
+│    │         │    │         │    │         │         │    └─■──gone_gotten_given_week_trying ── Topic: 5
+│    │         │    │         │    │         │         └─■──fathera_parents_died_dada_older ── Topic: 14
+│    │         │    │         │    │         └─■──josha_declana_woulda_didna_months ── Topic: 55
+│    │         │    │         │    └─dio_pruning_bots_mio_tat
+│    │         │    │         │         ├─dio_bots_pruning_mio_tat
+│    │         │    │         │         │    ├─■──firmly_offense_answered_youa_say ── Topic: 27
+│    │         │    │         │         │    └─■──ita_ia_need_say_want ── Topic: 0
+│    │         │    │         │         └─■──says_told_argues_replied_offered ── Topic: 119
+│    │         │    │         └─■──bossa_ceos_employee_bosses_board ── Topic: 53
+│    │         │    └─arab_hardcore_nda_sloppy_mistakes
+│    │         │         ├─arab_hardcore_nda_aware_sign
+│    │         │         │    ├─■──ia_used_going_complaining_anymore ── Topic: 36
+│    │         │         │    └─■──ia_going_working_ready_doing ── Topic: 38
+│    │         │         └─■──ia_worked_applied_developed_years ── Topic: 219
+│    │         └─didn_wasn_couldn_hadn_wouldn
+│    │              ├─didn_wasn_couldn_hadn_wouldn
+│    │              │    ├─didn_wasn_couldn_hadn_wouldn
+│    │              │    │    ├─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    ├─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    ├─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    │    ├─■──jacksona_looked_boudreauxa_eloquently_selflessness ── Topic: 246
+│    │              │    │    │    │    │    └─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    │         ├─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    │         │    ├─■──jaxa_questioned_dereka_replied_answered ── Topic: 288
+│    │              │    │    │    │    │         │    └─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    │         │         ├─didn_wasn_hadn_couldn_wouldn
+│    │              │    │    │    │    │         │         │    ├─■──reesea_merinaa_gwynetha_taga_board ── Topic: 18
+│    │              │    │    │    │    │         │         │    └─didn_wasn_couldn_hadn_doesn
+│    │              │    │    │    │    │         │         │         ├─didn_wasn_couldn_hadn_wouldn
+│    │              │    │    │    │    │         │         │         │    ├─■──lewisa_mission_asked_information_hunting ── Topic: 111
+│    │              │    │    │    │    │         │         │         │    └─■──taga_asked_drewa_wasna_replied ── Topic: 103
+│    │              │    │    │    │    │         │         │         └─■──huntera_cards_california_glanced_archery ── Topic: 29
+│    │              │    │    │    │    │         │         └─■──rachela_maggiea_michaela_leveled_blinked ── Topic: 162
+│    │              │    │    │    │    │         └─■──alexaa_spell_bookcrazy_execute_spells ── Topic: 269
+│    │              │    │    │    │    └─didn_couldn_wasn_smirked_grin
+│    │              │    │    │    │         ├─didn_couldn_wasn_smirked_grin
+│    │              │    │    │    │         │    ├─■──emmetta_britta_fact_grin_smirked ── Topic: 66
+│    │              │    │    │    │         │    └─■──murmured_smirked_saraa_liaa_laughed ── Topic: 145
+│    │              │    │    │    │         └─■──liaa_case_password_owners_kick ── Topic: 183
+│    │              │    │    │    └─didn_wasn_stifled_gonna_chuckled
+│    │              │    │    │         ├─■──zanea_shrugged_trevilloa_krissana_supreme ── Topic: 260
+│    │              │    │    │         └─■──lovelloa_released_grunt_expressionless_strides ── Topic: 168
+│    │              │    │    └─didn_replied_murmured_wouldn_wasn
+│    │              │    │         ├─didn_murmured_couldn_replied_wasn
+│    │              │    │         │    ├─■──trinitya_didn_couldn_inquired_muttered ── Topic: 144
+│    │              │    │         │    └─murmured_sardonic_wouldn_didn_replied
+│    │              │    │         │         ├─■──murmured_replied_wouldn_jackass_glanced ── Topic: 115
+│    │              │    │         │         └─■──cordless_drill_didn_accomplished_reassuring ── Topic: 222
+│    │              │    │         └─■──aren_jail_nightlife_means_fatherless ── Topic: 272
+│    │              │    └─didn_wasn_couldn_wouldn_hadn
+│    │              │         ├─didn_wasn_couldn_wouldn_hadn
+│    │              │         │    ├─■──sama_couldn_didn_sculpted_conquest ── Topic: 248
+│    │              │         │    └─didn_wasn_wouldn_hadn_couldn
+│    │              │         │         ├─■──sama_www_didn_event_mocking ── Topic: 45
+│    │              │         │         └─■──maddiea_sama_karaa_clinic_answered ── Topic: 44
+│    │              │         └─■──simona_karaa_answered_completely_rarity ── Topic: 65
+│    │              └─didn_hospital_hadn_wasn_asked
+│    │                   ├─didn_hadn_wasn_asked_couldn
+│    │                   │    ├─didn_hadn_couldn_leaving_isn
+│    │                   │    │    ├─hadn_didn_couldn_leaving_wasn
+│    │                   │    │    │    ├─■──leaving_mirandaa_disrespectful_hadna_replacement ── Topic: 313
+│    │                   │    │    │    └─■──marca_weapons_compare_threats_sworn ── Topic: 306
+│    │                   │    │    └─■──jensena_fixer_total_complaining_pained ── Topic: 267
+│    │                   │    └─didn_asked_wasn_hadn_muttered
+│    │                   │         ├─didn_asked_hadn_muttered_wasn
+│    │                   │         │    ├─■──heidia_asked_cried_soa_applies ── Topic: 166
+│    │                   │         │    └─didn_hadn_wasn_muttered_asked
+│    │                   │         │         ├─■──landona_asked_glanced_golf_sighed ── Topic: 104
+│    │                   │         │         └─■──emerya_ensemble_muttered_groaned_asked ── Topic: 193
+│    │                   │         └─didn_wasn_asked_friend_shot
+│    │                   │              ├─■──austina_youra_parade_happened_flippantly ── Topic: 236
+│    │                   │              └─■──patricka_yells_dopey_friend_nervously ── Topic: 177
+│    │                   └─hospital_doctors_didn_surgeon_surgery
+│    │                        ├─didn_wasn_asked_hadn_wouldn
+│    │                        │    ├─■──gracea_asked_paged_liked_avoid ── Topic: 254
+│    │                        │    └─didn_wasn_asked_worlds_client
+│    │                        │         ├─■──spoke_asked_cartera_walked_reservation ── Topic: 179
+│    │                        │         └─■──harpera_spoke_worlds_asked_spending ── Topic: 86
+│    │                        └─■──hospital_surgeon_surgery_doctors_trauma ── Topic: 81
+│    └─smile_smiles_laugh_smiled_doesn
+│         ├─smile_smiled_laugh_smiles_grin
+│         │    ├─■──laughs_laugh_laughter_grins_holidays ── Topic: 279
+│         │    └─smile_smiled_laugh_smiles_grin
+│         │         ├─smile_smiles_smiled_laugh_grin
+│         │         │    ├─■──smiled_smile_smiles_laugh_laughs ── Topic: 11
+│         │         │    └─■──smile_smiles_grin_smiled_laugh ── Topic: 12
+│         │         └─■──smile_laugh_laughter_grin_smiled ── Topic: 20
+│         └─gaze_doesn_isn_looks_stare
+│              ├─gaze_stare_looks_stares_staring
+│              │    ├─gaze_stare_looks_stares_staring
+│              │    │    ├─■──locked_stare_gazes_stared_lock ── Topic: 151
+│              │    │    └─gaze_stare_looks_stares_look
+│              │    │         ├─■──gaze_stare_staring_looks_stares ── Topic: 16
+│              │    │         └─■──looks_gaze_stares_glare_stare ── Topic: 33
+│              │    └─■──widens_narrowed_gaze_widened_widen ── Topic: 209
+│              └─isn_doesn_says_asks_didn
+│                   ├─isn_doesn_says_asks_didn
+│                   │    ├─doesn_isn_sexual_dogs_intimate
+│                   │    │    ├─doesn_isn_sexual_intimate_dogs
+│                   │    │    │    ├─dogs_goats_doesn_animal_pet
+│                   │    │    │    │    ├─dogs_goats_animal_puppies_pet
+│                   │    │    │    │    │    ├─daughter_doesn_turns_holds_kneels
+│                   │    │    │    │    │    │    ├─■──henrya_dennya_turns_smuckersa_gaze ── Topic: 214
+│                   │    │    │    │    │    │    └─■──lilliea_rubya_daughtera_holds_daughter ── Topic: 242
+│                   │    │    │    │    │    └─■──goats_dogs_animal_puppies_animals ── Topic: 75
+│                   │    │    │    │    └─kittens_delivery_doesn_grandmother_rule
+│                   │    │    │    │         ├─kittens_delivery_doesn_rule_claws
+│                   │    │    │    │         │    ├─■──kittens_delivery_cata_purr_claws ── Topic: 62
+│                   │    │    │    │         │    └─■──daisya_rule_replies_grandmother_whispers ── Topic: 71
+│                   │    │    │    │         └─■──remya_dependable_coos_wails_parenting ── Topic: 302
+│                   │    │    │    └─doesn_isn_sexual_intimate_didn
+│                   │    │    │         ├─sexual_intimate_isn_intimacy_babysitter
+│                   │    │    │         │    ├─sexual_intimate_intimacy_babysitter_virginity
+│                   │    │    │         │    │    ├─■──nude_nudes_seen_completely_nakedness ── Topic: 94
+│                   │    │    │         │    │    └─sexual_intimate_intimacy_babysitter_virginity
+│                   │    │    │         │    │         ├─■──sexual_intimate_virginity_intimacy_having ── Topic: 37
+│                   │    │    │         │    │         └─■──babysitter_babya_born_babysit_healthy ── Topic: 43
+│                   │    │    │         │    └─doesn_feels_attached_replies_shouldn
+│                   │    │    │         │         ├─■──garretta_fulfilled_owners_sees_accepting ── Topic: 332
+│                   │    │    │         │         └─■──emersona_feels_scuffle_replies_destructive ── Topic: 207
+│                   │    │    │         └─doesn_isn_says_didn_turns
+│                   │    │    │              ├─doesn_isn_says_didn_won
+│                   │    │    │              │    ├─doesn_isn_turns_won_didn
+│                   │    │    │              │    │    ├─■──captaina_following_wraps_moves_weeksa ── Topic: 224
+│                   │    │    │              │    │    └─doesn_isn_turns_lets_won
+│                   │    │    │              │    │         ├─■──freshman_comes_roommate_ey_breasta ── Topic: 310
+│                   │    │    │              │    │         └─■──holta_donovana_doesna_zullya_addressing ── Topic: 107
+│                   │    │    │              │    └─■──hayesa_doesna_wants_copying_imperial ── Topic: 206
+│                   │    │    │              └─■──reida_ha_mouths_samuela_fortunately ── Topic: 312
+│                   │    │    └─attractive_look_incredibly_looks_utterly
+│                   │    │         ├─attractive_look_incredibly_looks_utterly
+│                   │    │         │    ├─■──erotic_sexytimes_dangerously_alluring_unnatural ── Topic: 274
+│                   │    │         │    └─attractive_look_incredibly_looks_utterly
+│                   │    │         │         ├─■──look_youa_stunning_seen_attractive ── Topic: 51
+│                   │    │         │         └─■──attractive_hea_incredibly_refined_devastatingly ── Topic: 180
+│                   │    │         └─■──hotter_smoking_hots_hottest_really ── Topic: 233
+│                   │    └─says_isn_asks_won_doesn
+│                   │         ├─asks_says_isn_didn_doesn
+│                   │         │    ├─asks_says_isn_didn_doesn
+│                   │         │    │    ├─■──davea_elliea_says_asks_clasps ── Topic: 220
+│                   │         │    │    └─asks_says_isn_didn_doesn
+│                   │         │    │         ├─asks_says_isn_didn_wouldn
+│                   │         │    │         │    ├─■──lottiea_asks_says_question_questiona ── Topic: 197
+│                   │         │    │         │    └─■──huxleya_says_asks_lottiea_secure ── Topic: 57
+│                   │         │    │         └─■──kelseya_asks_says_pigeon_uh ── Topic: 95
+│                   │         │    └─■──breakera_asks_closure_margaritas_refer ── Topic: 181
+│                   │         └─isn_won_smiles_doesn_looks
+│                   │              ├─isn_won_looks_didn_wraps
+│                   │              │    ├─■──lucaa_wraps_enzoa_cups_eliciting ── Topic: 70
+│                   │              │    └─won_isn_looks_smiles_tenses
+│                   │              │         ├─■──valentinaa_valentinoa_looks_smiles_gaze ── Topic: 139
+│                   │              │         └─isn_won_tenses_walks_looks
+│                   │              │              ├─■──ravena_aresa_nods_tenses_looks ── Topic: 59
+│                   │              │              └─■──aresa_grunts_walks_wraps_says ── Topic: 120
+│                   │              └─snaps_replies_doesn_isn_smiles
+│                   │                   ├─snaps_replies_isn_doesn_smiles
+│                   │                   │    ├─■──harrya_cries_snaps_whispers_bowed ── Topic: 308
+│                   │                   │    └─snaps_replies_isn_smiles_barks
+│                   │                   │         ├─snaps_replies_isn_smiles_barks
+│                   │                   │         │    ├─■──tristana_smiles_replies_broadly_laughs ── Topic: 52
+│                   │                   │         │    └─■──elliota_snaps_glares_replies_daniela ── Topic: 108
+│                   │                   │         └─■──jamesona_milesa_proves_stammers_stares ── Topic: 128
+│                   │                   └─■──marleya_confidante_splutters_goofily_pleads ── Topic: 303
+│                   └─citizen_unprotected_happen_donated_donate
+│                        ├─■──shocked_dona_stunned_worrying_upset ── Topic: 198
+│                        └─unprotected_donated_donate_pigeon_carrier
+│                             ├─■──dona_want_say_need_think ── Topic: 23
+│                             └─■──dona_coy_daft_tramp_start ── Topic: 317
+└─didn_sorry_door_hair_isn
+     ├─door_clit_hair_tongue_wine
+     │    ├─door_wine_sip_car_bottle
+     │    │    ├─door_wine_sip_car_bottle
+     │    │    │    ├─door_wine_sip_car_bottle
+     │    │    │    │    ├─wine_sip_bottle_dinner_kitchen
+     │    │    │    │    │    ├─■──kitchen_fridge_cabinets_appliances_counter ── Topic: 129
+     │    │    │    │    │    └─wine_sip_bottle_dinner_eat
+     │    │    │    │    │         ├─■──dinner_eat_food_lunch_breakfast ── Topic: 3
+     │    │    │    │    │         └─wine_sip_bottle_whiskey_waiter
+     │    │    │    │    │              ├─■──wine_kitchen_plate_sip_waitress ── Topic: 9
+     │    │    │    │    │              └─■──wine_sip_bottle_drunk_whiskey ── Topic: 6
+     │    │    │    │    └─door_car_doors_driver_opens
+     │    │    │    │         ├─pocket_rings_screen_rang_buzzes
+     │    │    │    │         │    ├─pocket_rang_screen_dialed_message
+     │    │    │    │         │    │    ├─■──rang_dialed_message_texted_screen ── Topic: 47
+     │    │    │    │         │    │    └─■──pocket_dialed_cellphone_rang_screen ── Topic: 63
+     │    │    │    │         │    └─■──rings_buzzes_pocket_rang_screen ── Topic: 19
+     │    │    │    │         └─door_car_doors_driver_opens
+     │    │    │    │              ├─door_doors_opens_opened_stairs
+     │    │    │    │              │    ├─■──door_doors_opens_opened_knock ── Topic: 8
+     │    │    │    │              │    └─■──door_doors_opened_car_stairs ── Topic: 22
+     │    │    │    │              └─■──car_driver_limo_parked_parking ── Topic: 17
+     │    │    │    └─desk_screen_papers_laptop_office
+     │    │    │         ├─■──desk_screen_laptop_monitor_office ── Topic: 195
+     │    │    │         └─desk_papers_laptop_office_screen
+     │    │    │              ├─■──desk_laptop_papers_office_cubicle ── Topic: 237
+     │    │    │              └─■──desk_papers_sitting_sits_office ── Topic: 289
+     │    │    └─shower_bed_bathroom_bedroom_mattress
+     │    │         ├─bed_bedroom_mattress_covers_sheets
+     │    │         │    ├─bed_mattress_bedroom_covers_sheets
+     │    │         │    │    ├─■──bed_mattress_bedroom_sheets_covers ── Topic: 133
+     │    │         │    │    └─■──bed_mattress_bedroom_edge_sits ── Topic: 158
+     │    │         │    └─■──bed_bedroom_couch_sheets_sofa ── Topic: 67
+     │    │         └─shower_bathroom_bath_tub_towel
+     │    │              ├─■──shower_bathroom_towel_bath_tub ── Topic: 266
+     │    │              └─shower_bathroom_tub_bath_toilet
+     │    │                   ├─■──shower_bathroom_bath_towel_restroom ── Topic: 203
+     │    │                   └─■──shower_bathroom_bath_tub_toilet ── Topic: 50
+     │    └─clit_tongue_hair_kissed_hips
+     │         ├─hair_makeup_strands_blonde_strand
+     │         │    ├─hair_makeup_blonde_strands_strand
+     │         │    │    ├─■──hair_blonde_waves_shoulders_bun ── Topic: 194
+     │         │    │    └─hair_makeup_mascara_strand_lipstick
+     │         │    │         ├─■──hair_makeup_mascara_lipstick_drag ── Topic: 41
+     │         │    │         └─■──hair_strands_brushes_grip_strand ── Topic: 93
+     │         │    └─■──hair_stubble_shaved_forehead_tousled ── Topic: 285
+     │         └─clit_tongue_kissed_hips_kisses
+     │              ├─nipples_dress_nipple_breasts_skirt
+     │              │    ├─dress_skirt_panties_lace_wearing
+     │              │    │    ├─■──navy_tie_wearing_crisp_shirt ── Topic: 315
+     │              │    │    └─dress_skirt_panties_lace_dresses
+     │              │    │         ├─■──dress_dresses_panties_skirt_lace ── Topic: 46
+     │              │    │         └─■──skirt_dress_breasts_nipples_curves ── Topic: 149
+     │              │    └─nipples_nipple_breasts_breast_cups
+     │              │         ├─■──nipples_nipple_hardened_harden_breasts ── Topic: 264
+     │              │         └─■──nipple_nipples_breasts_breast_cups ── Topic: 121
+     │              └─clit_tongue_kissed_hips_kisses
+     │                   ├─clit_hips_tongue_pussy_thighs
+     │                   │    ├─clit_pussy_hips_tongue_legs
+     │                   │    │    ├─■──clit_hips_pussy_legs_thighs ── Topic: 13
+     │                   │    │    └─■──clit_pussy_tongue_hips_legs ── Topic: 2
+     │                   │    └─■──kissed_hips_tongue_breasts_mouth ── Topic: 1
+     │                   └─kisses_kissed_tongue_lip_teeth
+     │                        ├─■──kisses_kissed_tongue_mouth_cheek ── Topic: 10
+     │                        └─■──lip_bite_teeth_nose_tongue ── Topic: 34
+     └─sorry_didn_married_isn_wedding
+          ├─sorry_didn_married_isn_wedding
+          │    ├─breath_scent_smell_lungs_smells
+          │    │    ├─scent_smell_smells_smelled_cologne
+          │    │    │    ├─■──smell_scent_perfume_smells_smelled ── Topic: 235
+          │    │    │    └─scent_smell_smells_smelled_cologne
+          │    │    │         ├─■──scent_cologne_smell_smells_smelled ── Topic: 190
+          │    │    │         └─■──scent_smelled_smell_perfume_nostrils ── Topic: 290
+          │    │    └─breath_lungs_deep_breathing_exhale
+          │    │         ├─breath_lungs_deep_exhale_breathing
+          │    │         │    ├─■──breath_lungs_deep_exhale_inhale ── Topic: 42
+          │    │         │    └─■──breath_hitches_breathes_deep_breathing ── Topic: 196
+          │    │         └─■──breath_exhales_blew_breathing_deep ── Topic: 265
+          │    └─sorry_didn_married_isn_wedding
+          │         ├─loved_loves_adored_liked_isn
+          │         │    ├─■──loved_fall_falling_believe_consuming ── Topic: 97
+          │         │    └─loved_loves_adored_liked_madly
+          │         │         ├─loved_loves_adored_madly_cared
+          │         │         │    ├─■──loved_loves_adored_utterly_madly ── Topic: 90
+          │         │         │    └─■──loved_loves_adored_clearly_humbled ── Topic: 228
+          │         │         └─■──loved_liked_adored_attractive_proud ── Topic: 212
+          │         └─sorry_didn_married_isn_wedding
+          │              ├─sorry_didn_married_isn_wedding
+          │              │    ├─whispers_whisper_whispered_hoarsely_ear
+          │              │    │    ├─■──whisper_whispered_murmur_whispers_whata ── Topic: 68
+          │              │    │    └─whispers_whispered_whisper_ear_hoarsely
+          │              │    │         ├─■──whispers_whispered_whisper_softly_breaking ── Topic: 87
+          │              │    │         └─■──whispers_whispered_whisper_ear_hoarsely ── Topic: 142
+          │              │    └─sorry_didn_married_wedding_isn
+          │              │         ├─sorry_condom_anger_night_clock
+          │              │         │    ├─sorry_condom_anger_night_clock
+          │              │         │    │    ├─anger_rage_frustration_simmering_burns
+          │              │         │    │    │    ├─■──anger_rage_simmering_blood_frustration ── Topic: 85
+          │              │         │    │    │    └─■──anger_rage_furious_burning_dense ── Topic: 252
+          │              │         │    │    └─sorry_condom_night_clock_sleep
+          │              │         │    │         ├─condom_night_clock_sleep_tonight
+          │              │         │    │         │    ├─sleep_asleep_slept_wake_nap
+          │              │         │    │         │    │    ├─■──sleep_asleep_slept_nap_hours ── Topic: 49
+          │              │         │    │         │    │    └─■──sleep_asleep_slept_night_woke ── Topic: 257
+          │              │         │    │         │    └─condom_clock_tonight_lie_fun
+          │              │         │    │         │         ├─condom_clock_tonight_lie_fun
+          │              │         │    │         │         │    ├─condom_clock_tonight_fun_lie
+          │              │         │    │         │         │    │    ├─condom_clock_fun_tonight_lie
+          │              │         │    │         │         │    │    │    ├─fun_tonight_night_trust_tomorrow
+          │              │         │    │         │         │    │    │    │    ├─fun_trust_luck_relax_shoulders
+          │              │         │    │         │         │    │    │    │    │    ├─trust_relax_shoulders_friendship_trusted
+          │              │         │    │         │         │    │    │    │    │    │    ├─relax_shoulders_raise_hunch_rest
+          │              │         │    │         │         │    │    │    │    │    │    │    ├─■──shoulders_raise_hunch_slump_square ── Topic: 321
+          │              │         │    │         │         │    │    │    │    │    │    │    └─relax_rest_relaxed_relaxing_doesn
+          │              │         │    │         │         │    │    │    │    │    │    │         ├─■──relax_rest_relaxing_relaxed_enjoy ── Topic: 329
+          │              │         │    │         │         │    │    │    │    │    │    │         └─■──doesn_introduce_cajoled_disarming_sangria ── Topic: 239
+          │              │         │    │         │         │    │    │    │    │    │    └─trust_friendship_trusted_friend_issues
+          │              │         │    │         │         │    │    │    │    │    │         ├─■──trust_trusted_trustworthy_issues_forgave ── Topic: 143
+          │              │         │    │         │         │    │    │    │    │    │         └─■──friendship_friend_buddies_benefits_friendships ── Topic: 160
+          │              │         │    │         │         │    │    │    │    │    └─fun_luck_adorable_secrets_excited
+          │              │         │    │         │         │    │    │    │    │         ├─fun_secrets_excited_secrecy_excitement
+          │              │         │    │         │         │    │    │    │    │         │    ├─■──secrets_confidential_secrecy_keeping_secretive ── Topic: 305
+          │              │         │    │         │         │    │    │    │    │         │    └─fun_excited_excitement_having_sounds
+          │              │         │    │         │         │    │    │    │    │         │         ├─■──clairea_admirable_passionate_unenthusiastically_shortcuts ── Topic: 318
+          │              │         │    │         │         │    │    │    │    │         │         └─■──fun_excited_excitement_entertaining_having ── Topic: 124
+          │              │         │    │         │         │    │    │    │    │         └─luck_adorable_perfection_luckiest_perfectly
+          │              │         │    │         │         │    │    │    │    │              ├─luck_perfection_luckiest_wasn_perfectly
+          │              │         │    │         │         │    │    │    │    │              │    ├─■──luck_luckiest_perfection_perfectly_fortunate ── Topic: 134
+          │              │         │    │         │         │    │    │    │    │              │    └─scolded_isn_chimed_wasn_badger
+          │              │         │    │         │         │    │    │    │    │              │         ├─■──jar_barista_trance_suggests_georgiaa ── Topic: 277
+          │              │         │    │         │         │    │    │    │    │              │         └─■──georgiaa_thosea_press_conference_yelped ── Topic: 229
+          │              │         │    │         │         │    │    │    │    │              └─adorable_cutest_epitome_aren_deteriorated
+          │              │         │    │         │         │    │    │    │    │                   ├─epitome_deteriorated_mio_outspoken_sophistication
+          │              │         │    │         │         │    │    │    │    │                   │    ├─■──yeah_reply_agreed_answered_agree ── Topic: 146
+          │              │         │    │         │         │    │    │    │    │                   │    └─■──charlottea_answer_answered_reply_epitome ── Topic: 221
+          │              │         │    │         │         │    │    │    │    │                   └─■──adorable_cutest_nephew_cutes_absolutely ── Topic: 331
+          │              │         │    │         │         │    │    │    │    └─tonight_night_tomorrow_music_home
+          │              │         │    │         │         │    │    │    │         ├─believe_nod_thank_isn_admit
+          │              │         │    │         │         │    │    │    │         │    ├─believe_admit_et_facts_expect
+          │              │         │    │         │         │    │    │    │         │    │    ├─■──believe_admit_cana_expect_macka ── Topic: 227
+          │              │         │    │         │         │    │    │    │         │    │    └─■──et_religion_priest_deity_salvation ── Topic: 175
+          │              │         │    │         │         │    │    │    │         │    └─nod_thank_isn_hasn_doesn
+          │              │         │    │         │         │    │    │    │         │         ├─■──hannaha_isna_merely_hurting_distance ── Topic: 333
+          │              │         │    │         │         │    │    │    │         │         └─■──nod_thank_solemnly_dribble_zit ── Topic: 300
+          │              │         │    │         │         │    │    │    │         └─tonight_night_tomorrow_music_home
+          │              │         │    │         │         │    │    │    │              ├─tonight_night_evening_nights_die
+          │              │         │    │         │         │    │    │    │              │    ├─awesome_authors_wonderful_acknowledgments_reviews
+          │              │         │    │         │         │    │    │    │              │    │    ├─■──awesome_wonderful_extraordinary_glorious_exciting ── Topic: 171
+          │              │         │    │         │         │    │    │    │              │    │    └─■──authors_acknowledgments_authora_reviews_reading ── Topic: 178
+          │              │         │    │         │         │    │    │    │              │    └─tonight_night_evening_nights_die
+          │              │         │    │         │         │    │    │    │              │         ├─tonight_night_evening_nights_saturday
+          │              │         │    │         │         │    │    │    │              │         │    ├─■──clubs_members_exclusive_cluba_stag ── Topic: 250
+          │              │         │    │         │         │    │    │    │              │         │    └─■──tonight_night_evening_nights_stand ── Topic: 21
+          │              │         │    │         │         │    │    │    │              │         └─die_plan_dead_died_deaths
+          │              │         │    │         │         │    │    │    │              │              ├─■──plan_plans_work_united_conditions ── Topic: 172
+          │              │         │    │         │         │    │    │    │              │              └─■──die_dead_died_deaths_killed ── Topic: 199
+          │              │         │    │         │         │    │    │    │              └─tomorrow_music_home_weekend_holiday
+          │              │         │    │         │         │    │    │    │                   ├─tomorrow_music_weekend_holiday_merry
+          │              │         │    │         │         │    │    │    │                   │    ├─■──music_band_song_musicians_classical ── Topic: 263
+          │              │         │    │         │         │    │    │    │                   │    └─tomorrow_weekend_holiday_merry_monday
+          │              │         │    │         │         │    │    │    │                   │         ├─■──merry_holiday_parties_holidays_yeara ── Topic: 135
+          │              │         │    │         │         │    │    │    │                   │         └─■──tomorrow_weekend_monday_weekends_saturday ── Topic: 174
+          │              │         │    │         │         │    │    │    │                   └─■──home_edit_literally_heading_homesick ── Topic: 208
+          │              │         │    │         │         │    │    │    └─condom_clock_lie_york_jealous
+          │              │         │    │         │         │    │    │         ├─condom_clock_lie_york_jealous
+          │              │         │    │         │         │    │    │         │    ├─missed_memories_forget_dreams_remember
+          │              │         │    │         │         │    │    │         │    │    ├─missed_memories_forget_dreams_remember
+          │              │         │    │         │         │    │    │         │    │    │    ├─missed_forget_forgot_forgotten_forgetting
+          │              │         │    │         │         │    │    │         │    │    │    │    ├─■──missed_misses_missing_forgot_performance ── Topic: 79
+          │              │         │    │         │         │    │    │         │    │    │    │    └─■──forget_forgot_forgotten_forgetting_completely ── Topic: 188
+          │              │         │    │         │         │    │    │         │    │    │    └─memories_dreams_remember_memory_nightmare
+          │              │         │    │         │         │    │    │         │    │    │         ├─■──memories_remember_memory_remembered_remembering ── Topic: 82
+          │              │         │    │         │         │    │    │         │    │    │         └─■──dreams_nightmare_dreamed_dreaming_nightmares ── Topic: 100
+          │              │         │    │         │         │    │    │         │    │    └─happened_happen_happening_did_just
+          │              │         │    │         │         │    │    │         │    │         ├─■──happened_happen_happening_did_just ── Topic: 226
+          │              │         │    │         │         │    │    │         │    │         └─■──really_happening_necessarily_anymore_depress ── Topic: 325
+          │              │         │    │         │         │    │    │         │    └─condom_clock_lie_york_jealous
+          │              │         │    │         │         │    │    │         │         ├─condom_clock_jealous_worse_throat
+          │              │         │    │         │         │    │    │         │         │    ├─condom_clock_throat_mirror_gun
+          │              │         │    │         │         │    │    │         │         │    │    ├─pool_slow_scowl_swimming_slower
+          │              │         │    │         │         │    │    │         │         │    │    │    ├─slow_scowl_slower_motion_beeped
+          │              │         │    │         │         │    │    │         │         │    │    │    │    ├─scowl_beeped_crews_bees_mango
+          │              │         │    │         │         │    │    │         │         │    │    │    │    │    ├─■──yessss____ ── Topic: 319
+          │              │         │    │         │         │    │    │         │         │    │    │    │    │    └─■──scowl_beeping_beeps_beeped_crews ── Topic: 335
+          │              │         │    │         │         │    │    │         │         │    │    │    │    └─slow_slower_motion_slows_slowing
+          │              │         │    │         │         │    │    │         │         │    │    │    │         ├─■──slow_slower_motion_slows_snail ── Topic: 316
+          │              │         │    │         │         │    │    │         │         │    │    │    │         └─■──fuckup_rule_horny_rules_hint ── Topic: 189
+          │              │         │    │         │         │    │    │         │         │    │    │    └─pool_swimming_float_olympic_gene
+          │              │         │    │         │         │    │    │         │         │    │    │         ├─■──pool_swimming_swim_scum_gene ── Topic: 322
+          │              │         │    │         │         │    │    │         │         │    │    │         └─■──imply_clever_honestly_gives_ ── Topic: 240
+          │              │         │    │         │         │    │    │         │         │    │    └─condom_clock_throat_mirror_gun
+          │              │         │    │         │         │    │    │         │         │    │         ├─throat_gun_lump_shouted_yelled
+          │              │         │    │         │         │    │    │         │         │    │         │    ├─throat_lump_moan_groaned_dries
+          │              │         │    │         │         │    │    │         │         │    │         │    │    ├─■──throat_lump_clear_dries_swallowed ── Topic: 163
+          │              │         │    │         │         │    │    │         │         │    │         │    │    └─■──moan_groaned_scream_screamed_whimper ── Topic: 301
+          │              │         │    │         │         │    │    │         │         │    │         │    └─gun_shouted_yelled_yell_weapon
+          │              │         │    │         │         │    │    │         │         │    │         │         ├─■──shouted_yelled_yell_yells_yelling ── Topic: 153
+          │              │         │    │         │         │    │    │         │         │    │         │         └─■──gun_weapon_bullets_pistol_guns ── Topic: 275
+          │              │         │    │         │         │    │    │         │         │    │         └─condom_clock_mirror_condoms_shook
+          │              │         │    │         │         │    │    │         │         │    │              ├─clock_mirror_reflection_glance_nightstand
+          │              │         │    │         │         │    │    │         │         │    │              │    ├─■──mirror_reflection_bathroom_stare_survey ── Topic: 334
+          │              │         │    │         │         │    │    │         │         │    │              │    └─■──clock_nightstand_ticking_glanced_digital ── Topic: 223
+          │              │         │    │         │         │    │    │         │         │    │              └─condom_condoms_shook_wrapper_head
+          │              │         │    │         │         │    │    │         │         │    │                   ├─■──condom_condoms_wrapper_packet_wallet ── Topic: 118
+          │              │         │    │         │         │    │    │         │         │    │                   └─■──shook_head_shaking_dislodge_scornful ── Topic: 295
+          │              │         │    │         │         │    │    │         │         │    └─jealous_worse_regret_embarrassing_jealousy
+          │              │         │    │         │         │    │    │         │         │         ├─worse_regret_embarrassing_worst_hurts
+          │              │         │    │         │         │    │    │         │         │         │    ├─worse_embarrassing_worst_hurts_guilt
+          │              │         │    │         │         │    │    │         │         │         │    │    ├─■──embarrassing_embarrassed_humiliating_shame_humiliated ── Topic: 268
+          │              │         │    │         │         │    │    │         │         │         │    │    └─worse_worst_hurts_guilt_painful
+          │              │         │    │         │         │    │    │         │         │         │    │         ├─■──worse_worst_happen_things_terrible ── Topic: 161
+          │              │         │    │         │         │    │    │         │         │         │    │         └─■──hurts_guilt_painful_hurting_experiencing ── Topic: 61
+          │              │         │    │         │         │    │    │         │         │         │    └─■──regret_regrets_regretted_regretfully_regretting ── Topic: 324
+          │              │         │    │         │         │    │    │         │         │         └─jealous_jealousy_panic_fight_emotions
+          │              │         │    │         │         │    │    │         │         │              ├─panic_fight_emotions_fighting_emotional
+          │              │         │    │         │         │    │    │         │         │              │    ├─■──fight_fighting_fought_battle_fights ── Topic: 327
+          │              │         │    │         │         │    │    │         │         │              │    └─■──panic_emotions_emotional_attack_emotionally ── Topic: 116
+          │              │         │    │         │         │    │    │         │         │              └─■──jealous_jealousy_tribute_irrationally_envious ── Topic: 185
+          │              │         │    │         │         │    │    │         │         └─lie_york_easy_contract_lied
+          │              │         │    │         │         │    │    │         │              ├─lie_york_easy_lied_ridiculous
+          │              │         │    │         │         │    │    │         │              │    ├─lie_york_lied_ridiculous_lying
+          │              │         │    │         │         │    │    │         │              │    │    ├─lie_lied_ridiculous_lying_pregnancy
+          │              │         │    │         │         │    │    │         │              │    │    │    ├─■──lie_lied_lying_lies_deception ── Topic: 56
+          │              │         │    │         │         │    │    │         │              │    │    │    └─ridiculous_pregnancy_bullshit_insane_dates
+          │              │         │    │         │         │    │    │         │              │    │    │         ├─pregnancy_dates_test_isn_didn
+          │              │         │    │         │         │    │    │         │              │    │    │         │    ├─■──pregnancy_test_unplanned_weeks_months ── Topic: 141
+          │              │         │    │         │         │    │    │         │              │    │    │         │    └─■──dates_datea_dated_isna_official ── Topic: 131
+          │              │         │    │         │         │    │    │         │              │    │    │         └─■──ridiculous_insane_bullshit_fool_dumbass ── Topic: 32
+          │              │         │    │         │         │    │    │         │              │    │    └─york_rent_privacy_lease_safer
+          │              │         │    │         │         │    │    │         │              │    │         ├─■──york_rent_lease_city_rental ── Topic: 77
+          │              │         │    │         │         │    │    │         │              │    │         └─■──privacy_safer_protected_protect_invasion ── Topic: 336
+          │              │         │    │         │         │    │    │         │              │    └─easy_talk_simple_conversation_conversations
+          │              │         │    │         │         │    │    │         │              │         ├─■──easy_simple_straightforward_peasy_natural ── Topic: 117
+          │              │         │    │         │         │    │    │         │              │         └─■──conversation_talk_conversations_discuss_need ── Topic: 130
+          │              │         │    │         │         │    │    │         │              └─contract_flight_plane_police_jet
+          │              │         │    │         │         │    │    │         │                   ├─flight_plane_jet_pigeon_birds
+          │              │         │    │         │         │    │    │         │                   │    ├─■──pigeon_birds_duck_duckling_chirping ── Topic: 201
+          │              │         │    │         │         │    │    │         │                   │    └─■──flight_plane_jet_airport_helicopter ── Topic: 114
+          │              │         │    │         │         │    │    │         │                   └─contract_police_wait_cops_waiting
+          │              │         │    │         │         │    │    │         │                        ├─police_cops_guard_cop_guards
+          │              │         │    │         │         │    │    │         │                        │    ├─■──police_cops_guard_cop_ambulance ── Topic: 112
+          │              │         │    │         │         │    │    │         │                        │    └─■──whines_maxa_answered_bounds_wriggles ── Topic: 258
+          │              │         │    │         │         │    │    │         │                        └─contract_wait_waiting_cameras_signed
+          │              │         │    │         │         │    │    │         │                             ├─wait_waiting_cameras_photos_photographers
+          │              │         │    │         │         │    │    │         │                             │    ├─■──cameras_photos_pictures_photographers_camera ── Topic: 296
+          │              │         │    │         │         │    │    │         │                             │    └─■──wait_waiting_ipo_cowering_waits ── Topic: 311
+          │              │         │    │         │         │    │    │         │                             └─■──contract_signed_contracts_sign_clause ── Topic: 282
+          │              │         │    │         │         │    │    │         └─cheeks_flush_flushes_sears_burn
+          │              │         │    │         │         │    │    │              ├─■──tough_umma_jerky_battle_dig ── Topic: 169
+          │              │         │    │         │         │    │    │              └─■──cheeks_flush_flushes_sears_burn ── Topic: 326
+          │              │         │    │         │         │    │    └─stomach_roses_chest_flowers_sweat
+          │              │         │    │         │         │    │         ├─stomach_chest_sweat_knees_blood
+          │              │         │    │         │         │    │         │    ├─race_frowns_begins_diary_starts
+          │              │         │    │         │         │    │         │    │    ├─■──ameliea_diary_frowns_tosses_widens ── Topic: 245
+          │              │         │    │         │         │    │         │    │    └─■──race_frowns_begins_starts_racing ── Topic: 286
+          │              │         │    │         │         │    │         │    └─stomach_chest_sweat_knees_blood
+          │              │         │    │         │         │    │         │         ├─stomach_chest_knees_blood_veins
+          │              │         │    │         │         │    │         │         │    ├─■──closed_eyelids_shut_sockets_squeeze ── Topic: 88
+          │              │         │    │         │         │    │         │         │    └─stomach_chest_knees_blood_veins
+          │              │         │    │         │         │    │         │         │         ├─stomach_chest_knees_blood_veins
+          │              │         │    │         │         │    │         │         │         │    ├─■──knees_feet_fists_arms_foot ── Topic: 31
+          │              │         │    │         │         │    │         │         │         │    └─■──stomach_chest_blood_veins_temples ── Topic: 15
+          │              │         │    │         │         │    │         │         │         └─■──orgasms_climax_rips_orgasmic_orgasmed ── Topic: 154
+          │              │         │    │         │         │    │         │         └─■──sweat_beads_sweating_trickles_sweaty ── Topic: 210
+          │              │         │    │         │         │    │         └─roses_flowers_sun_sky_rain
+          │              │         │    │         │         │    │              ├─sun_rain_sky_winter_clouds
+          │              │         │    │         │         │    │              │    ├─■──rain_winter_wet_raining_chilly ── Topic: 101
+          │              │         │    │         │         │    │              │    └─■──sun_sky_beach_clouds_horizon ── Topic: 123
+          │              │         │    │         │         │    │              └─roses_flowers_bouquet_furniture_fireplace
+          │              │         │    │         │         │    │                   ├─furniture_fireplace_ceiling_windows_wood
+          │              │         │    │         │         │    │                   │    ├─■──bigger_huge_size_solid_heavy ── Topic: 259
+          │              │         │    │         │         │    │                   │    └─■──furniture_fireplace_ceiling_windows_chairs ── Topic: 83
+          │              │         │    │         │         │    │                   └─roses_flowers_bouquet_colors_florist
+          │              │         │    │         │         │    │                        ├─■──colors_favorite_yellow_scheme_bright ── Topic: 280
+          │              │         │    │         │         │    │                        └─■──roses_flowers_bouquet_florist_petals ── Topic: 91
+          │              │         │    │         │         │    └─growls_smirks_nods_low_lowers
+          │              │         │    │         │         │         ├─growls_smirks_nods_groans_smirk
+          │              │         │    │         │         │         │    ├─■──nods_smirks_smirk_knowingly_solemnly ── Topic: 244
+          │              │         │    │         │         │         │    └─growls_groans_doesn_growling_grunts
+          │              │         │    │         │         │         │         ├─■──sainta_growls_stiffens_patron_smirks ── Topic: 182
+          │              │         │    │         │         │         │         └─growls_groans_growling_doesn_growl
+          │              │         │    │         │         │         │              ├─■──growls_groans_growl_rumbles_growling ── Topic: 256
+          │              │         │    │         │         │         │              └─■──westona_growls_straightens_cautions_scowls ── Topic: 230
+          │              │         │    │         │         │         └─low_lowers_trails_hoarse_cracks
+          │              │         │    │         │         │              ├─■──cracks_trails_muffled_murmur_shaky ── Topic: 152
+          │              │         │    │         │         │              └─■──low_lowers_trails_gruff_husky ── Topic: 170
+          │              │         │    │         │         └─wrong_mistake_mistakes_error_terribly
+          │              │         │    │         │              ├─■──mistake_wrong_mistakes_faulty_huge ── Topic: 232
+          │              │         │    │         │              └─■──wrong_somethinga_terribly_wrongs_feels ── Topic: 314
+          │              │         │    │         └─sorry_apologize_tears_forgive_apology
+          │              │         │    │              ├─tears_gasped_cried_cheeks_tear
+          │              │         │    │              │    ├─tears_gasped_cheeks_tear_prick
+          │              │         │    │              │    │    ├─■──gasped_tears_panic_cheeks_stomach ── Topic: 147
+          │              │         │    │              │    │    └─■──tears_prick_wipe_blink_cheeks ── Topic: 218
+          │              │         │    │              │    └─■──cried_tears_sobbing_sobbed_bawling ── Topic: 247
+          │              │         │    │              └─sorry_apologize_forgive_apology_apologized
+          │              │         │    │                   ├─■──sorry_apologize_apology_ia_apologized ── Topic: 249
+          │              │         │    │                   └─■──apologize_forgive_sorry_apology_apologized ── Topic: 54
+          │              │         │    └─nodded_shrugged_glad_grateful_shrug
+          │              │         │         ├─glad_grateful_pleased_gratitude_thankful
+          │              │         │         │    ├─■──glad_grateful_proud_thrilled_ia ── Topic: 273
+          │              │         │         │    └─■──glad_proud_excited_ia_honored ── Topic: 330
+          │              │         │         └─nodded_shrugged_shrug_scowl_vigorously
+          │              │         │              ├─■──nodded_shrugged_scowl_shrug_agreement ── Topic: 238
+          │              │         │              └─■──nodded_enthusiastically_solemnly_smiled_politely ── Topic: 307
+          │              │         └─married_wedding_marriage_didn_marry
+          │              │              ├─wear_clothes_outfit_wearing_outfits
+          │              │              │    ├─wear_clothes_outfit_wearing_outfits
+          │              │              │    │    ├─■──wea_shared_downs_cycle_yearlong ── Topic: 284
+          │              │              │    │    └─■──wea_wear_clothes_outfit_wearing ── Topic: 26
+          │              │              │    └─■──wea_work_need_talked_presentation ── Topic: 204
+          │              │              └─married_wedding_marriage_didn_marry
+          │              │                   ├─didn_wasn_couldn_letter_moved
+          │              │                   │    ├─didn_wasn_suspected_manager_grunted
+          │              │                   │    │    ├─■──bronta_sharona_revulsion_guests_creature ── Topic: 187
+          │              │                   │    │    └─■──logana_bronta_grunted_suspected_manager ── Topic: 136
+          │              │                   │    └─■──gretchena_bronta_library_letter_letters ── Topic: 92
+          │              │                   └─married_wedding_marriage_marry_didn
+          │              │                        ├─married_wedding_marriage_marry_didn
+          │              │                        │    ├─married_wedding_marriage_marry_didn
+          │              │                        │    │    ├─game_hockey_minutes_players_weeks
+          │              │                        │    │    │    ├─shh_whew_ah_shhh_isn
+          │              │                        │    │    │    │    ├─ack_district_armani_chutiya_aye
+          │              │                        │    │    │    │    │    ├─■──aye_string_parts_fianca_yesterday ── Topic: 109
+          │              │                        │    │    │    │    │    └─■──excuse_aye_alright_look_ew ── Topic: 58
+          │              │                        │    │    │    │    └─shh_whew_ah_shhh_isn
+          │              │                        │    │    │    │         ├─isn_supposed_mm_calling_doesn
+          │              │                        │    │    │    │         │    ├─calling_called_calls_earliest_aren
+          │              │                        │    │    │    │         │    │    ├─■──calling_called_anytime_earliest_calls ── Topic: 299
+          │              │                        │    │    │    │         │    │    └─■──snarky_innit_arouses_raincheck_hangina ── Topic: 200
+          │              │                        │    │    │    │         │    └─isn_supposed_mm_question_means
+          │              │                        │    │    │    │         │         ├─mm_questioned_painkillers_noon_bellows
+          │              │                        │    │    │    │         │         │    ├─■──rebeccaa_cassiea_katea_startling_shrieked ── Topic: 157
+          │              │                        │    │    │    │         │         │    └─■──industries_fault_dona_anythinga_avaa ── Topic: 137
+          │              │                        │    │    │    │         │         └─isn_supposed_means_question_redemption
+          │              │                        │    │    │    │         │              ├─■──yoursa_youa_whata_redemption_contemporary ── Topic: 150
+          │              │                        │    │    │    │         │              └─■──supposed_whata_question_challenge_true ── Topic: 241
+          │              │                        │    │    │    │         └─shh_whew_ah_shhh_wh
+          │              │                        │    │    │    │              ├─■──shh_whew_uh_ah_huh ── Topic: 234
+          │              │                        │    │    │    │              └─■──rumbles_load_huh_point_isna ── Topic: 217
+          │              │                        │    │    │    └─game_hockey_minutes_players_puck
+          │              │                        │    │    │         ├─game_hockey_players_puck_play
+          │              │                        │    │    │         │    ├─game_hockey_puck_players_play
+          │              │                        │    │    │         │    │    ├─■──game_hockey_puck_players_games ── Topic: 25
+          │              │                        │    │    │         │    │    └─■──laurena_hockey_mikea_players_natea ── Topic: 72
+          │              │                        │    │    │         │    └─■──natea_hockey_game_bankers_router ── Topic: 64
+          │              │                        │    │    │         └─minutes_weeks_leave_months_hours
+          │              │                        │    │    │              ├─minutes_weeks_leave_months_hours
+          │              │                        │    │    │              │    ├─meeting_office_meetings_board_mile
+          │              │                        │    │    │              │    │    ├─■──meeting_office_meetings_board_offices ── Topic: 270
+          │              │                        │    │    │              │    │    └─■──mile_dishing_pilot_london_precautions ── Topic: 255
+          │              │                        │    │    │              │    └─minutes_weeks_leave_months_hours
+          │              │                        │    │    │              │         ├─minutes_weeks_months_hours_week
+          │              │                        │    │    │              │         │    ├─■──minutes_weeks_months_days_week ── Topic: 24
+          │              │                        │    │    │              │         │    └─mornings_early_minutes_monday_omg
+          │              │                        │    │    │              │         │         ├─■──early_latea_ita_minutes_bylaws ── Topic: 205
+          │              │                        │    │    │              │         │         └─■──mornings_early_morninga_omg_righta ── Topic: 262
+          │              │                        │    │    │              │         └─leave_leaving_staying_walk_need
+          │              │                        │    │    │              │              ├─■──leave_leaving_walk_left_need ── Topic: 78
+          │              │                        │    │    │              │              └─■──staying_command_strong_youa_cana ── Topic: 164
+          │              │                        │    │    │              └─owl_elf_ale_downtime_standings
+          │              │                        │    │    │                   ├─■──leta_shall_suggested_leave_says ── Topic: 138
+          │              │                        │    │    │                   └─■──owl_leta_herea_repeats_elf ── Topic: 298
+          │              │                        │    │    └─married_wedding_marriage_marry_didn
+          │              │                        │    │         ├─married_wedding_marriage_marry_divorce
+          │              │                        │    │         │    ├─married_wedding_marriage_marry_divorce
+          │              │                        │    │         │    │    ├─fired_lawyers_didn_seminar_grinned
+          │              │                        │    │         │    │    │    ├─■──fired_lawyers_attorney_terminated_termination ── Topic: 323
+          │              │                        │    │         │    │    │    └─seminar_grinned_photos_didn_wouldn
+          │              │                        │    │         │    │    │         ├─■──seminar_swallowed_received_geniuses_brochures ── Topic: 320
+          │              │                        │    │         │    │    │         └─■──shots_client_grinned_wouldn_compromising ── Topic: 243
+          │              │                        │    │         │    │    └─married_wedding_marriage_marry_divorce
+          │              │                        │    │         │    │         ├─married_marriage_wedding_marry_divorce
+          │              │                        │    │         │    │         │    ├─married_marriage_wedding_marry_divorce
+          │              │                        │    │         │    │         │    │    ├─■──cilliana_antidote_maine_evon_unlike ── Topic: 294
+          │              │                        │    │         │    │         │    │    └─married_wedding_marriage_marry_divorce
+          │              │                        │    │         │    │         │    │         ├─married_wedding_marriage_marry_divorce
+          │              │                        │    │         │    │         │    │         │    ├─■──merinaa_earful_fizzled_victorious_barreled ── Topic: 328
+          │              │                        │    │         │    │         │    │         │    └─■──married_wedding_marriage_marry_divorce ── Topic: 7
+          │              │                        │    │         │    │         │    │         └─■──wealthy_richest_millionaire_eligible_billionairea ── Topic: 98
+          │              │                        │    │         │    │         │    └─wasn_didn_couldn_sailors_archery
+          │              │                        │    │         │    │         │         ├─■──fitzpatricka_brennana_eldest_clan_ireland ── Topic: 192
+          │              │                        │    │         │    │         │         └─■──sailora_sailors_archery_promised_sparrowa ── Topic: 126
+          │              │                        │    │         │    │         └─silent_scared_didn_sad_afraid
+          │              │                        │    │         │    │              ├─didn_hadn_wouldn_wasn_couldn
+          │              │                        │    │         │    │              │    ├─■──stellaa_avaa_resurfaced_julesa_unrecognizable ── Topic: 159
+          │              │                        │    │         │    │              │    └─didn_wouldn_hadn_wasn_couldn
+          │              │                        │    │         │    │              │         ├─■──viviana_shallowed_ante_returned_engagement ── Topic: 113
+          │              │                        │    │         │    │              │         └─■──dantea_engagement_pudding_glinted_granite ── Topic: 89
+          │              │                        │    │         │    │              └─silent_scared_sad_afraid_terrifying
+          │              │                        │    │         │    │                   ├─silent_fell_remained_beat_descends
+          │              │                        │    │         │    │                   │    ├─■──silent_fell_remained_beat_stays ── Topic: 30
+          │              │                        │    │         │    │                   │    └─■──winniea_witch_laughed_asked_murdering ── Topic: 213
+          │              │                        │    │         │    │                   └─■──scared_afraid_sad_terrifying_scary ── Topic: 74
+          │              │                        │    │         │    └─joke_funny_changed_change_liked
+          │              │                        │    │         │         ├─liked_enjoy_likes_intelligent_really
+          │              │                        │    │         │         │    ├─■──enjoy_penguins_buildup_unsurprisingly_americaa ── Topic: 292
+          │              │                        │    │         │         │    └─■──liked_likes_hea_really_aggressively ── Topic: 148
+          │              │                        │    │         │         └─joke_funny_changed_change_arrogance
+          │              │                        │    │         │              ├─joke_funny_arrogance_isn_teaches
+          │              │                        │    │         │              │    ├─■──joke_funny_jokea_whata_amusing ── Topic: 215
+          │              │                        │    │         │              │    └─arrogance_jerks_teaches_jerky_cocky
+          │              │                        │    │         │              │         ├─■──hea_confidence_preferred_redesigned_jugular ── Topic: 281
+          │              │                        │    │         │              │         └─■──arrogance_cocky_smack_hea_insufferable ── Topic: 271
+          │              │                        │    │         │              └─changed_change_changes_topic_mind
+          │              │                        │    │         │                   ├─■──biancaa_jambalaya_tremulous_egotistical_presumptuous ── Topic: 304
+          │              │                        │    │         │                   └─■──changed_change_changes_everythinga_mind ── Topic: 155
+          │              │                        │    │         └─sister_didn_wouldn_wasn_hadn
+          │              │                        │    │              ├─didn_wouldn_wasn_sister_hadn
+          │              │                        │    │              │    ├─■──daphnea_audreya_drugs_curious_sister ── Topic: 102
+          │              │                        │    │              │    └─■──cadea_audreya_archera_necks_daphnea ── Topic: 122
+          │              │                        │    │              └─sister_statue_daughter_disclosure_shouldn
+          │              │                        │    │                   ├─■──statue_earnestly_ora_gently_sister ── Topic: 225
+          │              │                        │    │                   └─■──sister_sistera_partnera_niece_daughter ── Topic: 184
+          │              │                        │    └─business_company_dollars_pay_thousand
+          │              │                        │         ├─happiness_percent_thousand_going_best
+          │              │                        │         │    ├─happiness_percent_thousand_best_thing
+          │              │                        │         │    │    ├─important_ladies_stake_just_winning
+          │              │                        │         │    │    │    ├─won_winning_ode_deserve_reliable
+          │              │                        │         │    │    │    │    ├─■──won_winning_firsthand_blah_wins ── Topic: 211
+          │              │                        │         │    │    │    │    └─■──ode_deserve_believed_ended_outdo ── Topic: 167
+          │              │                        │         │    │    │    └─important_ladies_stake_just_condition
+          │              │                        │         │    │    │         ├─important_ladies_condition_just_feminist
+          │              │                        │         │    │    │         │    ├─■──foremost_tend_feminine_ama_ladies ── Topic: 283
+          │              │                        │         │    │    │         │    └─■──important_condition_just_plenty_second ── Topic: 105
+          │              │                        │         │    │    │         └─■──risky_stake_low_far_risk ── Topic: 156
+          │              │                        │         │    │    └─happiness_percent_thousand_best_ninety
+          │              │                        │         │    │         ├─totally_perfectly_overanalyzing_overreacting_promise
+          │              │                        │         │    │         │    ├─■──everythinga_ita_perfectly_suited_going ── Topic: 176
+          │              │                        │         │    │         │    └─■──sensory_overreacting_ita_discussion_bravely ── Topic: 297
+          │              │                        │         │    │         └─happiness_percent_thousand_best_ninety
+          │              │                        │         │    │              ├─percent_thousand_best_ninety_thing
+          │              │                        │         │    │              │    ├─best_thing_exactly_probably_proves
+          │              │                        │         │    │              │    │    ├─■──best_thata_thing_really_recommend ── Topic: 278
+          │              │                        │         │    │              │    │    └─■──thing_proves_exactly_thinga_telegraphing ── Topic: 287
+          │              │                        │         │    │              │    └─■──percent_thousand_ninety_scale_eighty ── Topic: 60
+          │              │                        │         │    │              └─■──happiness_happier_make_makes_satisfaction ── Topic: 165
+          │              │                        │         │    └─going_live_hurry_isn_lives
+          │              │                        │         │         ├─■──hurry_going_live_trippy_goes ── Topic: 96
+          │              │                        │         │         └─live_isn_fullest_lives_happens
+          │              │                        │         │              ├─■──live_fullest_lived_motto_occasion ── Topic: 276
+          │              │                        │         │              └─■──othera_lives_compatible_live_better ── Topic: 251
+          │              │                        │         └─business_company_dollars_pay_job
+          │              │                        │              ├─■──business_company_dollars_pay_job ── Topic: 28
+          │              │                        │              └─■──company_buy_profits_business_companies ── Topic: 253
+          │              │                        └─better_easier_feels_odd_complicated
+          │              │                             ├─better_easier_feeling_feels_makes
+          │              │                             │    ├─■──better_easier_vossameera_possibly_probably ── Topic: 110
+          │              │                             │    └─■──feelsa_feela_better_feels_felta ── Topic: 293
+          │              │                             └─odd_feels_complicated_confusing_felt
+          │              │                                  ├─feels_felt_authentic_isn_deal
+          │              │                                  │    ├─■──feels_deal_authentic_stuff_isna ── Topic: 173
+          │              │                                  │    └─■──feels_felt_gooda_inconveniently_sign ── Topic: 291
+          │              │                                  └─■──odd_confusing_complicated_weirdest_creepy ── Topic: 140
+          │              └─want_knew_wants_knows_did
+          │                   ├─want_wants_tell_need_knows
+          │                   │    ├─did_tell_knows_course_tried
+          │                   │    │    ├─tell_did_tried_thought_course
+          │                   │    │    │    ├─tell_did_tried_thought_course
+          │                   │    │    │    │    ├─■──tell_did_yodeling_told_pointers ── Topic: 309
+          │                   │    │    │    │    └─■──did_tried_thought_try_trya ── Topic: 76
+          │                   │    │    │    └─■──assignment_humans_course_actuality_picturea ── Topic: 202
+          │                   │    │    └─knows_understandable_course_individuals_doing
+          │                   │    │         ├─■──knows_course_doing_options_wants ── Topic: 132
+          │                   │    │         └─■──knows_understood_surely_means_did ── Topic: 125
+          │                   │    └─want_wants_need_wanted_needs
+          │                   │         ├─wants_want_wanted_knows_needs
+          │                   │         │    ├─■──wants_want_knows_needs_need ── Topic: 48
+          │                   │         │    └─■──wants_wanted_want_badly_astonishingly ── Topic: 191
+          │                   │         └─■──want_need_wanted_needed_thata ── Topic: 40
+          │                   └─knew_exactly_understood_knows_doing
+          │                        ├─■──knew_exactly_understood_doing_knows ── Topic: 261
+          │                        └─■──knew_exactly_happen_bastiana_rioting ── Topic: 216
+          └─hated_hate_hates_hating_despised
+               ├─■──hated_hate_hates_despised_disliked ── Topic: 186
+               └─hate_hated_hates_hating_loathe
+                    ├─■──hated_hate_hates_hating_despised ── Topic: 106
+                    └─■──hate_hated_loathe_hating_hates ── Topic: 80
