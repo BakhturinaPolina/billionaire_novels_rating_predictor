@@ -189,10 +189,13 @@ if __name__ == "__main__":
     # 1. Overview plots
     print("\n1. Creating overview plots...")
     
-    # Volcano plot
+    # Volcano plot (save as SVG for interactive use)
     try:
         print("   Creating volcano plot...")
         fig, ax = plot_volcano(kw_results, alpha=args.alpha)
+        # Save as SVG for interactive plots (better for web/publications)
+        fig.savefig(figs_dir / "volcano_plot.svg", format="svg", bbox_inches="tight", pad_inches=0.2)
+        # Also save as PNG for compatibility
         fig.savefig(figs_dir / "volcano_plot.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
         plt.close(fig)
     except Exception as e:
@@ -201,7 +204,12 @@ if __name__ == "__main__":
     # Effect size bar chart
     try:
         print("   Creating effect size bar chart...")
-        fig, ax = plot_effect_size_bars(kw_results, top_n=min(20, len(kw_results)), alpha=args.alpha)
+        fig, ax = plot_effect_size_bars(
+            kw_results, 
+            top_n=min(20, len(kw_results)), 
+            alpha=args.alpha,
+            exclude_noise=True  # Exclude noise/technical/paratext categories
+        )
         fig.savefig(figs_dir / "effect_size_bars.png", dpi=150, bbox_inches="tight", pad_inches=0.2)
         plt.close(fig)
     except Exception as e:

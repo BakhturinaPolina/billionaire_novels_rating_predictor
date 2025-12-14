@@ -239,6 +239,7 @@ def plot_effect_size_bars(
     top_n: int = 15,
     alpha: float = 0.05,
     figsize: Optional[Tuple[int, int]] = None,
+    exclude_noise: bool = True,
 ) -> Tuple[plt.Figure, plt.Axes]:
     """
     Bar chart of effect sizes, ranked by eta-squared.
@@ -253,13 +254,26 @@ def plot_effect_size_bars(
         Significance threshold
     figsize:
         Figure size (auto-calculated if None)
+    exclude_noise:
+        If True, exclude noise/technical/paratext categories from the plot
     
     Returns
     -------
     fig, ax
     """
-    # Sort by effect size
+    # Filter out noise category if requested
     plot_data = kw_results.copy()
+    if exclude_noise:
+        # Exclude categories with 'noise' in category_id or category_name
+        noise_mask = (
+            plot_data["category_id"].astype(str).str.lower().str.contains("noise", na=False) |
+            plot_data.get("category_name", pd.Series([""] * len(plot_data))).astype(str).str.lower().str.contains("noise|technical|paratext", na=False, regex=True)
+        )
+        plot_data = plot_data[~noise_mask].copy()
+        if len(plot_data) == 0:
+            raise ValueError("No data remaining after excluding noise categories")
+    
+    # Sort by effect size (absolute value for ranking, but keep sign for display)
     plot_data = plot_data.sort_values("eta_squared", ascending=True).tail(top_n)
     plot_data["significant"] = plot_data["p_value"] < alpha
     
@@ -277,9 +291,8 @@ def plot_effect_size_bars(
         for idx in plot_data.index
     ]
     max_label_len = max(len(label) for label in labels)
-    left_margin = max(0.25, min(0.4, 0.15 + max_label_len * 0.01))
-    
-    fig.subplots_adjust(left=left_margin, right=0.95, bottom=0.1, top=0.92)
+    # Increase left margin to prevent overlap with y-axis labels
+    left_margin = max(0.3, min(0.45, 0.2 + max_label_len * 0.012))
     
     # Colors
     colors = ["#d62728" if sig else "#7f7f7f" for sig in plot_data["significant"]]
@@ -292,36 +305,187 @@ def plot_effect_size_bars(
         else:
             display_labels.append(label)
     
-    # Bar plot
-    bars = ax.barh(range(len(plot_data)), plot_data["eta_squared"], color=colors, alpha=0.7, height=0.7)
-    
-    # Add p-value annotations with better positioning
+    # Calculate data ranges for positioning (handle negative values)
     max_eta = plot_data["eta_squared"].max()
-    annotation_offset = max_eta * 0.02
+    min_eta = plot_data["eta_squared"].min()
+    has_negative = min_eta < 0
+    has_positive = max_eta > 0
     
+    # Calculate range for text width estimation
+    if has_negative and has_positive:
+        eta_range = max_eta - min_eta
+        abs_max = max(abs(max_eta), abs(min_eta))
+    elif has_negative:
+        eta_range = abs(min_eta)
+        abs_max = abs(min_eta)
+    else:
+        eta_range = max_eta
+        abs_max = max_eta
+    
+    # Estimate text width - need to account for "p=0.XXX" format
+    text_width_estimate = max(eta_range * 0.10, abs_max * 0.15)
+    
+    # Bar plot - handle negative values properly
+    if has_negative:
+        # For negative values, bars extend left from 0
+        bars_positive = plot_data[plot_data["eta_squared"] >= 0]
+        bars_negative = plot_data[plot_data["eta_squared"] < 0]
+        
+        # Plot positive bars (extend right from 0)
+        if len(bars_positive) > 0:
+            pos_indices = [list(plot_data.index).index(idx) for idx in bars_positive.index]
+            pos_colors = [colors[list(plot_data.index).index(idx)] for idx in bars_positive.index]
+            ax.barh(pos_indices, bars_positive["eta_squared"], left=0, color=pos_colors, alpha=0.7, height=0.7)
+        
+        # Plot negative bars (extend left from 0, using negative width)
+        if len(bars_negative) > 0:
+            neg_indices = [list(plot_data.index).index(idx) for idx in bars_negative.index]
+            neg_colors = [colors[list(plot_data.index).index(idx)] for idx in bars_negative.index]
+            # For negative bars, use the negative value directly and set left=0
+            # The bar will extend left because width is negative
+            ax.barh(neg_indices, bars_negative["eta_squared"], left=0, color=neg_colors, alpha=0.7, height=0.7)
+    else:
+        # All positive - standard bar plot
+        bars = ax.barh(range(len(plot_data)), plot_data["eta_squared"], left=0, color=colors, alpha=0.7, height=0.7)
+    
+    # First, determine where p-values will be placed
+    p_value_positions = []
+    for i, (idx, row) in enumerate(plot_data.iterrows()):
+        bar_length = row["eta_squared"]
+        abs_bar_length = abs(bar_length)
+        
+        if abs_bar_length >= text_width_estimate * 1.3:
+            # Will be placed inside bar (centered)
+            x_pos = bar_length * 0.5
+        else:
+            # Will be placed outside bar
+            if bar_length >= 0:
+                x_pos = bar_length + eta_range * 0.02  # Offset to the right
+            else:
+                x_pos = bar_length - eta_range * 0.02  # Offset to the left
+        p_value_positions.append(x_pos)
+    
+    # Calculate axis limits with proper padding (handle negative values)
+    if has_negative and has_positive:
+        min_x_needed = min(min_eta, min(p_value_positions) - text_width_estimate * 0.3)
+        max_x_needed = max(max_eta, max(p_value_positions) + text_width_estimate * 0.3)
+        x_padding = (max_x_needed - min_x_needed) * 0.1
+        ax.set_xlim(left=min_x_needed - x_padding, right=max_x_needed + x_padding)
+    elif has_negative:
+        min_x_needed = min(min_eta, min(p_value_positions) - text_width_estimate * 0.3)
+        x_padding = abs(min_x_needed) * 0.1
+        ax.set_xlim(left=min_x_needed - x_padding, right=x_padding)
+    else:
+        max_x_needed = max(max_eta, max(p_value_positions) + text_width_estimate * 0.3)
+        ax.set_xlim(left=0, right=max_x_needed * 1.12)
+    
+    # Adjust subplot margins after setting limits
+    fig.subplots_adjust(left=left_margin, right=0.92, bottom=0.1, top=0.92)
+    
+    # Now add p-value annotations (handle negative values)
     for i, (idx, row) in enumerate(plot_data.iterrows()):
         p_str = f"p={row['p_value']:.3f}" if row['p_value'] >= 0.001 else "p<0.001"
-        x_pos = row["eta_squared"] + annotation_offset
+        bar_length = row["eta_squared"]
+        abs_bar_length = abs(bar_length)
         
-        # Check if annotation would go beyond plot
-        x_max = ax.get_xlim()[1]
-        if x_pos > x_max * 0.95:
-            # Place inside bar instead
-            x_pos = row["eta_squared"] * 0.5
-            text_color = "white" if row["significant"] else "black"
+        # Determine threshold for inside vs outside placement
+        if has_negative and has_positive:
+            abs_max_for_threshold = abs_max
+        elif has_negative:
+            abs_max_for_threshold = abs(min_eta)
         else:
-            text_color = "black"
+            abs_max_for_threshold = max_eta
+        
+        min_bar_threshold = abs_max_for_threshold * 0.03  # Bars less than 3% should have inside text
+        
+        # Special handling for very small bars (close to zero)
+        # For bars with absolute value < 1% of max, always place text outside to the right (positive) or left (negative)
+        very_small_threshold = abs_max_for_threshold * 0.01
+        
+        if abs_bar_length < very_small_threshold:
+            # Very small bars - always place text outside with sufficient offset
+            if bar_length >= 0:
+                # Positive but very small - place to the right with minimum offset
+                min_offset = max(eta_range * 0.03, abs_max_for_threshold * 0.08)
+                x_pos = max(bar_length, 0) + min_offset
+                text_color = "black"
+                fontweight = "normal"
+                ha = "left"
+            else:
+                # Negative but very small - place to the left with minimum offset
+                min_offset = max(eta_range * 0.03, abs_max_for_threshold * 0.08)
+                x_pos = min(bar_length, 0) - min_offset
+                text_color = "black"
+                fontweight = "normal"
+                ha = "right"
+        elif abs_bar_length >= text_width_estimate * 1.3 or abs_bar_length < min_bar_threshold:
+            # Place inside bar (centered) - bar is either long enough or too short for outside placement
+            x_pos = bar_length * 0.5
+            text_color = "white"
+            fontweight = "bold"
+            ha = "center"
+        else:
+            # Place outside bar
+            if bar_length >= 0:
+                # Positive bar - place to the right
+                x_pos = bar_length + eta_range * 0.025
+                min_x_from_axis = abs_max_for_threshold * 0.05
+                if x_pos < min_x_from_axis:
+                    # Too close to axis, place inside
+                    x_pos = bar_length * 0.5
+                    text_color = "white"
+                    fontweight = "bold"
+                    ha = "center"
+                else:
+                    # Check right edge
+                    x_max = ax.get_xlim()[1]
+                    if x_pos > x_max * 0.95:
+                        x_pos = bar_length * 0.5
+                        text_color = "white"
+                        fontweight = "bold"
+                        ha = "center"
+                    else:
+                        text_color = "black"
+                        fontweight = "normal"
+                        ha = "left"
+            else:
+                # Negative bar - place to the left
+                x_pos = bar_length - eta_range * 0.025
+                min_x_from_axis = -abs_max_for_threshold * 0.05
+                if x_pos > min_x_from_axis:
+                    # Too close to axis, place inside
+                    x_pos = bar_length * 0.5
+                    text_color = "white"
+                    fontweight = "bold"
+                    ha = "center"
+                else:
+                    # Check left edge
+                    x_min = ax.get_xlim()[0]
+                    if x_pos < x_min * 1.05:  # Allow slight overflow
+                        x_pos = bar_length * 0.5
+                        text_color = "white"
+                        fontweight = "bold"
+                        ha = "center"
+                    else:
+                        text_color = "black"
+                        fontweight = "normal"
+                        ha = "right"
         
         ax.text(
             x_pos,
             i,
             p_str,
             va="center",
+            ha=ha,
             fontsize=9,
             alpha=0.9,
             color=text_color,
-            fontweight="bold" if text_color == "white" else "normal",
+            fontweight=fontweight,
         )
+    
+    # Add vertical line at x=0 if we have negative values
+    if has_negative:
+        ax.axvline(0, color="black", linestyle="-", linewidth=0.8, alpha=0.5, zorder=1)
     
     # Labels
     ax.set_yticks(range(len(plot_data)))
