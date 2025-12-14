@@ -114,11 +114,15 @@ def extract_all_fields(model: BERTopic) -> pd.DataFrame:
         # Radway mappings (Stage 3)
         if hasattr(model, "topic_radway_") and model.topic_radway_:
             radway = model.topic_radway_.get(topic_id, {})
+            radway_phase = radway.get("radway_phase")
+            # Ensure "NA" is preserved as string, not None
+            if radway_phase is None:
+                radway_phase = "NA"
             row.update({
                 "radway_main_id": radway.get("radway_main_id"),
                 "radway_main_name": radway.get("radway_main_name"),
                 "radway_secondary_id": radway.get("radway_secondary_id"),
-                "radway_phase": radway.get("radway_phase"),
+                "radway_phase": radway_phase,
                 "radway_phase_name": radway.get("radway_phase_name"),
                 "radway_is_none": radway.get("radway_is_none", False),
                 "radway_confidence": radway.get("radway_confidence"),
@@ -129,7 +133,7 @@ def extract_all_fields(model: BERTopic) -> pd.DataFrame:
                 "radway_main_id": None,
                 "radway_main_name": None,
                 "radway_secondary_id": None,
-                "radway_phase": None,
+                "radway_phase": "NA",  # Use "NA" string instead of None for consistency
                 "radway_phase_name": None,
                 "radway_is_none": None,
                 "radway_confidence": None,
@@ -372,6 +376,13 @@ def export_dataframe(df: pd.DataFrame, output_dir: Path) -> None:
     """Export the full DataFrame to CSV and Parquet."""
     csv_path = output_dir / "full_model_data.csv"
     parquet_path = output_dir / "full_model_data.parquet"
+
+    # Ensure radway_phase="NA" is preserved as string (not coerced to NaN)
+    if "radway_phase" in df.columns:
+        df = df.copy()
+        df["radway_phase"] = df["radway_phase"].fillna("NA")
+        # Convert any remaining NaN to "NA" string explicitly
+        df["radway_phase"] = df["radway_phase"].astype(str).replace("nan", "NA")
 
     df.to_csv(csv_path, index=False)
     df.to_parquet(parquet_path, index=False)

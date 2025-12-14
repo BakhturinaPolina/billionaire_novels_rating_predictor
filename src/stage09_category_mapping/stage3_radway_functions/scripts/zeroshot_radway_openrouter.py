@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import shutil
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -279,6 +280,12 @@ Use ONLY these IDs (do NOT invent new ones):
 
 {RADWAY_TEXT_BLOCK}
 
+EXAMPLES (very short):
+- "BDSM session / condom / foreplay / nipple play" → R12 (not R4)
+- "Wedding planning / proposal / vows" → R11
+- "Argument / accusation / jealousy talk" → R2 (not R7 unless they separate)
+- "Apology + forgiveness + regret" → R10
+
 INTERPRETATION HINTS
 
 - Functions R1–R7 belong to Phase I (setup, conflict, isolation).
@@ -320,6 +327,21 @@ INTERPRETATION HINTS
 - Topics mainly about work, money, social worlds, settings, or objects
   (without a strong heroine–hero dynamic) are the best candidates for "none".
 
+DISAMBIGUATION RULES (apply strictly):
+
+1) R4 vs R12:
+   - Choose R4 ONLY for sexual tension/attraction/flirting/interpretation WITHOUT a described sex act.
+   - Choose R12 if the topic describes sex acts or foreplay (undressing, oral, penetration, BDSM session, condom, "in bed", nipple/breast play, orgasm).
+   - If taxonomy_main_id == 2.3 → default to R12 unless the text is ONLY about attraction (no act).
+
+2) R7 (separation) is NARROW:
+   - Use R7 only if there is breakup/leaving/physical separation/no-contact/moved out/"we can't be together".
+   - If it's mainly an argument/confrontation/jealousy conversation → prefer R2/R5.
+   - If it's mainly apology/forgiveness/regret/amends → prefer R10.
+
+3) Commitment overrides taxonomy:
+   - If label/summary mentions wedding/marriage/engagement/proposal/vows/husband/wife → choose R11 (or R13 if "settled HEA/family/home/baby/forever").
+
 OUTPUT CONSTRAINTS
 
 - Think through the mapping internally.
@@ -329,6 +351,12 @@ OUTPUT CONSTRAINTS
 - Do NOT include markdown, backticks, or any explanation outside the JSON.
 
 - Never wrap JSON in ```json or any other formatting.
+
+DECISION PROCESS
+
+First decide: radway_is_none (true/false).
+- If true: set radway_main_id="none".
+- If false: radway_main_id MUST be one of R1..R13 (never "none").
 
 JSON SCHEMA (MANDATORY)
 
@@ -746,6 +774,16 @@ def classify_topic_to_radway_openrouter(
 
     tax_strings = _format_taxonomy_for_prompt(topic_entry)
 
+    # Warn if snippets are missing for critical taxonomy groups
+    if not representative_docs:
+        tax_group = topic_entry.get("main_category_group", "")
+        if tax_group in {"Relationship Trajectory (Main Couple)", "Sexuality, Attraction & Intimacy"}:
+            LOGGER.warning(
+                "Topic %d (taxonomy_group=%s) has no representative snippets - classification may be less accurate",
+                topic_id,
+                tax_group
+            )
+
     # Format representative snippets
     snippets_block = "(none)"
     if representative_docs:
@@ -783,9 +821,9 @@ def classify_topic_to_radway_openrouter(
         model=model_name,
         messages=messages,
         max_tokens=max_new_tokens,
-        temperature=temperature,
-        top_p=0.9,
-        frequency_penalty=0.3,
+        temperature=0.0,
+        top_p=1.0,
+        frequency_penalty=0.0,
         presence_penalty=0.0,
     )
 
@@ -1084,6 +1122,145 @@ def apply_radway_fallback_heuristics(
 
 
 # ---------------------------------------------------------------------------
+# 5b. Heuristic override: fix common systematic confusions (R4↔R12, R7, R11/R13)
+# ---------------------------------------------------------------------------
+
+_COMMITMENT_RE = re.compile(
+    r"\b(wedding|marriage|married|engagement|engaged|proposal|propose|fianc[eé]e?|"
+    r"vows|bride|groom|husband|wife|ring|honeymoon)\b",
+    re.IGNORECASE,
+)
+
+_HEA_RE = re.compile(
+    r"\b(happily|ever after|forever|home|family|baby|children|settled)\b",
+    re.IGNORECASE,
+)
+
+# Keep this lexicon "moderate"; you're using it as a classifier cue, not for generation
+_SEX_ACT_RE = re.compile(
+    r"\b(bdsm|bondage|dominatrix|foreplay|undress|naked|bedroom|orgasm|climax|"
+    r"penetrat|condom|oral|lick|moan|thrust|spank|nipple|breast)\b",
+    re.IGNORECASE,
+)
+
+_SEX_TENSION_RE = re.compile(
+    r"\b(attraction|chemistry|desire|lust|longing|temptation|flirt|seduc|stare|gaze|"
+    r"tease|leering)\b",
+    re.IGNORECASE,
+)
+
+_BREAKUP_RE = re.compile(
+    r"\b(break ?up|breakup|split|separat(e|ion)|divorc(e|ing)|leave|left|walk(ed)? away|"
+    r"moved out|no contact|ghost(ed|ing)?|apart)\b",
+    re.IGNORECASE,
+)
+
+_ARGUMENT_RE = re.compile(
+    r"\b(argu(e|ment)|fight(ing)?|confront(ation)?|accus(e|ation)|blame|jealous|anger|"
+    r"shout|yell|storm(ed)? out)\b",
+    re.IGNORECASE,
+)
+
+_APOLOGY_RE = re.compile(
+    r"\b(apolog(y|ize|ise)|sorry|forgiv(e|eness)|regret|make amends|aton(e|ement))\b",
+    re.IGNORECASE,
+)
+
+def override_radway_by_cues(
+    radway_result: Dict[str, Any],
+    topic_entry: Dict[str, Any],
+) -> Dict[str, Any]:
+    """
+    Conservative post-LLM override layer for recurring confusions seen in CSVs:
+      - explicit sex scenes (esp. taxonomy_main_id == 2.3) wrongly mapped to R4
+      - wedding/marriage/proposal mapped to none or tenderness
+      - R7 overused for arguments/apologies without real separation/breakup cues
+
+    This runs AFTER apply_radway_fallback_heuristics().
+    """
+    main_id = radway_result.get("radway_main_id", "none")
+    label = (topic_entry.get("label") or "").strip()
+    scene_summary = (topic_entry.get("scene_summary") or "").strip()
+    keywords = topic_entry.get("keywords") or topic_entry.get("all_keywords") or ""
+    if isinstance(keywords, list):
+        kw_str = ", ".join(map(str, keywords))
+    else:
+        kw_str = str(keywords)
+
+    # Also check source_metadata if available
+    source_metadata = topic_entry.get("source_metadata", {})
+    if not label:
+        label = source_metadata.get("label", "")
+    if not scene_summary:
+        scene_summary = source_metadata.get("scene_summary", "")
+    if not kw_str:
+        keywords_alt = source_metadata.get("keywords", [])
+        if keywords_alt:
+            kw_str = ", ".join(map(str, keywords_alt)) if isinstance(keywords_alt, list) else str(keywords_alt)
+
+    text = f"{label}\n{scene_summary}\n{kw_str}"
+
+    tax_id = str(topic_entry.get("main_category_id") or "")
+    tax_group = str(topic_entry.get("main_category_group") or "")
+    if not tax_group and tax_id:
+        tax_node = TAXONOMY_BY_ID.get(tax_id, {})
+        tax_group = tax_node.get("group", "")
+
+    has_commitment = bool(_COMMITMENT_RE.search(text))
+    has_hea = bool(_HEA_RE.search(text))
+    has_sex_act = (tax_id == "2.3") or bool(_SEX_ACT_RE.search(text))
+    has_sex_tension = bool(_SEX_TENSION_RE.search(text))
+    has_breakup = bool(_BREAKUP_RE.search(text))
+    has_argument = bool(_ARGUMENT_RE.search(text))
+    has_apology = bool(_APOLOGY_RE.search(text))
+
+    override_to: Optional[str] = None
+    reason: Optional[str] = None
+
+    # 1) Commitment beats taxonomy group: wedding/marriage/proposal almost never "none"
+    if has_commitment:
+        override_to = "R13" if has_hea else "R11"
+        reason = "Commitment cue (wedding/marriage/engagement/proposal)."
+
+    # 2) Explicit sex (or 2.3) should not be R4; force to R12 unless already R12
+    if override_to is None and has_sex_act and main_id != "R12":
+        override_to = "R12"
+        reason = "Explicit sex/foreplay cue or taxonomy_main_id == 2.3 → R12."
+
+    # 3) R4 sanity: if not actually attraction/sexual-interest, remap using taxonomy + cues
+    if override_to is None and main_id == "R4":
+        is_sexual_context = (tax_group == "Sexuality, Attraction & Intimacy") or has_sex_tension or has_sex_act
+        if not is_sexual_context:
+            if tax_group == "Relationship Trajectory (Main Couple)" or tax_id.startswith("4."):
+                override_to = "R2" if has_argument else "R3"
+                reason = "R4 chosen but topic lacks attraction cues; relationship-trajectory topics fit conflict/ambivalence."
+            elif tax_group == "Conflict, Risk & Harm":
+                override_to = "R2" if has_argument else "R5"
+                reason = "R4 chosen but topic is conflict/risk, not attraction."
+
+    # 4) R7 sanity: only keep R7 when breakup/separation cues exist
+    if override_to is None and main_id == "R7":
+        if not has_breakup and (has_argument or has_apology):
+            override_to = "R10" if has_apology else "R2"
+            reason = "R7 chosen but no breakup/separation cues; looks like argument/apology instead."
+
+    if override_to and override_to != main_id:
+        fn_info = RADWAY_BY_ID.get(override_to, RADWAY_BY_ID["none"])
+        radway_result["radway_main_id"] = override_to
+        radway_result["radway_phase"] = fn_info["phase"]
+        radway_result["radway_main_name"] = fn_info["name"]
+        radway_result["radway_phase_name"] = fn_info["phase_name"]
+        radway_result["radway_is_none"] = (override_to == "none")
+        radway_result["radway_confidence"] = "low"  # keep conservative
+
+        prev = (radway_result.get("radway_rationale") or "").strip()
+        add = f"Heuristic override: {main_id} → {override_to}. {reason}"
+        radway_result["radway_rationale"] = (prev + " " + add).strip() if prev else add
+
+    return radway_result
+
+
+# ---------------------------------------------------------------------------
 # 6. Batch mapping: map all topics to Radway functions
 # ---------------------------------------------------------------------------
 
@@ -1201,6 +1378,9 @@ def map_all_topics_to_radway(
 
         # NEW: fix some overcautious "none" outputs
         result = apply_radway_fallback_heuristics(result, topic_entry)
+
+        # NEW: fix systematic confusions (R4↔R12, R7, wedding/marriage)
+        result = override_radway_by_cues(result, topic_entry)
 
         radway_results[tid] = result
 

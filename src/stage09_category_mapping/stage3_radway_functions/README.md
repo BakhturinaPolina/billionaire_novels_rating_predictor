@@ -4,7 +4,13 @@
 
 **Goal**: Map BERTopic topics to Radway's 13 narrative functions to analyze story structure and track narrative progression across books. Compare narrative patterns between bad/mid/good rated books.
 
-**Status**: ✅ **Implemented** (can run independently or after Stages 1-2)
+**Status**: ✅ **Implemented & Improved** (can run independently or after Stages 1-2)
+
+**Latest Update**: Classification completed for all 361 topics with improved accuracy through:
+- Deterministic decoding (temperature=0.0) for consistent results
+- Heuristic override system to fix common systematic errors
+- Enhanced prompt disambiguation rules
+- Improved handling of explicit sex scenes (2.3 → R12), commitment topics (→ R11/R13), and R7 separation definition
 
 ## Radway's 13 Functions
 
@@ -58,9 +64,19 @@ The Radway function mappings are merged back into the taxonomy data under a `"ra
    - Stage 2 taxonomy classifications
    - Optional representative document snippets
 
-2. **LLM-based classification**: Uses Mistral-Nemo via OpenRouter for zero-shot classification with structured prompts that include interpretation hints linking taxonomy groups to Radway functions.
+2. **LLM-based classification**: Uses Mistral-Nemo via OpenRouter for zero-shot classification with structured prompts that include:
+   - Interpretation hints linking taxonomy groups to Radway functions
+   - Disambiguation rules for common confusions (R4 vs R12, R7 narrowing, commitment overrides)
+   - Micro-examples for key distinctions
+   - Gated "none" decision process
 
-3. **Output structure**: Each topic gets a `radway_functions` object with:
+3. **Post-LLM heuristic overrides**: Conservative rule-based corrections for systematic errors:
+   - Explicit sex scenes (taxonomy_main_id = 2.3) → R12 (not R4)
+   - Wedding/marriage/commitment cues → R11/R13 (not none/R8)
+   - R7 only when actual breakup/separation cues exist
+   - R4 sanity checks for non-sexual contexts
+
+4. **Output structure**: Each topic gets a `radway_functions` object with:
    - `radway_main_id`: Primary Radway function (R1-R13 or "none")
    - `radway_secondary_id`: Optional secondary function
    - `radway_other_plausible_ids`: List of other plausible functions
@@ -88,7 +104,7 @@ python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_rad
     --taxonomy-json models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_taxonomy_mappings \
     --output-json path/to/taxonomy_with_radway.json \
     --model-name mistralai/Mistral-Nemo-Instruct-2407 \
-    --temperature 0.25 \
+    --api-key YOUR_API_KEY \
     --max-tokens 220 \
     --limit-topics 10  # Optional: for testing
 ```
@@ -102,7 +118,7 @@ python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_rad
     --taxonomy-json path/to/taxonomy_mappings.json \
     --output-json path/to/taxonomy_with_radway.json \
     --model-name mistralai/Mistral-Nemo-Instruct-2407 \
-    --temperature 0.25 \
+    --api-key YOUR_API_KEY \
     --max-tokens 220 \
     --limit-topics 10  # Optional: for testing
 ```
@@ -114,12 +130,14 @@ python src/stage09_category_mapping/stage3_radway_functions/scripts/zeroshot_rad
   - Recommended models: `model_1_with_taxonomy_mappings` or `model_1_with_llm_labels_and_metadata_disambiguated.pkl`
 - `--output-json`: Path to save merged JSON (required)
 - `--model-name`: OpenRouter model (default: `mistralai/Mistral-Nemo-Instruct-2407`)
-- `--api-key`: OpenRouter API key (optional, uses env var if not provided)
-- `--temperature`: Sampling temperature (default: 0.25)
+- `--api-key`: OpenRouter API key (required, or set OPENROUTER_API_KEY env var)
+- `--temperature`: Sampling temperature (default: 0.0 for deterministic classification)
 - `--max-tokens`: Max tokens for JSON output (default: 220)
 - `--limit-topics`: Limit to first N topics (for testing)
 - `--no-snippets`: Skip loading BERTopic model for snippets
 - `--log-level`: Logging verbosity (DEBUG, INFO, WARNING, ERROR)
+
+**Note**: The classification uses deterministic decoding (temperature=0.0) by default for consistent, reproducible results. Heuristic overrides are automatically applied after LLM classification to fix common systematic errors.
 
 ### Model Update Script: `update_model_with_radway.py`
 
@@ -187,11 +205,38 @@ The merged JSON preserves all original taxonomy fields and adds Radway mappings:
 - How does narrative arc differ by quality?
 - Which narrative phases are most associated with high ratings?
 
+## Current Status
+
+✅ **Completed**:
+- Classification run for all 361 topics
+- Model updated with Radway mappings (`model_1_with_radway_mappings`)
+- Heuristic override system implemented and tested
+- Classification accuracy improved (2.3 → R12, commitment → R11/R13, reduced false negatives)
+
 ## Next Steps
 
-1. Run classification on full topic set
+1. ✅ ~~Run classification on full topic set~~ (Completed)
 2. Analyze distribution of Radway functions across topics
 3. Compare narrative patterns between bad/mid/good rated books
 4. Visualize function prevalence by narrative phase
 5. Statistical analysis of narrative structure differences
+6. Export to CSV/Parquet for correlation analysis (see `stage10_correlation_analysis`)
+
+## Classification Accuracy Improvements
+
+The implementation includes several improvements to address systematic classification errors:
+
+1. **Explicit sex scenes (2.3 → R12)**: Topics with `taxonomy_main_id = 2.3` are now correctly mapped to R12 (heroine responds sexually and emotionally) rather than R4 (purely sexual interest).
+
+2. **Commitment topics (→ R11/R13)**: Topics mentioning wedding/marriage/engagement/proposal are correctly mapped to R11 (commitment) or R13 (restored identity) rather than "none" or R8 (tenderness).
+
+3. **R7 narrowing**: R7 (separation) is now only used when actual breakup/separation cues exist, not for arguments or apologies.
+
+4. **"None" false negatives**: Improved detection prevents romance-core topics from being incorrectly marked as "none".
+
+These improvements are achieved through:
+- Enhanced prompt disambiguation rules
+- Post-LLM heuristic override system with regex-based pattern matching
+- Deterministic decoding for consistency
+- Gated "none" decision process
 
