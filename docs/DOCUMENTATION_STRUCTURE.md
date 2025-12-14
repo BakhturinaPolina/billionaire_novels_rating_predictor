@@ -88,13 +88,16 @@ Each stage has its own README with:
 - Implementation notes
 
 **Current Status:**
+- ✅ `stage01_ingestion/README.md` (exists)
+- ✅ `stage02_preprocessing/README.md` (exists)
 - ✅ `stage03_modeling/README.md` (exists)
+- ✅ `stage04_selection/README.md` (exists)
 - ✅ `stage05_retraining/README.md` (exists)
-- ✅ `stage01_ingestion/README.md` (created)
-- ✅ `stage02_preprocessing/README.md` (created)
-- ✅ `stage04_selection/README.md` (created)
-- ✅ `stage06_labeling/README.md` (created)
-- ✅ `stage07_analysis/README.md` (created)
+- ✅ `stage06_topic_exploration/README.md` (exists)
+- ✅ `stage07_topic_quality/README.md` (exists)
+- ✅ `stage08_llm_labeling/openrouter_experiments/README.md` (exists)
+- ✅ `stage09_category_mapping/README.md` (exists)
+- ✅ `stage10_correlation_analysis/README.md` (exists)
 
 ## Notebook Documentation
 

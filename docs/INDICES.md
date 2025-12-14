@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document defines all derived indices computed in Stage 07 analysis. Indices combine multiple thematic composites to quantify narrative qualities that may relate to reader appreciation.
+This document defines all derived indices computed in Stage 10 correlation analysis. Indices combine multiple thematic composites to quantify narrative qualities that may relate to reader appreciation.
 
 ## Index Definitions
 
@@ -269,7 +269,7 @@ Caring protectiveness vs. jealous possessiveness. Higher values indicate more ca
 
 ### Per-Book Indices
 
-All indices are computed at the book level using composite scores from Stage 06.
+All indices are computed at the book level using composite scores from Stage 09 category mapping.
 
 ```python
 # Example: Love-over-Sex Index

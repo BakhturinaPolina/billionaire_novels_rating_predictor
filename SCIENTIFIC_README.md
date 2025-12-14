@@ -6,13 +6,13 @@
 
 1. **Map topic-model outputs** from modern romance novels to theory-driven themes and test which themes differentiate Top / Medium / Trash popularity tiers.
 
-2. **Build explainable indices** (e.g., Love-over-Sex, HEA Index) to quantify narrative qualities readers value.
+2. **Build explainable indices** to quantify narrative qualities readers value.
 
 3. **Validate corpus findings** against Goodreads metadata (rating and number of voters).
 
 ## Research Questions
 
-1. Which theme categories are most prevalent in Top vs Trash novels?
+1. Which theme categories are most prevalent in Top vs Middle vs Trash novels?
 
 2. Does love/commitment/tenderness outweigh explicit sexual content in higher-rated books?
 
@@ -183,7 +183,7 @@ Before automated labeling, we conduct quality analysis to identify candidate noi
 
 This quality control step ensures that automated labeling and category mapping focus on interpretable, coherent topics, improving the reliability of downstream analyses.
 
-### Automated Topic Labeling
+### Stage 08: Automated Topic Labeling
 
 #### Label Generation
 
@@ -204,12 +204,54 @@ To generate human-readable labels for topics, we employ two approaches:
 1. **Keyword Extraction**: Extract top keywords from POS representation (default: 15 keywords per topic)
 2. **MMR Reranking**: Apply Maximal Marginal Relevance (MMR) reranking to balance keyword relevance with diversity, ensuring the model receives a diverse set of representative keywords
 3. **Domain Detection**: Automatically detect semantic domains (e.g., BodyParts, FoodDrink, TimeSpan, Marriage) from keywords to provide context-aware hints
-4. **Label Generation**: Use Mistral-7B-Instruct with adaptive prompts that include domain-specific hints for more accurate labeling
-5. **Integration**: Automatically integrate generated labels back into BERTopic models for use in visualizations
+4. **Representative Snippets**: Extract 3-6 sentence snippets from documents in each topic to provide rich contextual evidence
+5. **Label Generation**: Use Mistral-7B-Instruct with romance-aware prompts that include domain-specific hints and representative snippets for more accurate labeling
+6. **Integration**: Automatically integrate generated labels back into BERTopic models for use in visualizations
+
+#### Romance-Aware Prompt Design
+
+**Core Principle:** The prompt must be **domain-specific** (romance/erotic fiction) while maintaining **research rigor** (no hallucination, literal interpretation).
+
+**System Prompt Architecture:**
+1. **Role Definition**: Establishes domain context (romantic and erotic fiction) and research acceptability of explicit terminology
+2. **General Rules**: Format constraints (2-6 words, no quotes, no markdown, concrete scene-level descriptions)
+3. **Priority Hierarchy**: Action → Role → Setting → Tone (reflects how humans read romance fiction topics)
+4. **Snippet Integration**: Representative document snippets serve as primary evidence; "When snippets and keywords disagree, trust the snippets"
+5. **Disambiguation Requirements**: Prevents label collisions by encoding distinguishing features explicitly
+6. **Anti-Hallucination Constraints**: Hard rules for known hallucination patterns (e.g., "dinner date", "invitation", "repair", "heartbreak")
+
+**Key Design Features:**
+- **Snippet-Based Evidence**: Keywords are sparse and ambiguous; snippets provide rich context for fine distinctions (rough vs gentle kisses, emotional vs physical rage, specific sexual acts)
+- **Priority Hierarchy**: Most important is what sexual/romantic act is happening; least important is abstract emotional tone (only if clearly indicated)
+- **Explicit Sexual Terminology**: Clinical, non-romanticized phrasing is acceptable and encouraged (e.g., "Oral Sex on Him", "Clitoral Stimulation", "Anal Sex")
+- **Anti-Hallucination Rules**: Explicit prohibitions prevent common model hallucinations (e.g., "Do NOT use 'dinner date' unless snippets clearly mention asking/inviting")
+
+#### JSON Output Format
+
+When using romance-aware prompts (`--use-improved-prompts`), the system produces structured JSON output with the following fields:
+
+- **`label`**: Short noun phrase (2-6 words) describing the topic
+- **`scene_summary`**: One complete sentence (12-25 words) describing a typical scene
+- **`primary_categories`**: 1-3 high-level tags (e.g., "romance_core", "sexual_content", "work_life", "daily_routine")
+- **`secondary_categories`**: 0-5 specific tags with dimension:value format (e.g., "setting:car", "activity:kissing", "emotion:anticipation", "temporal:waiting")
+- **`is_noise`**: Boolean indicating if the topic is a technical artifact or meaningless
+- **`rationale`**: 1-3 sentences explaining how keywords and snippets support the label
+
+The JSON parsing pipeline automatically extracts all these fields and includes them in the output JSON file. This provides richer metadata for downstream analysis while maintaining backward compatibility with the label-only format.
+
+**Category Taxonomy:**
+- **Primary Categories**: High-level thematic tags including `romance_core`, `sexual_content`, `work_life`, `daily_routine`, `dating_ritual`
+- **Secondary Categories**: Dimension:value pairs capturing specific aspects:
+  - **Setting**: `setting:car`, `setting:casual`, `setting:office`
+  - **Activity**: `activity:kissing`, `activity:negotiation`, `activity:eating`, `activity:invitation`
+  - **Emotion**: `emotion:uncertainty`, `emotion:reluctance`, `emotion:anticipation`, `emotion:change`
+  - **Temporal**: `temporal:waiting`, `temporal:passing`
+  - **Stage**: `stage:undefined`
 
 #### Label Quality Features
 
-- **Universal Prompting**: Domain-agnostic system prompt that works across any corpus
+- **Romance-Aware Prompting**: Domain-specific system prompt designed for modern romantic and erotic fiction
+- **Representative Snippets**: Uses actual document snippets (3-6 sentences) as primary evidence for label generation
 - **Adaptive Context Hints**: Domain-specific hints generated from keyword analysis (e.g., "If body parts or intimacy are clear, name the exact parts")
 - **Post-processing**: Automatic cleanup of labels (removes quotes, trailing punctuation, incomplete phrases)
 - **Streaming Support**: Memory-efficient processing for large topic sets
@@ -217,50 +259,80 @@ To generate human-readable labels for topics, we employ two approaches:
 #### Technical Specifications
 
 - **Default Parameters**: 15 keywords per topic, 40 max tokens per label
-- **Output Format**: JSON file with `{"topic_id": {"label": "...", "keywords": [...]}}`
+- **Output Format**: JSON file with structured fields: `{"topic_id": {"label": "...", "scene_summary": "...", "primary_categories": [...], "secondary_categories": [...], "is_noise": false, "rationale": "...", "keywords": [...]}}`
 
-### Category Mapping: Theory-Aligned Tagging
+### Stage 09: Category Mapping: Theory-Aligned Tagging
 
 #### Overview
 
-After generating human-readable topic labels, we map them to **19 theory-aligned categories** using deterministic regex-based inference. This operationalizes theoretical constructs from Radway (1984), Propp functions, and Ogas & Gaddam (2011), enabling quantitative hypothesis testing.
+After generating human-readable topic labels (from Stage 08), we map topics to theory-aligned categories using a **three-stage zero-shot classification approach**. This operationalizes theoretical constructs from Radway (1984), Propp functions, and Ogas & Gaddam (2011), enabling quantitative hypothesis testing. The final goal is to construct **19 theory-aligned composite categories (A-S)** from the detailed classifications produced in Stages 2 and 3.
 
-#### Category Schema
+#### Three-Stage Classification Pipeline
 
-**Core Composites (A-P)**: 16 thematic categories matching the research framework:
-- **A**: Reassurance/Commitment (HEA centrality, Propp functions #8–#11)
-- **B**: Mutual Intimacy (non-explicit; love-over-sex preference)
-- **C**: Explicit Eroticism (contrast against B; explicitness ratio)
-- **D**: Power/Wealth/Luxury (therapeutic safety; luxury × love interaction)
-- **E**: Coercion/Brutality/Danger (dark themes; Dark-vs-Tender)
-- **F**: Angst/Negative Affect (emotional escape vs angst; Radway's conflict arc)
-- **G**: Courtship Rituals/Gifts (romantic rituals; HEA Index component)
-- **H**: Domestic Nesting (compensatory safety; home as refuge)
-- **I**: Humor/Lightness (binge-readability; escape via lightness)
-- **J**: Social Support/Kin (stable social buffers; Family/Fertility Index)
-- **K**: Professional Intrusion (office romance trope; Corporate Frame Share)
-- **L**: Vices/Addictions (escape contrast; may reduce appeal)
-- **M**: Health/Recovery/Growth (protective care; vulnerability → tenderness)
-- **N**: Separation/Reunion (Propp/Radway arc; time-course H6)
-- **O**: Aesthetics/Appearance ("detective agency"; physical/cultural cues)
-- **P**: Tech/Media Presence (modern courtship infrastructure; Comms Density)
+**Stage 1: Natural Clusters** (optional)
+- Data-driven topic groupings using BERTopic's hierarchical topics
+- Reduces topics to interpretable meta-topics (40-80 topics)
+- Provides baseline for comparison with theory-driven approaches
+
+**Stage 2: Theory-Driven Taxonomy Classification** ✅ **Implemented**
+- **Method**: Zero-shot classification to **Romance Corpus Topic Taxonomy** using Mistral-Nemo via OpenRouter
+- **Output**: Each topic mapped to taxonomy nodes (30+ nodes across 8 groups)
+- **Taxonomy Structure**:
+  1. **Embodied & Sensory Experience** (1.1, 1.2, 1.5): Body parts, pain/vulnerability, physical activity
+  2. **Sexuality, Attraction & Intimacy** (2.1, 2.2, 2.3, 2.4): Attraction, kissing, explicit acts, aftercare
+  3. **Emotions, Cognition & Inner Life** (3.1, 3.2, 3.3, 3.4): Positive emotions, negative emotions, ambivalence, beliefs/values
+  4. **Relationship Trajectory (Main Couple)** (4.1, 4.2, 4.3, 4.4, 4.5): Meeting, bonding, secrets/misunderstandings, conflict/breakup, reconciliation/HEA
+  5. **Social World Outside Couple** (5.1, 5.2, 5.3): Family/kinship, friends/social circles, community/norms
+  6. **Work, Wealth, Status & Institutions** (6.1, 6.2, 6.3, 6.4, 6.5): Hero's work, heroine's work, shared workplaces, money/housing, formal institutions
+  7. **Conflict, Risk & Harm** (7.1, 7.2, 7.3): Interpersonal conflict, violence/coercion, external crises
+  8. **Spaces, Time, Activities & Objects** (8.1, 8.2, 8.3, 8.4): Domestic spaces, public/leisure, objects/technology, temporal framing
+- **Special Category**: `noise` for boilerplate/technical artifacts
+- Uses topic keywords, LLM-generated labels, scene summaries, and representative document snippets
+- Output: JSON with `main_category_id`, `secondary_category_id`, `other_plausible_ids`, `confidence`, `rationale`
+
+**Stage 3: Radway Narrative Functions** ✅ **Implemented**
+- **Method**: Zero-shot classification to **Radway's 13 narrative functions** using Mistral-Nemo via OpenRouter
+- **Output**: Each topic mapped to Radway functions (R1-R13) organized into three phases
+- **Radway Functions by Phase**:
+  - **Phase I: Initial Conflict & Isolation**: R1 (identity destroyed), R2 (antagonistic reaction), R3 (ambiguous response), R4 (sexual interest interpretation), R5 (anger/coldness), R6 (retaliation), R7 (separation)
+  - **Phase II: Turning Point & Recognition**: R8 (tenderness), R9 (warm response), R10 (reinterpretation)
+  - **Phase III: Commitment & Restoration**: R11 (love declaration/commitment), R12 (sexual/emotional response), R13 (identity restored)
+- Uses Stage 2 taxonomy classifications, topic keywords, labels, scene summaries, and representative snippets
+- Includes heuristic overrides for systematic errors (e.g., explicit sex scenes 2.3 → R12, commitment cues → R11/R13)
+- Output: Merged JSON preserving all Stage 2 fields plus `radway_functions` object with `radway_main_id`, `radway_secondary_id`, `radway_phase`, `radway_confidence`, `radway_rationale`
+
+#### Target: Theory-Aligned Composite Categories (A-S)
+
+**Next Urgent Step**: Build the **19 theory-aligned composite categories** from Stage 2 taxonomy nodes and Stage 3 Radway functions. These composites operationalize the research framework:
+
+**Core Composites (A-P)**: 16 thematic categories:
+- **A**: Reassurance/Commitment (HEA centrality, Propp functions #8–#11) ← *From taxonomy 4.5 (Reconciliation/HEA), Radway R11/R13*
+- **B**: Mutual Intimacy (non-explicit; love-over-sex preference) ← *From taxonomy 2.2 (Kissing/Non-Explicit), Radway R8/R9*
+- **C**: Explicit Eroticism (contrast against B; explicitness ratio) ← *From taxonomy 2.3 (Explicit Sexual Acts), Radway R12*
+- **D**: Power/Wealth/Luxury (therapeutic safety; luxury × love interaction) ← *From taxonomy 6.1/6.4 (Elite Work, Money/Housing)*
+- **E**: Coercion/Brutality/Danger (dark themes; Dark-vs-Tender) ← *From taxonomy 7.2/7.3 (Violence/Coercion, External Crises), Radway R6*
+- **F**: Angst/Negative Affect (emotional escape vs angst; Radway's conflict arc) ← *From taxonomy 3.2 (Negative Emotions), 4.4 (Conflict/Breakup), Radway R1-R7*
+- **G**: Courtship Rituals/Gifts (romantic rituals; HEA Index component) ← *From taxonomy 4.2 (Bonding/Intimacy), 8.3 (Objects/Technology)*
+- **H**: Domestic Nesting (compensatory safety; home as refuge) ← *From taxonomy 8.1 (Domestic Spaces), 4.2 (Bonding)*
+- **I**: Humor/Lightness (binge-readability; escape via lightness) ← *From taxonomy 3.1 (Positive Emotions), 8.2 (Leisure Spaces)*
+- **J**: Social Support/Kin (stable social buffers; Family/Fertility Index) ← *From taxonomy 5.1/5.2 (Family, Friends)*
+- **K**: Professional Intrusion (office romance trope; Corporate Frame Share) ← *From taxonomy 6.2/6.3 (Heroine's Work, Shared Workplaces)*
+- **L**: Vices/Addictions (escape contrast; may reduce appeal) ← *From taxonomy 1.2 (Pain/Vulnerability), 3.3 (Ambivalence)*
+- **M**: Health/Recovery/Growth (protective care; vulnerability → tenderness) ← *From taxonomy 1.2 (Pain/Vulnerability), 3.4 (Beliefs/Values), Radway R8-R10*
+- **N**: Separation/Reunion (Propp/Radway arc; time-course H6) ← *From taxonomy 4.4/4.5 (Breakup/Reconciliation), Radway R7/R11*
+- **O**: Aesthetics/Appearance ("detective agency"; physical/cultural cues) ← *From taxonomy 1.1 (Body Parts), 8.3 (Objects)*
+- **P**: Tech/Media Presence (modern courtship infrastructure; Comms Density) ← *From taxonomy 8.3 (Technology), 6.5 (Institutions)*
 
 **Cross-Cutting Categories**:
-- **Q**: Miscommunication vs Repair (Radway's mid-arc; Miscommunication Balance)
-- **R**: Protectiveness vs Jealousy ("strong but gentle"; Protective–Jealousy Delta, H4)
+- **Q**: Miscommunication vs Repair (Radway's mid-arc; Miscommunication Balance) ← *From taxonomy 4.3 (Secrets/Misunderstandings), Radway R10*
+- **R**: Protectiveness vs Jealousy ("strong but gentle"; Protective–Jealousy Delta, H4) ← *From taxonomy 3.1/3.2 (Positive/Negative Emotions), Radway R8/R6*
 
 **Auxiliary Categories**:
-- **S**: Scene Anchors (formulaic scene kits; qualitative sampling)
+- **S**: Scene Anchors (formulaic scene kits; qualitative sampling) ← *From taxonomy noise + formulaic patterns*
 
-#### Mapping Logic
+#### Operationalization of Hypotheses (Target)
 
-1. **Regex-Based Inference**: Case-insensitive regex patterns match topic labels to categories
-2. **Soft Assignments**: When multiple categories match, weights are normalized to sum to 1.0 (equal weights: `1.0 / num_matches`)
-3. **Fallback Heuristics**: If no patterns match, coarse POS-like heuristics assign categories based on semantic cues
-
-#### Operationalization of Hypotheses
-
-The category mapping directly operationalizes all research hypotheses:
+Once composite categories (A-S) are built from Stage 2 and Stage 3 classifications, they will directly operationalize all research hypotheses:
 
 - **H1 (Love-over-Sex)**: `(A_commitment_hea + B_mutual_intimacy) > C_explicit`
 - **H2 (HEA Index)**: `A_commitment_hea + G_rituals_gifts`
@@ -269,40 +341,22 @@ The category mapping directly operationalizes all research hypotheses:
 - **H5 (Darkness vs Tenderness)**: `(F_negative_affect + E_threat_danger) - B_mutual_intimacy`
 - **H6 (Narrative Arc)**: Time-course analysis with `Q_miscomm ↓`, `Q_repair ↑`, `F_negative_affect ↓`, `A_commitment_hea ↑`
 
-#### Output Files
+#### Current Output Files
 
-- **`topic_to_category_probs.json`**: Per-topic soft category assignments (weights sum to 1.0)
+**Stage 2 Output**:
+- **`taxonomy_mappings_*.json`**: Per-topic taxonomy classifications with main/secondary/other plausible IDs
+
+**Stage 3 Output**:
+- **`taxonomy_with_radway.json`**: Merged JSON with taxonomy + Radway function mappings
+- **BERTopic models**: `model_1_with_radway_mappings` (Radway functions attached)
+
+**Target Output** (to be implemented):
+- **`topic_to_category_probs.json`**: Per-topic soft composite category assignments (A-S)
 - **`topic_to_category_final.csv`**: Flat table format for inspection
-- **`book_category_props.csv`** (optional): Book-level category proportions
-- **`indices_book.csv`** (optional): All derived indices per book (Love-over-Sex, HEA Index, etc.)
+- **`book_category_props.csv`**: Book-level category proportions
+- **`indices_book.csv`**: All derived indices per book (Love-over-Sex, HEA Index, etc.)
 
 See `src/stage09_category_mapping/README.md` for detailed documentation.
-
-### Thematic Mapping: Topic → Category
-
-Topics are mapped to **16 thematic composites** (A-P) using a semi-supervised approach:
-
-- **Manual mapping**: Markdown files with researcher-defined topic-to-cluster mappings
-- **Codebook**: CSV file with structured category definitions
-- **Automated assignment**: Weighted topic-to-composite assignments based on keyword matching
-
-**Composites:**
-- **A**: Reassurance/Commitment
-- **B**: Mutual Intimacy
-- **C**: Explicit Eroticism
-- **D**: Power/Wealth/Luxury
-- **E**: Coercion/Brutality/Danger
-- **F**: Angst/Negative Affect
-- **G**: Courtship Rituals/Gifts
-- **H**: Domestic Nesting
-- **I**: Humor/Lightness
-- **J**: Social Support/Kin
-- **K**: Professional Intrusion
-- **L**: Vices/Addictions
-- **M**: Health/Recovery/Growth
-- **N**: Separation/Reunion
-- **O**: Aesthetics/Appearance
-- **P**: Tech/Media Presence
 
 ### Derived Indices (per book & per segment)
 
@@ -365,6 +419,8 @@ Resolution vs. conflict themes.
 protectiveness_care − jealousy_possessiveness
 ```
 Caring protectiveness vs. jealous possessiveness.
+
+### Stage 10: Statistical Analysis & Correlation Analysis
 
 ## Statistical Analysis Plan
 

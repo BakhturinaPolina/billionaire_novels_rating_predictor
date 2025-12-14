@@ -21,7 +21,7 @@ A comprehensive NLP research pipeline for analyzing romantic novels using topic 
 
 ## Overview
 
-This project implements a seven-stage research pipeline for analyzing romantic novels through:
+This project implements a ten-stage research pipeline for analyzing romantic novels through:
 
 - **Topic Modeling**: BERTopic-based topic extraction with multiple embedding models
 - **Hyperparameter Optimization**: Bayesian optimization using OCTIS

@@ -53,8 +53,11 @@ Guide to documentation organization:
 - **[src/stage03_modeling/README.md](../src/stage03_modeling/README.md)**: BERTopic modeling
 - **[src/stage04_selection/README.md](../src/stage04_selection/README.md)**: Pareto selection
 - **[src/stage05_retraining/README.md](../src/stage05_retraining/README.md)**: Model retraining
-- **[src/stage06_labeling/README.md](../src/stage06_labeling/README.md)**: Thematic labeling
-- **[src/stage07_analysis/README.md](../src/stage07_analysis/README.md)**: Statistical analysis
+- **[src/stage06_topic_exploration/README.md](../src/stage06_topic_exploration/README.md)**: Topic exploration & evaluation
+- **[src/stage07_topic_quality/README.md](../src/stage07_topic_quality/README.md)**: Topic quality analysis & noise detection
+- **[src/stage08_llm_labeling/openrouter_experiments/README.md](../src/stage08_llm_labeling/openrouter_experiments/README.md)**: LLM topic labeling
+- **[src/stage09_category_mapping/README.md](../src/stage09_category_mapping/README.md)**: Category mapping & theory alignment
+- **[src/stage10_correlation_analysis/README.md](../src/stage10_correlation_analysis/README.md)**: Statistical analysis & correlation analysis
 
 ## Suggested Future Documentation
 

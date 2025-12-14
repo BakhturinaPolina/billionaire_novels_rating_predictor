@@ -114,57 +114,83 @@ This document specifies the input and output data formats for each stage of the 
   - `model_{n}/`: BERTopic native format directory
   - `model_{n}_metadata.json`: Training metadata
 
-### Stage 06: Labeling
+### Stage 06: Topic Exploration
 
 #### Input
-- **Prepared Books**: `data/processed/prepared_books.parquet`
-  - Contains topic probabilities per book
-  - Must have topic columns (topic names as column names)
-
-- **Manual Mapping**: `results/experiments/.../Billionaire_Manual_Mapping_Topics_by_Thematic_Clusters.md`
-  - Markdown format with hierarchical topic clusters
-
-- **Codebook** (Optional): `results/experiments/.../focused_topic_codebook.csv`
-  - **Columns**:
-    - `Topic`: Topic name
-    - `PrimaryCategory`: Main category
-    - `IntimacyFramingSubtype`: Subtype (if applicable)
+- **Retrained Models**: `models/retrained/{embedding_model}/model_{n}.pkl` or `model_{n}/`
+- **OCTIS Corpus**: `data/interim/octis/corpus.tsv` (for gensim dictionary)
+- **Dataset CSV**: `data/processed/chapters.csv` (optional, for document loading)
 
 #### Output
-- **Composites Parquet**: `results/topics/ap_composites.parquet`
-  - **Columns**:
-    - `Title`, `Author`, `Group`, `Pages`, `Year`: Metadata
-    - `A_Reassurance_Commitment` through `P_Tech_Media_Presence`: Composite scores (0.0-1.0)
+- **Metrics JSON/CSV**: `results/stage06_topic_exploration/metrics_{model}.json`
+  - Coherence (c_v) and diversity scores per representation
+- **Topics JSON**: `results/stage06_topic_exploration/topics_all_representations_{model}.json`
+  - All topics with all representations (Main, KeyBERT, POS, MMR)
 
-### Stage 07: Analysis
+### Stage 07: Topic Quality Analysis
 
 #### Input
-- **Topics CSV**: `results/topics/by_book.csv`
-  - Topic probabilities per book
+- **Retrained Models**: `models/retrained/{embedding_model}/model_{n}.pkl` or `model_{n}/`
+- **OCTIS Corpus**: `data/interim/octis/corpus.tsv` (for gensim dictionary)
+- **Dataset CSV**: `data/processed/chapters.csv` (optional, for document loading)
 
+#### Output
+- **Topic Quality CSV**: `results/stage07_topic_quality/topic_quality_{model}.csv`
+  - Full topic quality table with all metrics
+- **Noise Candidates CSV**: `results/stage07_topic_quality/topic_noise_candidates_{model}.csv`
+  - Filtered view of only candidate noisy topics
+- **Model with Labels** (optional): `models/retrained/{embedding_model}/stage07_topic_quality/model_{n}_with_noise_labels.pkl`
+
+### Stage 08: LLM Labeling
+
+#### Input
+- **BERTopic Model**: `models/retrained/{embedding_model}/stage07_topic_quality/model_{n}_with_noise_labels/` (or base model)
+- **Topics JSON** (optional): `results/stage06_topic_exploration/topics_all_representations_{model}.json`
+
+#### Output
+- **Labels JSON**: `results/stage08_llm_labeling/labels_pos_openrouter_{model_name}_{embedding_model}.json`
+  - Format: `{"topic_id": {"label": "...", "keywords": [...], "scene_summary": "...", ...}}`
+- **Model with Labels**: `models/retrained/{embedding_model}/stage08_llm_labeling/model_{n}_with_llm_labels.pkl` and `model_{n}_with_llm_labels/`
+
+### Stage 09: Category Mapping
+
+#### Input
+- **BERTopic Model with Labels**: `models/retrained/{embedding_model}/stage08_llm_labeling/model_{n}_with_llm_labels/`
+- **Sentence DataFrame**: `data/processed/sentence_df_with_ratings.parquet` (optional, for book-level aggregation)
+- **Chapters CSV**: `data/processed/chapters.csv`
 - **Goodreads CSV**: `data/processed/goodreads.csv`
-  - Book metadata
-
-- **Composites Parquet** (from Stage 06): `results/topics/ap_composites.parquet`
 
 #### Output
-- **Prepared Books**: `data/processed/prepared_books.parquet`
-  - **Columns**:
-    - Metadata: `Title`, `Author`, `RatingsCount`, `Score`, etc.
-    - Topic columns: Normalized topic probabilities
-    - Derived: `popularity_index`, `Group` (Top/Medium/Trash), `Year`
-    - Z-scores: `z_RatingsCount`, `z_Score`, etc.
+- **Topic-to-Category Mappings**: `results/stage09_category_mapping/stage2_theory_driven_categories/topic_to_category_probs.json`
+  - Per-topic soft category assignments (weights sum to 1.0)
+- **Topic-to-Category CSV**: `results/stage09_category_mapping/stage2_theory_driven_categories/topic_to_category_final.csv`
+  - Flat table format for inspection
+- **Book Category Proportions**: `results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet`
+  - Book-level category proportions
+- **Indices CSV**: `results/stage09_category_mapping/stage2_theory_driven_categories/indices_book.csv` (optional)
+  - All derived indices per book
 
-- **Statistical Results**: `results/analysis/`
-  - Statistical test results
-  - Model coefficients
-  - Effect sizes
+### Stage 10: Correlation Analysis
 
-- **Visualizations**: `results/figures/`
-  - Heatmaps
-  - Group comparison plots
-  - UMAP visualizations
-  - Time-course plots
+#### Input
+- **Book Category Proportions**: `results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet`
+  - Book-level category proportions from Stage 09
+- **Taxonomy Mappings**: `results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_*.json`
+  - Taxonomy and Radway function mappings
+- **BERTopic Model**: Model with taxonomy and Radway mappings (from Stage 09)
+- **Goodreads CSV**: `data/processed/goodreads.csv`
+  - Book metadata with ratings
+
+#### Output
+- **Statistical Results**: `results/stage10_correlation_analysis/category_statistical_analysis/`
+  - `kruskal_wallis_results.csv`: Statistical test results
+  - Effect sizes and post-hoc comparisons
+  - Visualizations: volcano plots, effect size bars, prevalence plots
+- **EDA Results**: `results/stage10_correlation_analysis/taxonomy_radway_eda/`
+  - Distribution plots: `taxonomy_distribution.png`, `radway_distribution.png`
+  - Cross-tabulations: `cross_tabulations.png`
+  - Summary statistics: `summary_statistics.json`
+  - Full model data: `full_model_data.csv` / `.parquet`
 
 ## Data Validation
 
