@@ -39,9 +39,11 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 import shutil
+import time
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set
 
 from openai import OpenAI
 from bertopic import BERTopic
@@ -376,6 +378,32 @@ VIOLENCE_TERMS = {
     "attack", "attacked", "assault",
 }
 
+FAMILY_TERMS = {
+    "mother", "mom", "mum", "father", "dad", "parents",
+    "sister", "brother", "daughter", "son",
+    "niece", "nephew", "in-law", "stepmother", "stepfather",
+    "sibling", "siblings", "parent", "child", "children",
+}
+
+# Categories that should not be overridden by work_or_school heuristic
+NON_OVERRIDABLE_CATEGORIES = {
+    "2.1", "2.2", "2.3", "2.4",  # Sexuality, Attraction & Intimacy
+    "3.1", "3.2", "3.3", "3.4",  # Emotions, Cognition & Inner Life
+    "4.1", "4.2", "4.3", "4.4", "4.5",  # Relationship Trajectory
+    "7.1", "7.2", "7.3",  # Conflict, Risk & Harm
+}
+
+
+def _token_set(keywords: List[str]) -> Set[str]:
+    """
+    Extract whole-word tokens from keywords list for exact matching.
+    
+    This prevents substring false positives like "sidekick" matching "kick"
+    or "burgundy" matching "gun".
+    """
+    joined = " ".join(str(k) for k in keywords).lower()
+    return set(re.findall(r"\b\w+\b", joined))
+
 
 def apply_domain_heuristics(
     result: Dict[str, Any],
@@ -384,17 +412,26 @@ def apply_domain_heuristics(
     """
     Post-hoc domain-specific fixes for common borderline cases.
     Operates in-place on result and returns it.
+    
+    Fixes:
+    - Token-level matching for violence/sexuality terms (prevents substring false positives)
+    - Conservative work_or_school override (doesn't override relationship/conflict categories)
+    - Demotes spurious 7.2 (violence) back to 4.4 (relationship conflict) when appropriate
+    - Better separation of family vs. main-couple trajectory
     """
     main_id = result.get("main_category_id")
     secondary_id = result.get("secondary_category_id")
     primary_cats = topic_metadata.get("primary_categories", []) or []
-    keywords = [str(k).lower() for k in topic_metadata.get("keywords", []) or []]
+    keywords = topic_metadata.get("keywords", []) or []
+    
+    # Extract tokens for exact matching (prevents substring false positives)
+    tokens = _token_set(keywords)
 
     # 1) If sexual_content + explicit erogenous terms, prefer 2.3 over 2.2
     if (
         "sexual_content" in primary_cats
         and main_id == "2.2"
-        and any(term in kw for kw in keywords for term in EXPLICIT_EROGENOUS_TERMS)
+        and EXPLICIT_EROGENOUS_TERMS.intersection(tokens)
     ):
         if secondary_id == "2.3":
             secondary_id = None
@@ -402,27 +439,57 @@ def apply_domain_heuristics(
         result["main_category_id"] = "2.3"
         main_id = "2.3"  # keep in sync
 
-    # 2) If work_or_school primary but mapped somewhere vague, nudge to 6.x
-    if (
-        "work_or_school" in primary_cats
-        and (main_id not in {"6.1", "6.2", "6.3", "6.4", "6.5"} and main_id != "noise")
-    ):
-        # only override if clearly not relationship-only
-        result["secondary_category_id"] = main_id
-        result["main_category_id"] = "6.1"  # generic work anchor
-        main_id = "6.1"  # keep in sync
+    # 2) Safeguard: demote spurious 7.2 back to relationship conflict
+    # Catches cases where LLM chose 7.2 for non-violent romantic conflict
+    if main_id == "7.2":
+        has_real_violence = bool(VIOLENCE_TERMS.intersection(tokens))
+        if (
+            not has_real_violence
+            and ("relationship_conflict" in primary_cats or "romance_core" in primary_cats)
+        ):
+            # Treat as relationship conflict, not violence
+            result["secondary_category_id"] = "7.2"
+            result["main_category_id"] = "4.4"
+            main_id = "4.4"  # keep in sync
 
     # 3) Violence heuristic: only if NOT a sexual_content topic
     # Prevents "intense foreplay with blood/veins/heart racing" from being hijacked into violence
+    # Uses token-level matching to avoid false positives (e.g., "sidekick" matching "kick")
     if (
         "sexual_content" not in primary_cats
-        and any(v in kw for kw in keywords for v in VIOLENCE_TERMS)
+        and VIOLENCE_TERMS.intersection(tokens)
     ):
         if main_id != "7.2":
             # if main is non-7.x, demote it to secondary
             if main_id not in {"noise", "7.1", "7.3"}:
                 result["secondary_category_id"] = main_id
             result["main_category_id"] = "7.2"
+            main_id = "7.2"  # keep in sync
+
+    # 4) Better separation of "family & kinship" vs. "relationship trajectory"
+    # For topics about mother/sister/etc., prefer 5.1 Family & Kinship over 4.x
+    # unless the interaction is clearly between the main couple
+    if main_id in {"4.2", "4.3", "4.4"}:
+        # Lots of family talk, but no explicit couple signal
+        if FAMILY_TERMS.intersection(tokens) and "romance_core" not in primary_cats:
+            # Flip: family as main, trajectory as secondary
+            result["secondary_category_id"] = main_id
+            result["main_category_id"] = "5.1"
+            main_id = "5.1"  # keep in sync
+
+    # 5) If work_or_school primary but mapped somewhere vague, nudge to 6.x
+    # BUT: don't override relationship/conflict/emotion categories (2.x, 3.x, 4.x, 7.x)
+    # Only override setting/space categories (8.x) or if already in a non-work category
+    if (
+        "work_or_school" in primary_cats
+        and main_id not in NON_OVERRIDABLE_CATEGORIES
+        and main_id not in {"6.1", "6.2", "6.3", "6.4", "6.5", "noise"}
+    ):
+        # Only override if it's a setting/space category (8.x) or other non-critical category
+        # Keep original as secondary
+        result["secondary_category_id"] = main_id
+        result["main_category_id"] = "6.1"  # generic work anchor
+        main_id = "6.1"  # keep in sync
 
     return result
 
@@ -501,9 +568,12 @@ FIELD RULES
 
 - Use:
 
-  - 4.x for dynamics of the main romantic couple.
+  - 4.x for dynamics BETWEEN the main romantic couple (interactions, dialogue,
+    arguments, dates, bonding, conflicts, reconciliations). NOT for family
+    members or friends - those go to 5.x.
 
   - 5.x for social world outside the main couple (family, friends, community).
+    Use 5.1 for family/kinship scenes even if they affect the couple indirectly.
 
   - 6.x for work, money, heroine/hero jobs, institutional scenes.
 
@@ -512,10 +582,13 @@ FIELD RULES
   - 1.5 for any non-violent sport or physical training, workouts, exercise.
 
   - 7.x for risk, harm, violence, coercion, non-romantic conflicts.
+    Use 7.2 ONLY for actual violence/threats, NOT for verbal arguments or
+    emotional conflict between the main couple (those belong in 4.4).
 
   - 8.x when the topic is primarily about spaces, time, or objects.
 
-  - 3.x when the topic is mostly inner feelings, beliefs, cognitive states.
+  - 3.x when the topic is mostly ONE character's inner feelings, beliefs,
+    cognitive states, or internal monologue WITHOUT much interaction.
 
   - "noise" only if the topic is mostly boilerplate or paratext.
 
@@ -568,6 +641,52 @@ FIELD RULES
 - Explain why these support the chosen taxonomy IDs.
 
 - Do NOT quote long snippets verbatim; summarize them instead.
+
+CRITICAL BOUNDARY RULES
+
+1) 4.x (Relationship Trajectory) vs. 3.x (Inner Life) vs. 5.x (Social World)
+
+- Use 4.x ONLY when the interaction is BETWEEN the main romantic couple
+  (dialogue, arguments, dates, separations, reconciliations, bonding moments).
+
+- Use 3.x when the focus is on ONE character's internal feelings, reflections,
+  or monologue about the relationship, without much interaction in the scene.
+
+- Use 5.1 (Family & Kinship) when the emotional core of the topic is about
+  parents, children, or siblings, even if it indirectly affects the main couple.
+  If a topic mentions "mother", "sister", "father" etc. and the scene is about
+  family dynamics rather than the main couple's direct interaction, prefer 5.1
+  over 4.x.
+
+- Use 5.2 (Friends & Social Circles) for friend interactions, colleague social
+  support, found family.
+
+- Use 5.3 (Community, Norms & Social Events) for parties, weddings, holidays,
+  community judgment, public rituals.
+
+2) 7.2 (Violence, Threats & Coercion) - USE SPARINGLY
+
+- Use 7.2 ONLY when there is clear physical violence, explicit threats,
+  coercion, or danger (weapons, beating, assault, explicit harm).
+
+- Teasing, snarky banter, or verbal arguments WITHOUT explicit threats belong
+  in 4.4 (Conflict, Distance & Breakup Threats), NOT 7.2.
+
+- Emotional conflict, relationship struggles, or heated discussions between
+  the main couple should use 4.4, not 7.2.
+
+- Only use 7.2 when violence or coercion is the PRIMARY function of the scene.
+
+3) 4.3 (Secrets, Misunderstandings) vs. 4.4 (Conflict, Distance)
+
+- Use 4.3 when the topic is about concealed facts, misunderstandings, or
+  withheld truths BETWEEN the main couple that create tension.
+
+- Use 4.4 for arguments, distancing, threats of breakup, or serious relational
+  strain - even if it involves emotional intensity.
+
+- Do NOT use 4.3 for any emotionally tense talk; reserve it for topics where
+  hidden information or misunderstandings are the core issue.
 
 SPECIAL RULES ABOUT VIOLENCE VS EXERCISE
 
@@ -742,15 +861,45 @@ def classify_topic_to_taxonomy_openrouter(
 
     LOGGER.info("Classifying topic %d into taxonomy (Mistral-Nemo)...", topic_id)
 
-    response = client.chat.completions.create(
-        model=model_name,
-        messages=messages,
-        max_tokens=max_new_tokens,
-        temperature=temperature,
-        top_p=0.9,
-        frequency_penalty=0.3,
-        presence_penalty=0.0,
-    )
+    # Retry logic with exponential backoff for rate limits
+    max_retries = 6
+    base_delay = 15.0  # Start with 15 seconds (Mistral-Nemo has strict rate limits)
+    
+    for attempt in range(max_retries):
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=messages,
+                max_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=0.9,
+                frequency_penalty=0.3,
+                presence_penalty=0.0,
+            )
+            break  # Success, exit retry loop
+        except Exception as e:
+            error_str = str(e).lower()
+            is_rate_limit = "429" in error_str or "rate limit" in error_str or "rate-limited" in error_str
+            
+            if is_rate_limit and attempt < max_retries - 1:
+                # Calculate delay with exponential backoff
+                if attempt == max_retries - 2:
+                    # Second-to-last attempt: wait 5 minutes for rate limit window to reset
+                    delay = 300.0
+                    LOGGER.warning(
+                        "Rate limit hit for topic %d (attempt %d/%d). Waiting %.1f seconds (5 minutes) for rate limit window to reset...",
+                        topic_id, attempt + 1, max_retries, delay
+                    )
+                else:
+                    delay = base_delay * (2 ** attempt)  # Exponential backoff: 15s, 30s, 60s, 120s, 240s
+                    LOGGER.warning(
+                        "Rate limit hit for topic %d (attempt %d/%d). Waiting %.1f seconds before retry...",
+                        topic_id, attempt + 1, max_retries, delay
+                    )
+                time.sleep(delay)
+            else:
+                # Not a rate limit, or we've exhausted retries
+                raise
 
     if not response.choices:
         raise ValueError("Empty API response for taxonomy classification")
@@ -1060,20 +1209,61 @@ def map_all_topics_to_taxonomy(
     elif topic_to_snippets is None:
         LOGGER.info("No representative snippets provided, using keywords and labels only")
 
+    # Try to load existing checkpoint if output file exists
     taxonomy_map: Dict[int, Dict[str, Any]] = {}
+    if output_path.exists():
+        LOGGER.info("Found existing output file. Loading checkpoint to resume...")
+        try:
+            with open(output_path, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+            for k, v in existing_data.items():
+                try:
+                    tid = int(k)
+                    taxonomy_map[tid] = v
+                except ValueError:
+                    continue
+            LOGGER.info("Loaded %d topics from checkpoint", len(taxonomy_map))
+        except Exception as e:
+            LOGGER.warning("Failed to load checkpoint: %s. Starting fresh.", e)
+            taxonomy_map = {}
 
-    for idx, tid in enumerate(topic_ids, start=1):
+    # Filter out already processed topics
+    remaining_topics = [tid for tid in topic_ids if tid not in taxonomy_map]
+    if len(remaining_topics) < len(topic_ids):
+        LOGGER.info(
+            "Resuming: %d topics already processed, %d remaining",
+            len(taxonomy_map),
+            len(remaining_topics),
+        )
+    else:
+        LOGGER.info("Starting fresh: processing all %d topics", len(topic_ids))
+
+    for idx, tid in enumerate(remaining_topics, start=1):
         tm = topic_meta[tid]
         snippets = topic_to_snippets.get(tid, []) if topic_to_snippets else None
-        result = classify_topic_to_taxonomy_openrouter(
-            topic_id=tid,
-            topic_metadata=tm,
-            client=client,
-            model_name=model_name,
-            temperature=temperature,
-            max_new_tokens=max_new_tokens,
-            representative_docs=snippets,
-        )
+        
+        try:
+            result = classify_topic_to_taxonomy_openrouter(
+                topic_id=tid,
+                topic_metadata=tm,
+                client=client,
+                model_name=model_name,
+                temperature=temperature,
+                max_new_tokens=max_new_tokens,
+                representative_docs=snippets,
+            )
+        except Exception as e:
+            LOGGER.error(
+                "Failed to classify topic %d after retries: %s. Saving checkpoint and exiting.",
+                tid, e
+            )
+            # Save checkpoint before exiting
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            serializable = {str(k): v for k, v in taxonomy_map.items()}
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(serializable, f, indent=2, ensure_ascii=False)
+            LOGGER.info("Checkpoint saved. Resume by running the same command again.")
+            raise
         
         # Optionally include source metadata from labels JSON for manual evaluation
         if include_source_metadata:
@@ -1088,19 +1278,30 @@ def map_all_topics_to_taxonomy(
         
         taxonomy_map[tid] = result
 
-        if idx % 10 == 0 or idx == total:
+        # Delay to avoid rate limits (10 seconds between requests for Mistral-Nemo)
+        # Mistral-Nemo has very strict rate limits, so we need longer delays
+        if idx < len(remaining_topics):
+            time.sleep(10.0)
+
+        # Save checkpoint every 10 topics
+        if idx % 10 == 0 or idx == len(remaining_topics):
+            output_path.parent.mkdir(parents=True, exist_ok=True)
+            serializable = {str(k): v for k, v in taxonomy_map.items()}
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(serializable, f, indent=2, ensure_ascii=False)
             LOGGER.info(
-                "Processed %d/%d topics (%.1f%%)", idx, total, idx / total * 100.0
+                "Processed %d/%d remaining topics (%.1f%%). Checkpoint saved.",
+                idx, len(remaining_topics), idx / len(remaining_topics) * 100.0
             )
 
-    # Save to JSON (string keys for stability)
+    # Final save (already saved during checkpointing, but ensure it's up to date)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     serializable = {str(k): v for k, v in taxonomy_map.items()}
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(serializable, f, indent=2, ensure_ascii=False)
 
     LOGGER.info(
-        "Saved taxonomy mappings for %d topics to %s", len(serializable), output_path
+        "✓ Completed! Saved taxonomy mappings for %d topics to %s", len(serializable), output_path
     )
     return taxonomy_map
 
