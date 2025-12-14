@@ -1,0 +1,17 @@
+topic_id,label,keywords,taxonomy_main_name,taxonomy_main_group,radway_main_id,radway_phase_name,taxonomy_confidence,radway_confidence,_empty_kw_ratio
+17,17____,", , , , , , , , , ",,,,,,,1.0
+18,18____,", , , , , , , , , ",,,,,,,1.0
+120,Repeated Affirmations,"aye, string, parts, fianca, yesterday, unable, sounds, word, having, theya","Bonding, Everyday Intimacy & Growth",Relationship Trajectory (Main Couple),R9,Turning Point & Recognition,high,low,0.6296296296296297
+132,132____,", , , , , , , , , ",,,,,,,1.0
+141,Hurried Conversations,"rush, , , , , , , , , ","Bonding, Everyday Intimacy & Growth",Relationship Trajectory (Main Couple),R5,Initial Conflict & Isolation,medium,medium,0.9629629629629629
+182,Cheek Heating Conversation,"tough, umma, jerky, battle, dig, cheeks, theya, talk, getting, ita",Positive Emotions & Security,"Emotions, Cognition & Inner Life",none,Not a narrative function,high,high,0.6296296296296297
+183,Division Discussion,"division, stick, excuse, probably, , , , , , ","Bonding, Everyday Intimacy & Growth",Relationship Trajectory (Main Couple),R9,Turning Point & Recognition,medium,low,0.8518518518518519
+186,186____,", , , , , , , , , ",,,,,,,1.0
+205,Rule-breaking Encounter,"fuckup, rule, horny, rules, hint, rest, half, job, world, maybe",Explicit Sexual Acts,"Sexuality, Attraction & Intimacy",R12,Commitment & Restoration,high,high,0.5925925925925926
+224,224____,", , , , , , , , , ",,,,,,,1.0
+238,Clarifying Conversation,"rumbles, load, huh, point, isna, things, asked, , , ","Conflict, Distance & Breakup Threats",Relationship Trajectory (Main Couple),R7,Initial Conflict & Isolation,high,medium,0.7407407407407407
+241,Starting Conversation,"okaya, wella, arranged, start, yeah, let, ita, ia, , ","Meeting, First Impressions & Setup",Relationship Trajectory (Main Couple),R1,Initial Conflict & Isolation,high,low,0.7037037037037037
+262,Clever Insults During Argument,"imply, clever, honestly, gives, , , , , , ","Conflict, Distance & Breakup Threats",Relationship Trajectory (Main Couple),R7,Initial Conflict & Isolation,high,medium,0.8518518518518519
+283,283_ina___,"ina, , , , , , , , , ",,,,,,,0.9629629629629629
+347,Expressive Yes,"yessss, , , , , , , , , ",Kissing & Non-Explicit Affection,"Sexuality, Attraction & Intimacy",R9,Turning Point & Recognition,high,low,0.9629629629629629
+359,359_pun_th_intended_declare,"pun, th, intended, declare, entitled, speaking, told, , , ",,,,,,,0.7407407407407407
