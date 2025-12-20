@@ -45,6 +45,10 @@ tenacity==9.1.2
 gputil==1.4.0
 flask==3.1.2
 matplotlib==3.10.7
+seaborn>=0.13.0
+
+# Statistical Analysis
+statsmodels>=0.14.0
 
 # API Clients
 openai>=2.9.0

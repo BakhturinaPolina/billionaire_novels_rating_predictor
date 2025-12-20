@@ -1,6 +1,7 @@
 """Logging utilities."""
 
 import logging
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -45,13 +46,15 @@ def setup_logging(
     file_handler.setFormatter(file_formatter)
     logger.addHandler(file_handler)
     
-    # Console handler
-    console_handler = logging.StreamHandler()
+    # Console handler with immediate flushing
+    console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(log_level)
     console_formatter = logging.Formatter(
         "%(levelname)s - %(message)s"
     )
     console_handler.setFormatter(console_formatter)
+    # Ensure immediate flushing for console output
+    console_handler.stream.reconfigure(line_buffering=True) if hasattr(console_handler.stream, 'reconfigure') else None
     logger.addHandler(console_handler)
     
     return logger
