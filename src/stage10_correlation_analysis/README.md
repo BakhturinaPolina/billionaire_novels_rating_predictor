@@ -14,6 +14,7 @@ Stage 10 performs comprehensive statistical analysis and exploratory data analys
 ```
 stage10_correlation_analysis/
 ├── analysis/              # Main analysis scripts (entry points)
+│   ├── generate_topic_probabilities_goodreads.py  # Generate book/chapter topic probabilities
 │   ├── category_statistics.py      # Statistical analysis of categories
 │   └── taxonomy_radway_eda.py      # EDA for taxonomy & Radway mappings
 ├── utils/                # Reusable helper modules
@@ -27,7 +28,45 @@ stage10_correlation_analysis/
 
 ## Analysis Scripts
 
-### 1. Category Statistics (`analysis/category_statistics.py`)
+### 1. Topic Probability Generation (`analysis/generate_topic_probabilities_goodreads.py`)
+
+Generates book-level and chapter-level topic probabilities from sentence-level data. This is a prerequisite for statistical analysis and correlation studies.
+
+**Features:**
+- Aggregates sentence-level topic probabilities to book and chapter levels
+- Supports Goodreads ID-based book identification for reliable metadata merging
+- Caching system for efficient recomputation (saves ~515MB cache)
+- Batch processing for large datasets
+- Normalized probability distributions (sum to 1.0 per book/chapter)
+
+**Usage:**
+```bash
+python -m src.stage10_correlation_analysis.analysis.generate_topic_probabilities_goodreads \
+    --sentence-df data/processed/sentence_df_with_topics.parquet \
+    --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories \
+    --output-dir results/stage10_correlation_analysis \
+    --book-id-source existing \
+    [--batch-size 32] \
+    [--cache-dir results/stage10_correlation_analysis/cache] \
+    [--no-cache]
+```
+
+**Outputs:**
+- `book_topic_probs.parquet`: Book-level topic probabilities (book_id, topic_id, prob)
+  - Format: One row per (book, topic) pair
+  - Example: 33,856 rows for 92 books × 368 topics
+- `chapter_topic_probs.parquet`: Chapter-level topic probabilities (book_id, chapter_id, topic_id, prob)
+  - Format: One row per (chapter, topic) pair
+  - Example: 1,089,280 rows for 2,960 chapters × 368 topics
+- `cache/topic_probs_*.npz`: Cached probability arrays for efficient recomputation
+
+**Key Features:**
+- **Book ID Handling**: Supports Goodreads IDs (recommended), existing book_id column, or Author+Title fallback
+- **Caching**: MD5-based cache keys detect input changes (file size + modification time)
+- **Normalization**: Probabilities sum to 1.0 per book/chapter (validated automatically)
+- **Error Handling**: Comprehensive diagnostics for zero-probability chapters and NaN values
+
+### 2. Category Statistics (`analysis/category_statistics.py`)
 
 Runs statistical analysis to identify taxonomy categories that differ significantly across book rating classes.
 
@@ -53,7 +92,7 @@ python -m src.stage10_correlation_analysis.analysis.category_statistics \
 - `figures/category_*_prevalence.png`: Individual category plots
 - `figures/category_*_pairwise.png`: Pairwise comparison plots
 
-### 2. Taxonomy & Radway EDA (`analysis/taxonomy_radway_eda.py`)
+### 3. Taxonomy & Radway EDA (`analysis/taxonomy_radway_eda.py`)
 
 Exploratory data analysis of the BERTopic model with taxonomy and Radway narrative function mappings.
 
@@ -92,11 +131,20 @@ python -m src.stage10_correlation_analysis.analysis.taxonomy_radway_eda \
 
 ## Inputs
 
+- **Sentence DataFrame**: `data/processed/sentence_df_with_topics.parquet`
+  - Required columns: `text`, `book_id` (or `goodreads_book_id`), `chapter_id` (optional)
+  - Contains sentence-level topic assignments from Stage 09
+- **BERTopic Model**: Model with taxonomy and Radway mappings (from Stage 9)
+  - Recommended: `models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories`
 - **Book Category Proportions**: `results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet`
 - **Taxonomy Mappings**: `results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_*.json`
-- **BERTopic Model**: Model with taxonomy and Radway mappings (from Stage 9)
 
 ## Outputs
+
+- **Topic Probabilities** (Production): `results/stage10_correlation_analysis/`
+  - `book_topic_probs.parquet`: Book-level topic probabilities (production version)
+  - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (production version)
+  - `cache/`: Cached probability arrays for efficient recomputation
 
 - **Statistical Results**: `results/stage10_correlation_analysis/category_statistical_analysis/`
   - Test results, effect sizes, visualizations
