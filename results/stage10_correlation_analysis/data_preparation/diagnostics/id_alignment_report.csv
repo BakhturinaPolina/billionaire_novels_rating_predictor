@@ -1,0 +1,4 @@
+table,path,id_col,unique_ids,meta_unique_ids,overlap_ids,overlap_share,coverage_of_meta,coverage_of_outputs
+book_topic_probs,/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/stage10_correlation_analysis/data_preparation/topic_probabilities/book_topic_probs.parquet,book_id,92,92,92,1.0,1.0,1.0
+chapter_topic_probs,/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/stage10_correlation_analysis/data_preparation/topic_probabilities/chapter_topic_probs.parquet,book_id,92,92,92,1.0,1.0,1.0
+book_category_props,/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet,book_id,92,92,92,1.0,1.0,1.0

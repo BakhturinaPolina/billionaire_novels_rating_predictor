@@ -172,7 +172,21 @@ python -m src.stage09_category_mapping.stage1_natural_clusters.prepare_sentence_
 # See src/stage09_category_mapping/README.md for detailed usage
 
 # Stage 10: Correlation Analysis
-python -m src.stage10_correlation_analysis.main --config configs/scoring.yaml
+# Step 1: Generate topic probabilities (production)
+python -m src.stage10_correlation_analysis.analysis.generate_topic_probabilities_goodreads \
+    --sentence-df data/processed/sentence_df_with_topics.parquet \
+    --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories \
+    --output-dir results/stage10_correlation_analysis \
+    --book-id-source existing
+
+# Step 2: Statistical analysis
+python -m src.stage10_correlation_analysis.analysis.category_statistics \
+    --book-cat results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet \
+    --output-dir results/stage10_correlation_analysis/category_statistical_analysis
+
+# Step 3: EDA
+python -m src.stage10_correlation_analysis.analysis.taxonomy_radway_eda \
+    --output-dir results/stage10_correlation_analysis/taxonomy_radway_eda
 ```
 
 ### Configuration
@@ -243,7 +257,23 @@ Automated generation of human-readable topic labels using either:
 Deterministic mapping from topic labels to theory-aligned categories (A-P, Q, R, S). Uses regex-based inference to operationalize theoretical constructs (Radway, Propp functions, Ogas & Gaddam). Generates `topic_to_category_probs.json` and optional book-level aggregates with derived indices. See `src/stage09_category_mapping/` for details.
 
 ### Stage 10: Correlation Analysis
-Goodreads scoring/stratification, statistical analysis, and FDR correction. Generates visualizations and statistical reports.
+Comprehensive statistical analysis combining topic probabilities with Goodreads metadata. Includes:
+
+1. **Topic Probability Generation**: Aggregates sentence-level topic probabilities to book and chapter levels for statistical analysis
+   ```bash
+   python -m src.stage10_correlation_analysis.analysis.generate_topic_probabilities_goodreads \
+       --sentence-df data/processed/sentence_df_with_topics.parquet \
+       --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories \
+       --output-dir results/stage10_correlation_analysis
+   ```
+
+2. **Statistical Analysis**: Kruskal-Wallis tests, effect sizes, and post-hoc comparisons for taxonomy categories across rating classes
+
+3. **EDA**: Exploratory analysis of taxonomy and Radway narrative function mappings
+
+4. **Visualization**: Volcano plots, effect size charts, and category prevalence visualizations
+
+Generates production-ready topic probability files (`book_topic_probs.parquet`, `chapter_topic_probs.parquet`) for core statistical analysis. See `src/stage10_correlation_analysis/README.md` for details.
 
 ## Contributing
 

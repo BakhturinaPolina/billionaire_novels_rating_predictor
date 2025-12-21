@@ -422,19 +422,43 @@ Caring protectiveness vs. jealous possessiveness.
 
 ### Stage 10: Statistical Analysis & Correlation Analysis
 
+## Topic Probability Generation
+
+Before statistical analysis, sentence-level topic assignments are aggregated to book and chapter levels:
+
+**Script**: `generate_topic_probabilities_goodreads.py`
+
+**Process**:
+1. Load sentence dataframe with topic assignments (`sentence_df_with_topics.parquet`)
+2. Compute topic probabilities using BERTopic model's `transform()` method
+3. Aggregate probabilities to book level (sum and normalize per book)
+4. Aggregate probabilities to chapter level (sum and normalize per chapter)
+5. Cache computed probabilities for efficient recomputation
+
+**Outputs**:
+- `book_topic_probs.parquet`: (book_id, topic_id, prob) - 33,856 rows for 92 books × 368 topics
+- `chapter_topic_probs.parquet`: (book_id, chapter_id, topic_id, prob) - 1,089,280 rows for 2,960 chapters × 368 topics
+
+**Key Features**:
+- Uses Goodreads IDs for reliable metadata merging
+- Caching system (MD5-based keys) detects input changes automatically
+- Batch processing support for large datasets
+- Normalized distributions (sum to 1.0 per book/chapter, validated)
+
 ## Statistical Analysis Plan
 
 ### 1. Validation & Preparation
 
 - Schema checks
-- Normalize topic probabilities (sum to 1 per book)
-- Merge metadata
+- Load production topic probabilities (`book_topic_probs.parquet`, `chapter_topic_probs.parquet`)
+- Normalize topic probabilities (sum to 1 per book) - already done in generation step
+- Merge metadata (Goodreads ratings, book metadata)
 - Create segments (begin/middle/end) if not supplied
 
 ### 2. Map & Aggregate
 
 - Run mapping pipeline → `topic_to_category_probs.json`
-- Roll up to book and segment category proportions
+- Roll up to book and segment category proportions using topic probabilities
 - Compute all indices
 
 ### 3. Descriptives & Visualization
@@ -483,6 +507,7 @@ Caring protectiveness vs. jealous possessiveness.
 
 ## Acceptance Criteria
 
+- ✅ `book_topic_probs.parquet` & `chapter_topic_probs.parquet` (production topic probabilities)
 - ✅ `topic_to_category_probs.json` & `topic_to_category_final.csv` (F1 ≥ target on small gold set)
 - ✅ `book_category_props.csv` + `chapter_category_props.csv`
 - ✅ Indices computed for all books (and segments)
@@ -491,11 +516,15 @@ Caring protectiveness vs. jealous possessiveness.
 
 ## Deliverables
 
-1. **Mapping Files**
+1. **Topic Probabilities** (Production)
+   - `book_topic_probs.parquet`: Book-level topic probabilities (92 books × 368 topics)
+   - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (2,960 chapters × 368 topics)
+
+2. **Mapping Files**
    - `topic_to_category_probs.json`
    - `topic_to_category_final.csv`
 
-2. **Aggregated Data**
+3. **Aggregated Data**
    - `book_category_props.csv`
    - `chapter_category_props.csv` (if applicable)
 
