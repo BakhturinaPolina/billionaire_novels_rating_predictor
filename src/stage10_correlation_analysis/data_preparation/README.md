@@ -7,11 +7,12 @@ This directory (`src/stage10_correlation_analysis/data_preparation/`) contains P
 
 ## Overview
 
-The statistical analysis pipeline consists of three main scripts:
+The statistical analysis pipeline consists of four main scripts:
 
 1. **`generate_topic_probabilities_final.py`** - Generate topic probabilities at book and chapter levels
-2. **`01_data_validation_extraction.py`** - Data validation and topic lookup table extraction
-3. **`02_book_aggregation.py`** - Book-level aggregation and derived indices computation
+2. **`generate_tertile_topic_probs.py`** (in `../analysis/`) - Generate topic probabilities for begin/middle/end tertiles of each book
+3. **`01_data_validation_extraction.py`** - Data validation and topic lookup table extraction
+4. **`02_book_aggregation.py`** - Book-level aggregation and derived indices computation
 
 These scripts prepare data for downstream statistical analysis by:
 - Generating topic probabilities from sentence-level data
@@ -28,8 +29,9 @@ All outputs are organized under `results/stage10_correlation_analysis/data_prepa
 data_preparation/
 ├── topic_probabilities/          # Topic probability files
 │   ├── book_topic_probs.parquet
-│   └── chapter_topic_probs.parquet
-├── taxonomy_radway_eda/          # Topic lookup and metadata (from script 01)
+│   ├── chapter_topic_probs.parquet
+│   └── tertile_topic_probs.parquet  # Begin/middle/end tertiles per book
+├── taxonomy_radway_eda/          # Topic lookup and metadata (from script 01) [ARCHIVED]
 │   ├── topic_lookup.parquet
 │   ├── full_model_data.csv
 │   ├── summary_statistics.json

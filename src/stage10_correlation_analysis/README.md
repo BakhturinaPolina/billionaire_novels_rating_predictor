@@ -13,22 +13,16 @@ Stage 10 performs comprehensive statistical analysis and exploratory data analys
 
 ```
 stage10_correlation_analysis/
-├── analysis/              # Main analysis scripts (entry points)
-│   ├── generate_topic_probabilities_goodreads.py  # Generate book/chapter topic probabilities
-│   ├── category_statistics.py      # Statistical analysis of categories
-│   └── taxonomy_radway_eda.py      # EDA for taxonomy & Radway mappings
-├── utils/                # Reusable helper modules
-│   ├── statistics.py              # Statistical test functions
-│   └── visualization.py            # Plotting and visualization functions
-└── docs/                 # Documentation and reports
-    ├── STATISTICAL_ANALYSIS_REPORT.md
-    ├── VISUALIZATION_EXAMPLES.md
-    └── VISUALIZATION_IMPROVEMENTS.md
+└── data_preparation/      # Data preparation scripts
+    ├── 01_data_validation_extraction.py
+    ├── 02_book_aggregation.py
+    ├── 03_generate_topic_probabilities_final.py  # Generate book/chapter topic probabilities
+    └── 04_generate_tertile_topic_probs.py  # Generate tertile topic probabilities
 ```
 
 ## Analysis Scripts
 
-### 1. Topic Probability Generation (`analysis/generate_topic_probabilities_goodreads.py`)
+### 1. Topic Probability Generation (`data_preparation/03_generate_topic_probabilities_final.py`)
 
 Generates book-level and chapter-level topic probabilities from sentence-level data. This is a prerequisite for statistical analysis and correlation studies.
 
@@ -41,13 +35,13 @@ Generates book-level and chapter-level topic probabilities from sentence-level d
 
 **Usage:**
 ```bash
-python -m src.stage10_correlation_analysis.analysis.generate_topic_probabilities_goodreads \
+python src/stage10_correlation_analysis/data_preparation/03_generate_topic_probabilities_final.py \
     --sentence-df data/processed/sentence_df_with_topics.parquet \
-    --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories \
-    --output-dir results/stage10_correlation_analysis \
-    --book-id-source existing \
+    --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings \
+    --output-dir results/stage10_correlation_analysis/data_preparation \
+    --book-id-source goodreads \
+    --goodreads-id-col ID \
     [--batch-size 32] \
-    [--cache-dir results/stage10_correlation_analysis/cache] \
     [--no-cache]
 ```
 
@@ -58,76 +52,45 @@ python -m src.stage10_correlation_analysis.analysis.generate_topic_probabilities
 - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (book_id, chapter_id, topic_id, prob)
   - Format: One row per (chapter, topic) pair
   - Example: 1,089,280 rows for 2,960 chapters × 368 topics
-- `cache/topic_probs_*.npz`: Cached probability arrays for efficient recomputation
+- `cache/transform_*.pkl`: Cached transform outputs for efficient recomputation
 
 **Key Features:**
 - **Book ID Handling**: Supports Goodreads IDs (recommended), existing book_id column, or Author+Title fallback
-- **Caching**: MD5-based cache keys detect input changes (file size + modification time)
+- **Caching**: File-based cache keys detect input changes (file size + modification time)
 - **Normalization**: Probabilities sum to 1.0 per book/chapter (validated automatically)
 - **Error Handling**: Comprehensive diagnostics for zero-probability chapters and NaN values
 
-### 2. Category Statistics (`analysis/category_statistics.py`)
+### 2. Tertile Topic Probabilities (`data_preparation/04_generate_tertile_topic_probs.py`)
 
-Runs statistical analysis to identify taxonomy categories that differ significantly across book rating classes.
+Generates topic probabilities for begin/middle/end tertiles of each book by splitting the book's token stream into three equal parts and re-inferring topic mixtures per tertile.
 
 **Features:**
-- Kruskal-Wallis tests for each category
-- Effect size calculations (eta-squared)
-- Post-hoc pairwise comparisons
-- Comprehensive visualizations (volcano plots, effect size bars, prevalence plots)
+- Splits each book's sentences into three tertiles (begin/middle/end)
+- Re-infers topic probabilities for each tertile using BERTopic model
+- Preserves sentence order within books for accurate tertile boundaries
+- Normalized probability distributions (sum to 1.0 per tertile)
 
 **Usage:**
 ```bash
-python -m src.stage10_correlation_analysis.analysis.category_statistics \
-    --book-cat results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet \
-    --output-dir results/stage10_correlation_analysis/category_statistical_analysis \
-    --top-n 10 \
-    --alpha 0.05
+python src/stage10_correlation_analysis/data_preparation/04_generate_tertile_topic_probs.py \
+    --sentence-df data/processed/sentence_df_with_topics.parquet \
+    --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings \
+    --output-dir results/stage10_correlation_analysis/data_preparation \
+    --book-id-source goodreads \
+    --goodreads-id-col ID
 ```
 
 **Outputs:**
-- `kruskal_wallis_results.csv`: Statistical test results
-- `figures/volcano_plot.png`: P-value vs effect size visualization
-- `figures/effect_size_bars.png`: Effect sizes for top categories
-- `figures/category_*_prevalence.png`: Individual category plots
-- `figures/category_*_pairwise.png`: Pairwise comparison plots
+- `tertile_topic_probs.parquet`: Tertile-level topic probabilities (book_id, tertile, topic_id, prob)
+  - Format: One row per (book, tertile, topic) pair
+  - Tertile values: "begin", "middle", "end"
+  - Example: 92 books × 3 tertiles × 368 topics = 101,568 rows
 
-### 3. Taxonomy & Radway EDA (`analysis/taxonomy_radway_eda.py`)
-
-Exploratory data analysis of the BERTopic model with taxonomy and Radway narrative function mappings.
-
-**Features:**
-- Distribution analysis of taxonomy categories
-- Distribution analysis of Radway narrative functions
-- Cross-tabulations between taxonomy and Radway
-- Summary statistics and data exports
-
-**Usage:**
-```bash
-python -m src.stage10_correlation_analysis.analysis.taxonomy_radway_eda \
-    --output-dir results/stage10_correlation_analysis/taxonomy_radway_eda
-```
-
-**Outputs:**
-- `taxonomy_distribution.png`: Taxonomy category distributions
-- `radway_distribution.png`: Radway function distributions
-- `cross_tabulations.png`: Taxonomy vs Radway cross-tabulations
-- `summary_statistics.json`: Summary statistics
-- `full_model_data.csv` / `.parquet`: Complete extracted data
-
-## Helper Modules
-
-### `utils/statistics.py`
-- Kruskal-Wallis test functions
-- Effect size calculations
-- Post-hoc pairwise comparisons
-
-### `utils/visualization.py`
-- Volcano plots
-- Effect size bar charts
-- Category prevalence plots (box, violin, strip plots)
-- Pairwise comparison visualizations
-- P-value heatmaps
+**Key Features:**
+- **Tertile Splitting**: Divides each book's sentences into three equal parts based on sentence order
+- **Order Preservation**: Maintains original sentence order (by chapter_id or sentence_index if available)
+- **Normalization**: Probabilities sum to 1.0 per tertile (validated automatically)
+- **Statistical Analysis Ready**: Output format suitable for analyzing topic distribution differences across book parts and rating classes
 
 ## Inputs
 
@@ -141,16 +104,11 @@ python -m src.stage10_correlation_analysis.analysis.taxonomy_radway_eda \
 
 ## Outputs
 
-- **Topic Probabilities** (Production): `results/stage10_correlation_analysis/`
+- **Topic Probabilities** (Production): `results/stage10_correlation_analysis/data_preparation/topic_probabilities/`
   - `book_topic_probs.parquet`: Book-level topic probabilities (production version)
   - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (production version)
-  - `cache/`: Cached probability arrays for efficient recomputation
-
-- **Statistical Results**: `results/stage10_correlation_analysis/category_statistical_analysis/`
-  - Test results, effect sizes, visualizations
-
-- **EDA Results**: `results/stage10_correlation_analysis/taxonomy_radway_eda/`
-  - Distribution plots, cross-tabulations, summary statistics
+  - `tertile_topic_probs.parquet`: Tertile-level topic probabilities (begin/middle/end per book)
+  - `cache/`: Cached transform outputs for efficient recomputation
 
 ## Dependencies
 
