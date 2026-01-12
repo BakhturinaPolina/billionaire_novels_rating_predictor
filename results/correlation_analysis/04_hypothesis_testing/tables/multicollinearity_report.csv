@@ -1,0 +1,8 @@
+index_1,index_2,correlation
+D_power_wealth_luxury,H3_luxury_saturation,1.0
+B_mutual_intimacy_nonexplicit,H3_love_depth,0.8968488254894496
+A_reassurance_commitment,H3_love_depth,0.8968488254894493
+H_domestic_nesting,M_health_recovery_growth,0.8792223874607183
+A_reassurance_commitment,M_health_recovery_growth,0.8367850507269984
+A_reassurance_commitment,H_domestic_nesting,0.8098191887651209
+H_domestic_nesting,H3_love_depth,0.8094267484039793

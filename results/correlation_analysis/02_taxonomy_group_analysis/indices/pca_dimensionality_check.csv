@@ -1,0 +1,21 @@
+composite_key,composite_name,n_topics,PC1_variance_explained,PC2_variance_explained,PC1+PC2_cumulative,interpretation
+G_courtship_rituals_gifts,G) Courtship Rituals / Gifts,3,0.9462910979291704,0.0410777459136959,0.9873688438428664,✅ Unidimensional
+F1_sadness_grief,F1) Sadness & Grief,4,0.8715991898449291,0.06716555792331248,0.9387647477682416,✅ Unidimensional
+C_explicit_eroticism,C) Explicit Eroticism,19,0.8000765605058454,0.12556321136027287,0.9256397718661182,✅ Unidimensional
+E_coercion_brutality_danger,E) Coercion / Brutality / Danger,5,0.7625884015493076,0.10751045067651484,0.8700988522258225,✅ Unidimensional
+B2_emotional_intimacy,B2) Emotional Intimacy,5,0.6930061848881832,0.18993579985220616,0.8829419847403894,✅ Unidimensional
+K_professional_intrusion,K) Professional Intrusion,19,0.621957451166872,0.11114347254523785,0.7331009237121098,✅ Unidimensional
+Q_miscommunication,Q) Miscommunication & Conflict,9,0.6124430381541885,0.16595732240167113,0.7784003605558597,✅ Unidimensional
+N_separation_reunion,N) Separation / Reunion,6,0.5384902277868808,0.18277285870213245,0.7212630864890133,✅ Unidimensional
+A3_everyday_tenderness,A3) Everyday Tenderness,5,0.45310927890511676,0.32758078924852213,0.7806900681536388,⚠️ Acceptable
+R_jealousy_possessiveness,R) Jealousy & Possessiveness,6,0.44401580884974556,0.32015826515673934,0.7641740740064848,⚠️ Acceptable
+S_scene_anchors,S) Scene Anchors (Setting-Rich),26,0.44018065778485727,0.24007547515598746,0.6802561329408447,⚠️ Acceptable
+R2_alpha_guarding,R2) Alpha Guarding,9,0.39149868291526246,0.284950775704318,0.6764494586195804,⚠️ Acceptable
+M_health_recovery_growth,M) Health / Recovery / Growth,8,0.3851249456679535,0.2780107444879258,0.6631356901558794,⚠️ Acceptable
+I_humor_lightness,I) Humor / Lightness,11,0.358524614768782,0.3395578851312195,0.6980824999000015,⚠️ Acceptable
+Q_repair,Q) Repair & Reconciliation,10,0.34947568413168606,0.2405119256395015,0.5899876097711876,⚠️ Acceptable
+L_vices_addictions,L) Vices / Addictions,16,0.33581766341784136,0.2882466267852119,0.6240642902030533,⚠️ Acceptable
+H_domestic_nesting,H) Domestic Nesting (Home-as-Refuge),94,0.28638860277417316,0.11847917350007123,0.4048677762742444,🔴 Multidimensional (consider further splits)
+J_social_support_kin,J) Social Support / Kin,32,0.27321710745271993,0.20776585933316988,0.4809829667858898,🔴 Multidimensional (consider further splits)
+D_power_wealth_luxury,D) Power / Wealth / Luxury,34,0.24185695510944563,0.18659709980414046,0.4284540549135861,🔴 Multidimensional (consider further splits)
+B1_attraction_chemistry,B1) Attraction & Sexual Chemistry,34,0.22075436747536903,0.17689861499675152,0.39765298247212055,🔴 Multidimensional (consider further splits)

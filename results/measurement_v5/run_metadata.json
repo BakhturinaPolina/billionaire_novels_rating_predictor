@@ -1,0 +1,28 @@
+{
+  "run_timestamp": "2026-01-11T18:58:13.395941",
+  "pipeline": "notebook05_measurement_v5",
+  "config": {
+    "topic_lookup_path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/correlation_analysis/data_preparation/taxonomy_radway_eda/topic_lookup.parquet",
+    "book_topic_probs_path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/correlation_analysis/data_preparation/topic_probabilities/book_topic_probs.parquet",
+    "segment_topic_probs_path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/correlation_analysis/data_preparation/topic_probabilities/tertile_topic_probs.parquet",
+    "topic_health_path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/correlation_analysis/01_topic_analysis/tables/topic_health_table.parquet",
+    "author_dominance_path": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/correlation_analysis/01_topic_analysis/tables/topic_author_dominance.parquet",
+    "out_dir": "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor/results/measurement_v5",
+    "exclude_noise_topics": true,
+    "exclude_author_dominant_topics": true,
+    "noise_threshold": 0.5,
+    "author_threshold": 0.5,
+    "default_min_topics": 4,
+    "core_min_topics": 6,
+    "min_book_coverage": 0.2,
+    "coverage_min_mass": 0.001,
+    "warn_if_quality_missing": true,
+    "pca_pc1_threshold": 0.3,
+    "split_half_bootstrap": 300,
+    "epsilon": 1e-06,
+    "make_zscores": true,
+    "make_log_ratios": true,
+    "segment_col": "segment",
+    "save_intermediate_tables": true
+  }
+}

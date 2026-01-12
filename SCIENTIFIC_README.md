@@ -303,7 +303,7 @@ After generating human-readable topic labels (from Stage 08), we map topics to t
 
 #### Target: Theory-Aligned Composite Categories (A-S)
 
-**Next Urgent Step**: Build the **19 theory-aligned composite categories** from Stage 2 taxonomy nodes and Stage 3 Radway functions. These composites operationalize the research framework:
+Build the **theory-aligned composite categories** from Stage 2 taxonomy nodes and Stage 3 Radway functions. These composites operationalize the research framework:
 
 **Core Composites (A-P)**: 16 thematic categories:
 - **A**: Reassurance/Commitment (HEA centrality, Propp functions #8–#11) ← *From taxonomy 4.5 (Reconciliation/HEA), Radway R11/R13*
@@ -321,7 +321,7 @@ After generating human-readable topic labels (from Stage 08), we map topics to t
 - **M**: Health/Recovery/Growth (protective care; vulnerability → tenderness) ← *From taxonomy 1.2 (Pain/Vulnerability), 3.4 (Beliefs/Values), Radway R8-R10*
 - **N**: Separation/Reunion (Propp/Radway arc; time-course H6) ← *From taxonomy 4.4/4.5 (Breakup/Reconciliation), Radway R7/R11*
 - **O**: Aesthetics/Appearance ("detective agency"; physical/cultural cues) ← *From taxonomy 1.1 (Body Parts), 8.3 (Objects)*
-- **P**: Tech/Media Presence (modern courtship infrastructure; Comms Density) ← *From taxonomy 8.3 (Technology), 6.5 (Institutions)*
+
 
 **Cross-Cutting Categories**:
 - **Q**: Miscommunication vs Repair (Radway's mid-arc; Miscommunication Balance) ← *From taxonomy 4.3 (Secrets/Misunderstandings), Radway R10*

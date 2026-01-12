@@ -3,8 +3,8 @@
 generate_topic_probabilities_final.py
 
 Unified, "correct-by-construction" script to generate BERTopic topic probabilities at:
-- book level
-- chapter level
+- book level (normalized per book)
+- chapter level (normalized per chapter)
 
 Key guarantees / fixes vs older versions:
 1) Goodreads-first `book_id` (best for merging). You choose via --book-id-source.
@@ -12,10 +12,12 @@ Key guarantees / fixes vs older versions:
 3) Optional cohort exclusion (e.g., books missing from sentence_df).
 4) Safer cache fingerprinting (sentence_df file + model path mtime/size; supports directories).
 5) Topic-id alignment: writes topic_id using BERTopic's topic IDs when we can infer ordering.
+6) NEW: Normalizes mean probability vectors so sums are ~1 per book/chapter.
+7) NEW: Logs min/median/max pre-normalization mass per book/chapter (like sanity check).
 
 Outputs (Parquet by default, saved to <output-dir>/topic_probabilities/):
-- book_topic_probs.parquet:  [book_id, topic_id, prob]
-- chapter_topic_probs.parquet: [book_id, chapter_id, topic_id, prob]
+- book_topic_probs.parquet:  [book_id, topic_id, prob] (prob sums to ~1 per book)
+- chapter_topic_probs.parquet: [book_id, chapter_id, topic_id, prob] (prob sums to ~1 per chapter)
 
 Typical usage (Goodreads IDs, recommended):
   python generate_topic_probabilities_final.py \
@@ -130,6 +132,46 @@ def load_excluded_ids(exclude_arg: Optional[str]) -> List[str]:
     # otherwise treat as comma-separated list
     ids = [x.strip() for x in exclude_arg.split(",")]
     return [i for i in ids if i and i.lower() not in ["nan", "none"]]
+
+
+def log_nan_diagnostics(
+    probs: np.ndarray,
+    df: pd.DataFrame,
+    text_col: str,
+    book_id_col: str,
+    chapter_id_col: str,
+    logger: logging.Logger,
+    sample_size: int = 5,
+) -> None:
+    """Log detailed diagnostics for NaN probabilities."""
+    row_nan_mask = np.isnan(probs).any(axis=1)
+    n_rows_with_nan = row_nan_mask.sum()
+    total_rows = len(probs)
+    nan_rows_pct = n_rows_with_nan / max(total_rows, 1) * 100
+
+    logger.warning(f"  Rows with any NaN: {n_rows_with_nan:,} / {total_rows:,} ({nan_rows_pct:.2f}%)")
+
+    # Per-topic NaN counts (top 10)
+    topic_nan_counts = np.isnan(probs).sum(axis=0)
+    top_topic_idx = np.argsort(topic_nan_counts)[::-1]
+    top_topics = [(int(i), int(topic_nan_counts[i])) for i in top_topic_idx[:10] if topic_nan_counts[i] > 0]
+    if top_topics:
+        logger.warning(f"  Topics with most NaNs (topic_id, nan_count): {top_topics}")
+
+    # Per-book NaN counts (top 10)
+    if book_id_col in df.columns:
+        book_counts = df.loc[row_nan_mask, book_id_col].value_counts().head(10)
+        if not book_counts.empty:
+            logger.warning("  Books with NaNs (top 10):")
+            logger.warning("\n" + book_counts.to_string())
+
+    # Sample rows with NaNs for inspection
+    sample_cols = [c for c in [book_id_col, chapter_id_col, text_col] if c in df.columns]
+    if sample_cols:
+        sample = df.loc[row_nan_mask, sample_cols].head(sample_size)
+        if not sample.empty:
+            logger.warning(f"  Sample rows with NaNs (first {len(sample)}):")
+            logger.warning("\n" + sample.to_string(index=False))
 
 
 # -------------------------
@@ -392,7 +434,7 @@ def aggregate_to_book_level(
     topic_ids: List[int],
     logger: logging.Logger,
 ) -> pd.DataFrame:
-    """Average sentence probabilities per book, then emit long format [book_id, topic_id, prob]."""
+    """Average sentence probabilities per book, normalize, then emit long format [book_id, topic_id, prob]."""
     if probs.shape[0] != len(df):
         raise ValueError(f"probs rows ({probs.shape[0]}) != df rows ({len(df)})")
 
@@ -402,10 +444,37 @@ def aggregate_to_book_level(
     groups = df_idx.groupby(book_id_col, sort=False).indices
 
     rows = []
+    book_mass_sums = []  # pre-normalization probability mass per book
     for book_id, idxs in tqdm(groups.items(), total=len(groups), desc="Books", ncols=100):
-        book_probs = probs[list(idxs)].mean(axis=0)
+        book_probs_raw = probs[list(idxs)]
+        # Replace any NaN values with 0.0 BEFORE aggregation to ensure clean results
+        if np.isnan(book_probs_raw).any():
+            logger.warning(f"Book {book_id} has NaN probabilities, replacing with 0.0")
+            book_probs_raw = np.nan_to_num(book_probs_raw, nan=0.0)
+        # Now compute mean on clean data
+        book_probs = book_probs_raw.mean(axis=0)
+        # Normalize to a proper per-book distribution (aligns with tertile script)
+        mass = float(np.sum(book_probs))
+        book_mass_sums.append(mass)
+        if mass > 0:
+            book_probs = book_probs / mass
+        else:
+            logger.warning(f"Book {book_id}: total probability mass is 0; leaving vector as zeros")
+        # Final safety check - should never be NaN after nan_to_num
+        if np.isnan(book_probs).any():
+            raise ValueError(f"Book {book_id} still has NaN after cleaning/normalization - this should not happen")
         for col_i, topic_id in enumerate(topic_ids):
             rows.append((book_id, int(topic_id), float(book_probs[col_i])))
+
+    # Log pre-normalization mass stats
+    if book_mass_sums:
+        ms = pd.Series(book_mass_sums)
+        logger.info(
+            "Book-level pre-normalization prob mass (sum over topics): min=%.4f, median=%.4f, max=%.4f"
+            % (ms.min(), ms.median(), ms.max())
+        )
+    else:
+        logger.warning("No book mass sums were collected; check grouping logic")
 
     out = pd.DataFrame(rows, columns=["book_id", "topic_id", "prob"])
     logger.info(f"✓ book_topic_probs: {out.shape[0]:,} rows ({out['book_id'].nunique():,} books × {out['topic_id'].nunique():,} topics)")
@@ -421,7 +490,7 @@ def aggregate_to_chapter_level(
     topic_ids: List[int],
     logger: logging.Logger,
 ) -> pd.DataFrame:
-    """Average sentence probabilities per (book, chapter), emit long format [book_id, chapter_id, topic_id, prob]."""
+    """Average sentence probabilities per chapter, normalize, then emit long format [book_id, chapter_id, topic_id, prob]."""
     if probs.shape[0] != len(df):
         raise ValueError(f"probs rows ({probs.shape[0]}) != df rows ({len(df)})")
 
@@ -430,10 +499,37 @@ def aggregate_to_chapter_level(
     groups = keys.groupby([book_id_col, chapter_id_col], sort=False).indices
 
     rows = []
+    chapter_mass_sums = []  # pre-normalization probability mass per chapter
     for (book_id, chapter_id), idxs in tqdm(groups.items(), total=len(groups), desc="Chapters", ncols=100):
-        chap_probs = probs[list(idxs)].mean(axis=0)
+        chap_probs_raw = probs[list(idxs)]
+        # Replace any NaN values with 0.0 BEFORE aggregation to ensure clean results
+        if np.isnan(chap_probs_raw).any():
+            logger.warning(f"Book {book_id}, Chapter {chapter_id} has NaN probabilities, replacing with 0.0")
+            chap_probs_raw = np.nan_to_num(chap_probs_raw, nan=0.0)
+        # Now compute mean on clean data
+        chap_probs = chap_probs_raw.mean(axis=0)
+        # Normalize to a proper per-chapter distribution (aligns with tertile script)
+        mass = float(np.sum(chap_probs))
+        chapter_mass_sums.append(mass)
+        if mass > 0:
+            chap_probs = chap_probs / mass
+        else:
+            logger.warning(f"Book {book_id}, Chapter {chapter_id}: total probability mass is 0; leaving vector as zeros")
+        # Final safety check - should never be NaN after nan_to_num
+        if np.isnan(chap_probs).any():
+            raise ValueError(f"Book {book_id}, Chapter {chapter_id} still has NaN after cleaning/normalization - this should not happen")
         for col_i, topic_id in enumerate(topic_ids):
             rows.append((book_id, int(chapter_id), int(topic_id), float(chap_probs[col_i])))
+
+    # Log pre-normalization mass stats
+    if chapter_mass_sums:
+        ms = pd.Series(chapter_mass_sums)
+        logger.info(
+            "Chapter-level pre-normalization prob mass (sum over topics): min=%.4f, median=%.4f, max=%.4f"
+            % (ms.min(), ms.median(), ms.max())
+        )
+    else:
+        logger.warning("No chapter mass sums were collected; check grouping logic")
 
     out = pd.DataFrame(rows, columns=["book_id", "chapter_id", "topic_id", "prob"])
     logger.info(f"✓ chapter_topic_probs: {out.shape[0]:,} rows ({out[['book_id','chapter_id']].drop_duplicates().shape[0]:,} book-chapters × {out['topic_id'].nunique():,} topics)")
@@ -530,6 +626,29 @@ def main() -> None:
     probs = probs.astype(float)
     n_topics = probs.shape[1]
     logger.info(f"Probability matrix: {probs.shape[0]:,} docs × {n_topics:,} topics")
+    
+    # Check for NaN values in probability matrix and fix them immediately
+    nan_count = np.isnan(probs).sum()
+    total_values = probs.size
+    if nan_count > 0:
+        nan_pct = (nan_count / total_values) * 100
+        logger.warning(f"⚠ Found {nan_count:,} NaN values in probability matrix ({nan_pct:.2f}%)")
+        logger.warning(f"  Replacing NaN values with 0.0 to ensure clean aggregation")
+        # Log detailed diagnostics about where NaNs appear
+        log_nan_diagnostics(
+            probs=probs,
+            df=df,
+            text_col=sent.text_col,
+            book_id_col=sent.book_id_col,
+            chapter_id_col=sent.chapter_id_col,
+            logger=logger,
+            sample_size=5,
+        )
+        # Replace NaN with 0.0 immediately - this ensures no NaNs propagate to aggregation
+        probs = np.nan_to_num(probs, nan=0.0)
+        logger.info(f"✓ Cleaned probability matrix - all NaN values replaced with 0.0")
+    else:
+        logger.info("✓ No NaN values found in probability matrix")
 
     topic_ids = infer_topic_ids_for_prob_columns(topic_model, n_topics, logger=logger)
     logger.info(f"Topic id labeling: {topic_ids[:10]}{'...' if len(topic_ids)>10 else ''}")
@@ -537,6 +656,40 @@ def main() -> None:
     # Aggregate
     book_topic_probs = aggregate_to_book_level(df, probs, book_id_col=sent.book_id_col, topic_ids=topic_ids, logger=logger)
     chapter_topic_probs = aggregate_to_chapter_level(df, probs, book_id_col=sent.book_id_col, chapter_id_col=sent.chapter_id_col, topic_ids=topic_ids, logger=logger)
+    
+    # Optional: quick post-write normalization check (in-memory)
+    book_sums = book_topic_probs.groupby("book_id")["prob"].sum()
+    logger.info(
+        "Post-normalization check (book prob sums): min=%.4f, median=%.4f, max=%.4f"
+        % (book_sums.min(), book_sums.median(), book_sums.max())
+    )
+    chapter_sums = chapter_topic_probs.groupby(["book_id", "chapter_id"])["prob"].sum()
+    logger.info(
+        "Post-normalization check (chapter prob sums): min=%.4f, median=%.4f, max=%.4f"
+        % (chapter_sums.min(), chapter_sums.median(), chapter_sums.max())
+    )
+    
+    # Final validation: ensure NO NaNs in output
+    logger.info("\n" + "="*80)
+    logger.info("Final validation: checking for NaN values")
+    logger.info("="*80)
+    
+    book_nan_count = book_topic_probs["prob"].isna().sum()
+    chapter_nan_count = chapter_topic_probs["prob"].isna().sum()
+    
+    if book_nan_count > 0:
+        logger.error(f"❌ ERROR: Found {book_nan_count:,} NaN values in book_topic_probs!")
+        logger.error("  This should not happen - all NaNs should have been replaced with 0.0")
+        raise ValueError(f"book_topic_probs contains {book_nan_count:,} NaN values")
+    else:
+        logger.info(f"✓ book_topic_probs: No NaN values ({len(book_topic_probs):,} rows)")
+    
+    if chapter_nan_count > 0:
+        logger.error(f"❌ ERROR: Found {chapter_nan_count:,} NaN values in chapter_topic_probs!")
+        logger.error("  This should not happen - all NaNs should have been replaced with 0.0")
+        raise ValueError(f"chapter_topic_probs contains {chapter_nan_count:,} NaN values")
+    else:
+        logger.info(f"✓ chapter_topic_probs: No NaN values ({len(chapter_topic_probs):,} rows)")
 
     # Write outputs to topic_probabilities subdirectory
     topic_probs_dir = args.output_dir / "topic_probabilities"
