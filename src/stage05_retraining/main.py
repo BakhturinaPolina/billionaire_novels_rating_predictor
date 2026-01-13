@@ -49,7 +49,7 @@ def cli():
 @click.option(
     "--pareto_csv",
     type=click.Path(exists=True, path_type=Path),
-    default="results/pareto/pareto.csv",
+    default="results/stage04_selection/pareto.csv",
     help="Path to Pareto CSV file"
 )
 @click.option(

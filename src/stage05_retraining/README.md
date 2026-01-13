@@ -4,7 +4,7 @@ Retrain top Pareto-efficient models with their optimal hyperparameters.
 
 ## Overview
 
-This stage retrains the top N Pareto-efficient models from `results/pareto/pareto.csv` using their specific hyperparameters. The implementation follows `stage03_modeling` patterns but without OCTIS optimization - directly training with provided hyperparameters.
+This stage retrains the top N Pareto-efficient models from `results/stage04_selection/pareto.csv` using their specific hyperparameters. The implementation follows `stage03_modeling` patterns but without OCTIS optimization - directly training with provided hyperparameters.
 
 ## Requirements
 
@@ -43,7 +43,7 @@ python -m src.stage05_retraining.main retrain --top_n 4
 
 # Specify custom paths
 python -m src.stage05_retraining.main retrain \
-  --pareto_csv results/pareto/pareto.csv \
+  --pareto_csv results/stage04_selection/pareto.csv \
   --top_n 4 \
   --config configs/paths.yaml \
   --output_dir models/retrained/
@@ -75,7 +75,7 @@ print_gpu_status()
 ## Configuration
 
 - **`configs/paths.yaml`** - Data and output paths
-- **`results/pareto/pareto.csv`** - Pareto-efficient model configurations
+- **`results/stage04_selection/pareto.csv`** - Pareto-efficient model configurations
 
 ## Outputs
 

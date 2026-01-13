@@ -64,6 +64,33 @@ The dataset includes **105 standalone billionaire romance novels** by **35 diffe
 
 This structure facilitates multi-level analyses, such as tracking topic evolution within a chapter or comparing thematic progression across multiple books.
 
+**Final Analysis Sample**: After data preparation and quality filtering, the final statistical analysis uses **92 books** (30 top-tier, 32 middle-tier, 30 trash-tier) with complete Goodreads metadata and topic probability assignments. Five books were excluded during preprocessing (19561986, 19619918, 25781538, 52061964, 53491034) due to missing sentence-level data.
+
+### Data Sources
+
+#### Raw Text Files
+- **Location**: `data/raw/Billionaire_Full_Novels_TXT/`
+- **Format**: Plain text files (`.txt`) or EPUB files
+- **Content**: Full novel texts, one file per book
+- **Encoding**: UTF-8 (with handling for encoding issues and mojibake correction)
+
+#### Goodreads Metadata
+- **Location**: `data/processed/goodreads.csv`
+- **Format**: CSV with columns: `ID`, `Author`, `Title`, `Score`, `RatingsCount`, `ReviewsCount`, `Pages`
+- **Purpose**: Provides popularity metrics and quality indicators for grouping books into Top/Middle/Trash tiers
+- **Statistics**: 
+  - 97-98 books with complete metadata (92 books in final analysis after exclusions)
+  - Rating distribution: Mean 3.99, Std 0.21, Range 3.26-4.42
+  - All books have ≥100 ratings (minimum: 146, mean: 65,849)
+  - Final tier distribution: 30 top-tier (avg_rating ≈ 4.22, n_ratings ≈ 116k), 32 middle-tier (avg_rating ≈ 4.01, n_ratings ≈ 44k), 30 trash-tier (avg_rating ≈ 3.77, n_ratings ≈ 48k)
+- **Matching Strategy**: Fuzzy matching with configurable threshold (default: 0.85 similarity) to handle author/title format differences between text files and Goodreads metadata
+
+#### BookNLP Outputs (Optional)
+- **Location**: `data/interim/booknlp/`
+- **Format**: BookNLP processing outputs (character entities, quotes, etc.)
+- **Purpose**: Provides character name extraction for stopword generation (used in Stage 02 preprocessing)
+- **Usage**: Character names extracted from 7,525 lines, resulting in 4,444 unique character name tokens added to stopwords list
+
 ### Data Contracts (Inputs)
 
 #### Required Inputs
@@ -114,6 +141,40 @@ Six pre-trained sentence embedding models from SentenceTransformers:
 
 **Total Models Analyzed:** Over 300 different BERTopic configurations
 
+**Character Name Exclusion:**
+To improve topic interpretability by focusing on thematic content rather than character co-occurrence patterns, we implement character name exclusion during preprocessing (Stage 02). The pipeline:
+
+**Processing Pipeline:**
+- Processes 7,525 character name lines from romance novel texts
+- Extracts 4,497 unique name tokens (4,444 after overlap removal with standard stopwords)
+- Adds character names to stopwords list, resulting in 4,762 total stopwords (93% character names, 7% standard English stopwords)
+- This represents a **14x increase** in stopwords compared to standard English stopword lists
+
+**Character Name Processing Steps:**
+- **Cleaning**: Removes leading prefixes ("A ", "Mr.", "Miss ", "the ", "AKA ", "#"), leading numbers, quotes and punctuation; converts to lowercase
+- **Filtering**: Removes empty lines, very long lines (>50 characters), common phrases, descriptive patterns, geographic locations
+- **Name Extraction**: Splits multi-word names (e.g., "Alex Crane" → extracts both "alex" and "crane") to ensure both first and last names are filtered
+
+**Processing Statistics:**
+- Total lines processed: 7,525
+- Lines filtered out: 254 (3.4%)
+- Lines with valid names: 7,271
+- Multi-word names processed: 3,313
+- Unique name tokens extracted: 4,497
+- Final character names added to stopwords: 4,444
+
+**Precision Trade-offs:**
+The preprocessing retained some words that are not character names (estimated 1-2% of tokens), but we prioritize coverage over precision to ensure comprehensive character name exclusion. This approach ensures topics reflect thematic relationships rather than character references, aligning with computational literary analysis best practices (Bamman et al., 2013; Jockers, 2013).
+
+**GPU Acceleration:**
+All modeling stages use **RAPIDS cuML** (CUDA 12.x) for mandatory GPU acceleration:
+- `cuml.manifold.UMAP` for dimensionality reduction
+- `cuml.cluster.HDBSCAN` for clustering
+- No CPU fallback - requires CUDA-compatible GPU
+
+**Embedding Caching:**
+Embeddings are cached to avoid recomputation across model training iterations, significantly reducing processing time.
+
 #### Model Evaluation
 
 Each BERTopic model is evaluated on two main criteria (Röder, Both, & Hinneburg, 2015):
@@ -125,11 +186,52 @@ Each BERTopic model is evaluated on two main criteria (Röder, Both, & Hinneburg
 
 Once models are created and evaluated, a **Pareto efficiency analysis** (Liu et al., 2022) is performed to identify the best-performing models that have an optimal balance between coherence and diversity.
 
+**Data Cleaning Pipeline:**
+Before Pareto analysis, a two-stage cleaning process removes invalid configurations:
+1. **Failed Run Removal**: Removes configurations where `Coherence = 1.0` or `Topic_Diversity = 1.0` (indicating model failures)
+2. **Statistical Outlier Removal**: Applies z-score method (2 standard deviations) and IQR method (1.5× multiplier) to remove extreme outliers
+3. **Domain-Specific Filtering**: Removes models with artificially high diversity (>0.9) that likely resulted from too few topics
+
+**Final Results:**
+After outlier filtering, **4 Pareto-efficient configurations** were identified (down from 12 before filtering):
+- **Top Performer**: `paraphrase-mpnet-base-v2`, iteration 0
+  - Coherence: 0.463 (highest among Pareto-efficient models)
+  - Topic Diversity: 0.82
+  - Combined Score: 1.75
+  - Best balance between coherence and diversity
+
 **Weighting Schemes:**
 1. **Equal weights**: 50% coherence, 50% diversity
 2. **Coherence priority**: 70% coherence, 30% diversity
 
-Based on this analysis, the optimal model is selected from the top 10 models.
+**Hyperparameter Correlation Analysis:**
+Statistical analysis of hyperparameter effects reveals:
+- **UMAP parameters** (`umap__min_dist`, `umap__n_components`) show strong, significant effects on diversity and combined scores
+- **Vectorizer parameter** (`vectorizer__min_df`) is crucial for overall performance (r = 0.745, p = 0.014 for combined score)
+- **Cluster size parameters** (`bertopic__min_topic_size`, `hdbscan__min_cluster_size`) primarily affect coherence
+- **Trade-offs identified**: Coherence and diversity show opposing relationships with several parameters (e.g., `bertopic__min_topic_size` improves coherence but reduces diversity)
+
+The analysis employs multiple statistical methods (correlation analysis, linear regression, multicollinearity assessment, tree-based feature importance) with explicit assumption checking to ensure valid inference.
+
+### Stage 05: Model Retraining
+
+After Pareto analysis identifies optimal configurations, the top N Pareto-efficient models are retrained with their exact hyperparameters for final deployment. This stage:
+
+**Key Features:**
+- **Direct retraining** from Pareto-efficient model configurations (no OCTIS optimization)
+- **Multiple output formats**: Pickle (full wrapper), BERTopic native format (safetensors), and metadata JSON
+- **Independent model training**: Failures in one model don't stop others
+- **Embedding caching**: Reuses embeddings from Stage 03 to avoid recomputation
+- **Character name exclusion**: Same preprocessing pipeline as Stage 03
+- **GPU acceleration**: Uses RAPIDS (cuML) - same as Stage 03
+
+**Output Formats:**
+1. **Pickle format** (`.pkl`): Full `RetrainableBERTopicModel` instance for direct Python loading
+2. **BERTopic native format** (directory): Standard BERTopic format using safetensors for production deployment
+3. **Metadata JSON**: Comprehensive training metadata including hyperparameters, evaluation scores, topic counts, and timestamps
+
+**Model Statistics:**
+Each retrained model includes topic count, full hyperparameter configuration, evaluation scores (coherence, diversity, combined score), and training metadata.
 
 ### Topic Exploration & Evaluation
 
@@ -155,6 +257,20 @@ For each representation, we compute:
 
 Metrics are computed using the same gensim dictionary built from the OCTIS corpus used during retraining, ensuring consistency with the training vocabulary.
 
+**Results for Selected Model** (`paraphrase-MiniLM-L6-v2`, Pareto rank 1, 368 topics):
+
+| Representation | Coherence (c_v) | Topic Diversity |
+|---------------|-----------------|------------------|
+| Main          | 0.404           | 0.602            |
+| KeyBERT       | 0.278           | 0.645            |
+| POS           | 0.315           | 0.692            |
+| MMR           | 0.260           | 0.756            |
+
+**Representation Selection Recommendations:**
+- **For LLM labeling (Stage 08)**: POS representation recommended (interpretable content words, balanced coherence and diversity)
+- **For exploratory analysis**: MMR representation recommended (highest diversity, 0.756)
+- **For statistical validation**: Main representation recommended (highest coherence, 0.404)
+
 #### Topic Extraction for Close Reading
 
 All topics with all representations are extracted and saved to JSON format for qualitative evaluation. This enables researchers to:
@@ -177,22 +293,54 @@ Before automated labeling, we conduct quality analysis to identify candidate noi
    - Topics below minimum size threshold (< 30 documents): May represent outliers or noise
 
 3. **Labels for Manual Inspection**:
-   - Noisy topics are labeled with inspection tags (e.g., `[NOISE:few_pos<3]`, `[NOISE:low_coh<0.00]`)
+   - Noisy topics are labeled with inspection tags (e.g., `[NOISE_CANDIDATE:few_pos<3]`, `[NOISE_CANDIDATE:low_coh<0.00]`)
    - Labels are applied to both wrapper pickle and native BERTopic model formats
    - Quality tables are saved to CSV for review (`topic_quality_{model}.csv`, `topic_noise_candidates_{model}.csv`)
 
-This quality control step ensures that automated labeling and category mapping focus on interpretable, coherent topics, improving the reliability of downstream analyses.
+**Results for Selected Model** (`paraphrase-MiniLM-L6-v2`, 368 topics):
+- **Total topics analyzed**: 368 (excluding outlier topic -1)
+- **Candidate noisy topics identified**: 13 (3.5% of all topics)
+- **Topics with POS words < 10**: 20 (5.4% of all topics)
+- **Topics with valid coherence scores**: 361 (98.1% of all topics)
+- **Topics with NaN coherence**: 7 (1.9% - all are noise candidates)
+
+**Noise Detection Patterns:**
+- **Large but noisy topics**: Topics 17 and 18 are among the largest (2,062-2,064 documents) but have no valid POS words and cannot compute coherence, suggesting catch-all clusters for unclassifiable content
+- **Empty representations**: Topics with empty or near-empty word lists (17, 18, 132, 186, 224) capture uninterpretable content
+- **Single-word topics**: Topics with only 1-2 POS words (141, 183, 241, 262, 347) lack semantic richness
+
+This quality control step ensures that automated labeling and category mapping focus on interpretable, coherent topics, improving the reliability of downstream analyses. The analysis reveals that 94.6-96.5% of topics meet quality thresholds, with noise concentrated in a small number of topics requiring special attention.
 
 ### Stage 08: Automated Topic Labeling
+
+#### Theoretical Foundations
+
+**The Challenge of Topic Interpretation**: Topic modeling algorithms like BERTopic identify clusters of semantically similar text segments, but they do not provide interpretable labels. The output consists of keyword lists (e.g., "mouth, tongue, suck, lips") that require human interpretation to understand what the topic represents. For large-scale analysis of hundreds of topics across thousands of documents, manual labeling is impractical.
+
+**Why Large Language Models for Labeling?**: LLMs offer a solution by combining:
+- **Semantic understanding**: Ability to synthesize meaning from keyword lists
+- **Domain knowledge**: Training on diverse text corpora including literary fiction
+- **Consistency**: Reproducible labeling across similar topics
+- **Scalability**: Can process hundreds of topics automatically
+
+However, LLMs also present challenges:
+- **Hallucination**: Tendency to infer details not present in the input
+- **Vagueness**: May produce generic labels like "Erotic Intimacy" instead of specific scene descriptions
+- **Format compliance**: Must follow strict output requirements (2-6 word labels, JSON structure)
+
+**Zero-Shot Classification**: Zero-shot classification allows mapping topics to predefined categories without training data. This approach is ideal for theory-driven analysis, consistency across topics, and interpretability through clear category definitions.
 
 #### Label Generation
 
 To generate human-readable labels for topics, we employ two approaches:
 
 **1. OpenRouter API (Recommended)**
-- **Model**: `mistralai/mistral-nemo` via OpenRouter API
-- **Advantages**: No local GPU required, faster iteration, cloud-based inference
+- **Primary Model**: `mistralai/Mistral-Nemo-Instruct-2407` via OpenRouter API
+- **Advantages**: No local GPU required, faster iteration, cloud-based inference, reliable instruction-following
+- **Model Selection Rationale**: Nemo-Instruct chosen for research reliability (low hallucination, format compliance, academic tone). Demonstrates strong adherence to prompt constraints and produces consistent, reproducible labels.
+- **Comparison Models**: Alternative literary models evaluated include `thedrummer/cydonia-24b-v4.1` and `thedrummer/anubis-70b-v1.1` for enhanced genre awareness and scene distinctions. See model comparison reports for detailed evaluation.
 - **Workflow**: Same prompt structure and domain detection as local inference
+- **Cost**: ~$0.00005 per topic (~$0.018 for 368 topics), one-time labeling cost
 - See `src/stage08_llm_labeling/openrouter_experiments/` for details
 
 **2. Local Mistral-7B-Instruct**
@@ -204,9 +352,23 @@ To generate human-readable labels for topics, we employ two approaches:
 1. **Keyword Extraction**: Extract top keywords from POS representation (default: 15 keywords per topic)
 2. **MMR Reranking**: Apply Maximal Marginal Relevance (MMR) reranking to balance keyword relevance with diversity, ensuring the model receives a diverse set of representative keywords
 3. **Domain Detection**: Automatically detect semantic domains (e.g., BodyParts, FoodDrink, TimeSpan, Marriage) from keywords to provide context-aware hints
-4. **Representative Snippets**: Extract 3-6 sentence snippets from documents in each topic to provide rich contextual evidence
-5. **Label Generation**: Use Mistral-7B-Instruct with romance-aware prompts that include domain-specific hints and representative snippets for more accurate labeling
+4. **Representative Snippets**: Extract 3-6 sentence snippets (default: 6 snippets, 200 chars max per snippet) from BERTopic's representative documents. Snippets provide scene-level context, enabling fine distinctions (rough vs gentle kisses, emotional vs physical rage, specific sexual acts). Snippets serve as primary evidence; "When snippets and keywords disagree, trust the snippets"
+5. **Label Generation**: Use Mistral-Nemo-Instruct with romance-aware prompts that include domain-specific hints and representative snippets for more accurate labeling
 6. **Integration**: Automatically integrate generated labels back into BERTopic models for use in visualizations
+
+#### Representative Snippets: Design and Implementation
+
+**Purpose**: Representative document snippets provide the LLM with actual scene-level context from the corpus, enabling more precise and neutral labels. Instead of relying solely on keyword lists, the model can see patterns in actual sentences, leading to better distinctions (e.g., "Blowjob in Car" vs "Erotic Intimacy").
+
+**Design Decisions**:
+- **6 Snippets**: Sweet spot for pattern recognition without overwhelming the model (~75 tokens, <3% of 4k context window)
+- **200 Characters Per Snippet**: Average sentence length (~12.5 tokens ≈ 50-60 characters), 200 chars ≈ 3-4 sentences, truncation at word boundaries
+- **Representative Documents**: Chosen by BERTopic for their centrality to the topic (using c-TF-IDF and similarity metrics), more informative than random documents
+
+**How Snippets Improve Label Precision**:
+- **Disambiguation**: Keywords like "mouth, tongue, suck" are ambiguous; snippets show specific acts (e.g., kneeling, taking into mouth) → "Blowjob in Bed"
+- **Prevents Hallucination**: Keywords "board, table, chair" might infer "Board Game Foreplay"; snippets show literal setup → "Board Game Setup"
+- **Scene Context**: Encodes setting, emotional tone, explicit acts that keywords miss → "Kitchen Argument in Morning" vs generic "Argument"
 
 #### Romance-Aware Prompt Design
 
@@ -224,7 +386,34 @@ To generate human-readable labels for topics, we employ two approaches:
 - **Snippet-Based Evidence**: Keywords are sparse and ambiguous; snippets provide rich context for fine distinctions (rough vs gentle kisses, emotional vs physical rage, specific sexual acts)
 - **Priority Hierarchy**: Most important is what sexual/romantic act is happening; least important is abstract emotional tone (only if clearly indicated)
 - **Explicit Sexual Terminology**: Clinical, non-romanticized phrasing is acceptable and encouraged (e.g., "Oral Sex on Him", "Clitoral Stimulation", "Anal Sex")
-- **Anti-Hallucination Rules**: Explicit prohibitions prevent common model hallucinations (e.g., "Do NOT use 'dinner date' unless snippets clearly mention asking/inviting")
+- **Anti-Hallucination Constraints**: Hard rules for known hallucination patterns identified through empirical testing:
+  - **"Dinner Date" / "Invitation"**: Do NOT use unless snippets/keywords explicitly mention asking/inviting
+  - **"Repair"**: Do NOT use unless keywords/snippets include mechanical terms like "fix", "mechanic", "repair", "tools"
+  - **"Heartbreak" / "Breakup"**: Do NOT use unless emotional pain in relationship ending is clearly described
+  - Hard constraints work better than soft guidance for creative models, with explicit conditions preventing over-correction
+
+#### Model Evaluation Criteria
+
+Labels are evaluated on research reliability criteria:
+
+1. **Label Quality**:
+   - **Specificity**: Labels include concrete details (location, body part, specific act, object) and distinguish topics clearly
+   - **Genre Awareness**: Recognizes romance/erotic fiction conventions and distinguishes romantic, erotic, and domestic/emotional content
+   - **Discriminative Power**: Different topics receive clearly distinguishable labels (no more than 10% duplicates unless truly identical)
+
+2. **Scene Summary Quality** (when using improved prompts):
+   - **Micro-Scene Focus**: Describes specific moments/scenes, not plot arcs
+   - **Concrete Details**: Includes at least one concrete detail (location, object, body part, specific action)
+   - **Neutral Tone**: Third-person, analytical language suitable for research
+
+3. **Categories & Noise Detection**:
+   - **Category Consistency**: Primary/secondary categories accurately reflect topic themes
+   - **Noise Detection Accuracy**: Correctly identifies incoherent topics without over-flagging real ones
+
+4. **Stability & Format Compliance**:
+   - **JSON Schema Compliance**: Valid, parseable JSON with all required fields
+   - **Tone Stability**: Consistent neutral, analytical tone without RP or chatty style drift
+   - **Consistency**: Similar topics receive consistent labeling patterns
 
 #### JSON Output Format
 
@@ -256,10 +445,45 @@ The JSON parsing pipeline automatically extracts all these fields and includes t
 - **Post-processing**: Automatic cleanup of labels (removes quotes, trailing punctuation, incomplete phrases)
 - **Streaming Support**: Memory-efficient processing for large topic sets
 
+#### Computational Tools and Strategies
+
+**Infrastructure: OpenRouter API**
+- **Why OpenRouter**: Single API key for multiple models, no local infrastructure required, access to specialized models (e.g., Celeste, Gutenberg), cost-effective (~$0.017 per 368 topics), OpenAI-compatible API
+- **Rate Limiting**: Conservative 4.0 second delay between API calls, robust retry logic with exponential backoff
+- **Model Parameters**:
+  - **Temperature**: 0.35 (balanced for consistency + natural phrasing). Too low (0.0-0.2) is overly deterministic; too high (0.7-1.0) causes excessive variation
+  - **Max Tokens**: 40 for labeling, 220 for taxonomy/Radway mapping
+  - **Sampling**: Deterministic for taxonomy/Radway mapping to ensure reproducibility
+
+**Processing Strategies**:
+- **Streaming Mode**: Process topics incrementally, write to disk as generated (memory-efficient, fault-tolerant, progress visibility)
+- **Caching and Resumption**: Load existing labels, skip processed topics, only process new/updated topics (enables incremental updates, cost savings)
+- **Snippet Reranking**: Maximal Marginal Relevance (MMR) for diverse, informative snippets when many representative documents available
+
+**Integration with BERTopic**:
+- **Model Loading**: Supports both pickle format (wrapped `RetrainableBERTopicModel`) and native BERTopic safetensors format
+- **Metadata Storage**: All topic metadata (labels, taxonomy mappings, Radway functions) stored in BERTopic's `topic_metadata_` attribute, creating a single source of truth
+- **Topic Assignment**: Labeled and categorized topics used for sentence-level assignment, book-level aggregation, and category-level aggregation for statistical analysis
+
 #### Technical Specifications
 
-- **Default Parameters**: 15 keywords per topic, 40 max tokens per label
+- **Default Parameters**: 15 keywords per topic, 40 max tokens per label, temperature=0.35 (balanced for consistency + natural phrasing)
 - **Output Format**: JSON file with structured fields: `{"topic_id": {"label": "...", "scene_summary": "...", "primary_categories": [...], "secondary_categories": [...], "is_noise": false, "rationale": "...", "keywords": [...]}}`
+- **Processing Mode**: Streaming support for large topic sets (memory-efficient, fault-tolerant)
+- **Token Cost**: ~1055 tokens per topic (system prompt ~800, keywords ~50, POS cues ~30, snippets ~75, overhead ~100). Snippets add ~75 tokens (7.6% increase) for significant quality improvement
+
+#### Quality Assurance and Validation
+
+**Model Comparison Results** (evaluated on 30 topics):
+- **mistralai/Mistral-Nemo-Instruct-2407**: 100% success rate, 2.30 avg words per label, 0% keyword copying ✅ **BEST**
+- **mistralai/mistral-7b-instruct:free**: 93.3% success rate, 2.80 avg words, 6.7% keyword copying ✅ **EXCELLENT**
+- **venice/uncensored:free**: 76.7% success rate, 2.73 avg words, 23.3% keyword copying ✅ **GOOD**
+- **x-ai/grok-4.1-fast**: 0% success rate, 1.00 avg words, 100% keyword copying ❌ **FAILED**
+- **deepseek/deepseek-chat-v3-0324**: 0% success rate, 1.00 avg words, 100% keyword copying ❌ **FAILED**
+
+**Coverage Metrics**:
+- **Taxonomy Coverage**: 361 out of 368 topics (98.1%) successfully mapped to taxonomy categories
+- **Radway Coverage**: Varies by topic type; topics in "Relationship Trajectory (Main Couple)" group should have near-100% coverage (not "none")
 
 ### Stage 09: Category Mapping: Theory-Aligned Tagging
 
@@ -276,30 +500,50 @@ After generating human-readable topic labels (from Stage 08), we map topics to t
 
 **Stage 2: Theory-Driven Taxonomy Classification** ✅ **Implemented**
 - **Method**: Zero-shot classification to **Romance Corpus Topic Taxonomy** using Mistral-Nemo via OpenRouter
-- **Output**: Each topic mapped to taxonomy nodes (30+ nodes across 8 groups)
-- **Taxonomy Structure**:
-  1. **Embodied & Sensory Experience** (1.1, 1.2, 1.5): Body parts, pain/vulnerability, physical activity
-  2. **Sexuality, Attraction & Intimacy** (2.1, 2.2, 2.3, 2.4): Attraction, kissing, explicit acts, aftercare
-  3. **Emotions, Cognition & Inner Life** (3.1, 3.2, 3.3, 3.4): Positive emotions, negative emotions, ambivalence, beliefs/values
-  4. **Relationship Trajectory (Main Couple)** (4.1, 4.2, 4.3, 4.4, 4.5): Meeting, bonding, secrets/misunderstandings, conflict/breakup, reconciliation/HEA
-  5. **Social World Outside Couple** (5.1, 5.2, 5.3): Family/kinship, friends/social circles, community/norms
-  6. **Work, Wealth, Status & Institutions** (6.1, 6.2, 6.3, 6.4, 6.5): Hero's work, heroine's work, shared workplaces, money/housing, formal institutions
-  7. **Conflict, Risk & Harm** (7.1, 7.2, 7.3): Interpersonal conflict, violence/coercion, external crises
-  8. **Spaces, Time, Activities & Objects** (8.1, 8.2, 8.3, 8.4): Domestic spaces, public/leisure, objects/technology, temporal framing
+- **Taxonomy Structure**: **Romance Corpus Topic Taxonomy** with 8 main groups and 30+ categories:
+  1. **Embodied & Sensory Experience** (3 categories): Body parts, pain/injury, physical activity
+  2. **Sexuality, Attraction & Intimacy** (4 categories): Attraction, kissing, explicit sexual acts, aftercare
+  3. **Emotions, Cognition & Inner Life** (4 categories): Positive emotions, negative emotions, ambivalence, moral reflection
+  4. **Relationship Trajectory (Main Couple)** (5 categories): Meeting, bonding, secrets, conflict, reconciliation
+  5. **Social World Outside Couple** (3 categories): Family, friends, community
+  6. **Work, Wealth, Status & Institutions** (5 categories): Hero's work, heroine's work, shared workplaces, money/housing, formal institutions
+  7. **Conflict, Risk & Harm** (3 categories): Interpersonal conflict, violence/coercion, external crises
+  8. **Spaces, Time, Activities & Objects** (4 categories): Domestic spaces, public/leisure, objects/technology, temporal framing
+- Each category has hierarchical ID (e.g., "4.2" = Relationship Trajectory, Bonding), name, group, and detailed description for LLM classification
 - **Special Category**: `noise` for boilerplate/technical artifacts
-- Uses topic keywords, LLM-generated labels, scene summaries, and representative document snippets
-- Output: JSON with `main_category_id`, `secondary_category_id`, `other_plausible_ids`, `confidence`, `rationale`
+- **Input**: Topic keywords, LLM-generated labels, scene summaries, primary/secondary categories, optional representative document snippets
+- **Classification Task**: Map each topic to main category ID, secondary category ID, other plausible IDs, confidence (low/medium/high), and rationale
+- **Output**: JSON with `main_category_id`, `secondary_category_id`, `other_plausible_ids`, `confidence`, `rationale`
+- **Coverage**: 361 out of 368 topics (98.1%) successfully mapped to taxonomy categories
+- **Statistical Analysis Results**: Kruskal-Wallis tests identified 3 categories with statistically significant differences (p < 0.05) across rating classes:
+  - **5.3: Community, Norms & Social Events** (p = 0.029, η² = 0.070 - medium effect)
+  - **6.2: Heroine's Work & Professional Identity** (p = 0.047, η² = 0.057 - small-medium effect)
+  - **3.4: Beliefs, Values & Moral Reflection** (p = 0.048, η² = 0.048 - small effect)
+- **Model Integration**: Taxonomy mappings embedded in BERTopic model's `topic_metadata_` attribute (recommended model: `model_1_with_llm_labels_and_metadata_disambiguated.pkl` with 361 taxonomy mappings, 98.1% coverage)
 
 **Stage 3: Radway Narrative Functions** ✅ **Implemented**
-- **Method**: Zero-shot classification to **Radway's 13 narrative functions** using Mistral-Nemo via OpenRouter
-- **Output**: Each topic mapped to Radway functions (R1-R13) organized into three phases
+- **Method**: Zero-shot classification to **Radway's 13 narrative functions** (Radway, 1984) using Mistral-Nemo via OpenRouter
+- **Theoretical Foundation**: Janice Radway's analysis of romance fiction identifies 13 narrative functions that structure the heroine-hero relationship arc
 - **Radway Functions by Phase**:
-  - **Phase I: Initial Conflict & Isolation**: R1 (identity destroyed), R2 (antagonistic reaction), R3 (ambiguous response), R4 (sexual interest interpretation), R5 (anger/coldness), R6 (retaliation), R7 (separation)
-  - **Phase II: Turning Point & Recognition**: R8 (tenderness), R9 (warm response), R10 (reinterpretation)
-  - **Phase III: Commitment & Restoration**: R11 (love declaration/commitment), R12 (sexual/emotional response), R13 (identity restored)
-- Uses Stage 2 taxonomy classifications, topic keywords, labels, scene summaries, and representative snippets
-- Includes heuristic overrides for systematic errors (e.g., explicit sex scenes 2.3 → R12, commitment cues → R11/R13)
-- Output: Merged JSON preserving all Stage 2 fields plus `radway_functions` object with `radway_main_id`, `radway_secondary_id`, `radway_phase`, `radway_confidence`, `radway_rationale`
+  - **Phase I: Initial Conflict & Isolation** (R1-R7): R1 (heroine's social identity destroyed), R2 (heroine reacts antagonistically), R3 (hero responds ambiguously), R4 (heroine interprets as purely sexual interest), R5 (heroine responds with anger/coldness), R6 (hero retaliates/punishes), R7 (physical/emotional separation)
+  - **Phase II: Turning Point & Recognition** (R8-R10): R8 (hero treats heroine tenderly), R9 (heroine responds warmly), R10 (heroine reinterprets hero's behavior as result of previous hurt)
+  - **Phase III: Commitment & Restoration** (R11-R13): R11 (hero declares love and demonstrates commitment), R12 (heroine responds sexually and emotionally), R13 (heroine's social identity restored - HEA)
+- **Input**: Uses Stage 2 taxonomy JSON as single source of truth (includes taxonomy mappings, labels, keywords, scene summaries, representative snippets)
+- **Classification Task**: Map each topic to radway_main_id (R1-R13 or "none"), radway_secondary_id, radway_other_plausible_ids, radway_phase (I, II, III, or NA), radway_is_none (boolean), radway_confidence (low/medium/high), radway_rationale
+- **Disambiguation Rules**: 
+  - R4 vs R12: R4 for attraction without explicit acts, R12 for described sex acts
+  - R7 (separation) is narrow: only for actual breakup/separation, not arguments
+  - Commitment overrides: wedding/marriage/proposal → R11/R13
+  - Gated "none" decision: Only for topics clearly about background context (work, wealth, side characters) not the heroine-hero relationship
+- **Post-LLM Heuristic Overrides**: Conservative rule-based corrections for systematic errors (explicit sex scenes 2.3 → R12, commitment cues → R11/R13, R7 sanity checks)
+- **Output**: Merged JSON preserving all Stage 2 fields plus `radway_functions` object with all Radway mapping fields
+- **Classification Results**: Successfully classified 361 topics (98.1% coverage):
+  - **272 topics** mapped to specific Radway functions (R1-R13)
+  - **96 topics** classified as "none" (background/contextual content)
+  - **Distribution by Phase**: Phase I (147 topics, 54.0%), Phase II (96 topics, 35.3%), Phase III (28 topics, 10.3%)
+  - **All 13 Radway functions** represented in the classification
+  - **130 topics** classified with high confidence (36% of classified topics)
+- **Key Finding**: Phase I (conflict and isolation) dominates the narrative function distribution, representing over half of all function-mapped topics, suggesting conflict and tension are central to romance narrative structure
 
 #### Target: Theory-Aligned Composite Categories (A-S)
 
@@ -345,15 +589,22 @@ Once composite categories (A-S) are built from Stage 2 and Stage 3 classificatio
 
 **Stage 2 Output**:
 - **`taxonomy_mappings_*.json`**: Per-topic taxonomy classifications with main/secondary/other plausible IDs
+- **`book_category_proportions.parquet`**: Book-level category proportions aggregated from sentence-level topic assignments
+- **BERTopic models**: `model_1_with_llm_labels_and_metadata_disambiguated.pkl` (recommended, with 361 taxonomy mappings embedded in `topic_metadata_`)
 
 **Stage 3 Output**:
 - **`taxonomy_with_radway.json`**: Merged JSON with taxonomy + Radway function mappings
 - **BERTopic models**: `model_1_with_radway_mappings` (Radway functions attached)
+- **EDA files**: Distribution analysis by taxonomy groups, narrative phases, and high-confidence classifications
+
+**Statistical Analysis Outputs** (Stage 2):
+- **Kruskal-Wallis test results**: Statistical significance and effect sizes (η²) for all taxonomy categories
+- **Pairwise comparison results**: Post-hoc tests identifying which rating classes differ for significant categories
+- **Visualization outputs**: Volcano plots, effect size charts, p-value heatmaps, enhanced violin plots, pairwise comparison plots
 
 **Target Output** (to be implemented):
 - **`topic_to_category_probs.json`**: Per-topic soft composite category assignments (A-S)
 - **`topic_to_category_final.csv`**: Flat table format for inspection
-- **`book_category_props.csv`**: Book-level category proportions
 - **`indices_book.csv`**: All derived indices per book (Love-over-Sex, HEA Index, etc.)
 
 See `src/stage09_category_mapping/README.md` for detailed documentation.
@@ -422,128 +673,144 @@ Caring protectiveness vs. jealous possessiveness.
 
 ### Stage 10: Statistical Analysis & Correlation Analysis
 
-## Topic Probability Generation
+#### Data Preparation Pipeline
 
-Before statistical analysis, sentence-level topic assignments are aggregated to book and chapter levels:
+The Stage 10 pipeline consists of four sequential scripts plus analysis notebooks that transform sentence-level topic assignments into book-level and segment-level features for statistical analysis:
 
-**Script**: `generate_topic_probabilities_goodreads.py`
+**Script 03: Generate Topic Probabilities** (`03_generate_topic_probabilities_final.py`)
+- Generates normalized topic probabilities at book and chapter levels from sentence-level BERTopic assignments
+- **Key Features**: Goodreads-first book IDs, robust ID normalization, cohort exclusion (5 books excluded: 19561986, 19619918, 25781538, 52061964, 53491034), caching (~2 hours saved), NaN replacement (critical fix)
+- **Outputs**: 
+  - `book_topic_probs.parquet`: (book_id, topic_id, prob) - 33,856 rows for 92 books × 368 topics
+  - `chapter_topic_probs.parquet`: (book_id, chapter_id, topic_id, prob) - 1,089,280 rows for 2,960 chapters × 368 topics
+- **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/topic_probabilities/`
+- **Validation**: 0% NaN values (NaN replaced with 0.0 before aggregation), probabilities sum to ~1.0 per book/chapter (min: 0.999, max: 1.000)
 
-**Process**:
-1. Load sentence dataframe with topic assignments (`sentence_df_with_topics.parquet`)
-2. Compute topic probabilities using BERTopic model's `transform()` method
-3. Aggregate probabilities to book level (sum and normalize per book)
-4. Aggregate probabilities to chapter level (sum and normalize per chapter)
-5. Cache computed probabilities for efficient recomputation
+**Script 04: Generate Tertile Topic Probabilities** (`04_generate_tertile_topic_probs_patched_v3.py`)
+- Generates topic probabilities for begin/middle/end tertiles of each book, enabling narrative arc analysis
+- **Key Features**: Tertile splitting, chunking (40 sentences per chunk), weighted aggregation, book ordering preservation
+- **Outputs**: `tertile_topic_probs.parquet`: (book_id, segment, topic_id, prob) - ~101,568 rows for 92 books × 3 segments × 368 topics
+- **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/topic_probabilities/`
 
-**Outputs**:
-- `book_topic_probs.parquet`: (book_id, topic_id, prob) - 33,856 rows for 92 books × 368 topics
-- `chapter_topic_probs.parquet`: (book_id, chapter_id, topic_id, prob) - 1,089,280 rows for 2,960 chapters × 368 topics
+**Script 01: Data Validation & Extraction** (`01_data_validation_extraction.py`)
+- Entry point for Stage 10 analysis. Loads final BERTopic model, merges Stage 08 label metadata, exports topic-level lookup table
+- **Key Features**: Model loading with taxonomy & Radway mappings, label merging, QA checks, ID alignment diagnostics, fallback CSV support
+- **Outputs**: 
+  - `topic_lookup.parquet`: (369, 21) - one row per topic (368 topics + noise topic) with labels, keywords, taxonomy/Radway mappings
+  - `full_model_data.csv` / `.parquet`: Full topic metadata in CSV/Parquet format (fallback when model unavailable)
+  - `summary_statistics.json`: QA summary (topic counts, mapping coverage, keyword quality)
+  - `topics_needs_review.csv`: Topics requiring manual review (missing mappings, poor keywords)
+  - Diagnostic reports: `id_alignment_report.csv`, `missing_books_in_outputs.csv`
+- **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/taxonomy_radway_eda/`
 
-**Key Features**:
-- Uses Goodreads IDs for reliable metadata merging
-- Caching system (MD5-based keys) detects input changes automatically
-- Batch processing support for large datasets
-- Normalized distributions (sum to 1.0 per book/chapter, validated)
+**Script 02: Book Aggregation** (`02_book_aggregation.py`)
+- Joins topic-level lookup to book topic mixture data to produce book-level taxonomy proportions and derived indices
+- **Key Features**: Taxonomy aggregation, multiple formats (long/wide), segment-level support, derived indices computation, ID normalization
+- **Outputs**: 
+  - `book_taxonomy_main_props_long.parquet`: ~2,484 rows (92 books × 27 categories) in long format
+  - `book_taxonomy_main_props_wide.parquet`: (92, 27+ categories) - one row per book, columns are taxonomy categories
+  - `indices_book_taxonomy_proxy.parquet`: Derived indices aligned to research hypotheses (love_over_sex, hea_index, explicitness_ratio, dark_vs_tender, miscommunication_balance, luxury_saturation_proxy)
+  - `segment_taxonomy_main_props_long.parquet`: Segment-level proportions in long format (if segment data available)
+- **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/book_features/`
 
-## Statistical Analysis Plan
+**Analysis Notebooks** (`notebooks/07_analysis/`):
 
-### 1. Validation & Preparation
+**01_topic_analysis** (`01_topic_analysis_v2_contract_normalized.ipynb`):
+- Individual topic distributions across Top/Middle/Trash tiers
+- Topic-level leaderboards, effect sizes (Cliff's Delta), FDR-corrected tests
+- Two-gate filtering rule: effect size |Cliff's δ| ≥ 0.20 AND (mass ≥ 0.002 OR |mean diff| ≥ 0.001)
+- **Results**: 85 discriminative topics identified from 342 analyzed topics (368 total, excluding noise/outlier)
+  - **Tier 1 (High Confidence)**: 8 topics (7 Top-associated, 1 Trash-associated) with |δ| ≥ 0.35 AND raw p < 0.05
+  - **Tier 2 (Exploratory)**: 85 topics (70 Top-associated, 15 Trash-associated) with |δ| ≥ 0.20
+- **Top-tier differentiation**: Psychological credibility scenes (fear admissions, emotional delusion, bluffing about feelings) and embodied intimacy cues (affectionate stares, lip biting, shared joy)
+- **Trash-tier differentiation**: Explicit sexual content (dominatrix sessions, explicit erotics) and procedural/transition scenes (doors, phones, desk work)
+- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling
+- **Outputs**: `results/stage10_correlation_analysis/01_topic_analysis/`
 
-- Schema checks
-- Load production topic probabilities (`book_topic_probs.parquet`, `chapter_topic_probs.parquet`)
-- Normalize topic probabilities (sum to 1 per book) - already done in generation step
-- Merge metadata (Goodreads ratings, book metadata)
-- Create segments (begin/middle/end) if not supplied
+**02_taxonomy_group_analysis** (`02_taxonomy_group_analysis_v2_contract_normalized.ipynb`):
+- Taxonomy group-level distribution comparisons
+- Dual normalization (absolute vs conditional shares) to handle OTHER bucket variation
+- Kruskal-Wallis tests with Holm correction, Epsilon-squared effect sizes
+- **Outputs**: `results/stage10_correlation_analysis/02_taxonomy_group_analysis/`
 
-### 2. Map & Aggregate
+**03_composite_index_construction** (`05_build_theory_aligned_composites_indices_v5_6_measurement_pipeline.ipynb`):
+- Theory-aligned composite indices (A-S) construction with measurement pipeline v5.6
+- Reliability diagnostics: Cronbach's alpha, McDonald's omega, PCA (PC1/PC2), stability metrics (leave-one-out, split-half, bootstrap-to-full)
+- Composite classification: ATOMIC vs COMPOSITE, CORE vs EXPLORATORY, UNIDIMENSIONAL vs MULTIDIMENSIONAL
+- Book-level and segment-level indices (raw and z-scored, sum and max aggregation)
+- Arc contrasts: end−begin, middle−begin deltas
+- **Outputs**: `results/measurement_v5/` (bundle exports, audit diagnostics)
 
-- Run mapping pipeline → `topic_to_category_probs.json`
-- Roll up to book and segment category proportions using topic probabilities
-- Compute all indices
+**04_hypothesis_testing** (`04_hypothesis_testing_inference_only_v4_2_macro_axes_tight.ipynb`):
+- Hypothesis testing (H1-H6) using composite indices
+- Macro-axes analysis (5-axis model: status/dominance, payoff/safety, drama/obstacle, explicitness, negative affect)
+- Bootstrap inference (800 iterations) with 95% CI and P(β>0)
+- Arc trajectory tests using exported deltas (end−begin, middle−begin)
+- Cross-validation performance (20 repeats of 5-fold CV)
+- **Outputs**: `results/measurement_v5/bundle/inference_outputs/`
 
-### 3. Descriptives & Visualization
+#### Hypothesis Testing Results
 
-- Heatmaps of category proportions by group
-- Group means ± 95% CI for indices
-- UMAP / clustering on `book_category_props` (color by group)
+**Sample Size**: N = 92 books
 
-### 4. Group Comparisons
+**Two-Channel Analysis**: The analysis separates two distinct Goodreads success signals:
+1. **Mass Appeal / Visibility** = `log_rating_count` (how many people rated it)
+2. **Perceived Quality** = `rating_mean` and `avg_rating_bayes` (how positively readers evaluate it)
 
-**ANOVA** (or **Kruskal–Wallis** if non-normal) on indices across Top/Medium/Trash:
-- Post-hoc tests with **Holm correction**
-- Effect sizes: **Cohen's d** for continuous, **Cramér's V** for categorical
+**Key Finding**: Popularity (reach) is strongly associated with a "billionaire-romance package": status/luxury + alpha guarding + repair + emotional safety + social/kin network. Perceived quality (ratings), after accounting for popularity, is most consistently associated with "care + safety" and is negatively associated with "baseline negative affect" and explicit erotics.
 
-**χ² tests** on category presence/absence (or GLMs on proportions)
+**Mass Appeal Predictors** (`log_rating_count`):
+- **Top predictors** (β with 95% CI, P(β>0)):
+  1. **R2_alpha_guarding**: β≈ +0.44, CI [+0.23, +0.60], P=1.00
+  2. **D_power_wealth_luxury__pc1**: β≈ +0.37, CI [+0.20, +0.55], P=1.00
+  3. **A2_emotional_safety__pc1**: β≈ +0.32, CI [+0.13, +0.50], P=0.998
+  4. **Q_repair**: β≈ +0.23, CI [+0.02, +0.41], P=0.985
+  5. **J_social_support_kin**: β≈ +0.19, P≈0.95
+- **Macro axes** (5-axis model):
+  - **AX_status_dominance**: β≈ +0.46, CI [+0.28, +0.61], P=1.00
+  - **AX_payoff_safety**: β≈ +0.33, CI [+0.14, +0.50], P≈0.999
+  - **AX_drama_obstacle**: β≈ +0.34, CI [+0.07, +0.57], P≈0.993
+  - **AX_explicitness**: β≈ −0.27, CI [−0.45, −0.06], P≈0.003 (strongly negative)
 
-### 5. Modeling
+**Perceived Quality Predictors** (`rating_mean`, controlling for `log_rating_count`):
+- **Top predictors**:
+  1. **R1_protective_caretaking**: β≈ +0.22, CI [+0.05, +0.36], P=0.995
+  2. **A2_emotional_safety__pc1**: β≈ +0.15, P=0.95
+- **Macro axes**:
+  - **AX_payoff_safety**: β≈ +0.21, P=0.974
+  - **AX_explicitness**: β≈ −0.15, P=0.095 (tends negative)
+  - **AX_negative_affect**: β≈ −0.13, P=0.051 (borderline negative)
+- **Partial correlations** (quality beyond popularity):
+  - **R1_protective_caretaking**: +0.245
+  - **A2_emotional_safety__pc1**: +0.152
+  - **C_explicit_eroticism**: -0.172 (negative)
+  - **F2_anger_frustration**: -0.121 (negative)
 
-#### Logistic Regression
-**Outcome**: Top (1) vs Trash (0)  
-**Predictors**: All indices  
-**Controls**: `author_id` (fixed effects), `length`, `year`
+**Narrative Arc / Pacing Results**:
+- **Higher-rated books show**:
+  - **F2_anger_frustration end−begin**: β≈ +0.24, CI [+0.08, +0.41], P=0.995
+  - **F3_anxiety_worry end−begin**: β≈ +0.19, CI [+0.02, +0.36], P=0.981
+- **Interpretation**: Higher-rated books have **better pacing**: lower baseline negativity across the book, but stronger late "crisis escalation" (third-act crisis), consistent with romance narrative structure.
 
-#### OLS Regression
-**Outcome**: `avg_rating`  
-**Predictors**: Indices + controls
+**Topic-Level Analysis Results**:
+- **Sample**: 92 books (30 top, 32 middle, 30 trash) × 342 analyzed topics (368 total, excluding noise/outlier)
+- **Discriminative topics**: 85 topics identified via two-gate filtering (effect size |Cliff's δ| ≥ 0.20 AND meaningful impact)
+- **Top-associated topics** (70 topics): Emphasize psychological credibility (fear admissions, emotional delusion, identity affirmation) and embodied intimacy cues (affectionate stares, lip biting, shared joy). Top Tier 1 examples: "Married Couple's Affectionate Stares" (δ = 0.453), "Frightened Admissions" (δ = 0.420), "Emotional Relationship Delusion" (δ = 0.404)
+- **Trash-associated topics** (15 topics): Emphasize explicit sexual content ("Dominatrix Session", δ = -0.353) and procedural/transition scenes ("Work At Desk", "Exiting Through Doorways", "Phone Ringing And Answering")
+- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling
+- **Topic health**: Median prevalence = 0.924 (most topics appear in most books), median mass = 0.0020, median concentration ratio = 2.68
 
-#### Key Interactions
-- **Luxury × (Commitment+Tenderness)**: Tests H3
-- **Contractual × Tenderness**
-- **PublicImage × Commitment**
-- **Protective–Jealousy**: Tests H4
+**Tier Differences** (Top/Middle/Trash):
+- **Top tier** (n=30): avg_rating ≈ 4.22, n_ratings ≈ 116k (higher quality perception + much higher visibility)
+- **Middle tier** (n=32): avg_rating ≈ 4.01, n_ratings ≈ 44k (moderate quality + moderate visibility)
+- **Trash tier** (n=30): avg_rating ≈ 3.77, n_ratings ≈ 48k (lower quality perception + lower visibility)
 
-### 6. Time-Course Analysis (Arc)
+**Predictive Performance** (20 repeats of 5-fold CV):
+- **rating_mean**: CV R² = 0.056 ± 0.041 (themes) vs 0.108 ± 0.031 (metadata only)
+- **log_rating_count**: CV R² = 0.050 ± 0.037 (themes only)
+- **Conclusion**: Themes explain popularity better than star ratings (at N=92). Star ratings likely influenced by factors beyond theme indices (prose quality, pacing, editing, reader expectations, etc.).
 
-**Repeated-measures ANOVA** or **mixed-effects models** with:
-- **Segment** (begin/middle/end) as within-subject factor
-- **Category proportions** or **indices** as outcomes
-- Tests H6 trends: commitment_hea/apology_repair ↑; miscommunication/neg_affect ↓
-
-### 7. Robustness Checks
-
-- Sensitivity to alternative thresholds
-- Bootstrapped confidence intervals
-- Leave-one-author-out validation
-
-## Acceptance Criteria
-
-- ✅ `book_topic_probs.parquet` & `chapter_topic_probs.parquet` (production topic probabilities)
-- ✅ `topic_to_category_probs.json` & `topic_to_category_final.csv` (F1 ≥ target on small gold set)
-- ✅ `book_category_props.csv` + `chapter_category_props.csv`
-- ✅ Indices computed for all books (and segments)
-- ✅ Group comparisons + effect sizes; models with coefficients & CIs
-- ✅ Figures saved; one report notebook summarizing findings
-
-## Deliverables
-
-1. **Topic Probabilities** (Production)
-   - `book_topic_probs.parquet`: Book-level topic probabilities (92 books × 368 topics)
-   - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (2,960 chapters × 368 topics)
-
-2. **Mapping Files**
-   - `topic_to_category_probs.json`
-   - `topic_to_category_final.csv`
-
-3. **Aggregated Data**
-   - `book_category_props.csv`
-   - `chapter_category_props.csv` (if applicable)
-
-3. **Indices Table**
-   - All derived indices per book and per segment
-
-4. **Statistical Tables**
-   - Group comparison tests
-   - Model coefficients with confidence intervals
-   - Interaction effects
-
-5. **Figures** (PNG/SVG)
-   - Heatmaps
-   - Group comparison plots
-   - UMAP visualizations
-   - Time-course plots
-
-6. **Report Notebook**
-   - `report.ipynb` summarizing all findings
+**Meta-Result**: The theme system is better at explaining market reach than "star rating," suggesting that market reach is more systematically related to thematic content, while star ratings may be influenced by factors beyond theme indices.
 
 ## Technical Infrastructure
 
@@ -585,6 +852,10 @@ Before statistical analysis, sentence-level topic assignments are aggregated to 
 - Sy, K. (2024). [Reference details on BERTopic]
 
 - Terragni, S., Fersini, E., Galuzzi, B. G., Tropeano, P., & Candelieri, A. (2021). OCTIS: Comparing and optimizing topic models is simple! *Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics*.
+
+- Bamman, D., Underwood, T., & Smith, N. A. (2013). A Bayesian Mixed Effects Model of Literary Character. *Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics*.
+
+- Jockers, M. L. (2013). *Macroanalysis: Digital Methods and Literary History*. University of Illinois Press.
 
 ---
 

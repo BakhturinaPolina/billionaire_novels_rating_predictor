@@ -64,16 +64,16 @@ See `configs/selection.yaml` for:
 ## Outputs
 
 ### CSV Files
-- `results/pareto/top_10_equal_weights.csv`
-- `results/pareto/top_10_coherence_priority.csv`
-- `results/pareto/tables/correlation_analysis_*.csv`
+- `results/stage04_selection/top_10_equal_weights.csv`
+- `results/stage04_selection/top_10_coherence_priority.csv`
+- `results/stage04_selection/tables/correlation_analysis_*.csv`
 
 ### Visualizations
-- `results/pareto/figures/pareto_front_equal_weights.png`
-- `results/pareto/figures/pareto_front_coherence_priority.png`
-- `results/pareto/figures/pareto_fronts_per_model.png`
-- `results/pareto/figures/distribution_with_cutoffs.png`
-- `results/pareto/figures/hyperparameter_boxplots.png`
+- `results/stage04_selection/figures/pareto_front_equal_weights.png`
+- `results/stage04_selection/figures/pareto_front_coherence_priority.png`
+- `results/stage04_selection/figures/pareto_fronts_per_model.png`
+- `results/stage04_selection/figures/distribution_with_cutoffs.png`
+- `results/stage04_selection/figures/hyperparameter_boxplots.png`
 
 ## Data Flow
 

@@ -1,0 +1,28 @@
+Main Group,Subgroup,Top-Trash δ,KW p (raw),KW p (adj family)
+"Conflict, Risk & Harm",Interpersonal Non-Romantic Conflict,0.296,0.0961,0.1922
+"Conflict, Risk & Harm","Violence, Threats & Coercion",-0.296,0.0961,0.1922
+Embodied & Sensory Experience,Body Parts & Physical Reactions,0.091,0.7113,1.0
+Embodied & Sensory Experience,Exercise & Physical Activity,-0.091,0.7113,1.0
+"Emotions, Cognition & Inner Life","Beliefs, Values & Moral Reflection",0.464,0.0048,0.0192
+"Emotions, Cognition & Inner Life",Negative Emotions & Distress,-0.369,0.0432,0.1297
+"Emotions, Cognition & Inner Life",Positive Emotions & Security,0.316,0.098,0.1961
+"Emotions, Cognition & Inner Life",Ambivalence & Internal Conflict,0.131,0.6688,0.6688
+Relationship Trajectory (Main Couple),"Meeting, First Impressions & Setup",0.249,0.2277,1.0
+Relationship Trajectory (Main Couple),"Reconciliation, Commitments & HEA",0.171,0.3303,1.0
+Relationship Trajectory (Main Couple),"Secrets, Misunderstandings & Hidden Information",-0.12,0.2848,1.0
+Relationship Trajectory (Main Couple),"Conflict, Distance & Breakup Threats",-0.033,0.2091,1.0
+Relationship Trajectory (Main Couple),"Bonding, Everyday Intimacy & Growth",-0.022,0.3595,1.0
+"Sexuality, Attraction & Intimacy",Kissing & Non-Explicit Affection,0.333,0.0603,0.181
+"Sexuality, Attraction & Intimacy",Explicit Sexual Acts,-0.3,0.1301,0.2602
+"Sexuality, Attraction & Intimacy",Attraction & Sexual Tension,0.062,0.6729,0.6729
+Social World Outside Couple,"Community, Norms & Social Events",0.244,0.2619,0.7856
+Social World Outside Couple,Friends & Social Circles,-0.111,0.7819,1.0
+Social World Outside Couple,Family & Kinship,0.0,0.9622,1.0
+"Spaces, Time, Activities & Objects","Time, Seasons & Temporal Framing",0.36,0.0519,0.1558
+"Spaces, Time, Activities & Objects",Public & Leisure Spaces,-0.282,0.1059,0.2117
+"Spaces, Time, Activities & Objects",Domestic Spaces & Routines,0.249,0.1596,0.2117
+"Work, Wealth, Status & Institutions",Shared Workplaces & Professional Interaction,0.349,0.0451,0.2255
+"Work, Wealth, Status & Institutions",Hero's Elite Work & Business World,-0.224,0.1213,0.4852
+"Work, Wealth, Status & Institutions","Law, Medicine, Education & Formal Institutions",0.193,0.2103,0.5722
+"Work, Wealth, Status & Institutions",Heroine's Work & Professional Identity,-0.047,0.3922,0.5722
+"Work, Wealth, Status & Institutions","Money, Housing & Economic Security",0.011,0.1907,0.5722

@@ -1,0 +1,11 @@
+macro_axis,component,weight,component_present
+AX_status_dominance,D_power_wealth_luxury__pc1,1.0,True
+AX_status_dominance,R2_alpha_guarding,1.0,True
+AX_payoff_safety,A2_emotional_safety__pc1,1.0,True
+AX_payoff_safety,Q_repair,0.7,True
+AX_payoff_safety,R1_protective_caretaking,0.7,True
+AX_negative_affect,F2_anger_frustration,1.0,True
+AX_negative_affect,F3_anxiety_worry,1.0,True
+AX_negative_affect,F1_sadness_grief,0.6,True
+AX_explicitness,C_explicit_eroticism,1.0,True
+AX_attraction,B1_attraction_chemistry,1.0,True

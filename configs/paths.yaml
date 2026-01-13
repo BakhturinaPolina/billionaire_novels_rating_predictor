@@ -22,7 +22,7 @@ outputs:
   models: "models"
   results: "results"
   experiments: "results/experiments"
-  pareto: "results/pareto"
+  pareto: "results/stage04_selection"
   topics: "results/topics"
   figures: "results/figures"
   logs: "logs"

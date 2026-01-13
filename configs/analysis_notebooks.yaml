@@ -1,0 +1,94 @@
+# Analysis Notebooks Configuration
+# Paths for notebooks in notebooks/07_analysis/
+# All paths are relative to project root unless absolute
+
+# Project root (used for absolute path resolution)
+project_root: "/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor"
+
+# Notebook file paths
+notebooks:
+  topic_analysis:
+    path: "notebooks/07_analysis/01_topic_analysis/01_topic_analysis_v2_contract_normalized.ipynb"
+    description: "Individual topic distributions across Top/Medium/Trash tiers"
+  
+  taxonomy_group_analysis:
+    path: "notebooks/07_analysis/02_taxonomy_group_analysis/02_taxonomy_group_analysis_v2_contract_normalized.ipynb"
+    description: "Taxonomy group-level distribution comparisons across tiers"
+  
+  composite_index_construction:
+    path: "notebooks/07_analysis/03_composite_index_construction/05_build_theory_aligned_composites_indices_v5_6_measurement_pipeline.ipynb"
+    description: "Construction of theory-aligned composite indices (A-S) for hypothesis testing"
+  
+  hypothesis_testing:
+    path: "notebooks/07_analysis/04_hypothesis_testing/04_hypothesis_testing_inference_only_v4_2_macro_axes_tight.ipynb"
+    description: "Hypothesis testing (H1-H6) using composite indices and narrative arc analysis"
+
+# Data input paths (used by analysis notebooks)
+data:
+  # Processed data
+  chapters_csv: "data/processed/chapters.csv"
+  goodreads_csv: "data/processed/goodreads.csv"
+  sentence_df_with_ratings: "data/processed/sentence_df_with_ratings.parquet"
+  sentence_df_with_topics: "data/processed/sentence_df_with_topics.parquet"
+  
+  # Stage 10 data preparation outputs
+  book_topic_probs: "results/stage10_correlation_analysis/data_preparation/topic_probabilities/book_topic_probs.parquet"
+  chapter_topic_probs: "results/stage10_correlation_analysis/data_preparation/topic_probabilities/chapter_topic_probs.parquet"
+  tertile_topic_probs: "results/stage10_correlation_analysis/data_preparation/topic_probabilities/tertile_topic_probs.parquet"
+  topic_lookup: "results/stage10_correlation_analysis/data_preparation/taxonomy_radway_eda/topic_lookup.parquet"
+  
+  # Book-level aggregated features
+  book_taxonomy_main_props_wide: "results/stage10_correlation_analysis/data_preparation/book_features/book_taxonomy_main_props_wide.parquet"
+  book_taxonomy_main_props_long: "results/stage10_correlation_analysis/data_preparation/book_features/book_taxonomy_main_props_long.parquet"
+  indices_book_taxonomy_proxy: "results/stage10_correlation_analysis/data_preparation/book_features/indices_book_taxonomy_proxy.parquet"
+
+# Model paths
+models:
+  # Recommended model with all metadata (LLM labels, taxonomy, Radway mappings)
+  main_model: "models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings"
+  model_with_labels: "models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_llm_labels_and_metadata_disambiguated.pkl"
+
+# Output directories for analysis notebooks
+outputs:
+  topic_analysis:
+    base: "results/stage10_correlation_analysis/topic_analysis"
+    figures: "results/stage10_correlation_analysis/topic_analysis/figures"
+    tables: "results/stage10_correlation_analysis/topic_analysis/tables"
+  
+  taxonomy_group_analysis:
+    base: "results/stage10_correlation_analysis/taxonomy_group_analysis"
+    figures: "results/stage10_correlation_analysis/taxonomy_group_analysis/figures"
+    tables: "results/stage10_correlation_analysis/taxonomy_group_analysis/tables"
+  
+  composite_index_construction:
+    base: "results/stage10_correlation_analysis/composite_indices"
+    figures: "results/stage10_correlation_analysis/composite_indices/figures"
+    tables: "results/stage10_correlation_analysis/composite_indices/tables"
+  
+  hypothesis_testing:
+    base: "results/stage10_correlation_analysis/hypothesis_testing"
+    figures: "results/stage10_correlation_analysis/hypothesis_testing/figures"
+    tables: "results/stage10_correlation_analysis/hypothesis_testing/tables"
+
+# Analysis parameters
+parameters:
+  # Rating tier definitions
+  rating_tiers:
+    top_threshold: 4.0
+    trash_threshold: 3.8
+    # Top: rating >= 4.0
+    # Medium: 3.8 <= rating < 4.0
+    # Trash: rating < 3.8
+  
+  # Topic filtering thresholds
+  topic_filtering:
+    min_prevalence: 0.15  # Topic must appear in at least 15% of books
+    min_effect_size: 0.2  # Minimum Cliff's delta for meaningful differences
+    fdr_alpha: 0.05       # False discovery rate correction threshold
+  
+  # Segment definitions (for narrative arc analysis)
+  segments:
+    begin: 0.0    # First tertile (0-33%)
+    middle: 0.33 # Second tertile (33-66%)
+    end: 0.66    # Third tertile (66-100%)
+

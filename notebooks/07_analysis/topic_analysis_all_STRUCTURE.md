@@ -1,6 +1,6 @@
-# Notebook Structure: Analysis of All 368 Topics Across Top/Medium/Trash Tiers
+# Notebook Structure: Analysis of All 368 Topics Across Top/Middle/Trash Tiers
 
-**Purpose:** Comprehensive bottom-to-top analysis ("start from the atoms, then build molecules") of all 368 BERTopic topics across popularity tiers (Top/Medium/Trash), using human-tagged thematic taxonomy and theory-driven composites/indices to test H1–H6.
+**Purpose:** Comprehensive bottom-to-top analysis ("start from the atoms, then build molecules") of all 368 BERTopic topics across popularity tiers (Top/Middle/Trash), using human-tagged thematic taxonomy and theory-driven composites/indices to test H1–H6.
 
 **Reference Documentation:**
 - BERTopic API: https://maartengr.github.io/BERTopic/index.html#citation
@@ -17,19 +17,22 @@
 - Set plotting styles and output directories
 
 ### 0.2 Define Data Paths
+
+**Note:** Notebooks use flexible path resolution with multiple fallback candidates to handle directory structure variations.
+
 ```python
 PROJECT_ROOT = Path("/home/polina/Documents/goodreads_romance_research_cursor/billionaire_novels_rating_predictor")
 
 # Data paths (from data preparation stage)
-BOOK_WIDE_PATH = PROJECT_ROOT / "results" / "correlation_analysis" / "data_preparation" / "book_features" / "book_taxonomy_main_props_wide.parquet"
-BOOK_LONG_PATH = PROJECT_ROOT / "results" / "correlation_analysis" / "data_preparation" / "book_features" / "book_taxonomy_main_props_long.parquet"
-BOOK_TOPIC_PROBS_PATH = PROJECT_ROOT / "results" / "correlation_analysis" / "data_preparation" / "topic_probabilities" / "book_topic_probs.parquet"
-CHAPTER_TOPIC_PROBS_PATH = PROJECT_ROOT / "results" / "correlation_analysis" / "data_preparation" / "topic_probabilities" / "chapter_topic_probs.parquet"
-TOPIC_LOOKUP_PATH = PROJECT_ROOT / "results" / "correlation_analysis" / "data_preparation" / "taxonomy_radway_eda" / "topic_lookup.parquet"
+# Primary location: results/stage10_correlation_analysis/00_data_preparation/
+# Fallbacks: results/stage10_correlation_analysis/data_preparation/, results/correlation_analysis/data_preparation/
+BOOK_TOPIC_PROBS_PATH = PROJECT_ROOT / "results" / "stage10_correlation_analysis" / "00_data_preparation" / "topic_probabilities" / "book_topic_probs.parquet"
+CHAPTER_TOPIC_PROBS_PATH = PROJECT_ROOT / "results" / "stage10_correlation_analysis" / "00_data_preparation" / "topic_probabilities" / "chapter_topic_probs.parquet"
+TOPIC_LOOKUP_PATH = PROJECT_ROOT / "results" / "stage10_correlation_analysis" / "00_data_preparation" / "taxonomy_radway_eda" / "topic_lookup.parquet"
 GOODREADS_PATH = PROJECT_ROOT / "data" / "processed" / "goodreads.csv"
 
 # Output directories
-OUTPUT_DIR = PROJECT_ROOT / "results" / "correlation_analysis" / "topic_analysis"
+OUTPUT_DIR = PROJECT_ROOT / "results" / "stage10_correlation_analysis" / "01_topic_analysis"
 FIG_DIR = OUTPUT_DIR / "figures"
 TABLE_DIR = OUTPUT_DIR / "tables"
 ```
@@ -86,14 +89,15 @@ Create "topic health table" with:
 
 ---
 
-## 1. Bottom Layer: Individual Topic Distributions Across Top/Medium/Trash
+## 1. Bottom Layer: Individual Topic Distributions Across Top/Middle/Trash
 
 Begin with **topic-by-topic probability distributions** across groups. With 300+ topics, this is a *screening + interpretation* workflow.
 
 ### 1.1 Merge Topic Probabilities with Book Metadata
 - Merge book_topic_probs with books_meta to get rating_class
-- Map rating_class: good → "Top", mid → "Medium", bad → "Trash"
+- Map rating_class: good → "Top", mid → "Middle", bad → "Trash"
 - Verify all books have rating_class assigned
+- **Use topic labels from topic_lookup.parquet** (not topic IDs) in all statistical outputs
 
 ### 1.2 Visual Exploration (Distribution-First, Not Mean-First)
 
@@ -167,6 +171,8 @@ Romance authors can imprint topics strongly. Before interpreting a topic as "Top
 - Quick diagnostic: compute topic prevalence per author
 - Conceptually: topic leaderboard "leave-one-author-out"
 - If topic disappears when one author is removed → "author signature," not "tier signature"
+- **Author-signature filtering**: 41 high-dominant topics identified and excluded from main comparisons
+- **Gate 3 filter**: prevalence >= 0.10 AND NOT author-dominant
 
 **Deliverable:** `topic_author_dominance.parquet` with flags: **tier-stable vs author-driven**
 
@@ -204,10 +210,16 @@ Decide whether each topic maps to:
 For each book:
 - Main-group share = sum of probs of topics assigned to that main group
 
-Compare across Top/Medium/Trash:
+Compare across Top/Middle/Trash:
 - Distribution plots
-- Effect sizes
-- Group tests (Kruskal-Wallis, or ANOVA if approx normal after transformation)
+- Effect sizes (Cliff's Delta, Epsilon-squared)
+- Group tests (Kruskal-Wallis with Holm correction for pairwise comparisons)
+
+**Key Pipeline Truths:**
+1. **OTHER bucket** (~0.32 mean mass) differs by tier - must normalize conditionally
+2. **Author-signature topics** (41 high-dominant) excluded from main comparisons
+3. **Gate 3 filter**: prevalence >= 0.10 AND NOT author-dominant
+4. **Dual normalization**: absolute vs conditional shares to handle OTHER bucket variation
 
 **Key questions:**
 - Do Top books allocate more mass to **Emotions/Inner Life** and less to **Conflict/Risk**?
@@ -227,7 +239,7 @@ For each main group (e.g., Sexuality, Emotions, Relationship Trajectory…):
 - "Inside Sexuality: soft affection vs foreplay vs explicit acts vs courtship gestures vs romantic atmosphere"
 - "Inside Emotions: positive safety vs vulnerability vs hostility vs shame vs reflection vs growth"
 
-**Deliverable:** One figure panel per main group, with subgroup contrasts Top/Medium/Trash
+**Deliverable:** One figure panel per main group, with subgroup contrasts Top/Middle/Trash
 
 ---
 
@@ -270,9 +282,16 @@ Every index should specify:
 | **Interpretation** | "higher = more X" |
 | **Reliability check** | Does it behave consistently across books/segments? |
 
+**Measurement Pipeline (v5.6):**
+- **Reliability diagnostics**: Cronbach's alpha, McDonald's omega, PCA (PC1/PC2), stability metrics (leave-one-out, split-half, bootstrap-to-full)
+- **Composite classification**: ATOMIC (<3 topics) vs COMPOSITE, CORE vs EXPLORATORY, UNIDIMENSIONAL vs MULTIDIMENSIONAL
+- **Recommended scoring**: sum / pc1 / pc1+pc2 based on dimensionality
+- **Coverage metrics**: topic membership, final_n after filtering
+
 Compute indices at both:
-- **Book** level (global theme emphasis)
-- **Segment** level (begin/middle/end for arc hypotheses)
+- **Book** level (global theme emphasis): raw and z-scored, sum and max aggregation
+- **Segment** level (begin/middle/end for arc hypotheses): raw and z-scored, sum and max aggregation
+- **Arc contrasts**: end−begin, middle−begin deltas for trajectory analysis
 
 ### 4.2 Recommended Normalization Choices
 
@@ -285,18 +304,28 @@ Because these are proportions:
 
 **Strategy:** Use z-scored shares for overview; confirm headline hypotheses with log-ratio versions.
 
-### 4.3 Key Changes from Validation Results
+### 4.3 Measurement Pipeline v5.6: Reliability Diagnostics
 
-**Post-validation adjustments inform index construction:**
+**Composite construction includes comprehensive reliability diagnostics:**
 
-| Issue | Implication | Strategy |
-|-------|-------------|----------|
-| **Composite splits** | Create new testable dimensions | Split composites (A→A1/A2/A3, B→B1/B2, etc.) enable finer-grained hypotheses |
-| **Temporal instability** | Begin/middle/end correlations low | Use **END variants** for cross-sectional tests; segment-level for arc analysis |
-| **Negative α** | Components don't co-occur | Document, test interactions rather than simple sums |
-| **Low PC1** | Components are distinct | Treat as moderators, not main effects |
+| Diagnostic | Metric | Interpretation |
+|-----------|--------|----------------|
+| **Internal Consistency** | Cronbach's α, McDonald's ω | α/ω ≥ 0.55 for CORE composites |
+| **Dimensionality** | PCA PC1/PC2 | PC1 < 50% → MULTIDIMENSIONAL, use PC1+PC2 |
+| **Stability** | Leave-one-out, split-half, bootstrap-to-full | Stability ≥ 0.60 for CORE composites |
+| **Coverage** | Final_n after filtering | Minimum topics per composite |
 
-**Key Decision:** For hypothesis testing, prioritize **END segment indices** (final third of book) as they capture resolution/HEA signals most reliably.
+**Composite Classification:**
+- **ATOMIC** (<3 topics) vs **COMPOSITE** (≥3 topics)
+- **CORE** (operationalized, reliable) vs **EXPLORATORY** (needs validation)
+- **UNIDIMENSIONAL** (PC1 ≥ 50%) vs **MULTIDIMENSIONAL** (PC1 < 50%)
+
+**Scoring Strategy:**
+- **UNIDIMENSIONAL**: Use sum (or PC1 if preferred)
+- **MULTIDIMENSIONAL**: Use PC1+PC2 (captures both dimensions)
+- **ATOMIC**: Use raw topic probability
+
+**Key Decision:** For hypothesis testing, use **END segment indices** (final third of book) for cross-sectional tests; use **arc contrasts** (end−begin, middle−begin) for trajectory analysis.
 
 ### 4.4 A–S Composites Mapped to Taxonomy (Post-Split Structure)
 
@@ -534,13 +563,14 @@ Less an "index to test," more a **sampling tool**:
 
 ## 5. Hypothesis Testing Plan (H1–H6) Using Indices — REVISED
 
-### Part 1: Hypothesis Refinement (Post-Validation Adjustments)
+### Part 1: Hypothesis Testing Implementation (v4.2)
 
-**Key Changes from Validation Results:**
-- Composite splits create new testable dimensions
-- Temporal instability → use **END variants** for cross-sectional tests
-- Negative α → document, test interactions
-- Low PC1 → treat as moderators, not main effects
+**Analysis Approach:**
+- **Bootstrap inference**: 800 iterations, 95% CI, P(β>0) for directional effects
+- **Macro-axes model**: 5-axis PCA reduction (status/dominance, payoff/safety, drama/obstacle, explicitness, negative affect)
+- **Arc trajectory tests**: Use exported deltas (end−begin, middle−begin) from measurement pipeline
+- **Cross-validation**: 20 repeats of 5-fold CV for predictive performance
+- **Two-channel analysis**: Separate mass appeal (`log_rating_count`) from perceived quality (`rating_mean`)
 
 ---
 
@@ -562,7 +592,7 @@ Less an "index to test," more a **sampling tool**:
 **Key Decision:** Use **H1e** as primary test; report **H1b** and **H1d** as sub-hypotheses (safety and intimacy are theoretically cleanest contrasts to sex).
 
 **Tests:**
-- Compare index across Top/Medium/Trash (Kruskal–Wallis + pairwise)
+- Compare index across Top/Middle/Trash (Kruskal–Wallis + pairwise)
 - Regress avg_rating on this index controlling for length, year, author
 - Optional: predict Top vs Trash with logistic regression
 
@@ -670,36 +700,32 @@ If negative quadratic → inverted U (optimal darkness exists)
 
 ### 5.6 H6: Narrative Arc (Time-Course) (REVISED)
 
-**Use:** `segment_indices_raw_SPLIT.csv`
+**Use:** `arc_contrasts_sum.parquet` and `arc_contrasts_max.parquet` from measurement pipeline
 
 **Key Insight:** Low begin-end correlation is GOOD → means metrics capture change
 
-**Trajectory Tests:**
+**Trajectory Tests Using Exported Deltas:**
 
 | Metric | Expected Pattern | Test |
 |--------|------------------|------|
-| A1 (commitment) | ↑ begin → end | Linear trend in mixed model |
-| C (explicit sex) | Peak middle? | Quadratic term |
-| F1 (grief) | ↓ end (resolved) | Negative slope |
-| Q_repair | ↑ end (resolution) | Positive slope |
-| E (violence) | ↓ or shift external→internal | Interaction with tier |
+| A1 (commitment) end−begin | Positive (↑) | Bootstrap β with 95% CI |
+| C (explicit sex) end−begin | Peak middle? | Quadratic term or middle−begin |
+| F1 (grief) end−begin | Negative (↓) | Negative slope |
+| Q_repair end−begin | Positive (↑) | Positive slope |
+| F2 (anger) end−begin | Positive (crisis escalation) | Positive slope for higher-rated books |
+| F3 (anxiety) end−begin | Positive (crisis escalation) | Positive slope for higher-rated books |
 
-**Model Structure:**
-```
-lmer(index ~ segment + tier + segment:tier + (1|book_id) + (1|author))
-```
+**Analysis Approach:**
+- **Arc contrasts**: end−begin, middle−begin deltas computed in measurement pipeline
+- **Bootstrap inference**: Test if deltas predict `rating_mean` (controlling for `log_rating_count`)
+- **Interpretation**: Higher-rated books show better pacing (lower baseline negativity, stronger late crisis escalation)
 
-**Model Options:**
-- **Mixed-effects model:** outcome = index, fixed = segment + tier + segment×tier, random intercepts for book (and maybe author)
-- Repeated-measures ANOVA with within-factor segment
+**Key Finding:**
+- **F2_anger_frustration end−begin**: β≈ +0.24, CI [+0.08, +0.41], P=0.995
+- **F3_anxiety_worry end−begin**: β≈ +0.19, CI [+0.02, +0.36], P=0.981
+- **Interpretation**: Higher-rated books have lower baseline negativity but stronger third-act crisis escalation
 
-**Predicted Trends (if H6 holds):**
-- A1 (commitment) ↑ from begin → end
-- Q_repair ↑, Q_miscomm ↓
-- F1 (negative affect) ↓
-- Possibly E decreases or shifts form (externalized threat → resolved safety)
-
-**Deliverable:** Spaghetti plots per tier showing individual book trajectories + mean ± uncertainty across begin/middle/end
+**Deliverable:** Arc contrast results in `inference_arc_trajectory_tests.csv`
 
 ---
 
@@ -715,7 +741,7 @@ Treat them differently.
 
 - Correlate indices with avg_rating
 - Correlate indices with log(n_ratings) separately
-- Check whether Top/Medium/Trash differs primarily by avg_rating, n_ratings, or both
+- Check whether Top/Middle/Trash differs primarily by avg_rating, n_ratings, or both
 
 ### 6.2 Weighted Outcomes and Noise Control
 
@@ -880,34 +906,45 @@ def show_plotly_fig(fig, save_html=True, output_dir=FIG_DIR):
 ## Output Structure
 
 ```
-results/correlation_analysis/01_topic_analysis/
-├── figures/
-│   ├── topic_distributions/
-│   │   ├── all_topics_violin.htmlu
+results/stage10_correlation_analysis/
+├── 00_data_preparation/          # Data preparation outputs
+│   ├── topic_probabilities/
+│   │   ├── book_topic_probs.parquet
+│   │   └── chapter_topic_probs.parquet
+│   ├── taxonomy_radway_eda/
+│   │   └── topic_lookup.parquet
+│   └── book_features/
+│       ├── book_taxonomy_main_props_wide.parquet
+│       └── book_taxonomy_main_props_long.parquet
+├── 01_topic_analysis/            # Individual topic distributions
+│   ├── figures/
+│   │   ├── topic_distributions/
+│   │   ├── topic_leaderboards/
 │   │   └── ...
-│   ├── topic_leaderboards/
-│   │   ├── top_associated_topics.html
-│   │   └── ...
-│   ├── topic_similarity/
-│   │   └── topic_correlation_heatmap.html
-│   ├── taxonomy_groups/
-│   │   └── main_group_comparisons.html
-│   ├── hypothesis_tests/
-│   │   ├── H1_love_over_sex.html
-│   │   └── ...
-│   └── arc_analysis/
-│       └── segment_trends_by_tier.html
-├── tables/
-│   ├── topic_health_table.parquet
-│   ├── topic_leaderboard_all.parquet
-│   ├── topic_leaderboard_filtered.parquet
-│   ├── topic_author_dominance.parquet
-│   ├── taxonomy_mapping.parquet
-│   ├── indices_book_level.parquet
-│   ├── indices_segment_level.parquet
-│   ├── hypothesis_results.parquet
-│   └── robustness_checks.parquet
-└── summary_report.md
+│   └── tables/
+│       ├── topic_health_table.parquet
+│       ├── topic_leaderboard_all.parquet
+│       └── ...
+├── 02_taxonomy_group_analysis/    # Taxonomy group comparisons
+│   ├── figures/
+│   └── tables/
+└── measurement_v5/                # Composite indices & hypothesis testing
+    ├── bundle/                     # Exported tables for inference
+    │   ├── book_indices_raw.parquet
+    │   ├── book_indices_z.parquet
+    │   ├── segment_indices_raw.parquet
+    │   ├── segment_indices_z.parquet
+    │   ├── arc_contrasts_sum.parquet
+    │   └── ...
+    ├── audit/                      # Pipeline diagnostics
+    │   ├── pipeline_audit.parquet
+    │   ├── composite_registry.parquet
+    │   ├── composite_diagnostics.parquet
+    │   └── ...
+    └── bundle/inference_outputs/  # Hypothesis testing results
+        ├── inference_core_level_effects.csv
+        ├── inference_macro_level_effects.csv
+        └── ...
 ```
 
 ---

@@ -1,0 +1,27 @@
+composite_key,composite_name,taxonomy_ids,has_regex,semantic_mode,fallback_mode,tier_used,global_fallback_allowed,global_fallback_used,min_topics,n_after_taxonomy,n_after_semantics,n_after_quality,n_after_semantics_used,n_after_quality_used,final_n,note
+A1_commitment_vows,A1) Commitment & Vows,4.5,True,relaxed,within_taxonomy,relaxed,False,False,5,3,1,1,3,3,3,explicit commitment language (HEA/marriage plot)
+G_courtship_rituals_gifts,G) Courtship Rituals / Gifts,"5.3,8.1,8.2",True,strict,none,strict,True,False,3,26,3,3,3,3,3,ritualized romance behaviors (RELAXED — broader pattern)
+A3_everyday_tenderness,A3) Everyday Tenderness,4.2,True,strict,none,strict,False,False,6,71,5,4,5,4,4,daily affectionate bonding (non-formal)
+F1_sadness_grief,F1) Sadness & Grief,3.2,True,strict,none,strict,False,False,4,36,4,4,4,4,4,sadness affect cluster
+R_jealousy_possessiveness,R) Jealousy & Possessiveness,"3.3,4.4",True,strict,none,strict,False,False,4,64,6,4,6,4,4,jealous/possessive conflict (kept for H4 hypothesis continuity)
+B2_emotional_intimacy,B2) Emotional Intimacy,"3.1,4.2",True,strict,none,strict,False,False,8,83,5,5,5,5,5,emotional closeness (non-physical)
+E_coercion_brutality_danger,E) Coercion / Brutality / Danger,"7.2,3.2",True,strict,none,strict,False,False,6,44,5,5,5,5,5,threat + coercion + traumatic texture
+N_separation_reunion,N) Separation / Reunion,"4.4,4.5",True,strict,none,strict,False,False,8,64,6,5,6,5,5,breakup → reunion arc
+O_aesthetics_appearance,O) Aesthetics / Appearance,"1.1,5.3",True,relaxed,within_taxonomy,relaxed,False,False,5,6,1,1,6,5,5,personal appearance & presentation
+R2_alpha_guarding,R2) Alpha Guarding,"3.3,4.4",True,strict,none,strict,False,False,4,64,9,6,9,6,6,possessive protective aggression (alpha guarding)
+Q_repair,Q) Repair & Reconciliation,"4.5,4.2,3.1",True,strict,none,strict,False,False,4,86,7,7,7,7,7,"apologies, forgiveness, reconciliation"
+M_health_recovery_growth,M) Health / Recovery / Growth,"6.5,4.2",True,strict,none,strict,True,False,3,73,8,8,8,8,8,healing & protective caretaking (RELAXED)
+I_humor_lightness,I) Humor / Lightness,"3.1,4.2,2.2",True,strict,none,strict,True,False,6,103,11,9,11,9,9,comic relief / breezy tone proxies
+Q_miscommunication,Q) Miscommunication & Conflict,"4.1,4.3",True,strict,none,strict,False,False,6,21,9,9,9,9,9,"secrets, misunderstandings, conflict"
+A2_emotional_safety,A2) Emotional Safety & Reassurance,3.1,True,relaxed,within_taxonomy,relaxed,False,False,5,12,2,2,12,12,12,safety/trust/comfort affect
+L_vices_addictions,L) Vices / Addictions,"6.2,6.3,3.2",True,strict,none,global_tight,True,True,3,39,0,0,16,14,14,substance use & self-destructive risk (RELAXED)
+K_professional_intrusion,K) Professional Intrusion,"6.1,6.2,6.3,6.5",True,strict,none,strict,False,False,6,21,19,16,19,16,16,workplace and institutional texture
+C_explicit_eroticism,C) Explicit Eroticism,2.3,False,strict,none,strict,False,False,8,19,19,19,19,19,19,explicit sexual act language (heterogeneous by design — use in ratios)
+S_scene_anchors,S) Scene Anchors (Setting-Rich),"5.3,8.1,8.2",False,strict,none,strict,False,False,8,26,26,24,26,24,24,setting/objects/time/atmosphere topics (for qualitative sampling)
+J_social_support_kin,J) Social Support / Kin,"4.3,4.4,4.5,5.1",True,strict,none,strict,False,False,8,103,32,26,32,26,26,stable social buffering around couple
+B1_attraction_chemistry,B1) Attraction & Sexual Chemistry,"2.1,2.2",False,strict,none,strict,False,False,8,34,34,29,34,29,29,sexual tension + kissing (pre-coital intimacy)
+D_power_wealth_luxury,D) Power / Wealth / Luxury,"5.2,5.3,5.1",False,strict,none,strict,False,False,10,34,34,30,34,30,30,billionaire-world saturation
+F2_anger_frustration,F2) Anger & Frustration,"3.2,3.3",True,relaxed,within_taxonomy,relaxed,False,False,5,39,2,2,34,31,31,anger/resentment affect
+F3_anxiety_worry,F3) Anxiety & Worry,"3.2,3.4",True,relaxed,within_taxonomy,relaxed,False,False,5,42,2,2,38,36,36,anxiety/worry affect
+R1_protective_caretaking,R1) Protective Caretaking,"3.1,4.2",True,relaxed,within_taxonomy,relaxed,False,False,5,83,2,2,80,75,75,tender protective care (nurturing caretaking)
+H_domestic_nesting,H) Domestic Nesting (Home-as-Refuge),"4.2,5.2,8.1",False,strict,none,strict,False,False,10,94,94,88,94,88,88,nest-building and everyday shared life

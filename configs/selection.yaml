@@ -6,10 +6,10 @@ inputs:
 
 # Output directories
 outputs:
-  base_dir: "results/pareto"
-  figures_dir: "results/pareto/figures"
-  tables_dir: "results/pareto/tables"
-  top_models_dir: "results/pareto/top_models"
+  base_dir: "results/stage04_selection"
+  figures_dir: "results/stage04_selection/figures"
+  tables_dir: "results/stage04_selection/tables"
+  top_models_dir: "results/stage04_selection/top_models"
 
 # Data cleaning parameters
 cleaning:

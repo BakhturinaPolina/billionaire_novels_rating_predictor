@@ -9,7 +9,7 @@ inventory:
 contracts:
 	@echo "Expected output contracts:"
 	@echo "  - results/experiments/model_evaluation_results.csv"
-	@echo "  - results/pareto/pareto.csv"
+	@echo "  - results/stage04_selection/pareto.csv"
 	@echo "  - results/topics/by_book.csv"
 
 stage01:
