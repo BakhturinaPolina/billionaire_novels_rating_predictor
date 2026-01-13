@@ -84,6 +84,14 @@ Create "topic health table" with:
 - manual label (from topic_lookup)
 - taxonomy_main_name, taxonomy_main_group
 - radway_phase_name (if available)
+- Cliff's delta (Top vs Trash), tier associations
+- author dominance percentage and author name (if applicable)
+
+**Results**:
+- Median prevalence: 0.924 (most topics appear in most books under soft topic assignment)
+- Median mass: 0.0020
+- Median concentration ratio: 2.68
+- Under soft topic assignment, most topics receive small non-zero probability in most books, making naive "topic presence" less informative than effect sizes and mass thresholds
 
 **Deliverable:** `topic_health_table.parquet` saved to TABLE_DIR
 
@@ -130,7 +138,8 @@ For each topic, compute:
 **1.3.2 Effect Sizes**
 - Top vs Trash (primary comparison)
 - Top vs Medium, Medium vs Trash (optional)
-- Use robust effect size: **Cliff's delta** or rank-biserial correlation (works well with non-normal, zero-inflated distributions)
+- Use robust effect size: **Cliff's delta** (primary metric) or rank-biserial correlation (works well with non-normal, zero-inflated distributions)
+- **Interpretation**: |δ| < 0.147 = negligible, 0.147 ≤ |δ| < 0.33 = small, 0.33 ≤ |δ| < 0.474 = medium, |δ| ≥ 0.474 = large (Romano et al., 2006)
 
 **1.3.3 Significance Testing (Optional)**
 - Non-parametric: Kruskal-Wallis for 3 groups
@@ -150,18 +159,26 @@ Create tables:
 - `topic_leaderboard_top_associated.parquet` - top N topics associated with Top tier
 - `topic_leaderboard_trash_associated.parquet` - top N topics associated with Trash tier
 - `topic_leaderboard_effect_sizes.parquet` - sorted by effect size
+- `topic_leaderboard_tier1_high_confidence.parquet` - Tier 1 topics (8 topics with |δ| ≥ 0.35 AND raw p < 0.05)
+- `topic_leaderboard_tier2_exploratory.parquet` - Tier 2 topics (85 topics with |δ| ≥ 0.20)
+- `topic_leaderboard_filtered.parquet` - Filtered set (85 topics, same as Tier 2)
 
 ### 1.4 Tame Multiple Comparisons Problem (Don't Worship Noise)
 
 With 300+ topics, you'll get "significant" stuff by rolling statistical dice.
 
-**Sensible gates (must pass ALL):**
-1. **Minimum prevalence**: appears in ≥ 15–20% of books
-2. **Meaningful effect size**: not just p < .05, but |Cliff's delta| > threshold
-3. **Survives FDR correction**: if testing, p_adj < 0.05
-4. **Interpretable label**: topic actually coheres on inspection
+**Two-gate filtering rule (must pass BOTH):**
+1. **Gate 1 (Effect)**: |Cliff's δ| ≥ 0.20 (meaningful effect size) - 163 topics passed
+2. **Gate 2 (Impact)**: mass ≥ 0.002 OR |Top–Trash mean diff| ≥ 0.001 (meaningful impact) - 186 topics passed
+3. **Both gates**: 85 topics (final filtered set)
 
-**Deliverable:** `topic_leaderboard_filtered.parquet`
+**Two-tier structure:**
+- **Tier 1 (High Confidence)**: 8 topics with |δ| ≥ 0.35 AND raw p < 0.05 AND both gates (7 Top-associated, 1 Trash-associated)
+- **Tier 2 (Exploratory)**: 85 topics with |δ| ≥ 0.20 AND both gates, no p-value filter (70 Top-associated, 15 Trash-associated)
+
+**Rationale for two-gate rule**: With n=30 books per tier, even large effect sizes (|δ| > 0.35) cannot survive FDR correction. The smallest adjusted p-value is ~0.20. The two-gate rule balances statistical rigor with practical interpretability for hypothesis-generating exploratory research.
+
+**Deliverable:** `topic_leaderboard_filtered.parquet` (85 topics), `topic_leaderboard_tier1_high_confidence.parquet` (8 topics), `topic_leaderboard_tier2_exploratory.parquet` (85 topics)
 
 ### 1.5 Author as "Shadow Confounder" (Early Check)
 
@@ -171,10 +188,11 @@ Romance authors can imprint topics strongly. Before interpreting a topic as "Top
 - Quick diagnostic: compute topic prevalence per author
 - Conceptually: topic leaderboard "leave-one-author-out"
 - If topic disappears when one author is removed → "author signature," not "tier signature"
-- **Author-signature filtering**: 41 high-dominant topics identified and excluded from main comparisons
-- **Gate 3 filter**: prevalence >= 0.10 AND NOT author-dominant
+- **Author dominance metrics**: 30 topics show high author dominance (>50% from single author), 12 topics with medium author dominance (30-50%)
+- **Author-signature filtering**: 6 topics are both significant AND author-driven (e.g., "Married Couple's Affectionate Stares" 75% Catharina_Maura, δ = 0.453)
+- **Methodological implication**: Author-dominant topics should be excluded from tier interpretation (they reflect author style, not tier preferences), treated as covariates in modeling, and documented separately as "author signature topics"
 
-**Deliverable:** `topic_author_dominance.parquet` with flags: **tier-stable vs author-driven**
+**Deliverable:** `topic_author_dominance.parquet` with flags: **tier-stable vs author-driven**, includes author dominance percentage and author name
 
 ---
 
@@ -217,15 +235,20 @@ Compare across Top/Middle/Trash:
 
 **Key Pipeline Truths:**
 1. **OTHER bucket** (~0.32 mean mass) differs by tier - must normalize conditionally
-2. **Author-signature topics** (41 high-dominant) excluded from main comparisons
-3. **Gate 3 filter**: prevalence >= 0.10 AND NOT author-dominant
-4. **Dual normalization**: absolute vs conditional shares to handle OTHER bucket variation
+2. **Author-signature topics** (30 high-dominant, >50% from single author) excluded from main comparisons
+3. **Dual normalization**: absolute vs conditional shares to handle OTHER bucket variation
+4. **Coverage**: Modeled mass ≈ 0.998 (very high coverage), unmapped/noise/paratext shares are extremely small (≈0.000–0.002 range)
 
 **Key questions:**
 - Do Top books allocate more mass to **Emotions/Inner Life** and less to **Conflict/Risk**?
 - Is **Work/Wealth** uniformly present (billionaire romance baseline), but *interacts* with relationship themes?
 
-**Deliverable:** 7-8 bar chart per tier (with uncertainty), plus pairwise contrasts
+**Results**:
+- **Main groups**: Modest but interpretable differences. Top allocates more to Relationship Trajectory (δ≈+0.37), Social World Outside Couple (δ≈+0.30), Embodied & Sensory Experience (δ≈+0.29). Trash allocates more to Sexuality, Attraction & Intimacy (δ≈-0.25)
+- **Subgroups**: Stronger differentiation. **Beliefs, Values & Moral Reflection** (Top higher, δ≈+0.46, adjusted p≈0.008), **Negative Emotions & Distress** (Trash higher, δ≈-0.37), **Shared Workplaces & Professional Interaction** (Top higher, δ≈+0.35)
+- **Diversity metrics**: Higher-tier books show greater thematic diversity (entropy: bad≈5.33 → mid≈5.43 → good≈5.48, p≈0.019 adjusted≈0.077). Effective topics: bad≈207 → good≈240. Richness (topics > 1e-3): bad≈247 → good≈265
+
+**Deliverable:** 7-8 bar chart per tier (with uncertainty), plus pairwise contrasts, diversity metrics plots
 
 ### 2.4 Subgroup Distributions Per Main Group ("Not Too Messy" Middle Layer)
 

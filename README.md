@@ -418,7 +418,7 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
        --exclude-book-ids notebooks/07_analysis/statistical_analysis/excluded_book_ids.csv
    ```
    - **Outputs**: `book_topic_probs.parquet` (33,856 rows: 92 books × 368 topics), `chapter_topic_probs.parquet` (1,089,280 rows: 2,960 chapters × 368 topics)
-   - **Key Features**: Goodreads-first book IDs, cohort exclusion (5 books: 19561986, 19619918, 25781538, 52061964, 53491034), NaN replacement (critical fix), caching (~2 hours saved), probability normalization (0% NaN, sums to ~1.0 per book)
+   -    - **Key Features**: Goodreads-first book IDs, cohort exclusion (5 books: 19561986, 19619918, 25781538, 52061964, 53491034), NaN replacement (critical fix: BERTopic transform can return NaN, replaced with 0.0 before aggregation), caching (~2 hours saved), probability normalization (0% NaN, sums to ~1.0 per book), comprehensive ID alignment diagnostics
 
 2. **Script 04: Generate Tertile Probabilities** (optional) - Generates begin/middle/end tertile probabilities for narrative arc analysis
    ```bash
@@ -434,7 +434,8 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
    python src/stage10_correlation_analysis/data_preparation/01_data_validation_extraction.py \
        --output-dir results/stage10_correlation_analysis/00_data_preparation/taxonomy_radway_eda
    ```
-   - **Outputs**: `topic_lookup.parquet`, `full_model_data.csv`, diagnostic reports
+   - **Outputs**: `topic_lookup.parquet` (369 topics × 21 columns), `full_model_data.csv`, `summary_statistics.json`, `topics_needs_review.csv`, diagnostic reports (`id_alignment_report.csv`, `missing_books_in_outputs.csv`)
+   - **Key Features**: Auto-detection of model/labels paths, fallback CSV support, QA checks (missing mappings, keyword quality, confidence distributions)
 
 4. **Script 02: Book Aggregation** - Aggregates to book-level and computes derived indices
    ```bash
@@ -442,7 +443,8 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
        --topic-lookup results/stage10_correlation_analysis/00_data_preparation/taxonomy_radway_eda/topic_lookup.parquet \
        --output-dir results/stage10_correlation_analysis/00_data_preparation/book_features
    ```
-   - **Outputs**: `book_taxonomy_main_props_wide.parquet`, `indices_book_taxonomy_proxy.parquet` (hypothesis-aligned indices)
+   - **Outputs**: `book_taxonomy_main_props_wide.parquet` (92 books × 27+ categories), `book_taxonomy_main_props_long.parquet`, `indices_book_taxonomy_proxy.parquet` (hypothesis-aligned indices: love_over_sex, hea_index, explicitness_ratio, dark_vs_tender, miscommunication_balance, luxury_saturation_proxy), `segment_taxonomy_main_props_long.parquet` (if segment data available)
+   - **Key Features**: Auto-discovery of input files, ID normalization, multiple output formats (long/wide), segment-level support
 
 **Analysis Notebooks** (`notebooks/07_analysis/`):
 
@@ -458,6 +460,7 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
 
 6. **02_taxonomy_group_analysis**: Taxonomy group-level distribution comparisons
    - Dual normalization (absolute vs conditional shares), Gate 3 filtering
+   - **Results**: Main group differences modest but interpretable (Top allocates more to relationship dynamics/social context, less to sexuality mass). Subgroup level shows sharper differentiation: **Beliefs, Values & Moral Reflection** (Top higher, δ≈+0.46, p≈0.008), **Negative Emotions & Distress** (Trash higher, δ≈-0.37). **Diversity finding**: Higher-tier books show greater thematic diversity (entropy: bad≈5.33 → good≈5.48, p≈0.019 adjusted≈0.077)
    - Outputs: `results/stage10_correlation_analysis/02_taxonomy_group_analysis/`
 
 7. **03_composite_index_construction**: Theory-aligned composite indices (A-S) construction
@@ -465,7 +468,8 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
    - Outputs: `results/measurement_v5/`
 
 8. **04_hypothesis_testing**: Hypothesis testing (H1-H6) using composite indices
-   - Macro-axes analysis, arc trajectory tests, bootstrap inference
+   - Macro-axes analysis (5-axis model: status/dominance, payoff/safety, drama/obstacle, explicitness, negative affect), arc trajectory tests using exported deltas (end−begin, middle−begin), bootstrap inference (800 iterations, 95% CI, P(β>0) for directional effects), cross-validation (20 repeats of 5-fold CV)
+   - **Methodology**: Two-channel analysis separating mass appeal (`log_rating_count`) from perceived quality (`rating_mean`), bootstrap-based effect size estimation with sign stability metrics
    - Outputs: `results/measurement_v5/bundle/inference_outputs/`
 
 **Hypothesis Testing Results** (N = 92 books):
@@ -510,13 +514,21 @@ Comprehensive statistical analysis combining topic probabilities with Goodreads 
 - **rating_mean**: CV R² = 0.056 ± 0.041 (themes) vs 0.108 ± 0.031 (metadata only)
 - **log_rating_count**: CV R² = 0.050 ± 0.037 (themes only)
 
-**Key Finding**: Themes explain popularity (reach) better than star ratings. Star ratings likely influenced by factors beyond theme indices (prose quality, pacing, editing, reader expectations, etc.).
+**Key Finding**: Themes explain popularity (reach) better than star ratings. Star ratings likely influenced by factors beyond theme indices (prose quality, pacing, editing, reader expectations, etc.). The theme system is better at explaining market reach than "star rating," suggesting that market reach is more systematically related to thematic content, while star ratings may be influenced by factors beyond theme indices.
+
+**Taxonomy Group Analysis Results** (N = 92 books):
+- **Main groups**: Modest but interpretable differences. Top allocates more to Relationship Trajectory (δ≈+0.37), Social World Outside Couple (δ≈+0.30), Embodied & Sensory Experience (δ≈+0.29). Trash allocates more to Sexuality, Attraction & Intimacy (δ≈-0.25)
+- **Subgroups**: Stronger differentiation. **Beliefs, Values & Moral Reflection** (Top higher, δ≈+0.46, adjusted p≈0.008), **Negative Emotions & Distress** (Trash higher, δ≈-0.37), **Shared Workplaces & Professional Interaction** (Top higher, δ≈+0.35)
+- **Diversity metrics**: Higher-tier books show greater thematic diversity (entropy: bad≈5.33 → mid≈5.43 → good≈5.48, p≈0.019 adjusted≈0.077). Effective topics: bad≈207 → good≈240. Richness (topics > 1e-3): bad≈247 → good≈265
+- **Coverage**: Modeled mass ≈ 0.998 (very high coverage), unmapped/noise/paratext shares are extremely small (≈0.000–0.002 range)
 
 **Topic-Level Analysis** (N = 92 books, 342 topics analyzed):
-- **85 discriminative topics** identified via two-gate filtering (effect size |Cliff's δ| ≥ 0.20 AND meaningful impact)
-- **Top-tier differentiation**: Psychological credibility scenes (fear admissions, emotional delusion) and embodied intimacy cues (affectionate stares, lip biting, shared joy)
-- **Trash-tier differentiation**: Explicit sexual content (dominatrix sessions) and procedural/transition scenes (doors, phones, desk work)
-- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling
+- **85 discriminative topics** identified via two-gate filtering (effect size |Cliff's δ| ≥ 0.20 AND meaningful impact: mass ≥ 0.002 OR |mean diff| ≥ 0.001)
+- **Two-tier structure**: Tier 1 (High Confidence, 8 topics: |δ| ≥ 0.35 AND raw p < 0.05), Tier 2 (Exploratory, 85 topics: |δ| ≥ 0.20)
+- **Top-tier differentiation**: Psychological credibility scenes (fear admissions, emotional delusion, bluffing about feelings) and embodied intimacy cues (affectionate stares, lip biting, shared joy). Often map to Radway Phase I (Initial Conflict & Isolation) and Phase II (Turning Point & Recognition)
+- **Trash-tier differentiation**: Explicit sexual content (dominatrix sessions, explicit erotics) and procedural/transition scenes (doors, phones, desk work). Often map to Radway Phase III (Commitment & Restoration) or "none" (background/contextual)
+- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling. 6 topics are both significant AND author-driven
+- **Topic health**: Median prevalence = 0.924 (most topics appear in most books), median mass = 0.0020, median concentration ratio = 2.68
 - **Top Tier 1 examples**: "Married Couple's Affectionate Stares" (δ = 0.453), "Frightened Admissions" (δ = 0.420), "Emotional Relationship Delusion" (δ = 0.404)
 
 See `reports/01_stage_reports/stage10_correlation_analysis/` and `reports/02_findings/hypothesis_testing/` for detailed results.

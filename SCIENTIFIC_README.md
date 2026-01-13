@@ -679,12 +679,18 @@ The Stage 10 pipeline consists of four sequential scripts plus analysis notebook
 
 **Script 03: Generate Topic Probabilities** (`03_generate_topic_probabilities_final.py`)
 - Generates normalized topic probabilities at book and chapter levels from sentence-level BERTopic assignments
-- **Key Features**: Goodreads-first book IDs, robust ID normalization, cohort exclusion (5 books excluded: 19561986, 19619918, 25781538, 52061964, 53491034), caching (~2 hours saved), NaN replacement (critical fix)
+- **Key Features**: 
+  - **Goodreads-first book IDs**: Uses Goodreads IDs as primary identifier for reliable merging across datasets
+  - **Robust ID normalization**: Handles `.0` suffixes, whitespace, and null values automatically
+  - **Cohort exclusion**: Excludes 5 books (19561986, 19619918, 25781538, 52061964, 53491034) that were filtered out before sentence_df creation
+  - **Caching**: Caches BERTopic transform outputs to save computation time (~2 hours saved), cache keyed by sentence_df file + model path (mtime/size)
+  - **NaN replacement (critical fix)**: BERTopic's `transform()` can return NaN values, which propagate through aggregation. Solution: Replace NaN with 0.0 **before** aggregation using `np.nan_to_num()`. This ensures clean data throughout pipeline and prevents NaN propagation.
+  - **Probability normalization**: Ensures probabilities sum to ~1.0 per book/chapter (required for downstream statistical analysis)
 - **Outputs**: 
   - `book_topic_probs.parquet`: (book_id, topic_id, prob) - 33,856 rows for 92 books × 368 topics
   - `chapter_topic_probs.parquet`: (book_id, chapter_id, topic_id, prob) - 1,089,280 rows for 2,960 chapters × 368 topics
 - **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/topic_probabilities/`
-- **Validation**: 0% NaN values (NaN replaced with 0.0 before aggregation), probabilities sum to ~1.0 per book/chapter (min: 0.999, max: 1.000)
+- **Validation**: 0% NaN values (NaN replaced with 0.0 before aggregation), probabilities sum to ~1.0 per book/chapter (min: 0.999, max: 1.000), median density: 70.4% of topics have prob > 0.001 per book
 
 **Script 04: Generate Tertile Topic Probabilities** (`04_generate_tertile_topic_probs_patched_v3.py`)
 - Generates topic probabilities for begin/middle/end tertiles of each book, enabling narrative arc analysis
@@ -694,13 +700,19 @@ The Stage 10 pipeline consists of four sequential scripts plus analysis notebook
 
 **Script 01: Data Validation & Extraction** (`01_data_validation_extraction.py`)
 - Entry point for Stage 10 analysis. Loads final BERTopic model, merges Stage 08 label metadata, exports topic-level lookup table
-- **Key Features**: Model loading with taxonomy & Radway mappings, label merging, QA checks, ID alignment diagnostics, fallback CSV support
+- **Key Features**: 
+  - **Model loading**: Loads BERTopic model with taxonomy & Radway mappings embedded in `topic_metadata_` attribute
+  - **Label merging**: Merges Stage 08 LLM label metadata (labels, scene summaries, primary/secondary categories) from JSON files
+  - **Auto-detection**: Auto-detects model path (searches common locations), labels path (finds newest `labels_*.json` in stage08 directory), Goodreads path (searches common locations)
+  - **QA checks**: Validates missing mappings, keyword quality, confidence distributions
+  - **ID alignment diagnostics**: Performs diagnostics between datasets (topic probs, goodreads metadata) - overlap checks, coverage metrics, sample IDs for debugging
+  - **Fallback CSV support**: Can use exported CSV if model unavailable (enables partial runs)
 - **Outputs**: 
-  - `topic_lookup.parquet`: (369, 21) - one row per topic (368 topics + noise topic) with labels, keywords, taxonomy/Radway mappings
+  - `topic_lookup.parquet`: (369, 21) - one row per topic (368 topics + noise topic) with labels, keywords, taxonomy/Radway mappings, scene summaries, primary/secondary categories
   - `full_model_data.csv` / `.parquet`: Full topic metadata in CSV/Parquet format (fallback when model unavailable)
   - `summary_statistics.json`: QA summary (topic counts, mapping coverage, keyword quality)
   - `topics_needs_review.csv`: Topics requiring manual review (missing mappings, poor keywords)
-  - Diagnostic reports: `id_alignment_report.csv`, `missing_books_in_outputs.csv`
+  - Diagnostic reports: `id_alignment_report.csv` (ID overlap diagnostics), `missing_books_in_outputs.csv` (books missing from outputs with metadata)
 - **Output Location**: `results/stage10_correlation_analysis/00_data_preparation/taxonomy_radway_eda/`
 
 **Script 02: Book Aggregation** (`02_book_aggregation.py`)
@@ -728,9 +740,17 @@ The Stage 10 pipeline consists of four sequential scripts plus analysis notebook
 - **Outputs**: `results/stage10_correlation_analysis/01_topic_analysis/`
 
 **02_taxonomy_group_analysis** (`02_taxonomy_group_analysis_v2_contract_normalized.ipynb`):
-- Taxonomy group-level distribution comparisons
-- Dual normalization (absolute vs conditional shares) to handle OTHER bucket variation
-- Kruskal-Wallis tests with Holm correction, Epsilon-squared effect sizes
+- Taxonomy group-level distribution comparisons across Top/Middle/Trash tiers
+- **Statistical Methods**: 
+  - **Dual normalization**: Absolute vs conditional shares to handle OTHER bucket variation (~0.32 mean mass differs by tier)
+  - **Nonparametric tests**: Kruskal-Wallis for overall tier differences, Mann-Whitney U for Top vs Trash comparisons
+  - **Effect sizes**: Cliff's delta (δ) as primary interpretation metric (small N makes p-values weak)
+  - **Multiple comparisons**: Family-wise adjusted p-values (Holm correction) where applicable
+- **Results**: 
+  - **Main groups**: Modest but interpretable differences. Top allocates more to Relationship Trajectory (δ≈+0.37), Social World Outside Couple (δ≈+0.30), Embodied & Sensory Experience (δ≈+0.29). Trash allocates more to Sexuality, Attraction & Intimacy (δ≈-0.25)
+  - **Subgroups**: Stronger differentiation. **Beliefs, Values & Moral Reflection** (Top higher, δ≈+0.46, adjusted p≈0.008), **Negative Emotions & Distress** (Trash higher, δ≈-0.37), **Shared Workplaces & Professional Interaction** (Top higher, δ≈+0.35), **Time/Seasons/Temporal framing** (Top higher, δ≈+0.36), **Violence/Threats/Coercion** (Trash higher, δ≈-0.30)
+  - **Diversity metrics**: Higher-tier books show greater thematic diversity (entropy: bad≈5.33 → mid≈5.43 → good≈5.48, p≈0.019 adjusted≈0.077). Effective topics: bad≈207 → mid≈229 → good≈240. Richness (topics > 1e-3): bad≈247 → mid≈258 → good≈265. HHI lower in good (more distributed)
+  - **Coverage**: Modeled mass ≈ 0.998 (very high coverage), unmapped/noise/paratext shares are extremely small (≈0.000–0.002 range)
 - **Outputs**: `results/stage10_correlation_analysis/02_taxonomy_group_analysis/`
 
 **03_composite_index_construction** (`05_build_theory_aligned_composites_indices_v5_6_measurement_pipeline.ipynb`):
@@ -743,10 +763,18 @@ The Stage 10 pipeline consists of four sequential scripts plus analysis notebook
 
 **04_hypothesis_testing** (`04_hypothesis_testing_inference_only_v4_2_macro_axes_tight.ipynb`):
 - Hypothesis testing (H1-H6) using composite indices
-- Macro-axes analysis (5-axis model: status/dominance, payoff/safety, drama/obstacle, explicitness, negative affect)
-- Bootstrap inference (800 iterations) with 95% CI and P(β>0)
-- Arc trajectory tests using exported deltas (end−begin, middle−begin)
-- Cross-validation performance (20 repeats of 5-fold CV)
+- **Statistical Methodology**:
+  - **Two-channel analysis**: Separates mass appeal (`log_rating_count` = visibility/popularity) from perceived quality (`rating_mean` = reader evaluation). Treats them as distinct outcome channels with different predictors.
+  - **Bootstrap inference**: 800 iterations, 95% confidence intervals, P(β>0) for directional effects (sign stability). All reported effects are standardized (beta_std) and estimated via bootstrap.
+  - **Macro-axes analysis**: 5-axis PCA reduction model (status/dominance, payoff/safety, drama/obstacle, explicitness, negative affect). Each macro-axis is a weighted combination of standardized CORE predictors.
+  - **Arc trajectory tests**: Uses exported deltas (end−begin, middle−begin) from measurement pipeline. Tests if theme changes over story predict ratings (controlling for reach).
+  - **Cross-validation**: 20 repeats of 5-fold CV for predictive performance assessment
+- **Macro-axis definitions** (weighted combinations):
+  - **AX_status_dominance**: D_power_wealth_luxury__pc1 (1.0) + R2_alpha_guarding (1.0)
+  - **AX_payoff_safety**: A2_emotional_safety__pc1 (1.0) + Q_repair (0.7) + R1_protective_caretaking (0.7)
+  - **AX_negative_affect**: F2_anger_frustration (1.0) + F3_anxiety_worry (1.0) + F1_sadness_grief (0.6)
+  - **AX_explicitness**: C_explicit_eroticism (1.0)
+  - **AX_attraction**: B1_attraction_chemistry (1.0)
 - **Outputs**: `results/measurement_v5/bundle/inference_outputs/`
 
 #### Hypothesis Testing Results
@@ -794,11 +822,18 @@ The Stage 10 pipeline consists of four sequential scripts plus analysis notebook
 
 **Topic-Level Analysis Results**:
 - **Sample**: 92 books (30 top, 32 middle, 30 trash) × 342 analyzed topics (368 total, excluding noise/outlier)
-- **Discriminative topics**: 85 topics identified via two-gate filtering (effect size |Cliff's δ| ≥ 0.20 AND meaningful impact)
-- **Top-associated topics** (70 topics): Emphasize psychological credibility (fear admissions, emotional delusion, identity affirmation) and embodied intimacy cues (affectionate stares, lip biting, shared joy). Top Tier 1 examples: "Married Couple's Affectionate Stares" (δ = 0.453), "Frightened Admissions" (δ = 0.420), "Emotional Relationship Delusion" (δ = 0.404)
-- **Trash-associated topics** (15 topics): Emphasize explicit sexual content ("Dominatrix Session", δ = -0.353) and procedural/transition scenes ("Work At Desk", "Exiting Through Doorways", "Phone Ringing And Answering")
-- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling
-- **Topic health**: Median prevalence = 0.924 (most topics appear in most books), median mass = 0.0020, median concentration ratio = 2.68
+- **Two-gate filtering rule**: 
+  - **Gate 1 (Effect)**: |Cliff's δ| ≥ 0.20 (meaningful effect size) - 163 topics passed
+  - **Gate 2 (Impact)**: mass ≥ 0.002 OR |Top–Trash mean diff| ≥ 0.001 (meaningful impact) - 186 topics passed
+  - **Both gates**: 85 topics (final filtered set)
+- **Two-tier structure**:
+  - **Tier 1 (High Confidence)**: 8 topics with |δ| ≥ 0.35 AND raw p < 0.05 AND both gates (7 Top-associated, 1 Trash-associated)
+  - **Tier 2 (Exploratory)**: 85 topics with |δ| ≥ 0.20 AND both gates, no p-value filter (70 Top-associated, 15 Trash-associated)
+- **Rationale for two-gate rule**: With n=30 books per tier, even large effect sizes (|δ| > 0.35) cannot survive FDR correction. The smallest adjusted p-value is ~0.20. The two-gate rule balances statistical rigor with practical interpretability for hypothesis-generating exploratory research.
+- **Top-associated topics** (70 topics): Emphasize psychological credibility (fear admissions, emotional delusion, bluffing about feelings, identity affirmation) and embodied intimacy cues (affectionate stares, lip biting, shared joy). Often map to Radway Phase I (Initial Conflict & Isolation) and Phase II (Turning Point & Recognition). Top Tier 1 examples: "Married Couple's Affectionate Stares" (δ = 0.453), "Frightened Admissions" (δ = 0.420), "Emotional Relationship Delusion" (δ = 0.404)
+- **Trash-associated topics** (15 topics): Emphasize explicit sexual content ("Dominatrix Session", δ = -0.353) and procedural/transition scenes ("Work At Desk", "Exiting Through Doorways", "Phone Ringing And Answering"). Often map to Radway Phase III (Commitment & Restoration) or "none" (background/contextual)
+- **Author dominance**: 30 topics show high author dominance (>50% from single author), requiring control in modeling. 6 topics are both significant AND author-driven (e.g., "Married Couple's Affectionate Stares" 75% Catharina_Maura, δ = 0.453). Methodological implication: Author-dominant topics should be excluded from tier interpretation (they reflect author style, not tier preferences), treated as covariates in modeling, and documented separately as "author signature topics"
+- **Topic health**: Median prevalence = 0.924 (most topics appear in most books under soft topic assignment), median mass = 0.0020, median concentration ratio = 2.68. Under soft topic assignment, most topics receive small non-zero probability in most books, making naive "topic presence" less informative than effect sizes and mass thresholds
 
 **Tier Differences** (Top/Middle/Trash):
 - **Top tier** (n=30): avg_rating ≈ 4.22, n_ratings ≈ 116k (higher quality perception + much higher visibility)
