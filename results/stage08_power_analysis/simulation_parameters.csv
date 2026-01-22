@@ -1,0 +1,2 @@
+n_grid,reps,alpha,outcomes,axes,n_books_pilot,reach_control,author_col
+"[6000, 8000, 10000, 12000, 15000, 20000]",250,0.05,"['rating_mean', 'avg_rating_bayes']","['AX_status_dominance', 'AX_drama_obstacle', 'AX_payoff_safety', 'AX_negative_affect', 'AX_explicitness', 'AX_attraction']",92,log_rating_count,Author

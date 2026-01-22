@@ -1,0 +1,25 @@
+outcome,model,axis,min_N_sign_stability_>=0.95
+rating_mean,OLS (no author FE),AX_status_dominance,
+rating_mean,OLS (no author FE),AX_drama_obstacle,
+rating_mean,OLS (no author FE),AX_payoff_safety,6000.0
+rating_mean,OLS (no author FE),AX_negative_affect,
+rating_mean,OLS (no author FE),AX_explicitness,
+rating_mean,OLS (no author FE),AX_attraction,
+rating_mean,Author FE (within-author),AX_status_dominance,
+rating_mean,Author FE (within-author),AX_drama_obstacle,
+rating_mean,Author FE (within-author),AX_payoff_safety,6000.0
+rating_mean,Author FE (within-author),AX_negative_affect,
+rating_mean,Author FE (within-author),AX_explicitness,6000.0
+rating_mean,Author FE (within-author),AX_attraction,6000.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,
+avg_rating_bayes,OLS (no author FE),AX_explicitness,
+avg_rating_bayes,OLS (no author FE),AX_attraction,6000.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,6000.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,6000.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,
+avg_rating_bayes,Author FE (within-author),AX_explicitness,6000.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,6000.0

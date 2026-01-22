@@ -1,0 +1,145 @@
+outcome,model,axis,N,power,sign_stability
+rating_mean,OLS (no author FE),AX_status_dominance,6000,0.016,0.48
+rating_mean,OLS (no author FE),AX_drama_obstacle,6000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,6000,0.984,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,6000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,6000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,6000,0.656,0.032
+rating_mean,OLS (no author FE),AX_status_dominance,8000,0.04,0.424
+rating_mean,OLS (no author FE),AX_drama_obstacle,8000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,8000,0.996,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,8000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,8000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,8000,0.796,0.004
+rating_mean,OLS (no author FE),AX_status_dominance,10000,0.044,0.428
+rating_mean,OLS (no author FE),AX_drama_obstacle,10000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,10000,1.0,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,10000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,10000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,10000,0.832,0.004
+rating_mean,OLS (no author FE),AX_status_dominance,12000,0.052,0.416
+rating_mean,OLS (no author FE),AX_drama_obstacle,12000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,12000,1.0,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,12000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,12000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,12000,0.9,0.004
+rating_mean,OLS (no author FE),AX_status_dominance,15000,0.056,0.36
+rating_mean,OLS (no author FE),AX_drama_obstacle,15000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,15000,1.0,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,15000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,15000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,15000,0.968,0.0
+rating_mean,OLS (no author FE),AX_status_dominance,20000,0.044,0.348
+rating_mean,OLS (no author FE),AX_drama_obstacle,20000,1.0,0.0
+rating_mean,OLS (no author FE),AX_payoff_safety,20000,1.0,1.0
+rating_mean,OLS (no author FE),AX_negative_affect,20000,1.0,0.0
+rating_mean,OLS (no author FE),AX_explicitness,20000,1.0,0.0
+rating_mean,OLS (no author FE),AX_attraction,20000,0.992,0.0
+rating_mean,Author FE (within-author),AX_status_dominance,6000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,6000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,6000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,6000,0.088,0.6
+rating_mean,Author FE (within-author),AX_explicitness,6000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,6000,1.0,1.0
+rating_mean,Author FE (within-author),AX_status_dominance,8000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,8000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,8000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,8000,0.072,0.58
+rating_mean,Author FE (within-author),AX_explicitness,8000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,8000,1.0,1.0
+rating_mean,Author FE (within-author),AX_status_dominance,10000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,10000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,10000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,10000,0.076,0.576
+rating_mean,Author FE (within-author),AX_explicitness,10000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,10000,1.0,1.0
+rating_mean,Author FE (within-author),AX_status_dominance,12000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,12000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,12000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,12000,0.072,0.6
+rating_mean,Author FE (within-author),AX_explicitness,12000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,12000,1.0,1.0
+rating_mean,Author FE (within-author),AX_status_dominance,15000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,15000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,15000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,15000,0.092,0.632
+rating_mean,Author FE (within-author),AX_explicitness,15000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,15000,1.0,1.0
+rating_mean,Author FE (within-author),AX_status_dominance,20000,1.0,0.0
+rating_mean,Author FE (within-author),AX_drama_obstacle,20000,1.0,0.0
+rating_mean,Author FE (within-author),AX_payoff_safety,20000,1.0,1.0
+rating_mean,Author FE (within-author),AX_negative_affect,20000,0.112,0.648
+rating_mean,Author FE (within-author),AX_explicitness,20000,1.0,1.0
+rating_mean,Author FE (within-author),AX_attraction,20000,1.0,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,6000,0.144,0.188
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,6000,0.104,0.28
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,6000,0.16,0.06
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,6000,0.632,0.008
+avg_rating_bayes,OLS (no author FE),AX_explicitness,6000,0.944,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,6000,0.968,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,8000,0.2,0.172
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,8000,0.136,0.216
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,8000,0.256,0.044
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,8000,0.796,0.004
+avg_rating_bayes,OLS (no author FE),AX_explicitness,8000,0.98,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,8000,0.996,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,10000,0.236,0.132
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,10000,0.168,0.18
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,10000,0.296,0.036
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,10000,0.876,0.0
+avg_rating_bayes,OLS (no author FE),AX_explicitness,10000,0.996,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,10000,1.0,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,12000,0.248,0.104
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,12000,0.176,0.164
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,12000,0.332,0.0
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,12000,0.932,0.0
+avg_rating_bayes,OLS (no author FE),AX_explicitness,12000,0.996,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,12000,1.0,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,15000,0.312,0.06
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,15000,0.184,0.136
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,15000,0.448,0.004
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,15000,0.972,0.0
+avg_rating_bayes,OLS (no author FE),AX_explicitness,15000,1.0,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,15000,1.0,1.0
+avg_rating_bayes,OLS (no author FE),AX_status_dominance,20000,0.432,0.048
+avg_rating_bayes,OLS (no author FE),AX_drama_obstacle,20000,0.26,0.088
+avg_rating_bayes,OLS (no author FE),AX_payoff_safety,20000,0.576,0.008
+avg_rating_bayes,OLS (no author FE),AX_negative_affect,20000,0.992,0.0
+avg_rating_bayes,OLS (no author FE),AX_explicitness,20000,1.0,0.0
+avg_rating_bayes,OLS (no author FE),AX_attraction,20000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,6000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,6000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,6000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,6000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,6000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,6000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,8000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,8000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,8000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,8000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,8000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,8000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,10000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,10000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,10000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,10000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,10000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,10000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,12000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,12000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,12000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,12000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,12000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,12000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,15000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,15000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,15000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,15000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,15000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,15000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_status_dominance,20000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_drama_obstacle,20000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_payoff_safety,20000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_negative_affect,20000,1.0,0.0
+avg_rating_bayes,Author FE (within-author),AX_explicitness,20000,1.0,1.0
+avg_rating_bayes,Author FE (within-author),AX_attraction,20000,1.0,1.0
