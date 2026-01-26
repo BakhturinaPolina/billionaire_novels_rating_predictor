@@ -1,30 +1,10 @@
 # Stage 01: Data Ingestion
 
-## Overview
-
-Stage 01 handles loading raw data files, Goodreads metadata, and BookNLP outputs for downstream processing.
+Load raw novel texts and Goodreads metadata for downstream processing.
 
 ## Status
 
-⚠️ **Placeholder Implementation** - Core logic pending
-
-The `main.py` file shows the planned structure and data contracts, but implementation is pending.
-
-## Planned Functionality
-
-### Inputs
-- Raw text files from `data/raw/Billionaire_Full_Novels_TXT/`
-- Goodreads metadata CSV: `data/processed/goodreads.csv`
-- BookNLP outputs (optional): `data/interim/booknlp/`
-
-### Outputs
-- Processed text data for Stage 02
-- Merged metadata
-- BookNLP entity information
-
-## Data Contracts
-
-See [docs/DATA_CONTRACTS.md](../../docs/DATA_CONTRACTS.md) for detailed input/output specifications.
+⚠️ **Placeholder** — CLI structure defined, core logic pending.
 
 ## Usage
 
@@ -32,12 +12,31 @@ See [docs/DATA_CONTRACTS.md](../../docs/DATA_CONTRACTS.md) for detailed input/ou
 python -m src.stage01_ingestion.main --config configs/paths.yaml
 ```
 
-## Implementation Notes
+## Inputs
 
-When implementing, consider:
-- Handling multiple file formats (TXT, EPUB, etc.)
-- Merging Goodreads metadata with book texts
-- Processing BookNLP outputs if available
-- Error handling for missing files
-- Progress tracking for large datasets
+| Source | Path | Description |
+|--------|------|-------------|
+| Raw texts | `data/raw/Billionaire_Full_Novels_TXT/` | TXT/EPUB novel files |
+| Goodreads | `data/processed/goodreads.csv` | Ratings, review counts |
+| BookNLP | `data/interim/booknlp/` | Character entities (optional) |
 
+## Outputs
+
+| Output | Description |
+|--------|-------------|
+| Processed texts | Book texts with metadata attached |
+| Merged metadata | Book IDs, ratings, author info |
+| Character names | For stoplist in Stage 02 |
+
+## Module Structure
+
+```
+stage01_ingestion/
+├── main.py      # CLI entrypoint
+├── README.md    # This file
+└── __init__.py
+```
+
+## See Also
+
+- [Methodology Report](../../reports/01_stage_reports/stage01_ingestion/stage01_data_ingestion_methodology.md) — Research rationale and data decisions
