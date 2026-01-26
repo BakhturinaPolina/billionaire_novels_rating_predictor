@@ -28,35 +28,14 @@ This document provides an overview of the research methodology and findings. For
 
 ## Research Hypotheses
 
-### H1: Love-over-Sex
-> (commitment + tenderness) > explicit sexual content in higher-rated books
-
-Higher-rated novels emphasize emotional connection over explicit content.
-
-### H2: HEA Index
-> HEA indicators higher in top-rated books
-
-Novels with stronger Happily Ever After signals (commitment, symbolic gifts, rituals) are more appreciated.
-
-### H3: Luxury × Love Interaction
-> Luxury predicts ratings only when combined with emotional depth
-
-Wealth/luxury settings appeal to readers only when paired with commitment and tenderness.
-
-### H4: Protectiveness vs Possessiveness
-> protectiveness − jealousy is higher in top-rated books
-
-Caring protectiveness is valued more than jealous possessiveness.
-
-### H5: Darkness vs Tenderness
-> (negative affect + threat/violence) − tenderness is lower in top-rated books
-
-Top-rated novels favor tenderness over dark themes.
-
-### H6: Narrative Arc
-> begin→end: miscommunication ↓, negative affect ↓; commitment ↑, repair ↑
-
-Successful romances show progression from conflict to resolution.
+| # | Hypothesis | Operationalization |
+|---|------------|-------------------|
+| H1 | **Love-over-Sex**: Higher-rated novels emphasize emotional connection over explicit content | `(commitment + tenderness) − explicit` |
+| H2 | **HEA Index**: Stronger "Happily Ever After" signals predict appreciation | `commitment + symbolic_gifts + rituals` |
+| H3 | **Luxury × Love**: Wealth appeals only when paired with emotional depth | `luxury × (commitment + tenderness)` |
+| H4 | **Protectiveness vs Possessiveness**: Caring protection valued over jealousy | `protectiveness − jealousy` |
+| H5 | **Darkness vs Tenderness**: Top-rated novels favor tenderness over dark themes | `(negative_affect + threat) − tenderness` |
+| H6 | **Narrative Arc**: Successful romances progress from conflict to resolution | `begin→end: miscomm↓, repair↑`
 
 ---
 
@@ -167,46 +146,6 @@ See [`reports/01_stage_reports/`](reports/01_stage_reports/) for detailed method
 
 ---
 
-## Derived Indices
-
-Composite indices operationalize the research hypotheses:
-
-### Love-over-Sex
-```
-(commitment_hea + tenderness) − explicit
-```
-
-### HEA Index
-```
-commitment_hea + symbolic_gifts + festive_rituals
-```
-
-### Explicitness Ratio
-```
-explicit / (explicit + commitment + tenderness)
-```
-
-### Luxury Saturation
-```
-luxury_wealth + luxury_settings + luxury_consumption + nightlife_glamour
-```
-
-### Dark-vs-Tender
-```
-(negative_affect + threat_violence) − tenderness
-```
-
-### Miscommunication Balance
-```
-(commitment + tenderness + repair) − miscommunication
-```
-
-### Protective–Jealousy Delta
-```
-protectiveness_care − jealousy_possessiveness
-```
-
----
 
 ## Key Findings
 
@@ -256,7 +195,6 @@ See [`reports/02_findings/hypothesis_testing/`](reports/02_findings/hypothesis_t
 This research draws on:
 
 - **Radway (1984)**: Narrative function analysis of romance fiction
-- **Propp**: Narrative functions and story structure
 - **Ogas & Gaddam (2011)**: Reader psychology and genre preferences
 
 The category mapping operationalizes these theoretical constructs for quantitative analysis.
