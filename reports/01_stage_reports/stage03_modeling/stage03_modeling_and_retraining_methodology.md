@@ -10,50 +10,7 @@ Train BERTopic models with OCTIS hyperparameter optimization, using GPU-accelera
 
 Unlike traditional LDA, BERTopic uses BERT embeddings to capture contextual word meanings, producing more interpretable topics for literary analysis. This enables identification of semantic relationships beyond simple word co-occurrence.
 
-### Why Character Name Exclusion?
-
-Character names present a unique challenge: when they appear frequently, they can dominate topic word distributions, creating topics that reflect character co-occurrence rather than thematic relationships.
-
-**Impact**:
-- **Before exclusion**: Topics dominated by names (e.g., "Alex, Stella, Weston, love")
-- **After exclusion**: Topics focus on themes (e.g., "love, relationship, emotion, connection")
-
-This aligns with computational literary analysis practices where character names are treated as structural elements rather than semantic content (Bamman et al., 2013; Jockers, 2013).
-
----
-
-## Character Name Exclusion
-
-### Processing Statistics
-
-| Metric | Value |
-|--------|-------|
-| Lines processed | 7,525 |
-| Lines filtered | 254 (3.4%) |
-| Valid name lines | 7,271 |
-| Multi-word names | 3,313 |
-| Unique tokens | 4,497 |
-| Final stopwords | 4,444 |
-
-### Stoplist Composition
-
-| Component | Count | Percentage |
-|-----------|-------|------------|
-| Character names | 4,444 | 93% |
-| Standard English | 318 | 7% |
-| **Total** | **4,762** | 100% |
-
-This represents a **14× expansion** over standard English stopword lists.
-
-### Processing Pipeline
-
-1. **Cleaning**: Remove prefixes ("Mr.", "Miss"), numbers, quotes, punctuation
-2. **Filtering**: Remove long lines (>50 chars), common phrases, descriptive patterns
-3. **Extraction**: Split multi-word names ("Alex Crane" → "alex", "crane")
-
-### Precision Trade-off
-
-The pipeline retains some non-name words (estimated 1–2%). We prioritize **coverage over precision** to ensure comprehensive character name exclusion. False positives have minimal impact as they appear infrequently.
+**Character Name Exclusion**: Stage 03 uses the custom stoplist from Stage 02 preprocessing, which excludes 4,444 character names to ensure topics focus on thematic content rather than character co-occurrence. See [Stage 02 methodology](../stage02_preprocessing/stage02_preprocessing_methodology.md) for details.
 
 ---
 
