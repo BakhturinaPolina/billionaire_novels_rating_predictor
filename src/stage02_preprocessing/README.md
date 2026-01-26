@@ -1,47 +1,10 @@
 # Stage 02: Preprocessing
 
-## Overview
-
-Stage 02 handles text cleaning, tokenization, lemmatization, and custom stoplist building.
+Text cleaning, sentence segmentation, tokenization, lemmatization, and custom stoplist application.
 
 ## Status
 
-⚠️ **Placeholder Implementation** - Core logic pending
-
-The `main.py` file shows the planned structure, but implementation is pending.
-
-## Planned Functionality
-
-### Text Cleaning
-- Remove special characters
-- Handle encoding issues
-- Normalize whitespace
-- Remove headers/footers if present
-
-### Tokenization & Lemmatization
-- Sentence segmentation
-- Word tokenization
-- Part-of-speech tagging
-- Lemmatization (using spaCy or similar)
-
-### Custom Stoplist
-- Load custom stoplist from `data/processed/custom_stoplist.txt`
-- Remove stopwords
-- Domain-specific filtering
-
-### Output
-- Cleaned, tokenized, lemmatized text
-- One sentence per row in CSV format
-- Ready for Stage 03 modeling
-
-## Data Contracts
-
-**Input**: Raw text files from Stage 01  
-**Output**: `data/processed/chapters.csv` with columns:
-- `Book_Title`: Book identifier
-- `Sentence`: Preprocessed sentence text
-
-See [docs/DATA_CONTRACTS.md](../../docs/DATA_CONTRACTS.md) for details.
+⚠️ **Placeholder** — CLI structure defined, core logic pending. Output data (`chapters.csv`) exists from earlier processing.
 
 ## Usage
 
@@ -49,12 +12,37 @@ See [docs/DATA_CONTRACTS.md](../../docs/DATA_CONTRACTS.md) for details.
 python -m src.stage02_preprocessing.main --config configs/paths.yaml
 ```
 
-## Implementation Notes
+## Inputs
 
-When implementing, consider:
-- Using spaCy for NLP processing
-- Handling large files efficiently
-- Preserving sentence boundaries
-- Custom stoplist integration
-- Memory management for large datasets
+| Source | Path | Description |
+|--------|------|-------------|
+| Raw texts | From Stage 01 | Novel texts with metadata |
+| Stoplist | `data/processed/custom_stoplist.txt` | Character names + English stopwords |
 
+## Outputs
+
+| Output | Path | Description |
+|--------|------|-------------|
+| Chapters | `data/processed/chapters.csv` | 680,822 sentences, one per row |
+
+**Output columns**: `Author`, `Book Title`, `Chapter`, `Sentence`
+
+## Processing Steps
+
+1. **Text cleaning**: Encoding fixes (mojibake), whitespace normalization
+2. **Sentence segmentation**: Split into sentences (spaCy)
+3. **Tokenization & lemmatization**: POS tagging, root form extraction
+4. **Stopword removal**: 4,762 stopwords (4,444 character names + 318 English)
+
+## Module Structure
+
+```
+stage02_preprocessing/
+├── main.py      # CLI entrypoint
+├── README.md    # This file
+└── __init__.py
+```
+
+## See Also
+
+- [Methodology Report](../../reports/01_stage_reports/stage02_preprocessing/stage02_preprocessing_methodology.md) — Research rationale and processing decisions
