@@ -1,6 +1,0 @@
-outcome,model,predictor,beta_std,ci_low,ci_high,p(beta>0),n,controls
-avg_rating_bayes,control_log_n,AX_payoff_safety,0.08230778064473616,-0.08810653323403105,0.25251376440446244,0.8225,92,log_n_ratings
-avg_rating_bayes,control_log_n,AX_attraction,0.06548772504465171,-0.10355850906932815,0.23750260389685154,0.7675,92,log_n_ratings
-avg_rating_bayes,control_log_n,AX_status_dominance,-0.0010813079651206142,-0.21699080901007237,0.23162634087807538,0.48125,92,log_n_ratings
-avg_rating_bayes,control_log_n,AX_negative_affect,-0.07178674160582886,-0.2867475281078436,0.14957861166852915,0.25875,92,log_n_ratings
-avg_rating_bayes,control_log_n,AX_explicitness,-0.0792960294807604,-0.3006697226355265,0.12171730577866623,0.2325,92,log_n_ratings

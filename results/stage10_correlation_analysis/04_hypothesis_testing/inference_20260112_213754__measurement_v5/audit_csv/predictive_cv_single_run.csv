@@ -1,4 +1,0 @@
-outcome,model,cv_r2
-rating_mean,metadata_only,0.12494696153634177
-rating_mean,metadata+core,0.04956509203511683
-log_rating_count,core_only,0.03363151148082433
