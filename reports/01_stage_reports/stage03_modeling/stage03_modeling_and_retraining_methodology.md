@@ -52,9 +52,3 @@ Embeddings are cached to avoid recomputation across training iterations, signifi
 3. **Stage 05**: Retrain top models for final deployment
 
 ---
-
-## References
-
-- Bamman, D., Underwood, T., & Smith, N. A. (2013). A Bayesian Mixed Effects Model of Literary Character. *ACL*.
-- Jockers, M. L. (2013). *Macroanalysis: Digital Methods and Literary History*. University of Illinois Press.
-- Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. *arXiv:2203.05794*.

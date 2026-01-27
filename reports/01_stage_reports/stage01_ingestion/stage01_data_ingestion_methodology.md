@@ -101,8 +101,3 @@ The ingestion stage produces:
 | 10 Correlation | Book metadata for tier grouping |
 
 ---
-
-## References
-
-- Bamman, D., Underwood, T., & Smith, N. A. (2013). A Bayesian Mixed Effects Model of Literary Character. *ACL*.
-- Jockers, M. L. (2013). *Macroanalysis: Digital Methods and Literary History*. University of Illinois Press.
