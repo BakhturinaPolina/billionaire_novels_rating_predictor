@@ -216,31 +216,3 @@ All labels and metadata stored in BERTopic model's `topic_metadata_` attribute:
 3. **Cost**: API costs scale with number of topics
 4. **Latency**: Sequential processing (~6-18 minutes for 368 topics)
 
-### 5.4 Future Improvements
-
-1. Diversity-aware snippet selection (MMR)
-2. Adaptive snippet count based on topic complexity
-3. Parallel processing for reduced latency
-4. Dynamic few-shot example selection
-5. Automated label quality metrics
-
----
-
-## 6. Conclusion
-
-Stage 08 demonstrates that LLM-based labeling can effectively transform keyword clusters into interpretable, scene-level labels for computational literary analysis. The combination of:
-- Snippet-integrated prompting
-- Anti-hallucination constraints
-- Romance-aware domain design
-- Instruction-tuned models
-
-achieves **100% label coverage** with **high-quality, discriminative labels** suitable for downstream taxonomy mapping and theoretical analysis.
-
----
-
-**Results Location**: `results/stage08_llm_labeling/`  
-**Code Location**: `src/stage08_llm_labeling/`
-
----
-
-*Report Generated: December 2024*
