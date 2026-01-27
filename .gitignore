@@ -62,3 +62,8 @@ archive/
 # Exclude large dataset files from EDA
 results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.csv
 results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.parquet
+
+# Research article drafts
+reports/01_stage_reports/stage04_selection/drafts/
+reports/01_stage_reports/stage08_llm_labeling/drafts/
+reports/02_findings/methodology_llm_labeling_and_taxonomy/drafts/

@@ -1,0 +1,148 @@
+# ============================================================
+# FROZEN MEASUREMENT SCHEMA — DATA-FAITHFUL VERSION
+# ============================================================
+
+global:
+  normalization: zscore_global
+  radway_weighting: conditional
+  min_anchor_components: 2
+  reliability_thresholds:
+    cronbach_alpha: 0.60
+    mcdonald_omega: 0.65
+  sign_stability_threshold: 0.90
+
+# ------------------------------------------------------------
+# PAYOFF / SAFETY (CONFIRMATORY, CORE)
+# ------------------------------------------------------------
+AX_payoff_safety:
+  type: evaluative
+  hypothesis_role: confirmatory
+  description: >
+    Secure relational payoff expressed through reconciliation,
+    commitment, and positive emotional resolution.
+
+  anchors:
+    taxonomy:
+      - 4.5   # Reconciliation / commitment / HEA
+      - 3.1   # Positive emotions & security
+
+  radway_weights:
+    I: 0.0
+    II: 0.5
+    III: 1.0
+
+  construction:
+    method: weighted_sum
+    weights: equal
+
+# ------------------------------------------------------------
+# LOVE OVER SEX (CONFIRMATORY, SIMPLIFIED)
+# ------------------------------------------------------------
+AX_love_over_sex:
+  type: evaluative
+  hypothesis_role: confirmatory
+  description: >
+    Relative emphasis on emotional commitment and care
+    over explicit sexual content.
+
+  construction:
+    method: log_ratio
+    epsilon: 1e-6
+
+  numerator:
+    taxonomy:
+      - 4.5   # Commitment / HEA
+      - 3.1   # Positive emotions
+
+  denominator:
+    taxonomy:
+      - 2.3   # Explicit sexual acts
+
+  radway_weights:
+    I: 0.2
+    II: 0.7
+    III: 1.0
+
+# ------------------------------------------------------------
+# ATTRACTION / CHEMISTRY (EXPLORATORY)
+# ------------------------------------------------------------
+AX_attraction:
+  type: evaluative
+  hypothesis_role: exploratory
+  description: >
+    Non-explicit romantic chemistry and desire cues.
+
+  anchors:
+    taxonomy:
+      - 2.1   # Attraction & sexual tension
+
+  radway_weights:
+    I: 0.7
+    II: 1.0
+    III: 0.6
+
+  construction:
+    method: weighted_sum
+    weights: equal
+
+# ------------------------------------------------------------
+# DYSREGULATED NEGATIVE AFFECT (EXPLORATORY)
+# ------------------------------------------------------------
+AX_dysregulated_negative_affect:
+  type: evaluative
+  hypothesis_role: exploratory
+  description: >
+    Negative emotional states not followed by narrative repair.
+
+  anchors:
+    taxonomy:
+      - 3.2   # Negative emotions & distress
+
+  radway_weights:
+    I: 1.0
+    II: 0.5
+    III: 0.0
+
+  construction:
+    method: weighted_sum
+    weights: equal
+
+# ------------------------------------------------------------
+# STATUS / DOMINANCE (VISIBILITY)
+# ------------------------------------------------------------
+AX_status_dominance:
+  type: visibility
+  hypothesis_role: confirmatory
+  description: >
+    Status, wealth, and dominance fantasy signals
+    driving reach rather than quality.
+
+  anchors:
+    taxonomy:
+      - 6.1   # Hero's elite work
+      - 6.4   # Money / housing
+
+  construction:
+    method: weighted_sum
+    weights: equal
+
+# ------------------------------------------------------------
+# CONTEXTUAL OBSTACLE (DESCRIPTIVE ONLY)
+# ------------------------------------------------------------
+AX_external_obstacle:
+  type: contextual
+  hypothesis_role: descriptive
+  description: >
+    External plot-driving obstacles (not evaluative).
+
+  anchors:
+    taxonomy:
+      - 7.2   # Violence / coercion
+
+  construction:
+    method: weighted_sum
+    weights: equal
+
+  usage:
+    allowed_as_predictor: false
+    allowed_as_control: true
