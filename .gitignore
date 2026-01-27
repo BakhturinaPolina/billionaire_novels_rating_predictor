@@ -46,7 +46,7 @@ logs/
 cache/
 
 # Excluded folders (large files and development artifacts)
-archive/
+**/archive/
 
 # Timestamped run outputs (generated directories)
 /stage03_modeling_20*/
@@ -64,6 +64,7 @@ results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.csv
 results/stage09_category_mapping/stage3_radway_functions/eda/full_model_data.parquet
 
 # Research article drafts
+drafts/
 reports/01_stage_reports/stage04_selection/drafts/
 reports/01_stage_reports/stage08_llm_labeling/drafts/
 reports/01_stage_reports/stage09_category_mapping/01_stage1_natural_clusters/drafts/
