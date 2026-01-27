@@ -1,4 +1,6 @@
-# Sample Size Decision: Simulation-Based Power Analysis
+# Stage 11: Power Analysis Report
+
+## Sample Size Decision: Simulation-Based Power Analysis
 
 **Source Notebook:** `notebooks/08_power_analysis/08_power_analysis_for_large_dataset.ipynb`  
 **Analysis Date:** 2026-01-23  

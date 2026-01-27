@@ -1,6 +1,8 @@
-# Stage 08: LLM-Based Topic Labeling
+# Stage 08: LLM-Based Topic Labeling Report
 
-**Research Report**
+**Date**: December 2024  
+**Model**: mistralai/Mistral-Nemo-Instruct-2407 via OpenRouter  
+**Coverage**: 368/368 topics (100%)
 
 This report documents the methodology and results of Stage 08, which implements automated topic labeling using Large Language Models (LLMs) to transform BERTopic keyword clusters into interpretable, scene-level labels suitable for computational literary analysis.
 
@@ -236,8 +238,9 @@ achieves **100% label coverage** with **high-quality, discriminative labels** su
 
 ---
 
-**Analysis Date**: December 2024  
-**Model**: mistralai/Mistral-Nemo-Instruct-2407 via OpenRouter  
-**Coverage**: 368/368 topics (100%)  
 **Results Location**: `results/stage08_llm_labeling/`  
 **Code Location**: `src/stage08_llm_labeling/`
+
+---
+
+*Report Generated: December 2024*

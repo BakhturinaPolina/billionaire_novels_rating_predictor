@@ -2,118 +2,98 @@
 
 ## Overview
 
-Stage 10 performs comprehensive statistical analysis and exploratory data analysis (EDA) combining topic probabilities with Goodreads metadata. This includes:
+Stage 10 performs statistical analysis combining topic probabilities with Goodreads metadata. The analysis examines relationships between thematic content and book outcomes (reach and perceived quality) at three levels:
 
-- **Statistical analysis** of taxonomy category differences across rating classes
-- **Exploratory data analysis** of taxonomy and Radway narrative function mappings
-- **Hypothesis testing** with effect size calculations
-- **Visualization** of results
+- **Macro-axis level**: Weighted combinations of CORE predictors
+- **Topic-level**: Individual BERTopic probabilities (368 topics)  
+- **Taxonomy-group level**: Aggregated probability mass (8 main groups, 27 subgroups)
 
 ## Structure
 
 ```
 stage10_correlation_analysis/
-└── data_preparation/      # Data preparation scripts
-    ├── 01_data_validation_extraction.py
-    ├── 02_book_aggregation.py
-    ├── 03_generate_topic_probabilities_final.py  # Generate book/chapter topic probabilities
-    └── 04_generate_tertile_topic_probs.py  # Generate tertile topic probabilities
+└── data_preparation/
+    ├── 01_data_validation_extraction.py  # Extract topic metadata, validate IDs
+    ├── 02_book_aggregation.py            # Aggregate to book-level, compute indices
+    ├── 03_generate_topic_probabilities_final.py  # Book/chapter topic probabilities
+    └── 04_generate_tertile_topic_probs.py        # Tertile probabilities (begin/middle/end)
 ```
 
-## Analysis Scripts
+## Data Preparation Pipeline
 
-### 1. Topic Probability Generation (`data_preparation/03_generate_topic_probabilities_final.py`)
+### Execution Order
 
-Generates book-level and chapter-level topic probabilities from sentence-level data. This is a prerequisite for statistical analysis and correlation studies.
-
-**Features:**
-- Aggregates sentence-level topic probabilities to book and chapter levels
-- Supports Goodreads ID-based book identification for reliable metadata merging
-- Caching system for efficient recomputation (saves ~515MB cache)
-- Batch processing for large datasets
-- Normalized probability distributions (sum to 1.0 per book/chapter)
-
-**Usage:**
 ```bash
+# Step 1: Generate topic probabilities
 python src/stage10_correlation_analysis/data_preparation/03_generate_topic_probabilities_final.py \
     --sentence-df data/processed/sentence_df_with_topics.parquet \
     --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings \
     --output-dir results/stage10_correlation_analysis/data_preparation \
-    --book-id-source goodreads \
-    --goodreads-id-col ID \
-    [--batch-size 32] \
-    [--no-cache]
-```
+    --book-id-source goodreads --goodreads-id-col ID
 
-**Outputs:**
-- `book_topic_probs.parquet`: Book-level topic probabilities (book_id, topic_id, prob)
-  - Format: One row per (book, topic) pair
-  - Example: 33,856 rows for 92 books × 368 topics
-- `chapter_topic_probs.parquet`: Chapter-level topic probabilities (book_id, chapter_id, topic_id, prob)
-  - Format: One row per (chapter, topic) pair
-  - Example: 1,089,280 rows for 2,960 chapters × 368 topics
-- `cache/transform_*.pkl`: Cached transform outputs for efficient recomputation
-
-**Key Features:**
-- **Book ID Handling**: Supports Goodreads IDs (recommended), existing book_id column, or Author+Title fallback
-- **Caching**: File-based cache keys detect input changes (file size + modification time)
-- **Normalization**: Probabilities sum to 1.0 per book/chapter (validated automatically)
-- **Error Handling**: Comprehensive diagnostics for zero-probability chapters and NaN values
-
-### 2. Tertile Topic Probabilities (`data_preparation/04_generate_tertile_topic_probs.py`)
-
-Generates topic probabilities for begin/middle/end tertiles of each book by splitting the book's token stream into three equal parts and re-inferring topic mixtures per tertile.
-
-**Features:**
-- Splits each book's sentences into three tertiles (begin/middle/end)
-- Re-infers topic probabilities for each tertile using BERTopic model
-- Preserves sentence order within books for accurate tertile boundaries
-- Normalized probability distributions (sum to 1.0 per tertile)
-
-**Usage:**
-```bash
+# Step 2: Generate tertile probabilities (optional, for arc analysis)
 python src/stage10_correlation_analysis/data_preparation/04_generate_tertile_topic_probs.py \
     --sentence-df data/processed/sentence_df_with_topics.parquet \
     --model-path models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings \
     --output-dir results/stage10_correlation_analysis/data_preparation \
-    --book-id-source goodreads \
-    --goodreads-id-col ID
+    --book-id-source goodreads --goodreads-id-col ID
+
+# Step 3: Extract topic metadata
+python src/stage10_correlation_analysis/data_preparation/01_data_validation_extraction.py \
+    --output-dir results/stage10_correlation_analysis/data_preparation/taxonomy_radway_eda
+
+# Step 4: Aggregate to book-level
+python src/stage10_correlation_analysis/data_preparation/02_book_aggregation.py \
+    --topic-lookup results/stage10_correlation_analysis/data_preparation/taxonomy_radway_eda/topic_lookup.parquet \
+    --output-dir results/stage10_correlation_analysis/data_preparation/book_features
 ```
 
-**Outputs:**
-- `tertile_topic_probs.parquet`: Tertile-level topic probabilities (book_id, tertile, topic_id, prob)
-  - Format: One row per (book, tertile, topic) pair
-  - Tertile values: "begin", "middle", "end"
-  - Example: 92 books × 3 tertiles × 368 topics = 101,568 rows
+### Key Outputs
 
-**Key Features:**
-- **Tertile Splitting**: Divides each book's sentences into three equal parts based on sentence order
-- **Order Preservation**: Maintains original sentence order (by chapter_id or sentence_index if available)
-- **Normalization**: Probabilities sum to 1.0 per tertile (validated automatically)
-- **Statistical Analysis Ready**: Output format suitable for analyzing topic distribution differences across book parts and rating classes
+**Topic Probabilities** (`data_preparation/topic_probabilities/`):
+- `book_topic_probs.parquet`: Book-level topic probabilities (92 books × 368 topics)
+- `chapter_topic_probs.parquet`: Chapter-level topic probabilities
+- `tertile_topic_probs.parquet`: Tertile-level probabilities (begin/middle/end per book)
+
+**Topic Metadata** (`data_preparation/taxonomy_radway_eda/`):
+- `topic_lookup.parquet`: Topic-level lookup with taxonomy and Radway mappings
+
+**Book Features** (`data_preparation/book_features/`):
+- `book_taxonomy_main_props_wide.parquet`: Book-level taxonomy proportions
+- `indices_book_taxonomy_proxy.parquet`: Derived hypothesis-aligned indices
+
+### Derived Indices
+
+| Index | Formula | Hypothesis |
+|-------|---------|------------|
+| love_over_sex | emotional_content - explicit | H1: Emotional intimacy vs. explicit sexuality |
+| hea_index | commitment_hea | H2: HEA content prevalence |
+| explicitness_ratio | explicit / total_romantic | H1 variant |
+| dark_vs_tender | dark_content - tender_content | H5: Dark vs. tender content |
 
 ## Inputs
 
 - **Sentence DataFrame**: `data/processed/sentence_df_with_topics.parquet`
-  - Required columns: `text`, `book_id` (or `goodreads_book_id`), `chapter_id` (optional)
-  - Contains sentence-level topic assignments from Stage 09
-- **BERTopic Model**: Model with taxonomy and Radway mappings (from Stage 9)
-  - Recommended: `models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_categories`
-- **Book Category Proportions**: `results/stage09_category_mapping/stage2_theory_driven_categories/book_category_proportions.parquet`
-- **Taxonomy Mappings**: `results/stage09_category_mapping/stage2_theory_driven_categories/taxonomy_mappings_*.json`
+- **BERTopic Model**: `models/retrained/paraphrase-MiniLM-L6-v2/stage09_category_mapping/model_1_with_radway_mappings`
+- **Goodreads Metadata**: `data/processed/goodreads.csv`
 
-## Outputs
+## Analysis Notebooks
 
-- **Topic Probabilities** (Production): `results/stage10_correlation_analysis/data_preparation/topic_probabilities/`
-  - `book_topic_probs.parquet`: Book-level topic probabilities (production version)
-  - `chapter_topic_probs.parquet`: Chapter-level topic probabilities (production version)
-  - `tertile_topic_probs.parquet`: Tertile-level topic probabilities (begin/middle/end per book)
-  - `cache/`: Cached transform outputs for efficient recomputation
+Located in `notebooks/07_analysis/`:
+- `01_topic_analysis/`: Topic-level comparisons across rating tiers
+- `02_taxonomy_group_analysis/`: Taxonomy group comparisons, diversity analysis
+- `03_composite_index_construction/`: Theory-aligned composite index building
+- `04_hypothesis_testing/`: Statistical hypothesis tests
 
 ## Dependencies
 
-- `pandas`, `numpy` for data manipulation
-- `scipy` for statistical tests (Kruskal-Wallis, Mann-Whitney U)
-- `matplotlib`, `seaborn` for visualization
-- `bertopic` for model loading
+- `pandas`, `numpy`: Data manipulation
+- `scipy`: Statistical tests (Kruskal-Wallis, Mann-Whitney U, bootstrap)
+- `matplotlib`, `seaborn`: Visualization
+- `bertopic`: Model loading
+- `pyarrow`: Parquet support
 
+## Reports
+
+- **Main Report**: `reports/01_stage_reports/stage10_correlation_analysis/stage10_correlation_analysis_report.md`
+- **Drafts**: `reports/01_stage_reports/stage10_correlation_analysis/drafts/` (working documents, git-ignored)
