@@ -1,27 +1,15 @@
-# Stage 06 – BERTopic Topics Exploration
+# Stage 06: Topic Exploration
 
-Interactive tooling for inspecting retrained BERTopic checkpoints coming out of Stage 05. The module focuses on fast, instrumented loading of the pickle wrapper or native safetensors folder, attaching richer representation models, and computing coherence/diversity diagnostics with aggressive logging so bottlenecks are easy to spot.
+Interactive tooling for inspecting retrained BERTopic models with multiple representations and coherence/diversity metrics.
 
-## Key Inputs
-- `models/retrained/<embedding_model>/model_<rank>.pkl` – pickle wrapper containing `RetrainableBERTopicModel`.
-- `models/retrained/<embedding_model>/model_<rank>/` – native BERTopic folder saved with `serialization="safetensors"`.
-- `models/retrained/paraphrase-MiniLM-L6-v2/model_1_metadata.json` – hyperparameter summary + topic counts for quick reference.
-- `data/processed/chapters.csv` – full cleaned corpus (Stage 05 output).
-- `data/processed/chapters_subset_10000.csv` – lightweight subset for smoke tests.
-- `data/interim/octis/corpus.tsv` – OCTIS corpus used as the canonical gensim dictionary source.
+## Status
 
-## What the Helper Does
-1. Loads the wrapper (default) or native BERTopic folder with `--use-native`.
-2. Streams documents in batches (50k default) either from the wrapper cache or CSV fallback, logging progress every batch.
-3. Builds a gensim dictionary by streaming `corpus.tsv`, again in batches, so the same vocabulary used during retraining is reused for coherence scoring.
-4. Attaches additional representations (Main, KeyBERT, POS, MMR), calls `update_topics`, and tracks timing for each phase.
-5. Computes `c_v` coherence + topic diversity per representation and prints a compact summary table.
-6. **Saves metrics** to CSV or JSON (default: JSON) for further analysis.
-7. **Extracts all topics** with word lists for all representations when `--save-topics` is used, saving to JSON for close reading evaluation.
+✅ **Active** — Full implementation.
 
 ## Usage
 
-### Basic Usage
+### Basic Exploration
+
 ```bash
 python -m src.stage06_topic_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
@@ -30,11 +18,8 @@ python -m src.stage06_topic_exploration.explore_retrained_model \
   --batch-size 50000
 ```
 
-This will:
-- Compute and print metrics to console
-- Save metrics to `metrics.json` (or `metrics.csv` if `--metrics-format csv` is used)
-
 ### Save Topics for Close Reading
+
 ```bash
 python -m src.stage06_topic_exploration.explore_retrained_model \
   --embedding-model paraphrase-MiniLM-L6-v2 \
@@ -43,47 +28,54 @@ python -m src.stage06_topic_exploration.explore_retrained_model \
   --output-dir results/stage06_topic_exploration
 ```
 
-This will:
-- Save metrics to `results/stage06_topic_exploration/metrics.json`
-- Extract all topics with all representations and save to `results/stage06_topic_exploration/topics_all_representations.json`
+## Inputs
 
-The topics JSON file contains a nested structure:
-```json
-{
-  "Main": {
-    "0": [{"word": "example", "score": 0.123}, ...],
-    "1": [{"word": "another", "score": 0.456}, ...]
-  },
-  "KeyBERT": {
-    "0": [{"word": "example", "score": 0.123}, ...],
-    ...
-  },
-  "POS": {...},
-  "MMR": {...}
-}
-```
+| Source | Path | Description |
+|--------|------|-------------|
+| Model | `models/retrained/{embedding_model}/model_{rank}.pkl` | Pickle wrapper (default) |
+| Model (native) | `models/retrained/{embedding_model}/model_{rank}/` | BERTopic native format (`--use-native`) |
+| Documents | `data/processed/chapters.csv` | Full corpus (fallback) |
+| Dictionary | `data/interim/octis/corpus.tsv` | OCTIS corpus for Gensim dictionary |
 
-### Optional Flags
-- `--use-native` – skip the pickle wrapper and load the safetensors folder instead.
-- `--dataset-csv PATH` – override the document source (e.g., `data/processed/chapters_subset_10000.csv`).
-- `--fallback-dataset {chapters,subset}` – pick the default CSV if wrapper docs are missing.
-- `--limit-docs N` – stop streaming after `N` rows (handy for rapid iteration).
-- `--top-k K` – number of keywords per topic when computing metrics (default: 10).
-- `--output-dir PATH` – directory to save output files (default: current directory).
-- `--metrics-format {csv,json}` – format for metrics file (default: json).
-- `--save-topics` – extract and save all topics with all representations to JSON.
+## Outputs
 
-## Output Files
+| Output | Description |
+|--------|-------------|
+| `metrics.json` | Coherence (c_v) and diversity scores per representation |
+| `topics_all_representations.json` | All topics with all representations (if `--save-topics`) |
 
-1. **Metrics File** (`metrics.json` or `metrics.csv`):
-   - Contains coherence (c_v) and diversity scores for each representation
-   - Always saved (to current directory or `--output-dir` if specified)
+## Module Structure
 
-2. **Topics File** (`topics_all_representations.json`):
-   - Contains all topics with word lists for all representations (Main, KeyBERT, POS, MMR)
-   - Only saved when `--save-topics` flag is used
-   - Useful for close reading evaluation and qualitative analysis
+| File | Purpose |
+|------|---------|
+| `explore_retrained_model.py` | Main exploration script |
 
-Logs include stage names, start/finish timestamps, and per-batch counters so it is obvious whether the code is processing slowly or stuck between stages.
+## Representations
 
+Attaches four representations to topics:
+- **Main**: Default c-TF-IDF (statistical)
+- **KeyBERT**: Semantic similarity-based keywords
+- **POS**: Part-of-speech filtered (nouns, verbs, adjectives)
+- **MMR**: Maximal Marginal Relevance (diversity-focused)
 
+## Optional Flags
+
+- `--use-native`: Load native BERTopic safetensors instead of pickle wrapper
+- `--dataset-csv PATH`: Override document source
+- `--fallback-dataset {chapters,subset}`: Pick default CSV if wrapper docs missing
+- `--limit-docs N`: Stop after N rows (for testing)
+- `--top-k K`: Keywords per topic for metrics (default: 10)
+- `--output-dir PATH`: Output directory (default: current directory)
+- `--metrics-format {csv,json}`: Metrics file format (default: json)
+- `--save-topics`: Extract and save all topics with all representations
+
+## Notes
+
+- Documents loaded in batches (50K default) with progress logging
+- Dictionary built by streaming corpus TSV (memory-efficient)
+- Wrapper format preferred (guarantees exact training dataset match)
+- Metrics computed using same Gensim dictionary as training
+
+## See Also
+
+- [Methodology Report](../../reports/01_stage_reports/stage06_topic_exploration/stage06_topic_exploration_and_representation_analysis.md) — Research rationale and results
